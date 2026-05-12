@@ -1,15 +1,9 @@
-import { MetadataRoute } from 'next';
-
-export default function robots(): MetadataRoute.Robots {
+export default function robots() {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/_next/'],
-      },
-    ],
-    sitemap: 'https://www.chalkyinfo.com/sitemap.xml',
-    host: 'https://www.chalkyinfo.com',
-  };
+    rules: {
+      userAgent: '*',
+      allow: '/',
+    },
+    sitemap: 'https://chalkyinfo.com/sitemap.xml',
+  }
 }
