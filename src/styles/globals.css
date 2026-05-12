@@ -77,8 +77,10 @@ body {
 
 .animate-marquee-left {
   animation: marquee-left linear infinite;
+  will-change: transform;
 }
 
 .animate-marquee-right {
   animation: marquee-right linear infinite;
+  will-change: transform;
 }

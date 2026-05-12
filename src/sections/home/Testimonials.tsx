@@ -181,9 +181,9 @@ const TestimonialCard = ({ t }: { t: typeof TESTIMONIALS[0] }) => (
 );
 
 const MarqueeRow = ({ items, direction = 'left', speed = 40 }: { items: typeof TESTIMONIALS, direction?: 'left' | 'right', speed?: number }) => (
-  <div className="flex overflow-hidden group select-none">
+  <div className="flex overflow-hidden group select-none relative">
     <div
-      className={`flex py-4 group-hover:[animation-play-state:paused] ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'}`}
+      className={`flex py-4 whitespace-nowrap min-w-max group-hover:[animation-play-state:paused] ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'}`}
       style={{ animationDuration: `${speed}s` }}
     >
       {[...items, ...items].map((t, i) => (
