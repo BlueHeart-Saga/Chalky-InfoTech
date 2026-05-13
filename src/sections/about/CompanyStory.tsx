@@ -61,39 +61,38 @@ export default function CompanyStory() {
           </motion.div>
 
           {/* RIGHT SIDE - Image Collage */}
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative h-full min-h-[600px] lg:min-h-full">
-             <div className="absolute inset-0 bg-[#F5F0E8] rounded-3xl border border-[#E5E7EB] shadow-xl overflow-hidden p-6 md:p-8">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#7A1F5C_1.5px,transparent_1px)] bg-[size:24px_24px] opacity-[0.05]" />
-                <div className="absolute top-0 right-0 w-96 h-96 bg-[#C2185B]/10 rounded-full blur-[100px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#7A1F5C]/10 rounded-full blur-[100px] pointer-events-none" />
-                
-                <div className="grid grid-cols-2 gap-4 h-full relative z-10">
-                  {/* Column 1 */}
-                  <div className="flex flex-col gap-4 mt-8">
-                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg border border-white/50">
-                      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Team meeting" className="w-full h-full object-cover" />
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-64 md:h-72 rounded-2xl overflow-hidden shadow-lg border border-white/50">
-                      <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80" alt="Business discussion" className="w-full h-full object-cover" />
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-40 md:h-48 rounded-2xl overflow-hidden shadow-lg border border-white/50">
-                      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80" alt="Modern office" className="w-full h-full object-cover" />
-                    </motion.div>
-                  </div>
-                  {/* Column 2 */}
-                  <div className="flex flex-col gap-4 mb-8">
-                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-56 md:h-64 rounded-2xl overflow-hidden shadow-lg border border-white/50">
-                      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80" alt="Tech workspace" className="w-full h-full object-cover" />
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg border border-white/50">
-                      <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80" alt="Analytics" className="w-full h-full object-cover" />
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-64 md:h-72 rounded-2xl overflow-hidden shadow-lg border border-white/50">
-                      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80" alt="Coding" className="w-full h-full object-cover" />
-                    </motion.div>
-                  </div>
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative h-full flex items-center">
+             <div className="grid grid-cols-2 gap-4 w-full">
+                {/* Column 1 */}
+                <div className="flex flex-col gap-4 mt-12">
+                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Team meeting" className="w-full h-full object-cover" />
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-64 md:h-72 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80" alt="Business discussion" className="w-full h-full object-cover" />
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80" alt="Strategy meeting" className="w-full h-full object-cover" />
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-40 md:h-48 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80" alt="Modern office" className="w-full h-full object-cover" />
+                  </motion.div>
                 </div>
-
+                {/* Column 2 */}
+                <div className="flex flex-col gap-4 mb-12">
+                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-56 md:h-64 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80" alt="Tech workspace" className="w-full h-full object-cover" />
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-40 md:h-48 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&q=80" alt="Global team" className="w-full h-full object-cover" />
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-64 md:h-72 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80" alt="Coding" className="w-full h-full object-cover" />
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80" alt="Analytics" className="w-full h-full object-cover" />
+                  </motion.div>
+                </div>
              </div>
           </motion.div>
 
