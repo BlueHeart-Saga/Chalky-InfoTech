@@ -12,7 +12,7 @@ const reasons = [
 
 export default function WhyTrustUs() {
   return (
-    <section className="py-20 md:py-28 bg-[#F8F5F0]">
+    <section className="relative py-20 md:py-28 bg-[#F8F5F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Enterprise Reliability</span>
@@ -33,6 +33,13 @@ export default function WhyTrustUs() {
             </div>
           ))}
         </div>
+      </div>
+    
+      {/* Smooth Wave Transition */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
+        <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C79.44,118.9,158.8,111.9,232.48,87.6,263.3,77.5,292.8,66.7,321.39,56.44Z" fill="#1A0A14"></path>
+        </svg>
       </div>
     </section>
   );
