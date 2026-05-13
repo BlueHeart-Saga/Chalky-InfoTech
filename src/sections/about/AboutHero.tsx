@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import RotatingText from '@/components/RotatingText';
 
 export default function AboutHero() {
   return (
@@ -22,19 +23,41 @@ export default function AboutHero() {
             GLOBAL RECRUITMENT & WORKFORCE PARTNER
           </motion.div>
 
-          {/* Title Style matching Home Hero (Reduced weight as per previous request) */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="w-full font-extrabold text-[#1A1A1A] leading-[1.1] mb-8 flex flex-col items-center px-4"
+            className="w-full font-extrabold text-[#1A1A1A] leading-[1.1] mb-10 flex flex-col items-center px-4"
           >
             <span className="block text-[#1A1A1A]/90 text-[clamp(1.5rem,4vw,3.5rem)] mb-4 font-bold tracking-tight">
               Building Future-Ready Teams
             </span>
-            <span className="text-[#7A1F5C] text-[clamp(2rem,6vw,5.5rem)] leading-none font-extrabold tracking-tighter">
-              For Modern Enterprises
-            </span>
+            <div className="w-full max-w-full flex justify-center">
+              <RotatingText
+                texts={[
+                  'Strategic Talent Partners',
+                  'Global Workforce Experts',
+                  'Technology Hiring Leaders',
+                  'Enterprise Growth Catalysts',
+                  'Digital Transformation Teams',
+                  'Specialist Skill Network',
+                  'Future-Proof Recruitment',
+                  'High-Performance Culture',
+                  'Borderless Hiring Solutions',
+                  'Scalable Talent Strategy'
+                ]}
+                mainClassName="inline-flex whitespace-nowrap flex-nowrap text-[#7A1F5C] py-1 sm:py-2 drop-shadow-lg text-center justify-center font-extrabold text-[clamp(1.25rem,5vw,5.5rem)] leading-none tracking-tighter"
+                splitBy="words"
+                staggerFrom="first"
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                staggerDuration={0.05}
+                splitLevelClassName="overflow-hidden pb-1 sm:pb-2"
+                transition={{ type: "spring", damping: 28, stiffness: 180 }}
+                rotationInterval={3500}
+              />
+            </div>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-[#8A8A8A] text-sm sm:text-base md:text-xl leading-relaxed mb-12 max-w-3xl mx-auto font-medium px-4">
