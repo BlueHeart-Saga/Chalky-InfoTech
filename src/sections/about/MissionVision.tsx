@@ -33,10 +33,10 @@ export default function MissionVision() {
         </div>
       </div>
     
-      {/* Smooth Wave Transition */}
+      {/* Unique Wave Divider: Sharp Peaks */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
         <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C79.44,118.9,158.8,111.9,232.48,87.6,263.3,77.5,292.8,66.7,321.39,56.44Z" fill="white"></path>
+          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,59.33c51.78,6.37,103.59-15.34,154.51-35.74,51.22-20.51,94.73-37.55,138.58-41.86,70.36-6.91,136.33,13.88,206.8,32,73.84,19,147.54,4.36,218.2-13.08,69.27-17.11,138.3-24.88,209.4-13.08,36.15,6,69.85,17.84,104.45,29.34C1113,54,1200,120,1200,120H0Z" fill="white"></path>
         </svg>
       </div>
     </section>

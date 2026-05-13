@@ -38,10 +38,10 @@ export default function CompanyTimeline() {
         </div>
       </div>
     
-      {/* Smooth Wave Transition */}
+      {/* Unique Wave Divider: Organic Swell */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
         <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C79.44,118.9,158.8,111.9,232.48,87.6,263.3,77.5,292.8,66.7,321.39,56.44Z" fill="white"></path>
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86C247.7,66.7,218.2,77.5,187.38,87.6,113.7,111.9,34.34,118.9,0,95.8V120H1200V95.8C1115.66,118.9,1036.3,111.9,962.62,87.6,931.8,77.5,902.3,66.7,873.71,56.44c-58,10.79-114.16,30.13-172,41.86-82.39,16.72-168.19,17.73-250.45.39Z" fill="white"></path>
         </svg>
       </div>
     </section>

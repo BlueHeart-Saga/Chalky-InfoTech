@@ -35,10 +35,11 @@ export default function WhyTrustUs() {
         </div>
       </div>
     
-      {/* Smooth Wave Transition */}
+      {/* Unique Wave Divider: Layered Organic */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
         <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C79.44,118.9,158.8,111.9,232.48,87.6,263.3,77.5,292.8,66.7,321.39,56.44Z" fill="#1A0A14"></path>
+          <path d="M0,0c0,0,131,105,373,43c242-62,298,28,450,28s377-71,377-71v120H0V0Z" opacity=".1" fill="#1A0A14"></path>
+          <path d="M0,0c0,0,166,120,443,57c277-63,339,26,513,26s244-83,244-83v120H0V0Z" fill="#1A0A14"></path>
         </svg>
       </div>
     </section>
