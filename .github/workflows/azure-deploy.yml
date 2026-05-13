@@ -31,3 +31,16 @@ jobs:
           app-name: 'chalky-infotech'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
           package: .
+          slot-name: 'production'
+          clean: true
+        continue-on-error: true
+
+      - name: Retry deployment if failed
+        if: failure()
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'chalky-infotech'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
+          package: .
+          slot-name: 'production'
+          clean: true
