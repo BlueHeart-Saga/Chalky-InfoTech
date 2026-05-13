@@ -60,62 +60,40 @@ export default function CompanyStory() {
             </Link>
           </motion.div>
 
-          {/* RIGHT SIDE - Floating Metrics Cards */}
+          {/* RIGHT SIDE - Image Collage */}
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative h-full min-h-[600px] lg:min-h-full">
-             <div className="absolute inset-0 bg-[#F5F0E8] rounded-3xl border border-[#E5E7EB] shadow-xl overflow-hidden">
+             <div className="absolute inset-0 bg-[#F5F0E8] rounded-3xl border border-[#E5E7EB] shadow-xl overflow-hidden p-6 md:p-8">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#7A1F5C_1.5px,transparent_1px)] bg-[size:24px_24px] opacity-[0.05]" />
                 <div className="absolute top-0 right-0 w-96 h-96 bg-[#C2185B]/10 rounded-full blur-[100px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#7A1F5C]/10 rounded-full blur-[100px] pointer-events-none" />
                 
-                <div className="relative h-full p-8 md:p-12 flex flex-col justify-center">
-                  <div className="grid gap-6">
-                    
-                    {/* Metric 1 */}
-                    <motion.div whileHover={{ y: -5 }} className="flex items-center gap-5 p-6 bg-white rounded-2xl shadow-md border border-[#E5E7EB] group">
-                      <div className="w-14 h-14 bg-[#F5F0E8] rounded-xl flex items-center justify-center group-hover:bg-[#7A1F5C] transition-colors duration-300">
-                        <Briefcase className="w-6 h-6 text-[#7A1F5C] group-hover:text-white transition-colors" />
-                      </div>
-                      <div>
-                        <p className="text-3xl font-extrabold text-[#1A1A1A] mb-1">15+ Years</p>
-                        <p className="text-[#8A8A8A] font-medium text-sm uppercase tracking-wide">Industry Experience</p>
-                      </div>
+                <div className="grid grid-cols-2 gap-4 h-full relative z-10">
+                  {/* Column 1 */}
+                  <div className="flex flex-col gap-4 mt-8">
+                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg border border-white/50">
+                      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Team meeting" className="w-full h-full object-cover" />
                     </motion.div>
-
-                    {/* Metric 2 */}
-                    <motion.div whileHover={{ y: -5 }} className="flex items-center gap-5 p-6 bg-white rounded-2xl shadow-md border border-[#E5E7EB] group ml-0 md:ml-12">
-                      <div className="w-14 h-14 bg-[#F5F0E8] rounded-xl flex items-center justify-center group-hover:bg-[#C2185B] transition-colors duration-300">
-                        <Users className="w-6 h-6 text-[#C2185B] group-hover:text-white transition-colors" />
-                      </div>
-                      <div>
-                        <p className="text-3xl font-extrabold text-[#1A1A1A] mb-1">500+</p>
-                        <p className="text-[#8A8A8A] font-medium text-sm uppercase tracking-wide">Global Enterprise Clients</p>
-                      </div>
+                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-64 md:h-72 rounded-2xl overflow-hidden shadow-lg border border-white/50">
+                      <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80" alt="Business discussion" className="w-full h-full object-cover" />
                     </motion.div>
-
-                    {/* Metric 3 */}
-                    <motion.div whileHover={{ y: -5 }} className="flex items-center gap-5 p-6 bg-white rounded-2xl shadow-md border border-[#E5E7EB] group">
-                      <div className="w-14 h-14 bg-[#F5F0E8] rounded-xl flex items-center justify-center group-hover:bg-[#4A1238] transition-colors duration-300">
-                        <Globe className="w-6 h-6 text-[#4A1238] group-hover:text-white transition-colors" />
-                      </div>
-                      <div>
-                        <p className="text-3xl font-extrabold text-[#1A1A1A] mb-1">UK & India</p>
-                        <p className="text-[#8A8A8A] font-medium text-sm uppercase tracking-wide">Dual-Shore Operations</p>
-                      </div>
+                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-40 md:h-48 rounded-2xl overflow-hidden shadow-lg border border-white/50">
+                      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80" alt="Modern office" className="w-full h-full object-cover" />
                     </motion.div>
-
-                    {/* Metric 4 */}
-                    <motion.div whileHover={{ y: -5 }} className="flex items-center gap-5 p-6 bg-white rounded-2xl shadow-md border border-[#E5E7EB] group ml-0 md:ml-12">
-                      <div className="w-14 h-14 bg-[#F5F0E8] rounded-xl flex items-center justify-center group-hover:bg-[#7A1F5C] transition-colors duration-300">
-                        <ShieldCheck className="w-6 h-6 text-[#7A1F5C] group-hover:text-white transition-colors" />
-                      </div>
-                      <div>
-                        <p className="text-3xl font-extrabold text-[#1A1A1A] mb-1">100%</p>
-                        <p className="text-[#8A8A8A] font-medium text-sm uppercase tracking-wide">Technology Focused Hiring</p>
-                      </div>
+                  </div>
+                  {/* Column 2 */}
+                  <div className="flex flex-col gap-4 mb-8">
+                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-56 md:h-64 rounded-2xl overflow-hidden shadow-lg border border-white/50">
+                      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80" alt="Tech workspace" className="w-full h-full object-cover" />
                     </motion.div>
-
+                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg border border-white/50">
+                      <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80" alt="Analytics" className="w-full h-full object-cover" />
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.02 }} className="relative h-64 md:h-72 rounded-2xl overflow-hidden shadow-lg border border-white/50">
+                      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80" alt="Coding" className="w-full h-full object-cover" />
+                    </motion.div>
                   </div>
                 </div>
+
              </div>
           </motion.div>
 
