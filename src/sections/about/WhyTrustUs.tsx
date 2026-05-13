@@ -12,12 +12,12 @@ const reasons = [
 
 export default function WhyTrustUs() {
   return (
-    <section className="relative py-20 md:py-28 bg-[#F8F5F0]">
+    <section className="relative py-20 md:py-28 bg-[#F5F0E8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Enterprise Reliability</span>
-          <h2 className="text-4xl font-extrabold text-[#111827] mb-4">Why Enterprises Trust Us</h2>
-          <p className="text-[#4B5563] text-lg">We are the silent engine behind the growth of over 500 technology-driven organizations worldwide.</p>
+          <h2 className="text-4xl font-extrabold text-[#1A1A1A] mb-4">Why Enterprises Trust Us</h2>
+          <p className="text-[#8A8A8A] text-lg">We are the silent engine behind the growth of over 500 technology-driven organizations worldwide.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -27,9 +27,9 @@ export default function WhyTrustUs() {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] flex items-center justify-center shadow-md">
                   <r.icon className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-[#111827]">{r.title}</h3>
+                <h3 className="text-lg font-bold text-[#1A1A1A]">{r.title}</h3>
               </div>
-              <p className="text-[#4B5563] leading-relaxed">{r.desc}</p>
+              <p className="text-[#8A8A8A] leading-relaxed">{r.desc}</p>
             </div>
           ))}
         </div>

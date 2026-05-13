@@ -14,7 +14,7 @@ export default function CompanyTimeline() {
       <div className="absolute inset-0 bg-gradient-to-br from-[#1A0A14] via-[#2D0F22] to-[#4A1238] opacity-80" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-[#F8F5F0] border border-white/20 text-xs font-bold uppercase tracking-widest mb-4">Our Heritage</span>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-[#F5F0E8] border border-white/20 text-xs font-bold uppercase tracking-widest mb-4">Our Heritage</span>
           <h2 className="text-4xl font-extrabold text-white">Company Journey</h2>
         </div>
 

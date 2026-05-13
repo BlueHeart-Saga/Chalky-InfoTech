@@ -16,7 +16,7 @@ export default function RecruitmentPhilosophy() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           
           <div className="sticky top-24">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-[#F8F5F0] text-xs font-bold uppercase tracking-widest mb-6">Our Methodology</span>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-[#F5F0E8] text-xs font-bold uppercase tracking-widest mb-6">Our Methodology</span>
             <h2 className="text-4xl lg:text-5xl font-extrabold mb-6 leading-tight tracking-tight">
               A Philosophy Built on <br/><span className="text-[#7A1F5C]">Precision & Quality</span>
             </h2>
@@ -44,7 +44,7 @@ export default function RecruitmentPhilosophy() {
       {/* Smooth Wave Transition */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
         <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C79.44,118.9,158.8,111.9,232.48,87.6,263.3,77.5,292.8,66.7,321.39,56.44Z" fill="#F8F5F0"></path>
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C79.44,118.9,158.8,111.9,232.48,87.6,263.3,77.5,292.8,66.7,321.39,56.44Z" fill="#F5F0E8"></path>
         </svg>
       </div>
     </section>

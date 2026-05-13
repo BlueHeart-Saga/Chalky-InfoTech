@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function MissionVision() {
   return (
-    <section className="py-20 md:py-28 bg-[#F8F5F0] relative overflow-hidden">
+    <section className="py-20 md:py-28 bg-[#F5F0E8] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 gap-8">
           
@@ -13,8 +13,8 @@ export default function MissionVision() {
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] flex items-center justify-center mb-8 shadow-md">
               <Target className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-3xl font-extrabold text-[#111827] mb-4">Our Mission</h3>
-            <p className="text-[#4B5563] text-lg leading-relaxed">
+            <h3 className="text-3xl font-extrabold text-[#1A1A1A] mb-4">Our Mission</h3>
+            <p className="text-[#8A8A8A] text-lg leading-relaxed">
               Empowering organizations with future-ready technology talent and scalable workforce solutions that accelerate digital transformation and drive measurable business impact.
             </p>
           </motion.div>
