@@ -1,0 +1,39 @@
+'use client';
+import { Rocket, Star, Globe, Clock, CheckCircle, TrendingUp } from 'lucide-react';
+
+const reasons = [
+  { icon: Rocket, title: 'Fast Hiring Cycles', desc: 'Optimized pipelines reducing time-to-hire by 40% against industry averages.' },
+  { icon: Star, title: 'Specialized Talent', desc: 'Niche networks accessing passive candidates unavailable on standard job boards.' },
+  { icon: Globe, title: 'Global Support', desc: 'Cross-border hiring capabilities paired with localized compliance knowledge.' },
+  { icon: Clock, title: '24/7 Coordination', desc: 'Dual-shore delivery teams ensuring continuous candidate engagement.' },
+  { icon: CheckCircle, title: 'Quality Screening', desc: 'Multi-tiered technical and cultural assessments prior to any submission.' },
+  { icon: TrendingUp, title: 'Scalable Solutions', desc: 'Adaptable models from executive retained searches to volume RPO engagements.' },
+];
+
+export default function WhyTrustUs() {
+  return (
+    <section className="py-20 md:py-28 bg-[#F8F5F0]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Enterprise Reliability</span>
+          <h2 className="text-4xl font-black text-[#111827] mb-4">Why Enterprises Trust Us</h2>
+          <p className="text-[#4B5563] text-lg">We are the silent engine behind the growth of over 500 technology-driven organizations worldwide.</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reasons.map((r, i) => (
+            <div key={i} className="p-8 rounded-3xl bg-white border border-[#E5E7EB] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] flex items-center justify-center shadow-md">
+                  <r.icon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-[#111827]">{r.title}</h3>
+              </div>
+              <p className="text-[#4B5563] leading-relaxed">{r.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
