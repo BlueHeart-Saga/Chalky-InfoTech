@@ -57,12 +57,12 @@ export default function ContactPage() {
                   <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6">
                     <CheckCircle2 size={36} className="text-green-600" />
                   </div>
-                  <h3 className="text-2xl font-black text-[#1A1A1A] mb-3">Message Sent!</h3>
+                  <h3 className="text-2xl font-extrabold text-[#1A1A1A] mb-3">Message Sent!</h3>
                   <p className="text-[#8A8A8A]">Our team will get back to you within 24 hours.</p>
                 </div>
               ) : (
                 <>
-                  <h2 className="text-2xl font-black text-[#1A1A1A] mb-2">Send Us a Message</h2>
+                  <h2 className="text-2xl font-extrabold text-[#1A1A1A] mb-2">Send Us a Message</h2>
                   <p className="text-[#8A8A8A] text-sm mb-8">Fill in the form below and a specialist consultant will respond within 24 hours.</p>
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-2 gap-4">

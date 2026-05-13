@@ -9,9 +9,9 @@ export default function GlobalWorkforce() {
           
           <div className="lg:col-span-5">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-6">Global Reach</span>
-            <h2 className="text-4xl lg:text-5xl font-black text-[#111827] mb-6 leading-tight tracking-tight">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-[#111827] mb-6 leading-tight tracking-tight">
               Borderless Talent for <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B]">Global Enterprises</span>
+              <span className="text-[#7A1F5C]">Global Enterprises</span>
             </h2>
             <p className="text-[#4B5563] text-lg leading-relaxed mb-8">
               Whether you are scaling a local HQ or building distributed engineering centers across continents, our dual-shore operations model provides seamless access to elite talent pools.

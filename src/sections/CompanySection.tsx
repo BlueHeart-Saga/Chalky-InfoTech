@@ -24,9 +24,9 @@ export default function CompanySection() {
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-5">
               About Chalky Infotech
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A] leading-tight mb-6">
               Your Strategic
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B]">
+              <span className="block text-[#7A1F5C]">
                 Talent Partner
               </span>
             </h2>
@@ -52,7 +52,7 @@ export default function CompanySection() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg hover:shadow-[#7A1F5C]/10 transition-all duration-300 border border-[#EFE7DD] group">
-                <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B] mb-2">{stat.value}</p>
+                <p className="text-4xl font-extrabold text-[#7A1F5C] mb-2">{stat.value}</p>
                 <p className="text-[#8A8A8A] text-sm font-medium">{stat.label}</p>
               </motion.div>
             ))}

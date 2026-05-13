@@ -35,13 +35,13 @@ export default function HeroSection() {
               Enterprise Recruitment & Consulting
             </motion.span>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-8">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-8">
               We Connect
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#EFE7DD] via-[#F5F0E8] to-[#D14D72]">
+              <span className="block text-[#7A1F5C]">
                 Exceptional
               </span>
               Talent with
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#C2185B] to-[#D14D72]">
+              <span className="block text-[#7A1F5C]">
                 Great Companies
               </span>
             </h1>
@@ -152,7 +152,7 @@ export default function HeroSection() {
                 animate={{ y: [0, -8, 0] }}
                 transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
                 className="absolute -top-4 -left-4 bg-white rounded-2xl px-4 py-3 shadow-xl">
-                <p className="text-[#7A1F5C] font-black text-lg">98%</p>
+                <p className="text-[#7A1F5C] font-extrabold text-lg">98%</p>
                 <p className="text-[#8A8A8A] text-xs">Client Satisfaction</p>
               </motion.div>
 
@@ -161,7 +161,7 @@ export default function HeroSection() {
                 animate={{ y: [0, 8, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut', delay: 1 }}
                 className="absolute -bottom-4 -right-4 bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] rounded-2xl px-4 py-3 shadow-xl">
-                <p className="text-white font-black text-lg">15+</p>
+                <p className="text-white font-extrabold text-lg">15+</p>
                 <p className="text-white/70 text-xs">Years of Excellence</p>
               </motion.div>
             </div>

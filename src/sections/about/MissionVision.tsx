@@ -13,7 +13,7 @@ export default function MissionVision() {
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] flex items-center justify-center mb-8 shadow-md">
               <Target className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-3xl font-black text-[#111827] mb-4">Our Mission</h3>
+            <h3 className="text-3xl font-extrabold text-[#111827] mb-4">Our Mission</h3>
             <p className="text-[#4B5563] text-lg leading-relaxed">
               Empowering organizations with future-ready technology talent and scalable workforce solutions that accelerate digital transformation and drive measurable business impact.
             </p>
@@ -24,7 +24,7 @@ export default function MissionVision() {
             <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-8">
               <Eye className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-3xl font-black text-white mb-4">Our Vision</h3>
+            <h3 className="text-3xl font-extrabold text-white mb-4">Our Vision</h3>
             <p className="text-white/80 text-lg leading-relaxed">
               To become the globally trusted recruitment and workforce transformation partner for modern enterprises, setting the gold standard for technical talent acquisition.
             </p>

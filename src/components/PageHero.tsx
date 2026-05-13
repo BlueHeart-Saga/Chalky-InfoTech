@@ -120,11 +120,11 @@ export default function PageHero({
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.15 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4"
             >
               {title}
               {titleHighlight && (
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#D14D72] to-[#F5F0E8]">
+                <span className="block text-[#7A1F5C]">
                   {titleHighlight}
                 </span>
               )}

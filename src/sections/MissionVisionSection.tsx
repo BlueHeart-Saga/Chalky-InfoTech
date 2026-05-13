@@ -21,7 +21,7 @@ export default function MissionVisionSection() {
           </span>
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">
             <span className="text-[#D14D72]">Driven</span> by Mission,
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#EFE7DD] to-[#D14D72]">
+            <span className="block text-[#7A1F5C]">
               Guided by Vision
             </span>
           </h2>

@@ -39,8 +39,8 @@ export default function ServicesPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-[#1A1A1A] mb-4">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B]">Service Areas</span>
+            <h2 className="text-4xl font-extrabold text-[#1A1A1A] mb-4">
+              Our <span className="text-[#7A1F5C]">Service Areas</span>
             </h2>
             <p className="text-[#8A8A8A] max-w-2xl mx-auto">
               Each service is led by specialist consultants with deep sector knowledge, ensuring precise matching between talent and opportunity.
@@ -72,8 +72,8 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-bold uppercase tracking-widest mb-4">Our Process</span>
-            <h2 className="text-4xl font-black text-white mb-4">
-              How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EFE7DD] to-[#D14D72]">Work</span>
+            <h2 className="text-4xl font-extrabold text-white mb-4">
+              How We <span className="text-[#7A1F5C]">Work</span>
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -85,7 +85,7 @@ export default function ServicesPage() {
             ].map((item) => (
               <div key={item.step} className="bg-white/10 border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#C2185B] to-[#D14D72] flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-black text-lg">{item.step}</span>
+                  <span className="text-white font-extrabold text-lg">{item.step}</span>
                 </div>
                 <h3 className="text-white font-bold mb-2">{item.title}</h3>
                 <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>

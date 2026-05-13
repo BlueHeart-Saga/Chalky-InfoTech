@@ -27,7 +27,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="w-full font-black text-[#1A1A1A] leading-[1.2] mb-10 flex flex-col items-center px-4"
+            className="w-full font-extrabold text-[#1A1A1A] leading-[1.2] mb-10 flex flex-col items-center px-4"
           >
             <span className="block text-[#1A1A1A]/90 text-[clamp(1rem,3vw,2.5rem)] mb-2 sm:mb-4 font-bold tracking-tight">
               Expertise in
@@ -46,7 +46,7 @@ export default function Hero() {
                   'Media & Entertainment Talent',
                   'Power & Electronics Experts'
                 ]}
-                mainClassName="inline-flex whitespace-nowrap flex-nowrap text-[#D14D72] py-1 sm:py-2 drop-shadow-lg text-center justify-center font-black text-[clamp(1.25rem,5vw,5rem)] leading-none"
+                mainClassName="inline-flex whitespace-nowrap flex-nowrap text-[#D14D72] py-1 sm:py-2 drop-shadow-lg text-center justify-center font-extrabold text-[clamp(1.25rem,5vw,5rem)] leading-none"
                 splitBy="words"
                 staggerFrom="first"
                 initial={{ y: "100%", opacity: 0 }}

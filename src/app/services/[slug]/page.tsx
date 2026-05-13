@@ -74,9 +74,9 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-5">Service Overview</span>
-              <h2 className="text-4xl font-black text-[#1A1A1A] mb-6">
+              <h2 className="text-4xl font-extrabold text-[#1A1A1A] mb-6">
                 Expert{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B]">
+                <span className="text-[#7A1F5C]">
                   {service.label}
                 </span>
               </h2>
@@ -106,15 +106,15 @@ export default async function ServiceDetailPage({ params }: Props) {
       <section className="py-24 bg-[#F5F0E8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-4xl font-black text-[#1A1A1A]">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B]">Process</span>
+            <h2 className="text-4xl font-extrabold text-[#1A1A1A]">
+              Our <span className="text-[#7A1F5C]">Process</span>
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row gap-4">
             {process.map((p, i) => (
               <div key={p.title} className="flex-1 bg-white rounded-2xl p-6 border border-[#EFE7DD] hover:shadow-lg hover:border-[#7A1F5C]/20 transition-all duration-300 group text-center">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white font-black text-sm">0{i + 1}</span>
+                  <span className="text-white font-extrabold text-sm">0{i + 1}</span>
                 </div>
                 <h3 className="font-bold text-[#1A1A1A] mb-2">{p.title}</h3>
                 <p className="text-[#8A8A8A] text-xs leading-relaxed">{p.desc}</p>

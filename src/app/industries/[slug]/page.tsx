@@ -69,9 +69,9 @@ export default async function IndustryDetailPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h2 className="text-4xl font-black text-[#1A1A1A] mb-6">
+              <h2 className="text-4xl font-extrabold text-[#1A1A1A] mb-6">
                 Why Trust Us for{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B]">
+                <span className="text-[#7A1F5C]">
                   {industry.label}
                 </span>
               </h2>
@@ -89,7 +89,7 @@ export default async function IndustryDetailPage({ params }: Props) {
                   { value: '250K+', label: 'Candidate Network' },
                 ].map((s) => (
                   <div key={s.label} className="bg-[#F5F0E8] rounded-2xl p-5 border border-[#EFE7DD]">
-                    <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B]">{s.value}</p>
+                    <p className="text-2xl font-extrabold text-[#7A1F5C]">{s.value}</p>
                     <p className="text-[#8A8A8A] text-xs mt-1">{s.label}</p>
                   </div>
                 ))}

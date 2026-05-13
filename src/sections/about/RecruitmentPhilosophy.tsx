@@ -17,8 +17,8 @@ export default function RecruitmentPhilosophy() {
           
           <div className="sticky top-24">
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-[#F8F5F0] text-xs font-bold uppercase tracking-widest mb-6">Our Methodology</span>
-            <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight tracking-tight">
-              A Philosophy Built on <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C2185B] to-[#D14D72]">Precision & Quality</span>
+            <h2 className="text-4xl lg:text-5xl font-extrabold mb-6 leading-tight tracking-tight">
+              A Philosophy Built on <br/><span className="text-[#7A1F5C]">Precision & Quality</span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-8">
               Most staffing companies focus on transactional speed. We focus on architectural precision. Our recruitment philosophy is designed for enterprises where a single strategic hire can alter the trajectory of a product.

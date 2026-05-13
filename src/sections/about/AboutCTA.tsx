@@ -14,7 +14,7 @@ export default function AboutCTA() {
         <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
           Next Steps
         </span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-[1.1] tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-[1.1] tracking-tight">
           Build High-Performance Teams <br className="hidden md:block" />
           With Chalky Infotech
         </h2>
@@ -22,7 +22,7 @@ export default function AboutCTA() {
           Partner with our recruitment specialists to access exceptional technology talent and scalable enterprise workforce solutions.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-5">
-          <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-[#7A1F5C] font-black shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+          <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-[#7A1F5C] font-extrabold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
             Hire Talent
             <ArrowRight className="w-5 h-5" />
           </Link>

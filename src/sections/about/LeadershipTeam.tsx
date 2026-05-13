@@ -14,7 +14,7 @@ export default function LeadershipTeam() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Leadership</span>
-          <h2 className="text-4xl font-black text-[#111827] mb-4">Guided by Experience</h2>
+          <h2 className="text-4xl font-extrabold text-[#111827] mb-4">Guided by Experience</h2>
           <p className="text-[#4B5563] text-lg">A leadership team combining deep technical acumen with global enterprise talent strategy.</p>
         </div>
 
@@ -24,7 +24,7 @@ export default function LeadershipTeam() {
               <div className="aspect-[3/4] rounded-3xl bg-[#F8F5F0] border border-[#E5E7EB] mb-6 overflow-hidden relative shadow-sm group-hover:shadow-xl transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A0A14]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-white to-[#F8F5F0]">
-                   <span className="text-6xl font-black text-[#E5E7EB] drop-shadow-sm group-hover:scale-110 transition-transform duration-500">{leader.img}</span>
+                   <span className="text-6xl font-extrabold text-[#E5E7EB] drop-shadow-sm group-hover:scale-110 transition-transform duration-500">{leader.img}</span>
                 </div>
                 <div className="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
                   <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors duration-300 text-[#111827] shadow-lg">

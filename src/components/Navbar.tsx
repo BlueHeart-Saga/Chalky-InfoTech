@@ -70,7 +70,7 @@ export default function Navbar() {
                         className="absolute top-full right-0 mt-3 bg-[#F9F6F0] rounded-3xl shadow-2xl shadow-[#7A1F5C]/15 p-10 w-[850px] border border-white/50 backdrop-blur-2xl cursor-default z-50">
                         <div className="grid grid-cols-3 gap-10">
                           <div>
-                            <h3 className="font-black text-[#1A1A1A] mb-4 text-xs uppercase tracking-widest text-[#7A1F5C]">Technology & Staffing</h3>
+                            <h3 className="font-extrabold text-[#1A1A1A] mb-4 text-xs uppercase tracking-widest text-[#7A1F5C]">Technology & Staffing</h3>
                             <div className="border-l-2 border-[#7A1F5C]/10 ml-1">
                               {renderTreeLink('/services/it-recruitment', 'IT Recruitment Services')}
                               {renderTreeLink('/services/cloud-devops', 'Cloud & DevOps')}
@@ -80,7 +80,7 @@ export default function Navbar() {
                           </div>
 
                           <div>
-                            <h3 className="font-black text-[#1A1A1A] mb-4 text-xs uppercase tracking-widest text-[#7A1F5C]">Industry Solutions</h3>
+                            <h3 className="font-extrabold text-[#1A1A1A] mb-4 text-xs uppercase tracking-widest text-[#7A1F5C]">Industry Solutions</h3>
                             <div className="border-l-2 border-[#7A1F5C]/10 ml-1">
                               {renderTreeLink('/services/financial-services', 'Financial Services')}
                               {renderTreeLink('/services/healthcare-life-sciences', 'Healthcare & Life Sciences')}
@@ -93,7 +93,7 @@ export default function Navbar() {
 
                           <div className="bg-white/50 rounded-2xl p-6 border border-white flex flex-col justify-between">
                             <div>
-                              <h3 className="text-xl font-black text-[#1A1A1A] mb-3 leading-tight">Empowering Digital Transformation</h3>
+                              <h3 className="text-xl font-extrabold text-[#1A1A1A] mb-3 leading-tight">Empowering Digital Transformation</h3>
                               <p className="text-[#8A8A8A] text-xs leading-relaxed mb-6 font-medium">We source world-class talent to drive your enterprise goals through specialized technical recruitment.</p>
                             </div>
                             <Link href="/services" className="inline-flex items-center justify-center gap-2 bg-[#7A1F5C] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#C2185B] transition-all">
@@ -127,7 +127,7 @@ export default function Navbar() {
                         className="absolute top-full right-0 mt-3 bg-[#F9F6F0] rounded-3xl shadow-2xl shadow-[#7A1F5C]/15 p-10 w-[850px] border border-white/50 backdrop-blur-2xl cursor-default z-50">
                         <div className="grid grid-cols-3 gap-10">
                           <div>
-                            <h3 className="font-black text-[#1A1A1A] mb-4 text-xs uppercase tracking-widest text-[#7A1F5C]">Core Sectors</h3>
+                            <h3 className="font-extrabold text-[#1A1A1A] mb-4 text-xs uppercase tracking-widest text-[#7A1F5C]">Core Sectors</h3>
                             <div className="border-l-2 border-[#7A1F5C]/10 ml-1">
                               {renderTreeLink('/industries/finance', 'Finance & Banking')}
                               {renderTreeLink('/industries/retail', 'Retail & E-commerce')}
@@ -136,7 +136,7 @@ export default function Navbar() {
                             </div>
                           </div>
                           <div>
-                            <h3 className="font-black text-[#1A1A1A] mb-4 text-xs uppercase tracking-widest text-[#7A1F5C]">Specialized Markets</h3>
+                            <h3 className="font-extrabold text-[#1A1A1A] mb-4 text-xs uppercase tracking-widest text-[#7A1F5C]">Specialized Markets</h3>
                             <div className="border-l-2 border-[#7A1F5C]/10 ml-1">
                               {renderTreeLink('/industries/healthcare', 'Healthcare & Life Sciences')}
                               {renderTreeLink('/industries/education', 'Education')}
@@ -146,7 +146,7 @@ export default function Navbar() {
                           </div>
                           <div className="bg-white/50 rounded-2xl p-6 border border-white flex flex-col justify-between">
                             <div>
-                              <h3 className="text-xl font-black text-[#1A1A1A] mb-3 leading-tight">Industry-Specific Expertise</h3>
+                              <h3 className="text-xl font-extrabold text-[#1A1A1A] mb-3 leading-tight">Industry-Specific Expertise</h3>
                               <p className="text-[#8A8A8A] text-xs leading-relaxed mb-6 font-medium">Deep domain knowledge across global markets to ensure technical and cultural alignment.</p>
                             </div>
                             <Link href="/industries" className="inline-flex items-center justify-center gap-2 bg-[#7A1F5C] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#C2185B] transition-all">

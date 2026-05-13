@@ -83,7 +83,7 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-[10px] font-black uppercase tracking-widest mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-widest mb-6">
               Why Choose Chalky Infotech
             </span>
             <h2 className="text-3xl md:text-5xl font-semibold mb-8 leading-[1.1]">

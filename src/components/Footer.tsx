@@ -73,7 +73,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-5">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] flex items-center justify-center">
-                <span className="text-white font-black text-lg">C</span>
+                <span className="text-white font-extrabold text-lg">C</span>
               </div>
               <span className="font-bold text-xl">Chalky Infotech</span>
             </div>

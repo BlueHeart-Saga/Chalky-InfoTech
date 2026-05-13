@@ -14,9 +14,9 @@ export default function AboutHero() {
               <span className="w-2 h-2 rounded-full bg-[#C2185B] animate-pulse" />
               Global Recruitment & Workforce Solutions Partner
             </div>
-            <h1 className="text-5xl lg:text-[4rem] font-black text-[#111827] leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-5xl lg:text-[4rem] font-extrabold text-[#111827] leading-[1.1] mb-6 tracking-tight">
               Building Future-Ready Teams <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B]">For Modern Enterprises</span>
+              <span className="text-[#7A1F5C]">For Modern Enterprises</span>
             </h1>
             <p className="text-[#4B5563] text-lg mb-8 leading-relaxed max-w-xl">
               Chalky Infotech is a specialist technology recruitment and workforce solutions company helping organizations scale through strategic hiring, digital talent acquisition, and enterprise workforce transformation.

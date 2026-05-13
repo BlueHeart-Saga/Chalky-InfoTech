@@ -26,9 +26,9 @@ export default function WhyChooseUsSection() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
             Why Chalky Infotech
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-[#1A1A1A] leading-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A] leading-tight mb-4">
             The Difference That
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#7A1F5C] to-[#C2185B]">
+            <span className="block text-[#7A1F5C]">
               Drives Results
             </span>
           </h2>

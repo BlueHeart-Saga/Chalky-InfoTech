@@ -88,7 +88,7 @@ export default function ProcessTimeline() {
                    </div>
                    
                    {/* Step Number Badge */}
-                   <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-[#1A1A1A] text-white text-[10px] font-black flex items-center justify-center border-2 border-white">
+                   <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-[#1A1A1A] text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
                       {item.id}
                    </div>
                 </div>
