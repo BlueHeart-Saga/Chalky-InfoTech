@@ -72,16 +72,10 @@ export default function CompanyOverview() {
               </div>
               
               {/* MAIN HEADING */}
-              <ScrollReveal
-                baseOpacity={0}
-                enableBlur={true}
-                baseRotation={3}
-                blurStrength={10}
-                containerClassName="mb-6"
-                textClassName="text-4xl sm:text-5xl lg:text-[52px] font-bold text-[#1A1A1A] leading-[1.1] tracking-tight"
-              >
-                Empowering Businesses With Future Workforce Solutions
-              </ScrollReveal>
+              <h2 className="text-3xl md:text-4xl lg:text-[52px] font-semibold text-[#1A1A1A] leading-[1.1] mb-6 tracking-tight">
+                Empowering Businesses With <br/>
+                <span className="text-[#7A1F5C]">Future Workforce Solutions</span>
+              </h2>
               
               {/* COMPANY DESCRIPTION */}
               <p className="text-lg sm:text-xl text-gray-700 font-normal leading-relaxed mb-4">

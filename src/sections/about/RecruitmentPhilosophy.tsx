@@ -11,14 +11,27 @@ const blocks = [
 
 export default function RecruitmentPhilosophy() {
   return (
-    <section className="relative py-20 md:py-28 bg-[#1A0A14] text-white">
+    <section className="relative py-20 md:py-28 bg-[#7a1f5c] text-white">
+
+      {/* ── Top Smooth Curve (white → dark) ── */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none" style={{ lineHeight: 0 }}>
+        <svg
+          className="relative block w-full"
+          style={{ height: '70px' }}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 70"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,0 L1200,0 L1200,0 Q600,70 0,0 Z" fill="#ffffff" />
+        </svg>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          
+
           <div className="sticky top-24">
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-[#F5F0E8] text-xs font-bold uppercase tracking-widest mb-6">Our Methodology</span>
-            <h2 className="text-4xl lg:text-5xl font-extrabold mb-6 leading-tight tracking-tight">
-              A Philosophy Built on <br/><span className="text-[#7A1F5C]">Precision & Quality</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 leading-[1.1] tracking-tight">
+              A Philosophy Built on <br /><span className="text-[#C2185B]">Precision & Quality</span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-8">
               Most staffing companies focus on transactional speed. We focus on architectural precision. Our recruitment philosophy is designed for enterprises where a single strategic hire can alter the trajectory of a product.
@@ -40,12 +53,17 @@ export default function RecruitmentPhilosophy() {
 
         </div>
       </div>
-    
-      {/* Unique Wave Divider: Diagonal Split */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
-        <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,120 L1200,0 L1200,120 Z" fill="#F5F0E8"></path>
-          <path d="M0,120 L1200,60 L1200,120 Z" opacity=".3" fill="#F5F0E8"></path>
+
+      {/* ── Bottom Smooth Curve (dark → #f5f0e8) ── */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none" style={{ lineHeight: 0 }}>
+        <svg
+          className="relative block w-full"
+          style={{ height: '70px' }}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 70"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,70 L1200,70 L1200,70 Q600,0 0,70 Z" fill="#F5F0E8" />
         </svg>
       </div>
     </section>

@@ -1,45 +1,188 @@
 'use client';
-import { Rocket, Star, Globe, Clock, CheckCircle, TrendingUp } from 'lucide-react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { ShieldCheck, Globe, BadgeCheck, Handshake, CheckCircle2 } from 'lucide-react';
+import trustImg from '@/assets/About/trust.png';
 
-const reasons = [
-  { icon: Rocket, title: 'Fast Hiring Cycles', desc: 'Optimized pipelines reducing time-to-hire by 40% against industry averages.' },
-  { icon: Star, title: 'Specialized Talent', desc: 'Niche networks accessing passive candidates unavailable on standard job boards.' },
-  { icon: Globe, title: 'Global Support', desc: 'Cross-border hiring capabilities paired with localized compliance knowledge.' },
-  { icon: Clock, title: '24/7 Coordination', desc: 'Dual-shore delivery teams ensuring continuous candidate engagement.' },
-  { icon: CheckCircle, title: 'Quality Screening', desc: 'Multi-tiered technical and cultural assessments prior to any submission.' },
-  { icon: TrendingUp, title: 'Scalable Solutions', desc: 'Adaptable models from executive retained searches to volume RPO engagements.' },
+const trustCards = [
+  {
+    icon: ShieldCheck,
+    title: 'Industry Expertise',
+    desc: 'Recruitment solutions tailored to sector-specific workforce needs and operational requirements.',
+  },
+  {
+    icon: Globe,
+    title: 'Global Workforce Reach',
+    desc: 'Supporting organizations across India, the UK, and international business environments.',
+  },
+  {
+    icon: BadgeCheck,
+    title: 'Quality-Driven Hiring',
+    desc: 'Structured screening and recruitment processes designed for long-term workforce success.',
+  },
+  {
+    icon: Handshake,
+    title: 'Scalable Partnerships',
+    desc: 'Flexible recruitment strategies supporting startups, SMBs, and enterprise organizations.',
+  },
 ];
+
+const trustPoints = [
+  'Industry-Specific Recruitment Expertise',
+  'Scalable Workforce Support',
+  'Structured Candidate Evaluation',
+  'Long-Term Client Partnerships',
+  'Global Hiring Capability',
+  'Operational Transparency',
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+};
 
 export default function WhyTrustUs() {
   return (
-    <section className="relative py-20 md:py-28 bg-[#F5F0E8]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Enterprise Reliability</span>
-          <h2 className="text-4xl font-extrabold text-[#1A1A1A] mb-4">Why Enterprises Trust Us</h2>
-          <p className="text-[#8A8A8A] text-lg">We are the silent engine behind the growth of over 500 technology-driven organizations worldwide.</p>
+    <section className="relative py-24  bg-gradient-to-b from-white to-[#F8F5F0] overflow-hidden">
+
+      {/* Subtle background texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #7A1F5C 1px, transparent 0)', backgroundSize: '30px 30px' }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* ── TOP: Header (Left) + Image (Right) ── */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+
+          {/* Left — Label + Heading + Description */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            <motion.span
+              variants={fadeUp}
+              className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-6"
+            >
+              Why Enterprises Trust Us
+            </motion.span>
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] leading-[1.1] tracking-tight mb-6"
+            >
+              Building Long-Term Workforce <br />
+              <span className="text-[#7A1F5C]">Partnerships Through Quality & Reliability</span>
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="text-lg leading-relaxed text-[#6A6A6A]"
+            >
+              Chalky Infotech combines industry expertise, scalable recruitment strategies, and client-focused workforce solutions to support organizations across evolving business environments.
+            </motion.p>
+          </motion.div>
+
+          {/* Right — Trust Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="relative w-full"
+          >
+            <Image
+              src={trustImg}
+              alt="Enterprise Trust & Partnerships"
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reasons.map((r, i) => (
-            <div key={i} className="p-8 rounded-3xl bg-white border border-[#E5E7EB] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] flex items-center justify-center shadow-md">
-                  <r.icon className="w-5 h-5 text-white" />
+        {/* ── BOTTOM: Storytelling (Left) + Trust Cards (Right) ── */}
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+
+          {/* LEFT — Storytelling Content */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            <motion.p variants={fadeUp} className="text-[#4A4A4A] text-base md:text-lg leading-relaxed mb-6">
+              We believe successful recruitment goes beyond filling positions. Our approach focuses on understanding organizational goals, workforce challenges, and long-term business growth to deliver recruitment solutions that create measurable value.
+            </motion.p>
+            <motion.p variants={fadeUp} className="text-[#4A4A4A] text-base md:text-lg leading-relaxed mb-10">
+              By combining consultative hiring strategies with industry insight and scalable workforce support, we help businesses build reliable, future-ready teams across multiple sectors and operational environments.
+            </motion.p>
+
+            {/* Trust Highlights */}
+            <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {trustPoints.map((point, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="flex items-center gap-3 py-3 px-4 rounded-xl bg-white border border-[#EDE8E0] shadow-sm"
+                >
+                  <CheckCircle2 className="w-4 h-4 text-[#7A1F5C] flex-shrink-0" />
+                  <span className="text-sm font-medium text-[#2A2A2A]">{point}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* RIGHT — Trust Cards */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            {trustCards.map((card, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(122, 31, 92, 0.10)' }}
+                className="rounded-[28px] border border-gray-100 bg-[#F8F5F0] shadow-sm p-7 transition-all duration-400 cursor-default group"
+              >
+                <div className="w-11 h-11 rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm group-hover:bg-[#7A1F5C] transition-colors duration-300">
+                  <card.icon className="w-5 h-5 text-[#7A1F5C] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-lg font-bold text-[#1A1A1A]">{r.title}</h3>
-              </div>
-              <p className="text-[#8A8A8A] leading-relaxed">{r.desc}</p>
-            </div>
-          ))}
+                <h3 className="text-lg font-semibold text-[#1A1A1A] mb-2 leading-snug">{card.title}</h3>
+                <p className="text-sm text-[#6A6A6A] leading-relaxed">{card.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
+
+        {/* ── Bottom Trust Strip ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mt-20 pt-10 border-t border-[#E8E2D8] text-center"
+        >
+          <p className="text-base md:text-lg text-[#7A7A7A] font-medium max-w-2xl mx-auto leading-relaxed">
+            Trusted workforce solutions designed to support{' '}
+            <span className="text-[#7A1F5C] font-semibold">sustainable business growth</span>{' '}
+            across diverse industries.
+          </p>
+        </motion.div>
       </div>
-    
-      {/* Unique Wave Divider: Layered Organic */}
+
+      {/* Wave Divider */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
         <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,0c0,0,131,105,373,43c242-62,298,28,450,28s377-71,377-71v120H0V0Z" opacity=".1" fill="#1A0A14"></path>
-          <path d="M0,0c0,0,166,120,443,57c277-63,339,26,513,26s244-83,244-83v120H0V0Z" fill="#1A0A14"></path>
+          <path d="M0,0c0,0,166,120,443,57c277-63,339,26,513,26s244-83,244-83v120H0V0Z" fill="#7A1F5C" />
         </svg>
       </div>
     </section>

@@ -1,73 +1,117 @@
 'use client';
-import { MapPin, Globe2, Laptop } from 'lucide-react';
+import { MapPin, Mail, Phone } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function GlobalWorkforce() {
+  const locations = [
+    {
+      city: 'London',
+      region: 'UK • Europe',
+      email: 'uk@chalkyinfotech.com',
+      phone: '+44 (0) 20 1234 5678',
+      address: '80 Strand, London, WC2R 0RL',
+      iframeSrc: 'https://maps.google.com/maps?q=80%20Strand,%20London,%20WC2R%200RL&t=&z=13&ie=UTF8&iwloc=&output=embed'
+    },
+    {
+      city: 'Chennai',
+      region: 'India • India',
+      email: 'chennai@chalkyinfotech.com',
+      phone: '+91 44 2345 6789',
+      address: 'Old Mahabalipuram Rd, Chennai, TN',
+      iframeSrc: 'https://maps.google.com/maps?q=Old%20Mahabalipuram%20Rd,%20Chennai,%20TN&t=&z=13&ie=UTF8&iwloc=&output=embed'
+    },
+    {
+      city: 'Thoothukudi',
+      region: 'India • India',
+      email: 'tuty@chalkyinfotech.com',
+      phone: '+91 461 3456 7890',
+      address: 'Harbour Road, Thoothukudi, TN',
+      iframeSrc: 'https://maps.google.com/maps?q=Harbour%20Road,%20Thoothukudi,%20TN&t=&z=14&ie=UTF8&iwloc=&output=embed'
+    }
+  ];
+
   return (
-    <section className="relative py-20 md:py-28 bg-white ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
-          
-          <div className="lg:col-span-5">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-6">Global Reach</span>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-[#1A1A1A] mb-6 leading-tight tracking-tight">
-              Borderless Talent for <br/>
-              <span className="text-[#7A1F5C]">Global Enterprises</span>
-            </h2>
-            <p className="text-[#8A8A8A] text-lg leading-relaxed mb-8">
-              Whether you are scaling a local HQ or building distributed engineering centers across continents, our dual-shore operations model provides seamless access to elite talent pools.
-            </p>
-            
-            <div className="space-y-4">
-              <div className="flex items-center gap-5 p-5 rounded-2xl bg-[#F5F0E8] border border-[#E5E7EB] hover:border-[#7A1F5C]/30 transition-colors duration-300">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                  <Globe2 className="w-6 h-6 text-[#7A1F5C]" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#1A1A1A] text-lg">UK Operations Hub</p>
-                  <p className="text-sm text-[#8A8A8A]">Strategic enterprise partnerships & European talent.</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-5 p-5 rounded-2xl bg-[#F5F0E8] border border-[#E5E7EB] hover:border-[#7A1F5C]/30 transition-colors duration-300">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                  <MapPin className="w-6 h-6 text-[#C2185B]" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#1A1A1A] text-lg">India Delivery Center</p>
-                  <p className="text-sm text-[#8A8A8A]">High-volume engineering scale & APAC coverage.</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-5 p-5 rounded-2xl bg-[#F5F0E8] border border-[#E5E7EB] hover:border-[#7A1F5C]/30 transition-colors duration-300">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                  <Laptop className="w-6 h-6 text-[#4A1238]" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#1A1A1A] text-lg">Remote Workforce</p>
-                  <p className="text-sm text-[#8A8A8A]">EOR integration & borderless hiring compliance.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section className="relative py-24 bg-[#F5F0E8] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-6"
+          >
+            Global Reach
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] mb-8 leading-[1.1] tracking-tight"
+          >
+            Borderless Talent for <br/>
+            <span className="text-[#7A1F5C]">Global Enterprises</span>
+          </motion.h2>
+        </div>
 
-          <div className="lg:col-span-7 relative">
-            <div className="aspect-[4/3] rounded-3xl bg-[#F5F0E8] border border-[#E5E7EB] shadow-lg overflow-hidden relative flex items-center justify-center p-8">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#7A1F5C_1.5px,transparent_1px)] bg-[size:24px_24px] opacity-[0.05]" />
-              <div className="relative w-full h-full border-2 border-dashed border-[#7A1F5C]/20 rounded-2xl flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm">
-                 <Globe2 className="w-16 h-16 text-[#7A1F5C]/20 mb-4" />
-                 <p className="text-[#1A1A1A] font-bold tracking-widest uppercase text-sm">Global Hiring Infrastructure</p>
-                 
-                 {/* Map Points Simulation */}
-                 <div className="absolute w-4 h-4 bg-[#C2185B] rounded-full top-[30%] left-[30%] shadow-[0_0_20px_#C2185B]">
-                   <div className="absolute inset-0 rounded-full border-2 border-[#C2185B] animate-ping" />
-                 </div>
-                 <div className="absolute w-4 h-4 bg-[#7A1F5C] rounded-full bottom-[40%] right-[30%] shadow-[0_0_20px_#7A1F5C]">
-                   <div className="absolute inset-0 rounded-full border-2 border-[#7A1F5C] animate-ping" style={{ animationDelay: '1s' }} />
-                 </div>
-              </div>
-            </div>
-          </div>
+        {/* Location Cards Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {locations.map((loc, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col"
+            >
+              <div className="p-8 flex-grow">
+                <div className="flex justify-between items-start mb-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#1A1A1A] mb-1">{loc.city}</h3>
+                    <p className="text-[#7A1F5C] text-xs font-bold uppercase tracking-wider">{loc.region}</p>
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-[#F5F0E8] flex items-center justify-center text-[#7A1F5C] group-hover:bg-[#7A1F5C] group-hover:text-white transition-colors duration-300">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                </div>
 
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <Mail className="w-4 h-4 text-[#7A1F5C]/50" />
+                    <span>{loc.email}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <Phone className="w-4 h-4 text-[#7A1F5C]/50" />
+                    <span>{loc.phone}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <MapPin className="w-4 h-4 text-[#7A1F5C]/50" />
+                    <span>{loc.address}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Styled Map Area */}
+              <div className="relative h-56 w-full bg-gray-100 border-t border-gray-100">
+                 <iframe 
+                  src={loc.iframeSrc} 
+                  title={`${loc.city} Map`}
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={false} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                 ></iframe>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
+
     
       {/* Unique Wave Divider: Stepped Blocks */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">

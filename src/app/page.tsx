@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const sections = [
+    { label: 'Top', id: 'hero' },
     { label: 'About', id: 'about' },
     { label: 'Services', id: 'services' },
     { label: 'Industries', id: 'industries' },

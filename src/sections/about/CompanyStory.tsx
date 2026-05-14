@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const storyBlocks = [
   {
-    title: 'Your Foundation',
+    title: 'Our Foundation',
     desc: 'Founded with a vision to modernise technology recruitment, Chalky Infotech was built to bridge the gap between growing organisations and exceptional digital talent. We combine market intelligence, recruitment expertise, and workforce strategy to help businesses build scalable, future-ready teams.'
   },
   {
@@ -24,14 +24,14 @@ const storyBlocks = [
 
 export default function CompanyStory() {
   return (
-    <section className="relative py-20 md:py-28 bg-white overflow-hidden">
+    <section className="relative pt-20 pb-32 md:pt-28 md:pb-48 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* LEFT SIDE - Story Content */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-6">Who We Are</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#1A1A1A] mb-6 leading-[1.15] tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-[1.1] tracking-tight">
               Connecting Exceptional Talent <br/>
               <span className="text-[#7A1F5C]">With High-Growth Organisations</span>
             </h2>

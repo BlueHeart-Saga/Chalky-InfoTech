@@ -1,44 +1,211 @@
 'use client';
-import { Target, Eye } from 'lucide-react';
-import { motion } from 'framer-motion';
+
+import { useEffect, useRef } from 'react';
+
+interface Block {
+  title: string;
+  desc: string;
+  image: string;
+  barColor: string;
+  blobStyle: React.CSSProperties;
+  align: 'left' | 'right';
+  titleCase: 'upper' | 'normal';
+}
+
+const blocks: Block[] = [
+  {
+    title: 'OUR VISION',
+    desc: 'At Chalky Infotech, we envision becoming a globally trusted technology recruitment and workforce solutions partner. We support organizations through continuous innovation, scalable hiring strategies, and long-term talent acquisition methodologies that bridge the gap between human potential and enterprise success.',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
+    barColor: '#D4A3A3',
+    blobStyle: { borderRadius: '50% 45% 55% 50% / 50% 50% 45% 55%' },
+    align: 'left',
+    titleCase: 'upper',
+  },
+  {
+    title: 'Our Mission',
+    desc: 'Our mission is to empower businesses by connecting them with exceptional technology professionals. Through our consultative approach to recruitment, deep market intelligence, and scalable workforce solutions, we strive to accelerate digital transformation and drive measurable, long-lasting business impact for all our partners.',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
+    barColor: '#C2DDE5',
+    blobStyle: { borderRadius: '50% 55% 45% 50% / 45% 50% 55% 50%' },
+    align: 'right',
+    titleCase: 'normal',
+  },
+  {
+    title: 'Client Relationship',
+    desc: 'We go beyond traditional recruitment by building trusted, strategic partnerships. By deeply understanding your organizational goals, technology landscape, and unique workforce challenges, we deliver tailored hiring outcomes that align perfectly with your corporate culture and long-term growth objectives.',
+    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800',
+    barColor: '#B5C2B7',
+    blobStyle: { borderRadius: '50%' },
+    align: 'left',
+    titleCase: 'normal',
+  },
+  {
+    title: 'Skilled Workforce',
+    desc: 'We specialize in assembling future-ready technical teams across cloud computing, DevOps, artificial intelligence, and software engineering. Our rigorous selection process ensures every candidate possesses the exact skills and agility required to thrive in modern, fast-paced digital environments.',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800',
+    barColor: '#DBCB89',
+    blobStyle: { borderRadius: '55% 45% 40% 60% / 50% 55% 45% 50%' },
+    align: 'right',
+    titleCase: 'normal',
+  },
+];
 
 export default function MissionVision() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('mv-visible');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    const cards = sectionRef.current?.querySelectorAll('.mv-card');
+    cards?.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-20 md:py-28 bg-[#F5F0E8] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-2 gap-8">
-          
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative bg-white rounded-3xl p-10 lg:p-14 border border-[#E5E7EB] shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-500">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-[#7A1F5C]/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-700" />
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] flex items-center justify-center mb-8 shadow-md">
-              <Target className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-3xl font-extrabold text-[#1A1A1A] mb-4">Our Mission</h3>
-            <p className="text-[#8A8A8A] text-lg leading-relaxed">
-              Empowering organizations with future-ready technology talent and scalable workforce solutions that accelerate digital transformation and drive measurable business impact.
-            </p>
-          </motion.div>
+    <>
+      <style>{`
+        .mv-card {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .mv-card.mv-visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .mv-image-wrap {
+          transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .mv-image-wrap:hover {
+          transform: scale(1.04);
+        }
+        .mv-image-wrap img {
+          transition: transform 0.5s ease;
+        }
+        .mv-image-wrap:hover img {
+          transform: scale(1.06);
+        }
+      `}</style>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="relative bg-gradient-to-br from-[#1A0A14] to-[#4A1238] rounded-3xl p-10 lg:p-14 shadow-xl overflow-hidden group">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#C2185B]/30 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-700" />
-            <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-8">
-              <Eye className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-3xl font-extrabold text-white mb-4">Our Vision</h3>
-            <p className="text-white/80 text-lg leading-relaxed">
-              To become the globally trusted recruitment and workforce transformation partner for modern enterprises, setting the gold standard for technical talent acquisition.
-            </p>
-          </motion.div>
+      <section
+        ref={sectionRef}
+        className="bg-[#f5f0e8]  overflow-hidden"
+        aria-label="Vision Mission Values"
+      >
+        <div className="flex flex-col" style={{ gap: '0px' }}>
+          {blocks.map((block, index) => {
+            const isLeft = block.align === 'left';
 
+            return (
+              <div
+                key={index}
+                className="mv-card relative w-full"
+                style={{
+                  paddingTop: '48px',
+                  paddingBottom: '48px',
+                  transitionDelay: `${index * 0.12}s`,
+                }}
+              >
+                {/* Full-width pastel accent bar behind the image side */}
+                <div
+                  className="absolute top-1/2 -translate-y-1/2"
+                  style={{
+                    backgroundColor: block.barColor,
+                    height: '62%',
+                    width: '44%',
+                    left: isLeft ? 0 : 'auto',
+                    right: isLeft ? 'auto' : 0,
+                    zIndex: 0,
+                    borderRadius: isLeft
+                      ? '0 8px 8px 0'
+                      : '8px 0 0 8px',
+                  }}
+                />
+
+                {/* Content row */}
+                <div
+                  className="max-w-6xl mx-auto px-6 lg:px-12 relative"
+                  style={{ zIndex: 1 }}
+                >
+                  <div
+                    className={`flex flex-col ${
+                      isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
+                    } items-center gap-6 md:gap-10`}
+                  >
+                    {/* ── Image Column ── */}
+                    <div className="w-full md:w-[42%] flex justify-center">
+                      <div
+                        className="mv-image-wrap relative overflow-hidden shadow-xl"
+                        style={{
+                          width: 'clamp(200px, 28vw, 320px)',
+                          height: 'clamp(200px, 28vw, 320px)',
+                          ...block.blobStyle,
+                        }}
+                      >
+                        <img
+                          src={block.image}
+                          alt={block.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+
+                    {/* ── Text Column ── */}
+                    <div
+                      className={`w-full md:w-[58%] ${
+                        isLeft ? 'md:text-left' : 'md:text-center'
+                      } text-center`}
+                    >
+                      <div
+                        className={
+                          isLeft
+                            ? 'md:pl-8 lg:pl-14'
+                            : 'md:pr-8 lg:pr-14 md:pl-4'
+                        }
+                      >
+                        <h2
+                          className="font-semibold text-[#1a1a1a] mb-4"
+                          style={{
+                            fontSize: 'clamp(1.75rem, 3.5vw, 2.6rem)',
+                            letterSpacing: block.titleCase === 'upper' ? '0.04em' : '-0.01em',
+                            lineHeight: 1.1,
+                            textTransform: block.titleCase === 'upper' ? 'uppercase' : 'none',
+                          }}
+                        >
+                          {block.title}
+                        </h2>
+                        <p
+                          className="text-[#555555] leading-relaxed"
+                          style={{
+                            fontSize: 'clamp(0.875rem, 1.4vw, 1rem)',
+                            lineHeight: 1.8,
+                            maxWidth: isLeft ? '520px' : '560px',
+                            margin: isLeft ? '0' : '0 auto',
+                          }}
+                        >
+                          {block.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
-      </div>
-    
-      {/* Unique Wave Divider: Sharp Peaks */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
-        <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,59.33c51.78,6.37,103.59-15.34,154.51-35.74,51.22-20.51,94.73-37.55,138.58-41.86,70.36-6.91,136.33,13.88,206.8,32,73.84,19,147.54,4.36,218.2-13.08,69.27-17.11,138.3-24.88,209.4-13.08,36.15,6,69.85,17.84,104.45,29.34C1113,54,1200,120,1200,120H0Z" fill="white"></path>
-        </svg>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

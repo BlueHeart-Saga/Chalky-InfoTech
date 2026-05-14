@@ -6,7 +6,7 @@ import CountUp from '@/components/CountUp';
 const STATS = [
   { value: 98, suffix: "%", label: "Placement Success Rate" },
   { value: 250, suffix: "K+", label: "Vetted Candidates" },
-  { value: 45, suffix: "+", label: "Global Locations" },
+  { value: 3, suffix: "+", label: "Global Locations" },
   { value: 18, suffix: " Days", label: "Average Time-to-Hire" }
 ];
 

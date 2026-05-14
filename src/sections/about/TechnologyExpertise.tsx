@@ -15,7 +15,10 @@ export default function TechnologyExpertise() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Domain Authority</span>
-          <h2 className="text-4xl font-extrabold text-[#1A1A1A] mb-4">Technology Expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-4 leading-[1.1] tracking-tight">
+            Technology <br/>
+            <span className="text-[#7A1F5C]">Expertise</span>
+          </h2>
           <p className="text-[#8A8A8A] text-lg">We speak the language of modern engineering. Our specialized recruitment pods focus exclusively on high-impact technology domains.</p>
         </div>
 

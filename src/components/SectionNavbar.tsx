@@ -48,7 +48,7 @@ export default function SectionNavbar({ sections }: { sections: { label: string,
                   window.scrollTo({ top: y, behavior: 'smooth' });
                 }
               }}
-              className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 whitespace-nowrap ${activeSection === sec.id ? 'bg-gradient-to-r from-[#7A1F5C] to-[#C2185B] text-white shadow-md' : 'text-[#8A8A8A] hover:text-[#1A1A1A] hover:bg-[#F5F0E8]'}`}
+              className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 whitespace-nowrap ${activeSection === sec.id ? 'bg-[#F5F0E8] text-[#7A1F5C] shadow-sm' : 'text-[#8A8A8A] hover:text-[#1A1A1A] hover:bg-[#F5F0E8]'}`}
             >
               {sec.label}
             </button>

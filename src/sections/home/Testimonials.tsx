@@ -213,10 +213,10 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-6 leading-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-[1.1] tracking-tight"
           >
-            Trusted By Businesses <br className="hidden md:block" />
-            Across Global Industries
+            Trusted By Businesses <br/>
+            <span className="text-[#7A1F5C]">Across Global Industries</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -313,8 +313,8 @@ export default function Testimonials() {
 
           <div className="relative z-10 md:flex items-center justify-between gap-12">
             <div className="max-w-2xl mb-8 md:mb-0">
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                Looking For Reliable <br className="hidden md:block" />
+              <h3 className="text-3xl md:text-4xl font-semibold mb-6 leading-[1.1]">
+                Looking For Reliable <br/>
                 Recruitment Solutions?
               </h3>
               <p className="text-white/80 text-lg md:text-xl">

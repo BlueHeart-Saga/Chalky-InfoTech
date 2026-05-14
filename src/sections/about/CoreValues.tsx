@@ -1,46 +1,264 @@
 'use client';
-import { ShieldCheck, Lightbulb, Activity, HeartHandshake, Zap, Users } from 'lucide-react';
 
-const values = [
-  { icon: ShieldCheck, title: 'Integrity', desc: 'Unwavering ethics and honesty in every client and candidate interaction.' },
-  { icon: Lightbulb, title: 'Innovation', desc: 'Continuously refining our search methodologies with data-driven insights.' },
-  { icon: Activity, title: 'Transparency', desc: 'Clear, open communication throughout the entire recruitment lifecycle.' },
-  { icon: HeartHandshake, title: 'Client Success', desc: 'Your long-term organizational growth is our primary metric for success.' },
-  { icon: Zap, title: 'Speed', desc: 'Agile delivery of top-tier talent without compromising on quality.' },
-  { icon: Users, title: 'Collaboration', desc: 'Working as a seamless extension of your internal HR and technical teams.' },
+import { useState } from 'react';
+import { ShieldCheck, Lightbulb, Activity, HeartHandshake, TrendingUp, Users } from 'lucide-react';
+
+interface Value {
+  icon: React.ElementType;
+  title: string;
+  desc: string;
+  image: string;
+  hex: string;
+  accent: string;
+  variant: 'dark' | 'pink' | 'light';
+}
+
+const values: Value[] = [
+  {
+    icon: ShieldCheck,
+    title: 'Integrity',
+    desc: 'Unwavering ethics and honesty in every client and candidate interaction.',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1200',
+    hex: '#5A1040', accent: '#7A1F5C', variant: 'dark',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Innovation',
+    desc: 'Continuously refining our search methodologies with data-driven insights.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200',
+    hex: '#C2185B', accent: '#E91E8C', variant: 'pink',
+  },
+  {
+    icon: Activity,
+    title: 'Transparency',
+    desc: 'Clear, open communication throughout the entire recruitment lifecycle.',
+    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1200',
+    hex: '#5A1040', accent: '#7A1F5C', variant: 'dark',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Client Success',
+    desc: 'Your long-term organizational growth is our primary metric for success.',
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1200',
+    hex: '#C2185B', accent: '#E91E8C', variant: 'pink',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Speed',
+    desc: 'Agile delivery of top-tier talent without compromising on quality.',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=1200',
+    hex: '#5A1040', accent: '#7A1F5C', variant: 'dark',
+  },
+  {
+    icon: Users,
+    title: 'Collaboration',
+    desc: 'Working as a seamless extension of your internal HR and technical teams.',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200',
+    hex: '#9B3B7A', accent: '#C2185B', variant: 'light',
+  },
 ];
 
-export default function CoreValues() {
-  return (
-    <section className="relative py-20 md:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Core Values</span>
-          <h2 className="text-4xl font-extrabold text-[#1A1A1A] mb-4">The Principles That Drive Us</h2>
-          <p className="text-[#8A8A8A] text-lg">We believe that how we work is just as important as the results we deliver.</p>
-        </div>
+/* Alternating cascade positions */
+const cascadeOffset = ['md:mt-0', 'md:mt-12', 'md:mt-0', 'md:mt-12', 'md:mt-0', 'md:mt-12'];
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {values.map((v, i) => (
-            <div key={i} className="p-8 rounded-3xl bg-white border border-[#E5E7EB] hover:border-[#7A1F5C]/30 hover:shadow-xl transition-all duration-300 group">
-              <div className="w-14 h-14 rounded-2xl bg-[#F5F0E8] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#7A1F5C]/10 transition-all duration-300">
-                <v.icon className="w-6 h-6 text-[#7A1F5C]" />
-              </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">{v.title}</h3>
-              <p className="text-[#8A8A8A] leading-relaxed">{v.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    
-      {/* Unique Wave Divider: Layered Steps */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
-        <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <rect x="0" y="0" width="1200" height="120" fill="transparent" />
-          <path d="M0,60 L200,80 L400,40 L600,100 L800,50 L1000,90 L1200,60 L1200,120 L0,120 Z" opacity=".1" fill="#1A0A14" />
-          <path d="M0,80 L200,100 L400,60 L600,110 L800,70 L1000,100 L1200,80 L1200,120 L0,120 Z" fill="#1A0A14" />
+export default function CoreValues() {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const active = hovered !== null ? values[hovered] : null;
+
+  return (
+    <section className="relative pt-28 md:pt-36 pb-14 md:pb-16 bg-white overflow-hidden">
+
+      {/* ── Top Wave Divider ── */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none rotate-180">
+        <svg className="relative block w-full" style={{ height: '80px' }}
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" preserveAspectRatio="none">
+          <path d="M0,80 L0,40 C80,65 160,15 240,42 C320,70 400,18 480,44 C560,70 640,16 720,42 C800,68 880,14 960,40 C1040,66 1120,20 1200,44 L1200,80 Z" fill="#f5f0e8" />
         </svg>
       </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* ── Section Header ── */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
+            Core Values
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] mb-4 leading-[1.1] tracking-tight">
+            The Principles That <br/>
+            <span className="text-[#7A1F5C]">Drive Us</span>
+          </h2>
+          <p className="text-[#8A8A8A] text-lg leading-relaxed">
+            We believe that how we work is just as important as the results we deliver.
+          </p>
+        </div>
+
+        {/* ── Interactive Container ── */}
+        <div
+          className="relative rounded-2xl overflow-hidden"
+          style={{ minHeight: '320px' }}
+          onMouseLeave={() => setHovered(null)}
+        >
+
+          {/* ════ DEFAULT VIEW: Hexagonal Cascade Flow ════ */}
+          <div
+            className="transition-all duration-500"
+            style={{
+              opacity: hovered === null ? 1 : 0,
+              transform: hovered === null ? 'scale(1)' : 'scale(0.97)',
+              pointerEvents: hovered === null ? 'auto' : 'none',
+              position: hovered === null ? 'relative' : 'absolute',
+              inset: 0,
+            }}
+          >
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-4 items-start pt-4 pb-16">
+              {values.map((v, i) => (
+                <div
+                  key={i}
+                  className={`group flex flex-col items-center text-center ${cascadeOffset[i]} cursor-pointer`}
+                  onMouseEnter={() => setHovered(i)}
+                >
+                  {/* Hexagon */}
+                  <div className="relative mb-4">
+                    <div
+                      className="w-20 h-20 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300"
+                      style={{
+                        backgroundColor: v.accent,
+                        clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)',
+                      }}
+                    >
+                      <v.icon className="text-white w-8 h-8" strokeWidth={1.5} />
+                    </div>
+                    {/* Outer glow ring */}
+                    <div
+                      className="absolute inset-0 opacity-20 group-hover:opacity-50 transition-opacity duration-300 -z-10"
+                      style={{
+                        clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)',
+                        background: v.accent,
+                        transform: 'scale(1.2)',
+                      }}
+                    />
+                  </div>
+                  <h3 className="text-sm md:text-base font-bold text-[#1A1A1A] mb-1 leading-snug">{v.title}</h3>
+                  <p className="text-xs text-[#8A8A8A] leading-relaxed px-1">{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ════ HOVER VIEW: 1 : 5 Split ════ */}
+          <div
+            className="transition-all duration-500 flex rounded-2xl overflow-hidden"
+            style={{
+              opacity: hovered !== null ? 1 : 0,
+              transform: hovered !== null ? 'scale(1)' : 'scale(1.02)',
+              pointerEvents: hovered !== null ? 'auto' : 'none',
+              position: hovered !== null ? 'relative' : 'absolute',
+              inset: 0,
+              height: '400px',
+            }}
+          >
+            {active && (
+              <>
+                {/* LEFT — Icon panel (flex 1) */}
+                <div
+                  className="flex flex-col items-center justify-center gap-4 px-4 flex-shrink-0"
+                  style={{
+                    flex: 1,
+                    backgroundColor: active.hex,
+                    minWidth: '120px',
+                    maxWidth: '160px',
+                  }}
+                >
+                  {/* All 6 icons stacked vertically */}
+                  <div className="flex flex-col gap-3 items-center">
+                    {values.map((v, i) => {
+                      const isThis = i === hovered;
+                      return (
+                        <div
+                          key={i}
+                          className="cursor-pointer transition-all duration-300"
+                          onMouseEnter={() => setHovered(i)}
+                          style={{
+                            opacity: isThis ? 1 : 0.45,
+                            transform: isThis ? 'scale(1.2)' : 'scale(1)',
+                          }}
+                        >
+                          <div
+                            className="flex items-center justify-center shadow-md"
+                            style={{
+                              width: isThis ? '48px' : '36px',
+                              height: isThis ? '48px' : '36px',
+                              backgroundColor: isThis ? v.accent : `${v.accent}99`,
+                              clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)',
+                              transition: 'all 0.3s ease',
+                            }}
+                          >
+                            <v.icon
+                              className="text-white"
+                              style={{
+                                width: isThis ? '22px' : '16px',
+                                height: isThis ? '22px' : '16px',
+                                transition: 'all 0.3s ease',
+                              }}
+                              strokeWidth={1.5}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+
+                </div>
+
+                {/* RIGHT — Full Image (flex 5) */}
+                <div className="relative overflow-hidden" style={{ flex: 5 }}>
+                  <img
+                    src={active.image}
+                    alt={active.title}
+                    key={hovered} /* re-trigger fade on change */
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ animation: 'cvFadeIn 0.4s ease' }}
+                    loading="lazy"
+                  />
+                  {/* Gradient overlay */}
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `linear-gradient(135deg, ${active.hex}cc 0%, transparent 60%)`,
+                    }}
+                  />
+                  {/* Text overlay on image */}
+                  <div className="absolute bottom-0 left-0 p-8">
+                    <div
+                      className="inline-flex items-center justify-center mb-4 shadow-xl"
+                      style={{
+                        width: '56px', height: '56px',
+                        backgroundColor: active.accent,
+                        clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)',
+                      }}
+                    >
+                      <active.icon className="text-white w-6 h-6" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-white text-3xl font-extrabold mb-2 drop-shadow">{active.title}</h3>
+                    <p className="text-white/80 text-base leading-relaxed max-w-md drop-shadow">{active.desc}</p>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+
+
+
+      {/* Fade-in keyframe for image swap */}
+      <style>{`
+        @keyframes cvFadeIn {
+          from { opacity: 0; transform: scale(1.03); }
+          to   { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
     </section>
   );
 }

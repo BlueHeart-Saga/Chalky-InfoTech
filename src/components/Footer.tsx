@@ -11,21 +11,22 @@ export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-br from-[#1A0A14] via-[#2D0F22] to-[#4A1238] text-white pt-40">
       {/* 3D Newsletter Floating Card */}
-      <div className="absolute left-0 right-0 -top-24 sm:-top-28 px-4 sm:px-6 lg:px-8 z-20">
+      <div className="absolute left-0 right-0 -top-24 sm:-top-38 px-4 sm:px-6 lg:px-8 z-20">
         <div className="max-w-6xl mx-auto">
-          <div className="relative bg-gradient-to-r from-[#7A1F5C] to-[#C2185B] rounded-3xl p-6 md:p-8 lg:p-10 shadow-[0_20px_40px_-10px_rgba(194,24,91,0.5)] flex flex-col md:flex-row items-center gap-8 overflow-hidden">
-
-            {/* Ambient Background Effects */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
+          <div className="relative bg-gradient-to-r from-[#7A1F5C] to-[#C2185B] rounded-3xl p-6 md:p-8 lg:p-10 shadow-[0_20px_40px_-10px_rgba(194,24,91,0.5)] flex flex-col md:flex-row items-center gap-8">
+            {/* Background effects container (clipped) */}
+            <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
+            </div>
 
             {/* Left Side: 3D Graphic Area */}
-            <div className="hidden md:flex flex-col flex-[0.8] justify-center relative items-center min-h-[120px]">
-              <Image 
-                src={ctaImage} 
-                alt="Newsletter Graphic" 
+            <div className="hidden md:flex flex-col flex-[0.8] justify-center relative items-center min-h-[160px]">
+              <Image
+                src={ctaImage}
+                alt="Newsletter Graphic"
                 priority
-                className="w-full h-auto max-w-[220px] object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)] transition-transform duration-500 hover:-translate-y-2 hover:scale-105" 
+                className="absolute bottom-0 w-full h-auto max-w-[280px] lg:max-w-[350px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-6 hover:scale-110 -top-20 lg:-top-28 z-30"
               />
             </div>
 

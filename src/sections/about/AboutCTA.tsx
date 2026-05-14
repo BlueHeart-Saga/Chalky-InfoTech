@@ -4,9 +4,9 @@ import { ArrowRight } from 'lucide-react';
 
 export default function AboutCTA() {
   return (
-    <section className="py-24 bg-gradient-to-br from-[#7A1F5C] to-[#4A1238] text-white text-center relative overflow-hidden">
+    <section className="pt-24 pb-48 bg-[#7A1F5C] text-white text-center relative overflow-hidden">
       {/* Premium background effects */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#C2185B]/20 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#7A1F5C] rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#D14D72]/20 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay pointer-events-none" />
       
@@ -14,9 +14,9 @@ export default function AboutCTA() {
         <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
           Next Steps
         </span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-[1.1] tracking-tight">
-          Build High-Performance Teams <br className="hidden md:block" />
-          With Chalky Infotech
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8 leading-[1.1] tracking-tight">
+          Build High-Performance Teams <br/>
+          <span className="text-[#F5F0E8]/90">With Chalky Infotech</span>
         </h2>
         <p className="text-white/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
           Partner with our recruitment specialists to access exceptional technology talent and scalable enterprise workforce solutions.
@@ -30,13 +30,6 @@ export default function AboutCTA() {
             Contact Our Team
           </Link>
         </div>
-      </div>
-    
-      {/* Unique Wave Divider: Simple Diagonal */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
-        <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,120 L1200,60 L1200,120 Z" fill="white"></path>
-        </svg>
       </div>
     </section>
   );
