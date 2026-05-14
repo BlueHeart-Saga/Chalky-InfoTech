@@ -1,51 +1,52 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  FileText, 
-  Search, 
-  UserCheck, 
-  Star, 
-  Users, 
+import {
+  FileText,
+  Search,
+  UserCheck,
+  Star,
+  Users,
   CheckCircle,
-  ChevronRight 
+  ChevronRight
 } from 'lucide-react';
 
 const STEPS = [
-  { 
-    id: 1, 
-    icon: FileText, 
-    title: "Requirement", 
-    desc: "Analysing and defining role-specific needs." 
+  {
+    id: 1,
+    icon: FileText,
+    title: "Requirement",
+    desc: "Analysing and defining role-specific needs."
   },
-  { 
-    id: 2, 
-    icon: Search, 
-    title: "Sourcing", 
-    desc: "Targeted talent hunt across global networks." 
+  {
+    id: 2,
+    icon: Search,
+    title: "Sourcing",
+    desc: "Targeted talent hunt across global networks."
   },
-  { 
-    id: 3, 
-    icon: UserCheck, 
-    title: "Screening", 
-    desc: "AI-powered technical and soft-skill evaluation."  },
-  { 
-    id: 4, 
-    icon: Star, 
-    title: "Shortlist", 
-    desc: "Identifying the top-tier candidates for review." 
+  {
+    id: 3,
+    icon: UserCheck,
+    title: "Screening",
+    desc: "AI-powered technical and soft-skill evaluation."
   },
-  { 
-    id: 5, 
-    icon: Users, 
-    title: "Interview", 
-    desc: "Direct behavioral and expert-led assessments." 
+  {
+    id: 4,
+    icon: Star,
+    title: "Shortlist",
+    desc: "Identifying the top-tier candidates for review."
   },
-  { 
-    id: 6, 
-    icon: CheckCircle, 
-    title: "Onboarding", 
-    desc: "Ensuring a smooth and productive start." 
+  {
+    id: 5,
+    icon: Users,
+    title: "Interview",
+    desc: "Direct behavioral and expert-led assessments."
+  },
+  {
+    id: 6,
+    icon: CheckCircle,
+    title: "Onboarding",
+    desc: "Ensuring a smooth and productive start."
   }
 ];
 
@@ -66,7 +67,7 @@ export default function ProcessTimeline() {
         <div className="relative">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-16 gap-x-4">
             {STEPS.map((item, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -83,21 +84,21 @@ export default function ProcessTimeline() {
 
                 {/* Circle Icon Container */}
                 <div className="relative mb-8">
-                   <div className="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm border-2 bg-white border-[#7A1F5C]/20 text-[#7A1F5C] group-hover:bg-[#7A1F5C] group-hover:border-[#7A1F5C] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#7A1F5C]/20 group-hover:scale-110">
-                     <item.icon size={32} strokeWidth={1.5} />
-                   </div>
-                   
-                   {/* Step Number Badge */}
-                   <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-[#1A1A1A] text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
-                      {item.id}
-                   </div>
+                  <div className="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm border-2 bg-white border-[#7A1F5C]/20 text-[#7A1F5C] group-hover:bg-[#7A1F5C] group-hover:border-[#7A1F5C] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#7A1F5C]/20 group-hover:scale-110">
+                    <item.icon size={32} strokeWidth={1.5} />
+                  </div>
+
+                  {/* Step Number Badge */}
+                  <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-[#1A1A1A] text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
+                    {item.id}
+                  </div>
                 </div>
-                
+
                 <div className="px-2">
-                   <h4 className="font-semibold text-lg text-[#1A1A1A] mb-3">{item.title}</h4>
-                   <p className="text-gray-500 text-[13px] leading-relaxed max-w-[160px] mx-auto">
-                     {item.desc}
-                   </p>
+                  <h4 className="font-semibold text-lg text-[#1A1A1A] mb-3">{item.title}</h4>
+                  <p className="text-gray-500 text-[13px] leading-relaxed max-w-[160px] mx-auto">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}

@@ -1,0 +1,148 @@
+.solutions-grid-side {
+    position: relative;
+    padding: 20px;
+    transform-style: preserve-3d;
+}
+
+/* CRITICAL FIXES FOR FLIP CARDS - NO POSITION SHIFT */
+.service-card-flip {
+    perspective: 1200px;
+    height: 280px;
+    width: 100%;
+    position: relative;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: visible; 
+}
+
+.card-flip-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+.service-card-flip:hover .card-flip-inner {
+    transform: rotateY(180deg);
+}
+
+.card-flip-front, 
+.card-flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
+    align-items: center;
+    box-sizing: border-box;
+    transform-origin: center center;
+    overflow: hidden; 
+}
+
+.card-flip-front {
+    background-color: rgba(122, 31, 92, 0.03); /* Light plum wash matching the image's background */
+    border: 2px solid #7A1F5C; /* Strong solid border matching the image */
+    box-shadow: none; /* Removing drop shadow to match the flat 2D style of the image */
+    transform: rotateY(0deg);
+}
+
+.card-flip-back {
+    background: linear-gradient(135deg, #7A1F5C, #C2185B); /* Matched corporate brand */
+    color: white;
+    transform: rotateY(180deg);
+    border: 1px solid transparent;
+    justify-content: space-evenly;
+    padding: 35px 25px;
+}
+
+/* Floating effects */
+.compact-card-icon {
+    width: 65px;
+    height: 65px;
+    background: rgba(122, 31, 92, 0.05); /* Matched #7A1F5C */
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0; 
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(40px);
+}
+
+.card-flip-front h3 {
+    font-size: 18px; /* Reduced from 20px for a smaller title */
+    font-weight: 600; /* Reduced from 800 to match main heading font-semibold */
+    color: #1A1A1A;
+    margin: 0; 
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(60px);
+}
+
+.flip-hint {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #7A1F5C;
+    margin-top: 0; 
+    font-weight: 700;
+    opacity: 0.6;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(30px);
+}
+
+.card-flip-back h3 {
+    color: white !important;
+    font-size: 16px !important; /* Reduced to maintain proportion with front */
+    font-weight: 600 !important; /* Matched semibold */
+    margin-bottom: 0 !important; 
+    transform: translateZ(60px);
+    transition: transform 0.6s;
+}
+
+.card-flip-back p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 0; 
+    transform: translateZ(40px);
+    transition: transform 0.6s;
+}
+
+.compact-explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: #7A1F5C;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    transform: translateZ(50px);
+    margin-bottom: 0;  
+}
+
+.compact-explore-btn:hover {
+    transform: scale(1.05);
+    background: #f8f9fa;
+}

@@ -1,73 +1,80 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
-import { INDUSTRIES } from '@/constants';
-import { Cpu, Landmark, Activity, BookOpen, ShoppingCart, Play, Zap, Factory, ArrowUpRight } from 'lucide-react';
+import IndustriesOverview from '@/sections/industries/IndustriesOverview';
+import FeaturedIndustryExpertise from '@/sections/industries/FeaturedIndustryExpertise';
+import IndustryRecruitmentSolutions from '@/sections/industries/IndustryRecruitmentSolutions';
+import WorkforceChallenges from '@/sections/industries/WorkforceChallenges';
+import IndustryHiringProcess from '@/sections/industries/IndustryHiringProcess';
+import WhyBusinessesTrustUs from '@/sections/industries/WhyBusinessesTrustUs';
+import GlobalIndustrySupport from '@/sections/industries/GlobalIndustrySupport';
+import IndustryMetrics from '@/sections/industries/IndustryMetrics';
+import IndustriesFAQ from '@/sections/industries/IndustriesFAQ';
+import SectionNavbar from '@/components/SectionNavbar';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve | Chalky Infotech',
+  title: 'Specialized Industry Recruitment & Workforce Solutions | Chalky Infotech',
   description:
-    'Chalky Infotech serves 8+ major industries with specialist recruitment expertise. Explore technology, finance, healthcare, retail, media and more.',
+    'Chalky Infotech supports organizations across technology, healthcare, finance, education, retail, and manufacturing through scalable recruitment solutions tailored to industry-specific needs.',
 };
-
-const iconMap: Record<string, React.ElementType> = {
-  Cpu, Landmark, Activity, BookOpen, ShoppingCart, Play, Zap, Factory,
-};
-
-const bgColors = [
-  'bg-[#7A1F5C]', 'bg-[#C2185B]', 'bg-[#4A1238]', 'bg-[#D14D72]',
-  'bg-[#7A1F5C]', 'bg-[#C2185B]', 'bg-[#4A1238]', 'bg-[#D14D72]',
-];
 
 export default function IndustriesPage() {
-  return (
-    <>
-      <PageHero
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Industries' },
-        ]}
-        badge="Sector Expertise"
-        title="Industries We"
-        titleHighlight="Serve"
-        subtitle="Deep sector specialisation across 8 major industries — delivering talent solutions that truly understand the unique challenges, regulations and culture of your world."
-        ctaLabel="Find Sector Talent"
-        ctaHref="/contact"
-        secondaryLabel="View Services"
-        secondaryHref="/services"
-        imageSrc="/hero-industries.png"
-        imageAlt="Multi-industry business team meeting"
-      />
+  const sections = [
+    { label: 'Top', id: 'hero' },
+    { label: 'Overview', id: 'overview' },
+    { label: 'Featured', id: 'featured' },
+    { label: 'Solutions', id: 'solutions' },
+    { label: 'Challenges', id: 'challenges' },
+    { label: 'Process', id: 'process' },
+    { label: 'Why Trust Us', id: 'trust' },
+    { label: 'Global Support', id: 'global' },
+    { label: 'Metrics', id: 'metrics' },
+    { label: 'FAQ', id: 'faq' }
+  ];
 
-      {/* Industry Grid */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {INDUSTRIES.map((ind, i) => {
-              const Icon = iconMap[ind.icon] || Cpu;
-              return (
-                <Link key={ind.slug} href={`/industries/${ind.slug}`}
-                  className="group relative overflow-hidden rounded-3xl bg-[#F5F0E8] border border-[#EFE7DD] p-8 hover:shadow-2xl hover:shadow-[#7A1F5C]/20 hover:-translate-y-2 transition-all duration-400">
-                  <div className={`absolute top-0 right-0 w-24 h-24 rounded-full ${bgColors[i]} opacity-10 -translate-y-6 translate-x-6 group-hover:opacity-20 transition-opacity duration-300`} />
-                  <div className={`w-14 h-14 rounded-2xl ${bgColors[i]} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon size={26} className="text-white" />
-                  </div>
-                  <h3 className="font-bold text-[#1A1A1A] text-lg mb-3 group-hover:text-[#7A1F5C] transition-colors duration-300">{ind.label}</h3>
-                  <p className="text-[#8A8A8A] text-sm leading-relaxed mb-4">
-                    Specialist talent solutions for the {ind.label.toLowerCase()} sector.
-                  </p>
-                  <div className="flex items-center gap-2 text-[#7A1F5C] font-semibold text-sm">
-                    Explore <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+  return (
+    <div className="flex flex-col min-h-screen">
+      <SectionNavbar sections={sections} />
+
+      <section id="hero">
+        <PageHero
+          breadcrumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Industries' },
+          ]}
+          badge="Industry Recruitment Expertise"
+          title="Specialized Workforce"
+          titleHighlight="Across Diverse Industries"
+          subtitle="Chalky Infotech supports organizations across technology, healthcare, finance, education, retail, manufacturing, and emerging sectors through scalable recruitment and workforce solutions tailored to industry-specific needs."
+          ctaLabel="Explore Industries"
+          ctaHref="#featured"
+          secondaryLabel="Talk To Our Team"
+          secondaryHref="/contact"
+          imageSrc="/hero-industries.png"
+          imageAlt="Multi-industry business team meeting"
+        />
       </section>
 
-      <CTASection title="Need Talent for Your Industry?" />
-    </>
+      <section id="overview"><IndustriesOverview /></section>
+      <section id="featured"><FeaturedIndustryExpertise /></section>
+      <section id="solutions"><IndustryRecruitmentSolutions /></section>
+      <section id="challenges"><WorkforceChallenges /></section>
+      <section id="process"><IndustryHiringProcess /></section>
+      <section id="trust"><WhyBusinessesTrustUs /></section>
+      <section id="global"><GlobalIndustrySupport /></section>
+      <section id="metrics"><IndustryMetrics /></section>
+      <section id="faq"><IndustriesFAQ /></section>
+
+      <section id="cta">
+        <CTASection 
+          title="Build Industry-Ready Teams"
+          subtitle="Partner with our recruitment specialists to access scalable workforce solutions tailored to your industry and business growth objectives."
+          primaryLabel="Contact Our Team"
+          primaryHref="/contact"
+          secondaryLabel="Explore Services"
+          secondaryHref="/services"
+        />
+      </section>
+    </div>
   );
 }

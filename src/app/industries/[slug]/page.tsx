@@ -1,119 +1,123 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { INDUSTRIES, INDUSTRIES_DETAILED } from '@/constants';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
-import { INDUSTRIES } from '@/constants';
-import { CheckCircle2 } from 'lucide-react';
+import IndustryOverview from '@/sections/industry-detail/IndustryOverview';
+import IndustryChallenges from '@/sections/industry-detail/IndustryChallenges';
+import RolesWeHire from '@/sections/industry-detail/RolesWeHire';
+import IndustrySolutions from '@/sections/industry-detail/IndustrySolutions';
+import IndustryProcess from '@/sections/industry-detail/IndustryProcess';
+import IndustryFAQ from '@/sections/industry-detail/IndustryFAQ';
+import RelatedIndustries from '@/sections/industry-detail/RelatedIndustries';
+import SectionNavbar from '@/components/SectionNavbar';
 
-interface Props {
+type Props = {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return INDUSTRIES.map((ind) => ({ slug: ind.slug }));
-}
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const industry = INDUSTRIES.find((i) => i.slug === slug);
-  if (!industry) return {};
+  const industry = INDUSTRIES_DETAILED.find((i) => i.slug === slug);
+  if (!industry) return { title: 'Industry Not Found' };
+
   return {
-    title: `${industry.label} Recruitment | Chalky Infotech`,
-    description: `Specialist recruitment solutions for the ${industry.label} sector. Chalky Infotech delivers exceptional talent with deep ${industry.label.toLowerCase()} industry knowledge and a 98% client satisfaction rate.`,
-    openGraph: {
-      title: `${industry.label} Recruitment | Chalky Infotech`,
-      description: `Specialist ${industry.label} recruitment — delivered by consultants who truly understand your world.`,
-    },
+    title: `${industry.label} Recruitment & Workforce Solutions | Chalky Infotech`,
+    description: `Specialized ${industry.label.toLowerCase()} workforce solutions helping organizations scale through strategic recruitment and talent acquisition across UK and India.`,
+    keywords: [industry.label, 'recruitment solutions', 'staffing services', 'workforce solutions', 'industry expertise', 'Chalky Infotech'],
   };
+}
+
+export async function generateStaticParams() {
+  return INDUSTRIES.map((i) => ({ slug: i.slug }));
 }
 
 export default async function IndustryDetailPage({ params }: Props) {
   const { slug } = await params;
-  const industry = INDUSTRIES.find((i) => i.slug === slug);
-  if (!industry) notFound();
+  const industry = INDUSTRIES_DETAILED.find((i) => i.slug === slug);
 
-  const roles: Record<string, string[]> = {
-    technology: ['Software Engineers', 'Cloud Architects', 'Data Scientists', 'DevOps Engineers', 'CTO/VP Engineering'],
-    finance: ['Quantitative Analysts', 'Risk Managers', 'Compliance Officers', 'CFOs', 'Investment Managers'],
-    healthcare: ['Clinical Data Managers', 'Bioinformaticians', 'Healthcare IT Leads', 'Medical Directors'],
-    education: ['EdTech Engineers', 'Curriculum Designers', 'Learning Technologists', 'Academic Directors'],
-    retail: ['E-commerce Managers', 'Supply Chain Directors', 'Retail Tech Leads', 'Category Managers'],
-    media: ['Creative Directors', 'Content Engineers', 'Broadcast Technologists', 'Digital Strategists'],
-    energy: ['Power Systems Engineers', 'Sustainability Leads', 'Energy Data Analysts', 'Grid Architects'],
-    manufacturing: ['Manufacturing Engineers', 'Quality Leads', 'Operations Directors', 'Automation Specialists'],
+  if (!industry) {
+    notFound();
+  }
+
+  // Structured Data (JSON-LD)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `${industry.label} Recruitment Solutions`,
+    description: `Specialized workforce solutions for the ${industry.label} sector.`,
+    provider: {
+      '@type': 'Organization',
+      name: 'Chalky Infotech',
+      url: 'https://chalkyinfotech.com',
+    },
+    areaServed: ['UK', 'India'],
   };
 
-  const roleList = roles[industry.slug] ?? ['Senior Professionals', 'Team Leads', 'Directors', 'Specialists'];
+  const sections = [
+    { label: 'Top', id: 'hero' },
+    { label: 'Overview', id: 'overview' },
+    { label: 'Challenges', id: 'challenges' },
+    { label: 'Roles', id: 'roles' },
+    { label: 'Solutions', id: 'solutions' },
+    { label: 'Process', id: 'process' },
+    { label: 'FAQ', id: 'faq' },
+    { label: 'Related', id: 'related' }
+  ];
 
   return (
-    <>
-      <PageHero
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Industries', href: '/industries' },
-          { label: industry.label },
-        ]}
-        badge={industry.label}
-        title={`${industry.label}`}
-        titleHighlight="Recruitment"
-        subtitle={`Specialist talent solutions for the ${industry.label.toLowerCase()} sector — delivered by consultants who truly understand your world, your culture and your competitive landscape.`}
-        ctaLabel={`Hire ${industry.label} Talent`}
-        ctaHref="/contact"
-        secondaryLabel="All Industries"
-        secondaryHref="/industries"
-        imageSrc="/hero-industries.png"
-        imageAlt={`${industry.label} industry professionals`}
+    <div className="flex flex-col min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      
+      <SectionNavbar sections={sections} />
 
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <h2 className="text-4xl font-extrabold text-[#1A1A1A] mb-6">
-                Why Trust Us for{' '}
-                <span className="text-[#7A1F5C]">
-                  {industry.label}
-                </span>
-              </h2>
-              <p className="text-[#8A8A8A] leading-relaxed mb-4">
-                Our {industry.label} recruitment team brings sector-specific knowledge, an established talent network and a track record of placing high-impact professionals.
-              </p>
-              <p className="text-[#8A8A8A] leading-relaxed">
-                We understand the pressures, the compliance requirements, and the unique skills needed for this industry — helping you hire faster and retain longer.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                {[
-                  { value: '98%', label: 'Client Satisfaction' },
-                  { value: '18d', label: 'Avg. Time-to-Hire' },
-                  { value: '500+', label: 'Sector Clients' },
-                  { value: '250K+', label: 'Candidate Network' },
-                ].map((s) => (
-                  <div key={s.label} className="bg-[#F5F0E8] rounded-2xl p-5 border border-[#EFE7DD]">
-                    <p className="text-2xl font-extrabold text-[#7A1F5C]">{s.value}</p>
-                    <p className="text-[#8A8A8A] text-xs mt-1">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-[#F5F0E8] rounded-3xl p-8 border border-[#EFE7DD]">
-              <h3 className="font-bold text-[#1A1A1A] text-lg mb-6">Roles We Fill in {industry.label}</h3>
-              <div className="space-y-3">
-                {roleList.map((role) => (
-                  <div key={role} className="flex items-center gap-3 p-3 rounded-xl hover:bg-white transition-all duration-200">
-                    <CheckCircle2 size={16} className="text-[#7A1F5C] flex-shrink-0" />
-                    <span className="text-[#8A8A8A] text-sm font-medium">{role}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+      <section id="hero">
+        <PageHero
+          breadcrumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Industries', href: '/industries' },
+            { label: industry.label },
+          ]}
+          badge={industry.hero.badge}
+          title={industry.hero.title}
+          subtitle={industry.hero.subtitle}
+          ctaLabel="Talk to an Industry Expert"
+          ctaHref="/contact"
+          secondaryLabel="View Services"
+          secondaryHref="/services"
+          imageSrc={industry.hero.image}
+          imageAlt={`${industry.label} recruitment specialist`}
+        />
       </section>
 
-      <CTASection
-        title={`Ready to hire in ${industry.label}?`}
-        subtitle="Our specialist consultants are ready to support your talent needs today."
-      />
-    </>
+      <section id="overview">
+        <IndustryOverview 
+          title={industry.overview.title} 
+          description={industry.overview.description} 
+          capabilities={industry.capabilities}
+        />
+      </section>
+      
+      <section id="challenges"><IndustryChallenges challenges={industry.challenges} /></section>
+      <section id="roles"><RolesWeHire industryLabel={industry.label} roles={industry.roles} /></section>
+      <section id="solutions"><IndustrySolutions services={industry.services} /></section>
+      <section id="process"><IndustryProcess /></section>
+      <section id="faq"><IndustryFAQ industryLabel={industry.label} faqs={industry.faqs} /></section>
+      <section id="related"><RelatedIndustries currentSlug={industry.slug} /></section>
+
+      <section id="cta">
+        <CTASection 
+          title={`Build Your ${industry.label} Team`}
+          subtitle={`Partner with our ${industry.label.toLowerCase()} specialists to access scalable workforce solutions and exceptional talent tailored to your sector goals.`}
+          primaryLabel="Contact Our Team"
+          primaryHref="/contact"
+          secondaryLabel="Talk To Our Team"
+          secondaryHref="/contact"
+        />
+      </section>
+    </div>
   );
 }

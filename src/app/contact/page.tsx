@@ -6,6 +6,7 @@ import OfficeLocations from '@/sections/contact/OfficeLocations';
 import ContactMap from '@/sections/contact/ContactMap';
 import ContactTeam from '@/sections/contact/ContactTeam';
 import ContactFAQ from '@/sections/contact/ContactFAQ';
+import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Chalky Infotech',
@@ -17,7 +18,7 @@ export default function ContactPage() {
     { label: 'Top', id: 'hero' },
     { label: 'Message Us', id: 'contact' },
     { label: 'Our Offices', id: 'offices' },
-    { label: 'Global Map', id: 'map' },
+    // { label: 'Global Map', id: 'map' },
     { label: 'Key Contacts', id: 'team' },
     { label: 'FAQ', id: 'faq' }
   ];
@@ -38,9 +39,9 @@ export default function ContactPage() {
         <OfficeLocations />
       </section>
 
-      <section id="map">
+      {/* <section id="map">
         <ContactMap />
-      </section>
+      </section> */}
 
       <section id="team">
         <ContactTeam />
@@ -48,6 +49,17 @@ export default function ContactPage() {
 
       <section id="faq">
         <ContactFAQ />
+      </section>
+
+      <section id="cta">
+        <CTASection
+          title="Ready to Connect with Our Team?"
+          subtitle="Whether you're hiring top talent or searching for your next role, Chalky Infotech is here to make it happen."
+          primaryLabel="Start a Conversation"
+          primaryHref="#contact"
+          secondaryLabel="Explore Services"
+          secondaryHref="/services"
+        />
       </section>
     </div>
   );

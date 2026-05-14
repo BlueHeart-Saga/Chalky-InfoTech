@@ -32,27 +32,29 @@ export const NAV_LINKS = [
   { label: 'Contact', href: '/contact' },
 ];
 
+export * from './servicesData';
+
 export const SERVICES = [
-  { slug: 'it-recruitment', label: 'IT Recruitment Services', icon: 'Code2', desc: 'Specialist tech talent acquisition across software, infrastructure and emerging technologies.' },
-  { slug: 'financial-services', label: 'Financial Services', icon: 'TrendingUp', desc: 'Connecting top finance professionals with leading institutions globally.' },
-  { slug: 'education-services', label: 'Education Services', icon: 'GraduationCap', desc: 'Bridging academia and industry with highly qualified education professionals.' },
-  { slug: 'healthcare-life-sciences', label: 'Healthcare & Life Sciences', icon: 'HeartPulse', desc: 'Critical talent solutions for healthcare, pharma and biotech sectors.' },
-  { slug: 'retail-services', label: 'Retail Services', icon: 'ShoppingBag', desc: 'Fuelling retail growth with skilled merchandising and operations talent.' },
-  { slug: 'outsourcing-offshoring', label: 'Outsourcing & Offshoring', icon: 'Globe', desc: 'Strategic outsourcing partnerships to scale operations efficiently.' },
-  { slug: 'media-entertainment', label: 'Media & Entertainment', icon: 'Film', desc: 'Creative and technical talent for media, broadcast and entertainment.' },
-  { slug: 'power-electronics', label: 'Power & Electronics', icon: 'Zap', desc: 'Engineering talent for energy, semiconductor and electronics industries.' },
-  { slug: 'cloud-devops', label: 'Cloud & DevOps', icon: 'Cloud', desc: 'Cloud architects, DevOps engineers and SREs for digital transformation.' },
-  { slug: 'ai-data-engineering', label: 'AI & Data Engineering', icon: 'Brain', desc: 'AI/ML engineers, data scientists and analysts for intelligence-driven organisations.' },
+  { slug: 'it-staffing', label: 'IT Staffing', icon: 'Code2', desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.' },
+  { slug: 'executive-search', label: 'Executive Search', icon: 'TrendingUp', desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.' },
+  { slug: 'contract-staffing', label: 'Contract Staffing', icon: 'Clock', desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.' },
+  { slug: 'permanent-hiring', label: 'Permanent Hiring', icon: 'Users', desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.' },
+  { slug: 'temporary-recruitment', label: 'Temporary Recruitment', icon: 'UserPlus', desc: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.' },
+  { slug: 'on-site-recruitment', label: 'On-Site Recruitment', icon: 'MapPin', desc: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.' },
+  { slug: 'managed-services', label: 'Managed Services', icon: 'Settings', desc: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.' },
+  { slug: 'remote-hiring', label: 'Remote Hiring', icon: 'Globe', desc: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.' },
 ];
 
+export * from './industriesData';
+
 export const INDUSTRIES = [
-  { slug: 'technology', label: 'Technology', icon: 'Cpu' },
-  { slug: 'finance', label: 'Finance & Banking', icon: 'Landmark' },
-  { slug: 'healthcare', label: 'Healthcare', icon: 'Activity' },
-  { slug: 'education', label: 'Education', icon: 'BookOpen' },
-  { slug: 'retail', label: 'Retail & E-commerce', icon: 'ShoppingCart' },
-  { slug: 'media', label: 'Media & Entertainment', icon: 'Play' },
-  { slug: 'energy', label: 'Energy & Utilities', icon: 'Zap' },
+  { slug: 'it-technology', label: 'IT & Technology', icon: 'Cpu' },
+  { slug: 'telecommunications', label: 'Telecommunications', icon: 'Radio' },
+  { slug: 'cybersecurity', label: 'Cybersecurity', icon: 'Shield' },
+  { slug: 'ai-data-science', label: 'AI & Data Science', icon: 'Brain' },
+  { slug: 'banking-finance', label: 'Banking & Finance', icon: 'Landmark' },
+  { slug: 'healthcare-life-sciences', label: 'Healthcare & Life Sciences', icon: 'Activity' },
+  { slug: 'retail-ecommerce', label: 'Retail & E-Commerce', icon: 'ShoppingCart' },
   { slug: 'manufacturing', label: 'Manufacturing', icon: 'Factory' },
 ];
 
