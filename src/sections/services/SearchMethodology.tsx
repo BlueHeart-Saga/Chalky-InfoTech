@@ -215,7 +215,7 @@ export default function SearchMethodology() {
               >
                 <div className="flex items-center gap-6 mb-8">
                   <div className="w-16 h-16 md:w-[90px] md:h-[90px] bg-white text-[#7A1F5C] rounded-2xl flex items-center justify-center shadow-lg shrink-0">
-                    {React.cloneElement(activeStep.icon as React.ReactElement, { className: "w-8 h-8 md:w-10 md:h-10" })}
+                    {React.cloneElement(activeStep.icon as React.ReactElement<any>, { className: "w-8 h-8 md:w-10 md:h-10" })}
                   </div>
                   <div>
                     <span className="block text-xs md:text-sm font-extrabold tracking-widest text-white/60 mb-1">STEP 0{currentIndex + 1}</span>
