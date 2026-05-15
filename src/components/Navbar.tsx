@@ -83,8 +83,20 @@ const INDUSTRIES_DATA = {
   }
 };
 
+interface InsightCategory {
+  label: string;
+  slug: string;
+  desc: string;
+}
+
+interface InsightSection {
+  name: string;
+  slug: string;
+  categories: InsightCategory[];
+}
+
 // ─── Insights Data — Dynamic Navigation Structure ────────────────────────────
-const DEFAULT_INSIGHTS_SECTIONS = [
+const DEFAULT_INSIGHTS_SECTIONS: InsightSection[] = [
   {
     name: "Insights & Knowledge",
     slug: "insights-knowledge",
@@ -102,7 +114,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   
   // Dynamic Insights State
-  const [insightsSections, setInsightsSections] = useState<any[]>(DEFAULT_INSIGHTS_SECTIONS);
+  const [insightsSections, setInsightsSections] = useState<InsightSection[]>(DEFAULT_INSIGHTS_SECTIONS);
   const [hoveredInsightsSection, setHoveredInsightsSection] = useState<string | null>(DEFAULT_INSIGHTS_SECTIONS[0].slug);
   const pathname = usePathname();
 
@@ -111,7 +123,7 @@ export default function Navbar() {
       try {
         const structure = await api.getFullSiteStructure();
         if (structure && structure.length > 0) {
-          const formattedSections = structure.map((sec: any) => ({
+          const formattedSections: InsightSection[] = structure.map((sec: any) => ({
             name: sec.name,
             slug: sec.slug,
             categories: (sec.categories || []).map((cat: any) => ({
@@ -217,7 +229,7 @@ export default function Navbar() {
             <div className="w-1/4 border-r border-gray-50 py-10 px-8 bg-[#F9F9F9]/50">
               <h3 className="text-[11px] font-bold text-[#8A8A8A] uppercase tracking-[0.2em] mb-10">Insights</h3>
               <div className="flex flex-col gap-4">
-                {insightsSections.map((section) => (
+                {insightsSections.map((section: InsightSection) => (
                   <button
                     key={section.slug}
                     onMouseEnter={() => setHoveredInsightsSection(section.slug)}
@@ -243,7 +255,7 @@ export default function Navbar() {
                 >
                   <h4 className="text-[11px] font-bold text-[#8A8A8A] uppercase tracking-[0.2em] mb-10">Categories</h4>
                   <div className="grid grid-cols-1 gap-4">
-                    {currentSection.categories.map((cat) => (
+                    {currentSection.categories.map((cat: InsightCategory) => (
                       <Link 
                         key={cat.slug} 
                         href={`/insights/${cat.slug}`}
