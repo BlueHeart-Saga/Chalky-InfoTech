@@ -36,6 +36,7 @@ export default function CompanyOverview() {
                 src="/overview-image.png"
                 alt="Chalky Infotech Overview"
                 fill
+                sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
                 className="object-contain"
               />
             </motion.div>

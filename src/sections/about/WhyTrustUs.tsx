@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ShieldCheck, Globe, BadgeCheck, Handshake, CheckCircle2 } from 'lucide-react';
 import trustImg from '@/assets/About/trust.png';
 
@@ -36,12 +36,12 @@ const trustPoints = [
   'Operational Transparency',
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 };

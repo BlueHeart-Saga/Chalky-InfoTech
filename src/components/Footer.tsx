@@ -92,6 +92,7 @@ export default function Footer() {
                 alt="Chalky Infotech Logo" 
                 width={180} 
                 height={50} 
+                style={{ height: 'auto' }}
                 className="w-auto h-12 object-contain"
               />
             </div>

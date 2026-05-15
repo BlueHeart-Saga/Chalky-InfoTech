@@ -10,21 +10,21 @@ const POSTS = [
     category: "Technology", 
     date: "May 10, 2024",
     desc: "How generative AI is reshaping how we source and vet top engineering talent.",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop"
   },
   { 
     title: "Scaling Cloud Teams at Enterprise Speed", 
     category: "Cloud", 
     date: "May 08, 2024",
     desc: "A guide for CTOs on maintaining quality while scaling rapidly in a competitive market.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
   },
   { 
     title: "Remote vs Hybrid: The Talent Perspective", 
     category: "Strategy", 
     date: "May 05, 2024",
     desc: "Why flexible working models remain the top priority for tech professionals.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1522071823991-b5ae72647c46?q=80&w=800&auto=format&fit=crop"
   }
 ];
 

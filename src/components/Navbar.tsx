@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { NAV_LINKS } from '@/constants';
+import api from '@/services/api';
 
 // ─── Services Data ────────────────────────────────────────────────────────────
 const SERVICES_DATA = {
@@ -41,7 +42,7 @@ const SERVICES_DATA = {
     desc: 'Our people are the difference. Hear stories from our people about a career at Chalky Infotech...',
     link: 'Learn more',
     href: '/about',
-    image: 'https://images.unsplash.com/photo-1522071823991-b5ae72647c46?q=80&w=400&h=250&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=400&h=250&auto=format&fit=crop'
   }
 };
 
@@ -83,46 +84,14 @@ const INDUSTRIES_DATA = {
 };
 
 // ─── Insights Data — Dynamic Navigation Structure ────────────────────────────
-const INSIGHTS_SECTIONS = [
+const DEFAULT_INSIGHTS_SECTIONS = [
   {
     name: "Insights & Knowledge",
     slug: "insights-knowledge",
     categories: [
-      { label: "Blogs", slug: "blogs", desc: "Expert analysis and thought leadership on global recruitment trends and workforce strategies." },
-      { label: "Case Studies", slug: "case-studies", desc: "Proven success stories demonstrating our impact on client growth and organizational scaling." },
-      { label: "Newsletters", slug: "newsletters", desc: "Curated industry intelligence and strategic hiring updates delivered directly to your inbox." },
-      { label: "Podcasts", slug: "podcasts", desc: "Engaging conversations with industry experts on the future of work and talent management." },
+      { label: "Blogs", slug: "blogs", desc: "Expert analysis and thought leadership on global recruitment trends." },
     ],
-  },
-  {
-    name: "News & Events",
-    slug: "news-events",
-    categories: [
-      { label: "Industry Events", slug: "industry-events", desc: "Stay connected with the latest networking opportunities and major recruitment summits." },
-      { label: "Company Announcements", slug: "company-announcements", desc: "Official updates on Chalky Infotech's growth, partnerships, and strategic initiatives." },
-      { label: "Achievements", slug: "achievements", desc: "Celebrating our milestones and contributions to the global staffing ecosystem." },
-      { label: "Awards & Milestones", slug: "awards-milestones", desc: "Recognition of our commitment to excellence and innovation in recruitment." },
-    ],
-  },
-  {
-    name: "Success Stories",
-    slug: "success-stories",
-    categories: [
-      { label: "Client Transformations", slug: "client-transformations", desc: "Deep dives into how our talent solutions reshaped enterprise success." },
-      { label: "Impact Metrics", slug: "impact-metrics", desc: "Data-driven results showcasing the measurable ROI of our recruitment partnerships." },
-      { label: "Testimonials", slug: "testimonials", desc: "Direct feedback from our global partners on the quality of our talent and service." },
-    ],
-  },
-  {
-    name: "Life at Chalky",
-    slug: "life-at",
-    categories: [
-      { label: "Celebrations", slug: "celebrations", desc: "A look behind the scenes at our team culture, events, and festive gatherings." },
-      { label: "Team Culture", slug: "team-culture", desc: "Discover the core values and collaborative spirit that drive our global team." },
-      { label: "Posters", slug: "posters", desc: "Visual showcases of our internal initiatives and creative brand expressions." },
-      { label: "Community", slug: "community", desc: "Our commitment to corporate social responsibility and local community impact." },
-    ],
-  },
+  }
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -131,8 +100,37 @@ export default function Navbar() {
   const [hidden, setHidden]               = useState(false);
   const [mobileOpen, setMobileOpen]       = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [hoveredInsightsSection, setHoveredInsightsSection] = useState(INSIGHTS_SECTIONS[0].slug);
+  
+  // Dynamic Insights State
+  const [insightsSections, setInsightsSections] = useState<any[]>(DEFAULT_INSIGHTS_SECTIONS);
+  const [hoveredInsightsSection, setHoveredInsightsSection] = useState<string | null>(DEFAULT_INSIGHTS_SECTIONS[0].slug);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const fetchInsightsNav = async () => {
+      try {
+        const structure = await api.getFullSiteStructure();
+        if (structure && structure.length > 0) {
+          const formattedSections = structure.map((sec: any) => ({
+            name: sec.name,
+            slug: sec.slug,
+            categories: (sec.categories || []).map((cat: any) => ({
+              label: cat.name,
+              slug: cat.slug,
+              desc: cat.description || `Explore our ${cat.name} content.`
+            }))
+          }));
+          setInsightsSections(formattedSections);
+          if (formattedSections.length > 0) {
+            setHoveredInsightsSection(formattedSections[0].slug);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch insights nav:", err);
+      }
+    };
+    fetchInsightsNav();
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -203,7 +201,7 @@ export default function Navbar() {
   );
 
   const renderInsightsMenu = () => {
-    const currentSection = INSIGHTS_SECTIONS.find(s => s.slug === hoveredInsightsSection) || INSIGHTS_SECTIONS[0];
+    const currentSection = insightsSections.find(s => s.slug === hoveredInsightsSection) || insightsSections[0] || DEFAULT_INSIGHTS_SECTIONS[0];
     
     return (
       <motion.div
@@ -219,7 +217,7 @@ export default function Navbar() {
             <div className="w-1/4 border-r border-gray-50 py-10 px-8 bg-[#F9F9F9]/50">
               <h3 className="text-[11px] font-bold text-[#8A8A8A] uppercase tracking-[0.2em] mb-10">Insights</h3>
               <div className="flex flex-col gap-4">
-                {INSIGHTS_SECTIONS.map((section) => (
+                {insightsSections.map((section) => (
                   <button
                     key={section.slug}
                     onMouseEnter={() => setHoveredInsightsSection(section.slug)}
@@ -248,7 +246,7 @@ export default function Navbar() {
                     {currentSection.categories.map((cat) => (
                       <Link 
                         key={cat.slug} 
-                        href={`/${currentSection.slug}/${cat.slug}`}
+                        href={`/insights/${cat.slug}`}
                         className="group flex items-center justify-between p-5 rounded-2xl border border-transparent hover:border-[#7A1F5C]/10 hover:bg-[#F5F0E8]/30 transition-all duration-300"
                       >
                         <div>
@@ -271,7 +269,7 @@ export default function Navbar() {
                 <h4 className="text-[11px] font-bold text-[#8A8A8A] uppercase tracking-[0.2em] mb-10">Featured</h4>
                 <div className="rounded-2xl overflow-hidden shadow-lg shadow-[#7A1F5C]/5 mb-6 group cursor-pointer">
                    <Image 
-                     src={hoveredInsightsSection === 'life-at' ? 'https://images.unsplash.com/photo-1517245327032-96a1c4a161a7?q=80&w=400&h=250&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=400&h=250&auto=format&fit=crop'} 
+                     src={hoveredInsightsSection === 'life-at' ? 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=250&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=400&h=250&auto=format&fit=crop'} 
                      alt="Featured" 
                      width={400} 
                      height={250} 
@@ -302,7 +300,14 @@ export default function Navbar() {
     <nav className={navClasses}>
       <div className="relative flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Link href="/" className="flex items-center gap-2 group flex-shrink-0 mr-8">
-          <Image src="/logo.png" alt="Chalky Infotech" width={40} height={40} className="object-contain hover:scale-105 transition-transform duration-300" />
+          <Image 
+            src="/logo.png" 
+            alt="Chalky Infotech" 
+            width={40} 
+            height={40} 
+            style={{ height: 'auto' }}
+            className="object-contain hover:scale-105 transition-transform duration-300" 
+          />
           <span className="font-bold text-xl text-[#7A1F5C] tracking-tight">Chalky<span className="text-[#1A1A1A] font-medium">InfoTech</span></span>
         </Link>
 

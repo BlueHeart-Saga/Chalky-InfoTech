@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net',
+        pathname: '/**',
+      },
     ],
   },
 };

@@ -58,6 +58,8 @@ export const INDUSTRIES = [
   { slug: 'manufacturing', label: 'Manufacturing', icon: 'Factory' },
 ];
 
+export * from './insightsData';
+
 export const STATS = [
   { value: '500+', label: 'Clients Served' },
   { value: '10K+', label: 'Candidates Placed' },
