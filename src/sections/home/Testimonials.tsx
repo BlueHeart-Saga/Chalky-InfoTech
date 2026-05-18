@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Quote, ArrowRight, Star } from 'lucide-react';
+import { Quote, ArrowRight, Star, Globe, Landmark, Cloud, Cpu, Rocket } from 'lucide-react';
 
 const TESTIMONIALS = [
   {
@@ -151,11 +151,11 @@ const TESTIMONIALS = [
 ];
 
 const LOGOS = [
-  { name: "GlobalTech", icon: "🌐" },
-  { name: "FinStream", icon: "🏦" },
-  { name: "CloudScale", icon: "☁️" },
-  { name: "DataCore", icon: "📊" },
-  { name: "NexGen", icon: "🚀" }
+  { name: "GlobalTech", icon: Globe },
+  { name: "FinStream", icon: Landmark },
+  { name: "CloudScale", icon: Cloud },
+  { name: "DataCore", icon: Cpu },
+  { name: "NexGen", icon: Rocket }
 ];
 
 const TestimonialCard = ({ t }: { t: typeof TESTIMONIALS[0] }) => (
@@ -293,12 +293,15 @@ export default function Testimonials() {
             Trusted by leading companies worldwide
           </p>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 hover:opacity-100 transition-opacity duration-500">
-            {LOGOS.map((logo, i) => (
-              <div key={i} className="flex items-center gap-3 grayscale hover:grayscale-0 transition-all duration-300">
-                <span className="text-3xl">{logo.icon}</span>
-                <span className="text-xl font-semibold text-gray-800">{logo.name}</span>
-              </div>
-            ))}
+            {LOGOS.map((logo, i) => {
+              const IconComponent = logo.icon;
+              return (
+                <div key={i} className="flex items-center gap-3 grayscale hover:grayscale-0 transition-all duration-300">
+                  <IconComponent size={28} className="text-[#7A1F5C]" />
+                  <span className="text-xl font-semibold text-gray-800">{logo.name}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
 

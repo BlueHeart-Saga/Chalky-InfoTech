@@ -12,6 +12,7 @@ import Testimonials from '@/sections/home/Testimonials';
 import LatestInsights from '@/sections/home/LatestInsights';
 import GlobalPresence from '@/sections/home/GlobalPresence';
 import CTASection from '@/components/CTASection';
+import HumanexShowcase from '@/components/HumanexShowcase';
 
 export const metadata: Metadata = {
   title: 'Chalky Infotech | Premium Recruitment & IT Consulting',
@@ -26,6 +27,7 @@ export default function HomePage() {
     { label: 'Services', id: 'services' },
     { label: 'Industries', id: 'industries' },
     { label: 'Process', id: 'process' },
+    { label: 'Humanex', id: 'humanex' },
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'Contact', id: 'contact' }
   ];
@@ -61,10 +63,15 @@ export default function HomePage() {
       <section id="process">
         <ProcessTimeline />
       </section>
+       <section id="humanex">
+        <HumanexShowcase />
+      </section>
 
       <section id="metrics">
         <MetricsAchievements />
       </section>
+
+     
 
       <section id="testimonials">
         <Testimonials />

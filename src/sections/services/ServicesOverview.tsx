@@ -57,7 +57,7 @@ export default function ServicesOverview() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {OVERVIEW_CARDS.map((card, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -67,25 +67,25 @@ export default function ServicesOverview() {
             >
               {/* Image Area - Top */}
               <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden">
-                <Image 
-                  src={card.image} 
-                  alt={card.title} 
-                  fill 
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  fill
                   sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
 
               {/* Content Area - Bottom (default), Full height (hover) */}
               <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-6 flex flex-col transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:h-full z-10">
                 <h4 className="text-base font-semibold text-[#1A1A1A] leading-tight mb-3 group-hover:text-[#7A1F5C] transition-colors">{card.title}</h4>
-                
+
                 {/* Hidden content that fades in on hover */}
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex-grow pt-2 flex flex-col">
-                   <p className="text-[#4A4A4A] text-xs leading-relaxed mb-4">{card.desc}</p>
-                   <span className="inline-flex items-center gap-2 text-[#7A1F5C] font-semibold text-xs mt-auto">
-                      Learn More <ArrowRight size={14} />
-                   </span>
+                  <p className="text-[#4A4A4A] text-xs leading-relaxed mb-4">{card.desc}</p>
+                  <span className="inline-flex items-center gap-2 text-[#7A1F5C] font-semibold text-xs mt-auto">
+                    Learn More <ArrowRight size={14} />
+                  </span>
                 </div>
 
                 {/* Bottom label that fades out on hover */}

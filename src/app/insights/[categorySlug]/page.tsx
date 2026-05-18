@@ -1,46 +1,115 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import api from '@/services/api';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
-import InsightsGrid from '@/sections/insights/InsightsGrid';
 import SectionNavbar from '@/components/SectionNavbar';
+import FeaturedHighlight from '@/sections/insights/FeaturedHighlight';
+import SidebarPublishingHub from '@/sections/insights/SidebarPublishingHub';
+import SectorCategories from '@/sections/insights/SectorCategories';
+import InsightsFAQ from '@/sections/insights/InsightsFAQ';
 
 type Props = {
   params: Promise<{ categorySlug: string }>;
 };
 
+// Next.js 16 high-performance Component Caching helpers
+async function getCachedSiteStructure() {
+  "use cache";
+  return await api.getFullSiteStructure().catch(() => []);
+}
+
+async function getCachedAllPosts() {
+  "use cache";
+  return await api.getAllPosts().catch(() => []);
+}
+
+export async function generateStaticParams() {
+  try {
+    const structure = await api.getFullSiteStructure();
+    const params: { categorySlug: string }[] = [];
+    for (const sec of structure) {
+      for (const cat of (sec.categories || [])) {
+        params.push({ categorySlug: cat.slug });
+      }
+    }
+    return params;
+  } catch (err) {
+    return [];
+  }
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { categorySlug } = await params;
-  
-  // Format slug to readable title
-  const title = categorySlug
+  const siteStructure = await getCachedSiteStructure();
+
+  // Find category details
+  let catName = categorySlug;
+  for (const sec of siteStructure) {
+    const cat = (sec.categories || []).find((c: any) => c.slug === categorySlug);
+    if (cat) {
+      catName = cat.name;
+      break;
+    }
+  }
+
+  const title = catName !== categorySlug ? catName : categorySlug
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
   return {
     title: `${title} | Chalky Infotech Insights`,
-    description: `Explore our latest insights and thought leadership on ${title}.`,
+    description: `Explore our latest research, thought leadership and recruitment analytics for ${title}.`,
   };
 }
 
-export default async function CategoryPage({ params }: Props) {
+// Separate component for loading dyn data safely under Suspense
+async function CategoryPageContent({ params }: { params: Promise<{ categorySlug: string }> }) {
   const { categorySlug } = await params;
 
-  const title = categorySlug
+  // Fetch sections structure and posts from backend using high-performance Component Cache
+  const siteStructure = await getCachedSiteStructure();
+  const allPosts = await getCachedAllPosts();
+
+  // Locate the active category details and parent section
+  let currentCategory: any = null;
+  let parentSection: any = null;
+
+  for (const sec of siteStructure) {
+    const cat = (sec.categories || []).find((c: any) => c.slug === categorySlug);
+    if (cat) {
+      currentCategory = cat;
+      parentSection = sec;
+      break;
+    }
+  }
+
+  const title = currentCategory?.name || categorySlug
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
+  // Filter posts specifically for this category
+  const categoryPosts = allPosts.filter(p => p.category?.slug === categorySlug);
+
+  // Define featured highlight post inside this category (fallback to first post if any)
+  const featuredPost = categoryPosts.length > 0 ? categoryPosts[0] : null;
+
   const sections = [
     { label: 'Top', id: 'hero' },
-    { label: 'Articles', id: 'grid' },
+    ...(featuredPost ? [{ label: 'Featured Highlight', id: 'featured' }] : []),
+    { label: 'All Articles', id: 'grid' },
+    { label: 'Other Categories', id: 'categories' },
+    { label: 'FAQ', id: 'faq' },
     { label: 'Connect', id: 'cta' }
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
       <SectionNavbar sections={sections} />
 
+      {/* ── SECTION 1: HERO ── */}
       <section id="hero">
         <PageHero
           breadcrumbs={[
@@ -48,41 +117,110 @@ export default async function CategoryPage({ params }: Props) {
             { label: 'Insights', href: '/insights' },
             { label: title },
           ]}
-          badge="Category"
+          badge={parentSection ? parentSection.name : "Category Focus"}
           title={title}
-          titleHighlight="Insights"
-          subtitle={`Dive deep into our latest articles, case studies, and expert perspectives on ${title}.`}
-          ctaLabel="Read Articles"
+          titleHighlight="Perspectives"
+          subtitle={currentCategory?.description || `Explore expert research, B2B whitepapers, and dynamic workforce guidelines in our specialized ${title.toLowerCase()} repository.`}
+          ctaLabel="Browse Publications"
           ctaHref="#grid"
-          secondaryLabel="View All Categories"
+          secondaryLabel="Insights Center"
           secondaryHref="/insights"
-          imageSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200"
+          imageSrc={featuredPost?.image || "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200"}
           imageAlt={`${title} Insights`}
         />
       </section>
 
-      <section id="grid">
-        <div className="bg-[#F8F5F0] py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-[#1A1A1A]">{title} Articles</h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-              Expert analysis and data-driven perspectives tailored to your interests.
+      {/* ── SECTION 2: FEATURED HIGHLIGHT ── */}
+      {categoryPosts && categoryPosts.length > 0 && (
+        <section id="featured" className="py-24 bg-white overflow-hidden relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+            <div className="text-center mb-16 max-w-3xl">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-black uppercase tracking-widest mb-4">
+                TOP CONTENT
+              </span>
+              <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-5 tracking-tight">
+                Featured <span className="text-[#7A1F5C]">Highlight</span>
+              </h2>
+              <p className="text-gray-500 leading-relaxed max-w-xl mx-auto">
+                Discover our most impactful and popular stories curated just for you.
+              </p>
+            </div>
+            <FeaturedHighlight posts={categoryPosts} loading={false} />
+          </div>
+        </section>
+      )}
+
+      {/* ── SECTION 3: ARTICLES MAIN HUB ── */}
+      <section id="grid" className="py-24 bg-white border-b border-[#EFE7DD]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
+              Category Focus
+            </span>
+            <h3 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A]">
+              Explore <span className="text-[#7A1F5C]">{title}</span> Publications
+            </h3>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
+              Discover industry audits and talent solutions compiled directly by Chalky's technical consultants and managing directors.
             </p>
           </div>
+
+          <SidebarPublishingHub posts={categoryPosts} siteStructure={siteStructure} loading={false} hideSidebar={true} />
+
         </div>
-        <InsightsGrid categorySlug={categorySlug} />
       </section>
 
+      {/* ── SECTION 4: OTHER CATEGORIES ── */}
+      <section id="categories" className="py-24 bg-[#FAF8F5] border-b border-[#EFE7DD]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
+              Browse More
+            </span>
+            <h3 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A]">
+              Explore Other <span className="text-[#7A1F5C]">Sectors & Channels</span>
+            </h3>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
+              Navigate directly to strategic perspectives curated specifically for adjacent organizational verticals.
+            </p>
+          </div>
+
+          <SectorCategories siteStructure={siteStructure} />
+
+        </div>
+      </section>
+
+      {/* ── SECTION 5: FAQ ── */}
+      <section id="faq">
+        <InsightsFAQ />
+      </section>
+
+      {/* ── SECTION 6: CTA ── */}
       <section id="cta">
         <CTASection 
-          title="Stay Ahead of the Curve"
-          subtitle="Get our latest insights and sector trends delivered to your inbox every month."
-          primaryLabel="Subscribe Now"
+          title="Get Custom Market Intelligence"
+          subtitle={`Subscribe to receive real-time talent analytics and recruitment benchmarks tailored for the ${title.toLowerCase()} sector.`}
+          primaryLabel="Subscribe to Sector Alerts"
           primaryHref="/contact"
-          secondaryLabel="Talk to an Expert"
+          secondaryLabel="Consult a Talent Lead"
           secondaryHref="/contact"
         />
       </section>
     </div>
+  );
+}
+
+export default function CategoryPage({ params }: Props) {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#FAF8F5]">
+        <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/15 border-t-[#7A1F5C] animate-spin mb-4"></div>
+        <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#7A1F5C]/60">Loading sector intelligence...</p>
+      </div>
+    }>
+      <CategoryPageContent params={params} />
+    </Suspense>
   );
 }

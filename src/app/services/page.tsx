@@ -14,6 +14,7 @@ import ClientSuccessApproach from '@/sections/services/ClientSuccessApproach';
 import ServicesFAQ from '@/sections/services/ServicesFAQ';
 import SearchMethodology from '@/sections/services/SearchMethodology';
 import SectionNavbar from '@/components/SectionNavbar';
+import HumanexShowcase from '@/components/HumanexShowcase';
 
 export const metadata: Metadata = {
   title: 'Specialist Recruitment & Workforce Solutions | Chalky Infotech',
@@ -33,6 +34,7 @@ export default function ServicesPage() {
     { label: 'Why Us', id: 'why-choose' },
     { label: 'Specialized', id: 'specialized' },
     { label: 'Workforce', id: 'global' },
+    { label: 'Humanex', id: 'humanex' },
     { label: 'Metrics', id: 'metrics' },
     { label: 'FAQ', id: 'faq' }
   ];
@@ -69,6 +71,7 @@ export default function ServicesPage() {
       <section id="why-choose"><WhyChooseServices /></section>
       <section id="specialized"><SpecializedHiring /></section>
       <section id="global"><GlobalWorkforceSupport /></section>
+      <section id="humanex"><HumanexShowcase /></section>
       <section id="metrics"><ServiceMetrics /></section>
       <section id="faq"><ServicesFAQ /></section>
 

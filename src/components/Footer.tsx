@@ -1,14 +1,21 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ctaImage from '../assets/About/cta.png';
 import logoImage from '../assets/logo/logo.png';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, ArrowRight, Send, Share2, Globe, MessageSquare, AtSign } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight, Send, Share2, Globe, MessageSquare, AtSign, MessageCircle } from 'lucide-react';
 import { SERVICES, INDUSTRIES, CONTACT } from '@/constants';
 
 export default function Footer() {
+  const [year, setYear] = useState('2026');
+
+  useEffect(() => {
+    setYear(new Date().getFullYear().toString());
+  }, []);
+
   return (
     <footer className="relative bg-[#1A1A1A] text-white pt-40">
       {/* 3D Newsletter Floating Card */}
@@ -59,7 +66,7 @@ export default function Footer() {
               </form>
 
               <p className="text-white/50 text-xs mt-3">
-                You can unsubscribe at any time. Read our privacy policy <Link href="/privacy" className="underline hover:text-white">here</Link>.
+                You can unsubscribe at any time. Read our privacy policy <Link href="/privacy-policy" className="underline hover:text-white">here</Link>.
               </p>
             </div>
 
@@ -86,16 +93,17 @@ export default function Footer() {
 
           {/* Col 1: Company Overview */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
+            <Link href="/" className="flex flex-col items-start gap-4 group mb-8 transition-all">
               <Image 
                 src={logoImage} 
-                alt="Chalky Infotech Logo" 
-                width={180} 
-                height={50} 
+                alt="Chalky InfoTech" 
+                width={70} 
+                height={70} 
                 style={{ height: 'auto' }}
-                className="w-auto h-12 object-contain"
+                className="object-contain hover:scale-105 transition-transform duration-500" 
               />
-            </div>
+              <span className="font-bold text-2xl text-[#7a1f5c] tracking-tight">Chalky <span className="text-white font-medium">InfoTech</span></span>
+            </Link>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
               Chalky Infotech is a global recruitment and workforce solutions partner supporting organizations with scalable hiring solutions across technology, healthcare, finance, retail, manufacturing, and emerging industries.
             </p>
@@ -103,9 +111,24 @@ export default function Footer() {
               Strategic workforce solutions supporting organizations across diverse industries globally.
             </p>
             <ul className="space-y-3 text-gray-300 text-sm">
-              <li className="flex items-center gap-2"><MapPin size={14} className="text-[#7A1F5C]" /> India Operations</li>
-              <li className="flex items-center gap-2"><MapPin size={14} className="text-[#7A1F5C]" /> UK Workforce Support</li>
-              <li className="flex items-center gap-2"><Globe size={14} className="text-[#7A1F5C]" /> Global Talent Solutions</li>
+              <li>
+                <a href="/contact#locations" className="flex items-center gap-2 hover:text-[#C2185B] transition-colors group/loc">
+                  <MapPin size={14} className="text-[#7A1F5C] group-hover/loc:scale-110 transition-transform" /> 
+                  India Operations
+                </a>
+              </li>
+              <li>
+                <a href="/contact#locations" className="flex items-center gap-2 hover:text-[#C2185B] transition-colors group/loc">
+                  <MapPin size={14} className="text-[#7A1F5C] group-hover/loc:scale-110 transition-transform" /> 
+                  UK Workforce Support
+                </a>
+              </li>
+              <li>
+                <a href="/contact#locations" className="flex items-center gap-2 hover:text-[#C2185B] transition-colors group/loc">
+                  <Globe size={14} className="text-[#7A1F5C] group-hover/loc:scale-110 transition-transform" /> 
+                  Global Talent Solutions
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -148,11 +171,13 @@ export default function Footer() {
                 { label: 'Insights', href: '/insights' },
                 { label: 'Jobs', href: '/jobs' },
                 { label: 'Contact', href: '/contact' },
-                { label: 'Case Studies', href: '/insights' },
-                { label: 'Careers', href: '/jobs' },
-                { label: 'FAQs', href: '/contact' },
-                { label: 'Privacy Policy', href: '/privacy' },
-                { label: 'Terms & Conditions', href: '/terms' },
+                { label: 'Privacy Policy', href: '/privacy-policy' },
+                { label: 'Terms & Conditions', href: '/terms-conditions' },
+                { label: 'FAQs', href: '/faqs' },
+                { label: 'Cookie Policy', href: '/cookie-policy' },
+                { label: 'GDPR Compliance', href: '/gdpr' },
+                { label: 'Right To Work', href: '/right-to-work' },
+                { label: 'Background Verification', href: '/verification' },
               ].map((link, i) => (
                 <li key={i}>
                   <Link href={link.href} className="text-gray-300 hover:text-[#C2185B] text-sm transition-colors block">
@@ -165,25 +190,34 @@ export default function Footer() {
 
           {/* Col 5: Contact & Social */}
           <div>
-            <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Contact</h4>
-            <ul className="space-y-4 text-sm text-gray-300 mb-8">
-              <li><a href={`mailto:${CONTACT.email}`} className="hover:text-[#C2185B] transition-colors">{CONTACT.email}</a></li>
-              <li><a href={`tel:${CONTACT.phoneUK}`} className="hover:text-[#C2185B] transition-colors">{CONTACT.phoneUK}</a></li>
-              <li><a href={`tel:${CONTACT.phoneIN}`} className="hover:text-[#C2185B] transition-colors">{CONTACT.phoneIN}</a></li>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-[0.1em] text-sm">Contact</h4>
+            <ul className="space-y-4 text-gray-300 text-[15px]">
+              <li><a href={`mailto:${CONTACT.email}`} className="hover:text-white transition-colors">{CONTACT.email}</a></li>
+              <li><a href={`tel:${CONTACT.phoneUK.replace(/\s/g, '')}`} className="hover:text-white transition-colors">{CONTACT.phoneUK}</a></li>
+              <li>
+                <a 
+                  href="https://wa.me/8072357581" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-[#25D366] transition-colors"
+                >
+                  WhatsApp Us
+                </a>
+              </li>
             </ul>
             
-            <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-xs text-gray-500">Office Info</h4>
-            <ul className="space-y-2 text-sm text-gray-300 mb-8">
-              <li>UK Operations</li>
-              <li>India Delivery Center</li>
-              <li>Global Workforce Support</li>
+            <h4 className="text-white font-bold mb-6 mt-10 uppercase tracking-[0.1em] text-sm">Office Info</h4>
+            <ul className="space-y-4 text-gray-300 text-[15px]">
+              <li><a href="/contact#locations" className="hover:text-white transition-colors">UK Operations</a></li>
+              <li><a href="/contact#locations" className="hover:text-white transition-colors">India Delivery Center</a></li>
+              <li><a href="/contact#locations" className="hover:text-white transition-colors">Global Workforce Support</a></li>
             </ul>
 
-            <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-xs text-gray-500">Follow Us</h4>
-            <div className="flex gap-4">
-              <a href="#" className="text-gray-300 hover:text-[#C2185B] text-sm font-medium transition-colors">LinkedIn</a>
-              <a href="#" className="text-gray-300 hover:text-[#C2185B] text-sm font-medium transition-colors">Instagram</a>
-              <a href="#" className="text-gray-300 hover:text-[#C2185B] text-sm font-medium transition-colors">Facebook</a>
+            <h4 className="text-white font-bold mb-6 mt-10 uppercase tracking-[0.1em] text-sm">Follow Us</h4>
+            <div className="flex gap-6 text-gray-300 text-[15px]">
+              <a href="https://www.linkedin.com/company/chalky-infotech-recruitment/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+              <a href="https://www.instagram.com/chalkyinfotech_ltd/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
+              <a href="https://www.facebook.com/people/Chalkyinfotech/61584513646137/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Facebook</a>
             </div>
           </div>
 
@@ -193,10 +227,16 @@ export default function Footer() {
       {/* Bottom Legal Strip */}
       <div className="border-t border-gray-800 bg-[#111111]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Chalky Infotech. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">© {year} Chalky Infotech. All rights reserved.</p>
           <div className="flex flex-wrap gap-6">
-            {['Privacy Policy', 'Terms', 'Cookies', 'Sitemap'].map((item) => (
-              <Link key={item} href="#" className="text-gray-400 hover:text-[#C2185B] text-sm transition-colors">{item}</Link>
+            {[
+              { label: 'Privacy Policy', href: '/privacy-policy' },
+              { label: 'Terms & Conditions', href: '/terms-conditions' },
+              { label: 'FAQs', href: '/faqs' },
+              { label: 'Cookie Policy', href: '/cookie-policy' },
+              { label: 'Sitemap', href: '/sitemap' }
+            ].map((item) => (
+              <Link key={item.label} href={item.href} className="text-gray-400 hover:text-[#C2185B] text-sm transition-colors">{item.label}</Link>
             ))}
           </div>
         </div>

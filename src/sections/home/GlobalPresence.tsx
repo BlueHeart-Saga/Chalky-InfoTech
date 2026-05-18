@@ -12,6 +12,7 @@ const LOCATIONS = [
     employees: "50+",
     top: 16.8,
     left: 46.7,
+    labelPosition: "top" as const,
   },
   {
     name: "Chennai",
@@ -21,6 +22,7 @@ const LOCATIONS = [
     employees: "75+",
     top: 40,
     left: 68.8,
+    labelPosition: "top" as const,
   },
   {
     name: "Thoothukudi",
@@ -30,6 +32,7 @@ const LOCATIONS = [
     employees: "100+",
     top: 41.2,
     left: 68.4,
+    labelPosition: "bottom" as const,
   },
 ];
 
@@ -76,7 +79,7 @@ export default function GlobalPresence() {
   }, [activeLocData]);
 
   const mapStyle = activeLocData
-    ? { scale: 2.4, origin: `${activeLocData.left}% ${activeLocData.top}%` }
+    ? { scale: 1.8, origin: `${activeLocData.left}% ${activeLocData.top}%` }
     : { scale: 1, origin: "center" };
 
   return (
@@ -107,7 +110,9 @@ export default function GlobalPresence() {
         <div className="flex flex-col gap-6">
 
           {/* Top Panel: Map (Full Width) */}
-          <div className="w-full bg-[#F8F9FA] rounded-[2rem] border-2 border-gray-100 relative overflow-hidden h-[350px] md:h-[450px] shadow-inner">
+          <div className="relative group/map-container">
+            {/* Map Container (Overflow Hidden) */}
+            <div className="w-full bg-[#F8F9FA] rounded-[2rem] border-2 border-gray-100 relative overflow-hidden h-[350px] md:h-[450px] shadow-inner">
             <div
               className="absolute inset-0 w-full h-full transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
               style={{
@@ -165,21 +170,52 @@ export default function GlobalPresence() {
                     )}
                   </button>
 
-                  {/* Tooltip */}
-                  <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-white rounded-xl shadow-xl border border-gray-100 p-4 w-48 transition-all duration-300 pointer-events-none origin-bottom ${activeLocation === loc.name ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'}`}>
-                    <div className="flex justify-between items-start mb-2 pb-2 border-b border-gray-100">
-                      <strong className="text-[#1A1A1A] font-semibold">{loc.name}</strong>
-                      <span className="text-[#8A8A8A] text-[10px] font-semibold uppercase">{loc.country}</span>
-                    </div>
-                    <span className="block text-[#7A1F5C] text-xs font-semibold mb-1.5">{loc.type}</span>
-                    <span className="flex items-center gap-1.5 text-[#555555] text-xs font-medium">
-                      <Users size={12} /> {loc.employees} experts
+                  {/* Persistent City Label */}
+                  <div className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none transition-all duration-500 ${loc.labelPosition === 'top' ? 'bottom-full mb-1' : 'top-full mt-1'} ${activeLocation && activeLocation !== loc.name ? 'opacity-30 scale-90' : 'opacity-100 scale-100'}`}>
+                    <span className="text-[10px] font-bold text-[#7A1F5C] bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#7A1F5C]/10 shadow-sm">
+                      {loc.name}
                     </span>
-                    {/* Tooltip Arrow */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white" />
                   </div>
                 </div>
               ))}
+
+              </div>
+            </div>
+
+            {/* Location Info Card Overlay - TINY MINIMALIST DESIGN */}
+            <div className={`absolute bottom-0 left-0 z-30 w-full max-w-[260px] bg-white/95 backdrop-blur-sm border-t border-r border-gray-100 rounded-tr-2xl shadow-[10px_-5px_30px_rgba(0,0,0,0.03)] p-6 transition-all duration-700 ease-[cubic-bezier(0.2,1,0.2,1)] ${activeLocData ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 pointer-events-none'}`}>
+              {activeLocData && (
+                <>
+                  <div className="mb-4">
+                    <p className="text-[#7A1F5C] text-[9px] font-semibold uppercase tracking-[0.15em] mb-1">Location Profile</p>
+                    <h3 className="text-xl font-semibold text-[#1A1A1A] leading-tight">{activeLocData.name}</h3>
+                    <div className="h-[1.5px] w-8 bg-[#7A1F5C]/30 mt-2 rounded-full" />
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-[9px] text-gray-400 font-semibold uppercase tracking-wider mb-0.5">Role & Region</p>
+                      <p className="text-[11px] font-normal text-gray-600">{activeLocData.type} — {activeLocData.region}</p>
+                    </div>
+                    
+                    <div>
+                      <p className="text-[9px] text-gray-400 font-semibold uppercase tracking-wider mb-0.5">Team Strength</p>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-sm font-semibold text-[#7A1F5C]">{activeLocData.employees}</span>
+                        <span className="text-[10px] font-normal text-gray-500">Experts</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button 
+                    onClick={() => setActiveLocation(null)}
+                    className="mt-6 flex items-center gap-2 text-[#7A1F5C] text-[10px] font-bold hover:gap-3 transition-all group tracking-wide"
+                  >
+                    <span className="w-6 h-[1.5px] bg-[#7A1F5C] transition-all group-hover:w-9"></span>
+                    BACK
+                  </button>
+                </>
+              )}
             </div>
           </div>
 

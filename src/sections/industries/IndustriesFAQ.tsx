@@ -6,24 +6,40 @@ import { Plus, Minus } from 'lucide-react';
 
 const FAQS = [
   {
-    question: 'What industries does Chalky Infotech support?',
-    answer: 'We provide specialized recruitment support across diverse global sectors including Technology (IT & Cloud), Healthcare & Life Sciences, Banking & Finance, Manufacturing (Industry 4.0), Retail & E-commerce, Education, Energy, and Media & Entertainment.'
+    question: 'What industry-specific recruitment solutions does Chalky Infotech offer?',
+    answer: 'Chalky Infotech provides specialized recruitment solutions across high-growth sectors including IT, Fintech, Healthcare, Manufacturing, and Retail. Each industry vertical is managed by consultants with deep domain expertise to ensure precise candidate-role alignment.'
   },
   {
-    question: 'Do you provide industry-specific recruitment solutions?',
-    answer: 'Yes. Every sector we serve is led by specialist consultants who possess deep technical and cultural knowledge of that specific industry. This ensures that we understand the unique challenges, regulations, and hiring expectations of your business.'
+    question: 'How do you support the unique hiring needs of the Fintech and Banking sector?',
+    answer: 'Our Fintech recruitment team understands the intersection of finance and technology. We source specialists in blockchain, quantitative analysis, cybersecurity, and regulatory compliance to support modern digital banking ecosystems.'
   },
   {
-    question: 'Can you support high-volume hiring for specific projects?',
-    answer: 'Absolutely. We have a proven track record of managing massive recruitment drives and project-based cohorts, particularly for digital transformation initiatives and new regional expansions.'
+    question: 'What is your expertise in Healthcare and Life Sciences recruitment?',
+    answer: 'We help healthcare organizations hire skilled professionals in medical technology, clinical research, and specialized nursing. Our processes focus on high-quality care and adherence to strict healthcare regulatory standards.'
   },
   {
-    question: 'Do you offer global workforce solutions for international sectors?',
-    answer: 'Yes, we specialize in cross-border recruitment and workforce management. We connect specialized sector hubs with international talent opportunities, ensuring compliance and cultural alignment across borders.'
+    question: 'How does Chalky Infotech support digital transformation in the Retail and E-commerce industry?',
+    answer: 'We source the talent behind digital commerce—from e-commerce platform developers and supply chain logistics experts to digital marketing specialists—ensuring your retail business stays competitive in an online-first market.'
   },
   {
-    question: 'What recruitment models do you provide?',
-    answer: 'We offer a versatile range of hiring frameworks including Permanent Recruitment, Contract Staffing, Temporary Recruitment, Executive Search, On-Site Recruitment Support, and specialized Project-Based Hiring.'
+    question: 'Can you provide specialized workforce solutions for the Manufacturing and Industry 4.0 sectors?',
+    answer: 'Yes, we source engineering and operational talent for the modern manufacturing era, including specialists in automation, IoT integration, robotics, and lean manufacturing processes.'
+  },
+  {
+    question: 'What role does your agency play in sourcing talent for the Energy and Power industries?',
+    answer: 'We support the global energy transition by recruiting technical experts in renewable energy, power engineering, and smart grid technology, helping organizations build sustainable future-ready teams.'
+  },
+  {
+    question: 'How do you handle recruitment for the Media, Entertainment, and Creative sectors?',
+    answer: 'Our creative recruitment specialists focus on the unique needs of the media industry, sourcing talent for content production, digital broadcasting, and interactive media technology.'
+  },
+  {
+    question: 'Do you offer specialized staffing for the Education and EdTech sectors?',
+    answer: 'We support educational institutions and EdTech startups by recruiting both academic professionals and the developers behind modern digital learning platforms and educational software.'
+  },
+  {
+    question: 'How does your global network benefit companies in niche industry verticals?',
+    answer: 'Our international reach allows us to find rare, highly-specialized talent that may not be available locally. We bridge the talent gap in niche industries by connecting global expertise with local business needs.'
   }
 ];
 

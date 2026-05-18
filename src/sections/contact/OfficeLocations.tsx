@@ -34,7 +34,7 @@ const offices = [
 
 export default function OfficeLocations() {
   return (
-    <section className="relative pt-0 pb-24 bg-[#F5F0E8]">
+    <section id="locations" className="relative pt-0 pb-24 bg-[#F5F0E8]">
 
       {/* ── Top wave divider (matches hero / brand pages) ── */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none -translate-y-px z-10">

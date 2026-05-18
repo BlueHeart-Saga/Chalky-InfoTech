@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
+import { Suspense } from 'react';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import PageScrollRestoration from '@/components/PageScrollRestoration';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -50,10 +52,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={poppins.variable}>
       <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden">
-        <Navbar />
-        <main>{children}</main>
+        <Suspense fallback={null}>
+          <Navbar />
+        </Suspense>
+        <Suspense fallback={
+          <div className="min-h-screen flex flex-col items-center justify-center bg-[#FAF8F5]">
+            <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/15 border-t-[#7A1F5C] animate-spin mb-4"></div>
+            <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#7A1F5C]/60">Loading sector intelligence...</p>
+          </div>
+        }>
+          <main>{children}</main>
+        </Suspense>
         <Footer />
         <ScrollToTop />
+        <Suspense fallback={null}>
+          <PageScrollRestoration />
+        </Suspense>
       </body>
     </html>
   );

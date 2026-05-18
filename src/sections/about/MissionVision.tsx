@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 interface Block {
   title: string;
@@ -91,10 +92,10 @@ export default function MissionVision() {
           transform: scale(1.04);
         }
         .mv-image-wrap img {
-          transition: transform 0.5s ease;
+          transition: transform 0.5s ease !important;
         }
         .mv-image-wrap:hover img {
-          transform: scale(1.06);
+          transform: scale(1.06) !important;
         }
       `}</style>
 
@@ -153,11 +154,13 @@ export default function MissionVision() {
                           ...block.blobStyle,
                         }}
                       >
-                        <img
+                        <Image
                           src={block.image}
                           alt={block.title}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 320px"
+                          className="object-cover"
+                          priority={index === 0}
                         />
                       </div>
                     </div>

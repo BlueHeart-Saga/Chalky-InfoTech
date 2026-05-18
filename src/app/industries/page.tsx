@@ -11,6 +11,7 @@ import GlobalIndustrySupport from '@/sections/industries/GlobalIndustrySupport';
 import IndustryMetrics from '@/sections/industries/IndustryMetrics';
 import IndustriesFAQ from '@/sections/industries/IndustriesFAQ';
 import SectionNavbar from '@/components/SectionNavbar';
+import HumanexShowcase from '@/components/HumanexShowcase';
 
 export const metadata: Metadata = {
   title: 'Specialized Industry Recruitment & Workforce Solutions | Chalky Infotech',
@@ -28,6 +29,7 @@ export default function IndustriesPage() {
     { label: 'Process', id: 'process' },
     { label: 'Why Trust Us', id: 'trust' },
     { label: 'Global Support', id: 'global' },
+    { label: 'Humanex', id: 'humanex' },
     { label: 'Metrics', id: 'metrics' },
     { label: 'FAQ', id: 'faq' }
   ];
@@ -62,6 +64,7 @@ export default function IndustriesPage() {
       <section id="process"><IndustryHiringProcess /></section>
       <section id="trust"><WhyBusinessesTrustUs /></section>
       <section id="global"><GlobalIndustrySupport /></section>
+      <section id="humanex"><HumanexShowcase /></section>
       <section id="metrics"><IndustryMetrics /></section>
       <section id="faq"><IndustriesFAQ /></section>
 

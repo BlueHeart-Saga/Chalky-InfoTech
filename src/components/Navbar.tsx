@@ -8,6 +8,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { NAV_LINKS } from '@/constants';
 import api from '@/services/api';
+import navdata1 from '@/assets/navbar/Navdata4.png';
+import navdata2 from '@/assets/navbar/Navdata3.png';
+import navdata3 from '@/assets/navbar/Navdata4.png';
+import navdata4 from '@/assets/navbar/Navdata4.png';
+import navdata5 from '@/assets/navbar/Navdata4.png';
+
+const NAVBAR_IMAGES = [navdata1, navdata2, navdata3, navdata4, navdata5];
 
 // ─── Services Data ────────────────────────────────────────────────────────────
 const SERVICES_DATA = {
@@ -42,7 +49,7 @@ const SERVICES_DATA = {
     desc: 'Our people are the difference. Hear stories from our people about a career at Chalky Infotech...',
     link: 'Learn more',
     href: '/about',
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=400&h=250&auto=format&fit=crop'
+    image: navdata4
   }
 };
 
@@ -79,7 +86,7 @@ const INDUSTRIES_DATA = {
     desc: 'Explore the latest hiring trends and salary benchmarks across our core industries...',
     link: 'Download Report',
     href: '/insights/salary-guide',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400&h=250&auto=format&fit=crop'
+    image: navdata3
   }
 };
 
@@ -87,6 +94,8 @@ interface InsightCategory {
   label: string;
   slug: string;
   desc: string;
+  posts?: any[];
+  featuredImage?: string | null;
 }
 
 interface InsightSection {
@@ -106,6 +115,38 @@ const DEFAULT_INSIGHTS_SECTIONS: InsightSection[] = [
   }
 ];
 
+function getPremiumCategoryDescription(slug: string, fallback: string) {
+  const s = slug.toLowerCase();
+  const isGeneric = !fallback || 
+                    fallback.toLowerCase().includes('explore our') || 
+                    fallback.toLowerCase().includes('description') || 
+                    fallback.toLowerCase().includes('placeholder') || 
+                    fallback.trim() === "" ||
+                    fallback.trim().length < 15;
+
+  if (isGeneric) {
+    if (s.includes('blog')) return "Thought leadership, industry insights, and strategic perspectives on global tech recruitment.";
+    if (s.includes('case-studies') || s.includes('case-study') || s.includes('stories')) return "Real-world success stories, digital transformation journeys, and metric-driven talent acquisition solutions.";
+    if (s.includes('newsletter') || s.includes('letter')) return "Stay ahead with our monthly briefing on engineering hiring trends, compliance guidelines, and market forecasts.";
+    if (s.includes('podcast')) return "Conversations with industry leaders, C-suite executives, and talent innovators on building world-class teams.";
+    if (s.includes('achievement') || s.includes('award') || s.includes('milestone')) return "Celebrating our team's recognition, industry awards, and compliance excellence milestones.";
+    if (s.includes('announcement') || s.includes('news')) return "Official company updates, strategic expansions, compliance hubs, and executive appointments.";
+    if (s.includes('event') || s.includes('industry-events')) return "Upcoming webinars, leadership roundtables, and international staffing conferences hosted by Chalky Tech.";
+    if (s.includes('celebration') || s.includes('party')) return "Behind-the-scenes looks at our team celebrations, social impact, and core value expressions.";
+    if (s.includes('community') || s.includes('life')) return "Our active participation in global community programs, education initiatives, and social development.";
+    if (s.includes('culture') || s.includes('team')) return "Discover the collaborative, inclusive and high-performance culture that drives Chalky Tech.";
+    if (s.includes('client-transformation') || s.includes('transformation')) return "Deep-dive case studies showcasing how we assist global enterprise clients to scale tech teams and drive technical excellence.";
+    if (s.includes('impact-metric') || s.includes('metric')) return "Strategic operational metrics tracking onboarding efficiency, retention achievements, and cost-to-hire benchmarks.";
+    if (s.includes('testimonial')) return "Firsthand feedback and reviews from our global enterprise clients, executive hires, and software engineers.";
+    if (s.includes('poster')) return "Visual updates, campaign posters, and creative media showcasing Chalky's unique corporate presence and brand values.";
+    if (s.includes('it-staffing')) return "Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.";
+    if (s.includes('executive-search')) return "Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.";
+    if (s.includes('contract-staffing')) return "Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.";
+    if (s.includes('remote-hiring')) return "Global remote hiring services enabling you to build borderless teams with top-tier international professionals.";
+  }
+  return fallback;
+}
+
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function Navbar() {
   const [scrolled, setScrolled]           = useState(false);
@@ -116,7 +157,16 @@ export default function Navbar() {
   // Dynamic Insights State
   const [insightsSections, setInsightsSections] = useState<InsightSection[]>(DEFAULT_INSIGHTS_SECTIONS);
   const [hoveredInsightsSection, setHoveredInsightsSection] = useState<string | null>(DEFAULT_INSIGHTS_SECTIONS[0].slug);
+  const [hoveredCategory, setHoveredCategory] = useState<InsightCategory | null>(null);
+  const [previewImage, setPreviewImage] = useState<any>(navdata1);
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (hoveredInsightsSection) {
+      const idx = Math.floor(Math.random() * NAVBAR_IMAGES.length);
+      setPreviewImage(NAVBAR_IMAGES[idx]);
+    }
+  }, [hoveredInsightsSection]);
 
   useEffect(() => {
     const fetchInsightsNav = async () => {
@@ -126,11 +176,16 @@ export default function Navbar() {
           const formattedSections: InsightSection[] = structure.map((sec: any) => ({
             name: sec.name,
             slug: sec.slug,
-            categories: (sec.categories || []).map((cat: any) => ({
-              label: cat.name,
-              slug: cat.slug,
-              desc: cat.description || `Explore our ${cat.name} content.`
-            }))
+            categories: (sec.categories || []).map((cat: any) => {
+              const firstPostWithImage = (cat.posts || []).find((p: any) => p.image);
+              return {
+                label: cat.name,
+                slug: cat.slug,
+                desc: getPremiumCategoryDescription(cat.slug, cat.description || ''),
+                posts: cat.posts || [],
+                featuredImage: firstPostWithImage ? firstPostWithImage.image : null
+              };
+            })
           }));
           setInsightsSections(formattedSections);
           if (formattedSections.length > 0) {
@@ -203,10 +258,20 @@ export default function Navbar() {
         </div>
       </div>
       <div className="bg-[#7A1F5C] py-3.5">
-        <div className="max-w-[1400px] mx-auto px-8 flex gap-10">
-          <Link href="/jobs" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Register your CV</Link>
-          <div className="w-px h-3 bg-white/20 self-center"></div>
-          <Link href="/contact" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Looking to hire</Link>
+        <div className="max-w-[1400px] mx-auto px-8 flex justify-between items-center">
+          <div className="flex gap-10">
+            <Link href="/jobs" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Register your CV</Link>
+            <div className="w-px h-3 bg-white/20 self-center"></div>
+            <Link href="/contact" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Looking to hire</Link>
+          </div>
+          
+          <div className="flex items-center gap-6">
+            <a href="https://www.linkedin.com/company/chalky-infotech-recruitment/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white font-black text-[10px] uppercase tracking-[0.15em] transition-colors">LinkedIn</a>
+            <div className="w-1 h-1 rounded-full bg-white/30"></div>
+            <a href="https://www.instagram.com/chalkyinfotech_ltd/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white font-black text-[10px] uppercase tracking-[0.15em] transition-colors">Instagram</a>
+            <div className="w-1 h-1 rounded-full bg-white/30"></div>
+            <a href="https://www.facebook.com/people/Chalkyinfotech/61584513646137/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white font-black text-[10px] uppercase tracking-[0.15em] transition-colors">Facebook</a>
+          </div>
         </div>
       </div>
     </motion.div>
@@ -214,7 +279,19 @@ export default function Navbar() {
 
   const renderInsightsMenu = () => {
     const currentSection = insightsSections.find(s => s.slug === hoveredInsightsSection) || insightsSections[0] || DEFAULT_INSIGHTS_SECTIONS[0];
-    
+    const currentCategories = currentSection.categories || [];
+    const isHoveredCategoryInSection = currentCategories.some(c => c.slug === hoveredCategory?.slug);
+    const activeCategory = isHoveredCategoryInSection ? hoveredCategory : (currentCategories[0] || null);
+
+    const previewImageSrc = activeCategory?.featuredImage || previewImage;
+    const previewTitle = activeCategory ? activeCategory.label : currentSection.name;
+    const previewDesc = activeCategory?.posts && activeCategory.posts[0]
+      ? activeCategory.posts[0].title
+      : (activeCategory ? `Stay updated with our latest ${activeCategory.label.toLowerCase()} insights.` : `Stay updated with our latest thoughts on ${currentSection.name.toLowerCase()}.`);
+    const previewHref = activeCategory?.posts && activeCategory.posts[0]
+      ? `/insights/${activeCategory.slug}/${activeCategory.posts[0].id}`
+      : `/insights`;
+
     return (
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -259,7 +336,8 @@ export default function Navbar() {
                       <Link 
                         key={cat.slug} 
                         href={`/insights/${cat.slug}`}
-                        className="group flex items-center justify-between p-5 rounded-2xl border border-transparent hover:border-[#7A1F5C]/10 hover:bg-[#F5F0E8]/30 transition-all duration-300"
+                        onMouseEnter={() => setHoveredCategory(cat)}
+                        className={`group flex items-center justify-between p-5 rounded-2xl border transition-all duration-300 ${activeCategory?.slug === cat.slug ? 'border-[#7A1F5C]/20 bg-[#F5F0E8]/40' : 'border-transparent hover:border-[#7A1F5C]/10 hover:bg-[#F5F0E8]/20'}`}
                       >
                         <div>
                           <p className="font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors uppercase tracking-widest text-[13px]">{cat.label}</p>
@@ -279,29 +357,40 @@ export default function Navbar() {
             <div className="w-1/4 py-10 px-8 bg-[#F9F9F9]/30 flex flex-col justify-between">
               <div>
                 <h4 className="text-[11px] font-bold text-[#8A8A8A] uppercase tracking-[0.2em] mb-10">Featured</h4>
-                <div className="rounded-2xl overflow-hidden shadow-lg shadow-[#7A1F5C]/5 mb-6 group cursor-pointer">
-                   <Image 
-                     src={hoveredInsightsSection === 'life-at' ? 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=400&h=250&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=400&h=250&auto=format&fit=crop'} 
-                     alt="Featured" 
-                     width={400} 
-                     height={250} 
-                     className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-700" 
-                   />
+                <div className="rounded-2xl overflow-hidden shadow-lg shadow-[#7A1F5C]/5 mb-6 group cursor-pointer aspect-[16/10] relative">
+                  <Image 
+                    src={previewImageSrc} 
+                    alt="Featured" 
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                  />
                 </div>
-                <h5 className="font-bold text-[#1A1A1A] text-sm mb-2">{currentSection.name}</h5>
-                <p className="text-xs text-[#666] leading-relaxed">Stay updated with our latest thoughts on {currentSection.name.toLowerCase()}.</p>
+                <h5 className="font-bold text-[#1A1A1A] text-sm mb-2">{previewTitle}</h5>
+                <p className="text-xs text-[#666] leading-relaxed line-clamp-3">{previewDesc}</p>
               </div>
-              <Link href="/insights" className="mt-8 flex items-center gap-2 text-[11px] font-bold text-[#7A1F5C] uppercase tracking-widest hover:gap-3 transition-all">View all insights <ArrowUpRight size={14}/></Link>
+              <Link href={previewHref} className="mt-8 flex items-center gap-2 text-[11px] font-bold text-[#7A1F5C] uppercase tracking-widest hover:gap-3 transition-all">
+                {activeCategory?.posts && activeCategory.posts[0] ? 'Read Article' : 'View all insights'} <ArrowUpRight size={14}/>
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar — Brand Plum */}
         <div className="bg-[#7A1F5C] py-3.5">
-          <div className="max-w-[1400px] mx-auto px-8 flex gap-10">
-            <Link href="/jobs" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Register your CV</Link>
-            <div className="w-px h-3 bg-white/20 self-center"></div>
-            <Link href="/contact" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Looking to hire</Link>
+          <div className="max-w-[1400px] mx-auto px-8 flex justify-between items-center">
+            <div className="flex gap-10">
+              <Link href="/jobs" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Register your CV</Link>
+              <div className="w-px h-3 bg-white/20 self-center"></div>
+              <Link href="/contact" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Looking to hire</Link>
+            </div>
+            
+            <div className="flex items-center gap-6">
+              <a href="https://www.linkedin.com/company/chalky-infotech-recruitment/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white font-black text-[10px] uppercase tracking-[0.15em] transition-colors">LinkedIn</a>
+              <div className="w-1 h-1 rounded-full bg-white/30"></div>
+              <a href="https://www.instagram.com/chalkyinfotech_ltd/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white font-black text-[10px] uppercase tracking-[0.15em] transition-colors">Instagram</a>
+              <div className="w-1 h-1 rounded-full bg-white/30"></div>
+              <a href="https://www.facebook.com/people/Chalkyinfotech/61584513646137/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white font-black text-[10px] uppercase tracking-[0.15em] transition-colors">Facebook</a>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -314,13 +403,13 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2 group flex-shrink-0 mr-8">
           <Image 
             src="/logo.png" 
-            alt="Chalky Infotech" 
+            alt="Chalky InfoTech" 
             width={40} 
             height={40} 
             style={{ height: 'auto' }}
             className="object-contain hover:scale-105 transition-transform duration-300" 
           />
-          <span className="font-bold text-xl text-[#7A1F5C] tracking-tight">Chalky<span className="text-[#1A1A1A] font-medium">InfoTech</span></span>
+          <span className="font-bold text-xl text-[#7A1F5C] tracking-tight">Chalky <span className="text-[#1A1A1A] font-medium">InfoTech</span></span>
         </Link>
 
         <div className="hidden lg:flex items-center gap-1 justify-end flex-1">

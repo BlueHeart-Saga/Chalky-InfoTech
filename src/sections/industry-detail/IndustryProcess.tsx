@@ -1,7 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Search, Compass, ShieldCheck, UserCheck, CalendarDays, Rocket } from 'lucide-react';
+import { 
+  Search, 
+  Compass, 
+  ShieldCheck, 
+  UserCheck, 
+  CalendarDays, 
+  Rocket,
+  ChevronRight 
+} from 'lucide-react';
 
 const STEPS = [
   { title: 'Sector Analysis', icon: Search, desc: 'Analyzing your industry-specific goals and culture.' },
@@ -14,19 +22,21 @@ const STEPS = [
 
 export default function IndustryProcess() {
   return (
-    <section className="py-24 bg-[#F5F0E8]/30">
+    <section className="py-24 bg-white overflow-hidden pb-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-24">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Strategic Workflow</span>
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-6">
+          <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-8">
             Industry-Aligned <span className="text-[#7A1F5C]">Recruitment Journey</span>
           </h2>
+          <div className="w-20 h-1 bg-[#7A1F5C] mx-auto mb-8 rounded-full" />
+          <p className="text-gray-600 text-lg leading-relaxed">
+            Our strategic sector-focused process ensures we identify and deliver high-impact talent that understands your industry's unique challenges.
+          </p>
         </div>
 
         <div className="relative">
-          <div className="absolute top-[45px] left-0 right-0 h-0.5 bg-gradient-to-r from-[#7A1F5C]/0 via-[#7A1F5C]/20 to-[#7A1F5C]/0 hidden lg:block" />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-16 gap-x-4">
             {STEPS.map((step, i) => (
               <motion.div
                 key={i}
@@ -36,16 +46,31 @@ export default function IndustryProcess() {
                 transition={{ delay: i * 0.1 }}
                 className="relative flex flex-col items-center text-center group"
               >
-                <div className="w-20 h-20 rounded-2xl bg-white border border-[#EFE7DD] flex items-center justify-center mb-8 relative z-10 shadow-sm group-hover:shadow-xl group-hover:shadow-[#7A1F5C]/10 group-hover:-translate-y-2 transition-all duration-500">
-                  <div className="absolute -top-2 -left-2 w-8 h-8 rounded-lg bg-[#7A1F5C] flex items-center justify-center text-white text-[10px] font-extrabold">
-                    0{i + 1}
+                {/* Connector Arrow for Desktop */}
+                {i < STEPS.length - 1 && (
+                  <div className="hidden lg:block absolute top-12 left-[calc(100%-12px)] z-0 text-gray-200">
+                    <ChevronRight size={24} />
                   </div>
-                  <step.icon size={28} className="text-[#7A1F5C]" />
+                )}
+
+                {/* Circle Icon Container */}
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm border-2 bg-white border-[#7A1F5C]/20 text-[#7A1F5C] group-hover:bg-[#7A1F5C] group-hover:border-[#7A1F5C] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#7A1F5C]/20 group-hover:scale-110">
+                    <step.icon size={32} strokeWidth={1.5} />
+                  </div>
+
+                  {/* Step Number Badge */}
+                  <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-[#1A1A1A] text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
+                    {i + 1}
+                  </div>
                 </div>
-                <h3 className="text-xs font-bold text-[#1A1A1A] mb-3 uppercase tracking-wider">{step.title}</h3>
-                <p className="text-[#8A8A8A] text-[10px] leading-relaxed max-w-[140px] mx-auto">
-                  {step.desc}
-                </p>
+
+                <div className="px-2">
+                  <h4 className="font-semibold text-lg text-[#1A1A1A] mb-3">{step.title}</h4>
+                  <p className="text-gray-500 text-[13px] leading-relaxed max-w-[160px] mx-auto">
+                    {step.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

@@ -66,3 +66,12 @@ export const STATS = [
   { value: '15+', label: 'Years Experience' },
   { value: '98%', label: 'Client Satisfaction' },
 ];
+
+export const RECRUITMENT_STEPS = [
+  { title: 'Requirement', icon: 'FileText', desc: 'Analysing and defining role-specific needs.' },
+  { title: 'Sourcing', icon: 'Search', desc: 'Targeted talent hunt across global networks.' },
+  { title: 'Screening', icon: 'UserCheck', desc: 'AI-powered technical and soft-skill evaluation.' },
+  { title: 'Shortlist', icon: 'Star', desc: 'Identifying the top-tier candidates for review.' },
+  { title: 'Interview', icon: 'Users', desc: 'Direct behavioral and expert-led assessments.' },
+  { title: 'Onboarding', icon: 'CheckCircle2', desc: 'Ensuring a smooth and productive start.' }
+];

@@ -1,22 +1,34 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import AboutHero from '@/sections/about/AboutHero';
 import CompanyStory from '@/sections/about/CompanyStory';
 import MissionVision from '@/sections/about/MissionVision';
-import CoreValues from '@/sections/about/CoreValues';
-import RecruitmentPhilosophy from '@/sections/about/RecruitmentPhilosophy';
-import IndustryExpertise from '@/sections/about/IndustryExpertise';
-import GlobalWorkforce from '@/sections/about/GlobalWorkforce';
-import WhyTrustUs from '@/sections/about/WhyTrustUs';
-import CompanyTimeline from '@/sections/about/CompanyTimeline';
-import LeadershipTeam from '@/sections/about/LeadershipTeam';
-import AboutCTA from '@/sections/about/AboutCTA';
-
 import SectionNavbar from '@/components/SectionNavbar';
+import { Suspense } from 'react';
+
+// Lazy load sections below the fold for better initial load performance
+const CoreValues = dynamic(() => import('@/sections/about/CoreValues'), { ssr: true });
+const RecruitmentPhilosophy = dynamic(() => import('@/sections/about/RecruitmentPhilosophy'), { ssr: true });
+const IndustryExpertise = dynamic(() => import('@/sections/about/IndustryExpertise'), { ssr: true });
+const GlobalWorkforce = dynamic(() => import('@/sections/about/GlobalWorkforce'), { ssr: true });
+const WhyTrustUs = dynamic(() => import('@/sections/about/WhyTrustUs'), { ssr: true });
+const CompanyTimeline = dynamic(() => import('@/sections/about/CompanyTimeline'), { ssr: true });
+const LeadershipTeam = dynamic(() => import('@/sections/about/LeadershipTeam'), { ssr: true });
+const AboutCTA = dynamic(() => import('@/sections/about/AboutCTA'), { ssr: true });
+import HumanexShowcase from '@/components/HumanexShowcase';
+
+export const unstable_instant = { prefetch: 'static' };
 
 export const metadata: Metadata = {
   title: 'About Chalky Infotech | Global IT Recruitment & Workforce Solutions',
   description: 'Learn about Chalky Infotech, a technology recruitment and workforce solutions partner helping organizations scale through strategic hiring and digital talent acquisition services.',
 };
+
+const SectionFallback = () => (
+  <div className="w-full h-[400px] bg-[#F5F0E8] animate-pulse flex items-center justify-center">
+    <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/20 border-t-[#7A1F5C] animate-spin" />
+  </div>
+);
 
 export default function AboutPage() {
   const sections = [
@@ -27,6 +39,7 @@ export default function AboutPage() {
     { label: 'Methodology', id: 'philosophy' },
     { label: 'Industry Expertise', id: 'expertise' },
     { label: 'Global Workforce', id: 'workforce' },
+    { label: 'Humanex', id: 'humanex' },
     { label: 'Why Trust Us', id: 'trust' },
     { label: 'Journey', id: 'timeline' },
     { label: 'Our Team', id: 'team' }
@@ -48,37 +61,57 @@ export default function AboutPage() {
         <MissionVision />
       </section>
       
-      <section id="values">
-        <CoreValues />
+      <Suspense fallback={<SectionFallback />}>
+        <section id="values">
+          <CoreValues />
+        </section>
+      </Suspense>
+      
+      <Suspense fallback={<SectionFallback />}>
+        <section id="philosophy">
+          <RecruitmentPhilosophy />
+        </section>
+      </Suspense>
+      
+      <Suspense fallback={<SectionFallback />}>
+        <section id="expertise">
+          <IndustryExpertise />
+        </section>
+      </Suspense>
+      
+      <Suspense fallback={<SectionFallback />}>
+        <section id="workforce">
+          <GlobalWorkforce />
+        </section>
+      </Suspense>
+      
+      <section id="humanex">
+        <HumanexShowcase />
       </section>
       
-      <section id="philosophy">
-        <RecruitmentPhilosophy />
-      </section>
+      <Suspense fallback={<SectionFallback />}>
+        <section id="trust">
+          <WhyTrustUs />
+        </section>
+      </Suspense>
       
-      <section id="expertise">
-        <IndustryExpertise />
-      </section>
+      <Suspense fallback={<SectionFallback />}>
+        <section id="timeline">
+          <CompanyTimeline />
+        </section>
+      </Suspense>
       
-      <section id="workforce">
-        <GlobalWorkforce />
-      </section>
+      <Suspense fallback={<SectionFallback />}>
+        <section id="team">
+          <LeadershipTeam />
+        </section>
+      </Suspense>
       
-      <section id="trust">
-        <WhyTrustUs />
-      </section>
-      
-      <section id="timeline">
-        <CompanyTimeline />
-      </section>
-      
-      <section id="team">
-        <LeadershipTeam />
-      </section>
-      
-      <section id="cta">
-        <AboutCTA />
-      </section>
+      <Suspense fallback={<SectionFallback />}>
+        <section id="cta">
+          <AboutCTA />
+        </section>
+      </Suspense>
     </div>
   );
 }

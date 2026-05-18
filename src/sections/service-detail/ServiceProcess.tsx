@@ -1,52 +1,68 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { RECRUITMENT_STEPS } from '@/constants';
+import * as LucideIcons from 'lucide-react';
+import { 
+  ChevronRight
+} from 'lucide-react';
 
-interface Step {
-  title: string;
-  desc: string;
-}
-
-interface Props {
-  steps: Step[];
-}
-
-export default function ServiceProcess({ steps }: Props) {
+export default function ServiceProcess() {
   return (
-    <section className="py-24 bg-[#F5F0E8]/30">
+    <section className="py-24 bg-white overflow-hidden pb-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-24">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Our Workflow</span>
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-6">
+          <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-8">
             A Seamless <span className="text-[#7A1F5C]">Delivery Process</span>
           </h2>
+          <div className="w-20 h-1 bg-[#7A1F5C] mx-auto mb-8 rounded-full" />
+          <p className="text-gray-600 text-lg leading-relaxed">
+            Our end-to-end service delivery journey ensures precision, quality, and technical alignment at every stage of the project.
+          </p>
         </div>
 
         <div className="relative">
-          <div className="absolute top-[45px] left-0 right-0 h-0.5 bg-gradient-to-r from-[#7A1F5C]/0 via-[#7A1F5C]/20 to-[#7A1F5C]/0 hidden lg:block" />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-16 gap-x-4">
+            {RECRUITMENT_STEPS.map((step, i) => {
+              const Icon = (LucideIcons as any)[step.icon] || LucideIcons.CheckCircle;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="relative flex flex-col items-center text-center group"
+                >
+                  {/* Connector Arrow for Desktop */}
+                  {i < RECRUITMENT_STEPS.length - 1 && (
+                    <div className="hidden lg:block absolute top-12 left-[calc(100%-12px)] z-0 text-gray-200">
+                      <ChevronRight size={24} />
+                    </div>
+                  )}
 
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${steps.length} gap-10`}>
-            {steps.map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative flex flex-col items-center text-center group"
-              >
-                <div className="w-20 h-20 rounded-2xl bg-white border border-[#EFE7DD] flex items-center justify-center mb-8 relative z-10 shadow-sm group-hover:shadow-xl group-hover:shadow-[#7A1F5C]/10 group-hover:-translate-y-2 transition-all duration-500">
-                  <div className="absolute -top-2 -left-2 w-8 h-8 rounded-lg bg-[#7A1F5C] flex items-center justify-center text-white text-[10px] font-extrabold">
-                    0{i + 1}
+                  {/* Circle Icon Container */}
+                  <div className="relative mb-8">
+                    <div className="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 shadow-sm border-2 bg-white border-[#7A1F5C]/20 text-[#7A1F5C] group-hover:bg-[#7A1F5C] group-hover:border-[#7A1F5C] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#7A1F5C]/20 group-hover:scale-110">
+                      <Icon size={32} strokeWidth={1.5} />
+                    </div>
+
+                    {/* Step Number Badge */}
+                    <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-[#1A1A1A] text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
+                      {i + 1}
+                    </div>
                   </div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#7A1F5C]" />
-                </div>
-                <h3 className="text-sm font-bold text-[#1A1A1A] mb-3 uppercase tracking-wider">{step.title}</h3>
-                <p className="text-[#8A8A8A] text-[11px] leading-relaxed max-w-[160px] mx-auto">
-                  {step.desc}
-                </p>
-              </motion.div>
-            ))}
+
+                  <div className="px-2">
+                    <h4 className="font-semibold text-lg text-[#1A1A1A] mb-3">{step.title}</h4>
+                    <p className="text-gray-500 text-[13px] leading-relaxed max-w-[160px] mx-auto">
+                      {step.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

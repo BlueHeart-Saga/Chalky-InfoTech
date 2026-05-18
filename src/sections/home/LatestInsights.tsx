@@ -1,34 +1,31 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-
-const POSTS = [
-  { 
-    title: "The Future of AI Recruitment in 2025", 
-    category: "Technology", 
-    date: "May 10, 2024",
-    desc: "How generative AI is reshaping how we source and vet top engineering talent.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop"
-  },
-  { 
-    title: "Scaling Cloud Teams at Enterprise Speed", 
-    category: "Cloud", 
-    date: "May 08, 2024",
-    desc: "A guide for CTOs on maintaining quality while scaling rapidly in a competitive market.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
-  },
-  { 
-    title: "Remote vs Hybrid: The Talent Perspective", 
-    category: "Strategy", 
-    date: "May 05, 2024",
-    desc: "Why flexible working models remain the top priority for tech professionals.",
-    image: "https://images.unsplash.com/photo-1522071823991-b5ae72647c46?q=80&w=800&auto=format&fit=crop"
-  }
-];
+import Image from 'next/image';
+import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import api from '@/services/api';
 
 export default function LatestInsights() {
+  const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchLatest = async () => {
+      try {
+        setLoading(true);
+        const latestPosts = await api.getAllPosts(3);
+        setPosts(latestPosts || []);
+      } catch (err) {
+        console.error("Failed to fetch latest insights:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchLatest();
+  }, []);
+
   return (
     <section className="py-24 bg-[#F5F0E8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,43 +41,66 @@ export default function LatestInsights() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {POSTS.map((post, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-3xl overflow-hidden border border-[#EFE7DD] hover:shadow-2xl transition-all duration-300 group flex flex-col h-full"
-            >
-              <div className="relative h-56 w-full overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="bg-[#F5F0E8] text-[#7A1F5C] text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full">
-                    {post.category}
-                  </span>
-                  <span className="text-[#8A8A8A] text-xs font-semibold">{post.date}</span>
+        {loading ? (
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="bg-white/50 animate-pulse rounded-3xl h-[500px] border border-[#EFE7DD]"></div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-3 gap-8">
+            {posts.map((post, i) => (
+              <motion.div 
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white rounded-3xl overflow-hidden border border-[#EFE7DD] hover:shadow-2xl transition-all duration-300 group flex flex-col h-full"
+              >
+                <div className="relative h-56 w-full overflow-hidden">
+                  <Image 
+                    src={post.image || "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200"} 
+                    alt={post.title}
+                    fill
+                    unoptimized
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-white/90 backdrop-blur-sm text-[#7A1F5C] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
+                      {post.category?.name || 'Knowledge'}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-[#1A1A1A] mb-4 group-hover:text-[#7A1F5C] transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-[#8A8A8A] text-sm leading-relaxed mb-8 flex-grow">
-                  {post.desc}
-                </p>
-                <Link href="#" className="inline-flex items-center gap-2 text-[#C2185B] font-semibold text-sm mt-auto">
-                  Read Article <ArrowRight size={16} />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                <div className="p-8 flex flex-col flex-grow">
+                  <div className="flex items-center gap-4 mb-6 text-[#8A8A8A] text-[11px] font-semibold">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar size={14} className="text-[#7A1F5C]" />
+                      {post.date}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock size={14} className="text-[#7A1F5C]" />
+                      {post.readTime} min read
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#1A1A1A] mb-4 group-hover:text-[#7A1F5C] transition-colors line-clamp-2 leading-tight">
+                    {post.title}
+                  </h3>
+                  <p className="text-[#8A8A8A] text-sm leading-relaxed mb-8 flex-grow line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <Link 
+                    href={`/insights/${post.category?.slug}/${post.id}`} 
+                    className="inline-flex items-center gap-2 text-[#7A1F5C] font-bold text-sm mt-auto group/link"
+                  >
+                    Read Article 
+                    <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

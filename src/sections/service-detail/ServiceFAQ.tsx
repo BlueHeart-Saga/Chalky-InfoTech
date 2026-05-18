@@ -17,7 +17,7 @@ export default function ServiceFAQ({ faqs }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-[#F9F9F9]">
+    <section className="py-24 bg-[#ffffff]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Common Questions</span>

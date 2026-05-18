@@ -5,24 +5,40 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    question: 'What industries do you specialize in?',
-    answer: 'We specialize in providing top-tier talent for the Technology, Finance, Healthcare, Retail, and Manufacturing sectors, with a strong focus on Cloud, DevOps, AI, and Data Engineering roles.',
+    question: 'How can I contact Chalky Infotech for immediate recruitment support?',
+    answer: 'You can reach our recruitment experts via our contact form, email at info@chalkyinfotech.com, or by calling our UK or India offices directly. We respond to all urgent staffing inquiries within 24 hours to ensure rapid requirement delivery.'
   },
   {
-    question: 'How long does your typical recruitment process take?',
-    answer: 'While timelines vary based on role complexity, our proprietary talent network allows us to present qualified candidates within 48 to 72 hours for most technical positions.',
+    question: 'What information should I provide when requesting a recruitment proposal?',
+    answer: 'To provide a tailored proposal, we recommend sharing the job descriptions, expected volume of hires, required technical stack, and your preferred engagement model (permanent, contract, or RPO). The more detail you provide, the faster we can map our talent network.'
   },
   {
-    question: 'Do you operate internationally?',
-    answer: 'Yes, Chalky Infotech operates globally with primary hubs in the UK and India. We help organizations build local teams and remote global workforces.',
+    question: 'How long does the typical tech hiring process take with your agency?',
+    answer: 'Our streamlined tech hiring process typically takes 15-21 days from the initial requirement briefing to the final offer. For urgent contract roles, we can often present pre-vetted candidates within 48-72 hours.'
   },
   {
-    question: 'What is your fee structure?',
-    answer: 'Our fee structure depends on the engagement model (contingency, retained search, or contract staffing). Please contact us directly for a tailored proposal based on your specific hiring needs.',
+    question: 'Do you offer scalable recruitment partnership solutions for startups and enterprises?',
+    answer: 'Yes, we provide scalable solutions designed to grow with your business. From seed-stage startups needing their first 10 engineers to global enterprises requiring 100+ specialists for digital transformation, our flexible models adapt to your needs.'
   },
   {
-    question: 'How do you ensure candidate quality?',
-    answer: 'We employ a rigorous multi-stage vetting process that includes technical assessments, cultural fit interviews, and thorough background checks to ensure we only present the top 5% of candidates.',
+    question: 'What are your staffing agency fees for permanent and contract placements?',
+    answer: 'Our fee structure is competitive and based on the industry standard for the specific engagement model (contingency or retained). We provide transparent pricing and volume-based discounts for long-term recruitment partnerships.'
+  },
+  {
+    question: 'How does your global talent acquisition support work for remote hiring?',
+    answer: 'We leverage our international hubs to source remote talent across multiple time zones. We assist with cultural alignment, technical vetting, and local compliance to ensure your remote workforce is both skilled and legally integrated.'
+  },
+  {
+    question: 'Can I schedule a workforce consultancy session with your sector experts?',
+    answer: 'Absolutely. We offer strategic workforce consultancy to help you plan your hiring roadmap, analyze market salary benchmarks, and optimize your employer branding to attract top-tier technology talent.'
+  },
+  {
+    question: 'What geographic locations does Chalky Infotech support for on-site hiring?',
+    answer: 'While we operate globally, we provide dedicated on-site recruitment support primarily in the UK and India. However, we can facilitate on-site partnerships in other regions depending on the scale and duration of the project.'
+  },
+  {
+    question: 'How do you handle data privacy and security during the recruitment lifecycle?',
+    answer: 'Security is paramount. We are fully GDPR compliant and utilize secure, encrypted platforms for candidate data management. We ensure that sensitive information is only shared with authorized stakeholders throughout the hiring lifecycle.'
   }
 ];
 
