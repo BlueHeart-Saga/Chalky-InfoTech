@@ -137,7 +137,7 @@ export default function IndustrySolutions({ services }: Props) {
                   fill
                   unoptimized
                   className="object-cover object-top"
-                />
+                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               </div>
               
               {/* Floating Badge 1 - Top Right */}

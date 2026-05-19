@@ -2,16 +2,22 @@ import type { Metadata } from 'next';
 import { MapPin, Briefcase, Clock, PoundSterling, Share2, Printer, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const title = params.slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const title = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   return {
     title: `${title} | Chalky Infotech Careers`,
     description: `Apply for the ${title} role at Chalky Infotech. Partnering with top-tier organizations globally.`,
   };
 }
 
-export default function JobDetailPage({ params }: { params: { slug: string } }) {
-  const jobTitle = params.slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+export default async function JobDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const jobTitle = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
   return (
     <div className="min-h-screen bg-[#F9F9F9] pt-24 pb-20">

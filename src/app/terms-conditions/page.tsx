@@ -15,8 +15,7 @@ import {
   Briefcase,
   Globe,
   Mail,
-  AlertTriangle,
-  Balance
+  AlertTriangle
 } from 'lucide-react';
 import { TERMS_CONDITIONS_DATA } from '@/constants/legalData';
 

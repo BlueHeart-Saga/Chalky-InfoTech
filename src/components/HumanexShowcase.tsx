@@ -43,7 +43,7 @@ export default function HumanexShowcase() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#FAF8F5] py-20 md:py-2 text-[#1A1A1A]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#FAF8F5] py-20 md:py-8 text-[#1A1A1A]">
       
       {/* WhatsApp-style pattern background */}
       <div className="absolute inset-0 opacity-[0.07] pointer-events-none" style={{ backgroundImage: 'url("/hero-pattern.png")', backgroundSize: '400px 400px', backgroundRepeat: 'repeat' }} />
@@ -139,7 +139,7 @@ export default function HumanexShowcase() {
                   fill
                   className="object-cover group-hover:scale-[1.005] transition-transform duration-750"
                   unoptimized
-                />
+                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               </div>
             </div>
           </motion.div>

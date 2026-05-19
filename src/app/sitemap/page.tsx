@@ -161,7 +161,7 @@ export default function SitemapPage() {
                   alt="Sitemap Illustration" 
                   fill 
                   className="object-contain grayscale"
-                />
+                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               </motion.div>
               
               <div className="relative z-10 flex flex-col items-center">

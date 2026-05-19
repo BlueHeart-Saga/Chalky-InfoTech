@@ -65,7 +65,7 @@ export default function LatestInsights() {
                     fill
                     unoptimized
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   <div className="absolute top-4 left-4">
                     <span className="bg-white/90 backdrop-blur-sm text-[#7A1F5C] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
                       {post.category?.name || 'Knowledge'}

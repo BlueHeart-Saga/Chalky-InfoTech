@@ -17,7 +17,6 @@ const LeadershipTeam = dynamic(() => import('@/sections/about/LeadershipTeam'), 
 const AboutCTA = dynamic(() => import('@/sections/about/AboutCTA'), { ssr: true });
 import HumanexShowcase from '@/components/HumanexShowcase';
 
-export const unstable_instant = { prefetch: 'static' };
 
 export const metadata: Metadata = {
   title: 'About Chalky Infotech | Global IT Recruitment & Workforce Solutions in the UK',
@@ -50,7 +49,7 @@ export default function AboutPage() {
     { label: 'Methodology', id: 'philosophy' },
     { label: 'Industry Expertise', id: 'expertise' },
     { label: 'Global Workforce', id: 'workforce' },
-    { label: 'Humanex', id: 'humanex' },
+    { label: 'HR Platform', id: 'humanex' },
     { label: 'Why Trust Us', id: 'trust' },
     { label: 'Journey', id: 'timeline' },
     { label: 'Our Team', id: 'team' }

@@ -156,7 +156,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
                 fill
                 unoptimized
                 className="object-cover"
-              />
+               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             </div>
             {block.data.caption && (
               <figcaption className="text-center text-xs text-gray-400 italic">
@@ -257,7 +257,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
                   unoptimized
                   className="object-cover"
                   priority
-                />
+                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               </div>
             )}
 
@@ -340,7 +340,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
                             fill
                             unoptimized
                             className="object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
+                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                         )}
                       </div>
                       <div className="flex-1 min-w-0">

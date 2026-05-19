@@ -39,7 +39,7 @@ export default function IndustriesPage() {
     { label: 'Process', id: 'process' },
     { label: 'Why Trust Us', id: 'trust' },
     { label: 'Global Support', id: 'global' },
-    { label: 'Humanex', id: 'humanex' },
+    { label: 'HR Platform', id: 'humanex' },
     { label: 'Metrics', id: 'metrics' },
     { label: 'FAQ', id: 'faq' }
   ];

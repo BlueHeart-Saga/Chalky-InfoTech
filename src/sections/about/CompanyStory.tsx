@@ -67,13 +67,13 @@ export default function CompanyStory() {
                 {/* Column 1 */}
                 <div className="flex flex-col gap-4 mt-8">
                   <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-                    <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Team meeting" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Team meeting" fill className="object-cover transition-transform duration-700 group-hover:scale-110"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
                       <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">Collaborative Strategy <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
                     </div>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.02 }} className="relative h-56 md:h-64 rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-                    <Image src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80" alt="Business discussion" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <Image src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80" alt="Business discussion" fill className="object-cover transition-transform duration-700 group-hover:scale-110"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
                       <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">Consultative Approach <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
                     </div>
@@ -82,13 +82,13 @@ export default function CompanyStory() {
                 {/* Column 2 */}
                 <div className="flex flex-col gap-4 mb-8">
                   <motion.div whileHover={{ scale: 1.02 }} className="relative h-56 md:h-64 rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-                    <Image src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80" alt="Tech workspace" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <Image src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80" alt="Tech workspace" fill className="object-cover transition-transform duration-700 group-hover:scale-110"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
                       <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">Agile Delivery <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
                     </div>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-                    <Image src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80" alt="Analytics" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <Image src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80" alt="Analytics" fill className="object-cover transition-transform duration-700 group-hover:scale-110"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
                       <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">Data-Driven Insights <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
                     </div>

@@ -37,7 +37,7 @@ export default function HomePage() {
     { label: 'Services', id: 'services' },
     { label: 'Industries', id: 'industries' },
     { label: 'Process', id: 'process' },
-    { label: 'Humanex', id: 'humanex' },
+    { label: 'HR Platform', id: 'humanex' },
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'Contact', id: 'contact' }
   ];

@@ -44,7 +44,7 @@ export default function ServicesPage() {
     { label: 'Why Us', id: 'why-choose' },
     { label: 'Specialized', id: 'specialized' },
     { label: 'Workforce', id: 'global' },
-    { label: 'Humanex', id: 'humanex' },
+    { label: 'HR Platform', id: 'humanex' },
     { label: 'Metrics', id: 'metrics' },
     { label: 'FAQ', id: 'faq' }
   ];

@@ -63,7 +63,7 @@ export default function ServiceBenefits({ benefits }: Props) {
                     fill
                     unoptimized
                     className={`object-cover object-center transition-transform duration-700 group-hover:scale-105 ${isDark ? 'opacity-50' : 'opacity-20'}`}
-                  />
+                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   <div className={`absolute inset-0 bg-gradient-to-b ${isDark ? 'from-black via-black/80' : 'from-white via-white/90'} to-transparent`} />
                 </div>
 

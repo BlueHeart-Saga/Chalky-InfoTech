@@ -38,7 +38,7 @@ export default function WhyChooseServices() {
                 alt="City Skyscrapers" 
                 fill 
                 className="object-cover object-bottom opacity-60 group-hover:scale-105 transition-transform duration-700" 
-              />
+               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent" />
             </div>
 
@@ -72,7 +72,7 @@ export default function WhyChooseServices() {
                 alt="Team working" 
                 fill 
                 className="object-cover object-bottom opacity-70 group-hover:scale-105 transition-transform duration-700" 
-              />
+               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-transparent" />
             </div>
 
@@ -106,7 +106,7 @@ export default function WhyChooseServices() {
                 alt="Celebration" 
                 fill 
                 className="object-cover object-bottom opacity-50 group-hover:scale-105 transition-transform duration-700" 
-              />
+               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-transparent" />
             </div>
 
@@ -158,7 +158,7 @@ export default function WhyChooseServices() {
                 alt="Large Team" 
                 fill 
                 className="object-cover object-bottom opacity-60 group-hover:scale-105 transition-transform duration-700" 
-              />
+               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent" />
             </div>
 

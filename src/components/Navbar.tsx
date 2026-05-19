@@ -363,7 +363,7 @@ export default function Navbar() {
                     alt="Featured" 
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                  />
+                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                 </div>
                 <h5 className="font-bold text-[#1A1A1A] text-sm mb-2">{previewTitle}</h5>
                 <p className="text-xs text-[#666] leading-relaxed line-clamp-3">{previewDesc}</p>

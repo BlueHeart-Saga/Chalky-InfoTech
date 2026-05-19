@@ -90,7 +90,7 @@ export default function FeaturedIndustryExpertise() {
                 className="w-full lg:w-1/2 relative"
               >
                 <div className="relative aspect-[16/10] overflow-hidden group">
-                  <Image src={ind.image} alt={ind.title} fill className="object-cover group-hover:scale-105 transition-transform duration-1000" />
+                  <Image src={ind.image} alt={ind.title} fill className="object-cover group-hover:scale-105 transition-transform duration-1000"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                 </div>
               </motion.div>
 

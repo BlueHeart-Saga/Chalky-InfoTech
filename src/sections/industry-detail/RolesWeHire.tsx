@@ -111,7 +111,7 @@ export default function RolesWeHire({ industryLabel, roles }: Props) {
                           fill
                           unoptimized
                           className="object-cover transition-transform duration-700 hover:scale-110"
-                        />
+                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                       </div>
                     </motion.div>
                   );

@@ -58,7 +58,7 @@ export default function RecentArticles({ posts, displayFeatured, loading }: Prop
               fill
               unoptimized
               className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
+             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             <div className="absolute top-4 left-4">
               <span className="px-3.5 py-1.5 rounded-xl bg-white/90 backdrop-blur-sm text-[#7A1F5C] text-[9px] font-black uppercase tracking-wider select-none">
                 {post.category?.name}
