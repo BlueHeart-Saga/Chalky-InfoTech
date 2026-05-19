@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { SERVICES, INDUSTRIES } from '@/constants';
+import { LOCATIONS } from '@/constants/locationsData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://www.chalkyinfo.com';
@@ -28,5 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...industryRoutes];
+  const locationRoutes: MetadataRoute.Sitemap = LOCATIONS.map((l) => ({
+    url: `${base}/locations/${l.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...industryRoutes, ...locationRoutes];
 }

@@ -21,6 +21,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = SERVICES_DETAILED.find((s) => s.slug === slug);
   if (!service) return { title: 'Service Not Found' };
 
+  if (service.metaInfo) {
+    return {
+      title: service.metaInfo.title,
+      description: service.metaInfo.description,
+      keywords: service.metaInfo.keywords,
+      openGraph: {
+        title: service.metaInfo.ogTitle,
+        description: service.metaInfo.ogDescription,
+        locale: 'en_GB',
+      },
+      other: {
+        'geo.region': 'GB',
+        'geo.placename': 'United Kingdom',
+        'language': 'en-GB'
+      }
+    };
+  }
+
   return {
     title: `${service.label} Solutions | Chalky Infotech UK & India`,
     description: `Professional ${service.label.toLowerCase()} services helping organizations scale through strategic workforce solutions and specialized talent acquisition across multiple industries.`,

@@ -14,9 +14,19 @@ import SectionNavbar from '@/components/SectionNavbar';
 import HumanexShowcase from '@/components/HumanexShowcase';
 
 export const metadata: Metadata = {
-  title: 'Specialized Industry Recruitment & Workforce Solutions | Chalky Infotech',
-  description:
-    'Chalky Infotech supports organizations across technology, healthcare, finance, education, retail, and manufacturing through scalable recruitment solutions tailored to industry-specific needs.',
+  title: 'Specialized Industry Recruitment & Workforce Solutions in the UK | Chalky Infotech',
+  description: 'Chalky Infotech supports organizations across technology, healthcare, finance, retail, and manufacturing through scalable recruitment solutions tailored to industry-specific needs in the UK.',
+  keywords: ['industry recruitment solutions', 'tech recruitment UK', 'healthcare staffing', 'finance recruiters', 'retail workforce solutions', 'manufacturing recruitment', 'UK industry staffing', 'specialist workforce solutions'],
+  openGraph: {
+    title: 'Specialized Industry Recruitment & Workforce Solutions UK',
+    description: 'Chalky Infotech supports organizations across technology, healthcare, finance, retail, and manufacturing through scalable recruitment solutions.',
+    locale: 'en_GB',
+  },
+  other: {
+    'geo.region': 'GB',
+    'geo.placename': 'United Kingdom',
+    'language': 'en-GB'
+  }
 };
 
 export default function IndustriesPage() {

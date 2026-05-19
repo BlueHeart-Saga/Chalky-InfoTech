@@ -40,7 +40,7 @@ export default function ServiceOverview({ title, description }: Props) {
             <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-8 leading-tight tracking-tight">
               {title}
             </h2>
-            <p className="text-[#8A8A8A] text-lg leading-relaxed border-l-4 border-[#7A1F5C] pl-8">
+            <p className="text-[#8A8A8A] text-lg leading-relaxed border-l-4 border-[#7A1F5C] pl-8 whitespace-pre-wrap">
               {description}
             </p>
           </div>

@@ -21,6 +21,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const industry = INDUSTRIES_DETAILED.find((i) => i.slug === slug);
   if (!industry) return { title: 'Industry Not Found' };
 
+  if ((industry as any).metaInfo) {
+    const meta = (industry as any).metaInfo;
+    return {
+      title: meta.title,
+      description: meta.description,
+      keywords: meta.keywords,
+      openGraph: {
+        title: meta.ogTitle,
+        description: meta.ogDescription,
+        locale: 'en_GB',
+      },
+      other: {
+        'geo.region': 'GB',
+        'geo.placename': 'United Kingdom',
+        'language': 'en-GB'
+      }
+    };
+  }
+
   return {
     title: `${industry.label} Recruitment & Workforce Solutions | Chalky Infotech`,
     description: `Specialized ${industry.label.toLowerCase()} workforce solutions helping organizations scale through strategic recruitment and talent acquisition across UK and India.`,

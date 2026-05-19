@@ -9,6 +9,13 @@ export interface ServiceDetail {
     subtitle: string;
     image: string;
   };
+  metaInfo?: {
+    title: string;
+    description: string;
+    keywords: string;
+    ogTitle: string;
+    ogDescription: string;
+  };
   overview: {
     title: string;
     description: string;
@@ -33,48 +40,53 @@ export interface ServiceDetail {
 export const SERVICES_DETAILED: ServiceDetail[] = [
   {
     slug: 'it-staffing',
-    label: 'IT Staffing',
+    label: 'IT Staffing Solution',
     icon: 'Code2',
-    desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.',
+    desc: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals — on demand, at speed, without compromise.',
     hero: {
       badge: 'Elite Tech Talent',
-      title: 'Specialized IT Staffing Solutions',
-      subtitle: 'Building high-performance technology teams through precision recruitment of software, cloud, and data engineering professionals.',
+      title: 'IT Staffing Solution',
+      subtitle: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals — on demand, at speed, without compromise.',
       image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
     },
+    metaInfo: {
+      title: 'IT Staffing Solution in the UK | Hire Verified IT Talent',
+      description: 'Looking for a reliable IT Staffing Solution in the UK? We connect businesses with pre-vetted IT professionals — fast, flexible & tailored to your tech needs. Get matched in 48 hours.',
+      keywords: 'IT staffing solution UK, IT staffing services UK, IT recruitment UK, contract IT staffing UK, technology staffing solution UK, hire IT professionals UK, IT talent solutions UK, permanent IT staffing UK, tech recruitment agency UK, IT workforce solution UK, software developer staffing UK, cloud engineer staffing UK, IT contract staffing London, DevOps staffing UK, IT hiring solution Uk',
+      ogTitle: 'IT Staffing Solution UK | Verified Tech Talent',
+      ogDescription: 'Trusted IT staffing solution across the UK. Pre-vetted professionals. 48-hour matching. Contract, C2H & Full-Time hiring.'
+    },
     overview: {
-      title: 'Digital Transformation Talent',
-      description: 'In the rapidly evolving tech landscape, having the right engineers is the ultimate competitive advantage. Our IT staffing solutions focus on deep technical vetting and cultural alignment.',
+      title: 'What Is an IT Staffing Solution?',
+      description: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals — on demand, at speed, without compromise. \n\n• Talent on Demand: Access pre-screened IT professionals ready to deploy within days.\n• Flexible Engagement: Contract, Contract-to-Hire, or Full-Time — your call.\n• Business-Aligned Hiring: Every placement is matched to your tech stack, team culture, and project goals.',
     },
     benefits: [
-      'Access to elite 1% tech talent',
-      'Specialized technical vetting',
-      'Reduced time-to-hire for niche roles',
-      'Scalable engineering teams',
-      'Future-proof technology skills',
-      'Project-aligned talent delivery'
+      'Faster Project Delivery: Skilled professionals onboard quickly, reducing time-to-productivity',
+      'Reduced Hiring Risk: Pre-vetted talent means fewer failed hires and costly replacements',
+      'Scalable Teams: Scale up or down based on project demand without long-term overhead',
+      'Cost Efficiency: Cut recruitment costs by up to 40% with our managed staffing model',
+      'Focus on Core Business: We handle the hiring complexity. You focus on building.'
     ],
     industries: ['Software', 'Fintech', 'Cloud Computing', 'AI & Data'],
     process: [
-      { title: 'Technical Briefing', desc: 'Understanding your tech stack and architecture.' },
-      { title: 'Market Mapping', desc: 'Identifying top passive talent in the sector.' },
-      { title: 'Vetting', desc: 'Rigorous technical and behavioral assessments.' },
-      { title: 'Placement', desc: 'Seamless integration into your sprint cycles.' }
+      { title: 'Understand', desc: 'We deep-dive into your role, tech stack & team dynamics.' },
+      { title: 'Source & Screen', desc: 'We identify, assess & shortlist from our verified talent pool.' },
+      { title: 'Match & Present', desc: 'You receive 2–3 curated profiles, not a pile of resumes.' },
+      { title: 'Place & Support', desc: 'We manage onboarding and stay with you post-placement.' }
     ],
     faqs: [
-      { q: 'How does Chalky Infotech source the top 1% of specialized technical talent?', a: 'We use advanced talent mapping and AI-driven sourcing to identify high-performing engineers. Our focus is on "passive" candidates who aren\'t actively looking but possess the niche skills required for complex digital projects.' },
-      { q: 'What technical stacks and languages do your IT recruitment experts cover?', a: 'Our experts cover all modern stacks including Java, Python, Node.js, React, Golang, and specialized cloud-native architectures on AWS, Azure, and GCP.' },
-      { q: 'How do you ensure candidate quality through your technical vetting process?', a: 'Every candidate undergoes a multi-stage technical evaluation, including live coding, architectural reviews, and soft-skill assessments conducted by our in-house technical consultants.' },
-      { q: 'Can you provide specialized IT staffing for cloud and DevOps engineering roles?', a: 'Yes, cloud and DevOps are our core strengths. we source architects and engineers who understand Kubernetes, Terraform, and modern CI/CD pipelines to drive your infrastructure automation.' },
-      { q: 'What is the average time-to-hire for niche technical positions like AI or Data Science?', a: 'Due to our proactive talent pipelining, we typically present a qualified shortlist for niche AI or Data Science roles within 14-18 days.' },
-      { q: 'Do you support IT recruitment for both early-stage startups and global enterprises?', a: 'Absolutely. We scale our services to meet the needs of seed-stage startups building their first engineering teams, as well as enterprises undergoing massive digital transformations.' },
-      { q: 'How does your agency handle the sourcing of passive tech talent?', a: 'We build long-term relationships with top engineers globally, engaging them through technical communities and specialized networks rather than just job boards.' },
-      { q: 'Can you build complete, cross-functional engineering squads for digital projects?', a: 'Yes, our "Squad Hiring" model allows us to deploy ready-to-work teams including developers, product managers, and QA specialists for immediate project impact.' },
-      { q: 'What interview preparation do you provide for IT candidates?', a: 'We provide candidates with detailed technical briefs, company culture insights, and mock interview sessions to ensure they can effectively showcase their value to your team.' }
+      { q: 'What types of IT roles do you staff?', a: 'We staff across the full technology spectrum — software developers, cloud engineers, DevOps, cybersecurity, data engineers, QA, and IT project managers.' },
+      { q: 'How quickly can you provide candidates?', a: 'In most cases, we present shortlisted profiles within 24 to 48 hours of receiving your requirement.' },
+      { q: 'Do you offer contract and permanent staffing?', a: 'Yes. We offer Contract, Contract-to-Hire, and Full-Time staffing models tailored to your business needs.' },
+      { q: 'How do you ensure candidate quality?', a: 'Every candidate goes through a 3-layer screening — technical assessment, communication evaluation, and cultural fit review before they reach you.' },
+      { q: 'What if the placed candidate doesn\'t work out?', a: 'We offer a structured replacement guarantee. If a placement doesn\'t meet expectations, we re-engage at no additional cost.' }
     ],
     features: [
-      { title: 'Full-Stack Expertise', desc: 'From frontend to backend and DevOps.', icon: 'Layers' },
-      { title: 'Rapid Deployment', desc: 'Filling critical roles within 14-21 days.', icon: 'Zap' }
+      { title: '48-Hour Talent Matching', desc: 'No long waiting cycles.', icon: 'Clock' },
+      { title: '3-Layer Candidate Vetting', desc: 'Only qualified professionals reach you.', icon: 'ShieldCheck' },
+      { title: 'Dedicated Account Manager', desc: 'One point of contact, zero confusion.', icon: 'UserCircle' },
+      { title: 'Domain-Specific Recruiters', desc: 'We know your tech stack, not just job titles.', icon: 'Code2' },
+      { title: 'Zero Replacement Fee', desc: 'Wrong fit? We fix it at no extra cost.', icon: 'Zap' }
     ]
   },
   {

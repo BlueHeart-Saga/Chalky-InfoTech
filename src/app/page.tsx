@@ -15,9 +15,19 @@ import CTASection from '@/components/CTASection';
 import HumanexShowcase from '@/components/HumanexShowcase';
 
 export const metadata: Metadata = {
-  title: 'Chalky Infotech | Premium Recruitment & IT Consulting',
-  description:
-    'Chalky Infotech — specialist technology and digital recruitment partner. Connecting exceptional talent with world-class organisations across cloud, AI, DevOps, finance and more.',
+  title: 'Chalky Infotech | Premium IT Recruitment & Workforce Solutions in the UK',
+  description: 'Chalky Infotech is a specialist technology and digital recruitment partner in the UK. We connect exceptional talent with world-class organisations across cloud, AI, DevOps, and finance.',
+  keywords: ['IT recruitment UK', 'technology recruitment partner', 'digital talent acquisition', 'cloud recruitment', 'AI staffing', 'DevOps hiring', 'finance tech recruitment', 'premium IT workforce solutions'],
+  openGraph: {
+    title: 'Chalky Infotech | Premium IT Recruitment UK',
+    description: 'Specialist technology and digital recruitment partner connecting exceptional talent with world-class organisations.',
+    locale: 'en_GB',
+  },
+  other: {
+    'geo.region': 'GB',
+    'geo.placename': 'United Kingdom',
+    'language': 'en-GB'
+  }
 };
 
 export default function HomePage() {

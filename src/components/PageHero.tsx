@@ -48,9 +48,22 @@ export default function PageHero({
   imageAlt = 'Hero image',
   badge,
 }: PageHeroProps) {
+  const breadcrumbJsonLd = breadcrumbs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.label,
+      item: crumb.href ? `https://chalkyinfo.com${crumb.href}` : undefined
+    }))
+  } : null;
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#2D0F22] via-[#4A1238] to-[#7A1F5C] min-h-[320px] flex items-center">
-
+      {breadcrumbJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      )}
       {/* ── Subtle grid overlay ── */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"

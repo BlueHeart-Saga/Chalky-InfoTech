@@ -17,9 +17,19 @@ import SectionNavbar from '@/components/SectionNavbar';
 import HumanexShowcase from '@/components/HumanexShowcase';
 
 export const metadata: Metadata = {
-  title: 'Specialist Recruitment & Workforce Solutions | Chalky Infotech',
-  description:
-    'From contract staffing and permanent recruitment to workforce scaling and on-site hiring support, Chalky Infotech provides flexible recruitment solutions designed for evolving business needs.',
+  title: 'Specialist Recruitment & Workforce Solutions in the UK | Chalky Infotech',
+  description: 'Looking for flexible recruitment solutions? From contract staffing to permanent IT recruitment, Chalky Infotech provides scalable workforce support tailored to your needs.',
+  keywords: ['recruitment solutions UK', 'workforce solutions UK', 'IT staffing services', 'specialist recruitment agency', 'contract staffing UK', 'permanent recruitment UK', 'on-site hiring support', 'managed workforce solutions'],
+  openGraph: {
+    title: 'Specialist Recruitment & Workforce Solutions UK',
+    description: 'From contract staffing to permanent IT recruitment, Chalky Infotech provides scalable workforce support tailored to your needs.',
+    locale: 'en_GB',
+  },
+  other: {
+    'geo.region': 'GB',
+    'geo.placename': 'United Kingdom',
+    'language': 'en-GB'
+  }
 };
 
 export default function ServicesPage() {

@@ -44,7 +44,14 @@ export default function Hero() {
                   'Retail Workforce Solutions',
                   'Outsourcing & Offshoring',
                   'Media & Entertainment Talent',
-                  'Power & Electronics Experts'
+                  'Power & Electronics Experts',
+                  'IT Recruitment',
+                  'Contract Staffing',
+                  'Executive Search',
+                  'Workforce Solutions',
+                  'Cloud & Data Hiring',
+                  'Healthcare Staffing',
+                  'Retail Workforce'
                 ]}
                 mainClassName="inline-flex whitespace-nowrap flex-nowrap text-[#7A1F5C] py-1 sm:py-2 drop-shadow-lg text-center justify-center font-extrabold text-[clamp(1.25rem,5vw,5rem)] leading-none"
                 splitBy="words"
@@ -61,7 +68,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-[#8A8A8A] text-sm sm:text-base md:text-xl leading-relaxed mb-12 max-w-3xl mx-auto font-medium px-4">
-            Chalky Infotech is the trusted recruitment partner for ambitious organisations, delivering exceptional professionals across Cloud, AI, Data and Engineering.
+            IT Recruitment, Contract Staffing, Executive Search & Workforce Solutions for Global Businesses. Connecting you with elite tech talent faster.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto px-4">

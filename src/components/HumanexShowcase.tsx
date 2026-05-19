@@ -43,7 +43,7 @@ export default function HumanexShowcase() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#FAF8F5] py-20 md:py-28 text-[#1A1A1A]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#FAF8F5] py-20 md:py-2 text-[#1A1A1A]">
       
       {/* WhatsApp-style pattern background */}
       <div className="absolute inset-0 opacity-[0.07] pointer-events-none" style={{ backgroundImage: 'url("/hero-pattern.png")', backgroundSize: '400px 400px', backgroundRepeat: 'repeat' }} />
@@ -216,7 +216,7 @@ export default function HumanexShowcase() {
         </motion.div>
 
         {/* ─── "What Humanex Helps You Manage" Sub-Section ─── */}
-        <div className="border-t border-gray-200/50 pt-20 mb-16">
+        <div className="border-t border-gray-200/50 pt-2 mb-16">
           <div className="max-w-xl mx-auto text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-semibold text-[#1A1A1A] mb-3">
               What Humanex Helps You Manage
