@@ -7,7 +7,19 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-export default function ServiceProcess() {
+interface Props {
+  steps?: {
+    title: string;
+    desc: string;
+    icon?: string;
+  }[];
+}
+
+const DEFAULT_ICONS = ['Search', 'ShieldCheck', 'UserCheck', 'CheckCircle', 'Activity', 'Award'];
+
+export default function ServiceProcess({ steps }: Props) {
+  const displaySteps = steps || RECRUITMENT_STEPS;
+
   return (
     <section className="py-24 bg-white overflow-hidden pb-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,9 +35,10 @@ export default function ServiceProcess() {
         </div>
 
         <div className="relative">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-16 gap-x-4">
-            {RECRUITMENT_STEPS.map((step, i) => {
-              const Icon = (LucideIcons as any)[step.icon] || LucideIcons.CheckCircle;
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-16 gap-x-4 justify-center">
+            {displaySteps.map((step, i) => {
+              const iconName = step.icon || DEFAULT_ICONS[i % DEFAULT_ICONS.length];
+              const Icon = (LucideIcons as any)[iconName] || LucideIcons.CheckCircle;
               return (
                 <motion.div
                   key={i}
@@ -36,7 +49,7 @@ export default function ServiceProcess() {
                   className="relative flex flex-col items-center text-center group"
                 >
                   {/* Connector Arrow for Desktop */}
-                  {i < RECRUITMENT_STEPS.length - 1 && (
+                  {i < displaySteps.length - 1 && (
                     <div className="hidden lg:block absolute top-12 left-[calc(100%-12px)] z-0 text-gray-200">
                       <ChevronRight size={24} />
                     </div>

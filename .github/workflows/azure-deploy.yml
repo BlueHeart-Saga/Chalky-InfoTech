@@ -11,36 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: 22
+          cache: npm
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install Dependencies
+        run: npm ci
 
-      - name: Build Next.js app
+      - name: Build Next.js Application
         run: npm run build
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'chalky-infotech'
+          app-name: chalky-infotech
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
           package: .
-          slot-name: 'production'
-          clean: true
-        continue-on-error: true
-
-      - name: Retry deployment if failed
-        if: failure()
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'chalky-infotech'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
-          package: .
-          slot-name: 'production'
-          clean: true
+          slot-name: production
