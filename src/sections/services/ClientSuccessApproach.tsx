@@ -2,10 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
-import client1 from '../../assets/teams/client1.png';
-import client2 from '../../assets/teams/client2.png';
-import client3 from '../../assets/teams/client3.png';
+import client1 from '@/assets/Services/Our Sucess Team/1c887069fec338e0ff5285bd5cbe7511 1.png';
+import client2 from '@/assets/Services/Our Sucess Team/34dae2b1c9a2c38bfdc18bbb5a414149 1.png';
+import client3 from '@/assets/Services/Our Sucess Team/b45c133201eff18f79b8ebf034dcf005 1.png';
 
 const PROFILES = [
   {
@@ -63,7 +64,7 @@ export default function ClientSuccessApproach() {
               Meet our <span className="text-[#7A1F5C]">Success Partners</span>
             </h2>
             <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg">
-              We believe in nurturing deep operational understanding and providing a space where strategic hiring thrives. Our dedicated success partners bring new perspectives, innovative talent strategies, and unstoppable energy to your team.
+              We believe in nurturing deep operational understanding and providing a space where <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">strategic hiring thrives</Link>. Our dedicated success partners bring new perspectives, innovative talent strategies, and unstoppable energy to <Link href="/contact" className="text-[#7A1F5C] hover:underline font-semibold">your global team</Link>.
             </p>
           </motion.div>
 

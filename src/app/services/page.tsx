@@ -16,6 +16,8 @@ import SearchMethodology from '@/sections/services/SearchMethodology';
 import SectionNavbar from '@/components/SectionNavbar';
 import HumanexShowcase from '@/components/HumanexShowcase';
 
+import heroImg from '@/assets/Services/Hero Section/ad7ac507-b934-4054-b5d3-892b1dc62bbb 1.png';
+
 export const metadata: Metadata = {
   title: 'Specialist Recruitment & Workforce Solutions in the UK | Chalky Infotech',
   description: 'Looking for flexible recruitment solutions? From contract staffing to permanent IT recruitment, Chalky Infotech provides scalable workforce support tailored to your needs.',
@@ -67,7 +69,7 @@ export default function ServicesPage() {
           ctaHref="/contact"
           secondaryLabel="Browse Jobs"
           secondaryHref="/jobs"
-          imageSrc="/hero-services.png"
+          imageSrc={heroImg.src}
           imageAlt="Chalky Infotech specialist consultants"
         />
       </section>

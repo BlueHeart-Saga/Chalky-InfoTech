@@ -3,6 +3,12 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Star, Hexagon, Triangle, Circle, Square } from 'lucide-react';
+import Link from 'next/link';
+
+import adv1 from '@/assets/Services/The Advantage/122f760f-f22f-4575-a547-bc605b036f67 1.png';
+import adv2 from '@/assets/Services/The Advantage/41805b2d-e851-4072-929c-c8e5fb154bc5 1.png';
+import adv3 from '@/assets/Services/The Advantage/9097029e-397c-4c53-9f46-f8651902a05f 1.png';
+import adv4 from '@/assets/Services/The Advantage/bee878c5-c926-44fe-83f3-fcea5177729e 1.png';
 
 export default function WhyChooseServices() {
   return (
@@ -18,7 +24,7 @@ export default function WhyChooseServices() {
             Why Partner with <span className="text-[#7A1F5C]">Chalky Infotech?</span>
           </h2>
           <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg leading-relaxed">
-            We combine high-tech recruitment tools with high-touch human expertise to deliver premium, enterprise-grade talent solutions.
+            We combine high-tech recruitment tools with high-touch human expertise to deliver premium, <Link href="/services" className="text-[#7A1F5C] hover:underline font-semibold">enterprise-grade talent solutions</Link> built on <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">industry-best methodologies</Link>.
           </p>
         </div>
 
@@ -34,7 +40,7 @@ export default function WhyChooseServices() {
           >
             <div className="absolute inset-0 z-0">
               <Image 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" 
+                src={adv1} 
                 alt="City Skyscrapers" 
                 fill 
                 className="object-cover object-bottom opacity-60 group-hover:scale-105 transition-transform duration-700" 
@@ -45,7 +51,7 @@ export default function WhyChooseServices() {
             <div className="relative z-10 p-8 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-3">Global brands</h3>
               <p className="text-white/80 text-sm leading-relaxed max-w-sm">
-                We have experience working with global corporate clients and top-tier brands in logistics, tech, energy, and consulting.
+                We have experience working with global corporate clients and top-tier brands in <Link href="/industries/retail-ecommerce" className="text-white underline hover:text-[#D14D72] font-semibold">logistics</Link>, <Link href="/industries/it-technology" className="text-white underline hover:text-[#D14D72] font-semibold">tech</Link>, <Link href="/industries/manufacturing" className="text-white underline hover:text-[#D14D72] font-semibold">energy</Link>, and global consulting.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 mt-6 opacity-90">
@@ -68,7 +74,7 @@ export default function WhyChooseServices() {
           >
             <div className="absolute inset-0 z-0">
               <Image 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop" 
+                src={adv2} 
                 alt="Team working" 
                 fill 
                 className="object-cover object-bottom opacity-70 group-hover:scale-105 transition-transform duration-700" 
@@ -79,7 +85,7 @@ export default function WhyChooseServices() {
             <div className="relative z-10 p-8 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-3">Exceptional standards</h3>
               <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-                From rapidly growing Series A and B startups in the US and Europe with a high engineering talent bar to hedge funds and investors - we exceed expectations.
+                From rapidly growing Series A and B startups with a high <Link href="/services/it-staffing" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">engineering talent bar</Link> to hedge funds and global investors - we exceed expectations by delivering <Link href="/services/executive-search" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">executive leadership</Link>.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 mt-6 text-gray-800">
@@ -102,7 +108,7 @@ export default function WhyChooseServices() {
           >
             <div className="absolute inset-0 z-0">
               <Image 
-                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800&auto=format&fit=crop" 
+                src={adv3} 
                 alt="Celebration" 
                 fill 
                 className="object-cover object-bottom opacity-50 group-hover:scale-105 transition-transform duration-700" 
@@ -113,7 +119,7 @@ export default function WhyChooseServices() {
             <div className="relative z-10 p-8 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-3">High client satisfaction</h3>
               <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-                Our reliability is attested by our years on the market and excellent client satisfaction on independent, external review portals.
+                Our reliability is attested by our years on the market and excellent client satisfaction on independent, external review portals. Ready to partner? <Link href="/contact" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">Contact our team</Link> today.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 mt-8">
@@ -154,7 +160,7 @@ export default function WhyChooseServices() {
           >
             <div className="absolute inset-0 z-0">
               <Image 
-                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&auto=format&fit=crop" 
+                src={adv4} 
                 alt="Large Team" 
                 fill 
                 className="object-cover object-bottom opacity-60 group-hover:scale-105 transition-transform duration-700" 
@@ -165,7 +171,7 @@ export default function WhyChooseServices() {
             <div className="relative z-10 p-8 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-3">Over 40 tech recruiters</h3>
               <p className="text-white/80 text-sm leading-relaxed max-w-sm">
-                We can hire up to 5 developers in the first month, 20 in 3 months, and 100 within a year, scaling perfectly to your growth requirements.
+                We can hire up to 5 developers in the first month and 100 within a year, scaling perfectly to your growth requirements with our <Link href="/services/temporary-recruitment" className="text-white underline hover:text-[#D14D72] font-semibold">temporary recruitment</Link> and <Link href="/services/remote-hiring" className="text-white underline hover:text-[#D14D72] font-semibold">remote talent models</Link>.
               </p>
             </div>
           </motion.div>

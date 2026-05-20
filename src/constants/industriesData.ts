@@ -132,107 +132,93 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
     ]
   },
   {
-    slug: 'cybersecurity',
-    label: 'Cybersecurity',
-    icon: 'Shield',
+    slug: 'engineering-infrastructure',
+    label: 'Engineering & Infrastructure',
+    icon: 'HardHat',
     hero: {
-      badge: 'Security Expertise',
-      title: 'Cybersecurity Workforce Solutions',
-      subtitle: 'Building elite security teams to protect critical infrastructure and enterprise data from evolving global threats.',
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop',
+      badge: 'Engineering Workforce',
+      title: 'Engineering & Infrastructure Solutions',
+      subtitle: 'Supporting large-scale engineering, civil, industrial, and technical workforce requirements.',
+      image: 'https://images.unsplash.com/photo-1541888086225-ee82fb067eb8?q=80&w=1200&auto=format&fit=crop',
     },
     overview: {
-      title: 'Defensive Talent Strategy',
-      description: 'With cyber threats becoming more sophisticated, organizations need specialized security talent. We identify the rare professionals capable of building resilient defense ecosystems.',
+      title: 'Strategic Engineering Talent',
+      description: 'We connect businesses with highly specialized engineers and project managers to drive critical infrastructure and industrial projects.',
     },
     challenges: [
-      'Severe security skill gap',
-      'Rapidly evolving threat landscape',
-      'Strict regulatory compliance',
-      '24/7 monitoring requirements'
+      'Complex project lifecycles',
+      'Technical talent scarcity',
+      'Stringent safety regulations',
+      'Global supply chain shifts'
     ],
     roles: [
-      'SOC Analysts',
-      'Penetration Testers',
-      'Security Architects',
-      'CISO & Security Leadership',
-      'Incident Response Managers',
-      'Cloud Security Engineers'
+      'Civil Engineers',
+      'Mechanical Engineers',
+      'Project Managers',
+      'Health & Safety Managers',
+      'Site Reliability Engineers',
+      'Electrical Engineers'
     ],
     services: [
-      'Executive Search',
       'Permanent Hiring',
-      'Contract Specialists',
-      'Managed Security Teams'
+      'Contract Engineering',
+      'Executive Search',
+      'Project-Based Staffing'
     ],
     faqs: [
-      { q: 'How do you identify and vet elite cybersecurity talent in a high-demand market?', a: 'We leverage deep-tech networks and secure communities where top security professionals operate. Our vetting includes verification of hands-on experience in threat detection, ethical hacking, and incident response.' },
-      { q: 'Do you facilitate official security clearance processes for sensitive roles?', a: 'Yes, we have experience managing the pre-screening required for security-cleared positions and can coordinate with the relevant government or private authorities to facilitate official clearances.' },
-      { q: 'Can you build fully-staffed, 24/7 Security Operations Centers (SOC)?', a: 'We specialize in building complete SOC teams, sourcing analysts, hunters, and managers across multiple shifts to ensure your organization has around-the-clock protection.' },
-      { q: 'What is your expertise in sourcing Cloud Security and Zero Trust specialists?', a: 'Our technical consultants specialize in modern security paradigms. We source experts in AWS/Azure security, IAM, and Zero Trust architectures who can protect hybrid and multi-cloud environments.' },
-      { q: 'How do you handle executive search for CISO and senior security leadership?', a: 'Our executive search team uses a discreet, high-touch approach to identify and attract top-tier security leaders capable of driving enterprise-wide risk management strategies.' },
-      { q: 'Do you provide contract cybersecurity experts for incident response?', a: 'Yes, we maintain a "rapid-response" pool of contract security specialists who can be deployed quickly to assist with breach investigations and remediation projects.' },
-      { q: 'How does Chalky Infotech bridge the cybersecurity skill gap for clients?', a: 'We provide strategic workforce planning, helping you identify areas where automated tools can be augmented by specialized human talent, ensuring a balanced and resilient security posture.' },
-      { q: 'What regulatory compliance standards (ISO, NIST) do your candidates understand?', a: 'We vet our security professionals for their experience with major global frameworks, including ISO 27001, NIST, SOC2, and industry-specific regulations like HIPAA or PCI-DSS.' },
-      { q: 'How quickly can you deploy a specialized penetration testing team?', a: 'Depending on the scope, we can often present a team of pre-vetted, certified penetration testers (OSCP, CEH) within 3-5 business days for time-sensitive audits.' }
+      { q: 'What types of engineering roles do you specialize in?', a: 'We specialize in civil, mechanical, electrical, and structural engineering roles across major infrastructure projects.' },
+      { q: 'How do you vet technical engineering talent?', a: 'We conduct comprehensive technical interviews, verify certifications, and review past project portfolios to ensure competency and safety.' }
     ],
     capabilities: [
-      { title: 'Zero Trust Focus', desc: 'Candidates expert in modern security models.', icon: 'ShieldAlert' },
-      { title: 'Rapid Sourcing', desc: 'Connecting with passive security talent.', icon: 'Search' },
-      { title: 'SOC Analysts', desc: 'Vetted threat hunters for 24/7 security monitoring.', icon: 'Eye' },
-      { title: 'Incident Response', desc: 'Rapid responders experienced in threat remediation.', icon: 'Activity' }
+      { title: 'Technical Vetting', desc: 'Rigorous assessment of engineering credentials.', icon: 'CheckCircle2' },
+      { title: 'Project Ready', desc: 'Candidates prepared for fast-paced infrastructure deployments.', icon: 'Zap' },
+      { title: 'Safety First', desc: 'Deep understanding of global safety regulations.', icon: 'Shield' },
+      { title: 'Global Reach', desc: 'Sourcing engineering talent from international markets.', icon: 'Globe' }
     ]
   },
   {
-    slug: 'ai-data-science',
-    label: 'AI & Data Science',
-    icon: 'Brain',
+    slug: 'media-digital-services',
+    label: 'Media & Digital Services',
+    icon: 'MonitorPlay',
     hero: {
-      badge: 'Intelligence Workforce',
-      title: 'AI & Data Science Recruitment Solutions',
-      subtitle: 'Sourcing the specialized engineers and researchers driving the next generation of artificial intelligence and data-driven innovation.',
-      image: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1200&auto=format&fit=crop',
+      badge: 'Digital Talent',
+      title: 'Media & Digital Services Recruitment',
+      subtitle: 'Connecting businesses with talent across digital platforms, content, and technology ecosystems.',
+      image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop',
     },
     overview: {
-      title: 'Intelligent Future Talent',
-      description: 'The race for AI supremacy depends on talent. We specialize in identifying the researchers and engineers capable of building complex LLMs and data pipelines.',
+      title: 'Creative & Digital Experts',
+      description: 'We source top-tier creative, digital, and media professionals to help brands thrive in the rapidly evolving digital landscape.',
     },
     challenges: [
-      'Extreme competition for AI talent',
-      'High research-to-production gap',
-      'Complex data privacy ethics',
-      'Niche mathematical expertise'
+      'Fast-paced digital trends',
+      'High demand for creative tech talent',
+      'Platform algorithm shifts',
+      'Content scalability'
     ],
     roles: [
-      'Machine Learning Engineers',
-      'Data Engineers',
-      'AI Researchers',
-      'NLP Specialists',
-      'Computer Vision Engineers',
-      'Data Architects'
+      'Digital Marketing Managers',
+      'Content Strategists',
+      'UX/UI Designers',
+      'Media Planners',
+      'Video Producers',
+      'Social Media Directors'
     ],
     services: [
-      'Permanent Hiring',
-      'Research Search',
-      'Project-Based Squads',
-      'Remote Talent'
+      'Permanent Placement',
+      'Freelance Network',
+      'Executive Search',
+      'Campaign-Based Staffing'
     ],
     faqs: [
-      { q: 'What is your experience in sourcing talent for Generative AI and LLM projects?', a: 'We were early adopters in the AI recruitment space. We have an extensive network of engineers specializing in Transformer architectures, RAG, fine-tuning, and prompt engineering for enterprise AI.' },
-      { q: 'Can you identify and recruit PhD-level researchers for industry roles?', a: 'Yes, we specialize in "Academic-to-Industry" transitions, connecting world-class researchers with organizations looking to build original IP in machine learning and data science.' },
-      { q: 'How do you vet mathematical and algorithmic competency for AI engineers?', a: 'Beyond coding, we vet candidates on their underlying mathematical depth, including linear algebra, statistics, and their ability to optimize complex neural network architectures.' },
-      { q: 'What geographic AI hubs do you source your talent from?', a: 'We source from major global AI hubs, including the UK, USA, India, and Israel, ensuring our clients have access to the highest concentration of intelligence talent.' },
-      { q: 'Do you support the recruitment of Data Architects and NLP specialists?', a: 'Yes, we source the full data lifecycle—from the architects who build the foundations to the NLP specialists who train models to understand and generate human language.' },
-      { q: 'How does your agency bridge the research-to-production gap through talent?', a: 'We focus on "MLOps" talent—engineers who understand how to take a theoretical model from a research environment and deploy it into a high-performance, scalable production system.' },
-      { q: 'Can you provide specialized data engineering squads for pipeline builds?', a: 'Absolutely. We can provide complete squads of data engineers and ETL specialists to build the robust data pipelines that modern AI and analytics engines require.' },
-      { q: 'How do you handle the ethics and data privacy vetting for AI candidates?', a: 'We ensure our candidates understand the critical importance of AI ethics, bias mitigation, and data privacy regulations like GDPR, which are essential for responsible AI development.' },
-      { q: 'What is your success rate in placing senior Data Science leadership?', a: 'We have a 95% placement success rate for senior AI and Data Science leadership roles (Head of Data, Chief AI Officer), driven by our deep technical understanding of the field.' }
+      { q: 'How do you source creative digital talent?', a: 'We map digital ecosystems, review portfolios, and engage with passive talent who drive leading digital campaigns and platforms.' },
+      { q: 'Can you provide freelance talent for short-term campaigns?', a: 'Yes, we maintain a robust network of freelance creatives and digital specialists ready to deploy for immediate campaign needs.' }
     ],
     capabilities: [
-      { title: 'Deep Tech Vetting', desc: 'Mathematical and algorithmic competency tests.', icon: 'Binary' },
-      { title: 'Global AI Hubs', desc: 'Sourcing from major innovation centers.', icon: 'Globe' },
-      { title: 'Generative AI', desc: 'Experts in Transformer models, LLMs, and RAG.', icon: 'Brain' },
-      { title: 'Data Pipelines', desc: 'Engineers who build scalable, robust ETL processes.', icon: 'GitFork' }
+      { title: 'Creative Portfolios', desc: 'In-depth review of past digital campaigns.', icon: 'Eye' },
+      { title: 'Agile Deployment', desc: 'Fast placement of freelance creative talent.', icon: 'Activity' },
+      { title: 'Platform Expertise', desc: 'Specialists in modern digital ecosystems.', icon: 'Monitor' },
+      { title: 'Strategic Growth', desc: 'Identifying leaders to scale digital presence.', icon: 'TrendingUp' }
     ]
   },
   {

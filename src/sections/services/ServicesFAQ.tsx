@@ -3,43 +3,53 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
+import Link from 'next/link';
 
 const FAQS = [
   {
     question: 'What core IT recruitment services does Chalky Infotech provide?',
-    answer: 'Chalky Infotech offers a comprehensive suite of IT recruitment services, including permanent placement, contract staffing, and temporary workforce solutions. We specialize in sourcing top-tier talent for roles in software development, cloud computing, cybersecurity, and data science across global markets.'
+    answer: 'Chalky Infotech offers a comprehensive suite of IT recruitment services, including permanent placement, contract staffing, and temporary workforce solutions. We specialize in sourcing top-tier talent for roles in software development, cloud computing, cybersecurity, and data science across global markets.',
+    answerElement: <>Chalky Infotech offers a comprehensive suite of IT recruitment services, including <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-semibold">permanent placement</Link>, <Link href="/services/temporary-recruitment" className="text-[#7A1F5C] hover:underline font-semibold">contract staffing</Link>, and temporary workforce solutions. We specialize in sourcing top-tier talent for roles in software development, cloud computing, cybersecurity, and data science across global markets.</>
   },
   {
     question: 'How does your contract staffing model support agile project delivery?',
-    answer: 'Our contract staffing solutions are designed for agility, allowing organizations to scale their technical teams rapidly for short-term projects or specialized requirements. We maintain a pre-vetted database of IT contractors ready to integrate into your agile workflows immediately.'
+    answer: 'Our contract staffing solutions are designed for agility, allowing organizations to scale their technical teams rapidly for short-term projects or specialized requirements. We maintain a pre-vetted database of IT contractors ready to integrate into your agile workflows immediately.',
+    answerElement: <>Our contract staffing solutions are designed for agility, allowing organizations to scale their technical teams rapidly for short-term projects or specialized requirements. We maintain a pre-vetted database of IT contractors ready to integrate into your agile workflows immediately.</>
   },
   {
     question: 'Can you source specialized cloud and DevOps engineering talent globally?',
-    answer: 'Yes, we have extensive experience in global talent acquisition for cloud infrastructure and DevOps roles. Whether you need AWS, Azure, or GCP experts, our recruiters utilize advanced mapping technologies to find niche specialists in the UK, India, and beyond.'
+    answer: 'Yes, we have extensive experience in global talent acquisition for cloud infrastructure and DevOps roles. Whether you need AWS, Azure, or GCP experts, our recruiters utilize advanced mapping technologies to find niche specialists in the UK, India, and beyond.',
+    answerElement: <>Yes, we have extensive experience in global talent acquisition for cloud infrastructure and DevOps roles. Whether you need AWS, Azure, or GCP experts, our recruiters utilize advanced mapping technologies to find niche specialists in the UK, India, and beyond.</>
   },
   {
     question: 'What is your process for executive search and leadership hiring in technology?',
-    answer: 'Our executive search process is data-driven and highly confidential. We identify and engage high-impact technology leaders—from CTOs to VPs of Engineering—who possess both the technical depth and strategic vision to drive organizational growth.'
+    answer: 'Our executive search process is data-driven and highly confidential. We identify and engage high-impact technology leaders—from CTOs to VPs of Engineering—who possess both the technical depth and strategic vision to drive organizational growth.',
+    answerElement: <>Our executive search process is data-driven and highly confidential. We identify and engage high-impact technology leaders—from CTOs to VPs of Engineering—who possess both the technical depth and strategic vision to drive organizational growth.</>
   },
   {
     question: 'How do you ensure candidate quality in high-volume temporary recruitment?',
-    answer: 'For high-volume hiring, we implement a rigorous multi-stage screening process that includes technical assessments, cultural fit interviews, and thorough background verification. This ensures that even rapid temporary placements meet our high professional standards.'
+    answer: 'For high-volume hiring, we implement a rigorous multi-stage screening process that includes technical assessments, cultural fit interviews, and thorough background verification. This ensures that even rapid temporary placements meet our high professional standards.',
+    answerElement: <>For high-volume hiring, we implement a rigorous multi-stage screening process that includes technical assessments, cultural fit interviews, and thorough background verification. This ensures that even rapid temporary placements meet our high professional standards.</>
   },
   {
     question: 'What are the benefits of your On-Site recruitment partnership model?',
-    answer: 'Our On-Site model provides dedicated recruitment experts who work within your organization. This partnership streamlines communication, deeply aligns hiring with your corporate culture, and significantly reduces overall time-to-hire and cost-per-hire.'
+    answer: 'Our On-Site model provides dedicated recruitment experts who work within your organization. This partnership streamlines communication, deeply aligns hiring with your corporate culture, and significantly reduces overall time-to-hire and cost-per-hire.',
+    answerElement: <>Our <Link href="/services/on-site-recruitment" className="text-[#7A1F5C] hover:underline font-semibold">On-Site recruitment partnership model</Link> provides dedicated recruitment experts who work within your organization. This partnership streamlines communication, deeply aligns hiring with your corporate culture, and significantly reduces overall time-to-hire and cost-per-hire.</>
   },
   {
     question: 'Do you support offshore and nearshore workforce development?',
-    answer: 'Absolutely. We help organizations build scalable offshore delivery centers and nearshore teams. We handle the entire recruitment lifecycle, from sourcing and screening to onboarding support in cost-effective global talent hubs.'
+    answer: 'Absolutely. We help organizations build scalable offshore delivery centers and nearshore teams. We handle the entire recruitment lifecycle, from sourcing and screening to onboarding support in cost-effective global talent hubs.',
+    answerElement: <>Absolutely. We help organizations build scalable <Link href="/services/remote-hiring" className="text-[#7A1F5C] hover:underline font-semibold">offshore delivery centers</Link> and nearshore teams. We handle the entire recruitment lifecycle, from sourcing and screening to onboarding support in cost-effective global talent hubs.</>
   },
   {
     question: 'How does Chalky Infotech handle international payroll and compliance for remote workers?',
-    answer: 'We provide comprehensive guidance and support for global workforce compliance, ensuring that all international hires meet local employment laws, tax requirements, and Right To Work regulations, regardless of where they are located.'
+    answer: 'We provide comprehensive guidance and support for global workforce compliance, ensuring that all international hires meet local employment laws, tax requirements, and Right To Work regulations, regardless of where they are located.',
+    answerElement: <>We provide comprehensive guidance and support for <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-semibold">global workforce compliance</Link>, ensuring that all international hires meet local employment laws, tax requirements, and Right To Work regulations, regardless of where they are located.</>
   },
   {
     question: 'What is the typical turnaround time for filling niche technical roles?',
-    answer: 'While timelines vary by specialty, our average time-to-fill for niche technical roles is 15-21 days. This efficiency is powered by our proactive talent pipelining and deep expertise in specialized technology domains.'
+    answer: 'While timelines vary by specialty, our average time-to-fill for niche technical roles is 15-21 days. This efficiency is powered by our proactive talent pipelining and deep expertise in specialized technology domains.',
+    answerElement: <>While timelines vary by specialty, our average time-to-fill for niche technical roles is 15-21 days. This efficiency is powered by our proactive talent pipelining and deep expertise in specialized technology domains.</>
   }
 ];
 
@@ -102,7 +112,7 @@ export default function ServicesFAQ() {
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-6 text-[#8A8A8A] text-sm leading-relaxed border-t border-[#EFE7DD]/50 pt-4">
-                      {faq.answer}
+                      {faq.answerElement}
                     </div>
                   </motion.div>
                 )}

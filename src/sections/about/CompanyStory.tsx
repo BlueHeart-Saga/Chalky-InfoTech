@@ -4,22 +4,31 @@ import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import WhoWeAre1 from '@/assets/About Us/Who we are/1.png';
+import WhoWeAre2 from '@/assets/About Us/Who we are/2.png';
+import WhoWeAre3 from '@/assets/About Us/Who we are/3.png';
+import WhoWeAre4 from '@/assets/About Us/Who we are/4.png';
+import WhoWeAre5 from '@/assets/About Us/Who we are/5.png';
+import WhoWeAre6 from '@/assets/About Us/Who we are/6.png';
+import WhoWeAre7 from '@/assets/About Us/Who we are/7.png';
+import WhoWeAre8 from '@/assets/About Us/Who we are/8.png';
+
 const storyBlocks = [
   {
     title: 'Our Foundation',
-    desc: 'Founded with a vision to modernise technology recruitment, Chalky Infotech was built to bridge the gap between growing organisations and exceptional digital talent. We combine market intelligence, recruitment expertise, and workforce strategy to help businesses build scalable, future-ready teams.'
+    desc: <>Founded with a vision to modernise <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">technology recruitment</Link>, Chalky Infotech was built to bridge the gap between growing organisations and exceptional digital talent. We combine market intelligence, recruitment expertise, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">workforce strategy</Link> to help businesses build scalable, future-ready teams.</>
   },
   {
     title: 'What Makes Us Different',
-    desc: 'Unlike traditional staffing providers, we take a consultative and insight-driven approach to recruitment. By understanding each client’s technology landscape, culture, and growth objectives, we deliver talent solutions aligned with long-term business success.'
+    desc: <>Unlike traditional staffing providers, we take a consultative and insight-driven approach to recruitment. By understanding each client’s technology landscape, culture, and growth objectives, we deliver <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent solutions</Link> aligned with long-term business success.</>
   },
   {
     title: 'Global Positioning',
-    desc: 'Operating across India and the UK, Chalky Infotech combines global hiring capability with regional market expertise. Our approach enables organisations to access high-quality technology professionals with the agility, precision, and scalability required in modern digital environments.'
+    desc: <>Operating across India and the UK, Chalky Infotech combines <Link href="/contact" className="text-[#7A1F5C] hover:underline font-medium transition-all">global hiring capability</Link> with regional market expertise. Our approach enables organisations to access high-quality <Link href="/industries/it-technology" className="text-[#7A1F5C] hover:underline font-medium transition-all">technology professionals</Link> with the agility, precision, and scalability required in modern digital environments.</>
   },
   {
     title: 'Human + Enterprise Touch',
-    desc: 'Beyond recruitment, we focus on building meaningful relationships with both clients and candidates. We believe successful hiring is driven not only by technical capability, but also by culture alignment, collaboration, and long-term growth potential.'
+    desc: <>Beyond recruitment, we focus on building meaningful relationships with both clients and candidates. We believe successful <Link href="/services/executive-search" className="text-[#7A1F5C] hover:underline font-medium transition-all">executive hiring</Link> is driven not only by technical capability, but also by culture alignment, collaboration, and long-term growth potential.</>
   }
 ];
 
@@ -30,7 +39,12 @@ export default function CompanyStory() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* LEFT SIDE - Story Content */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true, margin: "100px" }}
+            transition={{ duration: 0.3 }}
+          >
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-6">Who We Are</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-[1.1] tracking-tight">
               Connecting Exceptional Talent <br/>
@@ -44,10 +58,10 @@ export default function CompanyStory() {
               {storyBlocks.map((block, i) => (
                 <motion.div 
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 5 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true, margin: "100px" }}
+                  transition={{ duration: 0.3 }}
                   className="pl-6 border-l-2 border-[#E5E7EB] hover:border-[#7A1F5C] transition-colors duration-300"
                 >
                   <h3 className="font-bold text-[#1A1A1A] text-xl mb-2">{block.title}</h3>
@@ -62,37 +76,49 @@ export default function CompanyStory() {
           </motion.div>
 
           {/* RIGHT SIDE - Image Collage */}
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative h-full flex items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: 10 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            viewport={{ once: true, margin: "100px" }} 
+            transition={{ duration: 0.4 }}
+            className="relative h-full flex items-center"
+          >
              <div className="grid grid-cols-2 gap-4 w-full">
                 {/* Column 1 */}
                 <div className="flex flex-col gap-4 mt-8">
-                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-                    <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Team meeting" fill className="object-cover transition-transform duration-700 group-hover:scale-110"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
-                      <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">Collaborative Strategy <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
-                    </div>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-56 md:h-64 rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-                    <Image src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80" alt="Business discussion" fill className="object-cover transition-transform duration-700 group-hover:scale-110"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
-                      <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">Consultative Approach <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
-                    </div>
-                  </motion.div>
+                  {[
+                    { src: WhoWeAre1, alt: 'Team meeting', label: 'Collaborative Strategy', link: '/services' },
+                    { src: WhoWeAre2, alt: 'Business discussion', label: 'Consultative Approach', link: '/services/executive-search' },
+                    { src: WhoWeAre3, alt: 'Project planning', label: 'Visionary Planning', link: '/industries' },
+                    { src: WhoWeAre4, alt: 'Global team', label: 'Global Workforce', link: '/services/permanent-hiring' }
+                  ].map((img, idx) => (
+                    <Link key={idx} href={img.link} className="block">
+                      <motion.div whileHover={{ scale: 1.02 }} className={`relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer ${idx % 2 === 0 ? 'h-48 md:h-56' : 'h-56 md:h-64'}`}>
+                        <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
+                          <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">{img.label} <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
+                        </div>
+                      </motion.div>
+                    </Link>
+                  ))}
                 </div>
                 {/* Column 2 */}
                 <div className="flex flex-col gap-4 mb-8">
-                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-56 md:h-64 rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-                    <Image src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80" alt="Tech workspace" fill className="object-cover transition-transform duration-700 group-hover:scale-110"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
-                      <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">Agile Delivery <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
-                    </div>
-                  </motion.div>
-                  <motion.div whileHover={{ scale: 1.02 }} className="relative h-48 md:h-56 rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-                    <Image src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80" alt="Analytics" fill className="object-cover transition-transform duration-700 group-hover:scale-110"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
-                      <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">Data-Driven Insights <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
-                    </div>
-                  </motion.div>
+                  {[
+                    { src: WhoWeAre5, alt: 'Tech workspace', label: 'Agile Delivery', link: '/services/contract-staffing' },
+                    { src: WhoWeAre6, alt: 'Analytics', label: 'Data-Driven Insights', link: '/industries/finance' },
+                    { src: WhoWeAre7, alt: 'Tech talent', label: 'Specialist Talent', link: '/industries/it-technology' },
+                    { src: WhoWeAre8, alt: 'Strategy', label: 'Market Intelligence', link: '/services/managed-services' }
+                  ].map((img, idx) => (
+                    <Link key={idx} href={img.link} className="block">
+                      <motion.div whileHover={{ scale: 1.02 }} className={`relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer ${idx % 2 === 0 ? 'h-56 md:h-64' : 'h-48 md:h-56'}`}>
+                        <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
+                          <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">{img.label} <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
+                        </div>
+                      </motion.div>
+                    </Link>
+                  ))}
                 </div>
              </div>
           </motion.div>
@@ -103,7 +129,7 @@ export default function CompanyStory() {
       {/* Unique Wave Divider: Organic Soft Curve */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
         <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,2,1200,0Z" opacity=".25" fill="#F5F0E8"></path>
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.2,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,2,1200,0Z" opacity=".25" fill="#ffffffff"></path>
           <path d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.78,6.37,103.59-15.34,154.51-35.74C242.39,23.15,285.9,6.11,329.75,1.8c70.36-6.91,136.33,13.88,206.8,32,73.84,19,147.54,4.36,218.2-13.08,69.27-17.11,138.3-24.88,209.4-13.08,36.15,6,69.85,17.84,104.45,29.34C1113,54,1200,120,1200,120H0Z" fill="#F5F0E8"></path>
         </svg>
       </div>

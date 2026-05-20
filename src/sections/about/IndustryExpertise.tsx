@@ -2,54 +2,71 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import Link from 'next/link';
 import { 
-  Monitor, 
+  Cpu,
+  Radio,
+  HardHat,
+  MonitorPlay,
   Landmark, 
-  HeartPulse, 
-  GraduationCap, 
-  ShoppingBag, 
+  Activity, 
+  ShoppingCart, 
   Factory 
 } from 'lucide-react';
 
 const industries = [
   {
-    title: 'Technology & Digital',
-    desc: 'Supporting organizations with recruitment solutions across software development, cloud infrastructure, digital platforms, and transformation initiatives.',
+    title: 'IT & Technology',
+    desc: <>Supporting organizations with recruitment solutions across <Link href="/services/it-staffing" className="text-[#7A1F5C] hover:underline font-medium">software development</Link>, <Link href="/services/remote-hiring" className="text-[#7A1F5C] hover:underline font-medium">cloud infrastructure</Link>, and digital transformation projects.</>,
     tag: 'Digital Workforce',
-    icon: <Monitor className="w-8 h-8" />,
+    icon: <Cpu className="w-8 h-8" />,
     color: 'bg-blue-50 text-blue-600'
   },
   {
-    title: 'Finance & Banking',
-    desc: 'Providing specialized hiring support for financial services, fintech operations, compliance functions, and enterprise banking environments.',
+    title: 'Telecommunications',
+    desc: <>Scaling global connectivity with expert engineers for <Link href="/services/contract-staffing" className="text-[#7A1F5C] hover:underline font-medium">5G rollouts</Link>, wireless networks, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium">satellite infrastructure</Link>.</>,
+    tag: 'Connectivity & Network',
+    icon: <Radio className="w-8 h-8" />,
+    color: 'bg-cyan-50 text-cyan-600'
+  },
+  {
+    title: 'Engineering & Infrastructure',
+    desc: <>Supporting <Link href="/industries/engineering-infrastructure" className="text-[#7A1F5C] hover:underline font-medium">large-scale engineering</Link>, civil, industrial, and specialized <Link href="/services/temporary-recruitment" className="text-[#7A1F5C] hover:underline font-medium">technical workforce</Link> requirements.</>,
+    tag: 'Heavy Industries',
+    icon: <HardHat className="w-8 h-8" />,
+    color: 'bg-orange-50 text-orange-600'
+  },
+  {
+    title: 'Media & Digital Services',
+    desc: <>Connecting businesses with talent across <Link href="/industries/media-digital-services" className="text-[#7A1F5C] hover:underline font-medium">digital platforms</Link>, creative content creation, and <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-medium">technology ecosystems</Link>.</>,
+    tag: 'Creative Tech',
+    icon: <MonitorPlay className="w-8 h-8" />,
+    color: 'bg-purple-50 text-purple-600'
+  },
+  {
+    title: 'Banking & Finance',
+    desc: <>Providing specialized hiring support for financial services, <Link href="/industries/banking-finance" className="text-[#7A1F5C] hover:underline font-medium">fintech operations</Link>, <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium">compliance functions</Link>, and banking environments.</>,
     tag: 'Financial Operations',
     icon: <Landmark className="w-8 h-8" />,
     color: 'bg-emerald-50 text-emerald-600'
   },
   {
-    title: 'Healthcare',
-    desc: 'Helping healthcare organizations strengthen workforce capabilities through scalable staffing and operational recruitment solutions.',
+    title: 'Healthcare & Life Sciences',
+    desc: <>Helping medical organizations strengthen <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-medium">clinical capabilities</Link> through scalable <Link href="/services/temporary-recruitment" className="text-[#7A1F5C] hover:underline font-medium">staffing solutions</Link> and laboratory operations.</>,
     tag: 'Healthcare Support',
-    icon: <HeartPulse className="w-8 h-8" />,
+    icon: <Activity className="w-8 h-8" />,
     color: 'bg-rose-50 text-rose-600'
   },
   {
-    title: 'Education',
-    desc: 'Supporting educational institutions and learning platforms with recruitment solutions designed for evolving academic and digital environments.',
-    tag: 'Learning Workforce',
-    icon: <GraduationCap className="w-8 h-8" />,
-    color: 'bg-purple-50 text-purple-600'
-  },
-  {
-    title: 'Retail & Commerce',
-    desc: 'Delivering workforce solutions for customer operations, retail expansion, logistics coordination, and commerce-driven business growth.',
+    title: 'Retail & E-Commerce',
+    desc: <>Delivering <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium">workforce solutions</Link> for customer operations, <Link href="/industries/retail-ecommerce" className="text-[#7A1F5C] hover:underline font-medium">retail expansion</Link>, logistics, and omnichannel growth.</>,
     tag: 'Business Operations',
-    icon: <ShoppingBag className="w-8 h-8" />,
+    icon: <ShoppingCart className="w-8 h-8" />,
     color: 'bg-amber-50 text-amber-600'
   },
   {
-    title: 'Energy & Manufacturing',
-    desc: 'Providing recruitment support for industrial operations, manufacturing environments, workforce modernization, and infrastructure projects.',
+    title: 'Manufacturing',
+    desc: <>Providing <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium">recruitment support</Link> for advanced industrial operations, lean production lines, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium">workforce modernization</Link>.</>,
     tag: 'Industrial Workforce',
     icon: <Factory className="w-8 h-8" />,
     color: 'bg-slate-50 text-slate-600'

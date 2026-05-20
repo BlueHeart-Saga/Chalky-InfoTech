@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Users, Globe, Briefcase } from 'lucide-react';
 
 const leaders = [
@@ -112,12 +113,8 @@ export default function LeadershipTeam() {
 
               {/* Person Row (At Bottom) */}
               <div className="mt-auto pt-6 border-t border-black/10 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-black shadow-sm flex-shrink-0">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="w-full h-full object-cover object-top"
-                  />
+                <div className="w-14 h-14 rounded-full border-2 border-black shadow-sm flex-shrink-0 bg-black text-white flex items-center justify-center font-bold text-lg tracking-wider">
+                  {leader.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-black text-lg truncate">{leader.name}</p>
@@ -125,12 +122,13 @@ export default function LeadershipTeam() {
                 </div>
               </div>
 
-              {/* Connect Button */}
-              <button 
-                className="mt-6 w-full py-4 rounded-2xl bg-black text-white text-sm font-black uppercase tracking-widest hover:bg-white hover:text-black border-2 border-black transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] active:translate-x-1 active:translate-y-1 active:shadow-none"
+              {/* Connect Link */}
+              <Link 
+                href="/contact"
+                className="mt-6 block text-center w-full py-4 rounded-2xl bg-black text-white text-sm font-black uppercase tracking-widest hover:bg-white hover:text-black border-2 border-black transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] active:translate-x-1 active:translate-y-1 active:shadow-none"
               >
                 Connect with Me
-              </button>
+              </Link>
 
               {/* Sparkle decoration */}
               <div className="absolute -top-4 -right-4 text-black text-4xl animate-pulse">✦</div>

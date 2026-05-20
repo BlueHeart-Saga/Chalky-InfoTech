@@ -4,34 +4,31 @@ import { Mail } from 'lucide-react';
 
 const team = [
   {
-    name: 'Himanshu Mudgal',
-    role: 'Head of Client Success',
-    focus: 'UK Enterprise Accounts',
-    quote: "Client success is our ultimate metric — every relationship we build is a long-term commitment.",
-    image: '/team/himanshu-mudgal.png',
-    email: 'himanshu@chalkyinfo.com',
+    name: 'Saravana Karthikeyan',
+    role: 'CEO & Founder',
+    focus: 'Enterprise Strategy',
+    quote: "Technology should empower, not complicate.",
+    email: 'info@chalkyinfo.com',
     linkedin: '#',
     bg: 'bg-[#D1FFBD]',
     rotate: '-rotate-[2deg]',
   },
   {
-    name: 'Priya Nair',
-    role: 'Head of Talent Acquisition',
-    focus: 'Global Talent Sourcing',
-    quote: "Finding the right person isn't just matching a CV — it's understanding ambition and potential.",
-    image: '/team/team-4.png',
-    email: 'priya@chalkyinfo.com',
+    name: 'Manjula Bashkar',
+    role: 'Manual Cloud Security Specialist',
+    focus: 'Cloud Security & Testing',
+    quote: "Innovation is solving today's problems with tomorrow's solutions.",
+    email: 'info@chalkyinfo.com',
     linkedin: '#',
     bg: 'bg-[#FFC0CB]',
     rotate: 'rotate-[2deg]',
   },
   {
-    name: 'James Wilson',
-    role: 'Director of Strategy',
-    focus: 'Partnerships & Growth',
-    quote: "Growth follows trust. We build partnerships that outlast projects and transcend transactions.",
-    image: '/team/team-6.png',
-    email: 'james@chalkyinfo.com',
+    name: 'Himanshu Mudgal',
+    role: 'Head of Client Success',
+    focus: 'DevOps & Client Success',
+    quote: "Client success is our ultimate metric — every relationship we build is a long-term commitment.",
+    email: 'info@chalkyinfo.com',
     linkedin: '#',
     bg: 'bg-white',
     rotate: '-rotate-[1deg]',
@@ -126,16 +123,8 @@ export default function ContactTeam() {
 
               {/* Person Row */}
               <div className="mt-auto pt-6 border-t border-black/10 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-black shadow-sm flex-shrink-0 bg-gray-200">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=7A1F5C&color=fff&size=56`;
-                    }}
-                  />
+                <div className="w-14 h-14 rounded-full border-2 border-black shadow-sm flex-shrink-0 bg-black text-white flex items-center justify-center font-bold text-lg tracking-wider">
+                  {member.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-black text-lg truncate">{member.name}</p>

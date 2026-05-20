@@ -2,43 +2,44 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 
 const faqs = [
   {
     question: 'How can I contact Chalky Infotech for immediate recruitment support?',
-    answer: 'You can reach our recruitment experts via our contact form, email at info@chalkyinfotech.com, or by calling our UK or India offices directly. We respond to all urgent staffing inquiries within 24 hours to ensure rapid requirement delivery.'
+    answer: <>You can reach our <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">recruitment experts</Link> via our contact form, email at <a href="mailto:info@chalkyinfo.com" className="text-[#7A1F5C] hover:underline font-semibold">info@chalkyinfo.com</a>, or by calling our UK or India offices directly. We respond to all urgent staffing inquiries within 24 hours to ensure rapid requirement delivery.</>
   },
   {
     question: 'What information should I provide when requesting a recruitment proposal?',
-    answer: 'To provide a tailored proposal, we recommend sharing the job descriptions, expected volume of hires, required technical stack, and your preferred engagement model (permanent, contract, or RPO). The more detail you provide, the faster we can map our talent network.'
+    answer: <>To provide a tailored proposal, we recommend sharing the job descriptions, expected volume of hires, required technical stack, and your preferred engagement model (permanent, contract, or RPO). The more detail you provide, the faster we can map our talent network.</>
   },
   {
     question: 'How long does the typical tech hiring process take with your agency?',
-    answer: 'Our streamlined tech hiring process typically takes 15-21 days from the initial requirement briefing to the final offer. For urgent contract roles, we can often present pre-vetted candidates within 48-72 hours.'
+    answer: <>Our streamlined tech hiring process typically takes 15-21 days from the initial requirement briefing to the final offer. For urgent contract roles, we can often present pre-vetted candidates within 48-72 hours.</>
   },
   {
     question: 'Do you offer scalable recruitment partnership solutions for startups and enterprises?',
-    answer: 'Yes, we provide scalable solutions designed to grow with your business. From seed-stage startups needing their first 10 engineers to global enterprises requiring 100+ specialists for digital transformation, our flexible models adapt to your needs.'
+    answer: <>Yes, we provide scalable solutions designed to grow with your business. From seed-stage startups needing their first 10 engineers to global enterprises requiring 100+ specialists for <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-semibold">digital transformation</Link>, our <Link href="/services" className="text-[#7A1F5C] hover:underline font-semibold">flexible models</Link> adapt to your needs.</>
   },
   {
     question: 'What are your staffing agency fees for permanent and contract placements?',
-    answer: 'Our fee structure is competitive and based on the industry standard for the specific engagement model (contingency or retained). We provide transparent pricing and volume-based discounts for long-term recruitment partnerships.'
+    answer: <>Our fee structure is competitive and based on the industry standard for the specific engagement model (contingency or retained). We provide transparent pricing and volume-based discounts for long-term <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-semibold">recruitment partnerships</Link>.</>
   },
   {
     question: 'How does your global talent acquisition support work for remote hiring?',
-    answer: 'We leverage our international hubs to source remote talent across multiple time zones. We assist with cultural alignment, technical vetting, and local compliance to ensure your remote workforce is both skilled and legally integrated.'
+    answer: <>We leverage our international hubs to source remote talent across multiple time zones. We assist with cultural alignment, technical vetting, and local compliance to ensure your <Link href="/services/remote-hiring" className="text-[#7A1F5C] hover:underline font-semibold">remote workforce</Link> is both skilled and legally integrated.</>
   },
   {
     question: 'Can I schedule a workforce consultancy session with your sector experts?',
-    answer: 'Absolutely. We offer strategic workforce consultancy to help you plan your hiring roadmap, analyze market salary benchmarks, and optimize your employer branding to attract top-tier technology talent.'
+    answer: <>Absolutely. We offer strategic <Link href="/services/on-site-recruitment" className="text-[#7A1F5C] hover:underline font-semibold">workforce consultancy</Link> to help you plan your hiring roadmap, analyze market salary benchmarks, and optimize your employer branding to attract top-tier technology talent.</>
   },
   {
     question: 'What geographic locations does Chalky Infotech support for on-site hiring?',
-    answer: 'While we operate globally, we provide dedicated on-site recruitment support primarily in the UK and India. However, we can facilitate on-site partnerships in other regions depending on the scale and duration of the project.'
+    answer: <>While we operate globally, we provide dedicated on-site recruitment support primarily in the UK and India. However, we can facilitate on-site partnerships in other regions depending on the scale and duration of the project.</>
   },
   {
     question: 'How do you handle data privacy and security during the recruitment lifecycle?',
-    answer: 'Security is paramount. We are fully GDPR compliant and utilize secure, encrypted platforms for candidate data management. We ensure that sensitive information is only shared with authorized stakeholders throughout the hiring lifecycle.'
+    answer: <>Security is paramount. We are fully GDPR compliant and utilize secure, encrypted platforms for candidate data management. We ensure that sensitive information is only shared with authorized stakeholders throughout the hiring lifecycle.</>
   }
 ];
 

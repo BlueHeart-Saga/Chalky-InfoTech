@@ -7,15 +7,24 @@ import Image from 'next/image';
 import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
 import { INDUSTRIES } from '@/constants';
 
-const imageMap: Record<string, string> = {
-  technology: '/industries/technology.png',
-  finance: '/industries/finance.png',
-  healthcare: '/industries/healthcare.png',
-  education: '/industries/education.png',
-  retail: '/industries/retail.png',
-  media: '/industries/media.png',
-  energy: '/industries/energy.png',
-  manufacturing: '/industries/manufacturing.png',
+import TechImg from '@/assets/homepage/Industry/IT & Technology.png';
+import TelecomImg from '@/assets/homepage/Industry/Telecommunications.png';
+import EngineeringImg from '@/assets/homepage/Industry/Engineering & Infrastructure.png';
+import MediaImg from '@/assets/homepage/Industry/Media & Digital Services.png';
+import FinanceImg from '@/assets/homepage/Industry/Banking & Finance.png';
+import HealthcareImg from '@/assets/homepage/Industry/Healthcare & Life Sciences.png';
+import RetailImg from '@/assets/homepage/Industry/Retail & E-Commerce.png';
+import ManufacturingImg from '@/assets/homepage/Industry/Manufacturing.png';
+
+const imageMap: Record<string, any> = {
+  'it-technology': TechImg,
+  'telecommunications': TelecomImg,
+  'engineering-infrastructure': EngineeringImg,
+  'media-digital-services': MediaImg,
+  'banking-finance': FinanceImg,
+  'healthcare-life-sciences': HealthcareImg,
+  'retail-ecommerce': RetailImg,
+  'manufacturing': ManufacturingImg,
 };
 
 export default function IndustriesSection() {
@@ -45,8 +54,8 @@ export default function IndustriesSection() {
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
             We recognize that each industry has its own nuances in terms of management style, hiring
-            practices and compensation norms. To provide clients with specialized search solutions,
-            Chalky Infotech has developed expertise in the following industries.
+            practices and compensation norms. To provide clients with <Link href="/services" className="text-[#7A1F5C] font-medium hover:underline transition-all">specialized search solutions</Link>,
+            Chalky Infotech has developed expertise in the following <Link href="/industries" className="text-[#7A1F5C] font-medium hover:underline transition-all">industries</Link>.
           </p>
         </div>
 

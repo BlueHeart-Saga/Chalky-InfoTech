@@ -67,8 +67,8 @@ const INDUSTRIES_DATA = {
       items: [
         { label: 'IT & Technology', desc: 'Driving digital transformation with elite software engineers and full-stack technical specialists.', href: '/industries/it-technology' },
         { label: 'Telecommunications', desc: 'Scaling global connectivity with expert engineers for 5G, network, and satellite infrastructure.', href: '/industries/telecommunications' },
-        { label: 'Cybersecurity', desc: 'Securing the digital frontier with top-tier talent in threat intelligence and information security.', href: '/industries/cybersecurity' },
-        { label: 'AI & Data Science', desc: 'Powering data-driven innovation with expert professionals in Machine Learning and AI.', href: '/industries/ai-data-science' },
+        { label: 'Engineering & Infrastructure', desc: 'Supporting large-scale engineering, civil, industrial, and technical workforce requirements.', href: '/industries/engineering-infrastructure' },
+        { label: 'Media & Digital Services', desc: 'Connecting businesses with talent across digital platforms, content, and technology ecosystems.', href: '/industries/media-digital-services' },
       ]
     },
     {

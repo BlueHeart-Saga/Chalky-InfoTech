@@ -1,12 +1,13 @@
 'use client';
 import { CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 
 const blocks = [
-  { title: 'Quality-First Hiring', desc: 'We prioritize cultural alignment and technical depth over sheer volume, ensuring long-term retention.' },
-  { title: 'Strategic Workforce Planning', desc: 'We don’t just fill seats. We consult on team architecture, compensation, and market trends.' },
-  { title: 'Rigorous Technical Standards', desc: 'Multi-stage screening processes designed by technical specialists, not just general recruiters.' },
-  { title: 'Long-Term Partnerships', desc: 'We view ourselves as strategic partners deeply invested in your enterprise roadmap.' },
-  { title: 'Elevated Candidate Experience', desc: 'We protect your employer brand by providing white-glove service to every single applicant.' }
+  { title: 'Quality-First Hiring', desc: <>We prioritize cultural alignment and technical depth over sheer volume, ensuring long-term <Link href="/services/permanent-hiring" className="text-[#C2185B] hover:underline font-medium transition-all">retention</Link>.</> },
+  { title: 'Strategic Workforce Planning', desc: <>We don’t just fill seats. We consult on team architecture, compensation, and <Link href="/services/managed-services" className="text-[#C2185B] hover:underline font-medium transition-all">market trends</Link>.</> },
+  { title: 'Rigorous Technical Standards', desc: <>Multi-stage screening processes designed by <Link href="/industries/it-technology" className="text-[#C2185B] hover:underline font-medium transition-all">technical specialists</Link>, not just general recruiters.</> },
+  { title: 'Long-Term Partnerships', desc: <>We view ourselves as strategic partners deeply invested in your <Link href="/services/contract-staffing" className="text-[#C2185B] hover:underline font-medium transition-all">enterprise roadmap</Link>.</> },
+  { title: 'Elevated Candidate Experience', desc: <>We protect your employer brand by providing white-glove service to every single <Link href="/contact" className="text-[#C2185B] hover:underline font-medium transition-all">applicant</Link>.</> }
 ];
 
 export default function RecruitmentPhilosophy() {
@@ -34,7 +35,7 @@ export default function RecruitmentPhilosophy() {
               A Philosophy Built on <br /><span className="text-[#C2185B]">Precision & Quality</span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-8">
-              Most staffing companies focus on transactional speed. We focus on architectural precision. Our recruitment philosophy is designed for enterprises where a single strategic hire can alter the trajectory of a product.
+              Most staffing companies focus on transactional speed. We focus on architectural precision. Our <Link href="/services" className="text-[#C2185B] hover:underline font-medium transition-all">recruitment philosophy</Link> is designed for enterprises where a single <Link href="/services/executive-search" className="text-[#C2185B] hover:underline font-medium transition-all">strategic hire</Link> can alter the trajectory of a product.
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-[#7A1F5C] to-[#C2185B] rounded-full" />
           </div>

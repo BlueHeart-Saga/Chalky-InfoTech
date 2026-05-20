@@ -27,14 +27,14 @@ export default function LatestInsights() {
   }, []);
 
   return (
-    <section className="py-24 bg-[#F5F0E8]">
+    <section className="pt-2 pb-24 bg-[#F5F0E8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <h2 className="text-3xl md:text-5xl font-semibold mb-6">
               <span className="text-[#7A1F5C]">Latest</span> <span className="text-[#1A1A1A]">Insights</span>
             </h2>
-            <p className="text-[#8A8A8A] text-lg">Stay ahead with the latest trends in technology and talent acquisition.</p>
+            <p className="text-[#8A8A8A] text-lg">Stay ahead with the latest trends in technology and <Link href="/services" className="text-[#7A1F5C] font-medium hover:underline transition-all">talent acquisition</Link>.</p>
           </div>
           <Link href="/insights" className="text-[#7A1F5C] font-semibold flex items-center gap-2 hover:gap-3 transition-all">
             View All Insights <ArrowRight size={20} />

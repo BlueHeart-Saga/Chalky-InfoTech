@@ -1,8 +1,9 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { ShieldCheck, Globe, BadgeCheck, Handshake, CheckCircle2 } from 'lucide-react';
-import trustImg from '@/assets/About/trust.png';
+import trustImg from '@/assets/About Us/Why Enterprises Trust Us/Why Enterprises Trust Us.png';
 
 const trustCards = [
   {
@@ -85,7 +86,7 @@ export default function WhyTrustUs() {
               variants={fadeUp}
               className="text-lg leading-relaxed text-[#6A6A6A]"
             >
-              Chalky Infotech combines industry expertise, scalable recruitment strategies, and client-focused workforce solutions to support organizations across evolving business environments.
+              Chalky Infotech combines <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">industry expertise</Link>, scalable <Link href="/services" className="text-[#7A1F5C] hover:underline font-semibold">recruitment strategies</Link>, and client-focused <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-semibold">workforce solutions</Link> to support organizations across evolving business environments.
             </motion.p>
           </motion.div>
 
@@ -117,10 +118,10 @@ export default function WhyTrustUs() {
             variants={containerVariants}
           >
             <motion.p variants={fadeUp} className="text-[#4A4A4A] text-base md:text-lg leading-relaxed mb-6">
-              We believe successful recruitment goes beyond filling positions. Our approach focuses on understanding organizational goals, workforce challenges, and long-term business growth to deliver recruitment solutions that create measurable value.
+              We believe successful <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium">recruitment</Link> goes beyond filling positions. Our approach focuses on understanding organizational goals, workforce challenges, and long-term business growth to deliver <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-medium">recruitment solutions</Link> that create measurable value.
             </motion.p>
             <motion.p variants={fadeUp} className="text-[#4A4A4A] text-base md:text-lg leading-relaxed mb-10">
-              By combining consultative hiring strategies with industry insight and scalable workforce support, we help businesses build reliable, future-ready teams across multiple sectors and operational environments.
+              By combining <Link href="/services/on-site-recruitment" className="text-[#7A1F5C] hover:underline font-medium">consultative hiring strategies</Link> with industry insight and scalable <Link href="/services/temporary-recruitment" className="text-[#7A1F5C] hover:underline font-medium">workforce support</Link>, we help businesses build reliable, future-ready teams across multiple sectors and operational environments.
             </motion.p>
 
             {/* Trust Highlights */}

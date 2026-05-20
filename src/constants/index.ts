@@ -50,8 +50,8 @@ export * from './industriesData';
 export const INDUSTRIES = [
   { slug: 'it-technology', label: 'IT & Technology', icon: 'Cpu' },
   { slug: 'telecommunications', label: 'Telecommunications', icon: 'Radio' },
-  { slug: 'cybersecurity', label: 'Cybersecurity', icon: 'Shield' },
-  { slug: 'ai-data-science', label: 'AI & Data Science', icon: 'Brain' },
+  { slug: 'engineering-infrastructure', label: 'Engineering & Infrastructure', icon: 'HardHat' },
+  { slug: 'media-digital-services', label: 'Media & Digital Services', icon: 'MonitorPlay' },
   { slug: 'banking-finance', label: 'Banking & Finance', icon: 'Landmark' },
   { slug: 'healthcare-life-sciences', label: 'Healthcare & Life Sciences', icon: 'Activity' },
   { slug: 'retail-ecommerce', label: 'Retail & E-Commerce', icon: 'ShoppingCart' },

@@ -2,7 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, CheckCircle, Cpu, Users, Building, Zap, FileText, Calendar, Clock, BarChart } from 'lucide-react';
+
+import humanexDashboardImg from '@/assets/showcase/Humanex.png';
 
 export default function HumanexShowcase() {
   const features = [
@@ -83,7 +86,7 @@ export default function HumanexShowcase() {
             transition={{ delay: 0.2 }}
             className="text-gray-600 text-base md:text-lg leading-relaxed font-normal"
           >
-            Recruitment is more than sourcing candidates. Chalky combines expert talent acquisition with <span className="text-[#7A1F5C] font-semibold">Humanex</span> — our AI-powered all-in-one HR, hiring, onboarding, and workforce management platform built to simplify every stage of the employee journey.
+            Recruitment is more than sourcing candidates. Chalky combines expert <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent acquisition</Link> with <span className="text-[#7A1F5C] font-semibold">Humanex</span> — our AI-powered all-in-one HR, hiring, onboarding, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">workforce management</Link> platform built to simplify every stage of the employee journey.
           </motion.p>
         </div>
 
@@ -134,11 +137,10 @@ export default function HumanexShowcase() {
               {/* Actual Dashboard Screenshot Asset */}
               <div className="relative aspect-[16/10] w-full bg-neutral-50 overflow-hidden">
                 <Image
-                  src="/humanex_dashboard.png"
+                  src={humanexDashboardImg}
                   alt="Humanex platform dashboard mockup"
                   fill
                   className="object-cover group-hover:scale-[1.005] transition-transform duration-750"
-                  unoptimized
                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               </div>
             </div>
@@ -162,11 +164,11 @@ export default function HumanexShowcase() {
             </div>
 
             <p className="text-gray-600 text-sm md:text-base leading-relaxed font-medium border-l-3 border-[#7A1F5C]/30 pl-3">
-              Built for growing companies that need more than recruitment services.
+              Built for growing companies that need more than <Link href="/services" className="text-[#7A1F5C] hover:underline transition-all">recruitment services</Link>.
             </p>
 
             <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
-              From candidate sourcing to onboarding and workforce operations, Humanex centralizes hiring, HR workflows, payroll support, employee engagement, and AI-powered decision making in one unified ecosystem.
+              From <Link href="/services/contract-staffing" className="text-[#7A1F5C] font-medium hover:underline transition-all">candidate sourcing</Link> to onboarding and <Link href="/services/managed-services" className="text-[#7A1F5C] font-medium hover:underline transition-all">workforce operations</Link>, Humanex centralizes hiring, HR workflows, payroll support, employee engagement, and AI-powered decision making in one unified ecosystem.
             </p>
 
             {/* Premium CTA Buttons */}
@@ -178,7 +180,7 @@ export default function HumanexShowcase() {
                 Start Hiring
               </a>
               <a 
-                href="https://humanex.devopstrio.co.uk/"
+                href="https://chalkyhrplatform-hgadcrengkdmhrhb.southindia-01.azurewebsites.net/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#7A1F5C] border border-[#7A1F5C]/15 px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest shadow-sm transition-all hover:-translate-y-0.5 active:translate-y-0"

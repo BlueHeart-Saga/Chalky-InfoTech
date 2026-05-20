@@ -1,18 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import CountUp from '@/components/CountUp';
 
 const STATS = [
   { value: 98, suffix: "%", label: "Placement Success Rate" },
-  { value: 250, suffix: "K+", label: "Vetted Candidates" },
-  { value: 3, suffix: "+", label: "Global Locations" },
+  { value: 250, suffix: "K+", label: "Vetted Candidates", link: "/about" },
+  { value: 3, suffix: "+", label: "Global Locations", link: "/contact" },
   { value: 18, suffix: " Days", label: "Average Time-to-Hire" }
 ];
 
 export default function MetricsAchievements() {
   return (
-    <section className="py-24 bg-[#7A1F5C] text-white relative overflow-hidden">
+    <section className="pt-12 pb-24 bg-[#7A1F5C] text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -33,7 +34,15 @@ export default function MetricsAchievements() {
                 {stat.suffix}
               </p>
               <div className="h-1 w-12 bg-[#D14D72] mx-auto mb-4" />
-              <p className="text-white/70 font-bold uppercase tracking-widest text-xs md:text-sm">{stat.label}</p>
+              <p className="text-white/70 font-bold uppercase tracking-widest text-xs md:text-sm">
+                {stat.link ? (
+                  <Link href={stat.link} className="hover:text-white transition-colors hover:underline">
+                    {stat.label}
+                  </Link>
+                ) : (
+                  stat.label
+                )}
+              </p>
             </motion.div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 'use client';
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { ArrowRight, ArrowLeft, CheckCircle2, Trash2, Upload } from 'lucide-react';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -453,8 +454,8 @@ export default function ContactForm() {
 
               <p className="text-[10px] text-gray-400 leading-relaxed">
                 This site is protected by reCAPTCHA and the Google{' '}
-                <a href="#" className="underline hover:text-[#7A1F5C]">Privacy Policy</a> and{' '}
-                <a href="#" className="underline hover:text-[#7A1F5C]">Terms of Service</a> apply.
+                <Link href="/privacy-policy" className="underline hover:text-[#7A1F5C]">Privacy Policy</Link> and{' '}
+                <Link href="/terms-conditions" className="underline hover:text-[#7A1F5C]">Terms of Service</Link> apply.
               </p>
             </form>
           </div>

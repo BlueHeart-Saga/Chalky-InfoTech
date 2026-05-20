@@ -5,60 +5,95 @@ import Link from 'next/link';
 import { ArrowUpRight, CheckCircle2, Zap, Users, Target, Clock, ShieldCheck, Briefcase } from 'lucide-react';
 import Image from 'next/image';
 
+import core1 from '@/assets/Services/Our Core Expertise/1be82635a125b9f3de8da660fbd731fc 1.png';
+import core2 from '@/assets/Services/Our Core Expertise/2e418a2c6a935d70d4acf617cba909ba 1.png';
+import core3 from '@/assets/Services/Our Core Expertise/68eedba92050a1f203d90c54fb012644 1.png';
+import core4 from '@/assets/Services/Our Core Expertise/797d24899edeaedb005f0017e412e185 1.png';
+import core5 from '@/assets/Services/Our Core Expertise/a0b8af65080c1bac17f157d1815cbe95 1.png';
+import core6 from '@/assets/Services/Our Core Expertise/aa20098a5350281d966e610bc818b992 1.png';
+import core7 from '@/assets/Services/Our Core Expertise/eb0f056b9f392799b0b6f8ceeb67ae6b 1.png';
+import core8 from '@/assets/Services/Our Core Expertise/image 2.png';
+
 const SOLUTIONS = [
   {
-    id: 'contract',
-    title: 'Contract Recruitment',
-    intro: 'Access skilled professionals for short-term projects, urgent hiring requirements, and scalable workforce support through flexible contract recruitment solutions.',
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=800&auto=format&fit=crop',
-    benefits: ['Rapid deployment', 'Flexible workforce scaling', 'Specialized talent access', 'Reduced hiring timelines'],
-    process: ['Requirement Discovery', 'Talent Mapping', 'Agile Screening'],
-    cta: 'Hire Contract Talent'
-  },
-  {
-    id: 'permanent',
-    title: 'Permanent Recruitment',
-    intro: 'Build your long-term success with high-retention talent. We focus on cultural and technical alignment to ensure every permanent placement drives lasting value.',
-    image: 'https://images.unsplash.com/photo-1517245327032-96a1c4a161a7?q=80&w=800&auto=format&fit=crop',
-    benefits: ['Strategic cultural fit', 'High retention rates', 'Extensive talent network', 'Direct-hire expertise'],
-    process: ['Culture Analysis', 'Deep Benchmarking', 'Executive Review'],
-    cta: 'Find Permanent Talent'
-  },
-  {
-    id: 'temporary',
-    title: 'Temporary Recruitment',
-    intro: 'Scale your workforce quickly with skilled professionals for short-term demands, seasonal peaks, and high-volume hiring requirements.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop',
-    benefits: ['Immediate availability', 'Admin & payroll management', 'Scalability on-demand', 'Vetted professional pool'],
-    process: ['Rapid Response', 'Skill Verification', 'Seamless Deployment'],
-    cta: 'Request Temp Staff'
-  },
-  {
-    id: 'onsite',
-    title: 'On-Site Recruitment',
-    intro: 'Benefit from dedicated recruiters working as a seamless extension of your internal team for streamlined hiring and strategic talent management.',
-    image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop',
-    benefits: ['Embedded team integration', 'Reduced cost-per-hire', 'Strategic hiring alignment', 'Brand-aware recruitment'],
-    process: ['Team Integration', 'Process Auditing', 'Continuous Optimisation'],
-    cta: 'Setup On-Site Support'
+    id: 'it-staffing',
+    title: 'IT Staffing',
+    slug: 'it-staffing',
+    intro: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.',
+    image: core1,
+    benefits: ['Elite software talent network', 'Domain-specific vetting', 'Accelerated hiring timelines', 'Cloud & DevOps specialization'],
+    process: ['Software Engineering', 'Cloud Operations', 'Data Infrastructure'],
+    cta: 'Explore IT Staffing'
   },
   {
     id: 'executive',
     title: 'Executive Search',
-    intro: 'Identifying and attracting world-class C-suite leadership and strategic specialists to lead your organization into the future.',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop',
-    benefits: ['Confidential searching', 'Market mapping', 'Board-level consulting', 'Leadership assessment'],
-    process: ['Strategic Briefing', 'Direct Headhunting', 'Psychometric Profiling'],
-    cta: 'Engage Executive Search'
+    slug: 'executive-search',
+    intro: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.',
+    image: core2,
+    benefits: ['Absolute confidentiality', 'Global talent mapping', 'Board-level consulting', 'Thorough executive screening'],
+    process: ['Direct Headhunting', 'Cultural Alignment', 'Strategic Selection'],
+    cta: 'Explore Executive Search'
   },
   {
-    id: 'project',
-    title: 'Project-Based Hiring',
-    intro: 'Dedicated recruitment teams for specific projects, product launches, or digital transformation initiatives requiring targeted talent cohorts.',
-    image: 'https://images.unsplash.com/photo-1522071823991-b5ae72647c46?q=80&w=800&auto=format&fit=crop',
-    benefits: ['Concentrated expertise', 'Project-aligned timelines', 'Batch hiring efficiency', 'Cohesive team building'],
-    process: ['Project Scoping', 'Cohort Identification', 'Milestone Management'],
-    cta: 'Start Project Hiring'
+    id: 'contract',
+    title: 'Contract Staffing',
+    slug: 'contract-staffing',
+    intro: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.',
+    image: core3,
+    benefits: ['Agile scaling capability', 'Niche project expertise', 'Full payroll management', 'Minimal operational risk'],
+    process: ['Urgent Staff Sourcing', 'Compliance Guardrails', 'Seamless Deployment'],
+    cta: 'Explore Contract Staffing'
+  },
+  {
+    id: 'permanent',
+    title: 'Permanent Hiring',
+    slug: 'permanent-hiring',
+    intro: 'Strategic permanent placement services to build your long-term success with high-retention talent.',
+    image: core4,
+    benefits: ['High retention metrics', 'Deep organizational fit', 'Cohesive team building', 'Direct-placement reliability'],
+    process: ['Strategic Fit Assessment', 'Thorough Vetting', 'Offer Optimization'],
+    cta: 'Explore Permanent Hiring'
+  },
+  {
+    id: 'temporary',
+    title: 'Temporary Recruitment',
+    slug: 'temporary-recruitment',
+    intro: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.',
+    image: core5,
+    benefits: ['Immediate resource deployment', 'Accommodate seasonal peaks', 'High-volume candidate pool', 'Vetted database matching'],
+    process: ['High-Volume Scaling', 'Automated Sourcing', 'Compliance Screening'],
+    cta: 'Explore Temporary Recruitment'
+  },
+  {
+    id: 'onsite',
+    title: 'On-Site Recruitment',
+    slug: 'on-site-recruitment',
+    intro: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.',
+    image: core6,
+    benefits: ['Embedded talent consultants', 'Minimized cost-per-hire', 'Standardized methodologies', 'Consistent brand representation'],
+    process: ['Process Auditing', 'Direct Stakeholder Sync', 'Embedded Partners'],
+    cta: 'Explore On-Site Recruitment'
+  },
+  {
+    id: 'managed',
+    title: 'Managed Services',
+    slug: 'managed-services',
+    intro: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.',
+    image: core7,
+    benefits: ['Streamlined vendor networks', 'Maximum cost efficiency', 'Complete compliance guardrails', 'Data-driven insights'],
+    process: ['Vendor Management', 'Performance Auditing', 'Standardized Workflows'],
+    cta: 'Explore Managed Services'
+  },
+  {
+    id: 'remote',
+    title: 'Remote Hiring',
+    slug: 'remote-hiring',
+    intro: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.',
+    image: core8,
+    benefits: ['Unrestricted global talent pool', 'Compliant international onboarding', 'Distributed team support', 'Cultural diversity integration'],
+    process: ['Borderless Search', 'Cross-Cultural Vetting', 'Onboarding Support'],
+    cta: 'Explore Remote Hiring'
   }
 ];
 
@@ -87,17 +122,32 @@ export default function CoreRecruitmentSolutions() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="w-full lg:w-1/2 relative"
+                className="w-full lg:w-1/2 relative flex justify-center items-center py-6 px-4 md:px-8"
               >
-                <div className="relative aspect-[16/10] overflow-hidden group">
+                {/* Backdrop Shape */}
+                <div 
+                  className={`absolute w-full aspect-[4/3] max-w-[400px] md:max-w-[440px] z-0 transition-transform duration-500 ${
+                    i % 2 === 0 
+                      ? 'bg-[#7A1F5C] rounded-[40px_180px_40px_180px] -translate-x-4 -translate-y-4 md:-translate-x-6 md:-translate-y-6' 
+                      : 'bg-[#F5F0E8] border border-[#7A1F5C]/10 rounded-[180px_40px_180px_40px] translate-x-4 -translate-y-4 md:translate-x-6 md:-translate-y-6'
+                  }`} 
+                />
+
+                {/* Main Image Container */}
+                <div 
+                  className={`relative w-full aspect-[4/3] max-w-[400px] md:max-w-[440px] overflow-hidden shadow-2xl z-10 transition-all duration-500 hover:scale-[1.03] hover:shadow-[#7A1F5C]/10 ${
+                    i % 2 === 0 
+                      ? 'rounded-[40px_180px_40px_180px]' 
+                      : 'rounded-[180px_40px_180px_40px]'
+                  }`}
+                >
                   <Image 
                     src={solution.image} 
                     alt={solution.title} 
                     fill
-                    className="object-cover" 
-                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                    className="object-cover object-center" 
+                   sizes="(max-width: 768px) 100vw, 40vw" />
                 </div>
-
               </motion.div>
 
               {/* Text Column */}
@@ -132,7 +182,7 @@ export default function CoreRecruitmentSolutions() {
                   </div>
                 </div>
 
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#7A1F5C] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#4A1238] transition-all duration-300 shadow-lg shadow-[#7A1F5C]/20 hover:-translate-y-1">
+                <Link href={`/services/${solution.slug}`} className="inline-flex items-center gap-2 bg-[#7A1F5C] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#4A1238] transition-all duration-300 shadow-lg shadow-[#7A1F5C]/20 hover:-translate-y-1">
                   {solution.cta} <ArrowUpRight size={18} />
                 </Link>
               </motion.div>

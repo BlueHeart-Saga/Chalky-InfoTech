@@ -1,7 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import Image from 'next/image';
 import { Quote, ArrowRight, Star, Globe, Landmark, Cloud, Cpu, Rocket } from 'lucide-react';
+
+import TrustedByBusinessesImg from '@/assets/homepage/TESTIMONIALS/Trusted By Businesses.png';
 
 const TESTIMONIALS = [
   {
@@ -196,7 +200,7 @@ const MarqueeRow = ({ items, direction = 'left', speed = 40 }: { items: typeof T
 export default function Testimonials() {
 
   return (
-    <section className="py-24 bg-[#F5F0E8] overflow-hidden">
+    <section className="pt-12 pb-24 bg-[#F5F0E8] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -215,7 +219,7 @@ export default function Testimonials() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-[1.1] tracking-tight"
           >
-            Trusted By Businesses <br/>
+            Trusted By Businesses <br />
             <span className="text-[#7A1F5C]">Across Global Industries</span>
           </motion.h2>
           <motion.p
@@ -225,7 +229,7 @@ export default function Testimonials() {
             transition={{ delay: 0.2 }}
             className="text-[#555555] text-lg md:text-xl leading-relaxed"
           >
-            We partner with businesses across industries delivering reliable recruitment solutions,
+            We partner with businesses across <Link href="/industries" className="text-[#7A1F5C] font-medium hover:underline transition-all">industries</Link> delivering reliable <Link href="/services" className="text-[#7A1F5C] font-medium hover:underline transition-all">recruitment solutions</Link>,
             exceptional talent support and scalable workforce strategies tailored for long-term success.
           </motion.p>
         </div>
@@ -264,10 +268,11 @@ export default function Testimonials() {
               {/* Image Side */}
               <div className="w-full lg:w-[35%] flex justify-center lg:justify-end">
                 <div className="relative w-full max-w-[320px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500 border-4 border-white">
-                  <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                    alt="Michael Carter - Head of Technology"
-                    className="w-full h-full object-cover"
+                  <Image
+                    src={TrustedByBusinessesImg}
+                    alt="Trusted By Businesses - Chalky Infotech"
+                    fill
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
                 </div>
@@ -280,7 +285,7 @@ export default function Testimonials() {
       {/* Scrolling Testimonials Section (Replaces the 3 small cards) */}
       <div className="relative w-full overflow-hidden mb-24 flex flex-col gap-8">
         <MarqueeRow items={TESTIMONIALS} direction="left" speed={90} />
-        
+
         {/* Gradient Fades on Sides */}
         <div className="absolute inset-y-0 left-0 w-24 md:w-64 bg-gradient-to-r from-[#F5F0E8] to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-24 md:w-64 bg-gradient-to-l from-[#F5F0E8] to-transparent z-10 pointer-events-none" />
@@ -317,7 +322,7 @@ export default function Testimonials() {
           <div className="relative z-10 md:flex items-center justify-between gap-12">
             <div className="max-w-2xl mb-8 md:mb-0">
               <h3 className="text-3xl md:text-4xl font-semibold mb-6 leading-[1.1]">
-                Looking For Reliable <br/>
+                Looking For Reliable <br />
                 Recruitment Solutions?
               </h3>
               <p className="text-white/80 text-lg md:text-xl">
@@ -327,13 +332,13 @@ export default function Testimonials() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-[#7A1F5C] px-8 py-4 rounded-xl font-semibold hover:bg-[#D14D72] hover:text-white transition-all flex items-center justify-center gap-2 group shadow-xl">
+              <Link href="/contact" className="bg-white text-[#7A1F5C] px-8 py-4 rounded-xl font-semibold hover:bg-[#D14D72] hover:text-white transition-all flex items-center justify-center gap-2 group shadow-xl">
                 Schedule Consultation
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="bg-[#D14D72] text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[#7A1F5C] transition-all shadow-xl">
+              </Link>
+              <Link href="/contact" className="bg-[#D14D72] text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[#7A1F5C] transition-all shadow-xl text-center flex items-center justify-center">
                 Contact Us
-              </button>
+              </Link>
             </div>
           </div>
         </motion.div>

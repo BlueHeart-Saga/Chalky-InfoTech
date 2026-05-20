@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Clock, Users, Globe, MapPin, Briefcase, LayoutGrid } from 'lucide-react';
+import Link from 'next/link';
 
 const MODELS = [
   {
@@ -10,7 +11,8 @@ const MODELS = [
     icon: Clock,
     span: 'lg:col-span-2 lg:row-span-1',
     color: 'bg-[#F5F0E8]',
-    iconColor: 'text-[#7A1F5C]'
+    iconColor: 'text-[#7A1F5C]',
+    link: '/services/temporary-recruitment'
   },
   {
     title: 'Permanent Hiring',
@@ -18,7 +20,8 @@ const MODELS = [
     icon: Users,
     span: 'lg:col-span-1 lg:row-span-2',
     color: 'bg-[#7A1F5C] text-white',
-    iconColor: 'text-white'
+    iconColor: 'text-white',
+    link: '/services/permanent-hiring'
   },
   {
     title: 'Remote Workforce',
@@ -26,7 +29,8 @@ const MODELS = [
     icon: Globe,
     span: 'lg:col-span-1 lg:row-span-1',
     color: 'bg-white',
-    iconColor: 'text-[#7A1F5C]'
+    iconColor: 'text-[#7A1F5C]',
+    link: '/services/remote-hiring'
   },
   {
     title: 'On-Site Teams',
@@ -34,7 +38,8 @@ const MODELS = [
     icon: MapPin,
     span: 'lg:col-span-1 lg:row-span-1',
     color: 'bg-[#F5F0E8]',
-    iconColor: 'text-[#7A1F5C]'
+    iconColor: 'text-[#7A1F5C]',
+    link: '/services/on-site-recruitment'
   },
   {
     title: 'Project-Based Hiring',
@@ -42,7 +47,8 @@ const MODELS = [
     icon: Briefcase,
     span: 'lg:col-span-1 lg:row-span-1',
     color: 'bg-white',
-    iconColor: 'text-[#7A1F5C]'
+    iconColor: 'text-[#7A1F5C]',
+    link: '/services/managed-services'
   },
   {
     title: 'Hybrid Solutions',
@@ -50,7 +56,8 @@ const MODELS = [
     icon: LayoutGrid,
     span: 'lg:col-span-1 lg:row-span-1',
     color: 'bg-[#EFE7DD]',
-    iconColor: 'text-[#7A1F5C]'
+    iconColor: 'text-[#7A1F5C]',
+    link: '/services'
   }
 ];
 
@@ -66,28 +73,29 @@ export default function WorkforceModels() {
             Versatile <span className="text-[#7A1F5C]">Workforce Models</span>
           </h2>
           <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg leading-relaxed">
-            Our enterprise-grade hiring frameworks are designed to support every modern working environment, from remote-first start-ups to established global headquarters.
+            Our <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">enterprise-grade hiring frameworks</Link> are designed to support every modern working environment, from remote-first start-ups to <Link href="/contact" className="text-[#7A1F5C] hover:underline font-semibold">established global headquarters</Link>.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-6">
           {MODELS.map((model, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`${model.span} ${model.color} rounded-[2.5rem] p-10 border border-[#EFE7DD] flex flex-col justify-between hover:shadow-2xl hover:shadow-[#7A1F5C]/10 transition-all duration-500 group cursor-default`}
-            >
-              <div className={`w-14 h-14 rounded-2xl ${model.title === 'Permanent Hiring' ? 'bg-white/10' : 'bg-white'} flex items-center justify-center mb-12 shadow-sm group-hover:scale-110 transition-transform duration-500`}>
-                <model.icon size={26} className={model.iconColor} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-extrabold mb-3 leading-tight">{model.title}</h3>
-                <p className={`${model.title === 'Permanent Hiring' ? 'text-white/70' : 'text-[#8A8A8A]'} text-sm leading-relaxed`}>{model.desc}</p>
-              </div>
-            </motion.div>
+            <Link key={i} href={model.link} className={`block ${model.span}`}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`h-full ${model.color} rounded-[2.5rem] p-10 border border-[#EFE7DD] flex flex-col justify-between hover:shadow-2xl hover:shadow-[#7A1F5C]/10 transition-all duration-500 group cursor-pointer`}
+              >
+                <div className={`w-14 h-14 rounded-2xl ${model.title === 'Permanent Hiring' ? 'bg-white/10' : 'bg-white'} flex items-center justify-center mb-12 shadow-sm group-hover:scale-110 transition-transform duration-500`}>
+                  <model.icon size={26} className={model.iconColor} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-extrabold mb-3 leading-tight">{model.title}</h3>
+                  <p className={`${model.title === 'Permanent Hiring' ? 'text-white/70' : 'text-[#8A8A8A]'} text-sm leading-relaxed`}>{model.desc}</p>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>

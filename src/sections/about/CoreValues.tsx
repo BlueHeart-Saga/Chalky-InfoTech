@@ -7,53 +7,60 @@ interface Value {
   icon: React.ElementType;
   title: string;
   desc: string;
-  image: string;
+  image: any;
   hex: string;
   accent: string;
   variant: 'dark' | 'pink' | 'light';
 }
+
+import IntegrityImg from '@/assets/About Us/Core values/Integrity.png';
+import InnovationImg from '@/assets/About Us/Core values/Innovation.png';
+import TransparencyImg from '@/assets/About Us/Core values/Transparency.png';
+import ClientSuccessImg from '@/assets/About Us/Core values/Client sucees.png';
+import SpeedImg from '@/assets/About Us/Core values/speed.png';
+import CollaborationImg from '@/assets/About Us/Core values/Collaboration.png';
 
 const values: Value[] = [
   {
     icon: ShieldCheck,
     title: 'Integrity',
     desc: 'Unwavering ethics and honesty in every client and candidate interaction.',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1200',
+    image: IntegrityImg,
     hex: '#5A1040', accent: '#7A1F5C', variant: 'dark',
   },
   {
     icon: Lightbulb,
     title: 'Innovation',
     desc: 'Continuously refining our search methodologies with data-driven insights.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200',
+    image: InnovationImg,
     hex: '#C2185B', accent: '#E91E8C', variant: 'pink',
   },
   {
     icon: Activity,
     title: 'Transparency',
     desc: 'Clear, open communication throughout the entire recruitment lifecycle.',
-    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1200',
+    image: TransparencyImg,
     hex: '#5A1040', accent: '#7A1F5C', variant: 'dark',
   },
   {
     icon: HeartHandshake,
     title: 'Client Success',
     desc: 'Your long-term organizational growth is our primary metric for success.',
-    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1200',
+    image: ClientSuccessImg,
     hex: '#C2185B', accent: '#E91E8C', variant: 'pink',
   },
   {
     icon: TrendingUp,
     title: 'Speed',
     desc: 'Agile delivery of top-tier talent without compromising on quality.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=1200',
+    image: SpeedImg,
     hex: '#5A1040', accent: '#7A1F5C', variant: 'dark',
   },
   {
     icon: Users,
     title: 'Collaboration',
     desc: 'Working as a seamless extension of your internal HR and technical teams.',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200',
+    image: CollaborationImg,
     hex: '#9B3B7A', accent: '#C2185B', variant: 'light',
   },
 ];
@@ -214,7 +221,7 @@ export default function CoreValues() {
                 {/* RIGHT — Full Image (flex 5) */}
                 <div className="relative overflow-hidden" style={{ flex: 5 }}>
                   <img
-                    src={active.image}
+                    src={active.image.src}
                     alt={active.title}
                     key={hovered} /* re-trigger fade on change */
                     className="absolute inset-0 w-full h-full object-cover"

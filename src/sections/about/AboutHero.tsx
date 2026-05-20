@@ -61,7 +61,7 @@ export default function AboutHero() {
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-[#8A8A8A] text-sm sm:text-base md:text-xl leading-relaxed mb-12 max-w-3xl mx-auto font-medium px-4">
-            Chalky Infotech is a specialist technology recruitment and workforce solutions company helping organizations scale through strategic hiring, digital talent acquisition, and enterprise workforce transformation.
+            Chalky Infotech is a specialist <Link href="/services" className="text-[#7A1F5C] hover:underline transition-all">technology recruitment</Link> and workforce solutions company helping organizations scale through strategic hiring, <Link href="/services/contract-staffing" className="text-[#7A1F5C] hover:underline transition-all">digital talent acquisition</Link>, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline transition-all">enterprise workforce transformation</Link>.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full sm:w-auto px-4">

@@ -22,7 +22,7 @@ export default function AboutCTA() {
           Partner with our recruitment specialists to access exceptional technology talent and scalable enterprise workforce solutions.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-5">
-          <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-[#7A1F5C] font-extrabold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+          <Link href="/jobs" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-[#7A1F5C] font-extrabold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
             Hire Talent
             <ArrowRight className="w-5 h-5" />
           </Link>

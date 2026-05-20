@@ -5,7 +5,7 @@ import { MapPin, Globe, Users } from "lucide-react";
 
 const LOCATIONS = [
   {
-    name: "London",
+    name: "United Kingdom Office",
     country: "UK",
     region: "Europe",
     type: "Head Office",
@@ -15,20 +15,20 @@ const LOCATIONS = [
     labelPosition: "top" as const,
   },
   {
-    name: "Chennai",
+    name: "Chennai Corporate Office",
     country: "India",
-    region: "India",
-    type: "Development Center",
+    region: "Chennai",
+    type: "Corporate Headquarters",
     employees: "75+",
     top: 40,
     left: 68.8,
     labelPosition: "top" as const,
   },
   {
-    name: "Thoothukudi",
+    name: "India Recruitment Center",
     country: "India",
-    region: "India",
-    type: "Regional Office",
+    region: "Passuvanthani",
+    type: "Recruitment Center",
     employees: "100+",
     top: 41.2,
     left: 68.4,

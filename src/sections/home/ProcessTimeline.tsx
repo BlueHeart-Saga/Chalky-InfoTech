@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { RECRUITMENT_STEPS } from '@/constants';
 import * as LucideIcons from 'lucide-react';
 import { ChevronRight } from 'lucide-react';
@@ -15,7 +16,7 @@ export default function ProcessTimeline() {
           </h2>
           <div className="w-20 h-1 bg-[#7A1F5C] mx-auto mb-8 rounded-full" />
           <p className="text-gray-600 text-lg leading-relaxed">
-            Our end-to-end talent acquisition journey ensures precision and quality at every stage.
+            Our end-to-end <Link href="/services" className="text-[#7A1F5C] font-medium hover:underline transition-all">talent acquisition</Link> journey ensures precision and quality at every stage.
           </p>
         </div>
 

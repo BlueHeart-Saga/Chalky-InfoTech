@@ -3,7 +3,13 @@
 import { motion } from 'framer-motion';
 import { Globe2, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import OfficeLocations from '../contact/OfficeLocations';
+
+import glob1 from '@/assets/Services/Global WorkForce Support/10ce9e28-f2fd-4033-b318-b765d46757ba 1.png';
+import glob2 from '@/assets/Services/Global WorkForce Support/1dfaf5d0-057e-4ecb-acbc-8004c586b938 1.png';
+import glob3 from '@/assets/Services/Global WorkForce Support/1ec57dad-58d6-4173-a7d4-50a794984932 1.png';
+import glob4 from '@/assets/Services/Global WorkForce Support/6faee7a1-f6df-4d0e-8b2a-b373d1159997 1.png';
 
 const supportRegions = [
   {
@@ -12,7 +18,7 @@ const supportRegions = [
     subtitle: 'London, UK',
     type: 'Strategic Hub',
     desc: 'Centralized strategy and client partnership management operating from our London headquarters.',
-    image: 'https://images.unsplash.com/photo-1513635269975-59693e0cd156?q=80&w=800&auto=format&fit=crop',
+    image: glob1,
   },
   {
     id: 'india-hubs',
@@ -20,7 +26,7 @@ const supportRegions = [
     subtitle: 'Chennai & Thoothukudi',
     type: 'Delivery Center',
     desc: 'Deep technical sourcing and engineering delivery centers driving scalable recruitment operations.',
-    image: 'https://images.unsplash.com/photo-1582510003544-4d00b1f74d5d?q=80&w=800&auto=format&fit=crop',
+    image: glob2,
   },
   {
     id: 'global-hiring',
@@ -28,7 +34,7 @@ const supportRegions = [
     subtitle: '15+ Countries',
     type: 'International Reach',
     desc: 'Managed recruitment processes acting seamlessly across international timezones and markets.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop',
+    image: glob3,
   },
   {
     id: 'remote-workforce',
@@ -36,7 +42,7 @@ const supportRegions = [
     subtitle: 'Borderless',
     type: 'Distributed Teams',
     desc: 'Fully compliant borderless hiring designed for building high-performing distributed teams.',
-    image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=800&auto=format&fit=crop',
+    image: glob4,
   }
 ];
 
@@ -60,7 +66,7 @@ export default function GlobalWorkforceSupport() {
               Global <span className="text-[#7A1F5C]">Workforce Support</span>
             </h2>
             <p className="text-[#8A8A8A] text-base md:text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
-              We provide seamless cross-border recruitment and workforce management, connecting UK and Indian centers of excellence with global talent opportunities.
+              We provide seamless cross-border recruitment and workforce management, connecting our <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">centers of excellence</Link> in the UK and India with global <Link href="/contact" className="text-[#7A1F5C] hover:underline font-semibold">talent opportunities</Link>.
             </p>
           </motion.div>
 
@@ -112,11 +118,12 @@ export default function GlobalWorkforceSupport() {
                   </div>
 
                   {/* CTA Button */}
-                  <button
+                  <Link
+                    href={region.id === 'remote-workforce' ? '/services/remote-hiring' : region.id === 'global-hiring' ? '/services' : '/about'}
                     className="inline-flex items-center gap-2 text-xs font-semibold text-[#7A1F5C] border border-[#7A1F5C]/30 bg-[#FAFAFA] px-5 py-2.5 rounded-full w-fit hover:bg-[#7A1F5C] hover:text-white hover:border-[#7A1F5C] transition-all duration-300 mt-auto"
                   >
                     Learn More <ArrowRight size={12} />
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
             ))}

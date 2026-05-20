@@ -7,56 +7,74 @@ import Image from 'next/image';
 
 const INDUSTRIES_LIST = [
   {
-    id: 'tech',
-    title: 'Technology & Digital',
-    desc: 'Supporting digital transformation initiatives through specialized recruitment solutions across software engineering, cloud operations, infrastructure, and emerging technology environments.',
-    areas: ['Software Development', 'Cloud Operations', 'Digital Platforms', 'Transformation Projects'],
-    challenges: ['Talent scarcity in niche tech', 'Rapidly evolving tech stacks'],
+    id: 'it-technology',
+    title: 'IT & Technology',
+    desc: 'Driving digital transformation with elite software engineers and full-stack technical specialists.',
+    areas: ['Software Engineering', 'Cloud & DevOps', 'Cybersecurity Ops', 'Data & AI Systems'],
+    challenges: ['Severe senior talent scarcity', 'Rapidly evolving frameworks'],
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop',
     href: '/industries/it-technology'
   },
   {
-    id: 'finance',
-    title: 'Finance & Banking',
-    desc: 'Connecting global financial institutions with top-tier professionals in fintech, risk management, compliance, and core investment banking operations.',
-    areas: ['Fintech Innovation', 'Risk & Compliance', 'Investment Operations', 'Financial Analytics'],
-    challenges: ['Complex regulatory landscape', 'Security & trust protocols'],
+    id: 'telecommunications',
+    title: 'Telecommunications',
+    desc: 'Scaling global connectivity with expert engineers for 5G, network, and satellite infrastructure.',
+    areas: ['5G Rollouts', 'Network Security', 'Satellite Comms', 'Wireless Infrastructure'],
+    challenges: ['High capital investment risk', 'Complex global standard shifts'],
+    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop',
+    href: '/industries/telecommunications'
+  },
+  {
+    id: 'engineering-infrastructure',
+    title: 'Engineering & Infrastructure',
+    desc: 'Supporting large-scale engineering, civil, industrial, and technical workforce requirements.',
+    areas: ['Civil Engineering', 'Industrial Operations', 'Project Management', 'Structural Design'],
+    challenges: ['Complex safety regulations', 'Cross-border logistics'],
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop',
+    href: '/industries/engineering-infrastructure'
+  },
+  {
+    id: 'media-digital-services',
+    title: 'Media & Digital Services',
+    desc: 'Connecting businesses with talent across digital platforms, content, and technology ecosystems.',
+    areas: ['Digital Platforms', 'Content Production', 'Broadcast Systems', 'Creative Design'],
+    challenges: ['Monetization complexity', 'Rapid content scaling needs'],
+    image: 'https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=800&auto=format&fit=crop',
+    href: '/industries/media-digital-services'
+  },
+  {
+    id: 'banking-finance',
+    title: 'Banking & Finance',
+    desc: 'Strategic talent acquisition for global financial institutions, fintech, and regulatory compliance.',
+    areas: ['Fintech Engineering', 'Risk & Compliance', 'Investment Operations', 'Core Banking Tech'],
+    challenges: ['Severe security vulnerabilities', 'Complex regulatory audit checks'],
     image: 'https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=800&auto=format&fit=crop',
     href: '/industries/banking-finance'
   },
   {
-    id: 'healthcare',
+    id: 'healthcare-life-sciences',
     title: 'Healthcare & Life Sciences',
-    desc: 'Specialized talent acquisition for clinical research, pharmaceutical development, and high-impact healthcare administration roles.',
-    areas: ['Clinical Research', 'Pharma Operations', 'Medical Administration', 'Biotech Innovation'],
-    challenges: ['Specialized medical vetting', 'Compliance with healthcare laws'],
+    desc: 'Providing critical expertise for clinical research, pharmaceutical development, and healthcare admin.',
+    areas: ['Clinical Research', 'Pharma Operations', 'Biotech Development', 'Healthcare Admin'],
+    challenges: ['High-risk medical compliance', 'Extremely long vetting cycles'],
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop',
     href: '/industries/healthcare-life-sciences'
   },
   {
-    id: 'education',
-    title: 'Education & Training',
-    desc: 'Bridging academia and industry through expert recruitment for EdTech platforms, training centers, and academic institutions.',
-    areas: ['EdTech Platforms', 'Training & Development', 'Academic Leadership', 'Skill Development'],
-    challenges: ['Curriculum alignment', 'Educational technology shift'],
-    image: 'https://images.unsplash.com/photo-1524178232363-1fb28f74b0cd?q=80&w=800&auto=format&fit=crop',
-    href: '/industries/education'
-  },
-  {
-    id: 'retail',
-    title: 'Retail & Commerce',
-    desc: 'Optimizing the modern consumer journey with specialists in omnichannel retail, supply chain logistics, and e-commerce platform management.',
-    areas: ['Omnichannel Strategy', 'Logistics & Supply Chain', 'E-commerce Platforms', 'Retail Operations'],
-    challenges: ['Demand volatility', 'Digital-first retail shift'],
+    id: 'retail-ecommerce',
+    title: 'Retail & E-Commerce',
+    desc: 'Optimizing the consumer journey with specialists in omnichannel retail and e-commerce platforms.',
+    areas: ['Omnichannel Strategy', 'E-commerce Architecture', 'Logistics & Distribution', 'Digital Marketing'],
+    challenges: ['Severe demand volatility', 'Fierce platform competition'],
     image: 'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=800&auto=format&fit=crop',
     href: '/industries/retail-ecommerce'
   },
   {
     id: 'manufacturing',
-    title: 'Energy & Manufacturing',
-    desc: 'Delivering engineering excellence and operational leadership for Industry 4.0 ecosystems and sustainable energy infrastructure.',
-    areas: ['Industry 4.0 Systems', 'Process Engineering', 'Renewable Infrastructure', 'Operational Excellence'],
-    challenges: ['Technical skill gap', 'Legacy systems integration'],
+    title: 'Manufacturing',
+    desc: 'Delivering engineering excellence and operational leadership for Industry 4.0 ecosystems.',
+    areas: ['Industry 4.0 Systems', 'Process Engineering', 'Operational Leadership', 'Automation & Robotics'],
+    challenges: ['Legacy systems bottleneck', 'Technical engineering skill gaps'],
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
     href: '/industries/manufacturing'
   }
@@ -74,7 +92,7 @@ export default function FeaturedIndustryExpertise() {
             Global <span className="text-[#7A1F5C]">Industry Blocks</span>
           </h2>
           <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg leading-relaxed">
-            We operate through specialized industry units that speak your language and understand your specific workforce challenges.
+            We operate through specialized industry units that speak your language, understand your specific <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">workforce challenges</Link>, and deliver <Link href="/contact" className="text-[#7A1F5C] hover:underline font-semibold">compliant staffing solutions</Link>.
           </p>
         </div>
 

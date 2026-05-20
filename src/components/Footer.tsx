@@ -29,12 +29,12 @@ export default function Footer() {
             </div>
 
             {/* Left Side: 3D Graphic Area */}
-            <div className="hidden md:flex flex-col flex-[0.6] justify-center relative items-center min-h-[140px]">
+            <div className="hidden md:flex flex-col flex-[0.8] justify-center relative items-center min-h-[140px]">
               <Image
                 src={ctaImage}
                 alt="Newsletter Graphic"
                 priority
-                className="absolute bottom-0 w-full h-auto max-w-[200px] lg:max-w-[240px] object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-4 hover:scale-105 -top-16 lg:-top-20 z-30"
+                className="absolute -bottom-10 md:-bottom-16 w-full h-auto max-w-[250px] lg:max-w-[300px] object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] transition-transform duration-500 hover:-translate-y-4 hover:scale-105 z-30"
               />
             </div>
 

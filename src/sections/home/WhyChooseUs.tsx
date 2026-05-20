@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Zap, 
   Clock, 
@@ -11,51 +12,71 @@ import {
   ShieldCheck, 
   BarChart,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import DeliveryImg from '@/assets/homepage/Why Choose/Rapid Requirement Delivery.png';
+import SupportImg from '@/assets/homepage/Why Choose/Dedicated Recruitment Support.png';
+import ReplacementImg from '@/assets/homepage/Why Choose/Replacement Assurance.png';
+import NetworkImg from '@/assets/homepage/Why Choose/Specialized Talent Network.png';
+import ModelsImg from '@/assets/homepage/Why Choose/Flexible Hiring Models.png';
+import ProcessImg from '@/assets/homepage/Why Choose/End-To-End Hiring Process.png';
+import ValidationImg from '@/assets/homepage/Why Choose/Quality Candidate Validation.png';
+import ScalableImg from '@/assets/homepage/Why Choose/Scalable Workforce Solutions.png';
+import HighPerformanceImg from '@/assets/homepage/Why Choose/Build High-Performance Teams.png';
+
 const REASONS = [
   { 
-    image: "/whychoose/delivery.png",
+    image: DeliveryImg,
     title: "Rapid Requirement Delivery", 
-    desc: "Quick turnaround hiring support for urgent workforce and project requirements across multiple industries." 
+    desc: "Quick turnaround hiring support for urgent workforce and project requirements across multiple industries.",
+    link: "/services/temporary-recruitment"
   },
   { 
-    image: "/whychoose/support.png",
+    image: SupportImg,
     title: "Dedicated Recruitment Support", 
-    desc: "24/7 coordination and communication support throughout the recruitment lifecycle whenever required." 
+    desc: "24/7 coordination and communication support throughout the recruitment lifecycle whenever required.",
+    link: "/about"
   },
   { 
-    image: "/whychoose/replacement.png",
+    image: ReplacementImg,
     title: "Replacement Assurance", 
-    desc: "Fast replacement support for unexpected candidate exits based on professional replacement terms." 
+    desc: "Fast replacement support for unexpected candidate exits based on professional replacement terms.",
+    link: "/services/permanent-hiring"
   },
   { 
-    image: "/whychoose/network.png",
+    image: NetworkImg,
     title: "Specialized Talent Network", 
-    desc: "Access to pre-screened professionals across cloud, DevOps, AI, software and enterprise domains." 
+    desc: "Access to pre-screened professionals across cloud, DevOps, AI, software and enterprise domains.",
+    link: "/industries/it-technology"
   },
   { 
-    image: "/whychoose/models.png",
+    image: ModelsImg,
     title: "Flexible Hiring Models", 
-    desc: "Affordable recruitment solutions tailored for startups, SMBs and enterprise organizations." 
+    desc: "Affordable recruitment solutions tailored for startups, SMBs and enterprise organizations.",
+    link: "/services/contract-staffing"
   },
   { 
-    image: "/whychoose/process.png",
+    image: ProcessImg,
     title: "End-To-End Hiring Process", 
-    desc: "Complete recruitment management from sourcing and screening to onboarding support professionally." 
+    desc: "Complete recruitment management from sourcing and screening to onboarding support professionally.",
+    link: "/services"
   },
   { 
-    image: "/whychoose/validation.png",
+    image: ValidationImg,
     title: "Quality Candidate Validation", 
-    desc: "Structured evaluation processes ensuring strong technical and cultural alignment with client goals." 
+    desc: "Structured evaluation processes ensuring strong technical and cultural alignment with client goals.",
+    link: "/services/executive-search"
   },
   { 
-    image: "/whychoose/scalable.png",
+    image: ScalableImg,
     title: "Scalable Workforce Solutions", 
-    desc: "Workforce strategies designed to support business expansion and rapid operational scaling." 
+    desc: "Workforce strategies designed to support business expansion and rapid operational scaling.",
+    link: "/services/managed-services"
   }
 ];
 
@@ -71,6 +92,9 @@ const SHORT_ADVANTAGES = [
 ];
 
 export default function WhyChooseUs() {
+  const [showAll, setShowAll] = useState(false);
+  const displayedReasons = showAll ? REASONS : REASONS.slice(0, 4);
+
   return (
     <section className="py-24 bg-[#F5F0E8] text-[#1A1A1A] relative overflow-hidden pb-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -91,7 +115,7 @@ export default function WhyChooseUs() {
               Built For Modern Workforce Needs
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-10">
-              Chalky Infotech delivers fast, reliable and scalable recruitment solutions helping organizations hire exceptional talent with complete workforce support, industry expertise and cost-effective hiring strategies.
+              Chalky Infotech delivers fast, reliable and scalable <Link href="/services" className="text-[#7A1F5C] font-medium hover:underline transition-all">recruitment solutions</Link> helping organizations hire exceptional talent with complete workforce support, <Link href="/industries" className="text-[#7A1F5C] font-medium hover:underline transition-all">industry expertise</Link> and cost-effective hiring strategies.
             </p>
             
             <div className="grid sm:grid-cols-2 gap-y-4 gap-x-8">
@@ -115,7 +139,7 @@ export default function WhyChooseUs() {
                 {/* Featured Image */}
                 <div className="w-full mb-8 max-w-lg mx-auto lg:mx-0">
                    <Image 
-                     src="/about/whychoose.png" 
+                     src={HighPerformanceImg} 
                      alt="Why Choose Chalky Infotech" 
                      width={800}
                      height={600}
@@ -127,7 +151,7 @@ export default function WhyChooseUs() {
                 <div className="text-center lg:text-left">
                    <h3 className="text-3xl font-semibold text-[#1A1A1A] mb-4">Build High-Performance Teams</h3>
                    <p className="text-gray-600 mb-8 leading-relaxed text-sm max-w-lg">
-                     Partner with a recruitment team focused on delivering exceptional talent solutions, rapid hiring support and scalable workforce strategies for modern businesses.
+                     Partner with a recruitment team focused on delivering exceptional <Link href="/services" className="text-[#7A1F5C] font-medium hover:underline transition-all">talent solutions</Link>, rapid hiring support and scalable workforce strategies for modern businesses.
                    </p>
                    <div className="flex flex-col sm:flex-row gap-4">
                       <Link href="/jobs" className="bg-[#7A1F5C] text-white px-8 py-4 rounded-2xl font-bold text-sm hover:bg-[#C2185B] transition-all text-center">
@@ -142,45 +166,65 @@ export default function WhyChooseUs() {
           </motion.div>
         </div>
 
-        {/* 8 Reasons Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {REASONS.map((reason, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="group relative overflow-hidden rounded-2xl bg-[#EBEBEB] h-[320px] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
-            >
-              {/* Image Area - Top */}
-              <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden">
-                <Image 
-                  src={reason.image} 
-                  alt={reason.title} 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110" 
-                />
-              </div>
+        {/* Reasons Grid */}
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <AnimatePresence mode="popLayout">
+            {displayedReasons.map((reason, i) => (
+              <motion.div 
+                key={reason.title}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, delay: (i % 4) * 0.1 }}
+                className="group relative overflow-hidden rounded-2xl bg-[#EBEBEB] h-[320px] cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300"
+              >
+                <Link href={reason.link} className="block w-full h-full">
+                  {/* Image Area - Top */}
+                  <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden">
+                    <Image 
+                      src={reason.image} 
+                      alt={reason.title} 
+                      fill 
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                    />
+                  </div>
 
-              {/* Content Area - Bottom (default), Full height (hover) */}
-              <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-6 flex flex-col transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:h-full z-10">
-                <h4 className="text-base font-semibold text-[#1A1A1A] leading-tight mb-3 group-hover:text-[#7A1F5C] transition-colors">{reason.title}</h4>
-                
-                {/* Hidden content that fades in on hover */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex-grow pt-2 flex flex-col">
-                   <p className="text-[#4A4A4A] text-xs leading-relaxed mb-4">{reason.desc}</p>
-                   <span className="inline-flex items-center gap-2 text-[#7A1F5C] font-semibold text-xs mt-auto">
-                      Explore Advantage <ArrowRight size={14} />
-                   </span>
-                </div>
+                  {/* Content Area - Bottom (default), Full height (hover) */}
+                  <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-6 flex flex-col transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:h-full z-10">
+                    <h4 className="text-base font-semibold text-[#1A1A1A] leading-tight mb-3 group-hover:text-[#7A1F5C] transition-colors">{reason.title}</h4>
+                    
+                    {/* Hidden content that fades in on hover */}
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex-grow pt-2 flex flex-col">
+                       <p className="text-[#4A4A4A] text-xs leading-relaxed mb-4">{reason.desc}</p>
+                       <span className="inline-flex items-center gap-2 text-[#7A1F5C] font-semibold text-xs mt-auto group-hover:gap-3 transition-all">
+                          Explore Advantage <ArrowRight size={14} />
+                       </span>
+                    </div>
 
-                {/* Bottom label that fades out on hover */}
-                <span className="absolute bottom-6 left-6 text-[#8A8A8A] text-[10px] uppercase tracking-wider group-hover:opacity-0 transition-opacity duration-300 font-bold">Chalky InfoTech</span>
-              </div>
-            </motion.div>
-          ))}
+                    {/* Bottom label that fades out on hover */}
+                    <span className="absolute bottom-6 left-6 text-[#8A8A8A] text-[10px] uppercase tracking-wider group-hover:opacity-0 transition-opacity duration-300 font-bold">Chalky InfoTech</span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Toggle Button */}
+        <div className="mt-12 flex justify-center">
+          <button 
+            onClick={() => setShowAll(!showAll)}
+            className="group flex items-center gap-2 bg-white text-[#7A1F5C] px-8 py-3 rounded-full font-bold text-sm shadow-md border border-gray-100 hover:bg-[#7A1F5C] hover:text-white transition-all duration-300"
+          >
+            {showAll ? 'Show Less' : 'Explore More Advantages'}
+            {showAll ? (
+               <ChevronUp size={18} className="group-hover:-translate-y-1 transition-transform" />
+            ) : (
+               <ChevronDown size={18} className="group-hover:translate-y-1 transition-transform" />
+            )}
+          </button>
         </div>
       </div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
+import Link from 'next/link';
 
 interface Capability {
   title: string;
@@ -62,7 +63,7 @@ export default function IndustryOverview({ title, description, capabilities }: P
           </div>
           <div className="lg:w-1/2">
             <p className="text-gray-500 leading-relaxed italic">
-              Leveraging specialized sector insights and a global network, we connect forward-thinking organizations with domain-expert professionals. We focus on identifying candidate suitability, regulatory compliance, and cultural alignment.
+              Leveraging specialized sector insights and our <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">global recruitment network</Link>, we connect forward-thinking organizations with domain-expert professionals. We focus on identifying candidate suitability, regulatory compliance, and <Link href="/services" className="text-[#7A1F5C] hover:underline font-semibold">organizational alignment</Link>.
             </p>
           </div>
         </div>
@@ -80,39 +81,40 @@ export default function IndustryOverview({ title, description, capabilities }: P
             const cardStyle = CARD_STYLES[i % CARD_STYLES.length];
 
             return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className={`group relative flex flex-col justify-between p-8 pt-12 pb-14 cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 min-h-[350px] text-center ${cardStyle.bg} ${cardStyle.shape}`}
-              >
-                
-                {/* Upper Content wrapper */}
-                <div className="flex flex-col items-center">
-                  {/* Card Icon */}
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-300 ${cardStyle.iconBg}`}>
-                    <Icon size={26} />
+              <Link key={i} href="/services" className="block">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.6 }}
+                  className={`group relative flex flex-col justify-between p-8 pt-12 pb-14 cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 min-h-[350px] text-center ${cardStyle.bg} ${cardStyle.shape}`}
+                >
+                  
+                  {/* Upper Content wrapper */}
+                  <div className="flex flex-col items-center">
+                    {/* Card Icon */}
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-300 ${cardStyle.iconBg}`}>
+                      <Icon size={26} />
+                    </div>
+                    
+                    {/* Title */}
+                    <h4 className="text-xl font-bold mb-4 tracking-tight group-hover:opacity-95 transition-opacity">
+                      {cap.title}
+                    </h4>
+                    
+                    {/* Description */}
+                    <p className={`text-sm leading-relaxed ${cardStyle.descText}`}>
+                      {cap.desc}
+                    </p>
+                  </div>
+
+                  {/* Overlapping Bottom Arrow Pill Button */}
+                  <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center border border-gray-100 group-hover:scale-110 transition-transform duration-300 z-20">
+                    <LucideIcons.ArrowRight size={16} className="text-[#7A1F5C] transition-transform group-hover:translate-x-0.5" />
                   </div>
                   
-                  {/* Title */}
-                  <h4 className="text-xl font-bold mb-4 tracking-tight group-hover:opacity-95 transition-opacity">
-                    {cap.title}
-                  </h4>
-                  
-                  {/* Description */}
-                  <p className={`text-sm leading-relaxed ${cardStyle.descText}`}>
-                    {cap.desc}
-                  </p>
-                </div>
-
-                {/* Overlapping Bottom Arrow Pill Button */}
-                <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center border border-gray-100 group-hover:scale-110 transition-transform duration-300 z-20">
-                  <LucideIcons.ArrowRight size={16} className="text-[#7A1F5C] transition-transform group-hover:translate-x-0.5" />
-                </div>
-                
-              </motion.div>
+                </motion.div>
+              </Link>
             );
           })}
         </div>

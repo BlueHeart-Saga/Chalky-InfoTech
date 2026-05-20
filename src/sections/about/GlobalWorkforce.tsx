@@ -1,32 +1,35 @@
 'use client';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function GlobalWorkforce() {
   const locations = [
     {
-      city: 'London',
+      city: 'United Kingdom Office',
       region: 'UK • Europe',
-      email: 'uk@chalkyinfotech.com',
-      phone: '+44 (0) 20 1234 5678',
-      address: '80 Strand, London, WC2R 0RL',
-      iframeSrc: 'https://maps.google.com/maps?q=80%20Strand,%20London,%20WC2R%200RL&t=&z=13&ie=UTF8&iwloc=&output=embed'
+      email: 'info@chalkyinfo.com',
+      phone: '+44 7503 140975',
+      whatsapp: '+91 80723 57581',
+      address: '128, City Road, London EC1V 2NX, United Kingdom',
+      iframeSrc: 'https://maps.google.com/maps?q=128%20City%20Road,%20London%20EC1V%202NX,%20United%20Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed'
     },
     {
-      city: 'Chennai',
-      region: 'India • India',
-      email: 'chennai@chalkyinfotech.com',
-      phone: '+91 44 2345 6789',
-      address: 'Old Mahabalipuram Rd, Chennai, TN',
-      iframeSrc: 'https://maps.google.com/maps?q=Old%20Mahabalipuram%20Rd,%20Chennai,%20TN&t=&z=13&ie=UTF8&iwloc=&output=embed'
+      city: 'Chennai Corporate Office',
+      region: 'India • Chennai',
+      email: 'info@chalkyinfo.com',
+      phone: '+44 7503 140975',
+      whatsapp: '+91 80723 57581',
+      address: '110, Manickan Lane, Anna Salai, Opp Guindy, Chennai, Tamil Nadu – 600 032',
+      iframeSrc: 'https://maps.google.com/maps?q=110%20Manickan%20Lane,%20Anna%20Salai,%20Opp%20Guindy,%20Chennai,%20Tamil%20Nadu%20600032&t=&z=14&ie=UTF8&iwloc=&output=embed'
     },
     {
-      city: 'Thoothukudi',
-      region: 'India • India',
-      email: 'tuty@chalkyinfotech.com',
-      phone: '+91 461 3456 7890',
-      address: 'Harbour Road, Thoothukudi, TN',
-      iframeSrc: 'https://maps.google.com/maps?q=Harbour%20Road,%20Thoothukudi,%20TN&t=&z=14&ie=UTF8&iwloc=&output=embed'
+      city: 'India Recruitment Center',
+      region: 'India • Passuvanthani',
+      email: 'info@chalkyinfo.com',
+      phone: '+44 7503 140975',
+      whatsapp: '+91 80723 57581',
+      address: '4/392, Rajeev Colony, Passuvanthani, Tamil Nadu',
+      iframeSrc: 'https://maps.google.com/maps?q=4/392%20Rajeev%20Colony,%20Passuvanthani,%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed'
     }
   ];
 
@@ -80,11 +83,22 @@ export default function GlobalWorkforce() {
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <Mail className="w-4 h-4 text-[#7A1F5C]/50" />
-                    <span>{loc.email}</span>
+                    <a href={`mailto:${loc.email}`} className="hover:text-[#7A1F5C] transition-colors">{loc.email}</a>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <Phone className="w-4 h-4 text-[#7A1F5C]/50" />
-                    <span>{loc.phone}</span>
+                    <a href={`tel:${loc.phone.replace(/\s+/g, '')}`} className="hover:text-[#7A1F5C] transition-colors">{loc.phone}</a>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <MessageCircle className="w-4 h-4 text-[#7A1F5C]/50" />
+                    <a 
+                      href={`https://wa.me/${loc.whatsapp.replace(/[^0-9]/g, '')}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="hover:text-[#7A1F5C] transition-colors"
+                    >
+                      WhatsApp: {loc.whatsapp}
+                    </a>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-gray-600">
                     <MapPin className="w-4 h-4 text-[#7A1F5C]/50" />

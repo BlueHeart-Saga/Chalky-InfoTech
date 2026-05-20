@@ -2,11 +2,17 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
+import VisionImg from '@/assets/About Us/Vision Mission,skill/vision.png';
+import MissionImg from '@/assets/About Us/Vision Mission,skill/Mission.png';
+import ClientRelationImg from '@/assets/About Us/Vision Mission,skill/Client relation.png';
+import SkilledWorkforceImg from '@/assets/About Us/Vision Mission,skill/skilled workforce.png';
 
 interface Block {
   title: string;
-  desc: string;
-  image: string;
+  desc: React.ReactNode;
+  image: any;
   barColor: string;
   blobStyle: React.CSSProperties;
   align: 'left' | 'right';
@@ -16,36 +22,36 @@ interface Block {
 const blocks: Block[] = [
   {
     title: 'OUR VISION',
-    desc: 'At Chalky Infotech, we envision becoming a globally trusted technology recruitment and workforce solutions partner. We support organizations through continuous innovation, scalable hiring strategies, and long-term talent acquisition methodologies that bridge the gap between human potential and enterprise success.',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
-    barColor: '#D4A3A3',
+    desc: <>At Chalky Infotech, we envision becoming a globally trusted <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">technology recruitment</Link> and workforce solutions partner. We support organizations through continuous innovation, scalable hiring strategies, and long-term <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent acquisition</Link> methodologies that bridge the gap between human potential and enterprise success.</>,
+    image: VisionImg,
+    barColor: '#7A1F5C',
     blobStyle: { borderRadius: '50% 45% 55% 50% / 50% 50% 45% 55%' },
     align: 'left',
     titleCase: 'upper',
   },
   {
     title: 'Our Mission',
-    desc: 'Our mission is to empower businesses by connecting them with exceptional technology professionals. Through our consultative approach to recruitment, deep market intelligence, and scalable workforce solutions, we strive to accelerate digital transformation and drive measurable, long-lasting business impact for all our partners.',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
-    barColor: '#C2DDE5',
+    desc: <>Our mission is to empower businesses by connecting them with exceptional technology professionals. Through our consultative approach to recruitment, deep market intelligence, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">scalable workforce solutions</Link>, we strive to accelerate digital transformation and drive measurable, long-lasting business impact for all our partners.</>,
+    image: MissionImg,
+    barColor: '#D14D72',
     blobStyle: { borderRadius: '50% 55% 45% 50% / 45% 50% 55% 50%' },
     align: 'right',
     titleCase: 'normal',
   },
   {
     title: 'Client Relationship',
-    desc: 'We go beyond traditional recruitment by building trusted, strategic partnerships. By deeply understanding your organizational goals, technology landscape, and unique workforce challenges, we deliver tailored hiring outcomes that align perfectly with your corporate culture and long-term growth objectives.',
-    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800',
-    barColor: '#B5C2B7',
+    desc: <>We go beyond traditional recruitment by building trusted, strategic partnerships. By deeply understanding your organizational goals, technology landscape, and unique workforce challenges, we deliver tailored <Link href="/services/contract-staffing" className="text-[#7A1F5C] hover:underline font-medium transition-all">hiring outcomes</Link> that align perfectly with your corporate culture and long-term growth objectives.</>,
+    image: ClientRelationImg,
+    barColor: '#9B3B7A',
     blobStyle: { borderRadius: '50%' },
     align: 'left',
     titleCase: 'normal',
   },
   {
     title: 'Skilled Workforce',
-    desc: 'We specialize in assembling future-ready technical teams across cloud computing, DevOps, artificial intelligence, and software engineering. Our rigorous selection process ensures every candidate possesses the exact skills and agility required to thrive in modern, fast-paced digital environments.',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800',
-    barColor: '#DBCB89',
+    desc: <>We specialize in assembling future-ready technical teams across <Link href="/industries/it-technology" className="text-[#7A1F5C] hover:underline font-medium transition-all">cloud computing, DevOps</Link>, artificial intelligence, and software engineering. Our rigorous selection process ensures every candidate possesses the exact skills and agility required to thrive in modern, fast-paced digital environments.</>,
+    image: SkilledWorkforceImg,
+    barColor: '#C2185B',
     blobStyle: { borderRadius: '55% 45% 40% 60% / 50% 55% 45% 50%' },
     align: 'right',
     titleCase: 'normal',

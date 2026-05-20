@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { CheckCircle2, ArrowUpRight, ClipboardCheck, Users, Search } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
-import ScrollReveal from '@/components/ScrollReveal';
+import AboutChalkyImg from '@/assets/homepage/overview/About Chalky Infotech.png';
 
 export default function CompanyOverview() {
   return (
@@ -33,7 +33,7 @@ export default function CompanyOverview() {
               className="relative z-10 w-[300px] sm:w-[400px] h-[400px] sm:h-[500px]"
             >
               <Image 
-                src="/overview-image.png"
+                src={AboutChalkyImg}
                 alt="Chalky Infotech Overview"
                 fill
                 sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
@@ -80,7 +80,7 @@ export default function CompanyOverview() {
               
               {/* COMPANY DESCRIPTION */}
               <p className="text-lg sm:text-xl text-gray-700 font-normal leading-relaxed mb-4">
-                Chalky Infotech is a specialist technology and digital recruitment partner helping organisations scale with exceptional talent across cloud, AI, data, software engineering and enterprise transformation.
+                Chalky Infotech is a specialist <Link href="/about" className="text-[#7A1F5C] font-semibold hover:underline transition-all">technology and digital recruitment partner</Link> helping organisations scale with exceptional talent across <Link href="/industries" className="text-[#7A1F5C] font-semibold hover:underline transition-all">cloud, AI, data</Link>, software engineering and <Link href="/services" className="text-[#7A1F5C] font-semibold hover:underline transition-all">enterprise transformation</Link>.
               </p>
               
               {/* HIGHLIGHT FEATURES GRID */}

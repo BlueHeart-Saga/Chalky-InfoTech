@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { MapPin, ExternalLink, Mail } from 'lucide-react';
+import Link from 'next/link';
 
 const offices = [
   {
@@ -35,25 +36,25 @@ const offices = [
 
 const team = [
   {
+    name: 'Saravana Karthikeyan',
+    role: 'CEO & Founder',
+    focus: 'Enterprise Strategy',
+    image: '/team/saravana.png',
+    email: 'info@chalkyinfo.com',
+  },
+  {
+    name: 'Manjula Bashkar',
+    role: 'Manual Cloud Security Specialist',
+    focus: 'Cloud Security & Testing',
+    image: '/team/manjula.png',
+    email: 'info@chalkyinfo.com',
+  },
+  {
     name: 'Himanshu Mudgal',
     role: 'Head of Client Success',
-    focus: 'UK Enterprise Accounts',
+    focus: 'DevOps & Client Success',
     image: '/team/himanshu-mudgal.png',
-    email: 'himanshu@chalkyinfo.com',
-  },
-  {
-    name: 'Priya Nair',
-    role: 'Head of Talent Acquisition',
-    focus: 'Global Talent Sourcing',
-    image: '/team/team-4.png',
-    email: 'priya@chalkyinfo.com',
-  },
-  {
-    name: 'James Wilson',
-    role: 'Director of Strategy',
-    focus: 'Partnerships & Growth',
-    image: '/team/team-6.png',
-    email: 'james@chalkyinfo.com',
+    email: 'info@chalkyinfo.com',
   },
 ];
 
@@ -87,7 +88,7 @@ export default function GlobalIndustrySupport() {
             transition={{ delay: 0.1 }}
             className="text-[#8A8A8A] text-lg leading-relaxed max-w-3xl mx-auto"
           >
-            We provide seamless cross-border recruitment and workforce management, connecting specialized sector hubs with international talent opportunities.
+            We provide seamless cross-border <Link href="/services" className="text-[#7A1F5C] hover:underline font-semibold">recruitment models</Link> and workforce management, connecting specialized <Link href="/industries" className="text-[#7A1F5C] hover:underline font-semibold">sector hubs</Link> with international talent opportunities.
           </motion.p>
         </div>
 
@@ -158,9 +159,8 @@ export default function GlobalIndustrySupport() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-white rounded-3xl p-6 border border-[#EFE7DD] shadow-lg shadow-[#7A1F5C]/5 flex items-center gap-4 group"
               >
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#EFE7DD] flex-shrink-0 bg-gray-50">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=7A1F5C&color=fff&size=56`; }} />
+                <div className="w-16 h-16 rounded-full border-2 border-[#7A1F5C] shadow-sm flex-shrink-0 bg-[#7A1F5C] text-white flex items-center justify-center font-bold text-xl tracking-wider group-hover:bg-[#C2185B] group-hover:border-[#C2185B] transition-colors duration-300">
+                  {member.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-[#1A1A1A] text-lg truncate group-hover:text-[#7A1F5C] transition-colors">{member.name}</p>
