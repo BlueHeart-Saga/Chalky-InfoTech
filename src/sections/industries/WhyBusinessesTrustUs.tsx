@@ -5,40 +5,47 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import adv1 from '@/assets/Industries/The Advantage/815a3a38-d66a-41d4-b8b1-c54146717993 1.png';
+import adv2 from '@/assets/Industries/The Advantage/8edcb80a-f697-4d37-b5c7-d05827ed67be 1.png';
+import adv3 from '@/assets/Industries/The Advantage/8fa7790a-ae9c-4bfa-8dd6-7b2e641d341d 1.png';
+import adv4 from '@/assets/Industries/The Advantage/a49f354a-c505-419b-9f83-cbe98cb75354 1.png';
+import adv5 from '@/assets/Industries/The Advantage/cd7ffe70-633a-431a-bde3-5b6af8499611 1.png';
+import adv6 from '@/assets/Industries/The Advantage/e298c14c-3c28-4c18-98b4-e25b61f2df03 1.png';
+
 const REASONS = [
   { 
     title: 'Multi-Industry Expertise', 
-    image: '/whychoose/models.png', 
+    image: adv1, 
     desc: 'Access specialized vertical-market domain experts engineered to navigate distinct industry regulations, operational frameworks, and corporate methodologies.', 
     link: '/industries' 
   },
   { 
     title: 'Scalable Solutions', 
-    image: '/whychoose/scalable.png', 
+    image: adv2, 
     desc: 'Deploy highly agile workforce frameworks, custom contract arrangements, and end-to-end recruitment capabilities designed to match your corporate scaling requirements.', 
     link: '/services' 
   },
   { 
     title: 'Global Support Hubs', 
-    image: '/whychoose/network.png', 
+    image: adv3, 
     desc: 'Leverage state-of-the-art global search capabilities, borderless offshore structures, and compliance frameworks to locate top-tier international specialists.', 
     link: '/about' 
   },
   { 
     title: 'Sector-Specific Hiring', 
-    image: '/whychoose/process.png', 
+    image: adv4, 
     desc: 'Utilize data-driven recruitment metrics, precise technical mapping, and rigorous qualification methodologies to source domain-specific resources and specialists.', 
     link: '/services/permanent-hiring' 
   },
   { 
     title: 'Rapid Talent Delivery', 
-    image: '/whychoose/delivery.png', 
+    image: adv5, 
     desc: 'Accelerate your average time-to-hire using optimized global talent pipelines, digital transformation matching platforms, and rapid response staffing protocols.', 
     link: '/services/temporary-recruitment' 
   },
   { 
     title: 'Long-Term Partnerships', 
-    image: '/whychoose/support.png', 
+    image: adv6, 
     desc: 'Establish reliable partnerships committed to organizational growth, talent retention optimization, and building sustainable C-suite & technical teams.', 
     link: '/contact' 
   }

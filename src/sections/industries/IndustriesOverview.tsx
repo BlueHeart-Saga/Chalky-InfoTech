@@ -5,30 +5,35 @@ import { Target, BarChart3, ShieldCheck, Zap, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import insight1 from '@/assets/Industries/Sector Insights/49f4a132-7ab4-41ea-93de-93b959d51e50 1.png';
+import insight2 from '@/assets/Industries/Sector Insights/6e36d0d6-6565-4687-bf3d-dd7f9c496a9b 1.png';
+import insight3 from '@/assets/Industries/Sector Insights/a0ca8f89-9ecc-4c85-94d7-a880fe752de0 1.png';
+import insight4 from '@/assets/Industries/Sector Insights/c0064780-9c65-4a9d-a8b4-93f6577f5f02 1.png';
+
 const INDUSTRY_CARDS = [
   {
     icon: Target,
     title: 'Precision Mapping',
     desc: 'Targeting exact skill sets across complex, specialized industry environments.',
-    image: '/services/contract.png'
+    image: insight1
   },
   {
     icon: BarChart3,
     title: 'Market Analytics',
     desc: 'Leveraging intelligence to navigate competitive global talent landscapes.',
-    image: '/services/permanent.png'
+    image: insight2
   },
   {
     icon: ShieldCheck,
     title: 'Compliance First',
     desc: 'Ensuring rigorous candidate vetting and regulatory adherence.',
-    image: '/services/managed.png'
+    image: insight3
   },
   {
     icon: Zap,
     title: 'Rapid Response',
     desc: 'Accelerated hiring timelines for critical, high-stakes business pivots.',
-    image: '/services/onsite.png'
+    image: insight4
   }
 ];
 

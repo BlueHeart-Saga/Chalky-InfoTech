@@ -18,7 +18,7 @@ const PROFILES = [
     height: "h-[380px] md:h-[420px]"
   },
   {
-    name: "Delivery Experts",
+    name: "Delivery Partners",
     role: "Talent Acquisition",
     image: client2,
     bgColor: "bg-[#E53888]",
@@ -30,14 +30,14 @@ const PROFILES = [
     role: "Retention & Growth",
     image: client3,
     bgColor: "bg-[#F88DCD]",
-    textColor: "text-[#1A1A1A]",
+    textColor: "text-white",
     height: "h-[380px] md:h-[420px]"
   }
 ];
 
 export default function ClientSuccessApproach() {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#FAFAFA]">
+    <section className="pt-16 pb-24 relative overflow-hidden bg-[#FAFAFA]">
       {/* Grid Pattern Background */}
       <div 
         className="absolute inset-0 z-0"
@@ -92,7 +92,7 @@ export default function ClientSuccessApproach() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2, duration: 0.6 }}
-              className={`w-full md:w-1/3 ${profile.height} ${profile.bgColor} rounded-t-[100px] md:rounded-t-[160px] pt-12 md:pt-16 px-6 flex flex-col items-center text-center relative overflow-hidden shadow-2xl hover:-translate-y-2 transition-transform duration-500`}
+              className={`w-full md:w-1/3 ${profile.height} ${profile.bgColor} rounded-t-[100px] md:rounded-t-[160px] pt-8 md:pt-10 px-6 flex flex-col items-center text-center relative overflow-hidden shadow-2xl hover:-translate-y-2 transition-transform duration-500`}
             >
               <div className="z-10 relative">
                 <h3 className={`text-xl md:text-2xl font-extrabold uppercase tracking-widest mb-1 ${profile.textColor}`}>{profile.name}</h3>
