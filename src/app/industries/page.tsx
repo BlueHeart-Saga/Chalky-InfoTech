@@ -63,7 +63,7 @@ export default function IndustriesPage() {
           ctaHref="#featured"
           secondaryLabel="Talk To Our Team"
           secondaryHref="/contact"
-          imageSrc={heroImg}
+          imageSrc={heroImg.src}
           imageAlt="Multi-industry business team meeting"
         />
       </section>
