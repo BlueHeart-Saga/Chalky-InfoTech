@@ -7,14 +7,14 @@ import Image from 'next/image';
 import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
 import { INDUSTRIES } from '@/constants';
 
-import TechImg from '@/assets/homepage/Industry/IT & Technology.png';
-import TelecomImg from '@/assets/homepage/Industry/Telecommunications.png';
-import EngineeringImg from '@/assets/homepage/Industry/Engineering & Infrastructure.png';
-import MediaImg from '@/assets/homepage/Industry/Media & Digital Services.png';
-import FinanceImg from '@/assets/homepage/Industry/Banking & Finance.png';
-import HealthcareImg from '@/assets/homepage/Industry/Healthcare & Life Sciences.png';
-import RetailImg from '@/assets/homepage/Industry/Retail & E-Commerce.png';
-import ManufacturingImg from '@/assets/homepage/Industry/Manufacturing.png';
+import TechImg from '@/assets/homepage/Industry/it-technology.png';
+import TelecomImg from '@/assets/homepage/Industry/telecommunications.png';
+import EngineeringImg from '@/assets/homepage/Industry/engineering-infrastructure.png';
+import MediaImg from '@/assets/homepage/Industry/media-digital-services.png';
+import FinanceImg from '@/assets/homepage/Industry/banking-finance.png';
+import HealthcareImg from '@/assets/homepage/Industry/healthcare-life-sciences.png';
+import RetailImg from '@/assets/homepage/Industry/retail-ecommerce.png';
+import ManufacturingImg from '@/assets/homepage/Industry/manufacturing.png';
 
 const imageMap: Record<string, any> = {
   'it-technology': TechImg,
