@@ -14,7 +14,8 @@ import {
   FileText,
   Briefcase,
   Smartphone,
-  CheckCircle2
+  CheckCircle2,
+  Info
 } from 'lucide-react';
 import DownloadPdfButton from '@/components/DownloadPdfButton';
 import { RIGHT_TO_WORK_DATA } from '@/constants/legalData';
@@ -27,8 +28,6 @@ const CATEGORY_ICONS: Record<string, any> = {
   "Document Requirements": FileText
 };
 
-import { Info } from 'lucide-react';
-import DownloadPdfButton from '@/components/DownloadPdfButton';
 
 export default function RightToWorkPage() {
   const [searchQuery, setSearchQuery] = useState('');
