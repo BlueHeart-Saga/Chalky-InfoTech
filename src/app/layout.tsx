@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import PageScrollRestoration from '@/components/PageScrollRestoration';
+import WelcomeLoader from '@/components/WelcomeLoader';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={poppins.variable}>
       <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden">
+        <WelcomeLoader />
         <Suspense fallback={null}>
           <Navbar />
         </Suspense>
