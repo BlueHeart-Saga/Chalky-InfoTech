@@ -27,7 +27,7 @@ const team = [
     name: 'Himanshu Mudgal',
     role: 'Head of Client Success',
     focus: 'DevOps & Client Success',
-    quote: "Client success is our ultimate metric — every relationship we build is a long-term commitment.",
+    quote: "Client success is our ultimate metric  every relationship we build is a long-term commitment.",
     email: 'info@chalkyinfo.com',
     linkedin: '#',
     bg: 'bg-white',

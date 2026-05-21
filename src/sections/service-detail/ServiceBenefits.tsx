@@ -6,6 +6,7 @@ import { Star, Zap, ShieldCheck, Target, Award, Users } from 'lucide-react';
 
 interface Props {
   benefits: string[];
+  serviceLabel?: string;
 }
 
 import benefit1 from '@/assets/Services details page/Fast  Project Delivery.png';
@@ -26,7 +27,7 @@ const BENEFIT_IMAGES = [
 
 const ICONS = [Zap, Target, ShieldCheck, Award, Users, Star];
 
-export default function ServiceBenefits({ benefits }: Props) {
+export default function ServiceBenefits({ benefits, serviceLabel }: Props) {
   // We take up to 6 benefits
   const displayBenefits = benefits.slice(0, 6);
 
@@ -40,7 +41,7 @@ export default function ServiceBenefits({ benefits }: Props) {
             Core Advantages
           </span>
           <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-6">
-            Strategic <span className="text-[#7A1F5C]">Service Benefits</span>
+            Strategic <span className="text-[#7A1F5C]">{serviceLabel || 'Service'} Benefits</span>
           </h2>
           <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg leading-relaxed">
             Our specialized approach delivers measurable impact, ensuring your organization achieves peak operational efficiency and talent excellence.

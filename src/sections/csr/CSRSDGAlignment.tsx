@@ -145,7 +145,7 @@ export default function CSRSDGAlignment() {
           <Award size={48} className="text-white/30 flex-shrink-0 hidden md:block relative z-10" />
           <div className="relative z-10 flex-1 text-center md:text-left">
             <p className="text-white font-bold text-xl md:text-2xl mb-2">
-              UN Global Compact Member — Since 2024
+              UN Global Compact Member  Since 2024
             </p>
             <p className="text-white/75 leading-relaxed text-sm md:text-base max-w-2xl">
               Chalky Infotech is a committed signatory to the UN Global Compact, aligning our operations with its ten principles on human rights, labour, environment, and anti-corruption.

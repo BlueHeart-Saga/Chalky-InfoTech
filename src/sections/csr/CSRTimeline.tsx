@@ -14,7 +14,7 @@ const MILESTONES = [
   {
     year: '2020',
     title: 'Paperless Operations Go Live',
-    desc: 'We transitioned to a fully digital, paperless recruitment workflow — eliminating print waste and accelerating remote-capable processes.',
+    desc: 'We transitioned to a fully digital, paperless recruitment workflow  eliminating print waste and accelerating remote-capable processes.',
     highlight: '100% digital processes achieved',
     side: 'right',
   },
@@ -49,7 +49,7 @@ const MILESTONES = [
   {
     year: '2025',
     title: 'ESG Supply Chain Audit',
-    desc: 'Launched full ESG screening across our preferred supplier network — ensuring our responsible standards extend throughout our partner ecosystem.',
+    desc: 'Launched full ESG screening across our preferred supplier network  ensuring our responsible standards extend throughout our partner ecosystem.',
     highlight: '100% suppliers ESG screened',
     side: 'left',
   },
@@ -81,7 +81,7 @@ export default function CSRTimeline() {
             Milestones That <span className="text-[#7A1F5C]">Define Us</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            From our founding principles to our 2030 net-zero ambition — a timeline of the commitments that shape our culture and conduct.
+            From our founding principles to our 2030 net-zero ambition  a timeline of the commitments that shape our culture and conduct.
           </p>
         </motion.div>
 
@@ -98,31 +98,28 @@ export default function CSRTimeline() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.6 }}
-                className={`relative grid md:grid-cols-2 gap-6 items-center ${
-                  m.side === 'right' ? 'md:text-right' : ''
-                }`}
+                className={`relative grid md:grid-cols-2 gap-6 items-center ${m.side === 'right' ? 'md:text-right' : ''
+                  }`}
               >
                 {/* Left side content */}
                 {m.side === 'left' ? (
                   <>
                     <div className="md:pr-12">
                       <div
-                        className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest mb-3 ${
-                          m.isFuture
+                        className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest mb-3 ${m.isFuture
                             ? 'bg-[#C2185B]/10 text-[#C2185B]'
                             : 'bg-[#7A1F5C]/10 text-[#7A1F5C]'
-                        }`}
+                          }`}
                       >
                         {m.isFuture && '🎯 '}
                         {m.year}
-                        {m.isFuture ? ' — Target' : ''}
+                        {m.isFuture ? '  Target' : ''}
                       </div>
                       <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">{m.title}</h3>
                       <p className="text-gray-500 text-sm leading-relaxed mb-3">{m.desc}</p>
                       <span
-                        className={`inline-block text-[11px] font-bold px-3 py-1 rounded-lg ${
-                          m.isFuture ? 'bg-[#C2185B]/10 text-[#C2185B]' : 'bg-[#7A1F5C]/8 text-[#7A1F5C] bg-[#7A1F5C]/10'
-                        }`}
+                        className={`inline-block text-[11px] font-bold px-3 py-1 rounded-lg ${m.isFuture ? 'bg-[#C2185B]/10 text-[#C2185B]' : 'bg-[#7A1F5C]/8 text-[#7A1F5C] bg-[#7A1F5C]/10'
+                          }`}
                       >
                         {m.highlight}
                       </span>
@@ -134,22 +131,20 @@ export default function CSRTimeline() {
                     <div className="hidden md:block" />
                     <div className="md:pl-12">
                       <div
-                        className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest mb-3 ${
-                          m.isFuture
+                        className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest mb-3 ${m.isFuture
                             ? 'bg-[#C2185B]/10 text-[#C2185B]'
                             : 'bg-[#7A1F5C]/10 text-[#7A1F5C]'
-                        }`}
+                          }`}
                       >
                         {m.isFuture && '🎯 '}
                         {m.year}
-                        {m.isFuture ? ' — Target' : ''}
+                        {m.isFuture ? '  Target' : ''}
                       </div>
                       <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">{m.title}</h3>
                       <p className="text-gray-500 text-sm leading-relaxed mb-3">{m.desc}</p>
                       <span
-                        className={`inline-block text-[11px] font-bold px-3 py-1 rounded-lg ${
-                          m.isFuture ? 'bg-[#C2185B]/10 text-[#C2185B]' : 'bg-[#7A1F5C]/10 text-[#7A1F5C]'
-                        }`}
+                        className={`inline-block text-[11px] font-bold px-3 py-1 rounded-lg ${m.isFuture ? 'bg-[#C2185B]/10 text-[#C2185B]' : 'bg-[#7A1F5C]/10 text-[#7A1F5C]'
+                          }`}
                       >
                         {m.highlight}
                       </span>
@@ -164,9 +159,8 @@ export default function CSRTimeline() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08 + 0.2, type: 'spring' }}
-                    className={`w-4 h-4 rounded-full border-4 border-white shadow-md ${
-                      m.isFuture ? 'bg-[#C2185B]' : 'bg-[#7A1F5C]'
-                    }`}
+                    className={`w-4 h-4 rounded-full border-4 border-white shadow-md ${m.isFuture ? 'bg-[#C2185B]' : 'bg-[#7A1F5C]'
+                      }`}
                   />
                 </div>
               </motion.div>

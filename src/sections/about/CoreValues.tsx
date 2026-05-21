@@ -91,7 +91,7 @@ export default function CoreValues() {
             Core Values
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] mb-4 leading-[1.1] tracking-tight">
-            The Principles That <br/>
+            The Principles That <br />
             <span className="text-[#7A1F5C]">Drive Us</span>
           </h2>
           <p className="text-[#8A8A8A] text-lg leading-relaxed">
@@ -166,7 +166,7 @@ export default function CoreValues() {
           >
             {active && (
               <>
-                {/* LEFT — Icon panel (flex 1) */}
+                {/* LEFT  Icon panel (flex 1) */}
                 <div
                   className="flex flex-col items-center justify-center gap-4 px-4 flex-shrink-0"
                   style={{
@@ -218,7 +218,7 @@ export default function CoreValues() {
 
                 </div>
 
-                {/* RIGHT — Full Image (flex 5) */}
+                {/* RIGHT  Full Image (flex 5) */}
                 <div className="relative overflow-hidden" style={{ flex: 5 }}>
                   <img
                     src={active.image.src}

@@ -12,6 +12,7 @@ import qaImg from '@/assets/Services details page/Quality Assurance.png';
 interface Props {
   title: string;
   description: string;
+  serviceLabel?: string;
 }
 
 const FEATURE_CARDS = [
@@ -35,13 +36,13 @@ const FEATURE_CARDS = [
   }
 ];
 
-export default function ServiceOverview({ title, description }: Props) {
+export default function ServiceOverview({ title, description, serviceLabel }: Props) {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-16 items-center mb-16">
           <div className="lg:w-1/2">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-5">Service Overview</span>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-5">{serviceLabel || 'Service'} Overview</span>
             <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-8 leading-tight tracking-tight">
               {title}
             </h2>

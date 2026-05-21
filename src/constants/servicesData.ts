@@ -51,23 +51,23 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
     slug: 'it-staffing',
     label: 'IT Staffing Solution',
     icon: 'Code2',
-    desc: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals — on demand, at speed, without compromise.',
+    desc: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals on demand, at speed, without compromise.',
     hero: {
       badge: 'Elite Tech Talent',
       title: 'IT Staffing Solution',
-      subtitle: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals — on demand, at speed, without compromise.',
+      subtitle: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals on demand, at speed, without compromise.',
       image: itStaffingImg.src,
     },
     metaInfo: {
       title: 'IT Staffing Solution in the UK | Hire Verified IT Talent',
-      description: 'Looking for a reliable IT Staffing Solution in the UK? We connect businesses with pre-vetted IT professionals — fast, flexible & tailored to your tech needs. Get matched in 48 hours.',
+      description: 'Looking for a reliable IT Staffing Solution in the UK? We connect businesses with pre-vetted IT professionals  fast, flexible & tailored to your tech needs. Get matched in 48 hours.',
       keywords: 'IT staffing solution UK, IT staffing services UK, IT recruitment UK, contract IT staffing UK, technology staffing solution UK, hire IT professionals UK, IT talent solutions UK, permanent IT staffing UK, tech recruitment agency UK, IT workforce solution UK, software developer staffing UK, cloud engineer staffing UK, IT contract staffing London, DevOps staffing UK, IT hiring solution Uk',
       ogTitle: 'IT Staffing Solution UK | Verified Tech Talent',
       ogDescription: 'Trusted IT staffing solution across the UK. Pre-vetted professionals. 48-hour matching. Contract, C2H & Full-Time hiring.'
     },
     overview: {
       title: 'What Is an IT Staffing Solution?',
-      description: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals — on demand, at speed, without compromise. \n\n• Talent on Demand: Access pre-screened IT professionals ready to deploy within days.\n• Flexible Engagement: Contract, Contract-to-Hire, or Full-Time — your call.\n• Business-Aligned Hiring: Every placement is matched to your tech stack, team culture, and project goals.',
+      description: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals on demand, at speed, without compromise. \n\n• Talent on Demand: Access pre-screened IT professionals ready to deploy within days.\n• Flexible Engagement: Contract, Contract-to-Hire, or Full-Time  your call.\n• Business-Aligned Hiring: Every placement is matched to your tech stack, team culture, and project goals.',
     },
     benefits: [
       'Faster Project Delivery: Skilled professionals onboard quickly, reducing time-to-productivity',
@@ -85,11 +85,16 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { title: 'Place & Support', desc: 'We manage onboarding and stay with you post-placement.' }
     ],
     faqs: [
-      { q: 'What types of IT roles do you staff?', a: 'We staff across the full technology spectrum — software developers, cloud engineers, DevOps, cybersecurity, data engineers, QA, and IT project managers.' },
+      { q: 'What types of IT roles do you staff?', a: 'We staff across the full technology spectrum  software developers, cloud engineers, DevOps, cybersecurity, data engineers, QA, and IT project managers.' },
       { q: 'How quickly can you provide candidates?', a: 'In most cases, we present shortlisted profiles within 24 to 48 hours of receiving your requirement.' },
       { q: 'Do you offer contract and permanent staffing?', a: 'Yes. We offer Contract, Contract-to-Hire, and Full-Time staffing models tailored to your business needs.' },
-      { q: 'How do you ensure candidate quality?', a: 'Every candidate goes through a 3-layer screening — technical assessment, communication evaluation, and cultural fit review before they reach you.' },
-      { q: 'What if the placed candidate doesn\'t work out?', a: 'We offer a structured replacement guarantee. If a placement doesn\'t meet expectations, we re-engage at no additional cost.' }
+      { q: 'How do you ensure candidate quality?', a: 'Every candidate goes through a 3-layer screening  technical assessment, communication evaluation, and cultural fit review before they reach you.' },
+      { q: 'What if the placed candidate doesn\'t work out?', a: 'We offer a structured replacement guarantee. If a placement doesn\'t meet expectations, we re-engage at no additional cost.' },
+      { q: 'How does Chalky Infotech handle IR35 compliance and payroll for contract IT staffing in the UK?', a: 'We provide complete IR35 assessment support and payroll management for our UK-based IT contractors. We partner with fully certified umbrella companies and employment legal specialists to ensure 100% compliance with HMRC regulations, protecting your business from potential legal and tax liabilities.' },
+      { q: 'Can you support hybrid or fully remote IT staffing models across the UK and India?', a: 'Absolutely. We support on-site, hybrid, and fully remote IT staffing setups. With physical operations and registered entities in both the UK and India, we can manage cross-border remote developers, handle local payroll compliance, and set up robust infrastructure support for your distributed engineering teams.' },
+      { q: 'What tech stacks and developer domains do you specialize in sourcing?', a: 'Our domain-specific recruiters cover the entire modern tech ecosystem, including Cloud Engineers (AWS, Azure, GCP), DevOps Specialists, Software Engineers (React, Node, Python, Java, .NET), Data Engineers & Architects, AI/ML Engineers, QA Automation Specialists, and IT Support Professionals.' },
+      { q: 'What is the cost structure for your IT staffing solution?', a: 'For contract staffing, we operate on a transparent margin-inclusive day-rate basis. For permanent IT recruitment, our fee is calculated as a percentage of the candidate\'s first-year base salary. We offer competitive tiered pricing and volume discounts for enterprises building dedicated squads.' },
+      { q: 'How do you conduct technical assessment to verify developer skills?', a: 'We use a 3-tier assessment workflow: first, an automated technical coding challenge tailored to your stack; second, a live technical interview led by our senior engineering advisors; and third, code quality reviews and reference verifications to guarantee practical hands-on capabilities.' }
     ],
     features: [
       { title: '48-Hour Talent Matching', desc: 'No long waiting cycles.', icon: 'Clock' },
@@ -182,7 +187,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { q: 'How do you handle IR35 compliance and other local labor regulations?', a: 'We have a dedicated compliance team that ensures all contract engagements meet local regulations, including IR35 in the UK, providing peace of mind for both clients and contractors.' },
       { q: 'Can I scale my contract workforce up or down based on project needs?', a: 'Absolutely. Our model is built for scalability, allowing you to increase or decrease your team size rapidly as project phases evolve.' },
       { q: 'What technical specialties do you provide through your contract network?', a: 'Our network includes experts in cloud engineering, cybersecurity, software development, project management, and specialized financial and healthcare operations.' },
-      { q: 'How do you ensure contract professionals integrate seamlessly with internal teams?', a: 'We vet candidates for their "contractor mindset"—the ability to hit the ground running, adapt to new cultures quickly, and deliver value from day one.' },
+      { q: 'How do you ensure contract professionals integrate seamlessly with internal teams?', a: 'We vet candidates for their "contractor mindset"the ability to hit the ground running, adapt to new cultures quickly, and deliver value from day one.' },
       { q: 'What is the maximum duration for a contract staffing engagement?', a: 'Contract engagements can range from a few weeks to several years. We provide flexible extension options to ensure project continuity.' },
       { q: 'Do you offer temp-to-perm conversion options for contract hires?', a: 'Yes, we facilitate temp-to-perm models if you decide that a high-performing contractor would be a valuable long-term addition to your permanent team.' }
     ],
@@ -225,7 +230,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { q: 'What is your strategy for finding high-retention talent for permanent roles?', a: 'We look beyond technical skills, focusing on long-term career aspirations and cultural alignment. This ensures that every hire we make is committed to growing with your organization.' },
       { q: 'How do you ensure deep cultural alignment between candidates and clients?', a: 'Our consultants take the time to understand your company values, work environment, and team dynamics, using these insights to find talent that will thrive in your specific culture.' },
       { q: 'Do you provide a placement guarantee for permanent hires?', a: 'Yes, we stand by the quality of our work. We offer a comprehensive placement guarantee period to ensure your new hire is the right fit for the long term.' },
-      { q: 'What is your process for headhunting specialized talent in competitive markets?', a: 'We use targeted search techniques to engage "passive" candidates—highly skilled individuals who aren\'t actively looking but are open to the right strategic career move.' },
+      { q: 'What is your process for headhunting specialized talent in competitive markets?', a: 'We use targeted search techniques to engage "passive" candidateshighly skilled individuals who aren\'t actively looking but are open to the right strategic career move.' },
       { q: 'How does permanent hiring through an agency reduce long-term recruitment costs?', a: 'By reducing time-to-hire, improving quality-of-hire, and ensuring higher retention rates, we significantly lower the total cost of talent acquisition over time.' },
       { q: 'Can you manage high-volume permanent recruitment drives for new offices?', a: 'Yes, we have the capacity to coordinate large-scale permanent hiring projects for new regional hubs, ensuring consistent quality and brand-aligned recruitment.' },
       { q: 'What data-driven insights do you use to improve permanent hire quality?', a: 'We analyze market trends, candidate feedback, and historical placement data to continuously refine our search parameters and improve the accuracy of our matches.' },

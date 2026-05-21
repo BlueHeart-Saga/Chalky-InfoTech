@@ -122,12 +122,12 @@ export default async function ServiceDetailPage({ params }: Props) {
         />
       </section>
 
-      <section id="overview"><ServiceOverview title={service.overview.title} description={service.overview.description} /></section>
-      <section id="benefits"><ServiceBenefits benefits={service.benefits} /></section>
-      <section id="industries"><IndustrySupport industries={service.industries} /></section>
-      <section id="process"><ServiceProcess steps={service.process} /></section>
+      <section id="overview"><ServiceOverview title={service.overview.title} description={service.overview.description} serviceLabel={service.label} /></section>
+      <section id="benefits"><ServiceBenefits benefits={service.benefits} serviceLabel={service.label} /></section>
+      <section id="industries"><IndustrySupport industries={service.industries} serviceLabel={service.label} /></section>
+      <section id="process"><ServiceProcess steps={service.process} serviceLabel={service.label} /></section>
       <section id="why-choose"><WhyChooseService serviceLabel={service.label} features={service.features} /></section>
-      <section id="faq"><ServiceFAQ faqs={service.faqs} /></section>
+      <section id="faq"><ServiceFAQ faqs={service.faqs} serviceLabel={service.label} /></section>
       <section id="related"><RelatedServices currentSlug={service.slug} /></section>
 
       <section id="cta">

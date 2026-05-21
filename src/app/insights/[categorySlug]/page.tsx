@@ -29,17 +29,23 @@ import imgTestimonials from '@/assets/Insights/Testimonials.png';
 const CATEGORY_IMAGES: Record<string, any> = {
   'achievements': imgAchievements,
   'awards-and-milestones': imgAwards,
+  'awards-milestones': imgAwards,
   'blogs': imgBlogs,
   'case-studies': imgCaseStudies,
   'celebration': imgCelebration,
+  'celebrations': imgCelebration,
   'client-transformation': imgClientTransform,
+  'client-transformations': imgClientTransform,
   'community': imgCommunity,
   'company-announcement': imgCompanyAnnounce,
+  'company-announcements': imgCompanyAnnounce,
   'companny-announcement': imgCompanyAnnounce,
   'impact-metrics': imgImpactMetrics,
   'industry-event': imgIndustryEvent,
+  'industry-events': imgIndustryEvent,
   'insights': imgInsights,
   'news-letter': imgNewsLetter,
+  'newsletters': imgNewsLetter,
   'podcasts': imgPodcasts,
   'posters': imgPosters,
   'team-culture': imgTeamCulture,
@@ -162,7 +168,7 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
           ctaHref="#grid"
           secondaryLabel="Insights Center"
           secondaryHref="/insights"
-          imageSrc={featuredPost?.image || CATEGORY_IMAGES[categorySlug]?.src || imgInsights.src}
+          imageSrc={CATEGORY_IMAGES[categorySlug]?.src || imgInsights.src}
           imageAlt={`${title} Insights`}
         />
       </section>

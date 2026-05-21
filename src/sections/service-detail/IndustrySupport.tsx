@@ -19,6 +19,7 @@ import {
 
 interface Props {
   industries: string[];
+  serviceLabel?: string;
 }
 
 const RECRUITMENT_SOLUTIONS = [
@@ -35,7 +36,7 @@ const bgColors = [
   'bg-[#4A1238]'
 ];
 
-export default function IndustrySupport({ industries }: Props) {
+export default function IndustrySupport({ industries, serviceLabel }: Props) {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,8 +53,8 @@ export default function IndustrySupport({ industries }: Props) {
               Global Sector Support
             </span>
             <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-8 leading-[1.1]">
-              Cross-Border <span className="text-[#7A1F5C]">Industry Expertise</span> <br/>
-              & Global Delivery
+              Cross-Border <span className="text-[#7A1F5C]">{serviceLabel || 'Service'}</span> & <br/>
+              Industry Expertise
             </h2>
             <p className="text-[#8A8A8A] text-lg leading-relaxed mb-10">
               We provide seamless workforce management and specialized recruitment support across international borders, ensuring your organization has the right talent in every major global hub.

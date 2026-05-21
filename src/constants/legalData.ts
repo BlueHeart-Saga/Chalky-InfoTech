@@ -83,7 +83,7 @@ export const GDPR_COMPLIANCE_DATA: LegalCategory[] = [
       { q: "What is the 'Lawful Basis'?", a: "GDPR requires a specific legal reason to process data. We rely on Consent, Contract, Legal Obligation, and Legitimate Interest." },
       { q: "Is Chalky Infotech registered with the ICO?", a: "Yes, we are registered with the Information Commissioner's Office in the UK as a data controller." },
       { q: "Does GDPR apply to non-EU citizens?", a: "At Chalky Infotech, we apply the same high standards of data protection to all our global candidates, regardless of their location." },
-      { q: "What is a 'Data Subject'?", a: "You are the data subject—the individual whose personal data is being processed by us." },
+      { q: "What is a 'Data Subject'?", a: "You are the data subjectthe individual whose personal data is being processed by us." },
       { q: "How often do you update your GDPR policies?", a: "We review and update our policies annually or whenever there is a significant change in data protection laws." }
     ]
   },

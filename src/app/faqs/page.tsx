@@ -18,6 +18,7 @@ import {
   Target,
   Briefcase
 } from 'lucide-react';
+import DownloadPdfButton from '@/components/DownloadPdfButton';
 import { ALL_FAQS } from '@/constants/faqsData';
 
 // Icon mapping for categories
@@ -69,6 +70,11 @@ export default function FAQsPage() {
       <section className="pt-32 pb-20 bg-[#7A1F5C] text-white overflow-hidden relative">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent" />
+        </div>
+        
+        {/* Bottom Right PDF Download */}
+        <div className="absolute bottom-8 right-8 z-20 hidden md:block">
+          <DownloadPdfButton documentName="FAQs" variant="light" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.span 

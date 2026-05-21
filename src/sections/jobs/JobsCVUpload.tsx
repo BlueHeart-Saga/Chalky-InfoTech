@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, CheckCircle2, UploadCloud, MapPin, Users, ArrowRight } from 'lucide-react';
+import { sendEmail } from '@/services/sendmail';
 
 // ─── Office data ────────────────────────────────────────────────────────────
 const OFFICES = [
@@ -39,9 +40,8 @@ const OFFICES = [
 function StepDot({ active, done }: { active: boolean; done: boolean }) {
   return (
     <div
-      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-        done ? 'bg-[#7A1F5C]' : active ? 'bg-[#7A1F5C] scale-125' : 'bg-gray-300'
-      }`}
+      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${done ? 'bg-[#7A1F5C]' : active ? 'bg-[#7A1F5C] scale-125' : 'bg-gray-300'
+        }`}
     />
   );
 }
@@ -51,16 +51,38 @@ export default function JobsCVUpload() {
   const [step, setStep] = useState(1); // 1 | 2 | 3 | 4
   const [selectedOffice, setSelectedOffice] = useState<string | null>(null);
   const [fileName, setFileName] = useState('');
+  const [fileObj, setFileObj] = useState<File | null>(null);
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFileName(e.target.files[0].name);
+      setFileObj(e.target.files[0]);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStep(4);
+    setIsSubmitting(true);
+    try {
+      const officeCity = OFFICES.find((o) => o.id === selectedOffice)?.city || 'Global';
+      await sendEmail({
+        fullName,
+        email,
+        subject: `CV Upload - ${officeCity} Office`,
+        message: `Candidate ${fullName} uploaded their CV for the ${officeCity} office.`,
+        serviceType: 'Job Application',
+        file: fileObj || undefined
+      });
+      setStep(4);
+    } catch (error) {
+      console.error(error);
+      alert('Failed to send application. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleOfficeSelect = (id: string) => {
@@ -73,6 +95,9 @@ export default function JobsCVUpload() {
     setStep(1);
     setSelectedOffice(null);
     setFileName('');
+    setFileObj(null);
+    setFullName('');
+    setEmail('');
   };
 
   // Slide direction: going forward = slide left, back = slide right
@@ -175,7 +200,7 @@ export default function JobsCVUpload() {
                     Which office are you contacting?
                   </h3>
                   <p className="text-sm text-gray-500 mb-8">
-                    Select a location — we'll route you to the right team.
+                    Select a location  we'll route you to the right team.
                   </p>
 
                   <div className="grid sm:grid-cols-3 gap-4 mb-8">
@@ -183,11 +208,10 @@ export default function JobsCVUpload() {
                       <button
                         key={office.id}
                         onClick={() => handleOfficeSelect(office.id)}
-                        className={`group text-left rounded-2xl border-2 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
-                          selectedOffice === office.id
+                        className={`group text-left rounded-2xl border-2 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${selectedOffice === office.id
                             ? 'border-[#7A1F5C] shadow-xl shadow-[#7A1F5C]/10'
                             : 'border-gray-200 bg-white hover:border-[#7A1F5C]/40'
-                        }`}
+                          }`}
                       >
                         {/* Map thumbnail */}
                         <div className="relative w-full h-28 bg-gray-100 overflow-hidden">
@@ -280,6 +304,8 @@ export default function JobsCVUpload() {
                       <input
                         type="text"
                         required
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#7A1F5C]/50 focus:ring-2 focus:ring-[#7A1F5C]/10 bg-white transition-colors"
                       />
                     </div>
@@ -288,6 +314,8 @@ export default function JobsCVUpload() {
                       <input
                         type="email"
                         required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#7A1F5C]/50 focus:ring-2 focus:ring-[#7A1F5C]/10 bg-white transition-colors"
                       />
                     </div>
@@ -316,9 +344,10 @@ export default function JobsCVUpload() {
                   <div className="flex items-center gap-4 mt-8">
                     <button
                       type="submit"
-                      className="group flex items-center gap-3 bg-[#7A1F5C] text-white px-8 py-4 rounded-2xl font-bold text-sm hover:bg-[#C2185B] transition-all shadow-lg shadow-[#7A1F5C]/20"
+                      disabled={isSubmitting}
+                      className="group flex items-center gap-3 bg-[#7A1F5C] text-white px-8 py-4 rounded-2xl font-bold text-sm hover:bg-[#C2185B] transition-all shadow-lg shadow-[#7A1F5C]/20 disabled:opacity-70"
                     >
-                      Submit CV
+                      {isSubmitting ? 'Submitting...' : 'Submit CV'}
                       <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30">
                         <ChevronRight size={14} />
                       </div>

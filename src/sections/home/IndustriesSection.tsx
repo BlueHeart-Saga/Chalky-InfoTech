@@ -111,9 +111,8 @@ export default function IndustriesSection() {
                       src={imageMap[industry.slug] || '/industries/technology.png'}
                       alt={industry.label}
                       fill
-                      className={`object-cover transition-all duration-500 ${
-                        isCenter ? 'opacity-100 scale-110' : 'opacity-40 grayscale'
-                      }`}
+                      className={`object-cover transition-all duration-500 ${isCenter ? 'opacity-100 scale-110' : 'opacity-40 grayscale'
+                        }`}
                       sizes="(max-width: 768px) 100vw, 150px"
                     />
 
@@ -145,7 +144,7 @@ export default function IndustriesSection() {
           </div>
         </div>
 
-        {/* ── Active Industry Info Panel (in normal flow — never bleeds out) ── */}
+        {/* ── Active Industry Info Panel (in normal flow  never bleeds out) ── */}
         <div className="mt-6 text-center" style={{ minHeight: '140px' }}>
           <AnimatePresence mode="wait">
             <motion.div

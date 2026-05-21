@@ -27,7 +27,7 @@ export interface PageHeroProps {
   secondaryLabel?: string;
   /** Secondary CTA href */
   secondaryHref?: string;
-  /** Right-side image src — can be any URL or /public path */
+  /** Right-side image src  can be any URL or /public path */
   imageSrc?: string | any;
   /** Alt text for the image */
   imageAlt?: string;
@@ -80,7 +80,7 @@ export default function PageHero({
       {/* ── Decorative circles ── */}
       <div className="absolute top-0 left-1/3 w-72 h-72 rounded-full bg-[#C2185B]/10 -translate-y-1/2 blur-3xl pointer-events-none" />
 
-      {/* ═══════════════ RIGHT — Rectangle Image flush to section top-right corner ═══════════════
+      {/* ═══════════════ RIGHT  Rectangle Image flush to section top-right corner ═══════════════
           Placed as a DIRECT child of <section> so position:absolute is relative to the section,
           not the constrained max-w-7xl container. This makes it truly flush to the viewport edge.
       */}
@@ -137,7 +137,7 @@ export default function PageHero({
         </motion.div>
       )}
 
-      {/* ═══════════════ LEFT — Text Content (constrained, sits above image via z-index) ═══════════════ */}
+      {/* ═══════════════ LEFT  Text Content (constrained, sits above image via z-index) ═══════════════ */}
       <div
         className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-28 pb-16 lg:pt-36 lg:pb-20"
         style={{ zIndex: 2 }}

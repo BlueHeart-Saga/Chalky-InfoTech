@@ -19,7 +19,7 @@ const FAQS = [
   },
   {
     question: 'How does Chalky Infotech support digital transformation in the Retail and E-commerce industry?',
-    answer: 'We source the talent behind digital commerce—from e-commerce platform developers and supply chain logistics experts to digital marketing specialists—ensuring your retail business stays competitive in an online-first market.'
+    answer: 'We source the talent behind digital commercefrom e-commerce platform developers and supply chain logistics experts to digital marketing specialistsensuring your retail business stays competitive in an online-first market.'
   },
   {
     question: 'Can you provide specialized workforce solutions for the Manufacturing and Industry 4.0 sectors?',
@@ -63,7 +63,7 @@ export default function IndustriesFAQ() {
 
         <div className="space-y-4">
           {FAQS.map((faq, i) => (
-            <div 
+            <div
               key={i}
               className={`bg-white rounded-2xl border transition-all duration-300 ${openIndex === i ? 'border-[#7A1F5C]/30 shadow-xl shadow-[#7A1F5C]/5' : 'border-[#EFE7DD] hover:border-[#7A1F5C]/20'}`}
             >

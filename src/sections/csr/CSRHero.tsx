@@ -15,7 +15,7 @@ export default function CSRHero() {
       badge="Corporate Social Responsibility"
       title="Our Commitment to"
       titleHighlight="People, Planet & Purpose"
-      subtitle="At Chalky Infotech, we believe responsible business is not a checkbox — it is the foundation of how we operate. Explore our full commitments to sustainability, inclusion, community, and ethical governance."
+      subtitle="At Chalky Infotech, we believe responsible business is not a checkbox  it is the foundation of how we operate. Explore our full commitments to sustainability, inclusion, community, and ethical governance."
       ctaLabel="Our Pillars"
       ctaHref="#pillars"
       secondaryLabel="Contact Us"

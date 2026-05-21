@@ -27,7 +27,7 @@ const PILLARS = [
     icon: Users2,
     number: '02',
     title: 'Diversity, Equity & Inclusion',
-    headline: 'Equitable Access to Opportunity — Without Exception',
+    headline: 'Equitable Access to Opportunity  Without Exception',
     accent: '#C2185B',
     points: [
       'Mandatory diversity targets embedded in every executive search mandate',
@@ -89,7 +89,7 @@ const PILLARS = [
     points: [
       'ESG screening of all preferred supplier and partner agencies',
       'Preference given to minority-owned and social-enterprise suppliers',
-      'Fair payment terms — all suppliers paid within 30 days, always',
+      'Fair payment terms  all suppliers paid within 30 days, always',
       'Collaborative supplier development through shared sustainability targets',
       'Annual sustainability self-assessment shared with the full supply chain',
     ],
@@ -132,11 +132,10 @@ export default function CSRPillars() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.6 }}
-              className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center rounded-3xl p-8 md:p-12 border border-[#EFE7DD] bg-[#FAF8F5] ${
-                i % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
+              className={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center rounded-3xl p-8 md:p-12 border border-[#EFE7DD] bg-[#FAF8F5] ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                }`}
             >
-              {/* Content — alternate order */}
+              {/* Content  alternate order */}
               <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
                 <div className="flex items-center gap-4 mb-6">
                   <div
@@ -171,7 +170,7 @@ export default function CSRPillars() {
                 </ul>
               </div>
 
-              {/* Stats — alternate order */}
+              {/* Stats  alternate order */}
               <div className={`grid grid-cols-3 gap-4 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
                 {pillar.stats.map((stat, j) => (
                   <motion.div
@@ -212,7 +211,7 @@ export default function CSRPillars() {
                     <pillar.icon size={20} style={{ color: pillar.accent }} strokeWidth={1.5} />
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed relative z-10">
-                    <strong className="text-[#1A1A1A]">{pillar.title}</strong> — a core commitment woven into Chalky Infotech's day-to-day operations and long-term strategic vision.
+                    <strong className="text-[#1A1A1A]">{pillar.title}</strong>  a core commitment woven into Chalky Infotech's day-to-day operations and long-term strategic vision.
                   </p>
                 </div>
               </div>

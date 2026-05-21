@@ -23,8 +23,8 @@ const FAQS = [
   },
   {
     question: 'What is your process for executive search and leadership hiring in technology?',
-    answer: 'Our executive search process is data-driven and highly confidential. We identify and engage high-impact technology leaders—from CTOs to VPs of Engineering—who possess both the technical depth and strategic vision to drive organizational growth.',
-    answerElement: <>Our executive search process is data-driven and highly confidential. We identify and engage high-impact technology leaders—from CTOs to VPs of Engineering—who possess both the technical depth and strategic vision to drive organizational growth.</>
+    answer: 'Our executive search process is data-driven and highly confidential. We identify and engage high-impact technology leadersfrom CTOs to VPs of Engineeringwho possess both the technical depth and strategic vision to drive organizational growth.',
+    answerElement: <>Our executive search process is data-driven and highly confidential. We identify and engage high-impact technology leadersfrom CTOs to VPs of Engineeringwho possess both the technical depth and strategic vision to drive organizational growth.</>
   },
   {
     question: 'How do you ensure candidate quality in high-volume temporary recruitment?',
@@ -87,7 +87,7 @@ export default function ServicesFAQ() {
 
         <div className="space-y-4">
           {FAQS.map((faq, i) => (
-            <div 
+            <div
               key={i}
               className={`bg-white rounded-2xl border transition-all duration-300 ${openIndex === i ? 'border-[#7A1F5C]/30 shadow-xl shadow-[#7A1F5C]/5' : 'border-[#EFE7DD] hover:border-[#7A1F5C]/20'}`}
             >

@@ -20,7 +20,7 @@ export const ALL_FAQS: FAQCategory[] = [
       { q: "Do you offer recruitment services for startups?", a: "Yes, we have specialized 'Startup Growth' packages designed to help early-stage companies build their founding engineering and product teams rapidly and cost-effectively." },
       { q: "Can Chalky Infotech handle high-volume recruitment for large enterprises?", a: "Absolutely. We provide Managed Service Provider (MSP) and Recruitment Process Outsourcing (RPO) solutions for global enterprises requiring consistent, high-volume, and compliant hiring." },
       { q: "How can I start a partnership with Chalky Infotech?", a: "You can start by contacting us through our website, emailing info@chalkyinfotech.com, or scheduling a consultation with one of our sector-specific recruitment directors." },
-      { q: "What is the core value proposition for clients?", a: "We offer 'Precision Recruitment'—reducing time-to-hire, improving quality-of-hire, and ensuring long-term retention through deep technical vetting and cultural mapping." },
+      { q: "What is the core value proposition for clients?", a: "We offer 'Precision Recruitment'reducing time-to-hire, improving quality-of-hire, and ensuring long-term retention through deep technical vetting and cultural mapping." },
       { q: "Does Chalky Infotech provide recruitment for non-tech roles?", a: "While technology is our core, we also support our tech clients with their broader needs in finance, operations, HR, and marketing to ensure holistic organizational growth." },
       { q: "What are your standard business hours?", a: "Due to our global presence in the UK and India, we provide near 24/7 coverage. Our core teams are available from 8:00 AM GMT to 6:00 PM IST and beyond." },
       { q: "Is Chalky Infotech an Equal Opportunity Employer?", a: "Yes, diversity and inclusion are at the heart of our recruitment philosophy. We actively promote equal opportunity and unbiased hiring practices for both our internal team and our clients." },
@@ -113,7 +113,7 @@ export const ALL_FAQS: FAQCategory[] = [
     category: "Global & Remote Hiring",
     items: [
       { q: "How does Chalky Infotech handle international payroll?", a: "We work with leading Employer of Record (EOR) partners to manage localized payroll, taxes, and benefits in over 100 countries." },
-      { q: "Can you help us build a borderless engineering team?", a: "Yes, we specialize in 'Global Talent Mapping'—identifying the best talent hubs for your specific needs and building a distributed team that works as one." },
+      { q: "Can you help us build a borderless engineering team?", a: "Yes, we specialize in 'Global Talent Mapping'identifying the best talent hubs for your specific needs and building a distributed team that works as one." },
       { q: "How do you ensure remote hires are productive and aligned?", a: "We vet candidates for 'Remote-Readiness,' looking for strong communication skills, self-discipline, and experience with global collaboration tools like Slack, Jira, and Zoom." },
       { q: "What are the cost benefits of hiring global remote talent?", a: "Hiring globally allows you to tap into high-quality talent in lower-cost regions, reducing infrastructure spend while maintaining or even increasing technical output." },
       { q: "How do you handle timezone differences for distributed teams?", a: "We prioritize sourcing talent in compatible timezones or vetting for flexibility to ensure at least 4-5 hours of synchronous 'overlap' time with your core team." },
@@ -131,7 +131,7 @@ export const ALL_FAQS: FAQCategory[] = [
       { q: "How do you handle global employee benefits?", a: "We ensure that your global hires receive localized benefit packages (health insurance, pensions, etc.) that are competitive and compliant in their specific country." },
       { q: "Can you help us set up a 'Satellite Office' in a new country?", a: "Yes, beyond recruitment, we can provide consultancy on establishing physical operations and local entities in new markets." },
       { q: "How do you handle performance management for remote teams?", a: "We provide guidance on using data-driven performance metrics and digital management frameworks to ensure your remote team is delivering high-value output." },
-      { q: "What is the future of global hiring according to Chalky Infotech?", a: "We believe the future is 'Borderless'—where the best organizations will be those that can successfully integrate the best talent from anywhere in the world." }
+      { q: "What is the future of global hiring according to Chalky Infotech?", a: "We believe the future is 'Borderless'where the best organizations will be those that can successfully integrate the best talent from anywhere in the world." }
     ]
   },
   {
@@ -139,7 +139,7 @@ export const ALL_FAQS: FAQCategory[] = [
     items: [
       { q: "What makes your Fintech recruitment specialized?", a: "Our Fintech team understands the intersection of finance and tech, sourcing specialists in blockchain, quantitative analysis, and high-frequency trading systems." },
       { q: "Do you have a dedicated Healthcare and Life Sciences desk?", a: "Yes, we source for medical technology, clinical research, and biotech roles, ensuring adherence to strict medical regulatory standards." },
-      { q: "How do you support the Retail and E-Commerce sector?", a: "We focus on 'Omnichannel' talent—experts in e-commerce platforms (Shopify, Magento), supply chain tech, and digital consumer journeys." },
+      { q: "How do you support the Retail and E-Commerce sector?", a: "We focus on 'Omnichannel' talentexperts in e-commerce platforms (Shopify, Magento), supply chain tech, and digital consumer journeys." },
       { q: "What is your experience in the Manufacturing and Industry 4.0 space?", a: "We source specialized engineering talent for smart factories, including IoT integration, automation, and industrial robotics experts." },
       { q: "Do you recruit for the Banking and Insurance sectors?", a: "Yes, we have deep experience in 'Core Banking' transformations and sourcing specialized talent for risk, compliance, and actuarial roles." },
       { q: "Can you provide recruitment for the Telecommunications industry?", a: "Yes, we support major telecom firms in sourcing RF engineers, network planners, and specialists for 5G rollout projects." },
@@ -150,7 +150,7 @@ export const ALL_FAQS: FAQCategory[] = [
       { q: "Do you have a 'Legal Tech' recruitment division?", a: "Yes, we support law firms and legal tech startups in finding the engineers and product specialists driving the automation of legal services." },
       { q: "What is your experience in 'PropTech' and Real Estate technology?", a: "We have helped several PropTech firms scale their engineering teams to build smart building and property management platforms." },
       { q: "Can you source talent for the Automotive and EV industry?", a: "Yes, we focus on the software and hardware engineers building the next generation of electric and autonomous vehicles." },
-      { q: "Do you support the Logistics and Supply Chain sector?", a: "Yes, we source the talent behind modern 'Smart Logistics'—from WMS experts to supply chain data analysts." },
+      { q: "Do you support the Logistics and Supply Chain sector?", a: "Yes, we source the talent behind modern 'Smart Logistics'from WMS experts to supply chain data analysts." },
       { q: "What is your expertise in 'TravelTech' and Hospitality technology?", a: "We source specialized talent for travel booking platforms, property management systems, and guest experience technology." },
       { q: "Do you recruit for the 'AgriTech' sector?", a: "Yes, we help organizations find the engineers and data scientists building technologies for sustainable and automated farming." },
       { q: "Can you source talent for 'SpaceTech' and Aerospace?", a: "We have a growing network of specialized engineers for the aerospace industry, focusing on satellite tech and high-performance software." },
@@ -250,7 +250,7 @@ export const ALL_FAQS: FAQCategory[] = [
       { q: "What is 'Market-Mapping' as a service?", a: "It is a strategic report we provide to clients that maps out all potential candidates for a role in a specific region, including their current roles, estimated salaries, and availability." },
       { q: "How do you vet for 'Soft Skills' in technical roles?", a: "We use structured behavioral questions to evaluate communication, collaboration, problem-solving, and the ability to translate technical concepts for non-tech stakeholders." },
       { q: "What is 'Competency-Based' recruitment?", a: "A methodology where we define the core competencies needed for a role and then use structured assessments to measure every candidate against those specific markers." },
-      { q: "How do you conduct 'Reference 360s'?", a: "We speak to a range of former colleagues—above, below, and alongside the candidate—to build a holistic view of their professional impact and character." },
+      { q: "How do you conduct 'Reference 360s'?", a: "We speak to a range of former colleaguesabove, below, and alongside the candidateto build a holistic view of their professional impact and character." },
       { q: "What is 'Candidate Pipelining'?", a: "The proactive process of building relationships with top talent for future roles, ensuring we have a 'warm' pool ready as soon as a requirement opens." },
       { q: "How do you handle 'Global Salary Arbitrage'?", a: "We provide consultancy on how to balance competitive local salaries with global budget targets to attract the best talent in each region." },
       { q: "What is 'Recruitment Performance Reporting'?", a: "Detailed reports for clients showing metrics like source effectiveness, diversity ratios, and total recruitment spend vs. budget." },

@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: 'What ethical standards govern your use of AI in recruitment?',
-    a: 'We operate a strict Ethical AI Use Policy governing all automated screening tools. No candidate is rejected solely by algorithm — human review is mandatory at every stage.',
+    a: 'We operate a strict Ethical AI Use Policy governing all automated screening tools. No candidate is rejected solely by algorithm  human review is mandatory at every stage.',
   },
 ];
 
@@ -95,7 +95,7 @@ export default function CSRCTA() {
                 Partner With Us on Responsible Recruitment
               </h2>
               <p className="text-white/75 leading-relaxed text-base max-w-md">
-                Whether you are a supplier seeking ESG collaboration, an NGO looking for pro-bono support, or a business aligning hiring with sustainability goals — we would love to connect.
+                Whether you are a supplier seeking ESG collaboration, an NGO looking for pro-bono support, or a business aligning hiring with sustainability goals  we would love to connect.
               </p>
             </div>
 

@@ -10,9 +10,11 @@ import {
   Clock, Users, UserPlus, MapPin, Settings, Cpu,
   Radio, Shield, Brain, Landmark, Activity, 
   ShoppingCart, Factory, BookOpen, Scale, Search, 
-  UserCheck, CheckCircle2, Star, HelpCircle, Newspaper
+  UserCheck, CheckCircle2, Star, HelpCircle, Newspaper, Heart,
+  Podcast, Rss
 } from 'lucide-react';
-import { SERVICES, INDUSTRIES, INSIGHTS_SUMMARY } from '@/constants';
+import { SERVICES, INDUSTRIES, INSIGHTS_DETAILED } from '@/constants';
+import { LOCATIONS } from '@/constants/locationsData';
 
 // --- Components ---
 
@@ -65,6 +67,14 @@ const HorizontalLine = ({ className = "" }: { className?: string }) => (
   <div className={`border-t-2 border-dotted border-[#7A1F5C]/20 ${className}`} />
 );
 
+function getCategorySlug(categoryName: string) {
+  return categoryName
+    .toLowerCase()
+    .replace(/&/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
+
 // --- Page ---
 
 export default function SitemapPage() {
@@ -73,19 +83,48 @@ export default function SitemapPage() {
     { label: 'Our Story', href: '/about#story', icon: BookOpen },
     { label: 'Mission & Vision', href: '/about#mission', icon: TrendingUp },
     { label: 'Core Values', href: '/about#values', icon: Star },
+    { label: 'Corporate Social Responsibility', href: '/csr', icon: Heart },
+    { label: 'Find Jobs', href: '/jobs', icon: Search },
     { label: 'Contact Team', href: '/contact', icon: Mail },
     { label: 'Support FAQs', href: '/faqs', icon: HelpCircle },
   ];
 
-  const knowledgeLinks = [
-    { label: 'Insights Hub', href: '/insights', icon: Newspaper },
-    ...INSIGHTS_SUMMARY.map(insight => ({ label: insight.title, href: `/insights/${insight.slug}`, icon: FileText })),
+  const insightsLinks = [
+    // Section 1: Insights & Knowledge
+    { label: '• Blogs', href: '/insights/blogs' },
+    { label: '• Case Studies', href: '/insights/case-studies' },
+    { label: '• Newsletters', href: '/insights/newsletters' },
+    { label: '• Podcasts', href: '/insights/podcasts' },
+    
+    // Section 2: News & Events
+    { label: '• Industry Events', href: '/insights/industry-events' },
+    { label: '• Company Announcements', href: '/insights/company-announcements' },
+    { label: '• Achievements', href: '/insights/achievements' },
+    { label: '• Awards & Milestones', href: '/insights/awards-milestones' },
+    
+    // Section 3: Success Stories
+    { label: '• Client Transformations', href: '/insights/client-transformations' },
+    { label: '• Impact Metrics', href: '/insights/impact-metrics' },
+    { label: '• Testimonials', href: '/insights/testimonials' },
+    
+    // Section 4: Life at Chalky Infotech
+    { label: '• Celebrations', href: '/insights/celebrations' },
+    { label: '• Team Culture', href: '/insights/team-culture' },
+    { label: '• Posters', href: '/insights/posters' },
+    { label: '• Community', href: '/insights/community' },
+
+    // Articles
+    ...INSIGHTS_DETAILED.map(insight => ({
+      label: `📄 ${insight.title.length > 25 ? `${insight.title.substring(0, 25)}...` : insight.title}`,
+      href: `/insights/${getCategorySlug(insight.category)}/${insight.slug}`
+    }))
   ];
 
   const complianceLinks = [
     { label: 'Verification', href: '/verification', icon: UserCheck },
     { label: 'GDPR Compliance', href: '/gdpr', icon: ShieldCheck },
     { label: 'Privacy Policy', href: '/privacy-policy', icon: FileText },
+    { label: 'Cookie Policy', href: '/cookie-policy', icon: Shield },
     { label: 'Terms of Use', href: '/terms-conditions', icon: Scale },
     { label: 'Right To Work', href: '/right-to-work', icon: CheckCircle2 },
   ];
@@ -154,14 +193,14 @@ export default function SitemapPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 }}
-                className="w-[320px] h-[320px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 pointer-events-none"
+                className="w-[240px] h-[80px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 pointer-events-none"
               >
                  <Image 
-                  src="/sitemap-illustration.png" 
-                  alt="Sitemap Illustration" 
+                  src="/logo.png" 
+                  alt="Chalky InfoTech Logo" 
                   fill 
                   className="object-contain grayscale"
-                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               </motion.div>
               
               <div className="relative z-10 flex flex-col items-center">
@@ -172,9 +211,11 @@ export default function SitemapPage() {
           </div>
 
           {/* Main Branches Connector */}
-          <div className="w-full max-w-6xl relative mb-16 hidden md:block">
+          <div className="w-full max-w-6xl relative mb-16 hidden xl:block">
             <HorizontalLine className="w-full" />
             <div className="flex justify-between">
+              <DottedLine className="h-16" />
+              <DottedLine className="h-16" />
               <DottedLine className="h-16" />
               <DottedLine className="h-16" />
               <DottedLine className="h-16" />
@@ -183,11 +224,11 @@ export default function SitemapPage() {
           </div>
 
           {/* Tier 1 Categories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 w-full max-w-7xl mb-24 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-8 w-full max-w-7xl mb-24 px-4">
             
             {/* Company Column */}
             <div className="flex flex-col items-center">
-              <Node label="Company" href="/about" variant="default" icon={Building2} delay={0.7} />
+              <Node label="Company & Careers" href="/about" variant="default" icon={Building2} delay={0.7} />
               <DottedLine className="h-10 my-4" />
               <div className="space-y-3 w-full flex flex-col items-center">
                 {companyLinks.map((link, i) => (
@@ -218,19 +259,36 @@ export default function SitemapPage() {
               </div>
             </div>
 
-            {/* Knowledge & Legal Column */}
+            {/* Global Hubs Column */}
             <div className="flex flex-col items-center">
-              <Node label="Knowledge & Legal" href="/insights" variant="default" icon={ShieldCheck} delay={0.85} />
+              <Node label="Global Hubs" href="/locations" variant="default" icon={MapPin} delay={0.82} />
+              <DottedLine className="h-10 my-4" />
+              <div className="space-y-3 w-full flex flex-col items-center">
+                {LOCATIONS.map((link, i) => (
+                  <Node key={link.slug} label={`${link.city} Hub`} href={`/locations/${link.slug}`} variant="ghost" delay={0.92 + (i * 0.05)} />
+                ))}
+              </div>
+            </div>
+
+            {/* Insights & Trends Column */}
+            <div className="flex flex-col items-center">
+              <Node label="Insights Hub" href="/insights" variant="default" icon={Newspaper} delay={0.84} />
+              <DottedLine className="h-10 my-4" />
+              <div className="space-y-3 w-full flex flex-col items-center">
+                {insightsLinks.map((link, i) => (
+                  <Node key={link.href} label={link.label} href={link.href} variant="ghost" delay={0.94 + (i * 0.05)} />
+                ))}
+              </div>
+            </div>
+
+            {/* Legal & Compliance Column */}
+            <div className="flex flex-col items-center">
+              <Node label="Legal & Compliance" href="/privacy-policy" variant="default" icon={ShieldCheck} delay={0.85} />
               <DottedLine className="h-10 my-4" />
               <div className="space-y-3 w-full flex flex-col items-center">
                 <div className="w-full flex flex-col items-center space-y-3">
-                  <div className="text-[10px] font-bold text-[#7A1F5C]/40 uppercase tracking-widest mt-2 mb-1">Insights</div>
-                  {knowledgeLinks.map((link, i) => (
-                    <Node key={link.href} label={link.label} href={link.href} variant="ghost" delay={0.95 + (i * 0.05)} />
-                  ))}
-                  <div className="text-[10px] font-bold text-[#7A1F5C]/40 uppercase tracking-widest mt-6 mb-1">Compliance</div>
                   {complianceLinks.map((link, i) => (
-                    <Node key={link.href} label={link.label} href={link.href} variant="ghost" delay={1.1 + (i * 0.05)} />
+                    <Node key={link.href} label={link.label} href={link.href} variant="ghost" delay={1.0 + (i * 0.05)} />
                   ))}
                 </div>
               </div>

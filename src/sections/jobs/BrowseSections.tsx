@@ -72,12 +72,12 @@ const INDUSTRIES = [
 
 // ── Employment types ─────────────────────────────────────────────────────────
 const EMP_TYPES = [
-  { label: 'Contract',   icon: Clock,             desc: 'Project-based agile roles',   filter: 'Contract' },
-  { label: 'Permanent',  icon: Briefcase,          desc: 'Long-term career moves',      filter: 'Full-time' },
-  { label: 'Temporary',  icon: LayoutGrid,         desc: 'Short-term assignments',      filter: 'Part-time' },
-  { label: 'Remote',     icon: Globe,              desc: 'Work from anywhere',          filter: 'Remote' },
-  { label: 'Hybrid',     icon: MonitorSmartphone,  desc: 'Balanced work models',        filter: 'Hybrid' },
-  { label: 'Full-Time',  icon: Users,              desc: 'Standard 40h/week',           filter: 'Full-time' },
+  { label: 'Contract', icon: Clock, desc: 'Project-based agile roles', filter: 'Contract' },
+  { label: 'Permanent', icon: Briefcase, desc: 'Long-term career moves', filter: 'Full-time' },
+  { label: 'Temporary', icon: LayoutGrid, desc: 'Short-term assignments', filter: 'Part-time' },
+  { label: 'Remote', icon: Globe, desc: 'Work from anywhere', filter: 'Remote' },
+  { label: 'Hybrid', icon: MonitorSmartphone, desc: 'Balanced work models', filter: 'Hybrid' },
+  { label: 'Full-Time', icon: Users, desc: 'Standard 40h/week', filter: 'Full-time' },
 ];
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
@@ -114,7 +114,7 @@ function MiniJobRow({ job, onOpen }: { job: any; onOpen: (j: any) => void }) {
           </p>
         )}
         <div className="flex flex-wrap gap-x-3 gap-y-1">
-          <Pill icon={MapPin}    label={job.location || 'Anywhere'} />
+          <Pill icon={MapPin} label={job.location || 'Anywhere'} />
           <Pill icon={Briefcase} label={job.experience || 'Entry level'} />
           <Pill icon={Building2} label={job.workMode || 'N/A'} />
           <Pill icon={DollarSign} label={job.salaryRange || 'Competitive'} />
@@ -166,9 +166,9 @@ function JobModal({ job, onClose }: { job: any; onClose: () => void }) {
         </div>
 
         <div className="px-5 py-2.5 bg-[#fafafa] border-b border-gray-100 flex flex-wrap gap-x-4 gap-y-1.5 shrink-0">
-          <Pill icon={MapPin}    label={job.location || 'N/A'} />
+          <Pill icon={MapPin} label={job.location || 'N/A'} />
           <Pill icon={Briefcase} label={job.experience || 'N/A'} />
-          <Pill icon={Clock}     label={job.employmentType || 'N/A'} />
+          <Pill icon={Clock} label={job.employmentType || 'N/A'} />
           <Pill icon={Building2} label={job.workMode || 'N/A'} />
           <Pill icon={DollarSign} label={job.salaryRange || 'N/A'} />
         </div>
@@ -211,14 +211,14 @@ function JobModal({ job, onClose }: { job: any; onClose: () => void }) {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// BrowseIndustries — main export
+// BrowseIndustries  main export
 // ═════════════════════════════════════════════════════════════════════════════
 export function BrowseIndustries() {
-  const [activeIndex, setActiveIndex]   = useState(0);
-  const [allJobs, setAllJobs]           = useState<any[]>([]);
-  const [loadingJobs, setLoadingJobs]   = useState(true);
-  const [selectedJob, setSelectedJob]   = useState<any>(null);
-  const [jobSearch, setJobSearch]       = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [allJobs, setAllJobs] = useState<any[]>([]);
+  const [loadingJobs, setLoadingJobs] = useState(true);
+  const [selectedJob, setSelectedJob] = useState<any>(null);
+  const [jobSearch, setJobSearch] = useState('');
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const activeIndustry = INDUSTRIES[activeIndex];
@@ -249,7 +249,7 @@ export function BrowseIndustries() {
   useEffect(() => {
     (async () => {
       try {
-        const res  = await fetch(`${API_BASE_URL}/api/requirements/public`);
+        const res = await fetch(`${API_BASE_URL}/api/requirements/public`);
         const data = await res.json();
         if (data.success) {
           setAllJobs(data.data.filter((j: any) =>
@@ -319,17 +319,17 @@ export function BrowseIndustries() {
           <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
             {INDUSTRIES.map((ind, index) => {
               let diff = index - activeIndex;
-              if (diff >  INDUSTRIES.length / 2) diff -= INDUSTRIES.length;
+              if (diff > INDUSTRIES.length / 2) diff -= INDUSTRIES.length;
               if (diff < -INDUSTRIES.length / 2) diff += INDUSTRIES.length;
-              const isCenter  = diff === 0;
+              const isCenter = diff === 0;
               const isVisible = Math.abs(diff) <= 2;
               if (!isVisible) return null;
 
               const xOffset = diff * 200;
-              const scale   = isCenter ? 1.25 : 1 - Math.abs(diff) * 0.15;
+              const scale = isCenter ? 1.25 : 1 - Math.abs(diff) * 0.15;
               const opacity = isCenter ? 1 : 1 - Math.abs(diff) * 0.4;
-              const zIndex  = 10 - Math.abs(diff);
-              const Icon    = ind.icon;
+              const zIndex = 10 - Math.abs(diff);
+              const Icon = ind.icon;
 
               return (
                 <motion.div
@@ -341,16 +341,14 @@ export function BrowseIndustries() {
                 >
                   {/* circle */}
                   <div
-                    className={`relative flex items-center justify-center rounded-full transition-all duration-300 ${
-                      isCenter
+                    className={`relative flex items-center justify-center rounded-full transition-all duration-300 ${isCenter
                         ? 'w-28 h-28 bg-[#7A1F5C]/8'
                         : 'w-20 h-20 bg-[#F5F0E8]'
-                    }`}
+                      }`}
                   >
                     {/* icon backdrop */}
-                    <div className={`flex items-center justify-center rounded-full transition-all duration-300 ${
-                      isCenter ? 'w-16 h-16 bg-[#7A1F5C]' : 'w-12 h-12 bg-white border border-gray-200'
-                    }`}>
+                    <div className={`flex items-center justify-center rounded-full transition-all duration-300 ${isCenter ? 'w-16 h-16 bg-[#7A1F5C]' : 'w-12 h-12 bg-white border border-gray-200'
+                      }`}>
                       <Icon size={isCenter ? 28 : 20} className={isCenter ? 'text-white' : 'text-[#7A1F5C] opacity-50'} />
                     </div>
 
@@ -374,9 +372,8 @@ export function BrowseIndustries() {
                   </div>
 
                   {/* label below */}
-                  <p className={`mt-3 text-xs font-semibold text-center transition-colors ${
-                    isCenter ? 'text-[#7A1F5C]' : 'text-gray-400'
-                  }`}>
+                  <p className={`mt-3 text-xs font-semibold text-center transition-colors ${isCenter ? 'text-[#7A1F5C]' : 'text-gray-400'
+                    }`}>
                     {ind.label}
                   </p>
                 </motion.div>
@@ -435,7 +432,7 @@ export function BrowseIndustries() {
                 <p className="text-gray-400 text-sm">
                   {jobSearch
                     ? `No results for "${jobSearch}" in ${activeIndustry.label}.`
-                    : `No active ${activeIndustry.label} roles right now — check back soon.`}
+                    : `No active ${activeIndustry.label} roles right now  check back soon.`}
                 </p>
                 <Link href="#search" className="mt-3 inline-block text-xs text-[#7A1F5C] font-semibold hover:underline">
                   Browse all jobs →
@@ -487,14 +484,14 @@ export function BrowseIndustries() {
 
 
 // ═════════════════════════════════════════════════════════════════════════════
-// EmploymentTypes — carousel + live job panel (mirrors BrowseIndustries)
+// EmploymentTypes  carousel + live job panel (mirrors BrowseIndustries)
 // ═════════════════════════════════════════════════════════════════════════════
 export function EmploymentTypes() {
-  const [activeIndex, setActiveIndex]   = useState(0);
-  const [allJobs, setAllJobs]           = useState<any[]>([]);
-  const [loadingJobs, setLoadingJobs]   = useState(true);
-  const [selectedJob, setSelectedJob]   = useState<any>(null);
-  const [jobSearch, setJobSearch]       = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [allJobs, setAllJobs] = useState<any[]>([]);
+  const [loadingJobs, setLoadingJobs] = useState(true);
+  const [selectedJob, setSelectedJob] = useState<any>(null);
+  const [jobSearch, setJobSearch] = useState('');
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const activeType = EMP_TYPES[activeIndex];
@@ -524,7 +521,7 @@ export function EmploymentTypes() {
   useEffect(() => {
     (async () => {
       try {
-        const res  = await fetch(`${API_BASE_URL}/api/requirements/public`);
+        const res = await fetch(`${API_BASE_URL}/api/requirements/public`);
         const data = await res.json();
         if (data.success) {
           setAllJobs(data.data.filter((j: any) =>
@@ -593,17 +590,17 @@ export function EmploymentTypes() {
           <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
             {EMP_TYPES.map((type, index) => {
               let diff = index - activeIndex;
-              if (diff >  EMP_TYPES.length / 2) diff -= EMP_TYPES.length;
+              if (diff > EMP_TYPES.length / 2) diff -= EMP_TYPES.length;
               if (diff < -EMP_TYPES.length / 2) diff += EMP_TYPES.length;
-              const isCenter  = diff === 0;
+              const isCenter = diff === 0;
               const isVisible = Math.abs(diff) <= 2;
               if (!isVisible) return null;
 
               const xOffset = diff * 200;
-              const scale   = isCenter ? 1.25 : 1 - Math.abs(diff) * 0.15;
+              const scale = isCenter ? 1.25 : 1 - Math.abs(diff) * 0.15;
               const opacity = isCenter ? 1 : 1 - Math.abs(diff) * 0.4;
-              const zIndex  = 10 - Math.abs(diff);
-              const Icon    = type.icon;
+              const zIndex = 10 - Math.abs(diff);
+              const Icon = type.icon;
 
               return (
                 <motion.div
@@ -614,13 +611,11 @@ export function EmploymentTypes() {
                   onClick={() => clickType(index)}
                 >
                   <div
-                    className={`relative flex items-center justify-center rounded-full transition-all duration-300 ${
-                      isCenter ? 'w-28 h-28 bg-[#7A1F5C]/8' : 'w-20 h-20 bg-white border border-gray-100'
-                    }`}
+                    className={`relative flex items-center justify-center rounded-full transition-all duration-300 ${isCenter ? 'w-28 h-28 bg-[#7A1F5C]/8' : 'w-20 h-20 bg-white border border-gray-100'
+                      }`}
                   >
-                    <div className={`flex items-center justify-center rounded-full transition-all duration-300 ${
-                      isCenter ? 'w-16 h-16 bg-[#7A1F5C]' : 'w-12 h-12 bg-[#F5F0E8] border border-gray-200'
-                    }`}>
+                    <div className={`flex items-center justify-center rounded-full transition-all duration-300 ${isCenter ? 'w-16 h-16 bg-[#7A1F5C]' : 'w-12 h-12 bg-[#F5F0E8] border border-gray-200'
+                      }`}>
                       <Icon size={isCenter ? 28 : 20} className={isCenter ? 'text-white' : 'text-[#7A1F5C] opacity-50'} />
                     </div>
 
@@ -642,9 +637,8 @@ export function EmploymentTypes() {
                     )}
                   </div>
 
-                  <p className={`mt-3 text-xs font-semibold text-center transition-colors ${
-                    isCenter ? 'text-[#7A1F5C]' : 'text-gray-400'
-                  }`}>
+                  <p className={`mt-3 text-xs font-semibold text-center transition-colors ${isCenter ? 'text-[#7A1F5C]' : 'text-gray-400'
+                    }`}>
                     {type.label}
                   </p>
                 </motion.div>
@@ -703,7 +697,7 @@ export function EmploymentTypes() {
                 <p className="text-gray-400 text-sm">
                   {jobSearch
                     ? `No results for "${jobSearch}" in ${activeType.label}.`
-                    : `No active ${activeType.label} roles right now — check back soon.`}
+                    : `No active ${activeType.label} roles right now  check back soon.`}
                 </p>
                 <Link href="#search" className="mt-3 inline-block text-xs text-[#7A1F5C] font-semibold hover:underline">
                   Browse all jobs →

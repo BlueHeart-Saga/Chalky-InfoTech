@@ -94,7 +94,7 @@ export default function OfficeLocations() {
                   referrerPolicy="no-referrer-when-downgrade"
                   title={`${office.city} office map`}
                 />
-                {/* Clickthrough blocker — lets card hover work without map dragging */}
+                {/* Clickthrough blocker  lets card hover work without map dragging */}
                 <div className="absolute inset-0 cursor-pointer" />
               </div>
 

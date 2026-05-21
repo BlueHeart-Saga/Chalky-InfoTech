@@ -23,7 +23,7 @@ const CSR_PILLARS = [
   {
     icon: Leaf,
     title: 'Environmental Stewardship',
-    desc: 'We operate carbon-consciously — from digital-first workflows and paperless recruiting to responsible energy choices across all our offices.',
+    desc: 'We operate carbon-consciously  from digital-first workflows and paperless recruiting to responsible energy choices across all our offices.',
     accent: '#7A1F5C',
     href: '/csr#pillars',
   },
@@ -37,7 +37,7 @@ const CSR_PILLARS = [
   {
     icon: HeartHandshake,
     title: 'Community Empowerment',
-    desc: 'We invest in people beyond placements — supporting local skills programmes, graduate mentorship, and workforce readiness initiatives.',
+    desc: 'We invest in people beyond placements  supporting local skills programmes, graduate mentorship, and workforce readiness initiatives.',
     accent: '#7A1F5C',
     href: '/csr#pillars',
   },
@@ -52,26 +52,26 @@ const CSR_PILLARS = [
 
 // ─── Impact Stats ─────────────────────────────────────────────────────────────
 const IMPACT_STATS = [
-  { value: '100%', label: 'Paperless Recruitment',         icon: Recycle,         href: '/csr#metrics' },
-  { value: '40%',  label: 'Women in Leadership Pipeline',  icon: HeartHandshake,  href: '/csr#metrics' },
-  { value: '3',    label: 'Community Programmes Active',   icon: Sprout,          href: '/csr#metrics' },
-  { value: 'Net 0',label: 'Carbon Goal by 2030',           icon: Wind,            href: '/csr#timeline' },
+  { value: '100%', label: 'Paperless Recruitment', icon: Recycle, href: '/csr#metrics' },
+  { value: '40%', label: 'Women in Leadership Pipeline', icon: HeartHandshake, href: '/csr#metrics' },
+  { value: '3', label: 'Community Programmes Active', icon: Sprout, href: '/csr#metrics' },
+  { value: 'Net 0', label: 'Carbon Goal by 2030', icon: Wind, href: '/csr#timeline' },
 ];
 
 // ─── Commitments ──────────────────────────────────────────────────────────────
 const COMMITMENTS: { label: string; href?: string }[] = [
-  { label: 'Fully digitised, paperless hiring workflows',              href: '/csr#pillars'  },
+  { label: 'Fully digitised, paperless hiring workflows', href: '/csr#pillars' },
   { label: 'Annual carbon-offset partnerships with certified providers', href: '/csr#timeline' },
-  { label: 'Mandatory diversity targets on every executive mandate',   href: '/services/executive-search' },
-  { label: 'Graduate mentorship across disadvantaged communities',     href: '/csr#pillars'  },
-  { label: 'Ethical AI use policy for candidate screening tools',      href: '/csr#pillars'  },
-  { label: 'Transparent supply-chain & labour compliance audits',      href: '/csr#sdg'      },
+  { label: 'Mandatory diversity targets on every executive mandate', href: '/services/executive-search' },
+  { label: 'Graduate mentorship across disadvantaged communities', href: '/csr#pillars' },
+  { label: 'Ethical AI use policy for candidate screening tools', href: '/csr#pillars' },
+  { label: 'Transparent supply-chain & labour compliance audits', href: '/csr#sdg' },
 ];
 
 export default function CSRSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
-  const bgY   = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
   const decoY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
 
   return (
@@ -127,7 +127,7 @@ export default function CSRSection() {
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed mb-10 max-w-lg">
-              At <Link href="/about" className="text-[#7A1F5C] font-semibold hover:underline underline-offset-2">Chalky Infotech</Link>, responsible business is not a checkbox — it is the foundation of how we operate. Our{' '}
+              At <Link href="/about" className="text-[#7A1F5C] font-semibold hover:underline underline-offset-2">Chalky Infotech</Link>, responsible business is not a checkbox  it is the foundation of how we operate. Our{' '}
               <Link href="/csr" className="text-[#7A1F5C] font-semibold hover:underline underline-offset-2">CSR strategy</Link>{' '}
               integrates <Link href="/csr#pillars" className="text-[#C2185B] font-semibold hover:underline underline-offset-2">sustainability</Link>, <Link href="/services" className="text-[#7A1F5C] font-semibold hover:underline underline-offset-2">inclusive recruitment</Link>, and community impact into every layer of our{' '}
               <Link href="/services" className="text-[#7A1F5C] font-semibold hover:underline underline-offset-2">workforce solutions</Link>.

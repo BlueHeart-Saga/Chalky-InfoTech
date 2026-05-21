@@ -104,25 +104,57 @@ interface InsightSection {
   categories: InsightCategory[];
 }
 
-// ─── Insights Data — Dynamic Navigation Structure ────────────────────────────
+// ─── Insights Data  Dynamic Navigation Structure ────────────────────────────
 const DEFAULT_INSIGHTS_SECTIONS: InsightSection[] = [
   {
     name: "Insights & Knowledge",
     slug: "insights-knowledge",
     categories: [
       { label: "Blogs", slug: "blogs", desc: "Expert analysis and thought leadership on global recruitment trends." },
+      { label: "Case Studies", slug: "case-studies", desc: "Real-world success stories, digital transformation journeys, and metric-driven talent acquisition solutions." },
+      { label: "Newsletters", slug: "newsletters", desc: "Stay ahead with our monthly briefing on engineering hiring trends, compliance guidelines, and market forecasts." },
+      { label: "Podcasts", slug: "podcasts", desc: "Conversations with industry leaders, C-suite executives, and talent innovators on building world-class teams." },
     ],
-  }
+  },
+  {
+    name: "News & Events",
+    slug: "news-events",
+    categories: [
+      { label: "Industry Events", slug: "industry-events", desc: "Upcoming webinars, leadership roundtables, and international staffing conferences hosted by Chalky Tech." },
+      { label: "Company Announcements", slug: "company-announcements", desc: "Official company updates, strategic expansions, compliance hubs, and executive appointments." },
+      { label: "Achievements", slug: "achievements", desc: "Celebrating our team's recognition, industry awards, and compliance excellence milestones." },
+      { label: "Awards & Milestones", slug: "awards-milestones", desc: "Official company awards, client satisfaction recognitions, and major delivery milestones." },
+    ],
+  },
+  {
+    name: "Success Stories",
+    slug: "success-stories",
+    categories: [
+      { label: "Client Transformations", slug: "client-transformations", desc: "Deep-dive case studies showcasing how we assist global enterprise clients to scale tech teams and drive technical excellence." },
+      { label: "Impact Metrics", slug: "impact-metrics", desc: "Strategic operational metrics tracking onboarding efficiency, retention achievements, and cost-to-hire benchmarks." },
+      { label: "Testimonials", slug: "testimonials", desc: "Firsthand feedback and reviews from our global enterprise clients, executive hires, and software engineers." },
+    ],
+  },
+  {
+    name: "Life at Chalky Infotech",
+    slug: "life-at",
+    categories: [
+      { label: "Celebrations", slug: "celebrations", desc: "Behind-the-scenes looks at our team celebrations, social impact, and core value expressions." },
+      { label: "Team Culture", slug: "team-culture", desc: "Discover the collaborative, inclusive and high-performance culture that drives Chalky Tech." },
+      { label: "Posters", slug: "posters", desc: "Visual updates, campaign posters, and creative media showcasing Chalky's unique corporate presence and brand values." },
+      { label: "Community", slug: "community", desc: "Our active participation in global community programs, education initiatives, and social development." },
+    ],
+  },
 ];
 
 function getPremiumCategoryDescription(slug: string, fallback: string) {
   const s = slug.toLowerCase();
-  const isGeneric = !fallback || 
-                    fallback.toLowerCase().includes('explore our') || 
-                    fallback.toLowerCase().includes('description') || 
-                    fallback.toLowerCase().includes('placeholder') || 
-                    fallback.trim() === "" ||
-                    fallback.trim().length < 15;
+  const isGeneric = !fallback ||
+    fallback.toLowerCase().includes('explore our') ||
+    fallback.toLowerCase().includes('description') ||
+    fallback.toLowerCase().includes('placeholder') ||
+    fallback.trim() === "" ||
+    fallback.trim().length < 15;
 
   if (isGeneric) {
     if (s.includes('blog')) return "Thought leadership, industry insights, and strategic perspectives on global tech recruitment.";
@@ -149,11 +181,11 @@ function getPremiumCategoryDescription(slug: string, fallback: string) {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function Navbar() {
-  const [scrolled, setScrolled]           = useState(false);
-  const [hidden, setHidden]               = useState(false);
-  const [mobileOpen, setMobileOpen]       = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  
+
   // Dynamic Insights State
   const [insightsSections, setInsightsSections] = useState<InsightSection[]>(DEFAULT_INSIGHTS_SECTIONS);
   const [hoveredInsightsSection, setHoveredInsightsSection] = useState<string | null>(DEFAULT_INSIGHTS_SECTIONS[0].slug);
@@ -263,8 +295,10 @@ export default function Navbar() {
             <Link href="/jobs" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Register your CV</Link>
             <div className="w-px h-3 bg-white/20 self-center"></div>
             <Link href="/contact" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Looking to hire</Link>
+            <div className="w-px h-3 bg-white/20 self-center"></div>
+            <Link href="/sitemap" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">View Sitemap</Link>
           </div>
-          
+
           <div className="flex items-center gap-6">
             <a href="https://www.linkedin.com/company/chalky-infotech-recruitment/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white font-black text-[10px] uppercase tracking-[0.15em] transition-colors">LinkedIn</a>
             <div className="w-1 h-1 rounded-full bg-white/30"></div>
@@ -333,8 +367,8 @@ export default function Navbar() {
                   <h4 className="text-[11px] font-bold text-[#8A8A8A] uppercase tracking-[0.2em] mb-10">Categories</h4>
                   <div className="grid grid-cols-1 gap-4">
                     {currentSection.categories.map((cat: InsightCategory) => (
-                      <Link 
-                        key={cat.slug} 
+                      <Link
+                        key={cat.slug}
                         href={`/insights/${cat.slug}`}
                         onMouseEnter={() => setHoveredCategory(cat)}
                         className={`group flex items-center justify-between p-5 rounded-2xl border transition-all duration-300 ${activeCategory?.slug === cat.slug ? 'border-[#7A1F5C]/20 bg-[#F5F0E8]/40' : 'border-transparent hover:border-[#7A1F5C]/10 hover:bg-[#F5F0E8]/20'}`}
@@ -358,32 +392,34 @@ export default function Navbar() {
               <div>
                 <h4 className="text-[11px] font-bold text-[#8A8A8A] uppercase tracking-[0.2em] mb-10">Featured</h4>
                 <div className="rounded-2xl overflow-hidden shadow-lg shadow-[#7A1F5C]/5 mb-6 group cursor-pointer aspect-[16/10] relative">
-                  <Image 
-                    src={previewImageSrc} 
-                    alt="Featured" 
+                  <Image
+                    src={previewImageSrc}
+                    alt="Featured"
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                 </div>
                 <h5 className="font-bold text-[#1A1A1A] text-sm mb-2">{previewTitle}</h5>
                 <p className="text-xs text-[#666] leading-relaxed line-clamp-3">{previewDesc}</p>
               </div>
               <Link href={previewHref} className="mt-8 flex items-center gap-2 text-[11px] font-bold text-[#7A1F5C] uppercase tracking-widest hover:gap-3 transition-all">
-                {activeCategory?.posts && activeCategory.posts[0] ? 'Read Article' : 'View all insights'} <ArrowUpRight size={14}/>
+                {activeCategory?.posts && activeCategory.posts[0] ? 'Read Article' : 'View all insights'} <ArrowUpRight size={14} />
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar — Brand Plum */}
+        {/* Bottom Bar  Brand Plum */}
         <div className="bg-[#7A1F5C] py-3.5">
           <div className="max-w-[1400px] mx-auto px-8 flex justify-between items-center">
             <div className="flex gap-10">
-              <Link href="/jobs" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Register your CV</Link>
+              <Link href="/jobs" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Find Jobs</Link>
               <div className="w-px h-3 bg-white/20 self-center"></div>
               <Link href="/contact" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">Looking to hire</Link>
+              <div className="w-px h-3 bg-white/20 self-center"></div>
+              <Link href="/sitemap" className="text-white font-bold text-[10px] uppercase tracking-[0.15em] border-b border-white/30 pb-0.5 hover:border-white transition-all">View Sitemap</Link>
             </div>
-            
+
             <div className="flex items-center gap-6">
               <a href="https://www.linkedin.com/company/chalky-infotech-recruitment/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white font-black text-[10px] uppercase tracking-[0.15em] transition-colors">LinkedIn</a>
               <div className="w-1 h-1 rounded-full bg-white/30"></div>
@@ -401,13 +437,13 @@ export default function Navbar() {
     <nav className={navClasses}>
       <div className="relative flex items-center justify-between h-16 md:h-20 px-4 md:px-8">
         <Link href="/" className="flex items-center gap-2 group flex-shrink-0 mr-8">
-          <Image 
-            src="/logo.png" 
-            alt="Chalky InfoTech" 
-            width={40} 
-            height={40} 
+          <Image
+            src="/logo.png"
+            alt="Chalky InfoTech"
+            width={40}
+            height={40}
             style={{ height: 'auto' }}
-            className="object-contain hover:scale-105 transition-transform duration-300" 
+            className="object-contain hover:scale-105 transition-transform duration-300"
           />
           <span className="font-bold text-xl text-[#7A1F5C] tracking-tight">Chalky <span className="text-[#1A1A1A] font-medium">InfoTech</span></span>
         </Link>
@@ -418,19 +454,18 @@ export default function Navbar() {
             const dropdownKey = link.label.toLowerCase();
 
             return (
-              <div 
-                key={link.label} 
+              <div
+                key={link.label}
                 className="group/nav h-full flex items-center"
                 onMouseEnter={() => isDropdown && setActiveDropdown(dropdownKey)}
                 onMouseLeave={() => isDropdown && setActiveDropdown(null)}
               >
-                <Link 
+                <Link
                   href={link.href}
-                  className={`flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-[15px] font-semibold transition-all duration-200 ${
-                    activeDropdown === dropdownKey || pathname === link.href || (isDropdown && pathname.includes(`/${dropdownKey}`))
-                      ? 'text-[#7A1F5C] bg-[#F5F0E8]' 
+                  className={`flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-[15px] font-semibold transition-all duration-200 ${activeDropdown === dropdownKey || pathname === link.href || (isDropdown && pathname.includes(`/${dropdownKey}`))
+                      ? 'text-[#7A1F5C] bg-[#F5F0E8]'
                       : 'text-[#1A1A1A] hover:bg-[#F5F0E8]'
-                  }`}
+                    }`}
                 >
                   {link.label}
                   {isDropdown && (
@@ -444,7 +479,7 @@ export default function Navbar() {
 
         <AnimatePresence>
           {activeDropdown && (
-            <div 
+            <div
               className="absolute top-0 left-0 w-full h-full pointer-events-none"
               onMouseEnter={() => setActiveDropdown(activeDropdown)}
               onMouseLeave={() => setActiveDropdown(null)}
@@ -480,7 +515,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-4 mt-2 border-t border-gray-100 flex gap-4 px-4">
-                 <Link href="/contact" className="flex-1 text-center bg-[#7A1F5C] text-white py-3 rounded-xl font-semibold text-sm">Contact Us</Link>
+                <Link href="/contact" className="flex-1 text-center bg-[#7A1F5C] text-white py-3 rounded-xl font-semibold text-sm">Contact Us</Link>
               </div>
             </div>
           </motion.div>

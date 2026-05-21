@@ -11,9 +11,10 @@ interface FAQ {
 
 interface Props {
   faqs: FAQ[];
+  serviceLabel?: string;
 }
 
-export default function ServiceFAQ({ faqs }: Props) {
+export default function ServiceFAQ({ faqs, serviceLabel }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const jsonLd = {
@@ -36,7 +37,7 @@ export default function ServiceFAQ({ faqs }: Props) {
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">Common Questions</span>
           <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-4">
-            Service <span className="text-[#7A1F5C]">FAQs</span>
+            {serviceLabel || 'Service'} <span className="text-[#7A1F5C]">FAQs</span>
           </h2>
         </div>
 

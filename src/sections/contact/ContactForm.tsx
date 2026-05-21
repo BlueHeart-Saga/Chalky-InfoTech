@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, ArrowLeft, CheckCircle2, Trash2, Upload } from 'lucide-react';
+import { sendEmail } from '@/services/sendmail';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -72,13 +73,12 @@ function StepIndicator({ current, total }: { current: number; total: number }) {
       {Array.from({ length: total }).map((_, i) => (
         <div
           key={i}
-          className={`h-1 rounded-full transition-all duration-500 ${
-            i < current
+          className={`h-1 rounded-full transition-all duration-500 ${i < current
               ? 'bg-[#7A1F5C] w-10'
               : i === current
-              ? 'bg-[#7A1F5C] w-14'
-              : 'bg-gray-200 w-10'
-          }`}
+                ? 'bg-[#7A1F5C] w-14'
+                : 'bg-gray-200 w-10'
+            }`}
         />
       ))}
       <span className="ml-2 text-xs text-gray-400 font-medium">
@@ -99,27 +99,72 @@ const slideVariants = {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function ContactForm() {
-  const [step, setStep]               = useState(0);
-  const [direction, setDirection]     = useState(1);
-  const [region, setRegion]           = useState<string | null>(null);
+  const [step, setStep] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [region, setRegion] = useState<string | null>(null);
   const [enquiryType, setEnquiryType] = useState<string | null>(null);
-  const [submitted, setSubmitted]     = useState(false);
-  const [fileName, setFileName]       = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fileName, setFileName] = useState<string | null>(null);
+  const [fileObj, setFileObj] = useState<File | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    cell: '',
+    organisation: '',
+    message: ''
+  });
 
   const TOTAL = 4;
 
-  const goNext = () => { setDirection(1);  setStep(s => Math.min(s + 1, TOTAL - 1)); };
+  const goNext = () => { setDirection(1); setStep(s => Math.min(s + 1, TOTAL - 1)); };
   const goBack = () => { setDirection(-1); setStep(s => Math.max(s - 1, 0)); };
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     setFileName(f ? f.name : null);
+    setFileObj(f || null);
   };
 
   const clearFile = () => {
     setFileName(null);
+    setFileObj(null);
     if (fileRef.current) fileRef.current.value = '';
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const officeCity = REGIONS.find((r) => r.id === region)?.city || 'Global';
+      const typeLabel = enquiryType === 'candidate' ? 'Candidate' : enquiryType === 'client' ? 'Client' : 'General';
+      const subject = `[${typeLabel}] Contact Form from ${formData.firstName} ${formData.lastName}`;
+
+      await sendEmail({
+        fullName: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        subject,
+        message: `${formData.message}\n\nCell: ${formData.cell}`,
+        company: formData.organisation,
+        serviceType: typeLabel,
+        file: fileObj || undefined,
+      });
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error(error);
+      alert('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // auto-advance helpers
@@ -161,7 +206,7 @@ export default function ContactForm() {
       <h2 className="text-2xl md:text-3xl font-semibold text-[#1A1A1A] mb-2 leading-tight">
         Which <strong>office</strong> are you contacting?
       </h2>
-      <p className="text-sm text-gray-400 mb-8">Select a location — we&apos;ll route you to the right team.</p>
+      <p className="text-sm text-gray-400 mb-8">Select a location  we&apos;ll route you to the right team.</p>
 
       <div className="grid grid-cols-3 gap-5 mb-10">
         {REGIONS.map((r) => {
@@ -170,11 +215,10 @@ export default function ContactForm() {
             <button
               key={r.id}
               onClick={() => pickRegion(r.id)}
-              className={`relative rounded-2xl overflow-hidden flex flex-col text-left transition-all duration-300 border-2 group ${
-                active
+              className={`relative rounded-2xl overflow-hidden flex flex-col text-left transition-all duration-300 border-2 group ${active
                   ? 'border-[#7A1F5C] shadow-xl scale-[1.02]'
                   : 'border-gray-200 bg-white hover:shadow-md hover:border-gray-300'
-              }`}
+                }`}
             >
               {/* Live Google Maps iframe */}
               <div className="w-full h-36 overflow-hidden bg-[#E8E8E8] pointer-events-none">
@@ -189,11 +233,10 @@ export default function ContactForm() {
                 />
               </div>
               {/* Label row */}
-              <div className={`flex items-start gap-2.5 p-4 ${ active ? 'bg-[#FAF5FF]' : 'bg-white' }`}>
+              <div className={`flex items-start gap-2.5 p-4 ${active ? 'bg-[#FAF5FF]' : 'bg-white'}`}>
                 <span
-                  className={`inline-flex items-center justify-center w-6 h-6 rounded-md text-[10px] font-bold flex-shrink-0 mt-0.5 transition-colors ${
-                    active ? 'bg-[#7A1F5C] text-white' : 'bg-[#F3F3F3] text-[#1A1A1A]'
-                  }`}
+                  className={`inline-flex items-center justify-center w-6 h-6 rounded-md text-[10px] font-bold flex-shrink-0 mt-0.5 transition-colors ${active ? 'bg-[#7A1F5C] text-white' : 'bg-[#F3F3F3] text-[#1A1A1A]'
+                    }`}
                 >
                   {r.key}
                 </span>
@@ -223,7 +266,7 @@ export default function ContactForm() {
       <h2 className="text-2xl md:text-3xl font-semibold text-[#1A1A1A] mb-2 leading-tight">
         What are you <strong>enquiring</strong> about?*
       </h2>
-      <p className="text-sm text-gray-400 mb-8">Select one — we&apos;ll take you straight to the form.</p>
+      <p className="text-sm text-gray-400 mb-8">Select one  we&apos;ll take you straight to the form.</p>
 
       <div className="flex flex-col gap-3 mb-10">
         {ENQUIRY_TYPES.map((eq) => {
@@ -232,16 +275,14 @@ export default function ContactForm() {
             <button
               key={eq.id}
               onClick={() => pickEnquiry(eq.id)}
-              className={`flex items-start gap-3 w-full px-5 py-4 rounded-xl border-2 text-left transition-all duration-300 ${
-                active
+              className={`flex items-start gap-3 w-full px-5 py-4 rounded-xl border-2 text-left transition-all duration-300 ${active
                   ? 'border-[#1A1A1A] bg-white shadow-lg scale-[1.01]'
                   : 'border-transparent bg-[#F3F3F3] hover:bg-[#EBEBEB]'
-              }`}
+                }`}
             >
               <span
-                className={`inline-flex items-center justify-center w-6 h-6 rounded-md text-[10px] font-bold flex-shrink-0 mt-0.5 transition-colors ${
-                  active ? 'bg-[#1A1A1A] text-white' : 'bg-white text-[#1A1A1A]'
-                }`}
+                className={`inline-flex items-center justify-center w-6 h-6 rounded-md text-[10px] font-bold flex-shrink-0 mt-0.5 transition-colors ${active ? 'bg-[#1A1A1A] text-white' : 'bg-white text-[#1A1A1A]'
+                  }`}
               >
                 {eq.key}
               </span>
@@ -263,19 +304,19 @@ export default function ContactForm() {
   // ── Step 4 – Contact Form ───────────────────────────────────────────────────
   const StepContactForm = () => {
     const isCandidate = enquiryType === 'candidate';
-    const isClient    = enquiryType === 'client';
+    const isClient = enquiryType === 'client';
 
     const title = isCandidate
       ? 'Are you looking for your next role?'
       : isClient
-      ? 'Are you expanding your team?'
-      : 'Other / general enquiry';
+        ? 'Are you expanding your team?'
+        : 'Other / general enquiry';
 
     const subtitle = isCandidate
       ? "We seek roles as individual as you are. Speak to us today about finding your next opportunity."
       : isClient
-      ? "We believe exceptional people can make a huge impact. Speak to us today about finding the right talent."
-      : "Drop us a message and we'll get back to you as soon as possible.";
+        ? "We believe exceptional people can make a huge impact. Speak to us today about finding the right talent."
+        : "Drop us a message and we'll get back to you as soon as possible.";
 
     if (submitted) {
       return (
@@ -286,7 +327,8 @@ export default function ContactForm() {
           <button
             onClick={() => {
               setStep(0); setSubmitted(false);
-              setRegion(null); setEnquiryType(null); setFileName(null);
+              setRegion(null); setEnquiryType(null); setFileName(null); setFileObj(null);
+              setFormData({ firstName: '', lastName: '', email: '', cell: '', organisation: '', message: '' });
             }}
             className="text-sm text-[#7A1F5C] font-semibold hover:underline"
           >
@@ -304,7 +346,7 @@ export default function ContactForm() {
           <p className="text-sm text-gray-500">{subtitle}</p>
         </div>
 
-        {/* Form card — white bg, triangle accents */}
+        {/* Form card  white bg, triangle accents */}
         <div className="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
 
           {/* Top-right rose triangle */}
@@ -326,7 +368,7 @@ export default function ContactForm() {
 
           <div className="relative z-10 p-8 md:p-10">
             <form
-              onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+              onSubmit={handleSubmit}
               className="space-y-6"
             >
               {/* Row 1 */}
@@ -337,6 +379,9 @@ export default function ContactForm() {
                   </label>
                   <input
                     required
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
                     className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#0099CC] transition-colors bg-white"
                   />
                 </div>
@@ -346,6 +391,9 @@ export default function ContactForm() {
                   </label>
                   <input
                     required
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
                     className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors bg-white"
                   />
                 </div>
@@ -360,6 +408,9 @@ export default function ContactForm() {
                   <input
                     type="email"
                     required
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors bg-white"
                   />
                 </div>
@@ -367,6 +418,9 @@ export default function ContactForm() {
                   <label className="text-[12px] font-semibold text-[#1A1A1A]">Cell</label>
                   <input
                     type="tel"
+                    name="cell"
+                    value={formData.cell}
+                    onChange={handleChange}
                     className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors bg-white"
                   />
                 </div>
@@ -380,6 +434,9 @@ export default function ContactForm() {
                   </label>
                   <input
                     required
+                    name="organisation"
+                    value={formData.organisation}
+                    onChange={handleChange}
                     className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors bg-white"
                   />
                 </div>
@@ -428,6 +485,9 @@ export default function ContactForm() {
                 <textarea
                   required
                   rows={5}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors resize-none bg-white"
                 />
               </div>
@@ -436,9 +496,10 @@ export default function ContactForm() {
               <div className="flex items-center gap-5 pt-1">
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-3 bg-[#7A1F5C] text-white px-7 py-3 rounded-xl font-bold text-sm hover:bg-[#C2185B] transition-colors duration-300"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center gap-3 bg-[#7A1F5C] text-white px-7 py-3 rounded-xl font-bold text-sm hover:bg-[#C2185B] transition-colors duration-300 disabled:opacity-70"
                 >
-                  Submit
+                  {isSubmitting ? 'Sending...' : 'Submit'}
                   <span className="w-6 h-6 flex items-center justify-center bg-white/20 rounded-full">
                     <ArrowRight size={13} />
                   </span>
@@ -465,10 +526,10 @@ export default function ContactForm() {
   };
 
   const steps = [
-    <StepWelcome   key="welcome"  />,
-    <StepRegion    key="region"   />,
-    <StepEnquiry   key="enquiry"  />,
-    <StepContactForm key="form"  />,
+    <StepWelcome key="welcome" />,
+    <StepRegion key="region" />,
+    <StepEnquiry key="enquiry" />,
+    <StepContactForm key="form" />,
   ];
 
   return (

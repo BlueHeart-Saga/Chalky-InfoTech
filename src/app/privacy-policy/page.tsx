@@ -19,6 +19,7 @@ import {
   FileText
 } from 'lucide-react';
 import { PRIVACY_POLICY_DATA } from '@/constants/legalData';
+import DownloadPdfButton from '@/components/DownloadPdfButton';
 
 const CATEGORY_ICONS: Record<string, any> = {
   "Introduction": ShieldCheck,
@@ -71,6 +72,12 @@ export default function PrivacyPolicyPage() {
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent" />
         </div>
+        
+        {/* Bottom Right PDF Download */}
+        <div className="absolute bottom-8 right-8 z-20 hidden md:block">
+          <DownloadPdfButton documentName="Privacy Policy" variant="light" />
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
@@ -228,6 +235,12 @@ export default function PrivacyPolicyPage() {
               <a href="mailto:privacy@chalkyinfotech.com" className="bg-white/10 px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all border border-white/10">
                 Email Privacy Team
               </a>
+              <div className="md:hidden mt-2">
+                 <DownloadPdfButton documentName="Privacy Policy" variant="light" className="px-8 py-4" />
+              </div>
+              <div className="hidden md:block">
+                 <DownloadPdfButton documentName="Privacy Policy" variant="light" className="py-4" />
+              </div>
             </div>
           </div>
         </div>

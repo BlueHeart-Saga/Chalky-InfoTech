@@ -32,13 +32,13 @@ export default function CTASection({
       </div>
 
       {/* ── Bottom wave (blends into footer) ── */}
-     
+
 
       {/* Decorative glow blobs */}
       <div className="absolute top-1/4 right-10 w-64 h-64 rounded-full bg-[#7A1F5C]/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 left-10 w-96 h-96 rounded-full bg-[#C2185B]/5 blur-3xl pointer-events-none" />
 
-      {/* Content — generous vertical padding to clear both waves */}
+      {/* Content  generous vertical padding to clear both waves */}
       <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32 md:py-40">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

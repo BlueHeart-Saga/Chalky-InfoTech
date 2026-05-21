@@ -22,7 +22,7 @@ export const INSIGHTS_SUMMARY = [
   {
     slug: 'future-of-ai-recruitment-2026',
     title: 'The Future of AI in Global Recruitment: Trends for 2026',
-    category: 'Technology',
+    category: 'Blogs',
     date: 'May 14, 2026',
     excerpt: 'How artificial intelligence is reshaping talent acquisition and what enterprise leaders need to know to stay competitive.',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop',
@@ -31,7 +31,7 @@ export const INSIGHTS_SUMMARY = [
   {
     slug: 'scaling-healthcare-workforces',
     title: 'Scaling Healthcare Workforces in a Post-Pandemic World',
-    category: 'Healthcare',
+    category: 'Case Studies',
     date: 'May 10, 2026',
     excerpt: 'Strategic approaches to clinical staffing and operational excellence in rapidly evolving medical environments.',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop',
@@ -40,7 +40,7 @@ export const INSIGHTS_SUMMARY = [
   {
     slug: 'fintech-talent-war',
     title: 'Winning the Fintech Talent War: A Strategic Guide',
-    category: 'Finance',
+    category: 'Newsletters',
     date: 'May 05, 2026',
     excerpt: 'Why traditional banking and fintech startups are competing for the same elite engineering talent and how to win.',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop',
@@ -52,7 +52,7 @@ export const INSIGHTS_DETAILED: InsightDetail[] = [
   {
     slug: 'future-of-ai-recruitment-2026',
     title: 'The Future of AI in Global Recruitment: Trends for 2026',
-    category: 'Technology',
+    category: 'Blogs',
     date: 'May 14, 2026',
     author: {
       name: 'James Wilson',
@@ -78,7 +78,7 @@ export const INSIGHTS_DETAILED: InsightDetail[] = [
   {
     slug: 'scaling-healthcare-workforces',
     title: 'Scaling Healthcare Workforces in a Post-Pandemic World',
-    category: 'Healthcare',
+    category: 'Case Studies',
     date: 'May 10, 2026',
     author: {
       name: 'Priya Nair',
@@ -99,7 +99,7 @@ export const INSIGHTS_DETAILED: InsightDetail[] = [
   {
     slug: 'fintech-talent-war',
     title: 'Winning the Fintech Talent War: A Strategic Guide',
-    category: 'Finance',
+    category: 'Newsletters',
     date: 'May 05, 2026',
     author: {
       name: 'Himanshu Mudgal',
@@ -112,7 +112,7 @@ export const INSIGHTS_DETAILED: InsightDetail[] = [
     content: [
       { type: 'text', value: 'The battle for engineering talent in the financial sector has reached a tipping point. With traditional banks undergoing massive digital transformations and fintech startups scaling at light speed, the competition for specialized developers and architects is fierce.' },
       { type: 'heading', value: 'The Hybrid Advantage' },
-      { type: 'text', value: 'Candidates today are looking for more than just a competitive salary. They want stability paired with innovation. We help our financial clients build value propositions that appeal to the "hybrid" professional—those who understand the rigor of finance and the speed of tech.' }
+      { type: 'text', value: 'Candidates today are looking for more than just a competitive salary. They want stability paired with innovation. We help our financial clients build value propositions that appeal to the "hybrid" professionalthose who understand the rigor of finance and the speed of tech.' }
     ],
     relatedInsights: ['future-of-ai-recruitment-2026']
   }

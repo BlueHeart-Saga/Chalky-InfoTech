@@ -5,8 +5,8 @@ import { Plus, Minus, Mail, Bell, ArrowRight, CheckCircle2 } from 'lucide-react'
 
 const STATS = [
   { value: '2,400+', label: 'Active Subscribers' },
-  { value: '98%',    label: 'Relevant Match Rate' },
-  { value: 'Daily',  label: 'Alert Frequency' },
+  { value: '98%', label: 'Relevant Match Rate' },
+  { value: 'Daily', label: 'Alert Frequency' },
 ];
 
 export function JobAlerts() {
@@ -53,7 +53,7 @@ export function JobAlerts() {
             </h2>
             <p className="text-white/70 text-base leading-relaxed mb-10 max-w-md">
               Subscribe to receive curated job alerts matched to your skills,
-              location, and salary expectations — delivered directly to your inbox.
+              location, and salary expectations  delivered directly to your inbox.
             </p>
 
             {/* Stats row */}
@@ -175,41 +175,41 @@ export function JobAlerts() {
 
 
 const FAQS = [
-  { 
-    q: 'How can I search and apply for the latest IT jobs on Chalky Infotech?', 
-    a: 'You can browse our current vacancies directly on our Jobs page. Once you find a suitable IT role, simply click "Apply" and upload your CV. Our recruitment consultants will then review your profile for technical and cultural alignment.' 
+  {
+    q: 'How can I search and apply for the latest IT jobs on Chalky Infotech?',
+    a: 'You can browse our current vacancies directly on our Jobs page. Once you find a suitable IT role, simply click "Apply" and upload your CV. Our recruitment consultants will then review your profile for technical and cultural alignment.'
   },
-  { 
-    q: 'Can I set up custom job alerts for specific cloud and engineering roles?', 
-    a: 'Yes! You can subscribe to our Job Alerts service by providing your email and role preferences. We will then notify you immediately whenever a new cloud, DevOps, or engineering position matching your criteria is posted.' 
+  {
+    q: 'Can I set up custom job alerts for specific cloud and engineering roles?',
+    a: 'Yes! You can subscribe to our Job Alerts service by providing your email and role preferences. We will then notify you immediately whenever a new cloud, DevOps, or engineering position matching your criteria is posted.'
   },
-  { 
-    q: 'What is the benefit of joining the Chalky Infotech talent pool?', 
-    a: 'Joining our talent pool ensures that our specialized recruiters have your profile on hand for upcoming opportunities that may not yet be public. This proactive approach gives you a competitive edge in high-demand technology sectors.' 
+  {
+    q: 'What is the benefit of joining the Chalky Infotech talent pool?',
+    a: 'Joining our talent pool ensures that our specialized recruiters have your profile on hand for upcoming opportunities that may not yet be public. This proactive approach gives you a competitive edge in high-demand technology sectors.'
   },
-  { 
-    q: 'Do you provide career opportunities for remote software engineering roles?', 
-    a: 'Absolutely. We partner with global organizations that offer a wide range of remote-first and hybrid software engineering roles. You can easily filter our job board specifically for "Remote" positions to find borderless opportunities.' 
+  {
+    q: 'Do you provide career opportunities for remote software engineering roles?',
+    a: 'Absolutely. We partner with global organizations that offer a wide range of remote-first and hybrid software engineering roles. You can easily filter our job board specifically for "Remote" positions to find borderless opportunities.'
   },
-  { 
-    q: 'How should I optimize my resume for your technical recruitment process?', 
-    a: 'We recommend highlighting your technical stack, key project contributions, and certifications clearly. Using standard formats (PDF or Word) and ensuring your most relevant skills are at the top helps our automated mapping tools and recruiters identify you faster.' 
+  {
+    q: 'How should I optimize my resume for your technical recruitment process?',
+    a: 'We recommend highlighting your technical stack, key project contributions, and certifications clearly. Using standard formats (PDF or Word) and ensuring your most relevant skills are at the top helps our automated mapping tools and recruiters identify you faster.'
   },
-  { 
-    q: 'Can I apply for multiple tech roles simultaneously through the portal?', 
-    a: 'Yes, you can apply for multiple roles that match your expertise. Our system will track your applications, and our consultants will coordinate with you to ensure you are considered for the best-fit opportunity across all your interests.' 
+  {
+    q: 'Can I apply for multiple tech roles simultaneously through the portal?',
+    a: 'Yes, you can apply for multiple roles that match your expertise. Our system will track your applications, and our consultants will coordinate with you to ensure you are considered for the best-fit opportunity across all your interests.'
   },
-  { 
-    q: 'What interview preparation support do you offer for IT candidates?', 
-    a: 'We provide comprehensive interview coaching, including technical brief reviews, company culture insights, and mock interview sessions. Our goal is to ensure you are fully prepared to showcase your technical value to prospective employers.' 
+  {
+    q: 'What interview preparation support do you offer for IT candidates?',
+    a: 'We provide comprehensive interview coaching, including technical brief reviews, company culture insights, and mock interview sessions. Our goal is to ensure you are fully prepared to showcase your technical value to prospective employers.'
   },
-  { 
-    q: 'How often is the Chalky Infotech job board updated with new roles?', 
-    a: 'Our job board is updated in real-time. As soon as a client releases a new requirement or a digital transformation project begins, the corresponding roles are immediately pushed to our live recruitment portal.' 
+  {
+    q: 'How often is the Chalky Infotech job board updated with new roles?',
+    a: 'Our job board is updated in real-time. As soon as a client releases a new requirement or a digital transformation project begins, the corresponding roles are immediately pushed to our live recruitment portal.'
   },
-  { 
-    q: 'Does Chalky Infotech support international placements for global tech talent?', 
-    a: 'Yes, we specialize in international talent acquisition. We support candidates globally in finding roles across the UK, India, and other major tech hubs, providing guidance on Right To Work and local employment standards.' 
+  {
+    q: 'Does Chalky Infotech support international placements for global tech talent?',
+    a: 'Yes, we specialize in international talent acquisition. We support candidates globally in finding roles across the UK, India, and other major tech hubs, providing guidance on Right To Work and local employment standards.'
   }
 ];
 

@@ -11,11 +11,12 @@ interface Props {
     desc: string;
     icon?: string;
   }[];
+  serviceLabel?: string;
 }
 
 const DEFAULT_ICONS = ['Search', 'ShieldCheck', 'UserCheck', 'Rocket', 'Activity', 'Award'];
 
-export default function ServiceProcess({ steps }: Props) {
+export default function ServiceProcess({ steps, serviceLabel }: Props) {
   // If no steps provided, use the first 4 recruitment steps as fallback to fit the 4-column layout
   const displaySteps = steps || RECRUITMENT_STEPS.slice(0, 4);
   const isFourStep = displaySteps.length === 4;
@@ -31,7 +32,7 @@ export default function ServiceProcess({ steps }: Props) {
             Service Workflow
           </span>
           <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-tight tracking-tight">
-            How We <span className="text-[#7A1F5C]">Deliver Value</span>
+            How We <span className="text-[#7A1F5C]">Deliver Value</span> for {serviceLabel || 'Your Business'}
           </h2>
           <p className="text-[#8A8A8A] text-lg leading-relaxed">
             Our streamlined methodology ensures precision, transparency, and rapid delivery at every stage of your engagement.

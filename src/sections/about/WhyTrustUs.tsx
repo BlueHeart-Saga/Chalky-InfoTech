@@ -62,7 +62,7 @@ export default function WhyTrustUs() {
         {/* ── TOP: Header (Left) + Image (Right) ── */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
 
-          {/* Left — Label + Heading + Description */}
+          {/* Left  Label + Heading + Description */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -90,7 +90,7 @@ export default function WhyTrustUs() {
             </motion.p>
           </motion.div>
 
-          {/* Right — Trust Image */}
+          {/* Right  Trust Image */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -110,7 +110,7 @@ export default function WhyTrustUs() {
         {/* ── BOTTOM: Storytelling (Left) + Trust Cards (Right) ── */}
         <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-          {/* LEFT — Storytelling Content */}
+          {/* LEFT  Storytelling Content */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -139,7 +139,7 @@ export default function WhyTrustUs() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — Trust Cards */}
+          {/* RIGHT  Trust Cards */}
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
             initial="hidden"

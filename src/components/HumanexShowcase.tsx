@@ -47,16 +47,16 @@ export default function HumanexShowcase() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#FAF8F5] py-20 md:py-8 text-[#1A1A1A]">
-      
+
       {/* WhatsApp-style pattern background */}
       <div className="absolute inset-0 opacity-[0.07] pointer-events-none" style={{ backgroundImage: 'url("/hero-pattern.png")', backgroundSize: '400px 400px', backgroundRepeat: 'repeat' }} />
-      
+
       {/* ─── Glowing Brand-Plum Meshes ─── */}
       <div className="absolute top-1/4 -left-64 w-[600px] h-[600px] rounded-full bg-[#7A1F5C]/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-64 w-[600px] h-[600px] rounded-full bg-[#D14D72]/5 blur-[120px] pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* ─── Header Section ─── */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.span
@@ -67,7 +67,7 @@ export default function HumanexShowcase() {
           >
             <Cpu size={12} className="animate-pulse" /> Proprietary HR Platform
           </motion.span>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -75,10 +75,10 @@ export default function HumanexShowcase() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-semibold mb-6 leading-[1.1] tracking-tight text-[#1A1A1A]"
           >
-            Powering Recruitment with <br/>
+            Powering Recruitment with <br />
             Our Proprietary <span className="text-[#7A1F5C]">HR Platform</span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export default function HumanexShowcase() {
             transition={{ delay: 0.2 }}
             className="text-gray-600 text-base md:text-lg leading-relaxed font-normal"
           >
-            Recruitment is more than sourcing candidates. Chalky combines expert <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent acquisition</Link> with <span className="text-[#7A1F5C] font-semibold">Humanex</span> — our AI-powered all-in-one HR, hiring, onboarding, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">workforce management</Link> platform built to simplify every stage of the employee journey.
+            Recruitment is more than sourcing candidates. Chalky combines expert <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent acquisition</Link> with <span className="text-[#7A1F5C] font-semibold">Humanex</span>  our AI-powered all-in-one HR, hiring, onboarding, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">workforce management</Link> platform built to simplify every stage of the employee journey.
           </motion.p>
         </div>
 
@@ -99,8 +99,8 @@ export default function HumanexShowcase() {
           className="flex flex-wrap justify-center gap-3 md:gap-4 mb-20 max-w-5xl mx-auto"
         >
           {features.map((feat, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-gray-200/60 hover:border-[#7A1F5C]/20 hover:bg-[#F5F0E8]/40 transition-all duration-300 shadow-sm group"
             >
               <CheckCircle size={14} className="text-[#7A1F5C] group-hover:scale-105 transition-transform" />
@@ -111,7 +111,7 @@ export default function HumanexShowcase() {
 
         {/* ─── Product Showcase Layout ─── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
-          
+
           {/* LEFT: Premium OS Dashboard Mockup */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -122,10 +122,10 @@ export default function HumanexShowcase() {
           >
             {/* Outer Decorative Soft Brand Glow */}
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#7A1F5C] to-[#D14D72] opacity-5 blur-xl group-hover:opacity-10 transition duration-1000" />
-            
+
             {/* Mock macOS Panel */}
             <div className="relative rounded-2xl overflow-hidden border border-[#7A1F5C]/10 bg-white shadow-xl shadow-[#7A1F5C]/3 flex flex-col">
-              
+
               {/* Traffic Lights Bar */}
               <div className="bg-[#FAF8F5] px-4 py-2.5 border-b border-gray-100 flex items-center gap-2">
                 <div className="w-2.5 h-2.5 rounded-full bg-rose-400" />
@@ -133,7 +133,7 @@ export default function HumanexShowcase() {
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                 <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest ml-3">Humanex – System Hub</span>
               </div>
-              
+
               {/* Actual Dashboard Screenshot Asset */}
               <div className="relative aspect-[16/10] w-full bg-neutral-50 overflow-hidden">
                 <Image
@@ -141,7 +141,7 @@ export default function HumanexShowcase() {
                   alt="Humanex platform dashboard mockup"
                   fill
                   className="object-cover group-hover:scale-[1.005] transition-transform duration-750"
-                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               </div>
             </div>
           </motion.div>
@@ -173,13 +173,13 @@ export default function HumanexShowcase() {
 
             {/* Premium CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <a 
+              <a
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-[#7A1F5C] hover:bg-[#D14D72] text-white px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest shadow-md shadow-[#7A1F5C]/10 transition-all hover:-translate-y-0.5 active:translate-y-0"
               >
                 Start Hiring
               </a>
-              <a 
+              <a
                 href="https://chalkyhrplatform-hgadcrengkdmhrhb.southindia-01.azurewebsites.net/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -243,11 +243,11 @@ export default function HumanexShowcase() {
                   <div className={`w-12 h-12 rounded-xl ${card.color} border flex items-center justify-center mb-5 group-hover:scale-105 transition-transform`}>
                     <CardIcon size={20} />
                   </div>
-                  
+
                   <h4 className="font-semibold text-base text-[#1A1A1A] mb-3 uppercase tracking-wide">
                     {card.title}
                   </h4>
-                  
+
                   <ul className="space-y-2 mt-auto">
                     {card.items.map((item, i) => (
                       <li key={i} className="flex items-center gap-2 text-xs text-gray-500">

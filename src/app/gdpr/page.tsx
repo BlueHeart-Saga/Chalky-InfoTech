@@ -16,6 +16,7 @@ import {
   Scale,
   FileText
 } from 'lucide-react';
+import DownloadPdfButton from '@/components/DownloadPdfButton';
 import { GDPR_COMPLIANCE_DATA } from '@/constants/legalData';
 
 const CATEGORY_ICONS: Record<string, any> = {
@@ -61,6 +62,11 @@ export default function GDPRPage() {
       <section className="pt-32 pb-20 bg-[#7A1F5C] text-white overflow-hidden relative">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent" />
+        </div>
+        
+        {/* Bottom Right PDF Download */}
+        <div className="absolute bottom-8 right-8 z-20 hidden md:block">
+          <DownloadPdfButton documentName="GDPR Compliance" variant="light" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.span 
@@ -219,6 +225,12 @@ export default function GDPRPage() {
               <a href="mailto:dpo@chalkyinfotech.com" className="bg-white/10 px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all border border-white/10">
                 Email DPO
               </a>
+              <div className="md:hidden mt-2">
+                 <DownloadPdfButton documentName="GDPR Compliance" variant="light" className="px-8 py-4" />
+              </div>
+              <div className="hidden md:block">
+                 <DownloadPdfButton documentName="GDPR Compliance" variant="light" className="py-4" />
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,16 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+
+import team1 from '@/assets/About Us/People behind/1.png';
+import team2 from '@/assets/About Us/People behind/6.png';
+import team3 from '@/assets/About Us/People behind/3.png';
+import team4 from '@/assets/About Us/People behind/7.png';
+import team5 from '@/assets/About Us/People behind/4.png';
+import team6 from '@/assets/About Us/People behind/2.png';
+import team7 from '@/assets/About Us/People behind/5.png';
+import team8 from '@/assets/About Us/People behind/8.png';
 
 const milestones = [
   {
@@ -177,14 +187,14 @@ export default function CompanyTimeline() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
             {[
-              { id: 1, line1: 'SARAVANA KARTHIKEYAN', line2: 'CEO & FOUNDER' },
-              { id: 2, line1: 'MANJULA BASHKAR', line2: 'SECURITY SPECIALIST' },
-              { id: 3, line1: 'HIMANSHU MUDGAL', line2: 'HEAD OF CLIENT SUCCESS' },
-              { id: 4, line1: 'PRIYA NAIR', line2: 'HEAD OF TALENT ACQUISITION' },
-              { id: 5, line1: 'ANJALI SHAH', line2: 'AI RECRUITMENT LEAD' },
-              { id: 6, line1: 'JAMES WILSON', line2: 'DIRECTOR OF STRATEGY' },
-              { id: 7, line1: 'RAKESH SHARMA', line2: 'TECHNICAL CONSULTANT' },
-              { id: 8, line1: 'NEHA GUPTA', line2: 'SENIOR TALENT PARTNER' },
+              { id: 1, line1: 'SARAVANA KARTHIKEYAN', line2: 'CEO & FOUNDER', img: team1 },
+              { id: 2, line1: 'MANJULA BASHKAR', line2: 'SECURITY SPECIALIST', img: team2 },
+              { id: 3, line1: 'HIMANSHU MUDGAL', line2: 'HEAD OF CLIENT SUCCESS', img: team3 },
+              { id: 4, line1: 'PRIYA NAIR', line2: 'HEAD OF TALENT ACQUISITION', img: team4 },
+              { id: 5, line1: 'ANJALI SHAH', line2: 'AI RECRUITMENT LEAD', img: team5 },
+              { id: 6, line1: 'JAMES WILSON', line2: 'DIRECTOR OF STRATEGY', img: team6 },
+              { id: 7, line1: 'RAKESH SHARMA', line2: 'TECHNICAL CONSULTANT', img: team7 },
+              { id: 8, line1: 'NEHA GUPTA', line2: 'SENIOR TALENT PARTNER', img: team8 },
             ].map((member, i) => (
               <motion.div 
                 key={i}
@@ -202,10 +212,12 @@ export default function CompanyTimeline() {
                   
                   {/* Portrait */}
                   <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 70%' }}>
-                    <img 
-                      src={`/team/team-${member.id}.png`}
+                    <Image 
+                      src={member.img}
                       alt={member.line1}
-                      className="w-full h-full object-cover filter grayscale brightness-110 group-hover:scale-105 transition-transform duration-700"
+                      fill
+                      unoptimized
+                      className="object-cover filter grayscale brightness-110 group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </div>

@@ -10,7 +10,7 @@ import {
 
 const API_BASE_URL = 'https://chalkyinfotechserver-awfncucscucnbgah.southindia-01.azurewebsites.net';
 const WORK_MODES = ['All', 'On-site', 'Remote', 'Hybrid'];
-const EMP_TYPES  = ['All', 'Full-time', 'Part-time', 'Contract', 'Internship', 'Remote'];
+const EMP_TYPES = ['All', 'Full-time', 'Part-time', 'Contract', 'Internship', 'Remote'];
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 function truncate(str: string, words = 18) {
@@ -46,20 +46,20 @@ function ApplyBtn({ href }: { href: string }) {
 
 // ═════════════════════════════════════════════════════════════════════════════
 export default function JobBoard() {
-  const [jobs, setJobs]           = useState<any[]>([]);
-  const [loading, setLoading]     = useState(true);
-  const [viewMode, setViewMode]   = useState<'list' | 'grid'>('list'); // list default
-  const [now, setNow]             = useState(Date.now());
+  const [jobs, setJobs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [viewMode, setViewMode] = useState<'list' | 'grid'>('list'); // list default
+  const [now, setNow] = useState(Date.now());
 
-  const [search, setSearch]       = useState('');
-  const [location, setLocation]   = useState('');
+  const [search, setSearch] = useState('');
+  const [location, setLocation] = useState('');
   const [experience, setExperience] = useState('');
-  const [workMode, setWorkMode]   = useState('All');
-  const [empType, setEmpType]     = useState('All');
+  const [workMode, setWorkMode] = useState('All');
+  const [empType, setEmpType] = useState('All');
   const [openFilter, setOpenFilter] = useState<string | null>(null);
 
   const [selectedJob, setSelectedJob] = useState<any>(null);
-  const [showPopup, setShowPopup]     = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const openPopup = (job: any) => {
     setSelectedJob(job);
@@ -76,7 +76,7 @@ export default function JobBoard() {
     setNow(Date.now());
     (async () => {
       try {
-        const res  = await fetch(`${API_BASE_URL}/api/requirements/public`);
+        const res = await fetch(`${API_BASE_URL}/api/requirements/public`);
         const data = await res.json();
         if (data.success) {
           const currentNow = Date.now();
@@ -104,7 +104,7 @@ export default function JobBoard() {
       (location === '' || (j.location || '').toLowerCase().includes(location.toLowerCase())) &&
       (experience === '' || (j.experience || '').toLowerCase().includes(experience.toLowerCase())) &&
       (workMode === 'All' || j.workMode === workMode) &&
-      (empType === 'All'  || j.employmentType === empType)
+      (empType === 'All' || j.employmentType === empType)
     );
   });
 
@@ -149,15 +149,15 @@ export default function JobBoard() {
           </p>
         )}
 
-        {/* meta grid — 2 col like reference image */}
+        {/* meta grid  2 col like reference image */}
         <div className="grid grid-cols-2 gap-2 mb-5">
           {[
-            { icon: Calendar,   label: job.deadline ? new Date(job.deadline).toLocaleDateString() : 'Continuous' },
-            { icon: MapPin,     label: job.location || 'Anywhere' },
+            { icon: Calendar, label: job.deadline ? new Date(job.deadline).toLocaleDateString() : 'Continuous' },
+            { icon: MapPin, label: job.location || 'Anywhere' },
             { icon: DollarSign, label: job.salaryRange || 'Competitive' },
-            { icon: Building2,  label: job.workMode || 'N/A' },
-            { icon: Briefcase,  label: job.experience || 'Entry level' },
-            { icon: Hourglass,  label: job.employmentType || 'Full time' },
+            { icon: Building2, label: job.workMode || 'N/A' },
+            { icon: Briefcase, label: job.experience || 'Entry level' },
+            { icon: Hourglass, label: job.employmentType || 'Full time' },
           ].map(({ icon: Icon, label }, i) => (
             <div key={i} className="flex items-center gap-1.5 bg-gray-50 rounded-lg px-2.5 py-2 text-xs text-gray-500 truncate">
               <Icon size={11} className="text-gray-400 shrink-0" />
@@ -218,12 +218,12 @@ export default function JobBoard() {
           )}
 
           <div className="flex flex-wrap gap-x-4 gap-y-1">
-            <Pill icon={MapPin}    label={job.location || 'Anywhere'} />
+            <Pill icon={MapPin} label={job.location || 'Anywhere'} />
             <Pill icon={Briefcase} label={job.experience || 'Entry level'} />
             <Pill icon={Hourglass} label={job.employmentType || 'Full time'} />
             <Pill icon={Building2} label={job.workMode || 'N/A'} />
             <Pill icon={DollarSign} label={job.salaryRange || 'Competitive'} />
-            <Pill icon={Calendar}  label={job.deadline ? new Date(job.deadline).toLocaleDateString() : 'Continuous'} />
+            <Pill icon={Calendar} label={job.deadline ? new Date(job.deadline).toLocaleDateString() : 'Continuous'} />
           </div>
         </div>
 
@@ -313,43 +313,53 @@ export default function JobBoard() {
               <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-3">Filter</h3>
               <div className="space-y-0">
                 {[
-                  { key: 'keyword', label: 'Keyword', render: () => (
-                    <input type="text" placeholder="e.g. Developer" value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                      className="w-full p-2 border border-gray-200 text-xs outline-none focus:border-[#7A1F5C]" />
-                  )},
-                  { key: 'location', label: 'Location', render: () => (
-                    <input type="text" placeholder="e.g. Bangalore" value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                      className="w-full p-2 border border-gray-200 text-xs outline-none focus:border-[#7A1F5C]" />
-                  )},
-                  { key: 'workMode', label: 'Work Mode', render: () => (
-                    <div className="flex flex-col gap-2">
-                      {WORK_MODES.map(m => (
-                        <label key={m} className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
-                          <input type="radio" name="workMode" value={m} checked={workMode === m}
-                            onChange={() => setWorkMode(m)} className="accent-[#7A1F5C]" />
-                          {m}
-                        </label>
-                      ))}
-                    </div>
-                  )},
-                  { key: 'empType', label: 'Type', render: () => (
-                    <div className="flex flex-col gap-2">
-                      {EMP_TYPES.map(t => (
-                        <label key={t} className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
-                          <input type="radio" name="empType" value={t} checked={empType === t}
-                            onChange={() => setEmpType(t)} className="accent-[#7A1F5C]" />
-                          {t}
-                        </label>
-                      ))}
-                    </div>
-                  )},
-                  { key: 'experience', label: 'Experience', render: () => (
-                    <input type="text" placeholder="e.g. 3-5 years" value={experience}
-                      onChange={(e) => setExperience(e.target.value)}
-                      className="w-full p-2 border border-gray-200 text-xs outline-none focus:border-[#7A1F5C]" />
-                  )},
+                  {
+                    key: 'keyword', label: 'Keyword', render: () => (
+                      <input type="text" placeholder="e.g. Developer" value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        className="w-full p-2 border border-gray-200 text-xs outline-none focus:border-[#7A1F5C]" />
+                    )
+                  },
+                  {
+                    key: 'location', label: 'Location', render: () => (
+                      <input type="text" placeholder="e.g. Bangalore" value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        className="w-full p-2 border border-gray-200 text-xs outline-none focus:border-[#7A1F5C]" />
+                    )
+                  },
+                  {
+                    key: 'workMode', label: 'Work Mode', render: () => (
+                      <div className="flex flex-col gap-2">
+                        {WORK_MODES.map(m => (
+                          <label key={m} className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+                            <input type="radio" name="workMode" value={m} checked={workMode === m}
+                              onChange={() => setWorkMode(m)} className="accent-[#7A1F5C]" />
+                            {m}
+                          </label>
+                        ))}
+                      </div>
+                    )
+                  },
+                  {
+                    key: 'empType', label: 'Type', render: () => (
+                      <div className="flex flex-col gap-2">
+                        {EMP_TYPES.map(t => (
+                          <label key={t} className="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+                            <input type="radio" name="empType" value={t} checked={empType === t}
+                              onChange={() => setEmpType(t)} className="accent-[#7A1F5C]" />
+                            {t}
+                          </label>
+                        ))}
+                      </div>
+                    )
+                  },
+                  {
+                    key: 'experience', label: 'Experience', render: () => (
+                      <input type="text" placeholder="e.g. 3-5 years" value={experience}
+                        onChange={(e) => setExperience(e.target.value)}
+                        className="w-full p-2 border border-gray-200 text-xs outline-none focus:border-[#7A1F5C]" />
+                    )
+                  },
                 ].map(({ key, label, render }) => (
                   <div key={key} className="border-b border-gray-100">
                     <button
@@ -477,12 +487,12 @@ export default function JobBoard() {
 
               {/* Meta strip */}
               <div className="px-6 py-3 bg-[#fafafa] border-b border-gray-100 flex flex-wrap gap-x-5 gap-y-1.5 shrink-0">
-                <Pill icon={MapPin}    label={selectedJob.location || 'Not specified'} />
+                <Pill icon={MapPin} label={selectedJob.location || 'Not specified'} />
                 <Pill icon={Briefcase} label={selectedJob.experience || 'Not specified'} />
-                <Pill icon={Clock}     label={selectedJob.employmentType || 'Not specified'} />
+                <Pill icon={Clock} label={selectedJob.employmentType || 'Not specified'} />
                 <Pill icon={Building2} label={selectedJob.workMode || 'Not specified'} />
                 <Pill icon={DollarSign} label={selectedJob.salaryRange || 'Not disclosed'} />
-                <Pill icon={Calendar}  label={selectedJob.deadline ? new Date(selectedJob.deadline).toLocaleDateString() : 'Open'} />
+                <Pill icon={Calendar} label={selectedJob.deadline ? new Date(selectedJob.deadline).toLocaleDateString() : 'Open'} />
               </div>
 
               {/* Scrollable body */}

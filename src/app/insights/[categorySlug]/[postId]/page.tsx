@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const response = await getCachedPost(postId);
     const backendPost = response?.item;
     if (!backendPost) return { title: 'Post Not Found' };
-    
+
     const post = api.transformContent(backendPost);
 
     return {
@@ -66,14 +66,14 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
   let post: any = null;
   let relatedPosts: any[] = [];
   let blocks: any[] = [];
-  
+
   try {
     const response = await getCachedPost(postId);
     const backendPost = response?.item;
     if (backendPost) {
       post = api.transformContent(backendPost);
       blocks = backendPost.blocks || [];
-      
+
       // Fetch some related posts from the same section
       const sectionPosts = await getCachedSectionPosts(backendPost.section_slug || 'insights-knowledge');
       relatedPosts = sectionPosts.filter((p: any) => p.id !== postId).slice(0, 3);
@@ -117,7 +117,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
             "{block.data.value}"
             {block.data.author && (
               <cite className="block text-xs font-bold uppercase tracking-wider text-gray-400 not-italic mt-3">
-                — {block.data.author}
+                {block.data.author}
               </cite>
             )}
           </blockquote>
@@ -156,7 +156,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
                 fill
                 unoptimized
                 className="object-cover"
-               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             </div>
             {block.data.caption && (
               <figcaption className="text-center text-xs text-gray-400 italic">
@@ -206,7 +206,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      
+
       {/* ── Page Hero: Consistent, Stunning diagonal banner matching standard pages ── */}
       <PageHero
         breadcrumbs={[
@@ -230,10 +230,10 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
       {/* ── Main Layout Body ── */}
       <div id="publication" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
-          
+
           {/* ════ LEFT COLUMN: Main Post Text ════ */}
           <article className="lg:w-2/3 w-full">
-            
+
             {/* dynamic Editorial Main Heading */}
             <div className="mb-10">
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#7A1F5C] bg-[#7A1F5C]/10 px-3 py-1.5 rounded-md mb-6 inline-block">
@@ -257,7 +257,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
                   unoptimized
                   className="object-cover"
                   priority
-                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               </div>
             )}
 
@@ -266,7 +266,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
               {blocks.length > 0 ? (
                 blocks.map((block, idx) => renderBlock(block, idx))
               ) : (
-                <div 
+                <div
                   className="prose prose-lg prose-plum max-w-none"
                   dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br />') }}
                 />
@@ -274,7 +274,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
             </div>
 
             {/* Interactive Engagement Hub */}
-            <EngagementHub 
+            <EngagementHub
               postId={postId}
               postTitle={post.title}
               readTime={post.readTime || 5}
@@ -287,13 +287,13 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
 
           {/* ════ RIGHT COLUMN: Sticky Sidebar ════ */}
           <aside className="lg:w-1/3 w-full lg:sticky lg:top-24 space-y-12">
-            
+
             {/* Author Profile Card */}
             <div className="bg-[#FAF8F5] rounded-3xl p-8 border border-[#EFE7DD]">
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#7A1F5C] mb-6 block">
                 Lead Contributor
               </span>
-              
+
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden relative border-2 border-white shadow-md bg-gradient-to-br from-[#7A1F5C] to-[#4A1238] flex items-center justify-center text-white font-extrabold text-2xl uppercase tracking-tighter">
                   {post.author ? post.author.charAt(0) : 'C'}
@@ -311,10 +311,10 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
               <div className="flex items-center gap-2.5 pt-2">
                 <span className="text-[10px] font-black uppercase tracking-wider text-gray-400">CONNECT:</span>
                 <a href="https://www.linkedin.com/company/chalky-infotech-recruitment/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-[#EFE7DD] flex items-center justify-center text-gray-500 hover:bg-[#7A1F5C] hover:text-white hover:border-[#7A1F5C] transition-all">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                 </a>
                 <a href="https://www.facebook.com/people/Chalkyinfotech/61584513646137/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-[#EFE7DD] flex items-center justify-center text-gray-500 hover:bg-[#7A1F5C] hover:text-white hover:border-[#7A1F5C] transition-all">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
                 </a>
               </div>
             </div>
@@ -327,8 +327,8 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
                 </h4>
                 <div className="space-y-6">
                   {relatedPosts.map((related: any) => (
-                    <Link 
-                      key={related.id} 
+                    <Link
+                      key={related.id}
                       href={`/insights/${related.category?.slug}/${related.id}`}
                       className="group flex gap-4 items-center"
                     >
@@ -340,7 +340,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
                             fill
                             unoptimized
                             className="object-cover group-hover:scale-110 transition-transform duration-500"
-                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -373,7 +373,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
       </div>
 
       <section id="cta">
-        <CTASection 
+        <CTASection
           title="Stay Ahead of the Curve"
           subtitle="Get our latest insights and sector trends delivered to your inbox every month."
           primaryLabel="Subscribe Now"

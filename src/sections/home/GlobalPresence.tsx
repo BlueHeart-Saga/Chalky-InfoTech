@@ -113,71 +113,71 @@ export default function GlobalPresence() {
           <div className="relative group/map-container">
             {/* Map Container (Overflow Hidden) */}
             <div className="w-full bg-[#F8F9FA] rounded-[2rem] border-2 border-gray-100 relative overflow-hidden h-[350px] md:h-[450px] shadow-inner">
-            <div
-              className="absolute inset-0 w-full h-full transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
-              style={{
-                transform: `scale(${mapStyle.scale})`,
-                transformOrigin: mapStyle.origin,
-              }}
-            >
-              {/* SVG Mask Background */}
               <div
-                className="absolute inset-0 w-full h-full bg-[#E9ECEF]"
+                className="absolute inset-0 w-full h-full transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
                 style={{
-                  maskImage: "url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')",
-                  maskSize: "100% 100%",
-                  maskRepeat: "no-repeat",
-                  maskPosition: "center center",
-                  WebkitMaskImage: "url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')",
-                  WebkitMaskSize: "100% 100%",
-                  WebkitMaskRepeat: "no-repeat",
-                  WebkitMaskPosition: "center center",
+                  transform: `scale(${mapStyle.scale})`,
+                  transformOrigin: mapStyle.origin,
                 }}
-              />
-
-              {/* Highlight Canvas */}
-              <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
-
-              {/* Pins */}
-              {LOCATIONS.map((loc) => (
+              >
+                {/* SVG Mask Background */}
                 <div
-                  key={loc.name}
-                  className="absolute z-10 group"
+                  className="absolute inset-0 w-full h-full bg-[#E9ECEF]"
                   style={{
-                    top: `${loc.top}%`,
-                    left: `${loc.left}%`,
-                    transform: `translate(-50%, -50%)`,
-                    transition: "transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)"
+                    maskImage: "url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')",
+                    maskSize: "100% 100%",
+                    maskRepeat: "no-repeat",
+                    maskPosition: "center center",
+                    WebkitMaskImage: "url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')",
+                    WebkitMaskSize: "100% 100%",
+                    WebkitMaskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center center",
                   }}
-                >
-                  <button
-                    className="relative p-2"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveLocation(loc.name);
+                />
+
+                {/* Highlight Canvas */}
+                <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+
+                {/* Pins */}
+                {LOCATIONS.map((loc) => (
+                  <div
+                    key={loc.name}
+                    className="absolute z-10 group"
+                    style={{
+                      top: `${loc.top}%`,
+                      left: `${loc.left}%`,
+                      transform: `translate(-50%, -50%)`,
+                      transition: "transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)"
                     }}
                   >
-                    <MapPin
-                      size={24}
-                      className={`transition-all duration-300 ${activeLocation === loc.name ? 'text-[#C2185B] scale-110 drop-shadow-xl' : 'text-[#7A1F5C] hover:scale-110 drop-shadow-md'} ${activeLocation && activeLocation !== loc.name ? 'opacity-50 grayscale' : 'opacity-100'}`}
-                      strokeWidth={2.5}
-                    />
-                    {/* Pulse effect if active */}
-                    {activeLocation === loc.name && (
-                      <span className="absolute inset-0 flex items-center justify-center -z-10">
-                        <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-[#D14D72] opacity-40"></span>
-                      </span>
-                    )}
-                  </button>
+                    <button
+                      className="relative p-2"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveLocation(loc.name);
+                      }}
+                    >
+                      <MapPin
+                        size={24}
+                        className={`transition-all duration-300 ${activeLocation === loc.name ? 'text-[#C2185B] scale-110 drop-shadow-xl' : 'text-[#7A1F5C] hover:scale-110 drop-shadow-md'} ${activeLocation && activeLocation !== loc.name ? 'opacity-50 grayscale' : 'opacity-100'}`}
+                        strokeWidth={2.5}
+                      />
+                      {/* Pulse effect if active */}
+                      {activeLocation === loc.name && (
+                        <span className="absolute inset-0 flex items-center justify-center -z-10">
+                          <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-[#D14D72] opacity-40"></span>
+                        </span>
+                      )}
+                    </button>
 
-                  {/* Persistent City Label */}
-                  <div className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none transition-all duration-500 ${loc.labelPosition === 'top' ? 'bottom-full mb-1' : 'top-full mt-1'} ${activeLocation && activeLocation !== loc.name ? 'opacity-30 scale-90' : 'opacity-100 scale-100'}`}>
-                    <span className="text-[10px] font-bold text-[#7A1F5C] bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#7A1F5C]/10 shadow-sm">
-                      {loc.name}
-                    </span>
+                    {/* Persistent City Label */}
+                    <div className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none transition-all duration-500 ${loc.labelPosition === 'top' ? 'bottom-full mb-1' : 'top-full mt-1'} ${activeLocation && activeLocation !== loc.name ? 'opacity-30 scale-90' : 'opacity-100 scale-100'}`}>
+                      <span className="text-[10px] font-bold text-[#7A1F5C] bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#7A1F5C]/10 shadow-sm">
+                        {loc.name}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
 
               </div>
             </div>
@@ -191,13 +191,13 @@ export default function GlobalPresence() {
                     <h3 className="text-xl font-semibold text-[#1A1A1A] leading-tight">{activeLocData.name}</h3>
                     <div className="h-[1.5px] w-8 bg-[#7A1F5C]/30 mt-2 rounded-full" />
                   </div>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <p className="text-[9px] text-gray-400 font-semibold uppercase tracking-wider mb-0.5">Role & Region</p>
-                      <p className="text-[11px] font-normal text-gray-600">{activeLocData.type} — {activeLocData.region}</p>
+                      <p className="text-[11px] font-normal text-gray-600">{activeLocData.type}  {activeLocData.region}</p>
                     </div>
-                    
+
                     <div>
                       <p className="text-[9px] text-gray-400 font-semibold uppercase tracking-wider mb-0.5">Team Strength</p>
                       <div className="flex items-center gap-1.5">
@@ -207,7 +207,7 @@ export default function GlobalPresence() {
                     </div>
                   </div>
 
-                  <button 
+                  <button
                     onClick={() => setActiveLocation(null)}
                     className="mt-6 flex items-center gap-2 text-[#7A1F5C] text-[10px] font-bold hover:gap-3 transition-all group tracking-wide"
                   >
