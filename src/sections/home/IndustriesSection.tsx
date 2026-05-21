@@ -15,7 +15,7 @@ import FinanceImg from '@/assets/homepage/Industry/banking-finance.png';
 import HealthcareImg from '@/assets/homepage/Industry/healthcare-life-sciences.png';
 import RetailImg from '@/assets/homepage/Industry/retail-ecommerce.png';
 import ManufacturingImg from '@/assets/homepage/Industry/manufacturing.png';
-
+// Map industry slugs to clean, case-sensitive resolved images
 const imageMap: Record<string, any> = {
   'it-technology': TechImg,
   'telecommunications': TelecomImg,
