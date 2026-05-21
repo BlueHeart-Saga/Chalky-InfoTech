@@ -44,26 +44,25 @@ export default function WelcomeLoader() {
           <div className="relative z-10 flex flex-col items-center">
             {/* Logo Container */}
             <motion.div
-              initial={{ scale: 0.7, opacity: 0 }}
+              initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{
                 duration: 1.2,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="relative w-24 h-24 mb-6 flex items-center justify-center bg-white rounded-3xl border border-gray-100/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+              className="mb-6 flex items-center justify-center"
             >
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#7A1F5C]/5 to-[#C2185B]/5 blur-sm pointer-events-none" />
               <Image
                 src="/logo.png"
                 alt="Chalky InfoTech Logo"
-                width={64}
-                height={64}
+                width={80}
+                height={80}
                 priority
-                className="object-contain drop-shadow-[0_4px_8px_rgba(122,31,92,0.15)]"
+                className="object-contain"
               />
             </motion.div>
 
-            {/* Brand Name */}
+            {/* Brand Welcome Name */}
             <div className="overflow-hidden flex flex-col items-center mb-6">
               <motion.h1
                 initial={{ y: 30, opacity: 0 }}
@@ -73,9 +72,9 @@ export default function WelcomeLoader() {
                   duration: 0.8,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="text-3xl md:text-4xl font-extrabold text-[#7A1F5C] tracking-tight text-center"
+                className="text-3xl md:text-4xl font-extrabold text-[#1A1A1A] tracking-tight text-center leading-tight px-4"
               >
-                Chalky <span className="text-[#1A1A1A] font-medium">InfoTech</span>
+                Welcome to <span className="text-[#7A1F5C]">Chalky InfoTech</span>
               </motion.h1>
 
               <motion.p
