@@ -9,14 +9,21 @@ export default function WelcomeLoader() {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    // Check if the user has visited before using localStorage
-    const hasVisited = localStorage.getItem('chalky_welcomed_v1');
+    // Check if the page is being reloaded/refreshed
+    const navigationEntries = performance.getEntriesByType('navigation');
+    const isReload = navigationEntries.length > 0 && (navigationEntries[0] as PerformanceNavigationTiming).type === 'reload';
+
+    if (isReload) {
+      sessionStorage.removeItem('chalky_welcomed_session');
+    }
+
+    const hasVisited = sessionStorage.getItem('chalky_welcomed_session');
     if (!hasVisited) {
       setShouldRender(true);
       // Wait for loader to complete before hiding
       const timer = setTimeout(() => {
         setLoading(false);
-        localStorage.setItem('chalky_welcomed_v1', 'true');
+        sessionStorage.setItem('chalky_welcomed_session', 'true');
       }, 2800);
       return () => clearTimeout(timer);
     } else {
