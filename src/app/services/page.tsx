@@ -79,7 +79,7 @@ export default function ServicesPage() {
       <section id="success"><ClientSuccessApproach /></section>
       <section id="expertise"><IndustryExpertise /></section>
       <section id="process"><RecruitmentProcess /></section>
-      <section id="methodology"><SearchMethodology /></section>
+      {/* <section id="methodology"><SearchMethodology /></section> */}
       <section id="why-choose"><WhyChooseServices /></section>
       <section id="specialized"><SpecializedHiring /></section>
       <section id="global"><GlobalWorkforceSupport /></section>

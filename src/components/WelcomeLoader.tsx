@@ -1,50 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export default function WelcomeLoader() {
-  const [loading, setLoading] = useState(true);
-  const [shouldRender, setShouldRender] = useState(false);
-
-  useEffect(() => {
-    // Check if the page is being reloaded/refreshed
-    const navigationEntries = performance.getEntriesByType('navigation');
-    const isReload = navigationEntries.length > 0 && (navigationEntries[0] as PerformanceNavigationTiming).type === 'reload';
-
-    if (isReload) {
-      sessionStorage.removeItem('chalky_welcomed_session');
-    }
-
-    const hasVisited = sessionStorage.getItem('chalky_welcomed_session');
-    if (!hasVisited) {
-      setShouldRender(true);
-      // Wait for loader to complete before hiding
-      const timer = setTimeout(() => {
-        setLoading(false);
-        sessionStorage.setItem('chalky_welcomed_session', 'true');
-      }, 2800);
-      return () => clearTimeout(timer);
-    } else {
-      setShouldRender(false);
-      setLoading(false);
-    }
-  }, []);
-
-  if (!shouldRender) return null;
-
   return (
-    <AnimatePresence>
-      {loading && (
-        <motion.div
-          initial={{ opacity: 1 }}
-          exit={{ 
-            opacity: 0,
-            transition: { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
-          }}
-          className="fixed inset-0 z-[9999] bg-[#FAF8F5] flex flex-col items-center justify-center overflow-hidden"
-        >
+    <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ 
+        opacity: 0,
+        transition: { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
+      }}
+      className="fixed inset-0 z-[9999] bg-[#FAF8F5] flex flex-col items-center justify-center overflow-hidden"
+    >
           {/* Subtle Ambient Orbs */}
           <motion.div
             animate={{
@@ -147,8 +115,6 @@ export default function WelcomeLoader() {
               Securing Sector Intelligence
             </motion.span>
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    </motion.div>
   );
 }

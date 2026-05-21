@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import PageScrollRestoration from '@/components/PageScrollRestoration';
-import WelcomeLoader from '@/components/WelcomeLoader';
+import WelcomeLoaderProvider from '@/components/WelcomeLoaderProvider';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -56,44 +56,45 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={poppins.variable}>
       <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden">
-        <WelcomeLoader />
-        <Suspense fallback={null}>
-          <Navbar />
-        </Suspense>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Chalky Infotech",
-              "url": "https://chalkyinfo.com",
-              "logo": "https://chalkyinfo.com/logo.png",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+44 7503 140975",
-                "contactType": "customer service"
-              },
-              "sameAs": [
-                "https://www.linkedin.com/company/chalkyinfotech",
-                "https://twitter.com/chalkyinfotech"
-              ]
-            })
-          }}
-        />
-        <Suspense fallback={
-          <div className="min-h-screen flex flex-col items-center justify-center bg-[#FAF8F5]">
-            <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/15 border-t-[#7A1F5C] animate-spin mb-4"></div>
-            <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#7A1F5C]/60">Loading sector intelligence...</p>
-          </div>
-        }>
-          <main>{children}</main>
-        </Suspense>
-        <Footer />
-        <ScrollToTop />
-        <Suspense fallback={null}>
-          <PageScrollRestoration />
-        </Suspense>
+        <WelcomeLoaderProvider>
+          <Suspense fallback={null}>
+            <Navbar />
+          </Suspense>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Chalky Infotech",
+                "url": "https://chalkyinfo.com",
+                "logo": "https://chalkyinfo.com/logo.png",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+44 7503 140975",
+                  "contactType": "customer service"
+                },
+                "sameAs": [
+                  "https://www.linkedin.com/company/chalkyinfotech",
+                  "https://twitter.com/chalkyinfotech"
+                ]
+              })
+            }}
+          />
+          <Suspense fallback={
+            <div className="min-h-screen flex flex-col items-center justify-center bg-[#FAF8F5]">
+              <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/15 border-t-[#7A1F5C] animate-spin mb-4"></div>
+              <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#7A1F5C]/60">Loading sector intelligence...</p>
+            </div>
+          }>
+            <main>{children}</main>
+          </Suspense>
+          <Footer />
+          <ScrollToTop />
+          <Suspense fallback={null}>
+            <PageScrollRestoration />
+          </Suspense>
+        </WelcomeLoaderProvider>
       </body>
     </html>
   );
