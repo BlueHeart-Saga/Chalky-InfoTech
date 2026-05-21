@@ -58,7 +58,7 @@ export async function GET() {
     ...staticPages.map(p => buildItem(`${base}${p.url}`, p.title, p.desc, now)),
     ...SERVICES.map(s => buildItem(`${base}/services/${s.slug}`, `${s.label} Services`, s.desc, now)),
     ...INDUSTRIES.map(i => buildItem(`${base}/industries/${i.slug}`, `${i.label} Recruitment`, `Recruitment solutions and workforce services for the ${i.label} sector.`, now)),
-    ...LOCATIONS.map(l => buildItem(`${base}/locations/${l.slug}`, `Chalky InfoTech Hub: ${l.city}, ${l.country}`, `Global recruitment and staffing hub located in ${l.city}.`, now)),
+    ...LOCATIONS.map(l => buildItem(`${base}/locations/${l.slug}`, `Chalky InfoTech Hub: ${l.city}`, l.description, now)),
     ...INSIGHTS_DETAILED.map(insight => buildItem(`${base}/insights/${getCategorySlug(insight.category)}/${insight.slug}`, insight.title, insight.excerpt, new Date(insight.date).toUTCString()))
   ].join('');
 
