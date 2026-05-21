@@ -28,7 +28,7 @@ export interface PageHeroProps {
   /** Secondary CTA href */
   secondaryHref?: string;
   /** Right-side image src — can be any URL or /public path */
-  imageSrc?: string;
+  imageSrc?: string | any;
   /** Alt text for the image */
   imageAlt?: string;
   /** Small badge shown above the title */

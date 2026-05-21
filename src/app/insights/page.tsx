@@ -10,6 +10,7 @@ import RecentArticles from '@/sections/insights/RecentArticles';
 import SectorCategories from '@/sections/insights/SectorCategories';
 import InsightsFAQ from '@/sections/insights/InsightsFAQ';
 import api from '@/services/api';
+import imgInsights from '@/assets/Insights/Insights.png';
 
 export default function InsightsPage() {
   const [posts, setPosts] = useState<any[]>([]);
@@ -71,7 +72,7 @@ export default function InsightsPage() {
           ctaHref="#grid"
           secondaryLabel="Subscribe Now"
           secondaryHref="#cta"
-          imageSrc="https://images.unsplash.com/photo-1454165833767-1296b3ae0f0e?q=80&w=1200&auto=format&fit=crop"
+          imageSrc={imgInsights.src}
           imageAlt="Expert researcher analyzing recruitment data"
         />
       </section>

@@ -17,13 +17,20 @@ interface Props {
   features: Feature[];
 }
 
+import feature1 from '@/assets/Services details page/48hr Talent Matching.png';
+import feature2 from '@/assets/Services details page/3layer Candidate Vetting.png';
+import feature3 from '@/assets/Services details page/Dedicated Account Manager.png';
+import feature4 from '@/assets/Services details page/Domain Dpecific Recruiters.png';
+import feature5 from '@/assets/Services details page/Zero Replacement Fee.png';
+import feature6 from '@/assets/Services details page/Quality Assurance.png';
+
 const DEFAULT_FEATURE_IMAGES = [
-  "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1522071823991-b5ae72647c46?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1517245327032-96a1c4a161a7?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1454165833767-1296b3ae0f0e?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop"
+  feature1.src,
+  feature2.src,
+  feature3.src,
+  feature4.src,
+  feature5.src,
+  feature6.src
 ];
 
 export default function WhyChooseService({ serviceLabel, features }: Props) {
@@ -93,20 +100,31 @@ export default function WhyChooseService({ serviceLabel, features }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {(() => {
             const displayFeatures = [...features];
-            if (displayFeatures.length > 0 && displayFeatures.length < 3) {
-              displayFeatures.push({
+            
+            // Pad array so it's a perfect multiple of 3 for balanced grid layouts
+            const fallbackFeatures = [
+              {
+                title: 'Continuous Quality Assurance',
+                desc: 'Rigorous ongoing performance reviews and continuous feedback loops to ensure long-term placement success.',
+                icon: 'Award'
+              },
+              {
                 title: 'Guaranteed Performance',
                 desc: 'Our rigorous vetting and replacement assurance ensure your team stays productive and high-performing.',
                 icon: 'ShieldCheck'
-              });
-            }
-            // If it's still 2 (unlikely if we started with 2, but just in case of 1)
-            if (displayFeatures.length === 2) {
-              displayFeatures.push({
+              },
+              {
                 title: 'Global Delivery Network',
                 desc: 'Tapping into specialized talent pools across international hubs to meet your scaling requirements.',
                 icon: 'Globe'
-              });
+              }
+            ];
+
+            let fallbackIndex = 0;
+            // Add fallback cards until we hit a multiple of 3 (e.g., 5 cards -> 6 cards)
+            while (displayFeatures.length > 0 && displayFeatures.length % 3 !== 0) {
+              displayFeatures.push(fallbackFeatures[fallbackIndex % fallbackFeatures.length]);
+              fallbackIndex++;
             }
 
             return displayFeatures.map((feature, i) => {

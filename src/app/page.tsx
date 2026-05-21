@@ -13,6 +13,7 @@ import LatestInsights from '@/sections/home/LatestInsights';
 import GlobalPresence from '@/sections/home/GlobalPresence';
 import CTASection from '@/components/CTASection';
 import HumanexShowcase from '@/components/HumanexShowcase';
+import CSRSection from '@/sections/home/CSRSection';
 
 export const metadata: Metadata = {
   title: 'Chalky Infotech | Premium IT Recruitment & Workforce Solutions in the UK',
@@ -39,6 +40,7 @@ export default function HomePage() {
     { label: 'Process', id: 'process' },
     { label: 'HR Platform', id: 'humanex' },
     { label: 'Testimonials', id: 'testimonials' },
+    { label: 'CSR', id: 'csr' },
     { label: 'Contact', id: 'contact' }
   ];
 
@@ -91,9 +93,15 @@ export default function HomePage() {
         <LatestInsights />
       </section>
 
+      <section id="csr">
+        <CSRSection />
+      </section>
+
       <section id="global">
         <GlobalPresence />
       </section>
+
+     
 
       <section id="contact" >
         <CTASection />

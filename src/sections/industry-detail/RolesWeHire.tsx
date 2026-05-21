@@ -10,11 +10,16 @@ interface Props {
   roles: string[];
 }
 
+import role1 from '@/assets/Industries details page/0984b78e-a3cd-4140-bb92-25c667bcdb64 2.png';
+import role2 from '@/assets/Industries details page/22887846-ad6a-430a-b2cf-4b8978d1f49b 2.png';
+import role3 from '@/assets/Industries details page/3d1aa0a5-7fb6-49fb-8323-c7dffbfe7dea 2.png';
+import role4 from '@/assets/Industries details page/4c5646f2-d225-44c1-ae8a-bdc3d5ee4608 1.png';
+
 const ROLE_IMAGES = [
-  'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600', // professional woman smiling
-  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=600', // professional man in suit
-  'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=600', // professional woman leader
-  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600', // professional man smiling
+  role1.src,
+  role2.src,
+  role3.src,
+  role4.src,
 ];
 
 const CARD_STYLES = [

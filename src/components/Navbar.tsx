@@ -10,7 +10,7 @@ import { NAV_LINKS } from '@/constants';
 import api from '@/services/api';
 import navdata1 from '@/assets/navbar/Navdata4.png';
 import navdata2 from '@/assets/navbar/Navdata3.png';
-import navdata3 from '@/assets/navbar/Navdata4.png';
+import navdata3 from '@/assets/navbar/Navdata3.png';
 import navdata4 from '@/assets/navbar/Navdata4.png';
 import navdata5 from '@/assets/navbar/Navdata4.png';
 

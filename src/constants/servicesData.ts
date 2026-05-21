@@ -1,3 +1,12 @@
+import itStaffingImg from '@/assets/Services inside all heros section/3d3f0587-cd33-44ed-bdd7-e37fb1cccd62 1.png';
+import executiveSearchImg from '@/assets/Services inside all heros section/4c171da4-d5c1-464a-871d-df7055def059 1.png';
+import contractStaffingImg from '@/assets/Services inside all heros section/4569ada5-daab-4204-bf09-b03de79be73b 1.png';
+import permanentHiringImg from '@/assets/Services inside all heros section/a10ee006-617b-4bbf-b564-7aeebf1c463c 1.png';
+import temporaryRecruitmentImg from '@/assets/Services inside all heros section/6e31c581-025d-4eca-b588-7c134d893930 1.png';
+import onSiteRecruitmentImg from '@/assets/Services inside all heros section/b1004b03-ed78-4bef-936b-c7a5cf954b9b 1.png';
+import managedServicesImg from '@/assets/Services inside all heros section/f299ccc7-09a1-4c44-b178-5542b4f78359 1.png';
+import remoteHiringImg from '@/assets/Services inside all heros section/0fa0dad4-4de9-407f-8989-b6516a5d8018 1.png';
+
 export interface ServiceDetail {
   slug: string;
   label: string;
@@ -47,7 +56,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       badge: 'Elite Tech Talent',
       title: 'IT Staffing Solution',
       subtitle: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals — on demand, at speed, without compromise.',
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
+      image: itStaffingImg.src,
     },
     metaInfo: {
       title: 'IT Staffing Solution in the UK | Hire Verified IT Talent',
@@ -65,7 +74,8 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       'Reduced Hiring Risk: Pre-vetted talent means fewer failed hires and costly replacements',
       'Scalable Teams: Scale up or down based on project demand without long-term overhead',
       'Cost Efficiency: Cut recruitment costs by up to 40% with our managed staffing model',
-      'Focus on Core Business: We handle the hiring complexity. You focus on building.'
+      'Focus on Core Business: We handle the hiring complexity. You focus on building.',
+      'Compliance & Security: Rigorous technical vetting and background checks for all placements'
     ],
     industries: ['Software', 'Fintech', 'Cloud Computing', 'AI & Data'],
     process: [
@@ -98,7 +108,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       badge: 'Leadership & Strategy',
       title: 'Executive Search & Leadership Advisory',
       subtitle: 'Attracting world-class C-suite leaders and strategic visionaries to drive your organizational transformation.',
-      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop',
+      image: executiveSearchImg.src,
     },
     overview: {
       title: 'Strategic Leadership Acquisition',
@@ -144,7 +154,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       badge: 'Flexible Workforce',
       title: 'Contract Staffing Solutions',
       subtitle: 'Scalable contract staffing services helping organizations access highly skilled professionals for project-based needs.',
-      image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1200&auto=format&fit=crop',
+      image: contractStaffingImg.src,
     },
     overview: {
       title: 'Agile Workforce Support',
@@ -190,7 +200,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       badge: 'Long-term Success',
       title: 'Permanent Placement Services',
       subtitle: 'Building the foundation of your success with high-retention talent aligned with your culture and technical needs.',
-      image: 'https://images.unsplash.com/photo-1522071823991-b5ae72647c46?q=80&w=1200&auto=format&fit=crop',
+      image: permanentHiringImg.src,
     },
     overview: {
       title: 'Strategic Talent Investment',
@@ -236,7 +246,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       badge: 'Rapid Response',
       title: 'Temporary Recruitment Services',
       subtitle: 'Scaling your operational capacity instantly with vetted professionals for seasonal peaks and high-volume needs.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop',
+      image: temporaryRecruitmentImg.src,
     },
     overview: {
       title: 'Instant Operational Scaling',
@@ -282,7 +292,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       badge: 'Embedded Partnership',
       title: 'On-Site Recruitment Solutions',
       subtitle: 'Benefit from dedicated recruiters working as a seamless extension of your internal HR and hiring teams.',
-      image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1200&auto=format&fit=crop',
+      image: onSiteRecruitmentImg.src,
     },
     overview: {
       title: 'Internal Team Extension',
@@ -328,7 +338,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       badge: 'Operational Excellence',
       title: 'Managed Workforce Solutions (MSP)',
       subtitle: 'Optimizing your entire talent supply chain through strategic managed services and workforce technology.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
+      image: managedServicesImg.src,
     },
     overview: {
       title: 'Enterprise Workforce Optimization',
@@ -374,7 +384,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       badge: 'Borderless Talent',
       title: 'Global Remote Hiring Services',
       subtitle: 'Build high-performance borderless teams by accessing the world’s best talent, anywhere.',
-      image: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?q=80&w=1200&auto=format&fit=crop',
+      image: remoteHiringImg.src,
     },
     overview: {
       title: 'The Future of Work is Global',

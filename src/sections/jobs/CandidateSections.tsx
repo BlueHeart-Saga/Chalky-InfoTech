@@ -8,27 +8,32 @@ import { ArrowRight, Search, UserCheck, Briefcase, Trophy, Globe, Zap, Heart, Sh
 import api from '@/services/api';
 
 // ── WhyWorkWithChalky ────────────────────────────────────────────────────────
+import imgSpecializedNetwork from '@/assets/Find Jobs/Specialized Career Network.png';
+import imgEndToEnd from '@/assets/Find Jobs/ENd to end.png';
+import imgDedicatedConsultant from '@/assets/Find Jobs/Dedicated Consut.png';
+import imgGlobalMilestone from '@/assets/Find Jobs/Global Milestone.png';
+
 const CANDIDATE_REASONS = [
   { 
-    image: "https://images.unsplash.com/photo-1522071823991-b5ae72647c46?q=80&w=800&auto=format&fit=crop",
+    image: imgSpecializedNetwork,
     title: "Specialized Career Network", 
     tag: "Network",
     desc: "Access exclusive, high-impact roles across cloud, DevOps, AI, and software engineering domains at top-tier global firms." 
   },
   { 
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+    image: imgEndToEnd,
     title: "End-To-End Journey Support", 
     tag: "Process",
     desc: "Complete recruitment management from the initial application and screening to offer negotiation and onboarding support." 
   },
   { 
-    image: "https://images.unsplash.com/photo-1600880212319-7524e2727928?q=80&w=800&auto=format&fit=crop",
+    image: imgDedicatedConsultant,
     title: "Dedicated Consultant Access", 
     tag: "Expertise",
     desc: "Direct coordination with industry-specialist consultants who understand your tech stack and career aspirations." 
   },
   { 
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop",
+    image: imgGlobalMilestone,
     title: "Global Milestone Strategies", 
     tag: "Growth",
     desc: "Strategic career advice and placement opportunities designed to support your rapid growth into senior leadership roles." 

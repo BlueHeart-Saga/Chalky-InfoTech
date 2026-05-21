@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 export interface IndustryDetail {
   slug: string;
   label: string;
@@ -6,7 +8,7 @@ export interface IndustryDetail {
     badge: string;
     title: string;
     subtitle: string;
-    image: string;
+    image: StaticImageData | string;
   };
   overview: {
     title: string;
@@ -26,6 +28,15 @@ export interface IndustryDetail {
   }[];
 }
 
+import itTechImg from '@/assets/Industries inside hero section/IT and Technology.png';
+import telecomImg from '@/assets/Industries inside hero section/f895376b-bf17-41cd-9a2a-402beb908709 1.png';
+import engineeringImg from '@/assets/Industries inside hero section/Engineering and infrastructure.png';
+import mediaImg from '@/assets/Industries inside hero section/Media and digital.png';
+import bankingImg from '@/assets/Industries inside hero section/Banking and Finnace.png';
+import healthcareImg from '@/assets/Industries inside hero section/Heathcare.png';
+import retailImg from '@/assets/Industries inside hero section/Retail -E-commerce.png';
+import manufacturingImg from '@/assets/Industries inside hero section/Manufacturing.png';
+
 export const INDUSTRIES_DETAILED: IndustryDetail[] = [
   {
     slug: 'it-technology',
@@ -35,7 +46,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       badge: 'Tech Workforce Solutions',
       title: 'IT & Technology Recruitment Solutions',
       subtitle: 'Specialized workforce solutions supporting software engineering, cloud operations, and digital transformation initiatives.',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
+      image: itTechImg,
     },
     overview: {
       title: 'Digital Innovation Talent',
@@ -87,7 +98,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       badge: 'Connectivity Workforce',
       title: 'Telecommunications Recruitment Solutions',
       subtitle: 'Scaling engineering and operational teams for 5G rollout, network infrastructure, and global connectivity projects.',
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop',
+      image: telecomImg,
     },
     overview: {
       title: 'Connected Future Talent',
@@ -139,7 +150,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       badge: 'Engineering Workforce',
       title: 'Engineering & Infrastructure Solutions',
       subtitle: 'Supporting large-scale engineering, civil, industrial, and technical workforce requirements.',
-      image: 'https://images.unsplash.com/photo-1541888086225-ee82fb067eb8?q=80&w=1200&auto=format&fit=crop',
+      image: engineeringImg,
     },
     overview: {
       title: 'Strategic Engineering Talent',
@@ -184,7 +195,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       badge: 'Digital Talent',
       title: 'Media & Digital Services Recruitment',
       subtitle: 'Connecting businesses with talent across digital platforms, content, and technology ecosystems.',
-      image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop',
+      image: mediaImg,
     },
     overview: {
       title: 'Creative & Digital Experts',
@@ -229,7 +240,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       badge: 'Financial Talent',
       title: 'Banking & Finance Recruitment Solutions',
       subtitle: 'Connecting global financial institutions with top-tier professionals in fintech, compliance, and core banking operations.',
-      image: 'https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=1200&auto=format&fit=crop',
+      image: bankingImg,
     },
     overview: {
       title: 'Strategic Financial Workforce',
@@ -281,7 +292,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       badge: 'Healthcare Workforce',
       title: 'Healthcare & Life Sciences Solutions',
       subtitle: 'Specialized workforce solutions supporting healthcare providers, biotech, and pharmaceutical organizations.',
-      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop',
+      image: healthcareImg,
     },
     overview: {
       title: 'Life-Saving Talent Strategy',
@@ -333,7 +344,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       badge: 'Commerce Solutions',
       title: 'Retail & E-Commerce Recruitment Solutions',
       subtitle: 'Optimizing the modern consumer journey with specialists in omnichannel retail and e-commerce technology.',
-      image: 'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=1200&auto=format&fit=crop',
+      image: retailImg,
     },
     overview: {
       title: 'Omnichannel Future Talent',
@@ -385,7 +396,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       badge: 'Industrial Talent',
       title: 'Manufacturing Recruitment Solutions',
       subtitle: 'Delivering engineering excellence and operational leadership for Industry 4.0 and advanced manufacturing.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop',
+      image: manufacturingImg,
     },
     overview: {
       title: 'Advanced Industrial Workforce',

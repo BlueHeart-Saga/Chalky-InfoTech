@@ -5,6 +5,10 @@ import { Target, ShieldCheck, Zap, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import techAlignImg from '@/assets/Services details page/Technical Alignment.png';
+import stratPartImg from '@/assets/Services details page/Strategic Partnership.png';
+import qaImg from '@/assets/Services details page/Quality Assurance.png';
+
 interface Props {
   title: string;
   description: string;
@@ -15,19 +19,19 @@ const FEATURE_CARDS = [
     title: 'Technical Alignment',
     icon: Zap,
     desc: 'Ensuring deep skill matching through rigorous technical assessment.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop'
+    image: techAlignImg.src
   },
   {
     title: 'Strategic Partnership',
     icon: Target,
     desc: 'Aligning recruitment strategies with your long-term business goals.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop'
+    image: stratPartImg.src
   },
   {
     title: 'Quality Assurance',
     icon: ShieldCheck,
     desc: 'Strict vetting protocols to ensure only the highest quality talent.',
-    image: 'https://images.unsplash.com/photo-1454165833767-1296b3ae0f0e?q=80&w=800&auto=format&fit=crop'
+    image: qaImg.src
   }
 ];
 

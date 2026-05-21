@@ -9,6 +9,43 @@ import SidebarPublishingHub from '@/sections/insights/SidebarPublishingHub';
 import SectorCategories from '@/sections/insights/SectorCategories';
 import InsightsFAQ from '@/sections/insights/InsightsFAQ';
 
+import imgAchievements from '@/assets/Insights/Achievements.png';
+import imgAwards from '@/assets/Insights/Awards and Milestones.png';
+import imgBlogs from '@/assets/Insights/Blogs.png';
+import imgCaseStudies from '@/assets/Insights/Case Studies.png';
+import imgCelebration from '@/assets/Insights/Celebration.png';
+import imgClientTransform from '@/assets/Insights/Client transformation.png';
+import imgCommunity from '@/assets/Insights/Community.png';
+import imgCompanyAnnounce from '@/assets/Insights/Companny Announcement.png';
+import imgImpactMetrics from '@/assets/Insights/Impact Metrics.png';
+import imgIndustryEvent from '@/assets/Insights/Industry Event.png';
+import imgInsights from '@/assets/Insights/Insights.png';
+import imgNewsLetter from '@/assets/Insights/News Letter.png';
+import imgPodcasts from '@/assets/Insights/Podcasts.png';
+import imgPosters from '@/assets/Insights/Posters.png';
+import imgTeamCulture from '@/assets/Insights/Team Culture.png';
+import imgTestimonials from '@/assets/Insights/Testimonials.png';
+
+const CATEGORY_IMAGES: Record<string, any> = {
+  'achievements': imgAchievements,
+  'awards-and-milestones': imgAwards,
+  'blogs': imgBlogs,
+  'case-studies': imgCaseStudies,
+  'celebration': imgCelebration,
+  'client-transformation': imgClientTransform,
+  'community': imgCommunity,
+  'company-announcement': imgCompanyAnnounce,
+  'companny-announcement': imgCompanyAnnounce,
+  'impact-metrics': imgImpactMetrics,
+  'industry-event': imgIndustryEvent,
+  'insights': imgInsights,
+  'news-letter': imgNewsLetter,
+  'podcasts': imgPodcasts,
+  'posters': imgPosters,
+  'team-culture': imgTeamCulture,
+  'testimonials': imgTestimonials,
+};
+
 type Props = {
   params: Promise<{ categorySlug: string }>;
 };
@@ -125,7 +162,7 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
           ctaHref="#grid"
           secondaryLabel="Insights Center"
           secondaryHref="/insights"
-          imageSrc={featuredPost?.image || "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200"}
+          imageSrc={featuredPost?.image || CATEGORY_IMAGES[categorySlug]?.src || imgInsights.src}
           imageAlt={`${title} Insights`}
         />
       </section>

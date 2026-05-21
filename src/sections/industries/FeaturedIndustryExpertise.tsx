@@ -5,13 +5,14 @@ import Link from 'next/link';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
-import ind1 from '@/assets/Industries/Core Specialization/Rectangle 10.png';
-import ind2 from '@/assets/Industries/Core Specialization/Rectangle 11.png';
-import ind3 from '@/assets/Industries/Core Specialization/Rectangle 12.png';
-import ind4 from '@/assets/Industries/Core Specialization/Rectangle 13.png';
-import ind5 from '@/assets/Industries/Core Specialization/Rectangle 14.png';
-import ind6 from '@/assets/Industries/Core Specialization/Rectangle 4.png';
-import ind7 from '@/assets/Industries/054db1d0aa863f2fcfd4eca91957a21c 1.png';
+import itTechImg from '@/assets/Industries inside hero section/IT and Technology.png';
+import telecomImg from '@/assets/Industries inside hero section/f895376b-bf17-41cd-9a2a-402beb908709 1.png';
+import engineeringImg from '@/assets/Industries inside hero section/Engineering and infrastructure.png';
+import mediaImg from '@/assets/Industries inside hero section/Media and digital.png';
+import bankingImg from '@/assets/Industries inside hero section/Banking and Finnace.png';
+import healthcareImg from '@/assets/Industries inside hero section/Heathcare.png';
+import retailImg from '@/assets/Industries inside hero section/Retail -E-commerce.png';
+import manufacturingImg from '@/assets/Industries inside hero section/Manufacturing.png';
 
 const INDUSTRIES_LIST = [
   {
@@ -20,7 +21,7 @@ const INDUSTRIES_LIST = [
     desc: 'Driving digital transformation with elite software engineers and full-stack technical specialists.',
     areas: ['Software Engineering', 'Cloud & DevOps', 'Cybersecurity Ops', 'Data & AI Systems'],
     challenges: ['Severe senior talent scarcity', 'Rapidly evolving frameworks'],
-    image: ind1,
+    image: itTechImg,
     href: '/industries/it-technology'
   },
   {
@@ -29,7 +30,7 @@ const INDUSTRIES_LIST = [
     desc: 'Scaling global connectivity with expert engineers for 5G, network, and satellite infrastructure.',
     areas: ['5G Rollouts', 'Network Security', 'Satellite Comms', 'Wireless Infrastructure'],
     challenges: ['High capital investment risk', 'Complex global standard shifts'],
-    image: ind2,
+    image: telecomImg,
     href: '/industries/telecommunications'
   },
   {
@@ -38,7 +39,7 @@ const INDUSTRIES_LIST = [
     desc: 'Supporting large-scale engineering, civil, industrial, and technical workforce requirements.',
     areas: ['Civil Engineering', 'Industrial Operations', 'Project Management', 'Structural Design'],
     challenges: ['Complex safety regulations', 'Cross-border logistics'],
-    image: ind3,
+    image: engineeringImg,
     href: '/industries/engineering-infrastructure'
   },
   {
@@ -47,7 +48,7 @@ const INDUSTRIES_LIST = [
     desc: 'Connecting businesses with talent across digital platforms, content, and technology ecosystems.',
     areas: ['Digital Platforms', 'Content Production', 'Broadcast Systems', 'Creative Design'],
     challenges: ['Monetization complexity', 'Rapid content scaling needs'],
-    image: ind4,
+    image: mediaImg,
     href: '/industries/media-digital-services'
   },
   {
@@ -56,7 +57,7 @@ const INDUSTRIES_LIST = [
     desc: 'Strategic talent acquisition for global financial institutions, fintech, and regulatory compliance.',
     areas: ['Fintech Engineering', 'Risk & Compliance', 'Investment Operations', 'Core Banking Tech'],
     challenges: ['Severe security vulnerabilities', 'Complex regulatory audit checks'],
-    image: ind5,
+    image: bankingImg,
     href: '/industries/banking-finance'
   },
   {
@@ -65,7 +66,7 @@ const INDUSTRIES_LIST = [
     desc: 'Providing critical expertise for clinical research, pharmaceutical development, and healthcare admin.',
     areas: ['Clinical Research', 'Pharma Operations', 'Biotech Development', 'Healthcare Admin'],
     challenges: ['High-risk medical compliance', 'Extremely long vetting cycles'],
-    image: ind6,
+    image: healthcareImg,
     href: '/industries/healthcare-life-sciences'
   },
   {
@@ -74,7 +75,7 @@ const INDUSTRIES_LIST = [
     desc: 'Optimizing the consumer journey with specialists in omnichannel retail and e-commerce platforms.',
     areas: ['Omnichannel Strategy', 'E-commerce Architecture', 'Logistics & Distribution', 'Digital Marketing'],
     challenges: ['Severe demand volatility', 'Fierce platform competition'],
-    image: ind7,
+    image: retailImg,
     href: '/industries/retail-ecommerce'
   },
   {
@@ -83,7 +84,7 @@ const INDUSTRIES_LIST = [
     desc: 'Delivering engineering excellence and operational leadership for Industry 4.0 ecosystems.',
     areas: ['Industry 4.0 Systems', 'Process Engineering', 'Operational Leadership', 'Automation & Robotics'],
     challenges: ['Legacy systems bottleneck', 'Technical engineering skill gaps'],
-    image: ind1,
+    image: manufacturingImg,
     href: '/industries/manufacturing'
   }
 ];

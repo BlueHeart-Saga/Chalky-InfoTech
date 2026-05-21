@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import trustedImg from '@/assets/Industries details page/Trusted By Businesses (2).png';
 
 interface Props {
   services: string[];
@@ -132,7 +133,7 @@ export default function IndustrySolutions({ services }: Props) {
                 style={{ animation: 'morph 8s ease-in-out infinite' }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
+                  src={trustedImg.src}
                   alt="Talent Acquisition Director"
                   fill
                   unoptimized
