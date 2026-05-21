@@ -36,7 +36,7 @@ export default function WelcomeLoader() {
             opacity: 0,
             transition: { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
           }}
-          className="fixed inset-0 z-[9999] bg-[#0E070C] flex flex-col items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-[#FAF8F5] flex flex-col items-center justify-center overflow-hidden"
         >
           {/* Subtle Ambient Orbs */}
           <motion.div
@@ -49,7 +49,7 @@ export default function WelcomeLoader() {
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="absolute w-[500px] h-[500px] rounded-full bg-[#7A1F5C]/20 blur-[130px] pointer-events-none"
+            className="absolute w-[500px] h-[500px] rounded-full bg-[#7A1F5C]/8 blur-[130px] pointer-events-none"
           />
           <motion.div
             animate={{
@@ -62,7 +62,7 @@ export default function WelcomeLoader() {
               ease: 'easeInOut',
               delay: 1,
             }}
-            className="absolute w-[300px] h-[300px] rounded-full bg-[#C2185B]/15 blur-[90px] pointer-events-none translate-x-[150px] -translate-y-[100px]"
+            className="absolute w-[300px] h-[300px] rounded-full bg-[#C2185B]/6 blur-[90px] pointer-events-none translate-x-[150px] -translate-y-[100px]"
           />
 
           {/* Loader Content */}
@@ -75,16 +75,16 @@ export default function WelcomeLoader() {
                 duration: 1.2,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="relative w-24 h-24 mb-6 flex items-center justify-center bg-white/5 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl"
+              className="relative w-24 h-24 mb-6 flex items-center justify-center bg-white rounded-3xl border border-gray-100/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
             >
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#7A1F5C]/20 to-[#C2185B]/20 blur-sm pointer-events-none" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#7A1F5C]/5 to-[#C2185B]/5 blur-sm pointer-events-none" />
               <Image
                 src="/logo.png"
                 alt="Chalky InfoTech Logo"
                 width={64}
                 height={64}
                 priority
-                className="object-contain drop-shadow-[0_4px_12px_rgba(122,31,92,0.4)]"
+                className="object-contain drop-shadow-[0_4px_8px_rgba(122,31,92,0.15)]"
               />
             </motion.div>
 
@@ -98,9 +98,9 @@ export default function WelcomeLoader() {
                   duration: 0.8,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="text-3xl md:text-4xl font-extrabold text-white tracking-tight text-center"
+                className="text-3xl md:text-4xl font-extrabold text-[#7A1F5C] tracking-tight text-center"
               >
-                Chalky <span className="text-[#C2185B] font-light">InfoTech</span>
+                Chalky <span className="text-[#1A1A1A] font-medium">InfoTech</span>
               </motion.h1>
 
               <motion.p
@@ -111,14 +111,14 @@ export default function WelcomeLoader() {
                   duration: 0.8,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-white/50 mt-2 text-center"
+                className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#666]/70 mt-2 text-center"
               >
                 Global IT Staffing &amp; Consulting
               </motion.p>
             </div>
 
             {/* Luxury Minimalist Progress Bar */}
-            <div className="w-48 h-[2px] bg-white/10 rounded-full overflow-hidden relative">
+            <div className="w-48 h-[2px] bg-[#7A1F5C]/10 rounded-full overflow-hidden relative">
               <motion.div
                 initial={{ width: '0%' }}
                 animate={{ width: '100%' }}
@@ -133,9 +133,9 @@ export default function WelcomeLoader() {
             {/* Micro Tagline */}
             <motion.span
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
+              animate={{ opacity: 0.6 }}
               transition={{ delay: 1.2, duration: 0.6 }}
-              className="text-[9px] font-medium tracking-widest text-white/70 mt-3 uppercase"
+              className="text-[9px] font-bold tracking-widest text-[#7A1F5C]/60 mt-3 uppercase"
             >
               Securing Sector Intelligence
             </motion.span>
