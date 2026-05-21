@@ -144,7 +144,7 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const officeCity = REGIONS.find((r) => r.id === region)?.city || 'Global';
+      const officeCity = REGIONS.find((r) => r.id === region)?.label || 'Global';
       const typeLabel = enquiryType === 'candidate' ? 'Candidate' : enquiryType === 'client' ? 'Client' : 'General';
       const subject = `[${typeLabel}] Contact Form from ${formData.firstName} ${formData.lastName}`;
 
