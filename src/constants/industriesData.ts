@@ -48,9 +48,16 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       subtitle: 'Specialized workforce solutions supporting software engineering, cloud operations, and digital transformation initiatives.',
       image: itTechImg,
     },
+    metaInfo: {
+      title: 'IT & Technology Recruitment UK | Tech Talent Solutions',
+      description: 'Specialist IT and technology recruitment across the UK. Pre-vetted software engineers, cloud architects, DevOps specialists and AI professionals matched in 48 hours.',
+      keywords: 'IT recruitment UK, technology staffing UK, software developer recruitment UK, cloud engineer recruitment UK, DevOps recruitment UK, tech talent UK, digital transformation staffing UK',
+      ogTitle: 'IT & Technology Recruitment UK | Expert Tech Talent Solutions',
+      ogDescription: 'Specialist IT and technology workforce solutions across the UK. Pre-vetted engineers, cloud specialists and digital talent matched in 48 hours.'
+    },
     overview: {
-      title: 'Digital Innovation Talent',
-      description: 'We help technology organizations secure highly skilled professionals aligned with agile development, cloud infrastructure, and emerging tech projects.',
+      title: 'Digital Innovation Talent — Built for Modern Tech Organisations',
+      description: 'Technology moves fast. Your recruitment partner needs to move faster. We help IT and technology organisations secure highly skilled professionals aligned with agile delivery, cloud infrastructure, and emerging tech initiatives.\n\n• Precision Tech Vetting: Multi-stage assessments — live coding, architectural reviews and domain interviews — conducted by our in-house engineering advisors.\n• Squad Hiring Capability: We build complete cross-functional teams (Developers, QA, Product, DevOps) ready to integrate into your digital transformation lifecycle.\n• Proactive Talent Pipelining: Live-ready pools of pre-screened tech talent reduce average time-to-fill for niche roles to under 24 days.',
     },
     challenges: [
       'Rapidly evolving tech stacks',
@@ -84,10 +91,10 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       { q: 'How do you keep pace with rapidly evolving technology trends?', a: 'Our consultants are continuously trained on emerging technologies. We also host tech-focused webinars and maintain a network of industry advisors who keep us updated on the latest shifts in software and cloud engineering.' }
     ],
     capabilities: [
-      { title: 'Agile Delivery', desc: 'Teams optimized for modern sprint cycles.', icon: 'Zap' },
-      { title: 'Tech Vetting', desc: 'Deep technical assessments for every role.', icon: 'ShieldCheck' },
-      { title: 'Cloud Architects', desc: 'Sourcing specialists for AWS, Azure, and GCP platforms.', icon: 'Cloud' },
-      { title: 'DevOps Pipelines', desc: 'Architecting CI/CD pipelines and infrastructure as code.', icon: 'GitBranch' }
+      { title: 'Agile Delivery', desc: 'Cross-functional squads optimised for modern sprint cycles and rapid product delivery.', icon: 'Zap' },
+      { title: 'Tech Vetting', desc: 'Multi-stage assessments including live coding challenges and architectural reviews.', icon: 'ShieldCheck' },
+      { title: 'Cloud Architects', desc: 'Specialists sourced and vetted for AWS, Azure and GCP cloud-native environments.', icon: 'Cloud' },
+      { title: 'DevOps Pipelines', desc: 'Engineers experienced in CI/CD automation, infrastructure as code and site reliability.', icon: 'GitBranch' }
     ]
   },
   {
@@ -100,9 +107,16 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       subtitle: 'Scaling engineering and operational teams for 5G rollout, network infrastructure, and global connectivity projects.',
       image: telecomImg,
     },
+    metaInfo: {
+      title: 'Telecommunications Recruitment UK | 5G & Network Engineering Talent',
+      description: 'Specialist telecommunications recruitment across the UK. RF engineers, network specialists and infrastructure project managers sourced for 5G rollout, FTTH deployment and connectivity programmes.',
+      keywords: 'telecommunications recruitment UK, telecom staffing UK, 5G recruitment UK, network engineer recruitment UK, RF engineer staffing UK, FTTH specialists UK, infrastructure recruitment UK',
+      ogTitle: 'Telecommunications Recruitment UK | 5G & Network Specialists',
+      ogDescription: 'Specialist telecom workforce solutions across the UK. RF engineers, 5G specialists and infrastructure project managers for your network projects.'
+    },
     overview: {
-      title: 'Connected Future Talent',
-      description: 'The telecom industry requires specialized engineering expertise to manage the transition to 5G and fiber-optic networks. We connect you with professionals who understand the future of connectivity.',
+      title: 'Connected Future Talent — Specialists for the 5G Era',
+      description: 'The telecommunications industry is undergoing its most significant transformation in decades. We connect operators and infrastructure firms with specialist engineering talent to design, deploy and manage next-generation connectivity.\n\n• 5G & FTTH Expertise: Proven track record sourcing RF engineers, network planners and fibre specialists for large-scale national rollout programmes.\n• Credential Verification: Rigorous validation of CCNA, CCNP, 3GPP and vendor-specific certifications before any candidate is presented.\n• Scalable Field Hiring: Our high-volume model deploys pre-vetted field technicians and engineers across multiple regions simultaneously.',
     },
     challenges: [
       'Complex infrastructure rollout',
@@ -136,10 +150,10 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       { q: 'Can you provide contract specialists for short-term telecom project peaks?', a: 'Absolutely. We provide flexible contract staffing solutions that allow you to bring in expert engineers for critical project phases without long-term commitment.' }
     ],
     capabilities: [
-      { title: 'Field Ready', desc: 'Staff vetted for on-site infrastructure work.', icon: 'MapPin' },
-      { title: 'Network Insight', desc: 'Consultants with core telecom backgrounds.', icon: 'Cpu' },
-      { title: '5G Deployments', desc: 'Specialists for next-generation network architecture.', icon: 'Radio' },
-      { title: 'Infrastructure Rollout', desc: 'Talent experienced in large-scale fiber and RF rollout.', icon: 'Layers' }
+      { title: 'Field Ready', desc: 'Pre-vetted staff cleared for on-site infrastructure and field operations across the UK.', icon: 'MapPin' },
+      { title: 'Network Insight', desc: 'Consultants with active telecom backgrounds and deep core network domain expertise.', icon: 'Cpu' },
+      { title: '5G Deployments', desc: 'RF engineers and network planners for next-generation architecture rollout programmes.', icon: 'Radio' },
+      { title: 'Infrastructure Rollout', desc: 'Experienced talent for large-scale fibre, FTTH and RF infrastructure deployments.', icon: 'Layers' }
     ]
   },
   {
@@ -152,9 +166,16 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       subtitle: 'Supporting large-scale engineering, civil, industrial, and technical workforce requirements.',
       image: engineeringImg,
     },
+    metaInfo: {
+      title: 'Engineering & Infrastructure Recruitment UK | Technical Talent Solutions',
+      description: 'Specialist engineering and infrastructure recruitment across the UK. Civil, mechanical, electrical and structural engineers sourced for major infrastructure, industrial and construction projects.',
+      keywords: 'engineering recruitment UK, civil engineer recruitment UK, mechanical engineer staffing UK, infrastructure recruitment UK, project manager engineering UK, electrical engineer recruitment UK, technical staffing UK',
+      ogTitle: 'Engineering & Infrastructure Recruitment UK | Technical Workforce Solutions',
+      ogDescription: 'Specialist engineering talent for civil, mechanical, electrical and infrastructure projects across the UK. Pre-vetted professionals with proven project experience.'
+    },
     overview: {
-      title: 'Strategic Engineering Talent',
-      description: 'We connect businesses with highly specialized engineers and project managers to drive critical infrastructure and industrial projects.',
+      title: 'Strategic Engineering Talent — Precision-Matched for Critical Projects',
+      description: 'Major infrastructure and engineering projects demand professionals who combine technical mastery with operational delivery capability. We connect organisations with highly specialised engineers and project managers ready to contribute from day one.\n\n• Credential-First Vetting: Rigorous review of engineering certifications, professional memberships (CEng, MICE, IMechE) and past project portfolios before presentation.\n• Safety-Compliant Professionals: Every candidate screened for adherence to NEBOSH, OSHA and sector-specific H&S regulations as a non-negotiable standard.\n• Full Lifecycle Coverage: From RIBA Stage 1 through to commissioning — we source engineers experienced across every phase of the project lifecycle.',
     },
     challenges: [
       'Complex project lifecycles',
@@ -181,10 +202,10 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       { q: 'How do you vet technical engineering talent?', a: 'We conduct comprehensive technical interviews, verify certifications, and review past project portfolios to ensure competency and safety.' }
     ],
     capabilities: [
-      { title: 'Technical Vetting', desc: 'Rigorous assessment of engineering credentials.', icon: 'CheckCircle2' },
-      { title: 'Project Ready', desc: 'Candidates prepared for fast-paced infrastructure deployments.', icon: 'Zap' },
-      { title: 'Safety First', desc: 'Deep understanding of global safety regulations.', icon: 'Shield' },
-      { title: 'Global Reach', desc: 'Sourcing engineering talent from international markets.', icon: 'Globe' }
+      { title: 'Technical Vetting', desc: 'Credential review including certifications, memberships and full project portfolio assessment.', icon: 'CheckCircle2' },
+      { title: 'Project Ready', desc: 'Engineers experienced across the full lifecycle from design and planning to commissioning.', icon: 'Zap' },
+      { title: 'Safety First', desc: 'All candidates screened for NEBOSH, OSHA and sector H&S compliance before placement.', icon: 'Shield' },
+      { title: 'Global Reach', desc: 'Sourcing specialist engineering talent from international markets to fill niche project demands.', icon: 'Globe' }
     ]
   },
   {
@@ -197,9 +218,16 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       subtitle: 'Connecting businesses with talent across digital platforms, content, and technology ecosystems.',
       image: mediaImg,
     },
+    metaInfo: {
+      title: 'Media & Digital Services Recruitment UK | Creative & Digital Talent',
+      description: 'Specialist media and digital recruitment across the UK. UX/UI designers, content strategists, digital marketers and media professionals sourced for agencies, brands and digital-first businesses.',
+      keywords: 'media recruitment UK, digital marketing recruitment UK, UX designer recruitment UK, content strategist staffing UK, digital talent UK, creative recruitment UK, digital agency recruitment UK',
+      ogTitle: 'Media & Digital Services Recruitment UK | Creative & Digital Talent',
+      ogDescription: 'Specialist media and digital workforce solutions across the UK. UX designers, content strategists and digital marketing specialists for agencies and brands.'
+    },
     overview: {
-      title: 'Creative & Digital Experts',
-      description: 'We source top-tier creative, digital, and media professionals to help brands thrive in the rapidly evolving digital landscape.',
+      title: 'Creative & Digital Experts — Talent That Drives Digital Growth',
+      description: 'In a landscape where digital channels evolve overnight, brands need talent that combines creative vision with data-driven precision. We source top-tier media and digital professionals who help organisations thrive in the modern digital economy.\n\n• Portfolio-Led Assessment: In-depth evaluation of past campaigns, design work and digital performance metrics before any candidate is presented.\n• Platform-Specific Expertise: Talent vetted for Meta, Google, HubSpot, Adobe Creative Suite and major CMS platforms relevant to your tech stack.\n• Agile Creative Deployment: Freelance, contract and permanent placement models available for campaign-based or long-term digital team requirements.',
     },
     challenges: [
       'Fast-paced digital trends',
@@ -226,10 +254,10 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       { q: 'Can you provide freelance talent for short-term campaigns?', a: 'Yes, we maintain a robust network of freelance creatives and digital specialists ready to deploy for immediate campaign needs.' }
     ],
     capabilities: [
-      { title: 'Creative Portfolios', desc: 'In-depth review of past digital campaigns.', icon: 'Eye' },
-      { title: 'Agile Deployment', desc: 'Fast placement of freelance creative talent.', icon: 'Activity' },
-      { title: 'Platform Expertise', desc: 'Specialists in modern digital ecosystems.', icon: 'Monitor' },
-      { title: 'Strategic Growth', desc: 'Identifying leaders to scale digital presence.', icon: 'TrendingUp' }
+      { title: 'Creative Portfolios', desc: 'In-depth review of past campaigns, design work and measurable digital performance outcomes.', icon: 'Eye' },
+      { title: 'Agile Deployment', desc: 'Fast placement of freelance and contract creative talent for campaign-based project needs.', icon: 'Activity' },
+      { title: 'Platform Expertise', desc: 'Specialists vetted for Meta, Google, HubSpot, Adobe and major digital platform ecosystems.', icon: 'Monitor' },
+      { title: 'Strategic Growth', desc: 'Digital leaders identified to scale brand presence, audience reach and commercial performance.', icon: 'TrendingUp' }
     ]
   },
   {
@@ -242,9 +270,16 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       subtitle: 'Connecting global financial institutions with top-tier professionals in fintech, compliance, and core banking operations.',
       image: bankingImg,
     },
+    metaInfo: {
+      title: 'Banking & Finance Recruitment UK | Fintech & Compliance Talent',
+      description: 'Specialist banking and finance recruitment across the UK. Compliance officers, risk managers, fintech developers and investment banking professionals sourced for global financial institutions.',
+      keywords: 'banking recruitment UK, finance recruitment UK, fintech recruitment UK, compliance officer staffing UK, risk manager recruitment UK, investment banking recruitment UK, AML KYC staffing UK, financial services talent UK',
+      ogTitle: 'Banking & Finance Recruitment UK | Fintech & Financial Services Talent',
+      ogDescription: 'Specialist financial services recruitment across the UK. Compliance, risk, fintech and core banking professionals sourced for global institutions and scale-ups.'
+    },
     overview: {
-      title: 'Strategic Financial Workforce',
-      description: 'We help banking and finance organizations secure highly skilled professionals aligned with digital banking, risk management, and regulatory compliance.',
+      title: 'Strategic Financial Workforce — From Fintech to Core Banking',
+      description: 'The financial services sector demands professionals who understand both the rigour of traditional banking and the pace of digital finance. We help organisations secure highly skilled professionals aligned with digital transformation, risk management, and regulatory compliance.\n\n• Regulatory Expertise: All candidates vetted for MiFID II, Dodd-Frank, FCA and RBI compliance requirements relevant to their role and jurisdiction.\n• Fintech-to-Banking Bilingualism: Our consultants understand both cultures, ensuring precise cultural and technical fit across traditional and digital finance environments.\n• Enhanced Background Screening: Credit checks, criminal record checks and 5–10 year employment history verification applied as standard to every finance hire.',
     },
     challenges: [
       'Complex regulatory landscape',
@@ -278,10 +313,10 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       { q: 'How do you handle executive search for senior banking leadership?', a: 'Our finance executive search team operates with the highest level of discretion, targeting C-suite leaders who can navigate the complexities of modern global finance.' }
     ],
     capabilities: [
-      { title: 'Regulatory Insight', desc: 'Candidates vetted for industry compliance.', icon: 'Scale' },
-      { title: 'Fintech Core', desc: 'Bridging traditional finance and digital tech.', icon: 'Zap' },
-      { title: 'AML / KYC Compliance', desc: 'Professionals vetted for financial crime mitigation.', icon: 'ShieldCheck' },
-      { title: 'Quantitative Trading', desc: 'Algorithmic and mathematical specialists for market markets.', icon: 'Activity' }
+      { title: 'Regulatory Insight', desc: 'Candidates vetted for FCA, MiFID II, Dodd-Frank and global financial compliance requirements.', icon: 'Scale' },
+      { title: 'Fintech Core', desc: 'Bridging traditional banking and digital finance with bi-lingual consultant expertise.', icon: 'Zap' },
+      { title: 'AML / KYC Compliance', desc: 'Specialists in financial crime mitigation, AML programme management and KYC operations.', icon: 'ShieldCheck' },
+      { title: 'Quantitative Trading', desc: 'Algorithmic, risk modelling and treasury specialists for investment banking and hedge funds.', icon: 'Activity' }
     ]
   },
   {
@@ -294,9 +329,16 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       subtitle: 'Specialized workforce solutions supporting healthcare providers, biotech, and pharmaceutical organizations.',
       image: healthcareImg,
     },
+    metaInfo: {
+      title: 'Healthcare & Life Sciences Recruitment UK | Clinical & Biotech Talent',
+      description: 'Specialist healthcare and life sciences recruitment across the UK. Clinical research associates, health IT specialists, biotech engineers and medical professionals sourced with rigorous compliance verification.',
+      keywords: 'healthcare recruitment UK, life sciences recruitment UK, clinical research recruitment UK, biotech staffing UK, health IT recruitment UK, medical recruitment UK, pharma recruitment UK, NHS staffing UK',
+      ogTitle: 'Healthcare & Life Sciences Recruitment UK | Clinical & Biotech Talent',
+      ogDescription: 'Specialist healthcare and life sciences workforce solutions across the UK. Clinical, biotech and health IT professionals sourced with full compliance verification.'
+    },
     overview: {
-      title: 'Life-Saving Talent Strategy',
-      description: 'We help healthcare organizations secure professionals capable of driving clinical excellence and medical innovation across global markets.',
+      title: 'Life-Saving Talent Strategy — Clinical Excellence at Every Level',
+      description: 'Healthcare organisations cannot afford a wrong hire. We help providers, biotech firms and pharmaceutical companies secure professionals capable of driving clinical excellence and medical innovation — with compliance and patient safety at the core of every placement.\n\n• Primary-Source Credential Verification: All clinical licences, certifications and professional registrations verified directly before any candidate is cleared for placement.\n• CQC & JCI Compliance: Every healthcare hire screened for occupational health requirements and adherence to local health authority and regulatory standards.\n• Rapid Temporary Deployment: Pre-vetted clinical and support staff available for same-week deployment to manage seasonal peaks or sudden capacity needs.',
     },
     challenges: [
       'Severe clinical shortages',
@@ -330,10 +372,10 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       { q: 'How do you support the recruitment of specialized nursing and medical staff?', a: 'We provide specialized recruitment for intensive care, theater, and other high-acuity nursing roles, ensuring that providers have the specialized staff needed for complex patient care.' }
     ],
     capabilities: [
-      { title: 'Clinical Vetting', desc: 'Specialized medical competency reviews.', icon: 'HeartPulse' },
-      { title: 'Pharma Focus', desc: 'Sourcing talent for drug discovery and trials.', icon: 'FlaskConical' },
-      { title: 'Health IT', desc: 'Developers experienced in EHR systems and telehealth.', icon: 'Laptop' },
-      { title: 'Clinical Trials', desc: 'Professionals vetted for regulatory clinical research.', icon: 'Clipboard' }
+      { title: 'Clinical Vetting', desc: 'Primary-source verification of medical credentials, licences and clinical competency before placement.', icon: 'HeartPulse' },
+      { title: 'Pharma Focus', desc: 'Drug discovery, clinical trial and regulatory affairs specialists sourced and placed compliantly.', icon: 'FlaskConical' },
+      { title: 'Health IT', desc: 'Developers experienced in EHR migrations, telemedicine platforms and medical imaging software.', icon: 'Laptop' },
+      { title: 'Clinical Trials', desc: 'CRA, regulatory and trial management professionals vetted for GCP compliance requirements.', icon: 'Clipboard' }
     ]
   },
   {
@@ -346,9 +388,16 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       subtitle: 'Optimizing the modern consumer journey with specialists in omnichannel retail and e-commerce technology.',
       image: retailImg,
     },
+    metaInfo: {
+      title: 'Retail & E-Commerce Recruitment UK | Omnichannel Talent Solutions',
+      description: 'Specialist retail and e-commerce recruitment across the UK. Supply chain specialists, e-commerce managers, UX designers and digital marketing leads sourced for omnichannel brands and commerce platforms.',
+      keywords: 'retail recruitment UK, e-commerce recruitment UK, omnichannel staffing UK, supply chain recruitment UK, digital marketing recruitment UK, Shopify recruitment UK, retail operations staffing UK',
+      ogTitle: 'Retail & E-Commerce Recruitment UK | Omnichannel Talent Solutions',
+      ogDescription: 'Specialist retail and e-commerce workforce solutions across the UK. Omnichannel, supply chain and digital commerce specialists for modern retail brands.'
+    },
     overview: {
-      title: 'Omnichannel Future Talent',
-      description: 'We help retail organizations transition to digital-first models by providing the talent needed to manage complex e-commerce and supply chain ecosystems.',
+      title: 'Omnichannel Future Talent — Commerce Expertise for the Digital Age',
+      description: 'Modern retail demands professionals who understand both the physical and digital dimensions of commerce. We help retail organisations transition to digital-first models by providing the talent needed to manage complex e-commerce ecosystems, omnichannel operations and dynamic supply chains.\n\n• Platform-Certified Talent: Developers and architects vetted across Shopify, Magento, Salesforce Commerce Cloud and major WMS/OMS platforms.\n• Peak Scaling Capability: High-volume temporary cohorts mobilised in 24–48 hours for Black Friday, seasonal surges and rapid operational expansion.\n• Conversion-Focused UX Hiring: Designers evaluated on portfolio evidence of measurable UX improvements and data-driven conversion rate optimisation.',
     },
     challenges: [
       'Digital-first retail shift',
@@ -382,10 +431,10 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       { q: 'What is the typical turnaround for filling retail operations management roles?', a: 'For critical retail management roles, we typically present a high-quality shortlist of candidates within 7-10 business days, leveraging our extensive network of retail professionals.' }
     ],
     capabilities: [
-      { title: 'Customer First', desc: 'Candidates focused on the user journey.', icon: 'UserCircle' },
-      { title: 'Supply Chain Ready', desc: 'Talent that understands modern logistics.', icon: 'Truck' },
-      { title: 'Omnichannel Commerce', desc: 'Architects experienced in multi-channel conversions.', icon: 'ShoppingBag' },
-      { title: 'Conversion Rate Opt', desc: 'UX/UI specialists focused on driving consumer sales.', icon: 'TrendingUp' }
+      { title: 'Customer First', desc: 'Candidates assessed on their track record of improving customer journey and satisfaction metrics.', icon: 'UserCircle' },
+      { title: 'Supply Chain Ready', desc: 'Specialists experienced in WMS, OMS, last-mile logistics and global freight management.', icon: 'Truck' },
+      { title: 'Omnichannel Commerce', desc: 'Architects and managers experienced in seamless multi-channel commerce integration.', icon: 'ShoppingBag' },
+      { title: 'Conversion Rate Opt', desc: 'UX/UI and digital marketing specialists focused on data-driven consumer sales growth.', icon: 'TrendingUp' }
     ]
   },
   {
@@ -398,9 +447,16 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       subtitle: 'Delivering engineering excellence and operational leadership for Industry 4.0 and advanced manufacturing.',
       image: manufacturingImg,
     },
+    metaInfo: {
+      title: 'Manufacturing Recruitment UK | Industry 4.0 & Engineering Talent',
+      description: 'Specialist manufacturing recruitment across the UK. Process engineers, automation specialists, plant managers and quality control leads sourced for Industry 4.0, smart factory and advanced manufacturing projects.',
+      keywords: 'manufacturing recruitment UK, Industry 4.0 staffing UK, automation engineer recruitment UK, process engineer staffing UK, plant manager recruitment UK, lean manufacturing recruitment UK, industrial staffing UK',
+      ogTitle: 'Manufacturing Recruitment UK | Industry 4.0 & Advanced Manufacturing Talent',
+      ogDescription: 'Specialist manufacturing workforce solutions across the UK. Automation, process engineering and operational talent for Industry 4.0 and smart factory initiatives.'
+    },
     overview: {
-      title: 'Advanced Industrial Workforce',
-      description: 'We help manufacturing organizations secure the engineering and operational talent needed to drive automation and Industry 4.0 initiatives.',
+      title: 'Advanced Industrial Workforce — Driving Industry 4.0 Transformation',
+      description: 'The manufacturing sector is undergoing its most profound transformation since the industrial revolution. We help organisations secure the engineering and operational talent needed to lead automation, smart factory implementation, and Industry 4.0 initiatives.\n\n• Safety-Compliance Vetting: All industrial candidates screened for NEBOSH, OSHA and sector-specific H&S compliance before placement on any production site.\n• Automation & Robotics Specialists: Dedicated desk sourcing engineers who design, implement and maintain robotic and IoT-integrated production systems.\n• Lean & Six Sigma Expertise: Process engineers and operations leaders with proven track records in cost reduction, yield improvement and operational resilience.',
     },
     challenges: [
       'Technical skill gap',
@@ -434,10 +490,10 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       { q: 'How do you ensure candidates meet high operational and environmental safety standards?', a: 'We vet all manufacturing candidates for their knowledge of H&S regulations (e.g., OSHA, NEBOSH) and their commitment to maintaining a safe and environmentally responsible workplace.' }
     ],
     capabilities: [
-      { title: 'Engineering Focus', desc: 'Rigorous vetting for technical industrial roles.', icon: 'Settings' },
-      { title: 'Operational Safety', desc: 'Ensuring candidates meet high safety standards.', icon: 'HardHat' },
-      { title: 'Industry 4.0 Automation', desc: 'IoT integration and automation systems specialists.', icon: 'Cpu' },
-      { title: 'Lean Manufacturing', desc: 'Six Sigma certified process optimization experts.', icon: 'Gauge' }
+      { title: 'Engineering Focus', desc: 'Rigorous technical vetting for industrial, process and maintenance engineering roles across sectors.', icon: 'Settings' },
+      { title: 'Operational Safety', desc: 'NEBOSH and OSHA-compliant candidates screened for high-standard manufacturing safety environments.', icon: 'HardHat' },
+      { title: 'Industry 4.0 Automation', desc: 'IoT integration, robotics and smart manufacturing system specialists sourced and deployed.', icon: 'Cpu' },
+      { title: 'Lean Manufacturing', desc: 'Six Sigma certified experts driving process optimisation, cost reduction and operational excellence.', icon: 'Gauge' }
     ]
   }
 ];

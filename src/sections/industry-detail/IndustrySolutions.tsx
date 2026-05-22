@@ -98,11 +98,6 @@ export default function IndustrySolutions({ services }: Props) {
       
       {/* Dynamic inline styles for smooth organic morphing and continuous smooth infinite marquee scroll */}
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes morph {
-          0% { border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%; }
-          50% { border-radius: 50% 60% 45% 55% / 55% 45% 65% 35%; }
-          100% { border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%; }
-        }
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -114,100 +109,94 @@ export default function IndustrySolutions({ services }: Props) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* ── PART 1: THE CONSULTANT PROFILE ROW (Mockup Top Part) ── */}
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center mb-36">
-          
-          {/* Left Column - Blob Image & Hover Metrics */}
-          <div className="w-full lg:w-[45%] flex justify-center relative">
-            <div className="relative w-[300px] h-[300px] xs:w-[350px] xs:h-[350px] sm:w-[400px] sm:h-[400px] flex items-center justify-center">
-              
-              {/* Animated Morphing Background Blob */}
-              <div 
-                className="absolute inset-0 bg-gradient-to-tr from-[#7A1F5C]/10 to-[#DBCB89]/10 z-0"
-                style={{ animation: 'morph 8s ease-in-out infinite' }}
+
+        {/* ── PART 1: THE CONSULTANT PROFILE ROW ── */}
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-stretch mb-36">
+
+          {/* LEFT — Professional Image Panel */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full lg:w-[45%] flex-shrink-0"
+          >
+            <div className="relative w-full h-[460px] lg:h-full min-h-[460px] rounded-3xl overflow-hidden shadow-2xl">
+              {/* Main image */}
+              <Image
+                src={trustedImg.src}
+                alt="Chalky Infotech — Industry Talent Acquisition"
+                fill
+                unoptimized
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 45vw"
               />
-              
-              {/* Vetted Consultant Image Wrapper */}
-              <div 
-                className="relative w-[85%] h-[85%] overflow-hidden shadow-2xl border-8 border-white z-10 transition-all duration-700 hover:scale-[1.02]"
-                style={{ animation: 'morph 8s ease-in-out infinite' }}
-              >
-                <Image
-                  src={trustedImg.src}
-                  alt="Talent Acquisition Director"
-                  fill
-                  unoptimized
-                  className="object-cover object-top"
-                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+
+              {/* Subtle dark gradient overlay at bottom */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent" />
+
+              {/* Stat ribbon pinned to bottom */}
+              <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-10 flex items-end justify-between gap-4">
+                {[
+                  { value: '10k+', label: 'Vetted Talents' },
+                  { value: '98%', label: 'Success Rate' },
+                  { value: '14 Days', label: 'Avg. Delivery' },
+                ].map((stat, i) => (
+                  <div key={i} className="flex flex-col items-center text-center flex-1">
+                    <span className="text-white font-black text-xl leading-none">{stat.value}</span>
+                    <span className="text-white/70 text-[10px] font-bold uppercase tracking-widest mt-1">{stat.label}</span>
+                  </div>
+                ))}
               </div>
-              
-              {/* Floating Badge 1 - Top Right */}
-              <motion.div 
-                animate={{ y: [0, -6, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="absolute -top-2 -right-4 bg-white border border-[#EFE7DD] rounded-2xl px-4 py-2.5 shadow-lg z-20 flex flex-col items-center select-none"
-              >
-                <span className="text-[#7A1F5C] font-black text-lg leading-none">10k+</span>
-                <span className="text-[10px] text-gray-500 font-extrabold uppercase tracking-wider mt-0.5">Vetted Talents</span>
-              </motion.div>
 
-              {/* Floating Badge 2 - Mid Left */}
-              <motion.div 
-                animate={{ y: [0, 6, 0] }}
-                transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-                className="absolute top-1/2 -left-10 bg-white border border-[#EFE7DD] rounded-2xl px-4 py-2.5 shadow-lg z-20 flex flex-col items-center select-none"
-              >
-                <span className="text-[#7A1F5C] font-black text-lg leading-none">98.6%</span>
-                <span className="text-[10px] text-gray-500 font-extrabold uppercase tracking-wider mt-0.5">Success Rate</span>
-              </motion.div>
-
-              {/* Floating Badge 3 - Bottom Right */}
-              <motion.div 
-                animate={{ y: [0, -5, 0] }}
-                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-4 right-2 bg-white border border-[#EFE7DD] rounded-2xl px-4 py-2.5 shadow-lg z-20 flex flex-col items-center select-none"
-              >
-                <span className="text-[#7A1F5C] font-black text-lg leading-none">14 Days</span>
-                <span className="text-[10px] text-gray-500 font-extrabold uppercase tracking-wider mt-0.5">Avg Delivery</span>
-              </motion.div>
-
+              {/* Top-left accent badge */}
+              <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-widest">
+                Verified Partner
+              </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column - Profile Strategic Text */}
-          <div className="w-full lg:w-[55%]">
+          {/* RIGHT — Strategic Text */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            className="w-full lg:w-[55%] flex flex-col justify-center"
+          >
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-extrabold uppercase tracking-widest mb-5">
               Strategic Talent Sourcing
             </span>
             <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-tight tracking-tight">
               Empowering Growth through <span className="text-[#7A1F5C]">Tailored Solutions</span>
             </h2>
-            
-            <p className="text-[#8A8A8A] text-lg leading-relaxed mb-6 font-medium">
-              We leverage an extensive database of pre-screened professionals to deliver exceptional hires who integrate seamlessly into your digital ecosystems.
+
+            <p className="text-[#4A4A4A] text-lg leading-relaxed mb-5 font-medium">
+              We leverage an extensive database of pre-screened professionals to deliver exceptional hires who integrate seamlessly into your industry ecosystems.
             </p>
-            
-            <p className="text-gray-500 text-sm leading-relaxed mb-10">
-              Our consultative approach focuses on aligning technical expertise with company culture. Whether filling a single critical leadership vacancy or scaling an entire agile engineering cohort, our pre-vetted pathways guarantee compliance, security, and long-term retention.
+
+            <p className="text-[#6A6A6A] text-sm leading-relaxed mb-10">
+              Our consultative approach aligns technical expertise with company culture. Whether filling a single critical leadership vacancy or scaling an entire agile engineering cohort, our pre-vetted pathways guarantee compliance, security, and long-term retention.
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="px-8 py-4 rounded-xl bg-[#7A1F5C] hover:bg-[#68194E] text-white font-extrabold text-xs uppercase tracking-widest shadow-md transition-colors duration-300"
               >
-                Hire Talents
+                Hire Talent
               </Link>
-              <Link 
-                href="/jobs" 
+              <Link
+                href="/jobs"
                 className="px-8 py-4 rounded-xl border-2 border-[#7A1F5C]/30 hover:border-[#7A1F5C] hover:bg-[#7A1F5C]/5 text-[#7A1F5C] font-extrabold text-xs uppercase tracking-widest transition-all duration-300"
               >
                 View Openings
               </Link>
             </div>
-          </div>
+          </motion.div>
 
         </div>
+
 
         {/* ── PART 2: THE RECRUITMENT MODELS (Continuous Smooth Scrolling Marquee) ── */}
         <div className="text-center mb-16">

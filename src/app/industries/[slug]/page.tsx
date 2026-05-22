@@ -115,7 +115,8 @@ export default async function IndustryDetailPage({ params }: Props) {
       <section id="overview">
         <IndustryOverview 
           title={industry.overview.title} 
-          description={industry.overview.description} 
+          description={industry.overview.description}
+          industryLabel={industry.label}
           capabilities={industry.capabilities}
         />
       </section>

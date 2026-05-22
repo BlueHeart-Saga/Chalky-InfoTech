@@ -115,9 +115,16 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       subtitle: 'Attracting world-class C-suite leaders and strategic visionaries to drive your organizational transformation.',
       image: executiveSearchImg.src,
     },
+    metaInfo: {
+      title: 'Executive Search & Leadership Advisory UK | C-Suite Recruitment',
+      description: 'Discreet, high-impact executive search across the UK. We identify world-class C-suite leaders and senior executives aligned with your long-term vision. 98% placement success rate.',
+      keywords: 'executive search UK, C-suite recruitment UK, leadership hiring UK, senior executive search UK, CEO recruitment UK, CFO hiring UK, CTO search UK, headhunting UK, board director recruitment UK, leadership advisory UK',
+      ogTitle: 'Executive Search UK | World-Class Leadership Acquisition',
+      ogDescription: 'Confidential C-suite & senior leadership search across the UK. Deep market mapping, behavioural assessment & board-aligned cultural fit. Results in 8–12 weeks.'
+    },
     overview: {
-      title: 'Strategic Leadership Acquisition',
-      description: 'The right leader can reshape an entire organization. Our discreet, high-impact executive search services are designed to identify leaders who align with your long-term vision.',
+      title: 'Strategic Leadership Acquisition — Beyond Conventional Recruitment',
+      description: 'The right leader reshapes culture, accelerates strategy, and creates lasting enterprise value. Our discreet, high-impact executive search practice is built for organisations that refuse to compromise on leadership quality.\n\n• Confidential Search: Rigorous privacy protocols protect your business and the candidate throughout every stage of the process.\n• Global Leadership Network: Access to passive C-suite executives, NEDs and strategic visionaries not visible on the open market.\n• Behavioural Science: Evidence-based leadership assessments measuring strategic vision, emotional intelligence, and board-readiness.',
     },
     benefits: [
       'Discreet and confidential search',
@@ -146,8 +153,11 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { q: 'How do you handle search projects for sensitive "confidential replacement" roles?', a: 'We specialize in discreet "succession planning" and confidential replacements, ensuring that the search process does not disrupt your internal operations or external brand reputation.' }
     ],
     features: [
-      { title: 'Global Benchmarking', desc: 'Comparing talent across international markets.', icon: 'Globe' },
-      { title: 'Retention Focus', desc: 'Ensuring long-term leadership stability.', icon: 'ShieldCheck' }
+      { title: 'Global Benchmarking', desc: 'Salary and competency benchmarking across international leadership markets.', icon: 'Globe' },
+      { title: 'Behavioural Assessment', desc: 'Evidence-based frameworks to evaluate strategic vision, EQ and board-readiness.', icon: 'Brain' },
+      { title: 'Board-Level Advisory', desc: 'Strategic counsel aligned with shareholder and governance expectations.', icon: 'Briefcase' },
+      { title: 'Retention Focus', desc: '90-day post-placement support ensuring long-term leadership stability.', icon: 'ShieldCheck' },
+      { title: 'Confidential Pipeline', desc: 'Discreet engagement of passive candidates not visible on the open market.', icon: 'Lock' }
     ]
   },
   {
@@ -161,9 +171,16 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       subtitle: 'Scalable contract staffing services helping organizations access highly skilled professionals for project-based needs.',
       image: contractStaffingImg.src,
     },
+    metaInfo: {
+      title: 'Contract Staffing Solutions UK | Flexible Project-Based Talent',
+      description: 'Agile contract staffing solutions across the UK. Access pre-vetted specialists for project-based needs with full IR35 compliance, managed payroll and rapid 48–72 hour deployment.',
+      keywords: 'contract staffing UK, contract recruitment UK, project staffing UK, IR35 compliant staffing UK, contingent workforce UK, contract IT staffing UK, flexible staffing UK, contract professionals UK',
+      ogTitle: 'Contract Staffing UK | Agile Talent for Project Demands',
+      ogDescription: 'Pre-vetted contract specialists deployed in 48–72 hours. Full IR35 compliance, managed payroll and scalable workforce support across the UK.'
+    },
     overview: {
-      title: 'Agile Workforce Support',
-      description: 'Our contract staffing solutions enable businesses to scale teams efficiently while maintaining operational flexibility and access to specialized expertise.',
+      title: 'Agile Workforce Solutions — Specialist Expertise On Demand',
+      description: "Today's project timelines don't wait. Our contract staffing solutions give organisations instant access to battle-tested specialists — exactly when, where, and for as long as they're needed.\n\n• Rapid Deployment: Pre-vetted contract professionals on-site or remote within 48–72 hours of instruction.\n• Full Compliance Management: IR35 status determination, payroll processing and contractor administration handled end-to-end.\n• True Scalability: Scale headcount up or down as project phases evolve — without permanent overhead or long-term commitment.",
     },
     benefits: [
       'Rapid workforce deployment',
@@ -192,8 +209,11 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { q: 'Do you offer temp-to-perm conversion options for contract hires?', a: 'Yes, we facilitate temp-to-perm models if you decide that a high-performing contractor would be a valuable long-term addition to your permanent team.' }
     ],
     features: [
-      { title: 'Scalable Teams', desc: 'Adjust capacity based on project load.', icon: 'Users' },
-      { title: 'Low Risk', desc: 'Flexible engagement terms.', icon: 'CheckCircle' }
+      { title: '48–72hr Deployment', desc: 'Contract specialists on-site or remote within two to three business days.', icon: 'Clock' },
+      { title: 'IR35 Compliance', desc: 'Full status determination and payroll management for every UK engagement.', icon: 'ShieldCheck' },
+      { title: 'Scalable Teams', desc: 'Increase or decrease headcount instantly as project phases evolve.', icon: 'Users' },
+      { title: 'Temp-to-Perm Option', desc: 'Convert high-performing contractors into permanent hires seamlessly.', icon: 'TrendingUp' },
+      { title: 'Zero Admin Burden', desc: 'We handle contracts, taxes and compliance — you focus on delivery.', icon: 'CheckCircle' }
     ]
   },
   {
@@ -207,9 +227,16 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       subtitle: 'Building the foundation of your success with high-retention talent aligned with your culture and technical needs.',
       image: permanentHiringImg.src,
     },
+    metaInfo: {
+      title: 'Permanent Hiring Solutions UK | High-Retention Talent Placement',
+      description: 'Strategic permanent recruitment across the UK. Data-driven cultural alignment and deep headhunting to secure high-retention talent that drives long-term business value.',
+      keywords: 'permanent hiring UK, permanent recruitment UK, headhunting UK, direct hire UK, permanent placement UK, full-time recruitment UK, cultural alignment hiring UK, senior permanent recruitment UK',
+      ogTitle: 'Permanent Hiring UK | Strategic Talent for Long-Term Success',
+      ogDescription: 'High-retention permanent placements across all UK sectors. Deep cultural mapping, targeted headhunting and guaranteed placement support.'
+    },
     overview: {
-      title: 'Strategic Talent Investment',
-      description: 'Permanent hires are an investment in your company’s future. We use data-driven insights to ensure every hire is a long-term cultural and technical success.',
+      title: 'Strategic Talent Investment — Engineered for Retention',
+      description: 'Permanent hires are not just headcount — they are long-term investments in your organisation\'s future. We apply data-driven insight and deep cultural mapping to ensure every placement is a high-retention match, not just a skills match.\n\n• Targeted Headhunting: Engaging passive, high-calibre candidates not actively seeking roles but open to the right strategic opportunity.\n• Multi-Stage Vetting: Comprehensive technical, cultural and motivational assessment before any profile is presented to you.\n• Retention by Design: Our permanent placements average 3+ years tenure — because we align careers and values, not just CVs.',
     },
     benefits: [
       'High retention rates',
@@ -238,8 +265,11 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { q: 'Do you support permanent recruitment across all major global industries?', a: 'Yes, we have specialized divisions for IT, Finance, Healthcare, Retail, and Manufacturing, ensuring sector-specific expertise for every permanent placement.' }
     ],
     features: [
-      { title: 'Cultural Mapping', desc: 'Ensuring perfect team integration.', icon: 'Heart' },
-      { title: 'Retention Focused', desc: 'High-quality, long-term hires.', icon: 'Target' }
+      { title: 'Cultural Mapping', desc: 'Deep-dive analysis of your values, environment and team dynamics before search begins.', icon: 'Heart' },
+      { title: 'Passive Headhunting', desc: 'Targeted outreach to high-calibre professionals not active on the open market.', icon: 'Target' },
+      { title: 'Multi-Stage Vetting', desc: 'Technical, motivational and cultural fit assessment before any profile is presented.', icon: 'ShieldCheck' },
+      { title: 'Retention Focused', desc: 'Placements averaging 3+ years tenure through precision alignment methodology.', icon: 'TrendingUp' },
+      { title: 'Placement Guarantee', desc: 'Structured re-engagement at no additional cost if a hire does not meet expectations.', icon: 'Award' }
     ]
   },
   {
@@ -253,9 +283,16 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       subtitle: 'Scaling your operational capacity instantly with vetted professionals for seasonal peaks and high-volume needs.',
       image: temporaryRecruitmentImg.src,
     },
+    metaInfo: {
+      title: 'Temporary Recruitment Services UK | Rapid Workforce Scaling',
+      description: 'Fast, flexible temporary recruitment across the UK. Deploy fully vetted temporary professionals within 24–48 hours for seasonal peaks, operational spikes and high-volume project demands.',
+      keywords: 'temporary recruitment UK, temp staffing UK, temporary workers UK, seasonal staffing UK, high volume temp recruitment UK, temp agency UK, flexible temp workforce UK, temp to perm UK',
+      ogTitle: 'Temporary Recruitment UK | Vetted Staff in 24–48 Hours',
+      ogDescription: 'Rapid-response temporary staffing across logistics, retail, customer support and manufacturing. Fully managed payroll, compliance and on-site coordination.'
+    },
     overview: {
-      title: 'Instant Operational Scaling',
-      description: 'Whether it’s seasonal demand or a sudden project spike, our temporary recruitment solutions provide vetted talent exactly when you need it.',
+      title: 'Instant Operational Scaling — Ready to Deploy in 24–48 Hours',
+      description: 'Seasonal peaks, project surges and unexpected demand spikes require a workforce partner who responds at pace. Our temporary recruitment solutions give you access to a pre-vetted talent pool ready for same-day or next-day mobilisation.\n\n• 24–48hr Deployment: Pre-screened temporary cohorts on-site across the UK within one to two business days.\n• Fully Managed Administration: Contracts, payroll, tax compliance and on-site coordination handled from day one.\n• Variable Cost Model: Pay only for hours worked — protecting your permanent team from burnout and your budget from fixed overheads.',
     },
     benefits: [
       'Immediate talent availability',
@@ -284,8 +321,11 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { q: 'What support do you offer for on-site management of temporary staff?', a: 'For larger cohorts, we can provide dedicated on-site account managers who handle daily attendance, performance monitoring, and team coordination.' }
     ],
     features: [
-      { title: 'High Volume', desc: 'Managing hundreds of placements.', icon: 'Layers' },
-      { title: 'Fully Vetted', desc: 'Pre-screened and ready to work.', icon: 'CheckCircle' }
+      { title: '24–48hr Mobilisation', desc: 'Pre-vetted temporary cohorts deployed within one to two business days UK-wide.', icon: 'Zap' },
+      { title: 'High Volume Capacity', desc: 'Managing hundreds of simultaneous placements across multiple client sites.', icon: 'Layers' },
+      { title: 'Fully Vetted Pool', desc: 'Identity, reference and role-specific competency checks for every temporary worker.', icon: 'CheckCircle' },
+      { title: 'Managed Payroll', desc: 'Complete payroll, tax and administrative management for all temporary staff.', icon: 'BarChart' },
+      { title: 'Temp-to-Perm Pathway', desc: 'Seamless conversion for top-performing temporaries into long-term permanent roles.', icon: 'TrendingUp' }
     ]
   },
   {
@@ -299,9 +339,16 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       subtitle: 'Benefit from dedicated recruiters working as a seamless extension of your internal HR and hiring teams.',
       image: onSiteRecruitmentImg.src,
     },
+    metaInfo: {
+      title: 'On-Site Recruitment Solutions UK | Embedded HR Partnership',
+      description: 'Dedicated on-site recruiters embedded within your organisation across the UK. Full-cycle talent acquisition managed from inside your office — reducing cost-per-hire and accelerating hiring cycles.',
+      keywords: 'on-site recruitment UK, embedded recruitment UK, RPO UK, on-site recruiter UK, recruitment process outsourcing UK, dedicated recruiter UK, in-house recruitment UK, on-site hiring UK',
+      ogTitle: 'On-Site Recruitment UK | Embedded Talent Acquisition Partnership',
+      ogDescription: 'Dedicated recruiters working as a seamless extension of your internal HR team. Lower cost-per-hire, faster cycles and real-time hiring analytics.'
+    },
     overview: {
-      title: 'Internal Team Extension',
-      description: 'Our on-site recruiters integrate with your culture, processes, and systems to deliver a fully managed talent acquisition service from within your office.',
+      title: 'Embedded Talent Partnership — Recruitment From Within',
+      description: "An on-site recruitment partnership means our consultants don't just work for you — they work with you, embedded in your culture, your systems, and your strategy.\n\n• Deep Cultural Integration: Our recruiters become your employer brand ambassadors, delivering candidate experiences that reflect your values from first contact to offer acceptance.\n• Process Optimisation: We audit and redesign your hiring workflows to eliminate bottlenecks, reduce time-to-hire and significantly lower your cost-per-hire.\n• Real-Time Reporting: Live dashboards tracking time-to-hire, source quality, diversity metrics and cost-per-hire for complete hiring transparency.",
     },
     benefits: [
       'Deep organizational integration',
@@ -330,8 +377,11 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { q: 'Is the on-site model suitable for tech scale-ups and mid-sized firms?', a: 'Yes, it is highly effective for scale-ups undergoing rapid growth, providing the structure and expertise needed to build a sustainable talent pipeline quickly.' }
     ],
     features: [
-      { title: 'Cost Efficient', desc: 'Lower fees through high volume.', icon: 'TrendingDown' },
-      { title: 'Brand First', desc: 'Candidates see us as your team.', icon: 'Award' }
+      { title: 'Brand Ambassador', desc: 'Our recruiters represent your employer brand as a true internal team member.', icon: 'Award' },
+      { title: 'Process Optimisation', desc: 'Workflow audit and redesign to eliminate hiring bottlenecks and cut delays.', icon: 'Settings' },
+      { title: 'Cost Reduction', desc: 'Significantly lower cost-per-hire through embedded, high-volume delivery.', icon: 'TrendingDown' },
+      { title: 'ATS Integration', desc: 'Native compatibility with all major HR and applicant tracking platforms.', icon: 'Database' },
+      { title: 'Live Analytics', desc: 'Real-time dashboards on time-to-hire, diversity statistics and spend performance.', icon: 'BarChart' }
     ]
   },
   {
@@ -345,9 +395,16 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       subtitle: 'Optimizing your entire talent supply chain through strategic managed services and workforce technology.',
       image: managedServicesImg.src,
     },
+    metaInfo: {
+      title: 'Managed Workforce Solutions UK | MSP & Contingent Workforce Management',
+      description: 'End-to-end managed staffing solutions (MSP) for enterprises across the UK. Centralise your contingent workforce, reduce costs by 10–15% and achieve 100% compliance through a single managed framework.',
+      keywords: 'managed staffing UK, MSP UK, managed service provider recruitment UK, contingent workforce management UK, VMS integration UK, workforce outsourcing UK, talent supply chain UK, managed workforce UK',
+      ogTitle: 'Managed Workforce Solutions UK | Enterprise MSP Partner',
+      ogDescription: 'Centralise your entire contingent workforce with our enterprise MSP model. Full compliance, 10–15% cost savings and unified workforce analytics across the UK.'
+    },
     overview: {
-      title: 'Enterprise Workforce Optimization',
-      description: 'We manage your entire contingent workforce, from supplier management to compliance and cost control, delivering a unified and efficient talent ecosystem.',
+      title: 'Enterprise Workforce Optimisation — Complete Supply Chain Control',
+      description: 'Managing a large contingent workforce across multiple vendors is complex, costly, and compliance-heavy. Our Managed Service Provider (MSP) model transforms that complexity into a unified, efficient and fully controlled talent ecosystem.\n\n• Centralised Vendor Management: Single point of accountability across your entire supplier network — standardised terms, quality controls and performance metrics enforced consistently.\n• Technology-Driven Visibility: VMS integration providing real-time spend visibility, compliance dashboards and strategic workforce analytics.\n• Guaranteed Compliance: Automated background checks, Right-to-Work verification and IR35 management across every single contractor engagement.',
     },
     benefits: [
       'Centralized vendor management',
@@ -376,8 +433,11 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { q: 'Is the MSP model only for large global enterprises?', a: 'While common in large enterprises, any organization with a significant contingent workforce can benefit from the cost control and compliance certainty provided by an MSP.' }
     ],
     features: [
-      { title: 'Risk Control', desc: '100% compliance across all staff.', icon: 'ShieldCheck' },
-      { title: 'Data Driven', desc: 'Full visibility on workforce spend.', icon: 'BarChart' }
+      { title: 'Vendor Centralisation', desc: 'Single accountability across your entire staffing supplier network.', icon: 'Settings' },
+      { title: '100% Compliance', desc: 'Automated IR35, Right-to-Work and background checks for every worker.', icon: 'ShieldCheck' },
+      { title: 'VMS Integration', desc: 'Tech-agnostic compatibility with Beeline, Fieldglass and all major platforms.', icon: 'Database' },
+      { title: '10–15% Cost Savings', desc: 'Typical first-year cost reduction through centralised spend and vendor negotiation.', icon: 'TrendingDown' },
+      { title: 'Workforce Analytics', desc: 'Unified dashboards for spend, vendor performance and compliance status.', icon: 'BarChart' }
     ]
   },
   {
@@ -391,9 +451,16 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       subtitle: 'Build high-performance borderless teams by accessing the world’s best talent, anywhere.',
       image: remoteHiringImg.src,
     },
+    metaInfo: {
+      title: 'Global Remote Hiring Services UK | Borderless Talent Acquisition',
+      description: 'Build high-performance borderless teams with Chalky Infotech. Cross-border compliance, EOR payroll management and remote-first vetting across UK, India, Europe and North America.',
+      keywords: 'remote hiring UK, global remote recruitment UK, remote staffing UK, borderless hiring UK, EOR UK, employer of record UK, remote tech talent UK, global talent acquisition UK, distributed team hiring UK',
+      ogTitle: 'Global Remote Hiring UK | Build Borderless High-Performance Teams',
+      ogDescription: 'Access world-class remote talent across UK, India, Europe and North America. Full cross-border compliance, EOR payroll and remote-first vetting.'
+    },
     overview: {
-      title: 'The Future of Work is Global',
-      description: 'We help you access top-tier professionals across international borders, managing everything from sourcing to global compliance and remote onboarding.',
+      title: 'The Future of Work is Borderless — Access Global Talent Today',
+      description: 'Geographic boundaries no longer define where great talent lives. Our global remote hiring practice connects your organisation with the world\'s best professionals — managed compliantly, onboarded digitally, and productive from day one.\n\n• Cross-Border Compliance: International labour law navigation, Employer of Record (EOR) payroll management and localised contract structuring across every jurisdiction.\n• Remote-First Vetting: Secure remote-proctored technical assessments and multi-stage video interviews verifying both competency and remote-work readiness.\n• Global Talent Mapping: Active sourcing from major innovation hubs in the UK, India, Europe and North America, matched to your time zone and collaboration model.',
     },
     benefits: [
       'Access to global talent pool',
@@ -422,8 +489,11 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       { q: 'How do you handle cultural alignment for professionals working in different regions?', a: 'We use specialized behavioral assessments to find candidates who thrive in global, multicultural environments and have the communication skills needed for remote success.' }
     ],
     features: [
-      { title: 'Timezone Sync', desc: 'Matching teams to your hours.', icon: 'Clock' },
-      { title: 'Global Vetting', desc: 'Verified international credentials.', icon: 'UserCheck' }
+      { title: 'EOR Payroll Management', desc: 'Compliant localised payroll across every country your remote hire is based in.', icon: 'Globe' },
+      { title: 'Remote-First Vetting', desc: 'Secure proctored assessments verifying technical and remote-work competency.', icon: 'UserCheck' },
+      { title: 'Timezone Matching', desc: 'Talent sourced and vetted for compatibility with your core business hours.', icon: 'Clock' },
+      { title: 'Global Compliance', desc: 'International labour law, visa and right-to-work management handled end-to-end.', icon: 'ShieldCheck' },
+      { title: 'Remote Onboarding', desc: 'Digital onboarding kits and cultural integration support from day one.', icon: 'Zap' }
     ]
   }
 ];
