@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Plus, 
@@ -152,6 +153,19 @@ export default function PrivacyPolicyPage() {
                     </button>
                   );
                 })}
+
+                <div className="pt-6 mt-6 border-t border-[#7A1F5C]/10 space-y-3 ml-4">
+                  <h4 className="text-[#1A1A1A]/40 font-bold text-[10px] uppercase tracking-wider mb-2">Related Frameworks</h4>
+                  <Link href="/gdpr" className="flex items-center gap-1.5 text-xs font-semibold text-[#7A1F5C] hover:text-[#9D2877] transition-all">
+                    GDPR Compliance <ChevronRight size={12} />
+                  </Link>
+                  <Link href="/right-to-work" className="flex items-center gap-1.5 text-xs font-semibold text-[#7A1F5C] hover:text-[#9D2877] transition-all">
+                    Right To Work <ChevronRight size={12} />
+                  </Link>
+                  <Link href="/verification" className="flex items-center gap-1.5 text-xs font-semibold text-[#7A1F5C] hover:text-[#9D2877] transition-all">
+                    Verification <ChevronRight size={12} />
+                  </Link>
+                </div>
               </div>
             </aside>
 
@@ -217,6 +231,45 @@ export default function PrivacyPolicyPage() {
                   <h3 className="text-xl font-bold text-[#1A1A1A]">No results found</h3>
                 </div>
               )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Compliance Frameworks Section */}
+      <section className="pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-[32px] p-8 md:p-12 border border-white shadow-sm">
+            <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] mb-2">Related Compliance & Policies</h3>
+            <p className="text-[#8A8A8A] text-sm mb-8">Review our other structural policies regarding worker rights, verification, and data protection.</p>
+            <div className="grid sm:grid-cols-3 gap-6">
+              <Link href="/gdpr" className="group flex items-center justify-between p-6 rounded-2xl bg-[#F5F0E8]/40 border border-transparent hover:border-[#7A1F5C]/20 hover:bg-white transition-all shadow-sm">
+                <div>
+                  <h4 className="font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors text-sm mb-1">GDPR Compliance</h4>
+                  <p className="text-xs text-[#8A8A8A]">Data protection regulations and privacy rights under EU/UK standards.</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] flex items-center justify-center group-hover:bg-[#7A1F5C] group-hover:text-white transition-all flex-shrink-0">
+                  <ChevronRight size={16} />
+                </div>
+              </Link>
+              <Link href="/right-to-work" className="group flex items-center justify-between p-6 rounded-2xl bg-[#F5F0E8]/40 border border-transparent hover:border-[#7A1F5C]/20 hover:bg-white transition-all shadow-sm">
+                <div>
+                  <h4 className="font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors text-sm mb-1">Right To Work</h4>
+                  <p className="text-xs text-[#8A8A8A]">Guidance on employment eligibility and identity verification processes.</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] flex items-center justify-center group-hover:bg-[#7A1F5C] group-hover:text-white transition-all flex-shrink-0">
+                  <ChevronRight size={16} />
+                </div>
+              </Link>
+              <Link href="/verification" className="group flex items-center justify-between p-6 rounded-2xl bg-[#F5F0E8]/40 border border-transparent hover:border-[#7A1F5C]/20 hover:bg-white transition-all shadow-sm">
+                <div>
+                  <h4 className="font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors text-sm mb-1">Background Verification</h4>
+                  <p className="text-xs text-[#8A8A8A]">Our structural vetting policies for education, history, and records.</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] flex items-center justify-center group-hover:bg-[#7A1F5C] group-hover:text-white transition-all flex-shrink-0">
+                  <ChevronRight size={16} />
+                </div>
+              </Link>
             </div>
           </div>
         </div>

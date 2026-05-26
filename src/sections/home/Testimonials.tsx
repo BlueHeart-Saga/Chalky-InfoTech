@@ -293,7 +293,7 @@ export default function Testimonials() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Client Logos Strip */}
-        <div className="mb-24">
+        {/* <div className="mb-24">
           <p className="text-center text-gray-500 font-medium uppercase tracking-widest text-xs mb-10">
             Trusted by leading companies worldwide
           </p>
@@ -308,7 +308,7 @@ export default function Testimonials() {
               );
             })}
           </div>
-        </div>
+        </div> */}
 
         {/* CTA Banner */}
         <motion.div

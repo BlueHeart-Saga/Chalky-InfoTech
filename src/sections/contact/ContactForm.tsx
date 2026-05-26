@@ -113,7 +113,7 @@ export default function ContactForm() {
     firstName: '',
     lastName: '',
     email: '',
-    cell: '',
+    phone: '',
     organisation: '',
     message: ''
   });
@@ -152,7 +152,7 @@ export default function ContactForm() {
         fullName: `${formData.firstName} ${formData.lastName}`,
         email: formData.email,
         subject,
-        message: `${formData.message}\n\nCell: ${formData.cell}`,
+        message: `${formData.message}\n\nPhone Number: ${formData.phone}`,
         company: formData.organisation,
         serviceType: typeLabel,
         file: fileObj || undefined,
@@ -206,7 +206,7 @@ export default function ContactForm() {
       <h2 className="text-2xl md:text-3xl font-semibold text-[#1A1A1A] mb-2 leading-tight">
         Which <strong>office</strong> are you contacting?
       </h2>
-      <p className="text-sm text-gray-400 mb-8">Select a location  we&apos;ll route you to the right team.</p>
+      <p className="text-sm text-gray-400 mb-8">Select a location - we&apos;ll route you to the right team.</p>
 
       <div className="grid grid-cols-3 gap-5 mb-10">
         {REGIONS.map((r) => {
@@ -266,7 +266,7 @@ export default function ContactForm() {
       <h2 className="text-2xl md:text-3xl font-semibold text-[#1A1A1A] mb-2 leading-tight">
         What are you <strong>enquiring</strong> about?*
       </h2>
-      <p className="text-sm text-gray-400 mb-8">Select one  we&apos;ll take you straight to the form.</p>
+      <p className="text-sm text-gray-400 mb-8">Select one - we&apos;ll take you straight to the form.</p>
 
       <div className="flex flex-col gap-3 mb-10">
         {ENQUIRY_TYPES.map((eq) => {
@@ -328,7 +328,7 @@ export default function ContactForm() {
             onClick={() => {
               setStep(0); setSubmitted(false);
               setRegion(null); setEnquiryType(null); setFileName(null); setFileObj(null);
-              setFormData({ firstName: '', lastName: '', email: '', cell: '', organisation: '', message: '' });
+              setFormData({ firstName: '', lastName: '', email: '', phone: '', organisation: '', message: '' });
             }}
             className="text-sm text-[#7A1F5C] font-semibold hover:underline"
           >
@@ -346,7 +346,7 @@ export default function ContactForm() {
           <p className="text-sm text-gray-500">{subtitle}</p>
         </div>
 
-        {/* Form card  white bg, triangle accents */}
+        {/* Form card - white bg, triangle accents */}
         <div className="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
 
           {/* Top-right rose triangle */}
@@ -415,11 +415,11 @@ export default function ContactForm() {
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[12px] font-semibold text-[#1A1A1A]">Cell</label>
+                  <label className="text-[12px] font-semibold text-[#1A1A1A]">Phone Number</label>
                   <input
                     type="tel"
-                    name="cell"
-                    value={formData.cell}
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleChange}
                     className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors bg-white"
                   />
@@ -526,10 +526,10 @@ export default function ContactForm() {
   };
 
   const steps = [
-    <StepWelcome key="welcome" />,
-    <StepRegion key="region" />,
-    <StepEnquiry key="enquiry" />,
-    <StepContactForm key="form" />,
+    StepWelcome(),
+    StepRegion(),
+    StepEnquiry(),
+    StepContactForm(),
   ];
 
   return (

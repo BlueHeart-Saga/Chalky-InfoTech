@@ -10,6 +10,13 @@ export interface IndustryDetail {
     subtitle: string;
     image: StaticImageData | string;
   };
+  metaInfo?: {
+    title: string;
+    description: string;
+    keywords: string;
+    ogTitle: string;
+    ogDescription: string;
+  };
   overview: {
     title: string;
     description: string;

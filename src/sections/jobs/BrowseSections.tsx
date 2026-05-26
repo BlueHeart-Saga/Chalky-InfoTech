@@ -226,6 +226,7 @@ export function BrowseIndustries() {
   // auto-rotate
   const resetTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
+    if (jobSearch) return; // Stop auto-scroll when user is actively searching
     timerRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % INDUSTRIES.length);
     }, 4000);
@@ -235,6 +236,14 @@ export function BrowseIndustries() {
     resetTimer();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [activeIndex]);
+
+  useEffect(() => {
+    if (jobSearch) {
+      if (timerRef.current) clearInterval(timerRef.current);
+    } else {
+      resetTimer();
+    }
+  }, [jobSearch]);
 
   const handlePrev = () => { setActiveIndex((p) => (p === 0 ? INDUSTRIES.length - 1 : p - 1)); resetTimer(); };
   const handleNext = () => { setActiveIndex((p) => (p + 1) % INDUSTRIES.length); resetTimer(); };
@@ -498,6 +507,7 @@ export function EmploymentTypes() {
 
   const resetTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
+    if (jobSearch) return; // Stop auto-scroll when user is actively searching
     timerRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % EMP_TYPES.length);
     }, 4000);
@@ -507,6 +517,14 @@ export function EmploymentTypes() {
     resetTimer();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [activeIndex]);
+
+  useEffect(() => {
+    if (jobSearch) {
+      if (timerRef.current) clearInterval(timerRef.current);
+    } else {
+      resetTimer();
+    }
+  }, [jobSearch]);
 
   const handlePrev = () => { setActiveIndex((p) => (p === 0 ? EMP_TYPES.length - 1 : p - 1)); resetTimer(); };
   const handleNext = () => { setActiveIndex((p) => (p + 1) % EMP_TYPES.length); resetTimer(); };

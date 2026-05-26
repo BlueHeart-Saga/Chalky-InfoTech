@@ -13,6 +13,8 @@ import navdata2 from '@/assets/navbar/Navdata3.png';
 import navdata3 from '@/assets/navbar/Navdata3.png';
 import navdata4 from '@/assets/navbar/Navdata4.png';
 import navdata5 from '@/assets/navbar/Navdata4.png';
+import servicesNav from '@/assets/navbar/servicesnav.png';
+import industriesNav from '@/assets/navbar/industriesnav.png';
 
 const NAVBAR_IMAGES = [navdata1, navdata2, navdata3, navdata4, navdata5];
 
@@ -49,7 +51,7 @@ const SERVICES_DATA = {
     desc: 'Our people are the difference. Hear stories from our people about a career at Chalky Infotech...',
     link: 'Learn more',
     href: '/about',
-    image: navdata4
+    image: servicesNav
   }
 };
 
@@ -86,7 +88,7 @@ const INDUSTRIES_DATA = {
     desc: 'Explore the latest hiring trends and salary benchmarks across our core industries...',
     link: 'Download Report',
     href: '/insights/salary-guide',
-    image: navdata3
+    image: industriesNav
   }
 };
 

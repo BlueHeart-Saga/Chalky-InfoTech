@@ -269,9 +269,8 @@ export default function Footer() {
                 { label: 'Terms & Conditions', href: '/terms-conditions' },
                 { label: 'FAQs', href: '/faqs' },
                 { label: 'Cookie Policy', href: '/cookie-policy' },
-                { label: 'GDPR Compliance', href: '/gdpr' },
-                { label: 'Right To Work', href: '/right-to-work' },
-                { label: 'Background Verification', href: '/verification' },
+                { label: 'Modern Slavery Statement', href: '/modern-slavery-statement' },
+                { label: 'Disclaimer', href: '/disclaimer' },
               ].map((link, i) => (
                 <li key={i}>
                   <Link href={link.href} className="text-gray-300 hover:text-[#C2185B] text-sm transition-colors block">
@@ -328,6 +327,8 @@ export default function Footer() {
               { label: 'Terms & Conditions', href: '/terms-conditions' },
               { label: 'FAQs', href: '/faqs' },
               { label: 'Cookie Policy', href: '/cookie-policy' },
+              { label: 'Modern Slavery', href: '/modern-slavery-statement' },
+              { label: 'Disclaimer', href: '/disclaimer' },
               { label: 'Sitemap', href: '/sitemap' }
             ].map((item) => (
               <Link key={item.label} href={item.href} className="text-gray-400 hover:text-[#C2185B] text-sm transition-colors">{item.label}</Link>

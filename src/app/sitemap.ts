@@ -25,6 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/right-to-work`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${base}/terms-conditions`, lastModified: now, changeFrequency: 'yearly', priority: 0.4 },
     { url: `${base}/verification`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${base}/modern-slavery-statement`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${base}/disclaimer`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
   ];
 
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((s) => ({

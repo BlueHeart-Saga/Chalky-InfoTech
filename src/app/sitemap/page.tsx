@@ -7,14 +7,13 @@ import { motion } from 'framer-motion';
 import { 
   Globe, ArrowRight, FileText, Briefcase, Building2, 
   ShieldCheck, Mail, Globe2, Code2, TrendingUp, 
-  Clock, Users, UserPlus, MapPin, Settings, Cpu,
+  Clock, Users, UserPlus, Settings, Cpu,
   Radio, Shield, Brain, Landmark, Activity, 
   ShoppingCart, Factory, BookOpen, Scale, Search, 
   UserCheck, CheckCircle2, Star, HelpCircle, Newspaper, Heart,
   Podcast, Rss
 } from 'lucide-react';
-import { SERVICES, INDUSTRIES, INSIGHTS_DETAILED } from '@/constants';
-import { LOCATIONS } from '@/constants/locationsData';
+import { SERVICES, INDUSTRIES } from '@/constants';
 
 // --- Components ---
 
@@ -111,13 +110,7 @@ export default function SitemapPage() {
     { label: '• Celebrations', href: '/insights/celebrations' },
     { label: '• Team Culture', href: '/insights/team-culture' },
     { label: '• Posters', href: '/insights/posters' },
-    { label: '• Community', href: '/insights/community' },
-
-    // Articles
-    ...INSIGHTS_DETAILED.map(insight => ({
-      label: `📄 ${insight.title.length > 25 ? `${insight.title.substring(0, 25)}...` : insight.title}`,
-      href: `/insights/${getCategorySlug(insight.category)}/${insight.slug}`
-    }))
+    { label: '• Community', href: '/insights/community' }
   ];
 
   const complianceLinks = [
@@ -127,6 +120,8 @@ export default function SitemapPage() {
     { label: 'Cookie Policy', href: '/cookie-policy', icon: Shield },
     { label: 'Terms of Use', href: '/terms-conditions', icon: Scale },
     { label: 'Right To Work', href: '/right-to-work', icon: CheckCircle2 },
+    { label: 'Modern Slavery Statement', href: '/modern-slavery-statement', icon: Scale },
+    { label: 'Disclaimer', href: '/disclaimer', icon: FileText },
   ];
 
   return (
@@ -187,25 +182,26 @@ export default function SitemapPage() {
               </div>
             </div>
 
-            {/* Illustration and Home Node */}
-            <div className="relative py-12">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 }}
-                className="w-[240px] h-[80px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 pointer-events-none"
-              >
-                 <Image 
-                  src="/logo.png" 
-                  alt="Chalky InfoTech Logo" 
-                  fill 
-                  className="object-contain grayscale"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-              </motion.div>
-              
-              <div className="relative z-10 flex flex-col items-center">
-                <Node label="Chalky Infotech Home" href="/" variant="primary" icon={Globe2} delay={0.6} />
-              </div>
+            {/* Center Logo Node */}
+            <div className="relative py-12 flex justify-center items-center">
+              <Link href="/">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="w-[240px] h-[80px] relative cursor-pointer"
+                >
+                  <Image 
+                    src="/logo.png" 
+                    alt="Chalky InfoTech Logo" 
+                    fill 
+                    className="object-contain"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
+                  />
+                </motion.div>
+              </Link>
             </div>
 
           </div>
@@ -219,12 +215,11 @@ export default function SitemapPage() {
               <DottedLine className="h-16" />
               <DottedLine className="h-16" />
               <DottedLine className="h-16" />
-              <DottedLine className="h-16" />
             </div>
           </div>
 
           {/* Tier 1 Categories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-8 w-full max-w-7xl mb-24 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8 w-full max-w-7xl mb-24 px-4">
             
             {/* Company Column */}
             <div className="flex flex-col items-center">
@@ -255,17 +250,6 @@ export default function SitemapPage() {
               <div className="space-y-3 w-full flex flex-col items-center">
                 {INDUSTRIES.map((link, i) => (
                   <Node key={link.slug} label={link.label} href={`/industries/${link.slug}`} variant="ghost" delay={0.9 + (i * 0.05)} />
-                ))}
-              </div>
-            </div>
-
-            {/* Global Hubs Column */}
-            <div className="flex flex-col items-center">
-              <Node label="Global Hubs" href="/locations" variant="default" icon={MapPin} delay={0.82} />
-              <DottedLine className="h-10 my-4" />
-              <div className="space-y-3 w-full flex flex-col items-center">
-                {LOCATIONS.map((link, i) => (
-                  <Node key={link.slug} label={`${link.city} Hub`} href={`/locations/${link.slug}`} variant="ghost" delay={0.92 + (i * 0.05)} />
                 ))}
               </div>
             </div>

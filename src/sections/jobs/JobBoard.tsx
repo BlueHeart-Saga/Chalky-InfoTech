@@ -61,6 +61,9 @@ export default function JobBoard() {
   const [selectedJob, setSelectedJob] = useState<any>(null);
   const [showPopup, setShowPopup] = useState(false);
 
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+
   const openPopup = (job: any) => {
     setSelectedJob(job);
     setShowPopup(true);
@@ -74,6 +77,17 @@ export default function JobBoard() {
 
   useEffect(() => {
     setNow(Date.now());
+    
+    // Load favorites from localStorage securely on mount (client-side only)
+    try {
+      const stored = localStorage.getItem('favorite_jobs');
+      if (stored) {
+        setFavorites(JSON.parse(stored));
+      }
+    } catch (e) {
+      console.error('Error loading favorites from localStorage:', e);
+    }
+
     (async () => {
       try {
         const res = await fetch(`${API_BASE_URL}/api/requirements/public`);
@@ -99,8 +113,10 @@ export default function JobBoard() {
       (j.position || '').toLowerCase().includes(search.toLowerCase()) ||
       (j.companyName || '').toLowerCase().includes(search.toLowerCase()) ||
       (j.requiredSkills || []).some((s: string) => s.toLowerCase().includes(search.toLowerCase()));
+    const isFavMatch = !showFavoritesOnly || favorites.includes(j._id);
     return (
       sMatch &&
+      isFavMatch &&
       (location === '' || (j.location || '').toLowerCase().includes(location.toLowerCase())) &&
       (experience === '' || (j.experience || '').toLowerCase().includes(experience.toLowerCase())) &&
       (workMode === 'All' || j.workMode === workMode) &&
@@ -108,8 +124,30 @@ export default function JobBoard() {
     );
   });
 
+  const toggleFavorite = (jobId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setFavorites(prev => {
+      const updated = prev.includes(jobId)
+        ? prev.filter(id => id !== jobId)
+        : [...prev, jobId];
+      try {
+        localStorage.setItem('favorite_jobs', JSON.stringify(updated));
+      } catch (err) {
+        console.error('Error saving favorites to localStorage:', err);
+      }
+      return updated;
+    });
+  };
+
   const toggleFilter = (f: string) => setOpenFilter(openFilter === f ? null : f);
-  const clearAll = () => { setSearch(''); setLocation(''); setExperience(''); setWorkMode('All'); setEmpType('All'); };
+  const clearAll = () => {
+    setSearch('');
+    setLocation('');
+    setExperience('');
+    setWorkMode('All');
+    setEmpType('All');
+    setShowFavoritesOnly(false);
+  };
 
   // ── Card view ──────────────────────────────────────────────────────────────
   const CardItem = ({ job }: { job: any }) => (
@@ -130,10 +168,15 @@ export default function JobBoard() {
           </span>
         ) : <span />}
         <button
-          onClick={(e) => e.stopPropagation()}
-          className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-300 hover:text-[#7A1F5C] hover:border-[#7A1F5C]/30 transition-colors"
+          onClick={(e) => toggleFavorite(job._id, e)}
+          className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors ${
+            favorites.includes(job._id)
+              ? 'border-[#7A1F5C] text-[#7A1F5C] bg-[#7A1F5C]/5'
+              : 'border-gray-200 text-gray-300 hover:text-[#7A1F5C] hover:border-[#7A1F5C]/30'
+          }`}
+          title={favorites.includes(job._id) ? 'Remove from bookmarks' : 'Bookmark job'}
         >
-          <Star size={13} />
+          <Star size={13} fill={favorites.includes(job._id) ? '#7A1F5C' : 'transparent'} />
         </button>
       </div>
 
@@ -239,8 +282,16 @@ export default function JobBoard() {
             </span>
           </button>
           <ApplyBtn href={job.jobApplyUrlById || job.applyUrls?.byId || '#'} />
-          <button className="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center text-gray-300 hover:text-[#7A1F5C] hover:border-[#7A1F5C]/30 transition-colors">
-            <Star size={13} />
+          <button
+            onClick={(e) => toggleFavorite(job._id, e)}
+            className={`w-7 h-7 rounded-full border flex items-center justify-center transition-colors ${
+              favorites.includes(job._id)
+                ? 'border-[#7A1F5C] text-[#7A1F5C] bg-[#7A1F5C]/5'
+                : 'border-gray-200 text-gray-300 hover:text-[#7A1F5C] hover:border-[#7A1F5C]/30'
+            }`}
+            title={favorites.includes(job._id) ? 'Remove from bookmarks' : 'Bookmark job'}
+          >
+            <Star size={13} fill={favorites.includes(job._id) ? '#7A1F5C' : 'transparent'} />
           </button>
         </div>
       </div>
@@ -313,6 +364,19 @@ export default function JobBoard() {
               <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-3">Filter</h3>
               <div className="space-y-0">
                 {[
+                  {
+                    key: 'saved', label: `Saved Jobs (${favorites.length})`, render: () => (
+                      <label className="flex items-center gap-2.5 text-xs text-gray-600 cursor-pointer py-1">
+                        <input
+                          type="checkbox"
+                          checked={showFavoritesOnly}
+                          onChange={(e) => setShowFavoritesOnly(e.target.checked)}
+                          className="accent-[#7A1F5C] h-4 w-4 cursor-pointer rounded"
+                        />
+                        <span>Show bookmarked jobs ({favorites.length})</span>
+                      </label>
+                    )
+                  },
                   {
                     key: 'keyword', label: 'Keyword', render: () => (
                       <input type="text" placeholder="e.g. Developer" value={search}
@@ -469,7 +533,7 @@ export default function JobBoard() {
             >
               {/* Header */}
               <div className="flex items-start justify-between px-6 py-5 border-b border-gray-100 shrink-0">
-                <div>
+                <div className="flex-1">
                   <h2 className="text-base font-semibold text-[#1A1A1A] leading-tight mb-0.5">
                     {selectedJob.position}
                   </h2>
@@ -477,12 +541,25 @@ export default function JobBoard() {
                     {selectedJob.companyName || 'Chalky Infotech'}
                   </p>
                 </div>
-                <button
-                  onClick={closePopup}
-                  className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-700 hover:border-gray-300 transition-colors ml-4 shrink-0"
-                >
-                  <X size={15} />
-                </button>
+                <div className="flex items-center gap-2 ml-4 shrink-0">
+                  <button
+                    onClick={(e) => toggleFavorite(selectedJob._id, e)}
+                    className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors ${
+                      favorites.includes(selectedJob._id)
+                        ? 'border-[#7A1F5C] text-[#7A1F5C] bg-[#7A1F5C]/5'
+                        : 'border-gray-200 text-gray-400 hover:text-[#7A1F5C] hover:border-gray-300'
+                    }`}
+                    title={favorites.includes(selectedJob._id) ? 'Remove from bookmarks' : 'Bookmark job'}
+                  >
+                    <Star size={14} fill={favorites.includes(selectedJob._id) ? '#7A1F5C' : 'transparent'} />
+                  </button>
+                  <button
+                    onClick={closePopup}
+                    className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-700 hover:border-gray-300 transition-colors"
+                  >
+                    <X size={15} />
+                  </button>
+                </div>
               </div>
 
               {/* Meta strip */}

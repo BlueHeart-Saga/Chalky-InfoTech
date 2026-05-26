@@ -58,65 +58,65 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <SectionNavbar sections={sections} />
-      
+
       <section id="hero">
         <AboutHero />
       </section>
-      
+
       <section id="story">
         <CompanyStory />
       </section>
-      
+
       <section id="mission">
         <MissionVision />
       </section>
-      
+
       <Suspense fallback={<SectionFallback />}>
         <section id="values">
           <CoreValues />
         </section>
       </Suspense>
-      
+
       <Suspense fallback={<SectionFallback />}>
         <section id="philosophy">
           <RecruitmentPhilosophy />
         </section>
       </Suspense>
-      
+
       <Suspense fallback={<SectionFallback />}>
         <section id="expertise">
           <IndustryExpertise />
         </section>
       </Suspense>
-      
+
       <Suspense fallback={<SectionFallback />}>
         <section id="workforce">
           <GlobalWorkforce />
         </section>
       </Suspense>
-      
+
       <section id="humanex">
         <HumanexShowcase />
       </section>
-      
+
       <Suspense fallback={<SectionFallback />}>
         <section id="trust">
           <WhyTrustUs />
         </section>
       </Suspense>
-      
+
       <Suspense fallback={<SectionFallback />}>
         <section id="timeline">
           <CompanyTimeline />
         </section>
       </Suspense>
-      
+
       <Suspense fallback={<SectionFallback />}>
         <section id="team">
           <LeadershipTeam />
         </section>
       </Suspense>
-      
+
       <Suspense fallback={<SectionFallback />}>
         <section id="cta">
           <AboutCTA />

@@ -52,15 +52,15 @@ export default function CompanyTimeline() {
   return (
     <section className="relative pt-20 pb-24 bg-[#7A1F5C] text-white overflow-hidden">
       {/* Background patterns */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" 
-        style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} 
+      <div className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        
+
         {/* Section Heading */}
         <div className="text-center max-w-4xl mx-auto mb-16 md:mb-20">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -69,7 +69,7 @@ export default function CompanyTimeline() {
             <span className="text-[#F5F0E8]">Our</span>{' '}
             <span className="text-white">Journey</span>
           </motion.h2>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -78,7 +78,7 @@ export default function CompanyTimeline() {
           >
             Milestones & Achievements
           </motion.div>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -88,7 +88,7 @@ export default function CompanyTimeline() {
             A timeline of our commitment to excellence, innovation, and building the future of technology recruitment.
           </motion.p>
         </div>
-        
+
         {/* TOP: Horizontal Year List */}
         <div className="flex justify-center gap-8 md:gap-12 mb-16 md:mb-24">
           {milestones.map((m, i) => (
@@ -97,15 +97,13 @@ export default function CompanyTimeline() {
               onClick={() => setActive(i)}
               className="group flex flex-col items-center gap-3 transition-all duration-300"
             >
-              <span className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
-                i === active ? 'text-white' : 'text-white/30 group-hover:text-white/60'
-              }`}>
+              <span className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${i === active ? 'text-white' : 'text-white/30 group-hover:text-white/60'
+                }`}>
                 {m.year}
               </span>
               <div className="relative w-2 h-2">
-                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
-                  i === active ? 'bg-white scale-125 shadow-[0_0_10px_white]' : 'bg-white/20 group-hover:bg-white/40'
-                }`} />
+                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${i === active ? 'bg-white scale-125 shadow-[0_0_10px_white]' : 'bg-white/20 group-hover:bg-white/40'
+                  }`} />
               </div>
             </button>
           ))}
@@ -131,7 +129,7 @@ export default function CompanyTimeline() {
 
               {/* Content Overlay (Centered) */}
               <div className="relative z-10 max-w-4xl mx-auto">
-                <motion.h3 
+                <motion.h3
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.5 }}
@@ -139,7 +137,7 @@ export default function CompanyTimeline() {
                 >
                   {current.title}
                 </motion.h3>
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25, duration: 0.5 }}
@@ -150,7 +148,7 @@ export default function CompanyTimeline() {
 
                 {/* Progress Bar Container */}
                 <div className="w-24 h-1 bg-white/10 mx-auto rounded-full overflow-hidden">
-                  <motion.div 
+                  <motion.div
                     key={`bar-${active}`}
                     initial={{ width: 0 }}
                     animate={{ width: '100%' }}
@@ -166,7 +164,7 @@ export default function CompanyTimeline() {
         {/* ── TEAM SECTION: The People Behind Our Success ── */}
         <div className="mt-32 pt-20 border-t border-white/10">
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -174,7 +172,7 @@ export default function CompanyTimeline() {
             >
               The People Behind Our Success
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -196,7 +194,7 @@ export default function CompanyTimeline() {
               { id: 7, line1: 'RAKESH SHARMA', line2: 'TECHNICAL CONSULTANT', img: team7 },
               { id: 8, line1: 'NEHA GUPTA', line2: 'SENIOR TALENT PARTNER', img: team8 },
             ].map((member, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -206,13 +204,13 @@ export default function CompanyTimeline() {
               >
                 <div className="relative w-full max-w-[180px] aspect-[4/5] mb-6">
                   {/* Blob Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#F06292] to-[#FF8A65] opacity-70 group-hover:opacity-90 transition-opacity duration-500" 
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#F06292] to-[#FF8A65] opacity-70 group-hover:opacity-90 transition-opacity duration-500"
                     style={{ clipPath: 'polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 25%)', borderRadius: '40% 60% 70% 30% / 40% 50% 60% 70%' }}
                   />
-                  
+
                   {/* Portrait */}
                   <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 70%' }}>
-                    <Image 
+                    <Image
                       src={member.img}
                       alt={member.line1}
                       fill
@@ -221,7 +219,7 @@ export default function CompanyTimeline() {
                     />
                   </div>
                 </div>
-                
+
                 <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-center text-white/90 leading-tight uppercase flex flex-col items-center">
                   <span>{member.line1}</span>
                   <span className="mt-1 opacity-60">{member.line2}</span>

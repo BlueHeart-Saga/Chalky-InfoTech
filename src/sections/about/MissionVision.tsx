@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -11,204 +10,241 @@ import SkilledWorkforceImg from '@/assets/About Us/Vision Mission,skill/skilled 
 
 interface Block {
   title: string;
+  tag: string;
   desc: React.ReactNode;
   image: any;
-  barColor: string;
-  blobStyle: React.CSSProperties;
+  accent: string;
+  accentLight: string;
+  link: string;
   align: 'left' | 'right';
-  titleCase: 'upper' | 'normal';
 }
 
 const blocks: Block[] = [
   {
-    title: 'OUR VISION',
-    desc: <>At Chalky Infotech, we envision becoming a globally trusted <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">technology recruitment</Link> and workforce solutions partner. We support organizations through continuous innovation, scalable hiring strategies, and long-term <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent acquisition</Link> methodologies that bridge the gap between human potential and enterprise success.</>,
+    title: 'Our Vision',
+    tag: '01',
+    desc: <>At Chalky Infotech, we envision becoming a globally trusted <Link href="/services" className="font-semibold underline underline-offset-2" style={{ color: '#7A1F5C' }}>technology recruitment</Link> and workforce solutions partner — supporting organizations through continuous innovation and long-term <Link href="/services/permanent-hiring" className="font-semibold underline underline-offset-2" style={{ color: '#7A1F5C' }}>talent acquisition</Link> methodologies that bridge the gap between human potential and enterprise success.</>,
     image: VisionImg,
-    barColor: '#7A1F5C',
-    blobStyle: { borderRadius: '50% 45% 55% 50% / 50% 50% 45% 55%' },
+    accent: '#7A1F5C',
+    accentLight: '#f8f2fb',
+    link: '/services',
     align: 'left',
-    titleCase: 'upper',
   },
   {
     title: 'Our Mission',
-    desc: <>Our mission is to empower businesses by connecting them with exceptional technology professionals. Through our consultative approach to recruitment, deep market intelligence, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">scalable workforce solutions</Link>, we strive to accelerate digital transformation and drive measurable, long-lasting business impact for all our partners.</>,
+    tag: '02',
+    desc: <>Our mission is to empower businesses by connecting them with exceptional technology professionals. Through our consultative approach and <Link href="/services/managed-services" className="font-semibold underline underline-offset-2" style={{ color: '#C2185B' }}>scalable workforce solutions</Link>, we drive measurable, long-lasting business impact for every partner we serve.</>,
     image: MissionImg,
-    barColor: '#D14D72',
-    blobStyle: { borderRadius: '50% 55% 45% 50% / 45% 50% 55% 50%' },
+    accent: '#C2185B',
+    accentLight: '#fceef4',
+    link: '/services/managed-services',
     align: 'right',
-    titleCase: 'normal',
   },
   {
     title: 'Client Relationship',
-    desc: <>We go beyond traditional recruitment by building trusted, strategic partnerships. By deeply understanding your organizational goals, technology landscape, and unique workforce challenges, we deliver tailored <Link href="/services/contract-staffing" className="text-[#7A1F5C] hover:underline font-medium transition-all">hiring outcomes</Link> that align perfectly with your corporate culture and long-term growth objectives.</>,
+    tag: '03',
+    desc: <>We build trusted, strategic partnerships by deeply understanding your organizational goals and unique workforce challenges, delivering tailored <Link href="/services/contract-staffing" className="font-semibold underline underline-offset-2" style={{ color: '#7A1F5C' }}>hiring outcomes</Link> that align with your culture and long-term growth objectives.</>,
     image: ClientRelationImg,
-    barColor: '#9B3B7A',
-    blobStyle: { borderRadius: '50%' },
+    accent: '#7A1F5C',
+    accentLight: '#f8f2fb',
+    link: '/contact',
     align: 'left',
-    titleCase: 'normal',
   },
   {
     title: 'Skilled Workforce',
-    desc: <>We specialize in assembling future-ready technical teams across <Link href="/industries/it-technology" className="text-[#7A1F5C] hover:underline font-medium transition-all">cloud computing, DevOps</Link>, artificial intelligence, and software engineering. Our rigorous selection process ensures every candidate possesses the exact skills and agility required to thrive in modern, fast-paced digital environments.</>,
+    tag: '04',
+    desc: <>We specialize in assembling future-ready technical teams across <Link href="/industries/it-technology" className="font-semibold underline underline-offset-2" style={{ color: '#C2185B' }}>cloud computing, DevOps</Link>, AI, and software engineering. Our specialist-led selection process ensures every candidate thrives in modern digital environments.</>,
     image: SkilledWorkforceImg,
-    barColor: '#C2185B',
-    blobStyle: { borderRadius: '55% 45% 40% 60% / 50% 55% 45% 50%' },
+    accent: '#C2185B',
+    accentLight: '#fceef4',
+    link: '/industries/it-technology',
     align: 'right',
-    titleCase: 'normal',
   },
 ];
 
+// IMAGE dimensions
+const IMG_W = 290;
+const IMG_H = 320;
+// How much of the image bleeds OUTSIDE the card
+const BLEED = IMG_W * 0.52;
+
 export default function MissionVision() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('mv-visible');
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    const cards = sectionRef.current?.querySelectorAll('.mv-card');
-    cards?.forEach((card) => observer.observe(card));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       <style>{`
-        .mv-card {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: opacity 0.7s ease, transform 0.7s ease;
+        @keyframes mv-rise {
+          from { opacity: 0; transform: translateY(44px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
-        .mv-card.mv-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        .mv-image-wrap {
-          transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .mv-image-wrap:hover {
-          transform: scale(1.04);
-        }
-        .mv-image-wrap img {
-          transition: transform 0.5s ease !important;
-        }
-        .mv-image-wrap:hover img {
-          transform: scale(1.06) !important;
-        }
+        .mv-block { opacity: 0; animation: mv-rise 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .mv-img-inner { transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease; }
+        .mv-block:hover .mv-img-inner { transform: rotate(0deg) scale(1.04) !important; box-shadow: 0 32px 64px rgba(0,0,0,0.2) !important; }
       `}</style>
 
-      <section
-        ref={sectionRef}
-        className="bg-[#f5f0e8]  overflow-hidden"
-        aria-label="Vision Mission Values"
-      >
-        <div className="flex flex-col" style={{ gap: '0px' }}>
+      <section className="bg-[#f5f0e8] overflow-hidden" style={{ padding: '40px 0 72px 0' }} aria-label="Mission Vision Values">
+        <div className="w-[82%] mx-auto flex flex-col" style={{ gap: '36px' }}>
+
           {blocks.map((block, index) => {
             const isLeft = block.align === 'left';
-
+            /*
+              Image is absolutely positioned relative to the outer row wrapper.
+              It sits at the left or right edge of the card, centered vertically,
+              with BLEED px hanging outside the card.
+            */
             return (
               <div
                 key={index}
-                className="mv-card relative w-full"
+                className="mv-block"
                 style={{
-                  paddingTop: '48px',
-                  paddingBottom: '48px',
-                  transitionDelay: `${index * 0.12}s`,
+                  position: 'relative',
+                  animationDelay: `${index * 0.13}s`,
+                  /*
+                    Give horizontal room for the bleed so the image
+                    doesn't get clipped by the section overflow.
+                  */
+                  paddingLeft:  isLeft ? `${BLEED}px` : '0',
+                  paddingRight: isLeft ? '0' : `${BLEED}px`,
+                  marginTop: '8px',
+                  marginBottom: '8px',
                 }}
               >
-                {/* Full-width pastel accent bar behind the image side */}
+                {/* ── White Card ─────────────────────────────────────────── */}
                 <div
-                  className="absolute top-1/2 -translate-y-1/2"
                   style={{
-                    backgroundColor: block.barColor,
-                    height: '62%',
-                    width: '44%',
-                    left: isLeft ? 0 : 'auto',
-                    right: isLeft ? 'auto' : 0,
-                    zIndex: 0,
-                    borderRadius: isLeft
-                      ? '0 8px 8px 0'
-                      : '8px 0 0 8px',
+                    position: 'relative',
+                    background: '#ffffff',
+                    borderRadius: '28px',
+                    boxShadow: '0 6px 40px rgba(0,0,0,0.07)',
+                    border: '1px solid rgba(0,0,0,0.05)',
+                    overflow: 'visible',
+                    /*
+                      Reserve space on the image side so text doesn't
+                      run under the half-inside portion of the image.
+                      Half the image width sits inside the card.
+                    */
+                    paddingTop: '44px',
+                    paddingBottom: '44px',
+                    paddingLeft:  isLeft ? `${IMG_W - BLEED + 24}px` : '48px',
+                    paddingRight: isLeft ? '48px' : `${IMG_W - BLEED + 24}px`,
                   }}
-                />
-
-                {/* Content row */}
-                <div
-                  className="max-w-6xl mx-auto px-6 lg:px-12 relative"
-                  style={{ zIndex: 1 }}
                 >
+                  {/* Subtle tinted gradient on image side */}
                   <div
-                    className={`flex flex-col ${
-                      isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
-                    } items-center gap-6 md:gap-10`}
-                  >
-                    {/* ── Image Column ── */}
-                    <div className="w-full md:w-[42%] flex justify-center">
-                      <div
-                        className="mv-image-wrap relative overflow-hidden shadow-xl"
-                        style={{
-                          width: 'clamp(200px, 28vw, 320px)',
-                          height: 'clamp(200px, 28vw, 320px)',
-                          ...block.blobStyle,
-                        }}
-                      >
-                        <Image
-                          src={block.image}
-                          alt={block.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 320px"
-                          className="object-cover"
-                          priority={index === 0}
-                        />
-                      </div>
+                    style={{
+                      position: 'absolute', top: 0, bottom: 0,
+                      left:  isLeft ? 0 : 'auto',
+                      right: isLeft ? 'auto' : 0,
+                      width: '38%',
+                      background: `linear-gradient(${isLeft ? '90deg' : '270deg'}, ${block.accentLight} 0%, transparent 100%)`,
+                      borderRadius: isLeft ? '28px 0 0 28px' : '0 28px 28px 0',
+                      pointerEvents: 'none',
+                    }}
+                  />
+
+                  {/* Text content */}
+                  <div style={{ position: 'relative', zIndex: 1 }}>
+                    {/* Eyebrow */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                      <div style={{ width: '18px', height: '2px', borderRadius: '2px', background: block.accent }} />
+                      <span style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.22em', textTransform: 'uppercase' as const, color: block.accent }}>
+                        Chalky Infotech
+                      </span>
                     </div>
 
-                    {/* ── Text Column ── */}
-                    <div
-                      className={`w-full md:w-[58%] ${
-                        isLeft ? 'md:text-left' : 'md:text-center'
-                      } text-center`}
+                    {/* Title */}
+                    <h2 style={{ fontSize: 'clamp(1.5rem, 2.2vw, 1.9rem)', fontWeight: 700, color: '#1A1A1A', lineHeight: 1.15, marginBottom: '10px' }}>
+                      {block.title}
+                    </h2>
+
+                    {/* Divider */}
+                    <div style={{ width: '28px', height: '2px', borderRadius: '2px', background: block.accent, marginBottom: '16px' }} />
+
+                    {/* Description */}
+                    <p style={{ fontSize: 'clamp(0.86rem, 1.1vw, 0.94rem)', color: '#5a5a5a', lineHeight: 1.85, marginBottom: '20px' }}>
+                      {block.desc}
+                    </p>
+
+                    {/* Link */}
+                    <Link
+                      href={block.link}
+                      className="inline-flex items-center gap-1.5 group"
+                      style={{ fontSize: '13px', fontWeight: 700, color: block.accent, textDecoration: 'none' }}
                     >
-                      <div
-                        className={
-                          isLeft
-                            ? 'md:pl-8 lg:pl-14'
-                            : 'md:pr-8 lg:pr-14 md:pl-4'
-                        }
-                      >
-                        <h2
-                          className="font-semibold text-[#1a1a1a] mb-4"
-                          style={{
-                            fontSize: 'clamp(1.75rem, 3.5vw, 2.6rem)',
-                            letterSpacing: block.titleCase === 'upper' ? '0.04em' : '-0.01em',
-                            lineHeight: 1.1,
-                            textTransform: block.titleCase === 'upper' ? 'uppercase' : 'none',
-                          }}
-                        >
-                          {block.title}
-                        </h2>
-                        <p
-                          className="text-[#555555] leading-relaxed"
-                          style={{
-                            fontSize: 'clamp(0.875rem, 1.4vw, 1rem)',
-                            lineHeight: 1.8,
-                            maxWidth: isLeft ? '520px' : '560px',
-                            margin: isLeft ? '0' : '0 auto',
-                          }}
-                        >
-                          {block.desc}
-                        </p>
-                      </div>
-                    </div>
+                      <span className="group-hover:underline underline-offset-2">Explore more</span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   </div>
+
+                  {/* ── Image — half inside, half outside the card ─────── */}
+                  {/*
+                    Positioned absolutely relative to the white card.
+                    Centered vertically. Pushed left/right so BLEED amount hangs outside.
+                  */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      left:  isLeft ? `-${BLEED}px` : 'auto',
+                      right: isLeft ? 'auto' : `-${BLEED}px`,
+                      width: `${IMG_W}px`,
+                      zIndex: 20,
+                    }}
+                  >
+                    {/* Glow */}
+                    <div style={{
+                      position: 'absolute', inset: '10px',
+                      borderRadius: '22px',
+                      background: block.accent,
+                      opacity: 0.12,
+                      filter: 'blur(24px)',
+                      pointerEvents: 'none',
+                    }} />
+
+                    {/* Tilted image */}
+                    <div
+                      className="mv-img-inner"
+                      style={{
+                        width: `${IMG_W}px`,
+                        height: `${IMG_H}px`,
+                        borderRadius: '22px',
+                        overflow: 'hidden',
+                        position: 'relative',
+                        transform: isLeft ? 'rotate(-4deg)' : 'rotate(4deg)',
+                        boxShadow: `0 20px 52px rgba(0,0,0,0.16), 0 4px 14px ${block.accent}25`,
+                        transformOrigin: 'center center',
+                      }}
+                    >
+                      <Image
+                        src={block.image}
+                        alt={block.title}
+                        fill
+                        sizes={`${IMG_W}px`}
+                        className="object-cover"
+                        priority={index === 0}
+                      />
+                      {/* Bottom fade */}
+                      <div style={{
+                        position: 'absolute', bottom: 0, left: 0, right: 0,
+                        height: '35%',
+                        background: `linear-gradient(to top, ${block.accent}55, transparent)`,
+                        pointerEvents: 'none',
+                      }} />
+                    </div>
+
+                    {/* Modern ring accent around image */}
+                    <div style={{
+                      position: 'absolute',
+                      inset: '-6px',
+                      borderRadius: '28px',
+                      border: `2px solid ${block.accent}22`,
+                      pointerEvents: 'none',
+                      zIndex: -1,
+                    }} />
+                  </div>
+
                 </div>
               </div>
             );

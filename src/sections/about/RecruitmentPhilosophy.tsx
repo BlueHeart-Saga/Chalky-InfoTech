@@ -1,6 +1,8 @@
 'use client';
 import { CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import processbg from '@/assets/About Us/processbg.jpg';
 
 const blocks = [
   { title: 'Quality-First Hiring', desc: <>We prioritize cultural alignment and technical depth over sheer volume, ensuring long-term <Link href="/services/permanent-hiring" className="text-[#C2185B] hover:underline font-medium transition-all">retention</Link>.</> },
@@ -12,10 +14,25 @@ const blocks = [
 
 export default function RecruitmentPhilosophy() {
   return (
-    <section className="relative py-20 md:py-28 bg-[#7a1f5c] text-white">
+    <section className="relative py-20 md:py-28 bg-zinc-900 text-white">
+      
+      {/* Background Image Container */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={processbg}
+          alt="Recruitment Philosophy Background"
+          fill
+          priority
+          placeholder="blur"
+          className="object-cover"
+        />
+        {/* Neutral dark overlay to preserve image colors while maintaining text contrast */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60" />
+      </div>
 
       {/* ── Top Smooth Curve (white → dark) ── */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none" style={{ lineHeight: 0 }}>
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none z-10" style={{ lineHeight: 0 }}>
         <svg
           className="relative block w-full"
           style={{ height: '70px' }}
@@ -26,7 +43,7 @@ export default function RecruitmentPhilosophy() {
           <path d="M0,0 L1200,0 L1200,0 Q600,70 0,0 Z" fill="#ffffff" />
         </svg>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
 
           <div className="sticky top-24">
@@ -42,11 +59,11 @@ export default function RecruitmentPhilosophy() {
 
           <div className="space-y-6">
             {blocks.map((block, i) => (
-              <div key={i} className="flex gap-5 p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+              <div key={i} className="flex gap-5 p-8 rounded-3xl bg-[#F5F0E8]/5 border border-[#F5F0E8]/10 hover:bg-[#F5F0E8]/10 transition-colors duration-300">
                 <CheckCircle2 className="w-7 h-7 text-[#C2185B] shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-bold text-xl text-white mb-2">{block.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{block.desc}</p>
+                  <h3 className="font-bold text-xl text-[#F5F0E8] mb-2">{block.title}</h3>
+                  <p className="text-[#F5F0E8]/70 leading-relaxed">{block.desc}</p>
                 </div>
               </div>
             ))}
@@ -56,7 +73,7 @@ export default function RecruitmentPhilosophy() {
       </div>
 
       {/* ── Bottom Smooth Curve (dark → #f5f0e8) ── */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none" style={{ lineHeight: 0 }}>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none z-10" style={{ lineHeight: 0 }}>
         <svg
           className="relative block w-full"
           style={{ height: '70px' }}

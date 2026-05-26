@@ -54,6 +54,7 @@ export default function JobsCVUpload() {
   const [fileObj, setFileObj] = useState<File | null>(null);
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,7 +73,7 @@ export default function JobsCVUpload() {
         fullName,
         email,
         subject: `CV Upload - ${officeCity} Office`,
-        message: `Candidate ${fullName} uploaded their CV for the ${officeCity} office.`,
+        message: `Candidate Name: ${fullName}\nEmail Address: ${email}\nPhone Number: ${phone}\nOffice Selected: ${officeCity}`,
         serviceType: 'Job Application',
         file: fileObj || undefined
       });
@@ -98,6 +99,7 @@ export default function JobsCVUpload() {
     setFileObj(null);
     setFullName('');
     setEmail('');
+    setPhone('');
   };
 
   // Slide direction: going forward = slide left, back = slide right
@@ -145,9 +147,7 @@ export default function JobsCVUpload() {
             )}
 
             <AnimatePresence mode="wait" custom={1}>
-
-              {/* ── STEP 1: Welcome ── */}
-              {step === 1 && (
+              {step === 1 ? (
                 <motion.div
                   key="step1"
                   custom={1}
@@ -172,6 +172,7 @@ export default function JobsCVUpload() {
 
                   <div className="flex flex-col sm:flex-row gap-4 mt-auto">
                     <button
+                      type="button"
                       onClick={() => setStep(2)}
                       className="group flex items-center gap-3 bg-[#7A1F5C] text-white px-8 py-4 rounded-2xl font-bold text-sm hover:bg-[#C2185B] transition-all shadow-lg shadow-[#7A1F5C]/20"
                     >
@@ -182,10 +183,7 @@ export default function JobsCVUpload() {
                     </button>
                   </div>
                 </motion.div>
-              )}
-
-              {/* ── STEP 2: Office selector ── */}
-              {step === 2 && (
+              ) : step === 2 ? (
                 <motion.div
                   key="step2"
                   custom={1}
@@ -200,13 +198,14 @@ export default function JobsCVUpload() {
                     Which office are you contacting?
                   </h3>
                   <p className="text-sm text-gray-500 mb-8">
-                    Select a location  we'll route you to the right team.
+                    Select a location - we'll route you to the right team.
                   </p>
 
                   <div className="grid sm:grid-cols-3 gap-4 mb-8">
                     {OFFICES.map((office) => (
                       <button
                         key={office.id}
+                        type="button"
                         onClick={() => handleOfficeSelect(office.id)}
                         className={`group text-left rounded-2xl border-2 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${selectedOffice === office.id
                             ? 'border-[#7A1F5C] shadow-xl shadow-[#7A1F5C]/10'
@@ -261,16 +260,14 @@ export default function JobsCVUpload() {
                   </div>
 
                   <button
+                    type="button"
                     onClick={() => setStep(1)}
                     className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#7A1F5C] font-semibold transition-colors mt-auto"
                   >
                     <ChevronLeft size={16} /> Back
                   </button>
                 </motion.div>
-              )}
-
-              {/* ── STEP 3: CV Form ── */}
-              {step === 3 && (
+              ) : step === 3 ? (
                 <motion.form
                   key="step3"
                   custom={1}
@@ -320,6 +317,17 @@ export default function JobsCVUpload() {
                       />
                     </div>
                     <div>
+                      <label className="block text-xs font-bold text-gray-700 mb-1">Phone Number *</label>
+                      <input
+                        type="tel"
+                        required
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#7A1F5C]/50 focus:ring-2 focus:ring-[#7A1F5C]/10 bg-white transition-colors"
+                        placeholder="e.g. +44 20 7946 0958"
+                      />
+                    </div>
+                    <div>
                       <label className="block text-xs font-bold text-gray-700 mb-1">Upload CV (PDF/Word) *</label>
                       <div className="relative border-2 border-dashed border-gray-300 rounded-xl p-5 flex flex-col items-center justify-center bg-white hover:border-[#7A1F5C]/50 transition-colors cursor-pointer overflow-hidden">
                         <input
@@ -361,10 +369,7 @@ export default function JobsCVUpload() {
                     </button>
                   </div>
                 </motion.form>
-              )}
-
-              {/* ── STEP 4: Thank you ── */}
-              {step === 4 && (
+              ) : (
                 <motion.div
                   key="step4"
                   custom={1}
@@ -384,6 +389,7 @@ export default function JobsCVUpload() {
                     contact you shortly regarding matching opportunities.
                   </p>
                   <button
+                    type="button"
                     onClick={reset}
                     className="flex items-center gap-2 text-sm font-bold text-[#7A1F5C] hover:underline"
                   >
@@ -391,7 +397,6 @@ export default function JobsCVUpload() {
                   </button>
                 </motion.div>
               )}
-
             </AnimatePresence>
 
             {/* Blue triangle decoration */}
