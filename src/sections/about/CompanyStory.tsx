@@ -4,14 +4,14 @@ import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import WhoWeAre1 from '@/assets/About Us/Who we are/1.png';
-import WhoWeAre2 from '@/assets/About Us/Who we are/2.png';
-import WhoWeAre3 from '@/assets/About Us/Who we are/3.png';
-import WhoWeAre4 from '@/assets/About Us/Who we are/4.png';
-import WhoWeAre5 from '@/assets/About Us/Who we are/5.png';
-import WhoWeAre6 from '@/assets/About Us/Who we are/6.png';
-import WhoWeAre7 from '@/assets/About Us/Who we are/7.png';
-import WhoWeAre8 from '@/assets/About Us/Who we are/8.png';
+import WhoWeAre1 from '@/assets/about/Who-we-are/1.png';
+import WhoWeAre2 from '@/assets/about/Who-we-are/2.png';
+import WhoWeAre3 from '@/assets/about/Who-we-are/3.png';
+import WhoWeAre4 from '@/assets/about/Who-we-are/4.png';
+import WhoWeAre5 from '@/assets/about/Who-we-are/5.png';
+import WhoWeAre6 from '@/assets/about/Who-we-are/6.png';
+import WhoWeAre7 from '@/assets/about/Who-we-are/7.png';
+import WhoWeAre8 from '@/assets/about/Who-we-are/8.png';
 
 const storyBlocks = [
   {

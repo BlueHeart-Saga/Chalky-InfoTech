@@ -6,10 +6,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import OfficeLocations from '../contact/OfficeLocations';
 
-import glob1 from '@/assets/Services/Global WorkForce Support/10ce9e28-f2fd-4033-b318-b765d46757ba 1.png';
-import glob2 from '@/assets/Services/Global WorkForce Support/1dfaf5d0-057e-4ecb-acbc-8004c586b938 1.png';
-import glob3 from '@/assets/Services/Global WorkForce Support/1ec57dad-58d6-4173-a7d4-50a794984932 1.png';
-import glob4 from '@/assets/Services/Global WorkForce Support/6faee7a1-f6df-4d0e-8b2a-b373d1159997 1.png';
+import glob1 from '@/assets/Services/Global-WorkForce-Support/1.png';
+import glob2 from '@/assets/Services/Global-WorkForce-Support/2.png';
+import glob3 from '@/assets/Services/Global-WorkForce-Support/3.png';
+import glob4 from '@/assets/Services/Global-WorkForce-Support/4.png';
 
 const supportRegions = [
   {

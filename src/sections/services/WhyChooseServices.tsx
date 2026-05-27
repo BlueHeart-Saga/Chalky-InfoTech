@@ -5,10 +5,10 @@ import Image from 'next/image';
 import { Star, Hexagon, Triangle, Circle, Square } from 'lucide-react';
 import Link from 'next/link';
 
-import adv1 from '@/assets/Services/The Advantage/122f760f-f22f-4575-a547-bc605b036f67 1.png';
-import adv2 from '@/assets/Services/The Advantage/41805b2d-e851-4072-929c-c8e5fb154bc5 1.png';
-import adv3 from '@/assets/Services/The Advantage/9097029e-397c-4c53-9f46-f8651902a05f 1.png';
-import adv4 from '@/assets/Services/The Advantage/bee878c5-c926-44fe-83f3-fcea5177729e 1.png';
+import adv1 from '@/assets/Services/Advantage/1.png';
+import adv2 from '@/assets/Services/Advantage/2.png';
+import adv3 from '@/assets/Services/Advantage/3.png';
+import adv4 from '@/assets/Services/Advantage/4.png';
 
 export default function WhyChooseServices() {
   return (

@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { ArrowUpRight, CheckCircle2, Zap, Users, Target, Clock, ShieldCheck, Briefcase } from 'lucide-react';
 import Image from 'next/image';
 
-import core1 from '@/assets/Services/Our Core Expertise/1be82635a125b9f3de8da660fbd731fc 1.png';
-import core2 from '@/assets/Services/Our Core Expertise/2e418a2c6a935d70d4acf617cba909ba 1.png';
-import core3 from '@/assets/Services/Our Core Expertise/68eedba92050a1f203d90c54fb012644 1.png';
-import core4 from '@/assets/Services/Our Core Expertise/797d24899edeaedb005f0017e412e185 1.png';
-import core5 from '@/assets/Services/Our Core Expertise/a0b8af65080c1bac17f157d1815cbe95 1.png';
-import core6 from '@/assets/Services/Our Core Expertise/aa20098a5350281d966e610bc818b992 1.png';
-import core7 from '@/assets/Services/Our Core Expertise/eb0f056b9f392799b0b6f8ceeb67ae6b 1.png';
-import core8 from '@/assets/Services/Our Core Expertise/image 2.png';
+import core1 from '@/assets/Services/our-services/1.png';
+import core2 from '@/assets/Services/our-services/2.png';
+import core3 from '@/assets/Services/our-services/3.png';
+import core4 from '@/assets/Services/our-services/4.png';
+import core5 from '@/assets/Services/our-services/5.png';
+import core6 from '@/assets/Services/our-services/6.png';
+import core7 from '@/assets/Services/our-services/7.png';
+import core8 from '@/assets/Services/our-services/8.png';
 
 const SOLUTIONS = [
   {
@@ -124,29 +124,15 @@ export default function CoreRecruitmentSolutions() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="w-full lg:w-1/2 relative flex justify-center items-center py-6 px-4 md:px-8"
               >
-                {/* Backdrop Shape */}
-                <div 
-                  className={`absolute w-full aspect-[4/3] max-w-[400px] md:max-w-[440px] z-0 transition-transform duration-500 ${
-                    i % 2 === 0 
-                      ? 'bg-[#7A1F5C] rounded-[40px_180px_40px_180px] -translate-x-4 -translate-y-4 md:-translate-x-6 md:-translate-y-6' 
-                      : 'bg-[#F5F0E8] border border-[#7A1F5C]/10 rounded-[180px_40px_180px_40px] translate-x-4 -translate-y-4 md:translate-x-6 md:-translate-y-6'
-                  }`} 
-                />
-
                 {/* Main Image Container */}
-                <div 
-                  className={`relative w-full aspect-[4/3] max-w-[400px] md:max-w-[440px] overflow-hidden shadow-2xl z-10 transition-all duration-500 hover:scale-[1.03] hover:shadow-[#7A1F5C]/10 ${
-                    i % 2 === 0 
-                      ? 'rounded-[40px_180px_40px_180px]' 
-                      : 'rounded-[180px_40px_180px_40px]'
-                  }`}
-                >
+                <div className="relative w-full aspect-[4/3] max-w-[500px] md:max-w-[560px] lg:max-w-[600px] z-10">
                   <Image 
                     src={solution.image} 
                     alt={solution.title} 
                     fill
-                    className="object-cover object-center" 
-                   sizes="(max-width: 768px) 100vw, 40vw" />
+                    className="object-contain object-center" 
+                    sizes="(max-width: 768px) 100vw, 40vw" 
+                  />
                 </div>
               </motion.div>
 

@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
-import team1 from '@/assets/About Us/People behind/1.png';
-import team2 from '@/assets/About Us/People behind/6.png';
-import team3 from '@/assets/About Us/People behind/3.png';
-import team4 from '@/assets/About Us/People behind/7.png';
-import team5 from '@/assets/About Us/People behind/4.png';
-import team6 from '@/assets/About Us/People behind/2.png';
-import team7 from '@/assets/About Us/People behind/5.png';
-import team8 from '@/assets/About Us/People behind/8.png';
+import team1 from '@/assets/about/People-behind/1.png';
+import team2 from '@/assets/about/People-behind/6.png';
+import team3 from '@/assets/about/People-behind/3.png';
+import team4 from '@/assets/about/People-behind/7.png';
+import team5 from '@/assets/about/People-behind/4.png';
+import team6 from '@/assets/about/People-behind/2.png';
+import team7 from '@/assets/about/People-behind/5.png';
+import team8 from '@/assets/about/People-behind/8.png';
 
 const milestones = [
   {

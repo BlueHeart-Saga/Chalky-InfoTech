@@ -5,12 +5,12 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import adv1 from '@/assets/Industries/The Advantage/815a3a38-d66a-41d4-b8b1-c54146717993 1.png';
-import adv2 from '@/assets/Industries/The Advantage/8edcb80a-f697-4d37-b5c7-d05827ed67be 1.png';
-import adv3 from '@/assets/Industries/The Advantage/8fa7790a-ae9c-4bfa-8dd6-7b2e641d341d 1.png';
-import adv4 from '@/assets/Industries/The Advantage/a49f354a-c505-419b-9f83-cbe98cb75354 1.png';
-import adv5 from '@/assets/Industries/The Advantage/cd7ffe70-633a-431a-bde3-5b6af8499611 1.png';
-import adv6 from '@/assets/Industries/The Advantage/e298c14c-3c28-4c18-98b4-e25b61f2df03 1.png';
+import adv1 from '@/assets/Industries/Advantage/1.png';
+import adv2 from '@/assets/Industries/Advantage/2.png';
+import adv3 from '@/assets/Industries/Advantage/3.png';
+import adv4 from '@/assets/Industries/Advantage/4.png';
+import adv5 from '@/assets/Industries/Advantage/5.png';
+import adv6 from '@/assets/Industries/Advantage/6.png';
 
 const REASONS = [
   { 
@@ -51,6 +51,15 @@ const REASONS = [
   }
 ];
 
+const colors = [
+  { bg: '#D29ECD', label: 'EXPERTISE' },      // Lime Green
+  { bg: '#986b99ff', label: 'SCALABILITY' },    // Peach Orange
+  { bg: '#8f458eff', label: 'GLOBAL' },         // Pastel Blue
+  { bg: '#F986CD', label: 'SECTOR-SPECIFIC' },// Soft Lavender
+  { bg: '#C955A2', label: 'SPEED' },          // Warm Sand/Gold
+  { bg: '#EF74A3', label: 'PARTNERSHIP' }     // Soft Mint Green
+];
+
 export default function WhyBusinessesTrustUs() {
   return (
     <section className="py-24 bg-[#F5F0E8]/50">
@@ -68,44 +77,86 @@ export default function WhyBusinessesTrustUs() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {REASONS.map((reason, i) => (
-            <Link key={i} href={reason.link} className="block h-[320px]">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="group relative overflow-hidden rounded-2xl bg-[#EBEBEB] h-full cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
-              >
-                {/* Image Area - Top */}
-                <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden">
-                  <Image 
-                    src={reason.image} 
-                    alt={reason.title} 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-110" 
-                  />
-                </div>
+          {REASONS.map((reason, i) => {
+            const theme = colors[i % colors.length];
+            const isEven = i % 2 === 0;
+            return (
+              <Link key={i} href={reason.link} className="block h-[290px]">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="group relative overflow-hidden rounded-[32px] h-full cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+                  style={{ backgroundColor: theme.bg }}
+                >
+                  {isEven ? (
+                    <>
+                      {/* Top-left arrow */}
+                      <div className="absolute top-6 left-6 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-45 z-20">
+                        <ArrowRight className="w-4 h-4 -rotate-45 text-[#1A1A1A]" />
+                      </div>
 
-                {/* Content Area - Bottom */}
-                <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-6 flex flex-col transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:h-full z-10">
-                  <h4 className="text-base font-semibold text-[#1A1A1A] leading-tight mb-3 group-hover:text-[#7A1F5C] transition-colors">{reason.title}</h4>
-                  
-                  {/* Hidden content that fades in on hover */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex-grow pt-2 flex flex-col">
-                     <p className="text-[#4A4A4A] text-xs leading-relaxed mb-4">{reason.desc}</p>
-                     <span className="inline-flex items-center gap-2 text-[#7A1F5C] font-semibold text-xs mt-auto">
-                        Explore Advantage <ArrowRight size={14} />
-                     </span>
-                  </div>
+                      {/* Top-right image frame with bottom-left curve */}
+                      <div className="absolute top-6 right-6 bottom-6 w-[45%] rounded-[28px] rounded-bl-[90px] overflow-hidden bg-white/20 border border-[#1A1A1A]/10 shadow-sm z-10">
+                        <Image 
+                          src={reason.image} 
+                          alt={reason.title} 
+                          fill 
+                          className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 30vw"
+                        />
+                      </div>
 
-                  {/* Bottom label that fades out on hover */}
-                  <span className="absolute bottom-6 left-6 text-[#8A8A8A] text-[10px] uppercase tracking-wider group-hover:opacity-0 transition-opacity duration-300 font-bold">Chalky InfoTech</span>
-                </div>
-              </motion.div>
-            </Link>
-          ))}
+                      {/* Bottom-left content */}
+                      <div className="absolute bottom-6 left-6 right-[52%] z-20">
+                        <span className="inline-block px-3 py-1 rounded-full border border-[#1A1A1A]/15 text-[9px] font-extrabold uppercase tracking-widest mb-3 text-[#1A1A1A]/75">
+                          {theme.label}
+                        </span>
+                        <h3 className="text-lg font-bold text-[#1A1A1A] leading-tight mb-1.5">
+                          {reason.title}
+                        </h3>
+                        <p className="text-[11px] text-[#1A1A1A]/70 font-semibold line-clamp-3 leading-relaxed">
+                          {reason.desc}
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Top-left content */}
+                      <div className="absolute top-6 left-6 right-[52%] z-20">
+                        <span className="inline-block px-3 py-1 rounded-full border border-[#1A1A1A]/15 text-[9px] font-extrabold uppercase tracking-widest mb-3 text-[#1A1A1A]/75">
+                          {theme.label}
+                        </span>
+                        <h3 className="text-lg font-bold text-[#1A1A1A] leading-tight mb-1.5">
+                          {reason.title}
+                        </h3>
+                        <p className="text-[11px] text-[#1A1A1A]/70 font-semibold line-clamp-3 leading-relaxed">
+                          {reason.desc}
+                        </p>
+                      </div>
+
+                      {/* Bottom-left arrow */}
+                      <div className="absolute bottom-6 left-6 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-45 z-20">
+                        <ArrowRight className="w-4 h-4 -rotate-45 text-[#1A1A1A]" />
+                      </div>
+
+                      {/* Bottom-right image frame with top-left curve */}
+                      <div className="absolute top-6 right-6 bottom-6 w-[45%] rounded-[28px] rounded-tl-[90px] overflow-hidden bg-white/20 border border-[#1A1A1A]/10 shadow-sm z-10">
+                        <Image 
+                          src={reason.image} 
+                          alt={reason.title} 
+                          fill 
+                          className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 30vw"
+                        />
+                      </div>
+                    </>
+                  )}
+                </motion.div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

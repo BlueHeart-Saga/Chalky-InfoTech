@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import VisionImg from '@/assets/About Us/Vision Mission,skill/vision.png';
-import MissionImg from '@/assets/About Us/Vision Mission,skill/Mission.png';
-import ClientRelationImg from '@/assets/About Us/Vision Mission,skill/Client relation.png';
-import SkilledWorkforceImg from '@/assets/About Us/Vision Mission,skill/skilled workforce.png';
+import VisionImg from '@/assets/about/mission-vision/vision.png';
+import MissionImg from '@/assets/about/mission-vision/mission.png';
+import ClientRelationImg from '@/assets/about/mission-vision/Client-relation.png';
+import SkilledWorkforceImg from '@/assets/about/mission-vision/skilled-workforce.png';
 
 interface Block {
   title: string;
@@ -65,8 +65,6 @@ const blocks: Block[] = [
 // IMAGE dimensions
 const IMG_W = 290;
 const IMG_H = 320;
-// How much of the image bleeds OUTSIDE the card
-const BLEED = IMG_W * 0.52;
 
 export default function MissionVision() {
   return (
@@ -77,20 +75,13 @@ export default function MissionVision() {
           to   { opacity: 1; transform: translateY(0); }
         }
         .mv-block { opacity: 0; animation: mv-rise 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
-        .mv-img-inner { transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease; }
-        .mv-block:hover .mv-img-inner { transform: rotate(0deg) scale(1.04) !important; box-shadow: 0 32px 64px rgba(0,0,0,0.2) !important; }
       `}</style>
 
-      <section className="bg-[#f5f0e8] overflow-hidden" style={{ padding: '40px 0 72px 0' }} aria-label="Mission Vision Values">
-        <div className="w-[82%] mx-auto flex flex-col" style={{ gap: '36px' }}>
+      <section className="bg-[#f5f0e8] overflow-hidden" style={{ padding: '100px 0 72px 0' }} aria-label="Mission Vision Values">
+        <div className="w-[82%] mx-auto flex flex-col" style={{ gap: '80px' }}>
 
           {blocks.map((block, index) => {
             const isLeft = block.align === 'left';
-            /*
-              Image is absolutely positioned relative to the outer row wrapper.
-              It sits at the left or right edge of the card, centered vertically,
-              with BLEED px hanging outside the card.
-            */
             return (
               <div
                 key={index}
@@ -98,12 +89,6 @@ export default function MissionVision() {
                 style={{
                   position: 'relative',
                   animationDelay: `${index * 0.13}s`,
-                  /*
-                    Give horizontal room for the bleed so the image
-                    doesn't get clipped by the section overflow.
-                  */
-                  paddingLeft:  isLeft ? `${BLEED}px` : '0',
-                  paddingRight: isLeft ? '0' : `${BLEED}px`,
                   marginTop: '8px',
                   marginBottom: '8px',
                 }}
@@ -117,15 +102,10 @@ export default function MissionVision() {
                     boxShadow: '0 6px 40px rgba(0,0,0,0.07)',
                     border: '1px solid rgba(0,0,0,0.05)',
                     overflow: 'visible',
-                    /*
-                      Reserve space on the image side so text doesn't
-                      run under the half-inside portion of the image.
-                      Half the image width sits inside the card.
-                    */
                     paddingTop: '44px',
                     paddingBottom: '44px',
-                    paddingLeft:  isLeft ? `${IMG_W - BLEED + 24}px` : '48px',
-                    paddingRight: isLeft ? '48px' : `${IMG_W - BLEED + 24}px`,
+                    paddingLeft:  isLeft ? `${IMG_W + 32}px` : '48px',
+                    paddingRight: isLeft ? '48px' : `${IMG_W + 32}px`,
                   }}
                 >
                   {/* Subtle tinted gradient on image side */}
@@ -177,72 +157,29 @@ export default function MissionVision() {
                     </Link>
                   </div>
 
-                  {/* ── Image — half inside, half outside the card ─────── */}
-                  {/*
-                    Positioned absolutely relative to the white card.
-                    Centered vertically. Pushed left/right so BLEED amount hangs outside.
-                  */}
+                  {/* ── Image — aligned to card border and bottom, popping out of top ── */}
                   <div
                     style={{
                       position: 'absolute',
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      left:  isLeft ? `-${BLEED}px` : 'auto',
-                      right: isLeft ? 'auto' : `-${BLEED}px`,
+                      bottom: 0,
+                      top: '-80px',
+                      left:  isLeft ? 0 : 'auto',
+                      right: isLeft ? 'auto' : 0,
                       width: `${IMG_W}px`,
                       zIndex: 20,
+                      borderBottomLeftRadius: isLeft ? '28px' : '0',
+                      borderBottomRightRadius: isLeft ? '0' : '28px',
+                      overflow: 'hidden',
                     }}
                   >
-                    {/* Glow */}
-                    <div style={{
-                      position: 'absolute', inset: '10px',
-                      borderRadius: '22px',
-                      background: block.accent,
-                      opacity: 0.12,
-                      filter: 'blur(24px)',
-                      pointerEvents: 'none',
-                    }} />
-
-                    {/* Tilted image */}
-                    <div
-                      className="mv-img-inner"
-                      style={{
-                        width: `${IMG_W}px`,
-                        height: `${IMG_H}px`,
-                        borderRadius: '22px',
-                        overflow: 'hidden',
-                        position: 'relative',
-                        transform: isLeft ? 'rotate(-4deg)' : 'rotate(4deg)',
-                        boxShadow: `0 20px 52px rgba(0,0,0,0.16), 0 4px 14px ${block.accent}25`,
-                        transformOrigin: 'center center',
-                      }}
-                    >
-                      <Image
-                        src={block.image}
-                        alt={block.title}
-                        fill
-                        sizes={`${IMG_W}px`}
-                        className="object-cover"
-                        priority={index === 0}
-                      />
-                      {/* Bottom fade */}
-                      <div style={{
-                        position: 'absolute', bottom: 0, left: 0, right: 0,
-                        height: '35%',
-                        background: `linear-gradient(to top, ${block.accent}55, transparent)`,
-                        pointerEvents: 'none',
-                      }} />
-                    </div>
-
-                    {/* Modern ring accent around image */}
-                    <div style={{
-                      position: 'absolute',
-                      inset: '-6px',
-                      borderRadius: '28px',
-                      border: `2px solid ${block.accent}22`,
-                      pointerEvents: 'none',
-                      zIndex: -1,
-                    }} />
+                    <Image
+                      src={block.image}
+                      alt={block.title}
+                      fill
+                      sizes={`${IMG_W}px`}
+                      className="object-contain object-bottom"
+                      priority={index === 0}
+                    />
                   </div>
 
                 </div>

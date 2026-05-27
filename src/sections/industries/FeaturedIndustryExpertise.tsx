@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
-import itTechImg from '@/assets/Industries inside hero section/IT and Technology.png';
-import telecomImg from '@/assets/Industries inside hero section/f895376b-bf17-41cd-9a2a-402beb908709 1.png';
-import engineeringImg from '@/assets/Industries inside hero section/Engineering and infrastructure.png';
-import mediaImg from '@/assets/Industries inside hero section/Media and digital.png';
-import bankingImg from '@/assets/Industries inside hero section/Banking and Finnace.png';
-import healthcareImg from '@/assets/Industries inside hero section/Heathcare.png';
-import retailImg from '@/assets/Industries inside hero section/Retail -E-commerce.png';
-import manufacturingImg from '@/assets/Industries inside hero section/Manufacturing.png';
+import itTechImg from '@/assets/Industries/our-industries/IT-Technology.png';
+import telecomImg from '@/assets/Industries/our-industries/Telecommunications.png';
+import engineeringImg from '@/assets/Industries/our-industries/Engineering-Infrastructure.png';
+import mediaImg from '@/assets/Industries/our-industries/Media-Digital-Services.png';
+import bankingImg from '@/assets/Industries/our-industries/Banking-Finance.png';
+import healthcareImg from '@/assets/Industries/our-industries/Healthcare-Life-Sciences.png';
+import retailImg from '@/assets/Industries/our-industries/Retail-E-Commerce.png';
+import manufacturingImg from '@/assets/Industries/our-industries/Manufacturing.png';
 
 const INDUSTRIES_LIST = [
   {
@@ -114,10 +114,15 @@ export default function FeaturedIndustryExpertise() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="w-full lg:w-1/2 relative"
+                className="w-full lg:w-1/2"
               >
-                <div className="relative aspect-[16/10] overflow-hidden group">
-                  <Image src={ind.image} alt={ind.title} fill className="object-cover group-hover:scale-105 transition-transform duration-1000"  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                <div className="w-full overflow-hidden">
+                  <Image 
+                    src={ind.image} 
+                    alt={ind.title} 
+                    className="w-full h-auto block transition-transform duration-750 group-hover:scale-102"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
               </motion.div>
 

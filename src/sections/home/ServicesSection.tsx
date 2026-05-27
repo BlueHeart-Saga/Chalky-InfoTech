@@ -5,10 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight, FileText, Users, Clock, Target, CheckCircle2, ArrowRight } from 'lucide-react';
 
-import AgileStaffingImg from '@/assets/homepage/Services/Agile Staffing.png';
-import CoreTeamsImg from '@/assets/homepage/Services/Core Teams.png';
-import RapidHiringImg from '@/assets/homepage/Services/Rapid Hiring.png';
-import EmbeddedSolutionsImg from '@/assets/homepage/Services/Embedded Solutions.png';
+import AgileStaffingImg from '@/assets/homepage/Services/Agile-Staffing.png';
+import CoreTeamsImg from '@/assets/homepage/Services/Core-Teams.png';
+import RapidHiringImg from '@/assets/homepage/Services/Rapid-Hiring.png';
+import EmbeddedSolutionsImg from '@/assets/homepage/Services/Embedded-Solutions.png';
 
 const comprehensiveServices = [
   {

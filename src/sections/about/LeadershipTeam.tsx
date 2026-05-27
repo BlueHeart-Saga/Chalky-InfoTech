@@ -10,38 +10,61 @@ const leaders = [
     experience: '20+ years in tech consulting',
     quote: 'Technology should empower, not complicate.',
     image: '/team/saravana-karthikeyan.png',
-    tilt: '-rotate-3',
-    bg: 'bg-[#F0E6F0]',
-    accent: '#7A1F5C',
+    accent: '#C2185B',
     social: { linkedin: '#', twitter: '#' },
+    icon: Users,
   },
   {
     name: 'Manjula Bashkar',
-    role: 'Manual Cloud Security Testing Specialist',
+    role: 'Cloud Security Specialist',
     experience: '10+ years in Digital Transformation & Cloud Security',
     quote: 'Innovation is solving today\'s problems with tomorrow\'s solutions.',
     image: '/team/manjula-bashkar.png',
-    tilt: 'rotate-2',
-    bg: 'bg-[#E6F0F5]',
-    accent: '#1A6A9A',
+    accent: '#C59B27',
     social: { linkedin: '#', twitter: '#' },
+    icon: Globe,
   },
   {
     name: 'Himanshu Mudgal',
-    role: 'Head of Client Success',
+    role: 'DevOps Engineer',
     experience: '10+ years in DevOps Engineering',
     quote: 'Client success is our ultimate metric.',
     image: '/team/himanshu-mudgal.png',
-    tilt: '-rotate-2',
-    bg: 'bg-[#E6F5EC]',
-    accent: '#1A6A4A',
+    accent: '#7A1F5C',
     social: { linkedin: '#', twitter: '#' },
+    icon: Briefcase,
   }
 ];
 
 export default function LeadershipTeam() {
   return (
     <section className="relative pt-12 md:pt-16 pb-24 md:pb-32 bg-[#f5f0e8] overflow-hidden">
+      <style>{`
+        .flip-card {
+          perspective: 1000px;
+        }
+        .flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+          transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+          transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+        }
+        .flip-card-back {
+          transform: rotateY(180deg);
+        }
+      `}</style>
+
       {/* Subtle background dots */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #7A1F5C 1px, transparent 0)', backgroundSize: '32px 32px' }}
@@ -84,8 +107,8 @@ export default function LeadershipTeam() {
           </motion.p>
         </div>
 
-        {/* Neubrutalist Cards Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16 items-stretch">
+        {/* Infographic Cards Grid */}
+        <div className="grid lg:grid-cols-3 gap-12 md:gap-16 items-stretch">
           {leaders.map((leader, i) => (
             <motion.div
               key={i}
@@ -93,46 +116,163 @@ export default function LeadershipTeam() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12 }}
-              whileHover={{ y: -5, x: -5, boxShadow: '12px 12px 0px 0px rgba(0,0,0,1)' }}
-              className={`
-                ${i % 3 === 0 ? 'bg-[#D1FFBD] rotate-[-2deg]' : i % 3 === 1 ? 'bg-[#FFC0CB] rotate-[2deg]' : 'bg-white rotate-[-1deg]'}
-                rounded-3xl p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 relative border-2 border-black flex flex-col h-full
-              `}
+              className="flip-card h-[450px] relative flex flex-col"
             >
-              {/* Stars */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(5)].map((_, s) => (
-                  <span key={s} className="text-black text-xl leading-none">★</span>
-                ))}
+              <div className="flip-card-inner flex-1">
+                
+                {/* ── FRONT SIDE ── */}
+                <div className="flip-card-front p-4 flex flex-col">
+                  {/* Left bracket */}
+                  <div 
+                    className="absolute top-0 bottom-0 left-0 w-12 border-[3px] border-r-0 rounded-l-[32px] pointer-events-none" 
+                    style={{ borderColor: leader.accent }}
+                  />
+                  
+                  {/* Right bracket */}
+                  <div 
+                    className="absolute top-0 bottom-0 right-0 w-12 border-[3px] border-l-0 rounded-r-[32px] pointer-events-none" 
+                    style={{ borderColor: leader.accent }}
+                  />
+
+                  {/* Central Card with Image */}
+                  <div className="relative bg-white rounded-[24px] overflow-hidden flex flex-col h-full z-10 m-2 border border-gray-200 shadow-[0_8px_30px_rgba(0,0,0,0.03)]">
+                    {/* Leader Image */}
+                    <img 
+                      src={leader.image} 
+                      alt={leader.name}
+                      className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    />
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-10" />
+
+                    {/* Content overlaid on image */}
+                    <div className="relative z-20 mt-auto p-6 flex flex-col items-center text-center">
+                      
+                      {/* Leader Badge */}
+                      <span 
+                        className="text-[10px] font-black uppercase tracking-widest mb-2 px-2.5 py-1 rounded-full text-white"
+                        style={{ backgroundColor: leader.accent }}
+                      >
+                        LEADER 0{i + 1}
+                      </span>
+
+                      {/* Name */}
+                      <h3 className="text-xl font-bold text-white mb-1">
+                        {leader.name}
+                      </h3>
+
+                      {/* Role */}
+                      <p className="text-xs font-semibold text-gray-300 mb-4 uppercase tracking-wider">
+                        {leader.role}
+                      </p>
+
+                      {/* Info Hint */}
+                      <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1.5">
+                        <span>Hover to View Bio</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+                        </svg>
+                      </span>
+
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── BACK SIDE ── */}
+                <div className="flip-card-back p-4 flex flex-col">
+                  {/* Left bracket */}
+                  <div 
+                    className="absolute top-0 bottom-0 left-0 w-12 border-[3px] border-r-0 rounded-l-[32px] pointer-events-none" 
+                    style={{ borderColor: leader.accent }}
+                  />
+                  
+                  {/* Right bracket */}
+                  <div 
+                    className="absolute top-0 bottom-0 right-0 w-12 border-[3px] border-l-0 rounded-r-[32px] pointer-events-none" 
+                    style={{ borderColor: leader.accent }}
+                  />
+
+                  {/* Central White Card with Blurred Image BG */}
+                  <div className="relative bg-white rounded-[24px] p-8 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col h-full z-10 m-2 border border-gray-100 items-center text-center justify-between overflow-hidden">
+                    
+                    {/* Blurred Image Background */}
+                    <img 
+                      src={leader.image} 
+                      alt=""
+                      className="absolute inset-0 w-full h-full object-cover filter blur-[20px] opacity-15 pointer-events-none scale-110"
+                    />
+
+                    {/* Back side details */}
+                    <div className="relative z-10 flex flex-col items-center justify-between h-full w-full">
+                      {/* Quote Icon */}
+                      <span className="text-5xl font-serif leading-none mt-2" style={{ color: `${leader.accent}40` }}>“</span>
+                      
+                      {/* Quote */}
+                      <p className="text-gray-700 text-sm leading-relaxed font-semibold italic px-2">
+                        {leader.quote}
+                      </p>
+                      
+                      <span className="text-5xl font-serif leading-none mb-2" style={{ color: `${leader.accent}40` }}>”</span>
+
+                      {/* Stars rating */}
+                      <div className="flex gap-1 mb-2">
+                        {[...Array(5)].map((_, s) => (
+                          <span key={s} className="text-amber-400 text-base leading-none">★</span>
+                        ))}
+                      </div>
+
+                      {/* Experience */}
+                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wider mb-4">
+                        {leader.experience}
+                      </p>
+
+                      {/* Connect Link Button */}
+                      <Link 
+                        href="/contact"
+                        className="w-full py-3.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 border-[2.5px] hover:shadow-md"
+                        style={{
+                          borderColor: leader.accent,
+                          color: leader.accent,
+                          background: 'transparent'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = leader.accent;
+                          e.currentTarget.style.color = '#ffffff';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = 'transparent';
+                          e.currentTarget.style.color = leader.accent;
+                        }}
+                      >
+                        Connect with Me
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
-              {/* Quote */}
-              <p className="text-black text-base leading-relaxed mb-8 font-medium italic">
-                "{leader.quote}"
-              </p>
-
-              {/* Person Row (At Bottom) */}
-              <div className="mt-auto pt-6 border-t border-black/10 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full border-2 border-black shadow-sm flex-shrink-0 bg-black text-white flex items-center justify-center font-bold text-lg tracking-wider">
-                  {leader.name.split(' ').map(n => n[0]).join('')}
+              {/* Right connector arrow (pointing to the next card, hidden for the last card) */}
+              {i < leaders.length - 1 && (
+                <div className="hidden lg:flex absolute right-[-28px] top-1/2 -translate-y-1/2 z-20 items-center pointer-events-none">
+                  <div style={{ width: '12px', height: '3px', backgroundColor: leader.accent }} />
+                  <svg width="12" height="16" viewBox="0 0 12 16" fill={leader.accent}>
+                    <path d="M0 0 L8 8 L0 16 Z" />
+                  </svg>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-black text-lg truncate">{leader.name}</p>
-                  <p className="text-sm font-semibold text-black/60 truncate uppercase tracking-wider">{leader.role}</p>
+              )}
+
+              {/* Down connector arrow for mobile layout (hidden for the last card) */}
+              {i < leaders.length - 1 && (
+                <div className="lg:hidden flex absolute bottom-[-28px] left-1/2 -translate-x-1/2 z-20 flex-col items-center pointer-events-none">
+                  <div style={{ width: '3px', height: '12px', backgroundColor: leader.accent }} />
+                  <svg width="16" height="12" viewBox="0 0 16 12" fill={leader.accent}>
+                    <path d="M0 0 L8 8 L16 0 Z" />
+                  </svg>
                 </div>
-              </div>
+              )}
 
-              {/* Connect Link */}
-              <Link 
-                href="/contact"
-                className="mt-6 block text-center w-full py-4 rounded-2xl bg-black text-white text-sm font-black uppercase tracking-widest hover:bg-white hover:text-black border-2 border-black transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] active:translate-x-1 active:translate-y-1 active:shadow-none"
-              >
-                Connect with Me
-              </Link>
-
-              {/* Sparkle decoration */}
-              <div className="absolute -top-4 -right-4 text-black text-4xl animate-pulse">✦</div>
-              <div className="absolute -bottom-2 -left-2 text-black/40 text-2xl">✦</div>
             </motion.div>
           ))}
         </div>

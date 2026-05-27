@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { ShieldCheck, Globe, BadgeCheck, Handshake, CheckCircle2 } from 'lucide-react';
-import trustImg from '@/assets/About Us/Why Enterprises Trust Us/Why Enterprises Trust Us.png';
+import trustImg from '@/assets/about/Why-Enterprises-Trust-Us/Why-Enterprises-Trust-Us.png';
 
 const trustCards = [
   {

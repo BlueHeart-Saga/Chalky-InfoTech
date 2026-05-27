@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import TrustImg from '@/assets/About Us/Why Enterprises Trust Us/Why Enterprises Trust Us.png';
+import TrustImg from '@/assets/about/Why-Enterprises-Trust-Us/Why-Enterprises-Trust-Us.png';
 import { 
   Globe2, 
   MapPin, 

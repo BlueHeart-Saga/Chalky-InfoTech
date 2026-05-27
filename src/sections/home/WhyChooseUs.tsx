@@ -19,15 +19,15 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 
-import DeliveryImg from '@/assets/homepage/Why Choose/Rapid Requirement Delivery.png';
-import SupportImg from '@/assets/homepage/Why Choose/Dedicated Recruitment Support.png';
-import ReplacementImg from '@/assets/homepage/Why Choose/Replacement Assurance.png';
-import NetworkImg from '@/assets/homepage/Why Choose/Specialized Talent Network.png';
-import ModelsImg from '@/assets/homepage/Why Choose/Flexible Hiring Models.png';
-import ProcessImg from '@/assets/homepage/Why Choose/End-To-End Hiring Process.png';
-import ValidationImg from '@/assets/homepage/Why Choose/Quality Candidate Validation.png';
-import ScalableImg from '@/assets/homepage/Why Choose/Scalable Workforce Solutions.png';
-import HighPerformanceImg from '@/assets/homepage/Why Choose/Build High-Performance Teams.png';
+import DeliveryImg from '@/assets/homepage/Why-Choose/Rapid-Requirement-Delivery.png';
+import SupportImg from '@/assets/homepage/Why-Choose/Dedicated-Recruitment-Support.png';
+import ReplacementImg from '@/assets/homepage/Why-Choose/Replacement-Assurance.png';
+import NetworkImg from '@/assets/homepage/Why-Choose/Specialized-Talent-Network.png';
+import ModelsImg from '@/assets/homepage/Why-Choose/Flexible-Hiring-Models.png';
+import ProcessImg from '@/assets/homepage/Why-Choose/End-To-End-Hiring-Process.png';
+import ValidationImg from '@/assets/homepage/Why-Choose/Quality-Candidate-Validation.png';
+import ScalableImg from '@/assets/homepage/Why-Choose/Scalable-Workforce-Solutions.png';
+import HighPerformanceImg from '@/assets/homepage/Why-Choose/Build-High-Performance-Teams.png';
 
 const REASONS = [
   { 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Quote, ArrowRight, Star, Globe, Landmark, Cloud, Cpu, Rocket } from 'lucide-react';
 
-import TrustedByBusinessesImg from '@/assets/homepage/TESTIMONIALS/Trusted By Businesses.png';
+import TrustedByBusinessesImg from '@/assets/homepage/TESTIMONIALS/Trusted-By-Businesses.png';
 
 const TESTIMONIALS = [
   {

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { CheckCircle2, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
-import AboutChalkyImg from '@/assets/homepage/overview/About Chalky Infotech.png';
+import AboutChalkyImg from '@/assets/homepage/overview/About-ChalkyInfotech.png';
 
 export default function CompanyOverview() {
   return (

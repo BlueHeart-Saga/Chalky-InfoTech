@@ -5,10 +5,10 @@ import Image from 'next/image';
 import { Layers, Globe, BarChart, Rocket, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
-import comp1 from '@/assets/Services/Complex Requirements/15be4082-486b-4ac1-b897-f78e9585c2cb 1.png';
-import comp2 from '@/assets/Services/Complex Requirements/3620a767-5ec1-435f-8eb5-5c2d8e591d5c 1.png';
-import comp3 from '@/assets/Services/Complex Requirements/8227ae94-d6d2-483f-b18e-9b683f8690a4 1.png';
-import comp4 from '@/assets/Services/Complex Requirements/b4eadcdd-3f13-4420-a869-6f84d43c7ad2 1.png';
+import comp1 from '@/assets/Services/Complex-Requirements/1.png';
+import comp2 from '@/assets/Services/Complex-Requirements/2.png';
+import comp3 from '@/assets/Services/Complex-Requirements/3.png';
+import comp4 from '@/assets/Services/Complex-Requirements/4.png';
 
 const CAPABILITIES = [
   { title: 'High-Volume Recruitment', desc: 'Rapid cohort hiring for large-scale operations.', icon: Layers, image: comp1, link: '/services/temporary-recruitment' },

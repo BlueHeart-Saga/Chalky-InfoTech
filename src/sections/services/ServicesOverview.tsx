@@ -5,10 +5,10 @@ import { Target, Users, Zap, BarChart3, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import eco1 from '@/assets/Services/Service Ecosystem/1b1e1fbd-b613-420f-bfd3-bd925b597417 1.png';
-import eco2 from '@/assets/Services/Service Ecosystem/20d93cd6-4dba-4c1f-a94a-a402d236c8ef 1.png';
-import eco3 from '@/assets/Services/Service Ecosystem/a529de37-8858-4d13-a87e-3a97abd9d9a9 1.png';
-import eco4 from '@/assets/Services/Service Ecosystem/bb9dd000-7e27-4e00-97f7-94ab24904f53 1.png';
+import eco1 from '@/assets/Services/Service-Ecosystem/1.png';
+import eco2 from '@/assets/Services/Service-Ecosystem/2.png';
+import eco3 from '@/assets/Services/Service-Ecosystem/3.png';
+import eco4 from '@/assets/Services/Service-Ecosystem/4.png';
 
 const OVERVIEW_CARDS = [
   {

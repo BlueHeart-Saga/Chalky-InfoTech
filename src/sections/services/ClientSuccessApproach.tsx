@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import client1 from '@/assets/Services/Our Sucess Team/1c887069fec338e0ff5285bd5cbe7511 1.png';
-import client2 from '@/assets/Services/Our Sucess Team/34dae2b1c9a2c38bfdc18bbb5a414149 1.png';
-import client3 from '@/assets/Services/Our Sucess Team/b45c133201eff18f79b8ebf034dcf005 1.png';
+import client1 from '@/assets/Services/Our-Sucess-Team/1.png';
+import client2 from '@/assets/Services/Our-Sucess-Team/2.png';
+import client3 from '@/assets/Services/Our-Sucess-Team/3.png';
 
 const PROFILES = [
   {
