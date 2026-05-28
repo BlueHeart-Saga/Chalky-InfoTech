@@ -10,7 +10,7 @@ export interface EmailData {
 }
 
 export const sendEmail = async (data: EmailData) => {
-  const toEmail = data.toOverride || process.env.NEXT_PUBLIC_FORM_SUBMIT_EMAIL || "hellosuman29@airsworld.net";
+  const toEmail = data.toOverride || process.env.NEXT_PUBLIC_FORM_SUBMIT_EMAIL || "Sagadevan.S@devopstrioglobal.com";
   const endpoint = `https://formsubmit.co/ajax/${toEmail}`;
 
   let body: BodyInit;

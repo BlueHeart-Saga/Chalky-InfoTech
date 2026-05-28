@@ -8,9 +8,9 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 
-import techAlignImg from '@/assets/Services details page/Technical Alignment.png';
-import stratPartImg from '@/assets/Services details page/Strategic Partnership.png';
-import qaImg from '@/assets/Services details page/Quality Assurance.png';
+import techAlignImg from '@/assets/Services-details-page/1.png';
+import stratPartImg from '@/assets/Services-details-page/2.png';
+import qaImg from '@/assets/Services-details-page/3.png';
 
 interface Props {
   title: string;

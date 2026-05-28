@@ -8,13 +8,13 @@ import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
 import { INDUSTRIES } from '@/constants';
 
 import TechImg from '@/assets/homepage/Industry/it-technology.png';
-import TelecomImg from '@/assets/homepage/Industry/telecommunications.png';
+import TelecomImg from '@/assets/homepage/Industry/telecommunication.png';
 import EngineeringImg from '@/assets/homepage/Industry/engineering-infrastructure.png';
 import MediaImg from '@/assets/homepage/Industry/media-digital-services.png';
 import FinanceImg from '@/assets/homepage/Industry/banking-finance.png';
 import HealthcareImg from '@/assets/homepage/Industry/healthcare-life-sciences.png';
 import RetailImg from '@/assets/homepage/Industry/retail-ecommerce.png';
-import ManufacturingImg from '@/assets/homepage/Industry/manufacturing.png';
+import ManufacturingImg from '@/assets/homepage/Industry/manufacturings.png';
 // Map industry slugs to clean, case-sensitive resolved images
 const imageMap: Record<string, any> = {
   'it-technology': TechImg,

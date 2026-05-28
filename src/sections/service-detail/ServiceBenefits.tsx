@@ -9,12 +9,12 @@ interface Props {
   serviceLabel?: string;
 }
 
-import benefit1 from '@/assets/Services details page/Fast  Project Delivery.png';
-import benefit2 from '@/assets/Services details page/Reduced Hiring Risks.png';
-import benefit3 from '@/assets/Services details page/Scalabale Teams.png';
-import benefit4 from '@/assets/Services details page/Cost Efficiency.png';
-import benefit5 from '@/assets/Services details page/Compilance and sedcurity.png';
-import benefit6 from '@/assets/Services details page/office-workers-using-finance-graphs 1.png';
+import benefit1 from '@/assets/Services-details-page/7.png';
+import benefit2 from '@/assets/Services-details-page/8.png';
+import benefit3 from '@/assets/Services-details-page/9.png';
+import benefit4 from '@/assets/Services-details-page/4.png';
+import benefit5 from '@/assets/Services-details-page/5.png';
+import benefit6 from '@/assets/Services-details-page/6.png';
 
 const BENEFIT_IMAGES = [
   benefit1.src,

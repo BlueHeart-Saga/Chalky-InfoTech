@@ -35,14 +35,14 @@ export interface IndustryDetail {
   }[];
 }
 
-import itTechImg from '@/assets/Industries inside hero section/IT and Technology.png';
-import telecomImg from '@/assets/Industries inside hero section/f895376b-bf17-41cd-9a2a-402beb908709 1.png';
-import engineeringImg from '@/assets/Industries inside hero section/Engineering and infrastructure.png';
-import mediaImg from '@/assets/Industries inside hero section/Media and digital.png';
-import bankingImg from '@/assets/Industries inside hero section/Banking and Finnace.png';
-import healthcareImg from '@/assets/Industries inside hero section/Heathcare.png';
-import retailImg from '@/assets/Industries inside hero section/Retail -E-commerce.png';
-import manufacturingImg from '@/assets/Industries inside hero section/Manufacturing.png';
+import itTechImg from '@/assets/Industries-heros/IT and Technology.png';
+import telecomImg from '@/assets/Industries-heros/Telecom.png';
+import engineeringImg from '@/assets/Industries-heros/Engineering and infrastructure.png';
+import mediaImg from '@/assets/Industries-heros/Media and digital.png';
+import bankingImg from '@/assets/Industries-heros/Banking and Finnace.png';
+import healthcareImg from '@/assets/Industries-heros/Heathcare.png';
+import retailImg from '@/assets/Industries-heros/Retail -E-commerce.png';
+import manufacturingImg from '@/assets/Industries-heros/Manufacturing.png';
 
 export const INDUSTRIES_DETAILED: IndustryDetail[] = [
   {

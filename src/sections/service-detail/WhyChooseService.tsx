@@ -17,12 +17,12 @@ interface Props {
   features: Feature[];
 }
 
-import feature1 from '@/assets/Services details page/48hr Talent Matching.png';
-import feature2 from '@/assets/Services details page/3layer Candidate Vetting.png';
-import feature3 from '@/assets/Services details page/Dedicated Account Manager.png';
-import feature4 from '@/assets/Services details page/Domain Dpecific Recruiters.png';
-import feature5 from '@/assets/Services details page/Zero Replacement Fee.png';
-import feature6 from '@/assets/Services details page/Quality Assurance.png';
+import feature1 from '@/assets/Services-details-page/4.png';
+import feature2 from '@/assets/Services-details-page/5.png';
+import feature3 from '@/assets/Services-details-page/6.png';
+import feature4 from '@/assets/Services-details-page/7.png';
+import feature5 from '@/assets/Services-details-page/8.png';
+import feature6 from '@/assets/Services-details-page/9.png';
 
 const DEFAULT_FEATURE_IMAGES = [
   feature1.src,

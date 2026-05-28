@@ -1,11 +1,11 @@
-import itStaffingImg from '@/assets/Services inside all heros section/3d3f0587-cd33-44ed-bdd7-e37fb1cccd62 1.png';
-import executiveSearchImg from '@/assets/Services inside all heros section/4c171da4-d5c1-464a-871d-df7055def059 1.png';
-import contractStaffingImg from '@/assets/Services inside all heros section/4569ada5-daab-4204-bf09-b03de79be73b 1.png';
-import permanentHiringImg from '@/assets/Services inside all heros section/a10ee006-617b-4bbf-b564-7aeebf1c463c 1.png';
-import temporaryRecruitmentImg from '@/assets/Services inside all heros section/6e31c581-025d-4eca-b588-7c134d893930 1.png';
-import onSiteRecruitmentImg from '@/assets/Services inside all heros section/b1004b03-ed78-4bef-936b-c7a5cf954b9b 1.png';
-import managedServicesImg from '@/assets/Services inside all heros section/f299ccc7-09a1-4c44-b178-5542b4f78359 1.png';
-import remoteHiringImg from '@/assets/Services inside all heros section/0fa0dad4-4de9-407f-8989-b6516a5d8018 1.png';
+import itStaffingImg from '@/assets/Services-heros/1.jpg';
+import executiveSearchImg from '@/assets/Services-heros/2.jpg';
+import contractStaffingImg from '@/assets/Services-heros/3.jpg';
+import permanentHiringImg from '@/assets/Services-heros/4.jpg';
+import temporaryRecruitmentImg from '@/assets/Services-heros/5.jpg';
+import onSiteRecruitmentImg from '@/assets/Services-heros/6.jpg';
+import managedServicesImg from '@/assets/Services-heros/7.jpg';
+import remoteHiringImg from '@/assets/Services-heros/8.jpg';
 
 export interface ServiceDetail {
   slug: string;

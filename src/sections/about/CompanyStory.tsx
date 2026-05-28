@@ -81,46 +81,35 @@ export default function CompanyStory() {
             whileInView={{ opacity: 1, x: 0 }} 
             viewport={{ once: true, margin: "100px" }} 
             transition={{ duration: 0.4 }}
-            className="relative h-full flex items-center"
+            className="relative h-full flex items-center justify-center py-10 z-10"
           >
-             <div className="grid grid-cols-2 gap-4 w-full">
-                {/* Column 1 */}
-                <div className="flex flex-col gap-4 mt-8">
-                  {[
-                    { src: WhoWeAre1, alt: 'Team meeting', label: 'Collaborative Strategy', link: '/services' },
-                    { src: WhoWeAre2, alt: 'Business discussion', label: 'Consultative Approach', link: '/services/executive-search' },
-                    { src: WhoWeAre3, alt: 'Project planning', label: 'Visionary Planning', link: '/industries' },
-                    { src: WhoWeAre4, alt: 'Global team', label: 'Global Workforce', link: '/services/permanent-hiring' }
-                  ].map((img, idx) => (
-                    <Link key={idx} href={img.link} className="block">
-                      <motion.div whileHover={{ scale: 1.02 }} className={`relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer ${idx % 2 === 0 ? 'h-48 md:h-56' : 'h-56 md:h-64'}`}>
-                        <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
-                          <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">{img.label} <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
-                        </div>
-                      </motion.div>
-                    </Link>
-                  ))}
-                </div>
-                {/* Column 2 */}
-                <div className="flex flex-col gap-4 mb-8">
-                  {[
-                    { src: WhoWeAre5, alt: 'Tech workspace', label: 'Agile Delivery', link: '/services/contract-staffing' },
-                    { src: WhoWeAre6, alt: 'Analytics', label: 'Data-Driven Insights', link: '/industries/finance' },
-                    { src: WhoWeAre7, alt: 'Tech talent', label: 'Specialist Talent', link: '/industries/it-technology' },
-                    { src: WhoWeAre8, alt: 'Strategy', label: 'Market Intelligence', link: '/services/managed-services' }
-                  ].map((img, idx) => (
-                    <Link key={idx} href={img.link} className="block">
-                      <motion.div whileHover={{ scale: 1.02 }} className={`relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer ${idx % 2 === 0 ? 'h-56 md:h-64' : 'h-48 md:h-56'}`}>
-                        <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0A14]/90 to-transparent p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
-                          <p className="text-white text-sm font-bold tracking-wide flex items-center gap-2">{img.label} <ArrowUpRight className="w-4 h-4 text-[#C2185B]" /></p>
-                        </div>
-                      </motion.div>
-                    </Link>
-                  ))}
-                </div>
-             </div>
+            <div className="relative w-full aspect-[4/5] max-w-[500px] mx-auto lg:max-w-none">
+              {[
+                { src: WhoWeAre1, className: "absolute top-[5%] right-[22%] w-[36%] aspect-square z-10" },
+                { src: WhoWeAre2, className: "absolute top-[20%] left-[0%] w-[32%] aspect-square z-10" },
+                { src: WhoWeAre3, className: "absolute top-[32%] left-[28%] w-[42%] aspect-square z-20" },
+                { src: WhoWeAre4, className: "absolute top-[28%] right-[2%] w-[30%] aspect-square z-10" },
+                { src: WhoWeAre5, className: "absolute bottom-[18%] left-[5%] w-[34%] aspect-square z-10" },
+                { src: WhoWeAre6, className: "absolute bottom-[5%] left-[32%] w-[38%] aspect-square z-20" },
+                { src: WhoWeAre7, className: "absolute bottom-[15%] right-[10%] w-[36%] aspect-square z-10" },
+                { src: WhoWeAre8, className: "absolute top-[0%] left-[25%] w-[25%] aspect-square z-0 opacity-40 blur-[0.5px]" }
+              ].map((img, idx) => (
+                <motion.div 
+                  key={idx}
+                  className={`${img.className} rotate-45 overflow-hidden rounded-[20px] md:rounded-[28px] border-[3px] border-white shadow-lg hover:shadow-2xl hover:scale-105 hover:z-30 transition-all duration-500 ease-out group cursor-pointer`}
+                >
+                  <div className="relative w-full h-full -rotate-45 scale-[1.45] transition-transform duration-700 group-hover:scale-[1.55]">
+                    <Image 
+                      src={img.src} 
+                      alt="Chalky Team Workspace" 
+                      fill 
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 30vw"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
         </div>

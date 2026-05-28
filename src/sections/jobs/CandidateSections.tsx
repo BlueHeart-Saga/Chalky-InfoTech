@@ -8,10 +8,10 @@ import { ArrowRight, Search, UserCheck, Briefcase, Trophy, Globe, Zap, Heart, Sh
 import api from '@/services/api';
 
 // ── WhyWorkWithChalky ────────────────────────────────────────────────────────
-import imgSpecializedNetwork from '@/assets/Find Jobs/Specialized Career Network.png';
-import imgEndToEnd from '@/assets/Find Jobs/ENd to end.png';
-import imgDedicatedConsultant from '@/assets/Find Jobs/Dedicated Consut.png';
-import imgGlobalMilestone from '@/assets/Find Jobs/Global Milestone.png';
+import imgSpecializedNetwork from '@/assets/Find-Jobs/1.png';
+import imgEndToEnd from '@/assets/Find-Jobs/2.png';
+import imgDedicatedConsultant from '@/assets/Find-Jobs/3.png';
+import imgGlobalMilestone from '@/assets/Find-Jobs/4.png';
 
 const CANDIDATE_REASONS = [
   { 
@@ -62,31 +62,112 @@ export function WhyWorkWithChalky() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group relative overflow-hidden rounded-[2.5rem] bg-white h-[380px] cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500"
+              className="group relative overflow-hidden rounded-[2.5rem] bg-white h-[480px] cursor-pointer border border-[#7A1F5C]/25 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 flex flex-col"
             >
-              {/* Image Area - Top */}
-              <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden">
-                <Image 
-                  src={reason.image} 
-                  alt={reason.title} 
-                  fill 
-                  unoptimized
-                  className="object-cover transition-transform duration-700 group-hover:scale-110" 
-                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+              {/* Visual Area */}
+              <div className="relative w-full h-[390px] overflow-hidden bg-[#FBFBFB]">
+                {i === 0 && (
+                  <>
+                    {/* Background vertical pink shape behind image (matching Card 4 exactly) */}
+                    <div className="absolute top-10 bottom-10 right-8 w-[65px] bg-[#C955A2]/35 rounded-[20px] z-0" />
+                    
+                    {/* Text content box (Deep Purple) */}
+                    <div className="absolute top-10 bottom-10 left-6 right-[42%] bg-[#7A1F5C] text-white p-5 rounded-[24px] z-10 shadow-lg flex flex-col justify-center">
+                      <h4 className="text-xs font-extrabold mb-2 leading-snug">{reason.title}</h4>
+                      <p className="text-[9px] text-white/85 leading-relaxed font-medium">{reason.desc}</p>
+                    </div>
+
+                    {/* Candidate Image (Larger) */}
+                    <div className="absolute bottom-0 right-0 w-[60%] h-[90%] z-20">
+                      <Image 
+                        src={reason.image} 
+                        alt={reason.title} 
+                        fill 
+                        unoptimized
+                        className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105" 
+                      />
+                    </div>
+                  </>
+                )}
+
+                {i === 1 && (
+                  <>
+                    {/* Background pink shape tilted behind image */}
+                    <div className="absolute top-12 left-6 w-20 h-32 bg-[#C955A2]/25 rounded-[24px] rotate-12 z-0" />
+                    
+                    {/* Text content box (Deep Purple) - Right Aligned */}
+                    <div className="absolute top-10 bottom-10 right-6 left-[42%] bg-[#7A1F5C] text-white p-5 rounded-[24px] z-10 shadow-lg flex flex-col justify-center">
+                      <h4 className="text-xs font-extrabold mb-2 leading-snug">{reason.title}</h4>
+                      <p className="text-[9px] text-white/85 leading-relaxed font-medium">{reason.desc}</p>
+                    </div>
+
+                    {/* Candidate Image (Larger) */}
+                    <div className="absolute bottom-0 left-0 w-[60%] h-[90%] z-20">
+                      <Image 
+                        src={reason.image} 
+                        alt={reason.title} 
+                        fill 
+                        unoptimized
+                        className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105" 
+                      />
+                    </div>
+                  </>
+                )}
+
+                {i === 2 && (
+                  <>
+                    {/* Background pink shape horizontal behind image */}
+                    <div className="absolute top-16 right-6 w-32 h-20 bg-[#C955A2]/25 rounded-[20px] rotate-6 z-0" />
+                    
+                    {/* Text content box (Deep Purple) */}
+                    <div className="absolute top-10 bottom-10 left-6 right-[42%] bg-[#7A1F5C] text-white p-5 rounded-[24px] z-10 shadow-lg flex flex-col justify-center">
+                      <h4 className="text-xs font-extrabold mb-2 leading-snug">{reason.title}</h4>
+                      <p className="text-[9px] text-white/85 leading-relaxed font-medium">{reason.desc}</p>
+                    </div>
+
+                    {/* Candidate Image (Larger) */}
+                    <div className="absolute bottom-0 right-0 w-[60%] h-[90%] z-20">
+                      <Image 
+                        src={reason.image} 
+                        alt={reason.title} 
+                        fill 
+                        unoptimized
+                        className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105" 
+                      />
+                    </div>
+                  </>
+                )}
+
+                {i === 3 && (
+                  <>
+                    {/* Background vertical pink shape behind image */}
+                    <div className="absolute top-10 bottom-10 right-8 w-[65px] bg-[#C955A2]/35 rounded-[20px] z-0" />
+                    
+                    {/* Text content box (Deep Purple) */}
+                    <div className="absolute top-10 bottom-10 left-6 right-[42%] bg-[#7A1F5C] text-white p-5 rounded-[24px] z-10 shadow-lg flex flex-col justify-center">
+                      <h4 className="text-xs font-extrabold mb-2 leading-snug">{reason.title}</h4>
+                      <p className="text-[9px] text-white/85 leading-relaxed font-medium">{reason.desc}</p>
+                    </div>
+
+                    {/* Candidate Image (Larger) */}
+                    <div className="absolute bottom-0 right-0 w-[60%] h-[90%] z-20">
+                      <Image 
+                        src={reason.image} 
+                        alt={reason.title} 
+                        fill 
+                        unoptimized
+                        className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105" 
+                      />
+                    </div>
+                  </>
+                )}
               </div>
 
-              {/* Content Area - Bottom (default), Full height (hover) */}
-              <div className="absolute bottom-0 left-0 w-full h-[40%] bg-white p-8 flex flex-col transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:h-full z-10">
-                <span className="text-[10px] font-bold text-[#7A1F5C] uppercase tracking-widest mb-3">{reason.tag}</span>
-                <h4 className="text-xl font-bold text-[#1A1A1A] leading-tight mb-4 group-hover:text-[#7A1F5C] transition-colors">{reason.title}</h4>
-                
-                {/* Hidden content that fades in on hover */}
-                <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 flex-grow pt-4 flex flex-col">
-                   <p className="text-[#8A8A8A] text-sm leading-relaxed mb-6">{reason.desc}</p>
-                   <span className="inline-flex items-center gap-2 text-[#7A1F5C] font-bold text-xs mt-auto group/link">
-                      Learn More <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                   </span>
-                </div>
+              {/* Footer Label */}
+              <div className="h-[90px] bg-white border-t border-[#7A1F5C]/10 flex items-center justify-center">
+                <span className="text-sm font-extrabold text-[#7A1F5C] uppercase tracking-widest">
+                  {reason.tag}
+                </span>
               </div>
             </motion.div>
           ))}

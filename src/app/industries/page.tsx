@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
-import heroImg from '@/assets/Industries/smiling-female-executive-standing-front-team 1.png';
+import heroImg from '@/assets/Industries/hero.png';
 import IndustriesOverview from '@/sections/industries/IndustriesOverview';
 import FeaturedIndustryExpertise from '@/sections/industries/FeaturedIndustryExpertise';
 import IndustryRecruitmentSolutions from '@/sections/industries/IndustryRecruitmentSolutions';
