@@ -13,12 +13,12 @@ interface Value {
   variant: 'dark' | 'pink' | 'light';
 }
 
-import IntegrityImg from '@/assets/about/core-values/Integrity.png';
-import InnovationImg from '@/assets/about/core-values/Innovation.png';
-import TransparencyImg from '@/assets/about/core-values/Transparency.png';
-import ClientSuccessImg from '@/assets/about/core-values/Client sucees.png';
-import SpeedImg from '@/assets/about/core-values/speed.png';
-import CollaborationImg from '@/assets/about/core-values/Collaboration.png';
+import IntegrityImg from '@/assets/about/Core-values/Integrity.png';
+import InnovationImg from '@/assets/about/Core-values/Innovation.png';
+import TransparencyImg from '@/assets/about/Core-values/Transparency.png';
+import ClientSuccessImg from '@/assets/about/Core-values/Client sucees.png';
+import SpeedImg from '@/assets/about/Core-values/speed.png';
+import CollaborationImg from '@/assets/about/Core-values/Collaboration.png';
 
 const values: Value[] = [
   {
