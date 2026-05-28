@@ -1,11 +1,11 @@
-import itStaffingImg from '@/assets/Services-heros/1.jpg';
-import executiveSearchImg from '@/assets/Services-heros/2.jpg';
-import contractStaffingImg from '@/assets/Services-heros/3.jpg';
-import permanentHiringImg from '@/assets/Services-heros/4.jpg';
-import temporaryRecruitmentImg from '@/assets/Services-heros/5.jpg';
-import onSiteRecruitmentImg from '@/assets/Services-heros/6.jpg';
-import managedServicesImg from '@/assets/Services-heros/7.jpg';
-import remoteHiringImg from '@/assets/Services-heros/8.jpg';
+import itStaffingImg from '@/assets/Services-heros/1.png';
+import executiveSearchImg from '@/assets/Services-heros/2.png';
+import contractStaffingImg from '@/assets/Services-heros/3.png';
+import permanentHiringImg from '@/assets/Services-heros/4.png';
+import temporaryRecruitmentImg from '@/assets/Services-heros/5.png';
+import onSiteRecruitmentImg from '@/assets/Services-heros/6.png';
+import managedServicesImg from '@/assets/Services-heros/7.png';
+import remoteHiringImg from '@/assets/Services-heros/8.png';
 
 export interface ServiceDetail {
   slug: string;

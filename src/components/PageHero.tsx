@@ -115,16 +115,6 @@ export default function PageHero({
               </defs>
             </svg>
 
-            {/* Deep gradient fade on left so diagonal blends seamlessly into section bg */}
-            <div
-              className="absolute inset-0 z-10 pointer-events-none"
-              style={{
-                background:
-                  'linear-gradient(to right, #2D0F22 0%, rgba(45,15,34,0.85) 12%, rgba(74,18,56,0.45) 25%, rgba(74,18,56,0.12) 40%, transparent 60%)',
-              }}
-            />
-            {/* Subtle brand tint overlay */}
-            <div className="absolute inset-0 z-10 bg-[#7A1F5C]/10 pointer-events-none mix-blend-multiply" />
             <Image
               src={imageSrc}
               alt={imageAlt}
