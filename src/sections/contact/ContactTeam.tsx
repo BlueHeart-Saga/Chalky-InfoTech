@@ -1,37 +1,25 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Mail } from 'lucide-react';
+import { Mail, Star } from 'lucide-react';
 
 const team = [
   {
     name: 'Saravana Karthikeyan',
     role: 'CEO & Founder',
-    focus: 'Enterprise Strategy',
     quote: "Technology should empower, not complicate.",
     email: 'info@chalkyinfo.com',
-    linkedin: '#',
-    bg: 'bg-[#D1FFBD]',
-    rotate: '-rotate-[2deg]',
   },
   {
     name: 'Manjula Bashkar',
     role: 'Manual Cloud Security Specialist',
-    focus: 'Cloud Security & Testing',
     quote: "Innovation is solving today's problems with tomorrow's solutions.",
     email: 'info@chalkyinfo.com',
-    linkedin: '#',
-    bg: 'bg-[#FFC0CB]',
-    rotate: 'rotate-[2deg]',
   },
   {
     name: 'Himanshu Mudgal',
     role: 'Head of Client Success',
-    focus: 'DevOps & Client Success',
-    quote: "Client success is our ultimate metric  every relationship we build is a long-term commitment.",
+    quote: "Client success is our ultimate metric.",
     email: 'info@chalkyinfo.com',
-    linkedin: '#',
-    bg: 'bg-white',
-    rotate: '-rotate-[1deg]',
   },
 ];
 
@@ -85,64 +73,84 @@ export default function ContactTeam() {
           </motion.p>
         </div>
 
-        {/* Neubrutalist Cards Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16 items-stretch">
+        {/* Employee Spotlight Grid */}
+        <div className="grid lg:grid-cols-3 gap-8 md:gap-10 items-stretch max-w-[1200px] mx-auto">
           {team.map((member, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.12 }}
-              whileHover={{ y: -5, x: -5, boxShadow: '12px 12px 0px 0px rgba(0,0,0,1)' }}
-              className={`
-                ${member.bg} ${member.rotate}
-                rounded-3xl p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
-                transition-all duration-300 relative border-2 border-black
-                flex flex-col h-full
-              `}
+              transition={{ delay: i * 0.15 }}
+              className="bg-white rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 flex flex-col relative overflow-hidden group"
             >
-              {/* Stars */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(5)].map((_, s) => (
-                  <span key={s} className="text-black text-xl leading-none">★</span>
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-black text-base leading-relaxed mb-8 font-medium italic">
-                &ldquo;{member.quote}&rdquo;
-              </p>
-
-              {/* Focus tag */}
-              <div className="mb-6">
-                <span className="inline-block text-[10px] font-black uppercase tracking-widest bg-black text-white px-3 py-1 rounded-full">
-                  {member.focus}
-                </span>
-              </div>
-
-              {/* Person Row */}
-              <div className="mt-auto pt-6 border-t border-black/10 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full border-2 border-black shadow-sm flex-shrink-0 bg-black text-white flex items-center justify-center font-bold text-lg tracking-wider">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-black text-lg truncate">{member.name}</p>
-                  <p className="text-sm font-semibold text-black/60 truncate uppercase tracking-wider">{member.role}</p>
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-2">
+                  <Star className="text-gray-700" size={20} strokeWidth={2} />
+                  <span className="font-semibold text-gray-900 text-[15px]">Leadership Spotlight</span>
                 </div>
               </div>
 
-              {/* Email button */}
-              <a
-                href={`mailto:${member.email}`}
-                className="mt-6 w-full py-4 rounded-2xl bg-black text-white text-sm font-black uppercase tracking-widest hover:bg-white hover:text-black border-2 border-black transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center justify-center gap-2"
-              >
-                <Mail size={14} /> Email Me
-              </a>
+              {/* Content: Name & Role */}
+              <div className="text-center mb-8 relative z-10">
+                <h3 className="text-xl font-medium text-gray-900 mb-1 tracking-tight">{member.name}</h3>
+                <p className="text-gray-500 font-normal text-[14px]">{member.role}</p>
+              </div>
 
-              {/* Sparkle decoration */}
-              <div className="absolute -top-4 -right-4 text-black text-4xl animate-pulse">✦</div>
-              <div className="absolute -bottom-2 -left-2 text-black/40 text-2xl">✦</div>
+              {/* Avatar / Wavy Badge Area */}
+              <div className="relative w-48 h-48 mx-auto mb-10 flex items-center justify-center">
+                {/* Subtle Grid Background */}
+                <div 
+                  className="absolute inset-[-20%] z-0" 
+                  style={{ 
+                    backgroundImage: 'linear-gradient(#f3f4f6 1px, transparent 1px), linear-gradient(90deg, #f3f4f6 1px, transparent 1px)', 
+                    backgroundSize: '20px 20px',
+                    maskImage: 'radial-gradient(circle, black 40%, transparent 60%)',
+                    WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 60%)'
+                  }}
+                />
+
+                {/* Ribbons */}
+                <div className="absolute top-1/2 -translate-y-1/2 -left-6 -right-6 flex justify-between z-0">
+                  <div className="w-16 h-8 bg-[#EFE7DD]" style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%, 25% 50%, 0 0)' }}></div>
+                  <div className="w-16 h-8 bg-[#EFE7DD]" style={{ clipPath: 'polygon(0 0, 100% 0, 75% 50%, 100% 100%, 0 100%)' }}></div>
+                </div>
+
+                {/* Wavy Scalloped Outer Badge */}
+                <div className="relative z-10 w-full h-full text-[#7A1F5C]/10 flex items-center justify-center">
+                  {/* CSS Rotated Squares to make a Scalloped shape */}
+                  {[0, 15, 30, 45, 60, 75].map((deg) => (
+                    <div 
+                      key={deg}
+                      className="absolute w-[88%] h-[88%] bg-current rounded-3xl"
+                      style={{ transform: `rotate(${deg}deg)` }}
+                    />
+                  ))}
+                  
+                  {/* Inner White Circle */}
+                  <div className="relative z-20 w-[74%] h-[74%] bg-white rounded-full flex items-center justify-center shadow-sm">
+                    {/* Inner Colored Avatar Container */}
+                    <div className="w-[85%] h-[85%] bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] rounded-full overflow-hidden flex items-center justify-center shadow-inner">
+                       {/* Profile Initials (since we don't have images) */}
+                       <div className="text-4xl font-black text-white tracking-tighter">
+                         {member.name.split(' ').map(n => n[0]).join('')}
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer text */}
+              <div className="text-center mt-auto pb-2 flex flex-col items-center">
+                <p className="text-gray-600 font-medium text-[13px] mb-6 italic">"{member.quote}"</p>
+                <a 
+                  href={`mailto:${member.email}`}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 w-full bg-[#7A1F5C] text-white rounded-xl text-sm font-bold hover:bg-[#5a1543] transition-colors shadow-sm"
+                >
+                  <Mail size={16} /> Connect Me
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>

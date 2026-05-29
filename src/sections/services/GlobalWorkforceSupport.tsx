@@ -49,8 +49,8 @@ const supportRegions = [
 export default function GlobalWorkforceSupport() {
   return (
     <>
-      <section className="py-24 bg-[#ffffff]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-24 pb-32 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Section header */}
           <motion.div
@@ -129,6 +129,12 @@ export default function GlobalWorkforceSupport() {
             ))}
           </div>
         </div>
+        {/* Wave Divider to Humanex BG */}
+        {/* <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
+          <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.78,6.37,103.59-15.34,154.51-35.74C242.39,23.15,285.9,6.11,329.75,1.8c70.36-6.91,136.33,13.88,206.8,32,73.84,19,147.54,4.36,218.2-13.08,69.27-17.11,138.3-24.88,209.4-13.08,36.15,6,69.85,17.84,104.45,29.34C1113,54,1200,120,1200,120H0Z" fill="#FAF8F5"></path>
+          </svg>
+        </div> */}
       </section>
 
       {/* Embed Office Locations section directly underneath */}
@@ -136,4 +142,3 @@ export default function GlobalWorkforceSupport() {
     </>
   );
 }
-

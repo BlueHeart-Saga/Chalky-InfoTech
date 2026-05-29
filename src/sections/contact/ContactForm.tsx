@@ -2,8 +2,10 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, ArrowLeft, CheckCircle2, Trash2, Upload } from 'lucide-react';
 import { sendEmail } from '@/services/sendmail';
+import formsideimage from '@/assets/contact/formsideimage.png';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -533,23 +535,40 @@ export default function ContactForm() {
   ];
 
   return (
-    <section className="py-24 bg-[#ffffff] relative overflow-hidden min-h-[70vh] flex items-center">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <StepIndicator current={step} total={TOTAL} />
+    <section className="bg-white relative overflow-hidden flex flex-col lg:flex-row lg:min-h-[850px]">
+      {/* Left side: Form Wizard */}
+      <div className="w-full lg:w-[70%] py-24 px-4 sm:px-6 lg:pl-12 lg:pr-16 xl:pl-24 flex flex-col justify-center relative z-10">
+        <div className="max-w-3xl w-full mx-auto lg:ml-auto lg:mr-0 xl:mx-auto min-h-[600px] flex flex-col justify-center">
+          <StepIndicator current={step} total={TOTAL} />
 
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={step}
-            custom={direction}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.32, ease: 'easeInOut' }}
-          >
-            {steps[step]}
-          </motion.div>
-        </AnimatePresence>
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={step}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.32, ease: 'easeInOut' }}
+              className="w-full"
+            >
+              {steps[step]}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Right side: Edge-to-edge image */}
+      <div className="hidden lg:block lg:w-[30%] relative">
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
+          <Image
+            src={formsideimage}
+            alt="Contact Chalky Infotech"
+            fill
+            className="object-contain object-center"
+            priority
+          />
+        </div>
       </div>
     </section>
   );

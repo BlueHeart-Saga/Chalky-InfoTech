@@ -96,7 +96,7 @@ export default function WhyTrustUs() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="relative w-full"
+            className="relative w-[90%] sm:w-[80%] lg:w-[75%] mx-auto lg:ml-auto"
           >
             <Image
               src={trustImg}

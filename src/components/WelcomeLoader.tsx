@@ -13,107 +13,67 @@ export default function WelcomeLoader() {
       }}
       className="fixed inset-0 z-[9999] bg-[#FAF8F5] flex flex-col items-center justify-center overflow-hidden"
     >
-          {/* Subtle Ambient Orbs */}
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.15, 0.25, 0.15],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            className="absolute w-[500px] h-[500px] rounded-full bg-[#7A1F5C]/8 blur-[130px] pointer-events-none"
+      {/* Subtle Premium Ambient Glow */}
+      <motion.div
+        animate={{ scale: [1, 1.05, 1], opacity: [0.4, 0.6, 0.4] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute w-[600px] h-[600px] rounded-full bg-[#7A1F5C]/5 blur-[120px] pointer-events-none"
+      />
+
+      <div className="relative z-10 flex flex-col items-center max-w-5xl px-4 w-full">
+        {/* Professional Logo */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8"
+        >
+          <Image
+            src="/logo.png"
+            alt="Chalky InfoTech Logo"
+            width={110}
+            height={110}
+            priority
+            className="object-contain drop-shadow-sm"
           />
+        </motion.div>
+
+        {/* Emphasized Brand Name */}
+        <div className="overflow-hidden flex flex-col items-center text-center w-full">
+          <motion.h1
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-5xl md:text-7xl lg:text-[90px] font-black text-[#7A1F5C] tracking-tight mb-6"
+          >
+            Chalky InfoTech
+          </motion.h1>
+
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-xs md:text-sm lg:text-base font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] text-[#1A1A1A]/70 max-w-3xl leading-relaxed"
+          >
+            The Recruitment Company Specialist for IT Staffing
+          </motion.p>
+        </div>
+
+        {/* Minimalist Elegant Loading Bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="mt-14 w-64 md:w-80 h-[2px] bg-[#7A1F5C]/10 rounded-full overflow-hidden relative"
+        >
           <motion.div
-            animate={{
-              scale: [1.1, 0.9, 1.1],
-              opacity: [0.1, 0.2, 0.1],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 1,
-            }}
-            className="absolute w-[300px] h-[300px] rounded-full bg-[#C2185B]/6 blur-[90px] pointer-events-none translate-x-[150px] -translate-y-[100px]"
+            initial={{ width: '0%' }}
+            animate={{ width: '100%' }}
+            transition={{ duration: 2.2, ease: 'easeInOut' }}
+            className="h-full bg-gradient-to-r from-[#7A1F5C] to-[#C2185B] rounded-full"
           />
-
-          {/* Loader Content */}
-          <div className="relative z-10 flex flex-col items-center">
-            {/* Logo Container */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{
-                duration: 1.2,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mb-6 flex items-center justify-center"
-            >
-              <Image
-                src="/logo.png"
-                alt="Chalky InfoTech Logo"
-                width={80}
-                height={80}
-                priority
-                className="object-contain"
-              />
-            </motion.div>
-
-            {/* Brand Welcome Name */}
-            <div className="overflow-hidden flex flex-col items-center mb-6">
-              <motion.h1
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  delay: 0.3,
-                  duration: 0.8,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="text-3xl md:text-4xl font-extrabold text-[#1A1A1A] tracking-tight text-center leading-tight px-4"
-              >
-                Welcome to <span className="text-[#7A1F5C]">Chalky InfoTech</span>
-              </motion.h1>
-
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  delay: 0.5,
-                  duration: 0.8,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#666]/70 mt-2 text-center"
-              >
-                Global IT Staffing &amp; Consulting
-              </motion.p>
-            </div>
-
-            {/* Luxury Minimalist Progress Bar */}
-            <div className="w-48 h-[2px] bg-[#7A1F5C]/10 rounded-full overflow-hidden relative">
-              <motion.div
-                initial={{ width: '0%' }}
-                animate={{ width: '100%' }}
-                transition={{
-                  duration: 2.2,
-                  ease: 'easeInOut',
-                }}
-                className="h-full bg-gradient-to-r from-[#7A1F5C] via-[#C2185B] to-[#7A1F5C] rounded-full"
-              />
-            </div>
-
-            {/* Micro Tagline */}
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
-              className="text-[9px] font-bold tracking-widest text-[#7A1F5C]/60 mt-3 uppercase"
-            >
-              Securing Sector Intelligence
-            </motion.span>
-          </div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 }

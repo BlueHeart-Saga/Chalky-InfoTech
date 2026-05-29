@@ -34,7 +34,7 @@ const storyBlocks = [
 
 export default function CompanyStory() {
   return (
-    <section className="relative pt-20 pb-32 md:pt-28 md:pb-48 bg-white overflow-hidden">
+    <section className="relative pt-0 md:pb-48 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
@@ -83,16 +83,34 @@ export default function CompanyStory() {
             transition={{ duration: 0.4 }}
             className="relative h-full flex items-center justify-center py-10 z-10"
           >
-            <div className="relative w-full aspect-[4/5] max-w-[500px] mx-auto lg:max-w-none">
+            <div className="relative w-full aspect-[4/7.5] lg:aspect-[4/9.5] max-w-[500px] mx-auto lg:max-w-none">
               {[
-                { src: WhoWeAre1, className: "absolute top-[5%] right-[22%] w-[36%] aspect-square z-10" },
-                { src: WhoWeAre2, className: "absolute top-[20%] left-[0%] w-[32%] aspect-square z-10" },
-                { src: WhoWeAre3, className: "absolute top-[32%] left-[28%] w-[42%] aspect-square z-20" },
-                { src: WhoWeAre4, className: "absolute top-[28%] right-[2%] w-[30%] aspect-square z-10" },
-                { src: WhoWeAre5, className: "absolute bottom-[18%] left-[5%] w-[34%] aspect-square z-10" },
-                { src: WhoWeAre6, className: "absolute bottom-[5%] left-[32%] w-[38%] aspect-square z-20" },
-                { src: WhoWeAre7, className: "absolute bottom-[15%] right-[10%] w-[36%] aspect-square z-10" },
-                { src: WhoWeAre8, className: "absolute top-[0%] left-[25%] w-[25%] aspect-square z-0 opacity-40 blur-[0.5px]" }
+                // Top section
+                { src: WhoWeAre8, className: "absolute top-[0%] left-[25%] w-[25%] aspect-square z-0 opacity-40 blur-[0.5px]" },
+                { src: WhoWeAre1, className: "absolute top-[2%] right-[22%] w-[36%] aspect-square z-10" },
+                { src: WhoWeAre2, className: "absolute top-[9%] left-[0%] w-[32%] aspect-square z-10" },
+                { src: WhoWeAre4, className: "absolute top-[13%] right-[2%] w-[30%] aspect-square z-10" },
+                { src: WhoWeAre3, className: "absolute top-[16%] left-[28%] w-[42%] aspect-square z-20" },
+                
+                // Middle section
+                { src: WhoWeAre5, className: "absolute top-[27%] left-[5%] w-[34%] aspect-square z-10" },
+                { src: WhoWeAre7, className: "absolute top-[29%] right-[10%] w-[36%] aspect-square z-10" },
+                { src: WhoWeAre6, className: "absolute top-[35%] left-[32%] w-[38%] aspect-square z-20" },
+                
+                // Bottom section 1
+                { src: WhoWeAre1, className: "absolute top-[46%] left-[2%] w-[30%] aspect-square z-10" },
+                { src: WhoWeAre4, className: "absolute top-[49%] right-[8%] w-[34%] aspect-square z-10" },
+                { src: WhoWeAre3, className: "absolute top-[55%] left-[28%] w-[40%] aspect-square z-20" },
+                
+                // Bottom section 2 (New additions)
+                { src: WhoWeAre5, className: "absolute top-[66%] left-[6%] w-[32%] aspect-square z-10" },
+                { src: WhoWeAre7, className: "absolute top-[69%] right-[12%] w-[36%] aspect-square z-10" },
+                { src: WhoWeAre6, className: "absolute top-[75%] left-[32%] w-[38%] aspect-square z-20" },
+
+                // Deep bottom section (More additions)
+                { src: WhoWeAre1, className: "absolute top-[86%] left-[10%] w-[30%] aspect-square z-10" },
+                { src: WhoWeAre4, className: "absolute top-[88%] right-[20%] w-[28%] aspect-square z-10" },
+                { src: WhoWeAre2, className: "absolute top-[95%] left-[35%] w-[25%] aspect-square z-0 opacity-60 blur-[0.5px]" }
               ].map((img, idx) => (
                 <motion.div 
                   key={idx}

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Quote, ArrowRight, Star, Globe, Landmark, Cloud, Cpu, Rocket } from 'lucide-react';
 
-import TrustedByBusinessesImg from '@/assets/homepage/TESTIMONIALS/Trusted-By-Businesses.png';
+import TrustedByBusinessesImg from '@/assets/homepage/TESTIMONIALS/1.png';
 
 const TESTIMONIALS = [
   {
@@ -240,37 +240,25 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative mb-16"
+          className="relative mb-16 max-w-[800px] mx-auto"
         >
-          <div className="bg-white rounded-[2rem] p-8 md:p-12 lg:p-16 shadow-xl border border-white/50 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-              <Quote size={180} className="text-[#D14D72]" />
-            </div>
+          <div className="relative">
+            {/* Template Background Image */}
+            <Image
+              src={TrustedByBusinessesImg}
+              alt="Testimonial - Chalky Infotech"
+              className="w-full h-auto object-cover"
+            />
 
-            <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-              {/* Text Content */}
-              <div className="flex-1">
-                <Quote size={48} className="text-[#D14D72] mb-8 opacity-50" />
-                <blockquote className="text-2xl md:text-3xl font-medium text-[#1A1A1A] leading-relaxed mb-10 italic">
-                  “Chalky Infotech consistently delivered highly skilled candidates within tight timelines.
-                  Their recruitment process, communication and workforce support exceeded our expectations.”
-                </blockquote>
-
-                <div className="flex items-center gap-6">
-                </div>
-              </div>
-
-              {/* Image Side */}
-              <div className="w-full lg:w-[35%] flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-[320px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500 border-4 border-white">
-                  <Image
-                    src={TrustedByBusinessesImg}
-                    alt="Trusted By Businesses - Chalky Infotech"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-                </div>
+            {/* Absolute Text Overlay on the Left Side */}
+            <div className="absolute top-0 left-0 w-full h-full p-[6%] sm:p-[8%] flex flex-col pt-[8%] sm:pt-[10%]">
+              <div className="w-[50%] max-w-[320px]">
+                <Quote size={36} className="text-[#D14D72] mb-3 sm:mb-4 stroke-[1.5] fill-transparent" />
+                <p className="text-[#1A1A1A] text-[8px] sm:text-xs md:text-sm font-semibold leading-[1.6] sm:leading-relaxed">
+                  "Chalky Infotech consistently delivered highly skilled candidates
+                  within tight timelines. Their recruitment process,
+                  communication and workforce support exceeded our expectations."
+                </p>
               </div>
             </div>
           </div>

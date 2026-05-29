@@ -5,8 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Cpu, Users, Building, Zap, FileText, Calendar, Clock, BarChart } from 'lucide-react';
 
-import humanexDashboardImg from '@/assets/showcase/Humanex.png';
-
 export default function HumanexShowcase() {
   const features = [
     "AI-powered recruitment management",
@@ -136,12 +134,14 @@ export default function HumanexShowcase() {
 
               {/* Actual Dashboard Screenshot Asset */}
               <div className="relative aspect-[16/10] w-full bg-neutral-50 overflow-hidden">
-                <Image
-                  src={humanexDashboardImg}
-                  alt="Humanex platform dashboard mockup"
-                  fill
-                  className="object-cover group-hover:scale-[1.005] transition-transform duration-750"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                <video
+                  src="/showcase/project_Humanex_HR_Platf.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover group-hover:scale-[1.005] transition-transform duration-750"
+                />
               </div>
             </div>
           </motion.div>

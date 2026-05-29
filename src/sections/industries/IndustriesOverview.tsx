@@ -39,8 +39,8 @@ const INDUSTRY_CARDS = [
 
 export default function IndustriesOverview() {
   return (
-    <section className="py-24 bg-[#F5F0E8]/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-24 pb-48 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header split section */}
         <div className="flex flex-col lg:flex-row gap-12 lg:items-center mb-16">
@@ -101,6 +101,13 @@ export default function IndustriesOverview() {
           ))}
         </div>
 
+      </div>
+
+      {/* Wave Divider to Cream */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
+        <svg className="relative block w-full h-[60px] md:h-[120px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,60 C300,120 900,0 1200,60 V120 H0 Z" fill="#F5F0E8"></path>
+        </svg>
       </div>
     </section>
   );

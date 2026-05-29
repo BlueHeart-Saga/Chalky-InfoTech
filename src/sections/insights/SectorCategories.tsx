@@ -111,7 +111,6 @@ function getCategoryDesign(slug: string, index: number) {
 
   return { icon, bg };
 }
-
 export default function SectorCategories({ siteStructure }: Props) {
   // Aggregate all unique categories dynamically from backend siteStructure
   const dynamicCategories = siteStructure
@@ -120,44 +119,106 @@ export default function SectorCategories({ siteStructure }: Props) {
 
   const displayCategories = dynamicCategories.length > 0 ? dynamicCategories : FALLBACK_CATEGORIES;
 
+  // Define styles for sticky notes
+  const PIN_STYLES = [
+    { 
+      tint: "bg-[#FFF4E5]", 
+      text: "text-[#EA580C]", 
+      pin: "from-[#FB923C] to-[#C2410C]",
+      shadow: "shadow-[#FB923C]/20"
+    },
+    { 
+      tint: "bg-[#EDF2FF]", 
+      text: "text-[#4F46E5]", 
+      pin: "from-[#60A5FA] to-[#1D4ED8]",
+      shadow: "shadow-[#60A5FA]/20"
+    },
+    { 
+      tint: "bg-[#F5EEFF]", 
+      text: "text-[#9333EA]", 
+      pin: "from-[#A855F7] to-[#6B21A8]",
+      shadow: "shadow-[#A855F7]/20"
+    },
+    { 
+      tint: "bg-[#FFE8F0]", 
+      text: "text-[#E53888]", 
+      pin: "from-[#F472B6] to-[#BE185D]",
+      shadow: "shadow-[#F472B6]/20"
+    }
+  ];
+
+  const ROTATIONS = [
+    "rotate-[-3deg]",
+    "rotate-[2deg]",
+    "rotate-[-1deg]",
+    "rotate-[3deg]"
+  ];
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {displayCategories.map((cat, idx) => {
-        // Resolve dynamic design or fallback properties
-        const design = 'bg' in cat 
-          ? { icon: (cat as any).icon, bg: (cat as any).bg } 
-          : getCategoryDesign(cat.slug, idx);
+    <div className="relative">
+      {/* Decorative Dashed Path (Hidden on mobile) */}
+      <div className="hidden lg:block absolute top-1/2 left-0 w-full h-[2px] -translate-y-1/2 z-0 pointer-events-none">
+        <svg width="100%" height="100%" style={{ overflow: 'visible' }}>
+          <path 
+            d="M 0,0 Q 300,100 600,0 T 1200,0" 
+            fill="none" 
+            stroke="#D1D5DB" 
+            strokeWidth="2" 
+            strokeDasharray="8 8" 
+          />
+        </svg>
+      </div>
 
-        const CategoryIcon = (LucideIcons as any)[design.icon] || LucideIcons.Layers;
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 relative z-10 pt-4 pb-8">
+        {displayCategories.map((cat, idx) => {
+          const style = PIN_STYLES[idx % PIN_STYLES.length];
+          const rotation = ROTATIONS[idx % ROTATIONS.length];
+          const numberStr = String(idx + 1).padStart(2, '0'); // "01", "02"
 
-        return (
-          <Link
-            key={cat.slug}
-            href={`/insights/${cat.slug}`}
-            className="relative flex flex-col justify-between p-8 pt-10 pb-12 cursor-pointer shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-[#EFE7DD] bg-white rounded-[2rem_0.5rem_2rem_0.5rem] group"
-          >
-            <div>
-              {/* Organic circular badge around icon */}
-              <div className={`w-12 h-12 rounded-xl ${design.bg} flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300`}>
-                <CategoryIcon size={22} className="text-[#7A1F5C]" />
+          return (
+            <Link
+              key={cat.slug}
+              href={`/insights/${cat.slug}`}
+              className={`block group transition-all duration-500 hover:z-20 hover:scale-[1.03] ${rotation}`}
+            >
+              {/* The White Sticky Note Base */}
+              <div className="bg-white p-3.5 rounded-3xl shadow-[0_15px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15)] h-[320px] flex flex-col relative transition-shadow duration-500">
+                
+                {/* 3D Pin Container */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center">
+                  {/* Pin Head (Sphere) */}
+                  <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${style.pin} shadow-lg ${style.shadow} border border-white/20 relative z-10`}>
+                    {/* Sphere Highlight */}
+                    <div className="absolute top-1 left-1.5 w-2 h-2 rounded-full bg-white/50 blur-[0.5px]"></div>
+                  </div>
+                  {/* Pin shadow projected downwards */}
+                  <div className="w-1.5 h-3 bg-black/15 blur-[1.5px] -mt-1 rounded-b-full"></div>
+                </div>
+
+                {/* The Inner Colored Area */}
+                <div className={`flex-1 rounded-[1.25rem] p-6 flex flex-col ${style.tint}`}>
+                  {/* Stylized Number */}
+                  <div className={`text-2xl font-semibold italic mb-4 opacity-90 ${style.text}`} style={{ fontFamily: 'Georgia, serif' }}>
+                    {numberStr}
+                  </div>
+                  
+                  <h4 className="text-xl font-bold text-[#1A1A1A] mb-3">
+                    {cat.name}
+                  </h4>
+                  
+                  <p className="text-[#4A4A4A] text-[13px] leading-relaxed mb-6 line-clamp-4">
+                    {getPremiumCategoryDescription(cat.slug, cat.description || '')}
+                  </p>
+
+                  <span className={`inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest mt-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${style.text}`}>
+                    View Content <LucideIcons.ArrowRight size={13} />
+                  </span>
+                </div>
               </div>
-
-              <h4 className="text-lg font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors mb-3">
-                {cat.name}
-              </h4>
-              
-              <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                {getPremiumCategoryDescription(cat.slug, cat.description || '')}
-              </p>
-            </div>
-
-            <span className="inline-flex items-center gap-1.5 text-xs font-black text-[#7A1F5C] uppercase tracking-widest group-hover:underline mt-auto">
-              View Articles <LucideIcons.ArrowRight size={13} />
-            </span>
-
-          </Link>
-        );
-      })}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

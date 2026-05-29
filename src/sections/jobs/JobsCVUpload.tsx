@@ -129,7 +129,7 @@ export default function JobsCVUpload() {
         </div>
 
         {/* ── Main Card ── */}
-        <div className="flex flex-col lg:flex-row bg-[#F4F7FB] rounded-3xl overflow-hidden relative shadow-sm border border-gray-100 min-h-[520px]">
+        <div className="flex flex-col lg:flex-row bg-[#F5F0E8] rounded-3xl overflow-hidden relative shadow-sm border border-gray-100 min-h-[520px]">
 
           {/* ── LEFT: Wizard ── */}
           <div className="w-full lg:w-3/5 p-10 lg:p-16 flex flex-col justify-between relative z-10">

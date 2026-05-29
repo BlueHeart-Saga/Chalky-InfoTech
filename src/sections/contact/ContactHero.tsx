@@ -29,7 +29,7 @@ export default function ContactHero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="w-full font-semibold text-[#1A1A1A] leading-[1.1] mb-10 flex flex-col items-center px-4"
           >
-            <span className="block text-[#1A1A1A]/90 text-[clamp(1.5rem,4vw,3.5rem)] mb-4 font-semibold tracking-tight">
+            <span className="block text-[#1A1A1A]/90 text-[clamp(1rem,3vw,2.5rem)] mb-2 sm:mb-4 font-bold tracking-tight">
               Connect With Our
             </span>
             <div className="w-full max-w-full flex justify-center">

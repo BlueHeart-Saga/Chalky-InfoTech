@@ -54,7 +54,7 @@ export default function InsightsPage() {
   const displayFeatured = featuredPosts.length >= 3 ? featuredPosts : posts.slice(0, 3);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FAF8F5]">
+    <div className="flex flex-col min-h-screen bg-[#F5F0E8]">
       <SectionNavbar sections={sections} />
 
       {/* ── SECTION 1: HERO (Services Style) ── */}
@@ -78,8 +78,8 @@ export default function InsightsPage() {
       </section>
 
       {/* ── SECTION 2: FEATURED 3D HIGHLIGHT CAROUSEL (Mockup Match!) ── */}
-      <section id="featured" className="py-24 bg-white overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      <section id="featured" className="relative pt-24 pb-32 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center relative z-10">
           
           <div className="text-center mb-16 max-w-3xl">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-black uppercase tracking-widest mb-4">
@@ -96,22 +96,34 @@ export default function InsightsPage() {
           <FeaturedHighlight posts={posts} loading={loading} />
 
         </div>
+        {/* Wave Divider to Cream */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
+          <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.78,6.37,103.59-15.34,154.51-35.74C242.39,23.15,285.9,6.11,329.75,1.8c70.36-6.91,136.33,13.88,206.8,32,73.84,19,147.54,4.36,218.2-13.08,69.27-17.11,138.3-24.88,209.4-13.08,36.15,6,69.85,17.84,104.45,29.34C1113,54,1200,120,1200,120H0Z" fill="#F5F0E8"></path>
+          </svg>
+        </div>
       </section>
 
       {/* ── SECTION 3: ALL INSIGHTS SIDEBAR PUBLISHING HUB (Mockup Match!) ── */}
-      <section id="grid" className="py-24 bg-[#FAF8F5] border-y border-[#EFE7DD]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="grid" className="relative pt-24 pb-32 bg-[#F5F0E8] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SidebarPublishingHub 
             posts={posts} 
             siteStructure={siteStructure} 
             loading={loading} 
           />
         </div>
+        {/* Wave Divider to White */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
+          <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.78,6.37,103.59-15.34,154.51-35.74C242.39,23.15,285.9,6.11,329.75,1.8c70.36-6.91,136.33,13.88,206.8,32,73.84,19,147.54,4.36,218.2-13.08,69.27-17.11,138.3-24.88,209.4-13.08,36.15,6,69.85,17.84,104.45,29.34C1113,54,1200,120,1200,120H0Z" fill="#ffffff"></path>
+          </svg>
+        </div>
       </section>
 
       {/* ── SECTION 4: RECENT 3 ARTICLES GRID ── */}
-      <section id="recent" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="recent" className="relative pt-24 pb-32 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-black uppercase tracking-widest mb-4">
@@ -132,11 +144,17 @@ export default function InsightsPage() {
           />
 
         </div>
+        {/* Wave Divider to Cream */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
+          <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.78,6.37,103.59-15.34,154.51-35.74C242.39,23.15,285.9,6.11,329.75,1.8c70.36-6.91,136.33,13.88,206.8,32,73.84,19,147.54,4.36,218.2-13.08,69.27-17.11,138.3-24.88,209.4-13.08,36.15,6,69.85,17.84,104.45,29.34C1113,54,1200,120,1200,120H0Z" fill="#F5F0E8"></path>
+          </svg>
+        </div>
       </section>
 
       {/* ── SECTION 5: SECTOR CATEGORIES LINK CARDS ── */}
-      <section id="categories" className="py-24 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="categories" className="relative pt-24 pb-32 bg-[#F5F0E8] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-black uppercase tracking-widest mb-4">
@@ -152,6 +170,12 @@ export default function InsightsPage() {
 
           <SectorCategories siteStructure={siteStructure} />
 
+        </div>
+        {/* Wave Divider to White */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
+          <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V15.81c13,36.92,27.64,56.86,47.69,59.33,51.78,6.37,103.59-15.34,154.51-35.74C242.39,23.15,285.9,6.11,329.75,1.8c70.36-6.91,136.33,13.88,206.8,32,73.84,19,147.54,4.36,218.2-13.08,69.27-17.11,138.3-24.88,209.4-13.08,36.15,6,69.85,17.84,104.45,29.34C1113,54,1200,120,1200,120H0Z" fill="#ffffff"></path>
+          </svg>
         </div>
       </section>
 

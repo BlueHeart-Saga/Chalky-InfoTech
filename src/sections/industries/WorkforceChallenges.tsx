@@ -15,8 +15,8 @@ const CHALLENGES = [
 
 export default function WorkforceChallenges() {
   return (
-    <section className="py-24 bg-[#F9F9F9] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-24 pb-32 bg-[#F5F0E8] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
             Solving Complexity

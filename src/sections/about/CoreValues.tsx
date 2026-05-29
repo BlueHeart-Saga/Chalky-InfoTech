@@ -103,7 +103,6 @@ export default function CoreValues() {
         <div
           className="relative rounded-2xl overflow-hidden"
           style={{ minHeight: '320px' }}
-          onMouseLeave={() => setHovered(null)}
         >
 
           {/* ════ DEFAULT VIEW: Hexagonal Cascade Flow ════ */}
@@ -122,7 +121,7 @@ export default function CoreValues() {
                 <div
                   key={i}
                   className={`group flex flex-col items-center text-center ${cascadeOffset[i]} cursor-pointer`}
-                  onMouseEnter={() => setHovered(i)}
+                  onClick={() => setHovered(hovered === i ? null : i)}
                 >
                   {/* Hexagon */}
                   <div className="relative mb-4">
@@ -184,7 +183,7 @@ export default function CoreValues() {
                         <div
                           key={i}
                           className="cursor-pointer transition-all duration-300"
-                          onMouseEnter={() => setHovered(i)}
+                          onClick={() => setHovered(hovered === i ? null : i)}
                           style={{
                             opacity: isThis ? 1 : 0.45,
                             transform: isThis ? 'scale(1.2)' : 'scale(1)',
