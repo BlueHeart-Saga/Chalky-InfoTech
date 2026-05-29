@@ -257,11 +257,6 @@ export default function Testimonials() {
                 </blockquote>
 
                 <div className="flex items-center gap-6">
-                  <div>
-                    <h4 className="text-xl font-semibold text-[#1A1A1A]">Michael Carter</h4>
-                    <p className="text-[#D14D72] font-medium">Head of Technology</p>
-                    <p className="text-gray-500 text-sm">Global Digital Solutions</p>
-                  </div>
                 </div>
               </div>
 
