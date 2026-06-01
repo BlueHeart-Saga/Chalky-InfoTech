@@ -38,3 +38,4 @@ jobs:
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
           package: .
           slot-name: production
+          clean: true
