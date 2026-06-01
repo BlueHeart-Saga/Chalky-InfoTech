@@ -1,6 +1,6 @@
 import { SERVICES, INDUSTRIES } from '@/constants';
 import { LOCATIONS } from '@/constants/locationsData';
-import { INSIGHTS_DETAILED } from '@/constants/insightsData';
+import api from '@/services/api';
 
 export async function GET() {
   const base = 'https://chalkyinfo.com';
@@ -46,20 +46,19 @@ export async function GET() {
 
   const now = new Date().toUTCString();
 
-  const getCategorySlug = (categoryName: string) => {
-    return categoryName
-      .toLowerCase()
-      .replace(/&/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-');
-  };
+  let posts: any[] = [];
+  try {
+    posts = await api.getAllPosts(50);
+  } catch (err) {
+    console.error("Failed to fetch posts for RSS feed", err);
+  }
 
   const items = [
     ...staticPages.map(p => buildItem(`${base}${p.url}`, p.title, p.desc, now)),
     ...SERVICES.map(s => buildItem(`${base}/services/${s.slug}`, `${s.label} Services`, s.desc, now)),
     ...INDUSTRIES.map(i => buildItem(`${base}/industries/${i.slug}`, `${i.label} Recruitment`, `Recruitment solutions and workforce services for the ${i.label} sector.`, now)),
     ...LOCATIONS.map(l => buildItem(`${base}/locations/${l.slug}`, `Chalky InfoTech Hub: ${l.city}`, l.description, now)),
-    ...INSIGHTS_DETAILED.map(insight => buildItem(`${base}/insights/${getCategorySlug(insight.category)}/${insight.slug}`, insight.title, insight.excerpt, new Date(insight.date).toUTCString()))
+    ...posts.map(post => buildItem(`${base}/insights/${post.category?.slug || 'post'}/${post.slug || post.id}`, post.title, post.excerpt, new Date(post.date).toUTCString()))
   ].join('');
 
   const feed = `<?xml version="1.0" encoding="UTF-8" ?>
