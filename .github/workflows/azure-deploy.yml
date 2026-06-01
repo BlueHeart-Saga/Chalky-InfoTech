@@ -31,12 +31,20 @@ jobs:
           NEXT_PUBLIC_FORM_SUBMIT_EMAIL: ${{ secrets.NEXT_PUBLIC_FORM_SUBMIT_EMAIL }}
           NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ secrets.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
 
+      - name: Create Deployment Package
+        run: |
+          cp -r public .next/standalone/
+          cp -r .next/static .next/standalone/.next/
+          cp web.config .next/standalone/
+          cd .next/standalone
+          zip -r ../../deployment.zip .
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: chalky-infotech
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
-          package: .
+          package: deployment.zip
           slot-name: production
           clean: true
           type: zip
