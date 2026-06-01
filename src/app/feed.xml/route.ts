@@ -9,8 +9,8 @@ export async function GET() {
   const staticPages = [
     { 
       url: '', 
-      title: 'Chalky InfoTech - Global IT Staffing & Consulting', 
-      desc: 'Expert IT staffing and consulting services for modern enterprises. Connecting world-class talent with global opportunities.' 
+      title: 'Chalky InfoTech | Global IT Staffing & Consulting', 
+      desc: 'Expert IT staffing and consulting services for modern enterprises. Connecting world class talent with global opportunities.' 
     },
     { 
       url: '/services', 
