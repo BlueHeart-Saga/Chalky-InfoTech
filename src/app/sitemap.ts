@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next';
 import { SERVICES, INDUSTRIES } from '@/constants';
 import { LOCATIONS } from '@/constants/locationsData';
-import { INSIGHTS_DETAILED } from '@/constants/insightsData';
+import api from '@/services/api';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = 'https://chalkyinfo.com';
   const now = new Date();
 
@@ -16,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/insights`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${base}/csr`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${base}/locations`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/sitemap`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${base}/cookie-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${base}/faqs`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
@@ -72,9 +71,16 @@ function getCategorySlug(categoryName: string) {
     priority: 0.7,
   }));
 
-  const insightRoutes: MetadataRoute.Sitemap = INSIGHTS_DETAILED.map((i) => ({
-    url: `${base}/insights/${getCategorySlug(i.category)}/${i.slug}`,
-    lastModified: new Date(i.date),
+  let posts: any[] = [];
+  try {
+    posts = await api.getAllPosts(100);
+  } catch (err) {
+    console.error("Failed to fetch posts for sitemap", err);
+  }
+
+  const insightRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${base}/insights/${post.category?.slug || 'post'}/${post.slug || post.id}`,
+    lastModified: new Date(post.date),
     changeFrequency: 'monthly',
     priority: 0.8,
   }));

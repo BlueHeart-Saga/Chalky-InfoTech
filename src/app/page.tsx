@@ -16,7 +16,7 @@ import HumanexShowcase from '@/components/HumanexShowcase';
 import CSRSection from '@/sections/home/CSRSection';
 
 export const metadata: Metadata = {
-  title: 'Chalky Infotech | Premium IT Recruitment & Workforce Solutions in the UK',
+  title: 'Chalky Infotech | IT Recruitment & Workforce Solutions',
   description: 'Chalky Infotech is a specialist technology and digital recruitment partner in the UK. We connect exceptional talent with world-class organisations across cloud, AI, DevOps, and finance.',
   keywords: ['IT recruitment UK', 'technology recruitment partner', 'digital talent acquisition', 'cloud recruitment', 'AI staffing', 'DevOps hiring', 'finance tech recruitment', 'premium IT workforce solutions'],
   openGraph: {
