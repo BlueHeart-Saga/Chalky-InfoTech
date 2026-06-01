@@ -45,6 +45,5 @@ jobs:
           app-name: chalky-infotech
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
           package: deployment.zip
-          slot-name: production
           clean: false
           type: zip
