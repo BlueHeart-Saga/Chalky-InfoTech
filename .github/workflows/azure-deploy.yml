@@ -31,12 +31,14 @@ jobs:
           NEXT_PUBLIC_FORM_SUBMIT_EMAIL: ${{ secrets.NEXT_PUBLIC_FORM_SUBMIT_EMAIL }}
           NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ secrets.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
 
+      - name: Create Deployment Package
+        run: |
+          zip -r deploy.zip . -x "node_modules/*" ".git/*" ".github/*" "*.zip"
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: chalky-infotech
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH }}
-          package: .
+          package: ./deploy.zip
           slot-name: production
-          clean: true
-          type: zip
