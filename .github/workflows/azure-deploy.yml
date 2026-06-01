@@ -39,3 +39,4 @@ jobs:
           package: .
           slot-name: production
           clean: true
+          type: zip
