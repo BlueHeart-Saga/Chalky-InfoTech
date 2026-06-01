@@ -83,22 +83,30 @@ export default function CompanyStory() {
             transition={{ duration: 0.4 }}
             className="relative h-full flex items-center justify-center py-6 z-10"
           >
-            <div className="relative w-full aspect-[4/6.5] max-w-[500px] mx-auto lg:max-w-none">
+            <div className="relative w-full aspect-[4/8] max-w-[500px] mx-auto lg:max-w-none">
               {[
-                // Top section
-                { src: WhoWeAre1, className: "absolute top-[2%] right-[5%] w-[36%] aspect-square z-10" },
-                { src: WhoWeAre2, className: "absolute top-[5%] left-[5%] w-[32%] aspect-square z-10" },
-                { src: WhoWeAre3, className: "absolute top-[15%] left-[25%] w-[42%] aspect-square z-20" },
+                // Top side small images
+                { src: WhoWeAre8, className: "absolute top-[0%] left-[24%] w-[24%] aspect-square z-10" },
+                { src: WhoWeAre4, className: "absolute top-[1%] right-[24%] w-[22%] aspect-square z-10" },
+
+                // Top section main images
+                { src: WhoWeAre1, className: "absolute top-[6%] right-[5%] w-[36%] aspect-square z-10" },
+                { src: WhoWeAre2, className: "absolute top-[8%] left-[5%] w-[32%] aspect-square z-10" },
+                { src: WhoWeAre3, className: "absolute top-[18%] left-[25%] w-[42%] aspect-square z-20" },
                 
                 // Middle section
-                { src: WhoWeAre4, className: "absolute top-[32%] right-[2%] w-[34%] aspect-square z-10" },
-                { src: WhoWeAre5, className: "absolute top-[35%] left-[5%] w-[32%] aspect-square z-10" },
-                { src: WhoWeAre6, className: "absolute top-[45%] left-[28%] w-[40%] aspect-square z-20" },
+                { src: WhoWeAre5, className: "absolute top-[35%] left-[5%] w-[34%] aspect-square z-10" },
+                { src: WhoWeAre7, className: "absolute top-[38%] right-[5%] w-[36%] aspect-square z-10" },
+                { src: WhoWeAre6, className: "absolute top-[48%] left-[28%] w-[40%] aspect-square z-20" },
                 
-                // Bottom section
-                { src: WhoWeAre7, className: "absolute top-[62%] left-[2%] w-[34%] aspect-square z-10" },
-                { src: WhoWeAre8, className: "absolute top-[65%] right-[6%] w-[32%] aspect-square z-10" },
-                { src: WhoWeAre1, className: "absolute top-[75%] left-[26%] w-[38%] aspect-square z-20" }
+                // Bottom section main images
+                { src: WhoWeAre1, className: "absolute top-[65%] left-[2%] w-[34%] aspect-square z-10" },
+                { src: WhoWeAre3, className: "absolute top-[68%] right-[6%] w-[32%] aspect-square z-10" },
+                { src: WhoWeAre4, className: "absolute top-[78%] left-[26%] w-[38%] aspect-square z-20" },
+
+                // Bottom side small images
+                { src: WhoWeAre2, className: "absolute top-[88%] left-[12%] w-[26%] aspect-square z-10" },
+                { src: WhoWeAre5, className: "absolute top-[90%] right-[16%] w-[24%] aspect-square z-10" }
               ].map((img, idx) => (
                 <motion.div 
                   key={idx}
