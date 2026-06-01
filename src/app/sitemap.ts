@@ -4,7 +4,7 @@ import { LOCATIONS } from '@/constants/locationsData';
 import { INSIGHTS_DETAILED } from '@/constants/insightsData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://www.chalkyinfo.com';
+  const base = 'https://chalkyinfo.com';
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [

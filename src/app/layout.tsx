@@ -25,11 +25,14 @@ export const metadata: Metadata = {
   keywords: ['recruitment', 'IT staffing', 'tech talent', 'consulting', 'cloud', 'DevOps', 'AI', 'data engineering'],
   authors: [{ name: 'Chalky Infotech' }],
   creator: 'Chalky Infotech',
-  metadataBase: new URL('https://www.chalkyinfo.com'),
+  metadataBase: new URL('https://chalkyinfo.com'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://www.chalkyinfo.com',
+    url: 'https://chalkyinfo.com',
     siteName: 'Chalky Infotech',
     title: 'Chalky Infotech | Enterprise Recruitment & Consulting',
     description:
@@ -55,6 +58,35 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={poppins.variable}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var isBot = /Googlebot|bingbot|yandex|baiduspider|slurp|crawler|spider/i.test(navigator.userAgent);
+                  var hasVisited = sessionStorage.getItem('chalky_welcomed_session');
+                  if (!isBot && !hasVisited) {
+                    document.documentElement.classList.add('welcome-loading-active');
+                  }
+                } catch (e) {}
+              })();
+            `
+          }}
+        />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .welcome-loading-active .content-wrapper-seo {
+                opacity: 0 !important;
+                pointer-events: none !important;
+                height: 100vh !important;
+                overflow: hidden !important;
+              }
+            `
+          }}
+        />
+      </head>
       <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden">
         <WelcomeLoaderProvider>
           <Suspense fallback={null}>

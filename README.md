@@ -198,7 +198,7 @@ Explicit rules defining indexing parameters, prohibiting access to restricted ad
 ```text
 User-Agent: *
 Allow: /
-Sitemap: https://www.chalkyinfo.com/sitemap.xml
+Sitemap: https://chalkyinfo.com/sitemap.xml
 ```
 
 ---

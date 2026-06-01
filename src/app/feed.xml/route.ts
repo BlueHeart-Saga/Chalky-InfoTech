@@ -3,7 +3,7 @@ import { LOCATIONS } from '@/constants/locationsData';
 import { INSIGHTS_DETAILED } from '@/constants/insightsData';
 
 export async function GET() {
-  const base = 'https://www.chalkyinfo.com';
+  const base = 'https://chalkyinfo.com';
   
   // Core pages mapping
   const staticPages = [

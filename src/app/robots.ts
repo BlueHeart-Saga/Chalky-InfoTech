@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://www.chalkyinfo.com/sitemap.xml',
+    sitemap: 'https://chalkyinfo.com/sitemap.xml',
   }
 }

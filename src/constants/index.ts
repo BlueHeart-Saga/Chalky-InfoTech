@@ -12,7 +12,7 @@ export const colors = {
 };
 
 export const SITE_NAME = 'Chalky Infotech';
-export const SITE_URL = 'https://www.chalkyinfo.com';
+export const SITE_URL = 'https://chalkyinfo.com';
 export const SITE_DESCRIPTION =
   'Chalky Infotech is a specialist technology and digital recruitment partner supporting organisations with high-quality talent across cloud, data, software and transformation.';
 
