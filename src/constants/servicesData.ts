@@ -127,12 +127,12 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       description: 'The right leader reshapes culture, accelerates strategy, and creates lasting enterprise value. Our discreet, high-impact executive search practice is built for organisations that refuse to compromise on leadership quality.\n\n• Confidential Search: Rigorous privacy protocols protect your business and the candidate throughout every stage of the process.\n• Global Leadership Network: Access to passive C-suite executives, NEDs and strategic visionaries not visible on the open market.\n• Behavioural Science: Evidence-based leadership assessments measuring strategic vision, emotional intelligence, and board-readiness.',
     },
     benefits: [
-      'Discreet and confidential search',
-      'Global leadership network',
-      'In-depth behavioral assessment',
-      'Market mapping and insights',
-      'Board-level consulting',
-      'Strategic cultural alignment'
+      'Discreet Search: We enforce strict confidentiality to protect sensitive leadership transitions and active searches.',
+      'Global Network: Tap into our private pipeline of passive C-suite and executive leaders across major tech hubs.',
+      'Behavioral Assessment: Evaluate candidates on strategic alignment, leadership quality, and culture fit.',
+      'Market Mapping: Gain deep intelligence on candidate compensation, competitor structures, and availability.',
+      'Board Consulting: Align board-level expectations with prospective leaders for long-term governance success.',
+      'Cultural Alignment: Ensure new executive placements share your corporate values and fit the existing board.'
     ],
     industries: ['Enterprise', 'Banking', 'Technology', 'Healthcare'],
     process: [
@@ -183,12 +183,12 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       description: "Today's project timelines don't wait. Our contract staffing solutions give organisations instant access to battle-tested specialists — exactly when, where, and for as long as they're needed.\n\n• Rapid Deployment: Pre-vetted contract professionals on-site or remote within 48–72 hours of instruction.\n• Full Compliance Management: IR35 status determination, payroll processing and contractor administration handled end-to-end.\n• True Scalability: Scale headcount up or down as project phases evolve — without permanent overhead or long-term commitment.",
     },
     benefits: [
-      'Rapid workforce deployment',
-      'Flexible hiring models',
-      'Reduced operational overhead',
-      'Access to specialized professionals',
-      'Scalable workforce support',
-      'Fast project onboarding'
+      'Rapid Deployment: Get pre-vetted, ready-to-work contract specialists deployed within 48 to 72 hours.',
+      'Flexible Models: Scale your workforce up or down dynamically depending on active project phases.',
+      'Reduced Overhead: Avoid long-term payroll commitments and benefits costs by using contract professionals.',
+      'Specialist Network: Access niche technical experts for specific project deliverables and cloud migrations.',
+      'Scalable Support: Quickly expand team bandwidth to handle seasonal demands or tight project deadlines.',
+      'Fast Onboarding: Streamline the transition process so external talent starts delivering value from day one.'
     ],
     industries: ['Technology', 'Healthcare', 'Finance', 'Retail'],
     process: [
@@ -239,12 +239,12 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       description: 'Permanent hires are not just headcount — they are long-term investments in your organisation\'s future. We apply data-driven insight and deep cultural mapping to ensure every placement is a high-retention match, not just a skills match.\n\n• Targeted Headhunting: Engaging passive, high-calibre candidates not actively seeking roles but open to the right strategic opportunity.\n• Multi-Stage Vetting: Comprehensive technical, cultural and motivational assessment before any profile is presented to you.\n• Retention by Design: Our permanent placements average 3+ years tenure — because we align careers and values, not just CVs.',
     },
     benefits: [
-      'High retention rates',
-      'Deep cultural alignment',
-      'Reduced long-term hiring costs',
-      'Specialized headhunting',
-      'Brand-aligned recruitment',
-      'Guaranteed placement support'
+      'High Retention: Focus on career goals and culture-fit ensures hires stay and grow with your firm.',
+      'Cultural Alignment: We map organizational environment to match candidates with matching core values.',
+      'Cost Efficiency: Minimize time-to-hire and expensive replacement cycles for maximum ROI.',
+      'Targeted Headhunting: Proactively recruit passive candidates who aren\'t actively looking but fit your profile.',
+      'Brand Advocacy: We represent your employer brand professionally to leave a lasting candidate impression.',
+      'Replacement Guarantee: Benefit from a structured replacement assurance at no extra cost if needed.'
     ],
     industries: ['All Sectors', 'Fintech', 'Retail', 'Education'],
     process: [
@@ -295,12 +295,12 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       description: 'Seasonal peaks, project surges and unexpected demand spikes require a workforce partner who responds at pace. Our temporary recruitment solutions give you access to a pre-vetted talent pool ready for same-day or next-day mobilisation.\n\n• 24–48hr Deployment: Pre-screened temporary cohorts on-site across the UK within one to two business days.\n• Fully Managed Administration: Contracts, payroll, tax compliance and on-site coordination handled from day one.\n• Variable Cost Model: Pay only for hours worked — protecting your permanent team from burnout and your budget from fixed overheads.',
     },
     benefits: [
-      'Immediate talent availability',
-      'Flexible contract terms',
-      'Seamless payroll management',
-      'Scalable high-volume hiring',
-      'Vetted professional pool',
-      'Reduced administrative burden'
+      'Immediate Availability: Mobilize temporary talent pools within 24 to 48 hours for urgent demands.',
+      'Flexible Contracts: Scale staff levels hour-by-hour to respond to peaks without long-term contracts.',
+      'Managed Payroll: We handle timesheets, compliance, and direct wage payments for temporary workers.',
+      'High-Volume Capacity: Seamlessly coordinate bulk staffing for logistics hubs, retail surges, or support centers.',
+      'Vetted Professionals: Every candidate is identity-checked and skill-assessed before arriving on-site.',
+      'Zero Admin Overhead: We manage all compliance, HR paperwork, and onboarding administrative burdens.'
     ],
     industries: ['Logistics', 'Retail', 'Customer Support', 'Manufacturing'],
     process: [
@@ -351,12 +351,12 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       description: "An on-site recruitment partnership means our consultants don't just work for you — they work with you, embedded in your culture, your systems, and your strategy.\n\n• Deep Cultural Integration: Our recruiters become your employer brand ambassadors, delivering candidate experiences that reflect your values from first contact to offer acceptance.\n• Process Optimisation: We audit and redesign your hiring workflows to eliminate bottlenecks, reduce time-to-hire and significantly lower your cost-per-hire.\n• Real-Time Reporting: Live dashboards tracking time-to-hire, source quality, diversity metrics and cost-per-hire for complete hiring transparency.",
     },
     benefits: [
-      'Deep organizational integration',
-      'Reduced cost-per-hire',
-      'Faster hiring cycles',
-      'Improved candidate experience',
-      'Strategic hiring alignment',
-      'Process optimization'
+      'On-Site Integration: Recruiters work alongside your HR team to act as true internal brand ambassadors.',
+      'Lower Cost-Per-Hire: Streamlining the hiring process reduces agency dependencies and direct costs.',
+      'Accelerated Cycles: Embedded recruiters resolve bottlenecks in real-time to close roles faster.',
+      'Premium Candidate Experience: Maintain high-touch communication and professional feedback loops.',
+      'Strategic Alignment: Recruit directly to meet corporate growth goals and long-term project needs.',
+      'Process Optimization: Continuous audit of your ATS workflows and interview pipelines for peak efficiency.'
     ],
     industries: ['Tech Scale-ups', 'Large Enterprise', 'Manufacturing'],
     process: [
@@ -407,12 +407,12 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       description: 'Managing a large contingent workforce across multiple vendors is complex, costly, and compliance-heavy. Our Managed Service Provider (MSP) model transforms that complexity into a unified, efficient and fully controlled talent ecosystem.\n\n• Centralised Vendor Management: Single point of accountability across your entire supplier network — standardised terms, quality controls and performance metrics enforced consistently.\n• Technology-Driven Visibility: VMS integration providing real-time spend visibility, compliance dashboards and strategic workforce analytics.\n• Guaranteed Compliance: Automated background checks, Right-to-Work verification and IR35 management across every single contractor engagement.',
     },
     benefits: [
-      'Centralized vendor management',
-      'Full compliance & risk control',
-      'Significant cost savings',
-      'Unified reporting & analytics',
-      'Strategic workforce planning',
-      'Quality of hire improvement'
+      'Centralized Vendors: Simplify operations with a single point of accountability for all staffing suppliers.',
+      'Compliance & Vetting: Automated background checks, Right-to-Work, and IR35 compliance audits.',
+      'Cost Management: Optimize contingent workforce spend to save 10-15% on agency margins.',
+      'Unified Analytics: Gain clear visibility into supplier performance, total spend, and headcounts.',
+      'Strategic Planning: Use historical workforce metrics to forecast future resource requirements.',
+      'Quality Improvement: Align SLA metrics to ensure vendors consistently submit high-tier talent.'
     ],
     industries: ['Large Enterprise', 'Public Sector', 'Financial Services'],
     process: [
@@ -463,12 +463,12 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       description: 'Geographic boundaries no longer define where great talent lives. Our global remote hiring practice connects your organisation with the world\'s best professionals — managed compliantly, onboarded digitally, and productive from day one.\n\n• Cross-Border Compliance: International labour law navigation, Employer of Record (EOR) payroll management and localised contract structuring across every jurisdiction.\n• Remote-First Vetting: Secure remote-proctored technical assessments and multi-stage video interviews verifying both competency and remote-work readiness.\n• Global Talent Mapping: Active sourcing from major innovation hubs in the UK, India, Europe and North America, matched to your time zone and collaboration model.',
     },
     benefits: [
-      'Access to global talent pool',
-      'Cross-border compliance',
-      '24/7 global productivity',
-      'Reduced infrastructure costs',
-      'Diverse team building',
-      'Seamless remote onboarding'
+      'Global Talent Pool: Recruit skilled professionals without geographic bounds or local tech shortages.',
+      'Compliant Payroll: Partner with top EOR providers to handle international labor laws and tax filings.',
+      'Timezone Productivity: Leverage remote hubs to achieve round-the-clock development and support cycles.',
+      'Infrastructure Savings: Minimize corporate real estate, local workstation, and office overhead costs.',
+      'Diverse Perspectives: Build highly creative, multicultural teams with diverse backgrounds.',
+      'Digital Onboarding: Streamlined remote setup and setup support gets new remote hires active quickly.'
     ],
     industries: ['SaaS', 'Digital Agencies', 'Tech Startups'],
     process: [

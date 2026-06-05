@@ -228,9 +228,9 @@ export default function LeadershipTeam() {
                       </p>
 
                       {/* Connect Link Button */}
-                      <Link 
-                        href="/contact"
-                        className="w-full py-3.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 border-[2.5px] hover:shadow-md"
+                      <a 
+                        href="mailto:info@chalkyinfo.com"
+                        className="w-full py-3.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 border-[2.5px] hover:shadow-md block text-center"
                         style={{
                           borderColor: leader.accent,
                           color: leader.accent,
@@ -246,7 +246,7 @@ export default function LeadershipTeam() {
                         }}
                       >
                         Connect with Me
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

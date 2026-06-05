@@ -98,45 +98,29 @@ export default function ContactTeam() {
                 <p className="text-gray-500 font-normal text-[14px]">{member.role}</p>
               </div>
 
-              {/* Avatar / Wavy Badge Area */}
-              <div className="relative w-48 h-48 mx-auto mb-10 flex items-center justify-center">
-                {/* Subtle Grid Background */}
-                <div 
-                  className="absolute inset-[-20%] z-0" 
-                  style={{ 
-                    backgroundImage: 'linear-gradient(#f3f4f6 1px, transparent 1px), linear-gradient(90deg, #f3f4f6 1px, transparent 1px)', 
-                    backgroundSize: '20px 20px',
-                    maskImage: 'radial-gradient(circle, black 40%, transparent 60%)',
-                    WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 60%)'
-                  }}
-                />
+              {/* Avatar Area - Premium Concentric-Ring Setup */}
+              <div className="relative w-44 h-44 mx-auto mb-8 flex items-center justify-center">
+                {/* Background Rotating Decorative Ring */}
+                <div className="absolute inset-0 rounded-full border border-dashed border-[#7A1F5C]/20 animate-[spin_40s_linear_infinite]" />
+                
+                {/* Glowing Aura */}
+                <div className="absolute inset-4 rounded-full bg-gradient-to-tr from-[#7A1F5C] to-[#C2185B] opacity-10 blur-xl group-hover:opacity-25 transition-opacity duration-500" />
 
-                {/* Ribbons */}
-                <div className="absolute top-1/2 -translate-y-1/2 -left-6 -right-6 flex justify-between z-0">
-                  <div className="w-16 h-8 bg-[#EFE7DD]" style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%, 25% 50%, 0 0)' }}></div>
-                  <div className="w-16 h-8 bg-[#EFE7DD]" style={{ clipPath: 'polygon(0 0, 100% 0, 75% 50%, 100% 100%, 0 100%)' }}></div>
+                {/* Outer Glassmorphic Border */}
+                <div className="absolute inset-1 rounded-full p-[3px] bg-gradient-to-tr from-[#7A1F5C]/20 via-[#C2185B]/40 to-[#7A1F5C]/20 group-hover:bg-gradient-to-tr group-hover:from-[#7A1F5C] group-hover:to-[#C2185B] transition-all duration-500 rounded-full">
+                  <div className="w-full h-full bg-white rounded-full" />
                 </div>
 
-                {/* Wavy Scalloped Outer Badge */}
-                <div className="relative z-10 w-full h-full text-[#7A1F5C]/10 flex items-center justify-center">
-                  {/* CSS Rotated Squares to make a Scalloped shape */}
-                  {[0, 15, 30, 45, 60, 75].map((deg) => (
-                    <div 
-                      key={deg}
-                      className="absolute w-[88%] h-[88%] bg-current rounded-3xl"
-                      style={{ transform: `rotate(${deg}deg)` }}
-                    />
-                  ))}
-                  
-                  {/* Inner White Circle */}
-                  <div className="relative z-20 w-[74%] h-[74%] bg-white rounded-full flex items-center justify-center shadow-sm">
-                    {/* Inner Colored Avatar Container */}
-                    <div className="w-[85%] h-[85%] bg-gradient-to-br from-[#7A1F5C] to-[#C2185B] rounded-full overflow-hidden flex items-center justify-center shadow-inner">
-                       {/* Profile Initials (since we don't have images) */}
-                       <div className="text-4xl font-black text-white tracking-tighter">
-                         {member.name.split(' ').map(n => n[0]).join('')}
-                       </div>
-                    </div>
+                {/* Main Avatar Circle */}
+                <div className="relative z-10 w-[78%] h-[78%] rounded-full p-1 bg-white border border-[#EFE7DD] shadow-md flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-[#7A1F5C] to-[#4A1238] rounded-full overflow-hidden flex items-center justify-center shadow-inner relative group-hover:scale-[1.03] transition-transform duration-500">
+                    {/* Subtle decorative highlight inside initials circle */}
+                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
+                    
+                    {/* Profile Initials */}
+                    <span className="text-4xl font-extrabold text-[#FAF8F5] tracking-tight">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </span>
                   </div>
                 </div>
               </div>

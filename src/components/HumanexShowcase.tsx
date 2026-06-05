@@ -180,7 +180,7 @@ export default function HumanexShowcase() {
                 Start Hiring
               </a>
               <a
-                href="https://chalkyhrplatform-hgadcrengkdmhrhb.southindia-01.azurewebsites.net/"
+                href="https://humanex.devopstrio.co.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#7A1F5C] border border-[#7A1F5C]/15 px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest shadow-sm transition-all hover:-translate-y-0.5 active:translate-y-0"

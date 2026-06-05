@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
 import { MapPin, Briefcase, Clock, PoundSterling, Share2, Printer, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateStaticParams() {
+  return [{ slug: 'it-staffing' }];
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -15,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function JobDetailPage({ params }: Props) {
+async function JobDetailPageContent({ params }: Props) {
   const { slug } = await params;
   const jobTitle = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
@@ -140,10 +145,23 @@ export default async function JobDetailPage({ params }: Props) {
                <Link href="/contact" className="text-[#7A1F5C] font-bold text-sm hover:underline flex items-center gap-2">
                  Contact Recruiter <ArrowUpRight size={14} />
                </Link>
-            </div>
+             </div>
           </div>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function JobDetailPage({ params }: Props) {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#FAF8F5]">
+        <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/15 border-t-[#7A1F5C] animate-spin mb-4"></div>
+        <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#7A1F5C]/60">Loading job details...</p>
+      </div>
+    }>
+      <JobDetailPageContent params={params} />
+    </Suspense>
   );
 }

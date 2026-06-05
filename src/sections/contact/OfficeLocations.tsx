@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, ExternalLink, Repeat } from 'lucide-react';
+import Image from 'next/image';
 
 const offices = [
   {
@@ -12,7 +13,7 @@ const offices = [
     address: '128, City Road,\nLondon EC1V 2NX,\nUnited Kingdom',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=128+City+Road+London+EC1V+2NX',
     embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.126906959899!2d-0.0877!3d51.5268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b7c3c4d8b5f%3A0x3c3c3c3c3c3c3c3c!2s128+City+Rd%2C+London+EC1V+2NX%2C+UK!5e0!3m2!1sen!2s!4v1234567890',
-    image: 'https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&q=80&w=800', // Tower Bridge / London Skyline
+    image: '/locations/london.png',
   },
   {
     id: 'thoothukudi',
@@ -22,7 +23,7 @@ const offices = [
     address: '4/392, Rajeev Colony,\nPassuvanthani,\nTamil Nadu',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rajeev+Colony+Passuvanthani+Tamil+Nadu',
     embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.0!2d77.9500!3d8.7642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04ef64000e9dd5%3A0x1!2sRajeev+Colony%2C+Passuvanthani%2C+Tamil+Nadu!5e0!3m2!1sen!2sin!4v1234567891',
-    image: 'https://images.unsplash.com/photo-1566410884949-165b451fc23d?auto=format&fit=crop&q=80&w=800', // Beautiful Boats / Coastal Port vibe for Pearl City
+    image: '/locations/thoothukudi.png',
   },
   {
     id: 'chennai',
@@ -32,7 +33,7 @@ const offices = [
     address: '110, Manickan Lane,\nAnna Salai, Opp Guindy,\nChennai, Tamil Nadu – 600 032',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=110+Manickan+Lane+Anna+Salai+Guindy+Chennai+600032',
     embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5!2d80.2100!3d13.0050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267df!2sAnna+Salai+Guindy+Chennai!5e0!3m2!1sen!2sin!4v1234567892',
-    image: 'https://images.unsplash.com/photo-1616843413587-9e3a37f7bbd8?auto=format&fit=crop&q=80&w=800', // Iconic Chennai Central Railway Station
+    image: '/locations/chennai.png',
   },
 ];
 
@@ -78,7 +79,7 @@ export default function OfficeLocations() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto" style={{ perspective: '1500px' }}>
           {offices.map((office, i) => (
             <motion.div
               key={office.id}
@@ -86,15 +87,19 @@ export default function OfficeLocations() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="relative w-full h-[480px] perspective-1000"
+              className="relative w-full h-[480px]"
             >
               <motion.div
-                className="w-full h-full relative preserve-3d transition-transform duration-700 cursor-pointer"
+                className="w-full h-full relative cursor-pointer"
+                style={{ transformStyle: 'preserve-3d' }}
                 animate={{ rotateY: flippedId === office.id ? 180 : 0 }}
                 onClick={() => setFlippedId(flippedId === office.id ? null : office.id)}
               >
                 {/* FRONT SIDE */}
-                <div className="absolute inset-0 backface-hidden bg-white rounded-3xl overflow-hidden border border-[#EFE7DD] shadow-lg shadow-[#7A1F5C]/5 flex flex-col group">
+                <div 
+                  className="absolute inset-0 bg-white rounded-3xl overflow-hidden border border-[#EFE7DD] shadow-lg shadow-[#7A1F5C]/5 flex flex-col group"
+                  style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+                >
                   {/* Google Maps embed */}
                   <div className="relative w-full h-48 overflow-hidden flex-shrink-0 bg-gray-100">
                     <iframe
@@ -148,14 +153,20 @@ export default function OfficeLocations() {
                 </div>
 
                 {/* BACK SIDE */}
-                <div className="absolute inset-0 backface-hidden bg-white rounded-3xl overflow-hidden shadow-lg shadow-[#7A1F5C]/5 border border-[#EFE7DD] flex flex-col" style={{ transform: 'rotateY(180deg)' }}>
+                <div 
+                  className="absolute inset-0 bg-[#1A1A1A] rounded-3xl overflow-hidden shadow-lg shadow-[#7A1F5C]/5 border border-[#EFE7DD] flex flex-col" 
+                  style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                >
                   {/* Image Background */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${office.image})` }}
+                  <Image
+                    src={office.image}
+                    alt={`${office.city} Office`}
+                    fill
+                    unoptimized
+                    className="object-cover opacity-80"
                   />
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/20" />
                   
                   {/* Content */}
                   <div className="relative z-10 p-8 flex flex-col h-full justify-between text-white">

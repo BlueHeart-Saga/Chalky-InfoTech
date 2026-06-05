@@ -7,7 +7,6 @@ import CTASection from '@/components/CTASection';
 import PageHero from '@/components/PageHero';
 import EngagementHub from '@/sections/insights/EngagementHub';
 import api from '@/services/api';
-import { Suspense } from 'react';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net";
 
@@ -387,14 +386,5 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
 }
 
 export default function InsightDetailPage({ params }: Props) {
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#FAF8F5]">
-        <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/15 border-t-[#7A1F5C] animate-spin mb-4"></div>
-        <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#7A1F5C]/60">Retrieving article publication...</p>
-      </div>
-    }>
-      <InsightDetailPageContent params={params} />
-    </Suspense>
-  );
+  return <InsightDetailPageContent params={params} />;
 }

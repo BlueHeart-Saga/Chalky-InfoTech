@@ -50,7 +50,7 @@ export default function JobBoard() {
   const [jobs, setJobs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState<'list' | 'grid'>('list'); // list default
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState(0);
 
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');

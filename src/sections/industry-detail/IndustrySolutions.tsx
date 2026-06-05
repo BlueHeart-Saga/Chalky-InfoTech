@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import trustedImg from '@/assets/Industries details page/Trusted By Businesses (2).png';
+import trustedImg from '@/assets/homepage/TESTIMONIALS/image.png';
 
 interface Props {
   services: string[];
@@ -121,7 +121,7 @@ export default function IndustrySolutions({ services }: Props) {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="w-full lg:w-[45%] flex-shrink-0"
           >
-            <div className="relative w-full h-[460px] lg:h-full min-h-[460px] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative w-full h-[460px] lg:h-full min-h-[460px]">
               {/* Main image */}
               <Image
                 src={trustedImg.src}
@@ -131,28 +131,6 @@ export default function IndustrySolutions({ services }: Props) {
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 45vw"
               />
-
-              {/* Subtle dark gradient overlay at bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent" />
-
-              {/* Stat ribbon pinned to bottom */}
-              <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-10 flex items-end justify-between gap-4">
-                {[
-                  { value: '10k+', label: 'Vetted Talents' },
-                  { value: '98%', label: 'Success Rate' },
-                  { value: '14 Days', label: 'Avg. Delivery' },
-                ].map((stat, i) => (
-                  <div key={i} className="flex flex-col items-center text-center flex-1">
-                    <span className="text-white font-black text-xl leading-none">{stat.value}</span>
-                    <span className="text-white/70 text-[10px] font-bold uppercase tracking-widest mt-1">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Top-left accent badge */}
-              <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-widest">
-                Verified Partner
-              </div>
             </div>
           </motion.div>
 

@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import PageScrollRestoration from '@/components/PageScrollRestoration';
 import WelcomeLoaderProvider from '@/components/WelcomeLoaderProvider';
+import CanonicalLink from '@/components/CanonicalLink';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -26,9 +27,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Chalky Infotech' }],
   creator: 'Chalky Infotech',
   metadataBase: new URL('https://chalkyinfo.com'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_GB',
@@ -41,8 +39,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chalky Infotech | Enterprise Recruitment & Consulting',
-    description: 'Specialist technology and digital recruitment partner.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -53,12 +49,23 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
   },
+  icons: {
+    icon: [
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={poppins.variable} suppressHydrationWarning>
       <head>
+        <CanonicalLink />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -87,7 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden">
+      <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden relative">
         <WelcomeLoaderProvider>
           <Suspense fallback={null}>
             <Navbar />
@@ -100,7 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 "@type": "Organization",
                 "name": "Chalky Infotech",
                 "url": "https://chalkyinfo.com",
-                "logo": "https://chalkyinfo.com/logo.png",
+                "logo": "https://chalkyinfo.com/icon.png",
                 "contactPoint": {
                   "@type": "ContactPoint",
                   "telephone": "+44 7503 140975",
@@ -113,14 +120,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               })
             }}
           />
-          <Suspense fallback={
-            <div className="min-h-screen flex flex-col items-center justify-center bg-[#FAF8F5]">
-              <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/15 border-t-[#7A1F5C] animate-spin mb-4"></div>
-              <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#7A1F5C]/60">Loading sector intelligence...</p>
-            </div>
-          }>
-            <main>{children}</main>
-          </Suspense>
+          <main>{children}</main>
           <Footer />
           <ScrollToTop />
           <Suspense fallback={null}>

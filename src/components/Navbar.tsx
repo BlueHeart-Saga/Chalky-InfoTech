@@ -84,10 +84,10 @@ const INDUSTRIES_DATA = {
     }
   ],
   featured: {
-    title: 'Market Trends 2024',
-    desc: 'Explore the latest hiring trends and salary benchmarks across our core industries...',
-    link: 'Download Report',
-    href: '/insights/salary-guide',
+    title: 'Explore Career Opportunities',
+    desc: 'Browse our active job openings across IT, technology, engineering, and global sectors...',
+    link: 'Search Jobs',
+    href: '/jobs',
     image: industriesNav
   }
 };

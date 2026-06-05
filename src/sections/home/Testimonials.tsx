@@ -319,9 +319,6 @@ export default function Testimonials() {
                 Schedule Consultation
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="/contact" className="bg-[#D14D72] text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[#7A1F5C] transition-all shadow-xl text-center flex items-center justify-center">
-                Contact Us
-              </Link>
             </div>
           </div>
         </motion.div>
