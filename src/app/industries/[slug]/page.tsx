@@ -24,7 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if ((industry as any).metaInfo) {
     const meta = (industry as any).metaInfo;
     return {
-      title: meta.title,
+      title: {
+        absolute: meta.title,
+      },
       description: meta.description,
       keywords: meta.keywords,
       openGraph: {
@@ -41,7 +43,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${industry.label} Recruitment & Workforce Solutions | Chalky Infotech`,
+    title: {
+      absolute: `${industry.label} Recruitment | Chalky Infotech`,
+    },
     description: `Specialized ${industry.label.toLowerCase()} workforce solutions helping organizations scale through strategic recruitment and talent acquisition across UK and India.`,
     keywords: [industry.label, 'recruitment solutions', 'staffing services', 'workforce solutions', 'industry expertise', 'Chalky Infotech'],
   };

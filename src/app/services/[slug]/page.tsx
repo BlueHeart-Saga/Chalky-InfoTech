@@ -23,7 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (service.metaInfo) {
     return {
-      title: service.metaInfo.title,
+      title: {
+        absolute: service.metaInfo.title,
+      },
       description: service.metaInfo.description,
       keywords: service.metaInfo.keywords,
       openGraph: {
@@ -40,7 +42,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${service.label} Solutions | Chalky Infotech UK & India`,
+    title: {
+      absolute: `${service.label} Solutions | Chalky Infotech`,
+    },
     description: `Professional ${service.label.toLowerCase()} services helping organizations scale through strategic workforce solutions and specialized talent acquisition across multiple industries.`,
     keywords: [service.label, 'recruitment solutions', 'staffing services', 'workforce solutions', 'talent acquisition', 'Chalky Infotech'],
   };

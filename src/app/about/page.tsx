@@ -19,11 +19,11 @@ import HumanexShowcase from '@/components/HumanexShowcase';
 
 
 export const metadata: Metadata = {
-  title: 'About Chalky Infotech | Global IT Recruitment & Workforce Solutions in the UK',
+  title: 'About Us | Global IT Recruitment',
   description: 'Learn about Chalky Infotech, a leading technology recruitment and workforce solutions partner helping organizations scale through strategic hiring and digital talent acquisition services in the UK.',
   keywords: ['Chalky Infotech', 'IT recruitment agency UK', 'global workforce solutions', 'technology recruitment partner', 'strategic hiring', 'digital talent acquisition', 'tech staffing experts'],
   openGraph: {
-    title: 'About Chalky Infotech | Global IT Recruitment UK',
+    title: 'About Us | Global IT Recruitment | Chalky Infotech',
     description: 'A leading technology recruitment and workforce solutions partner helping organizations scale through strategic hiring.',
     locale: 'en_GB',
   },

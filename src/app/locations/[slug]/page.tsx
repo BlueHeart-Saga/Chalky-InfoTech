@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!location) return { title: 'Location Not Found' };
 
   return {
-    title: `${location.service} in ${location.city} | Chalky Infotech`,
+    title: `${location.service} in ${location.city}`,
     description: location.description,
     keywords: [location.service, location.city, 'recruitment', 'staffing', 'Chalky Infotech'],
   };

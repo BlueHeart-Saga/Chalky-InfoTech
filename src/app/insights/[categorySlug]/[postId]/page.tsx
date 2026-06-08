@@ -47,8 +47,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const post = api.transformContent(backendPost);
 
+    const fullTitle = `${post.title} | Chalky`;
+    const finalTitle = fullTitle.length > 65 ? (post.title.length > 62 ? `${post.title.substring(0, 62)}...` : post.title) : fullTitle;
+
     return {
-      title: `${post.title} | Chalky Infotech Insights`,
+      title: {
+        absolute: finalTitle,
+      },
       description: post.excerpt,
       openGraph: {
         title: post.title,

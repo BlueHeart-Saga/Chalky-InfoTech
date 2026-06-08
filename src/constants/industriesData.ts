@@ -115,7 +115,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       image: telecomImg,
     },
     metaInfo: {
-      title: 'Telecommunications Recruitment UK | 5G & Network Engineering Talent',
+      title: 'Telecommunications Recruitment UK | 5G & Networks',
       description: 'Specialist telecommunications recruitment across the UK. RF engineers, network specialists and infrastructure project managers sourced for 5G rollout, FTTH deployment and connectivity programmes.',
       keywords: 'telecommunications recruitment UK, telecom staffing UK, 5G recruitment UK, network engineer recruitment UK, RF engineer staffing UK, FTTH specialists UK, infrastructure recruitment UK',
       ogTitle: 'Telecommunications Recruitment UK | 5G & Network Specialists',
@@ -174,7 +174,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       image: engineeringImg,
     },
     metaInfo: {
-      title: 'Engineering & Infrastructure Recruitment UK | Technical Talent Solutions',
+      title: 'Engineering & Infrastructure Recruitment UK | Technical Talent',
       description: 'Specialist engineering and infrastructure recruitment across the UK. Civil, mechanical, electrical and structural engineers sourced for major infrastructure, industrial and construction projects.',
       keywords: 'engineering recruitment UK, civil engineer recruitment UK, mechanical engineer staffing UK, infrastructure recruitment UK, project manager engineering UK, electrical engineer recruitment UK, technical staffing UK',
       ogTitle: 'Engineering & Infrastructure Recruitment UK | Technical Workforce Solutions',
@@ -226,7 +226,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       image: mediaImg,
     },
     metaInfo: {
-      title: 'Media & Digital Services Recruitment UK | Creative & Digital Talent',
+      title: 'Media & Digital Services Recruitment UK | Creative Talent',
       description: 'Specialist media and digital recruitment across the UK. UX/UI designers, content strategists, digital marketers and media professionals sourced for agencies, brands and digital-first businesses.',
       keywords: 'media recruitment UK, digital marketing recruitment UK, UX designer recruitment UK, content strategist staffing UK, digital talent UK, creative recruitment UK, digital agency recruitment UK',
       ogTitle: 'Media & Digital Services Recruitment UK | Creative & Digital Talent',
@@ -278,7 +278,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       image: bankingImg,
     },
     metaInfo: {
-      title: 'Banking & Finance Recruitment UK | Fintech & Compliance Talent',
+      title: 'Banking & Finance Recruitment UK | Fintech & Compliance',
       description: 'Specialist banking and finance recruitment across the UK. Compliance officers, risk managers, fintech developers and investment banking professionals sourced for global financial institutions.',
       keywords: 'banking recruitment UK, finance recruitment UK, fintech recruitment UK, compliance officer staffing UK, risk manager recruitment UK, investment banking recruitment UK, AML KYC staffing UK, financial services talent UK',
       ogTitle: 'Banking & Finance Recruitment UK | Fintech & Financial Services Talent',
@@ -337,7 +337,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       image: healthcareImg,
     },
     metaInfo: {
-      title: 'Healthcare & Life Sciences Recruitment UK | Clinical & Biotech Talent',
+      title: 'Healthcare & Life Sciences Recruitment UK | Biotech Talent',
       description: 'Specialist healthcare and life sciences recruitment across the UK. Clinical research associates, health IT specialists, biotech engineers and medical professionals sourced with rigorous compliance verification.',
       keywords: 'healthcare recruitment UK, life sciences recruitment UK, clinical research recruitment UK, biotech staffing UK, health IT recruitment UK, medical recruitment UK, pharma recruitment UK, NHS staffing UK',
       ogTitle: 'Healthcare & Life Sciences Recruitment UK | Clinical & Biotech Talent',
@@ -396,7 +396,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       image: retailImg,
     },
     metaInfo: {
-      title: 'Retail & E-Commerce Recruitment UK | Omnichannel Talent Solutions',
+      title: 'Retail & E-Commerce Recruitment UK | Omnichannel Talent',
       description: 'Specialist retail and e-commerce recruitment across the UK. Supply chain specialists, e-commerce managers, UX designers and digital marketing leads sourced for omnichannel brands and commerce platforms.',
       keywords: 'retail recruitment UK, e-commerce recruitment UK, omnichannel staffing UK, supply chain recruitment UK, digital marketing recruitment UK, Shopify recruitment UK, retail operations staffing UK',
       ogTitle: 'Retail & E-Commerce Recruitment UK | Omnichannel Talent Solutions',
@@ -455,7 +455,7 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
       image: manufacturingImg,
     },
     metaInfo: {
-      title: 'Manufacturing Recruitment UK | Industry 4.0 & Engineering Talent',
+      title: 'Manufacturing Recruitment UK | Industry 4.0 Talent',
       description: 'Specialist manufacturing recruitment across the UK. Process engineers, automation specialists, plant managers and quality control leads sourced for Industry 4.0, smart factory and advanced manufacturing projects.',
       keywords: 'manufacturing recruitment UK, Industry 4.0 staffing UK, automation engineer recruitment UK, process engineer staffing UK, plant manager recruitment UK, lean manufacturing recruitment UK, industrial staffing UK',
       ogTitle: 'Manufacturing Recruitment UK | Industry 4.0 & Advanced Manufacturing Talent',

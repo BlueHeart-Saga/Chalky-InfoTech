@@ -12,7 +12,7 @@ const CSRImpactMetrics = dynamic(() => import('@/sections/csr/CSRImpactMetrics')
 const CSRCTA           = dynamic(() => import('@/sections/csr/CSRCTA'),           { ssr: true });
 
 export const metadata: Metadata = {
-  title: 'CSR Report | Chalky Infotech – People, Planet & Purpose',
+  title: 'CSR Report | People, Planet & Purpose',
   description:
     'Explore Chalky Infotech\'s full Corporate Social Responsibility report. Our commitments to environmental sustainability, diversity & inclusion, community empowerment, and ethical governance.',
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     'ESG staffing agency',
   ],
   openGraph: {
-    title: 'CSR Report | Chalky Infotech – People, Planet & Purpose',
+    title: 'CSR Report | People, Planet & Purpose | Chalky Infotech',
     description:
       'Our full CSR commitments: environmental stewardship, inclusive hiring, community empowerment and ethical governance.',
     locale: 'en_GB',

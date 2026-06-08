@@ -15,11 +15,11 @@ import SectionNavbar from '@/components/SectionNavbar';
 import HumanexShowcase from '@/components/HumanexShowcase';
 
 export const metadata: Metadata = {
-  title: 'Specialized Industry Recruitment & Workforce Solutions in the UK | Chalky Infotech',
+  title: 'Specialist Industry Recruitment & Staffing',
   description: 'Chalky Infotech supports organizations across technology, healthcare, finance, retail, and manufacturing through scalable recruitment solutions tailored to industry-specific needs in the UK.',
   keywords: ['industry recruitment solutions', 'tech recruitment UK', 'healthcare staffing', 'finance recruiters', 'retail workforce solutions', 'manufacturing recruitment', 'UK industry staffing', 'specialist workforce solutions'],
   openGraph: {
-    title: 'Specialized Industry Recruitment & Workforce Solutions UK',
+    title: 'Specialist Industry Recruitment & Staffing | Chalky Infotech',
     description: 'Chalky Infotech supports organizations across technology, healthcare, finance, retail, and manufacturing through scalable recruitment solutions.',
     locale: 'en_GB',
   },

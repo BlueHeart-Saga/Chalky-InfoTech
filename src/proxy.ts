@@ -37,6 +37,53 @@ export function proxy(request: NextRequest) {
     }
   });
 
+  // 5. SEO URL Formatting: Replace underscores and spaces with dashes, and remove symbols
+  const originalPathname = url.pathname;
+  const segments = originalPathname.split('/');
+  const cleanedSegments = segments.map((segment) => {
+    if (!segment) return segment;
+
+    let cleaned = segment;
+    try {
+      cleaned = decodeURIComponent(cleaned);
+    } catch {
+      // Ignore decode errors
+    }
+
+    // Replace underscores with dashes
+    cleaned = cleaned.replace(/_/g, '-');
+    
+    // Replace spaces/whitespace with dashes
+    cleaned = cleaned.replace(/\s+/g, '-');
+
+    // Convert to lowercase
+    cleaned = cleaned.toLowerCase();
+
+    // Remove any character that is not a lowercase letter, number, or dash
+    // Extraneous characters such as: !, @, #, $, %, ^, &, *, (, ), [, ], ?, {, }, ;, :, “ are stripped
+    cleaned = cleaned.replace(/[^a-z0-9-]/g, '');
+
+    // Collapse consecutive dashes (e.g., "a--b" -> "a-b")
+    cleaned = cleaned.replace(/-+/g, '-');
+
+    // Trim leading and trailing dashes from the segment (e.g., "-slug-" -> "slug")
+    cleaned = cleaned.replace(/^-+|-+$/g, '');
+
+    return cleaned;
+  });
+
+  const cleanedPathname = cleanedSegments.join('/');
+  if (cleanedPathname !== originalPathname) {
+    url.pathname = cleanedPathname;
+    changed = true;
+  }
+
+  // 6. Trailing Slash Check: Strip trailing slash (except for homepage "/") to keep canonical URL consistency
+  if (url.pathname !== '/' && url.pathname.endsWith('/')) {
+    url.pathname = url.pathname.slice(0, -1);
+    changed = true;
+  }
+
   // If the URL was modified, perform a 301 Permanent Redirect to pass SEO checks
   if (changed) {
     return NextResponse.redirect(url, 301);

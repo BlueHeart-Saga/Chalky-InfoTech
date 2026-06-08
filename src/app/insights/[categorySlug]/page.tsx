@@ -101,7 +101,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .join(' ');
 
   return {
-    title: `${title} | Chalky Infotech Insights`,
+    title: {
+      absolute: `${title} | Chalky Infotech Insights`,
+    },
     description: `Explore our latest research, thought leadership and recruitment analytics for ${title}.`,
   };
 }

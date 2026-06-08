@@ -396,7 +396,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       image: managedServicesImg.src,
     },
     metaInfo: {
-      title: 'Managed Workforce Solutions UK | MSP & Contingent Workforce Management',
+      title: 'Managed Workforce Solutions UK | MSP & Contingent Hiring',
       description: 'End-to-end managed staffing solutions (MSP) for enterprises across the UK. Centralise your contingent workforce, reduce costs by 10–15% and achieve 100% compliance through a single managed framework.',
       keywords: 'managed staffing UK, MSP UK, managed service provider recruitment UK, contingent workforce management UK, VMS integration UK, workforce outsourcing UK, talent supply chain UK, managed workforce UK',
       ogTitle: 'Managed Workforce Solutions UK | Enterprise MSP Partner',
