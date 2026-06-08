@@ -281,6 +281,123 @@ export default function SitemapPage() {
 
         </div>
 
+        {/* Rich SEO Content Section (Ecosystem Directory & Architecture Guide) */}
+        <div className="mt-28 mb-24 max-w-7xl mx-auto px-4 md:px-8 border-t border-[#7A1F5C]/10 pt-20">
+          <div className="mb-12">
+            <span className="text-xs font-black text-[#7A1F5C] uppercase tracking-[0.3em] mb-4 block">
+              Architectural Overview & Reference Directory
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-6 tracking-tighter">
+              Chalky InfoTech <span className="text-[#7A1F5C]">Ecosystem Guide</span>
+            </h2>
+            <p className="text-gray-500 text-base md:text-lg font-medium max-w-4xl">
+              This detailed directory provides an exhaustive overview of the services, industries, resources, and compliance frameworks that form the core of Chalky InfoTech's digital presence and recruitment operations. Use this reference guide to navigate our specialized divisions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-sm text-gray-650 leading-relaxed font-normal">
+            
+            {/* Section 1 */}
+            <div className="space-y-6 bg-white p-8 rounded-3xl border border-[#7A1F5C]/5 shadow-sm">
+              <h3 className="text-lg font-bold text-[#1A1A1A] flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#7A1F5C]" />
+                Corporate Infrastructure & Global Talent Strategy
+              </h3>
+              <p>
+                Chalky InfoTech operates at the intersection of human resource intelligence and technology execution. As a global recruitment partner, our corporate structure is designed to support high-growth startups, mid-market leaders, and Fortune 500 enterprises with agile workforce scaling. Our primary operational headquarters in London directs our European client relations, executive placement, and compliance verification frameworks.
+              </p>
+              <p>
+                Complementing our UK operations, our specialized offshore delivery centers in Chennai and other major tech hubs in India manage high-volume technical screening, sourcing pipelines, and 24/7 candidate coordination. This twin-shore delivery capability allows us to offer continuous project support and sourcing depth, particularly for clients seeking offshore development talent or specialized remote teams.
+              </p>
+              <p>
+                Our core values focus on transparency, domain expertise, and velocity. By employing senior-led recruitment consultants who specialize strictly in specific technical sub-verticals (such as cloud platform engineering, cybersecurity, and data architecture), we speak the language of both our hiring managers and candidates. Our Global Workforce and Leadership Team pages outline our governance structure and our dedication to maintaining a premium, ethical, and high-performance talent ecosystem.
+              </p>
+            </div>
+
+            {/* Section 2 */}
+            <div className="space-y-6 bg-white p-8 rounded-3xl border border-[#7A1F5C]/5 shadow-sm">
+              <h3 className="text-lg font-bold text-[#1A1A1A] flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#7A1F5C]" />
+                Strategic Recruitment Services & Custom Staffing Models
+              </h3>
+              <p>
+                We recognize that talent acquisition is not a one-size-fits-all endeavor. Our service portfolio is mapped directly to our clients' financial timelines, operational models, and scaling speed requirements:
+              </p>
+              <ul className="list-disc pl-5 space-y-2 text-gray-500">
+                <li>
+                  <strong className="text-[#1A1A1A]">IT Staffing & Contract Placement:</strong> Rapid provisioning of vetted contractors to manage project spikes, system integrations, or temporary skill gaps, ensuring seamless operational continuity without long-term overhead.
+                </li>
+                <li>
+                  <strong className="text-[#1A1A1A]">Executive Search & Leadership Acquisition:</strong> Retained and contingent search frameworks targeting C-suite leaders, VP-level engineering directors, and principal technologists who possess the vision to drive corporate transformation.
+                </li>
+                <li>
+                  <strong className="text-[#1A1A1A]">Permanent Recruitment:</strong> Standardized end-to-end talent sourcing, screening, background checks, and offer negotiations designed to integrate high-retention personnel directly into your local culture.
+                </li>
+                <li>
+                  <strong className="text-[#1A1A1A]">Managed Services & Offshore Centers (ODC):</strong> Setup and management of dedicated engineering cells, handling payroll, infrastructure, and compliance, allowing you to focus on product direction while we manage operations.
+                </li>
+              </ul>
+            </div>
+
+            {/* Section 3 */}
+            <div className="space-y-6 bg-white p-8 rounded-3xl border border-[#7A1F5C]/5 shadow-sm">
+              <h3 className="text-lg font-bold text-[#1A1A1A] flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#7A1F5C]" />
+                Industry Vertical Expertise & Technological Depth
+              </h3>
+              <p>
+                Modern enterprises require staff who understand sector-specific compliance, architectural constraints, and target architectures. Our recruitment verticals are staffed by subject matter experts to support:
+              </p>
+              <ul className="list-disc pl-5 space-y-2 text-gray-500">
+                <li>
+                  <strong className="text-[#1A1A1A]">IT, Cloud & DevOps Engineering:</strong> Sourcing world-class experts in AWS, Azure, Google Cloud Platform, Kubernetes containerization, Terraform infrastructure-as-code, and automated CI/CD pipelines.
+                </li>
+                <li>
+                  <strong className="text-[#1A1A1A]">Financial Services & Banking Tech:</strong> Placements in secure transactions, payment orchestrations, algorithmic trading systems, core banking modernization, and fintech integrations requiring PCI-DSS adherence.
+                </li>
+                <li>
+                  <strong className="text-[#1A1A1A]">Healthcare & Biotech (Life Sciences):</strong> Sourcing software developers and data scientists experienced in HIPAA compliance, EMR/EHR system integrations, remote telehealth platforms, and clinical trials databases.
+                </li>
+                <li>
+                  <strong className="text-[#1A1A1A]">Telecommunications:</strong> Sourcing experts for 5G network rollouts, cloud-native telecom orchestrations, OSS/BSS system engineering, and high-throughput real-time communication architectures.
+                </li>
+                <li>
+                  <strong className="text-[#1A1A1A]">Retail, E-Commerce & Logistics:</strong> Connecting teams with specialists in supply chain automation, inventory management systems, omni-channel headless commerce platforms, and personalized analytics.
+                </li>
+              </ul>
+            </div>
+
+            {/* Section 4 */}
+            <div className="space-y-6 bg-white p-8 rounded-3xl border border-[#7A1F5C]/5 shadow-sm">
+              <h3 className="text-lg font-bold text-[#1A1A1A] flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#7A1F5C]" />
+                Platform Governance, Security & Compliance Protocols
+              </h3>
+              <p>
+                Compliance is the cornerstone of trust in international recruiting. Chalky InfoTech adheres to strict legal standards to protect clients and candidates alike. Our dedicated Verification portal provides an secure channel to validate credentials, employment histories, and eligibility documents.
+              </p>
+              <p>
+                Our operational frameworks comply fully with the General Data Protection Regulation (GDPR), ensuring candidate data privacy rights are maintained, and details are stored securely. We maintain a clear policy outline on our Privacy Policy and Cookie Policy pages.
+              </p>
+              <p>
+                Furthermore, we are fully committed to ethical recruiting practices. Our Modern Slavery Statement and Right to Work validation guidelines reflect our strict anti-exploitation measures. We follow all local and international labor laws, including UK visa verification and India employment regulations, to guarantee our talent pools are ethically and legally compliant.
+              </p>
+            </div>
+
+          </div>
+
+          {/* Educational / Informational Paragraphs for Indexing */}
+          <div className="mt-12 bg-[#FDFCFB] p-8 rounded-3xl border border-[#7A1F5C]/10 space-y-6 text-sm text-gray-500">
+            <h4 className="text-base font-bold text-[#1A1A1A]">Navigating the Chalky InfoTech Digital Portal</h4>
+            <p>
+              The Sitemap serves as a unified index of all publicly indexable assets, resources, and pathways across the Chalky InfoTech ecosystem. If you are an enterprise client seeking contract talent, you can quickly navigate to our specific Services branches to identify the engagement model that matches your current budget and velocity parameters. For engineers, architects, and developers seeking new challenges, the Jobs division houses our active roles, searchable by location, tech stack, and experience tier.
+            </p>
+            <p>
+              Our Insights Hub is an educational resource containing technical articles, industry newsletters, podcasts, and deep dives into the changing dynamics of the global tech workforce. We regularly publish studies on distributed team dynamics, technical interview best practices, and the integration of offshore development centers with local teams. By providing structured navigation alongside deep compliance resources, we ensure that every visitor—human or search crawler—can access the information they need efficiently.
+            </p>
+          </div>
+        </div>
+
         {/* Action Bar */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
