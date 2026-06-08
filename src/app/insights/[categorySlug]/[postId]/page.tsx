@@ -7,6 +7,7 @@ import CTASection from '@/components/CTASection';
 import PageHero from '@/components/PageHero';
 import EngagementHub from '@/sections/insights/EngagementHub';
 import api from '@/services/api';
+import postHeroImg from '@/assets/Insights/posthero.png';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net";
 
@@ -218,7 +219,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
         title="Research & Insights"
         titleHighlight={post.category?.name || 'Featured Publication'}
         subtitle="Exploring global B2B recruitment audits, technology frameworks, and strategic organizational design."
-        imageSrc="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"
+        imageSrc={postHeroImg}
         imageAlt="Chalky Research Banner"
         ctaLabel="Explore Publications"
         ctaHref="#publication"
