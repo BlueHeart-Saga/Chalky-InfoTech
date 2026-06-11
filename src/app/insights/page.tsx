@@ -1,6 +1,4 @@
-'use client';
-
-import { useState, useEffect } from 'react';
+import type { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import SectionNavbar from '@/components/SectionNavbar';
@@ -12,10 +10,25 @@ import InsightsFAQ from '@/sections/insights/InsightsFAQ';
 import api from '@/services/api';
 import imgInsights from '@/assets/Insights/Insights.png';
 
-export default function InsightsPage() {
-  const [posts, setPosts] = useState<any[]>([]);
-  const [siteStructure, setSiteStructure] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+export const metadata: Metadata = {
+  title: 'Chalky Insights & Trends',
+  description: 'Expert analysis and data-driven perspectives on the evolving landscape of global recruitment, specialized sector growth, and the future of work.',
+};
+
+// Next.js 16 high-performance Component Caching helpers
+async function getCachedSiteStructure() {
+  "use cache";
+  return await api.getFullSiteStructure().catch(() => []);
+}
+
+async function getCachedAllPosts() {
+  "use cache";
+  return await api.getAllPosts(150).catch(() => []);
+}
+
+export default async function InsightsPage() {
+  const posts = await getCachedAllPosts();
+  const siteStructure = await getCachedSiteStructure();
 
   const sections = [
     { label: 'Top', id: 'hero' },
@@ -26,28 +39,6 @@ export default function InsightsPage() {
     { label: 'FAQ', id: 'faq' },
     { label: 'Connect', id: 'cta' }
   ];
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        setLoading(true);
-        // Fetch all posts dynamically from backend
-        const allPosts = await api.getAllPosts(150);
-        setPosts(allPosts);
-
-        // Fetch dynamic structure from backend categories API
-        const structure = await api.getFullSiteStructure();
-        if (structure && structure.length > 0) {
-          setSiteStructure(structure);
-        }
-      } catch (err) {
-        console.error("Failed to load insights backend data:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadData();
-  }, []);
 
   // Filter 3 display posts for the 3D Carousel (use featured if available, or first 3 posts)
   const featuredPosts = posts.filter(p => p.featured).slice(0, 3);
@@ -93,7 +84,7 @@ export default function InsightsPage() {
             </p>
           </div>
 
-          <FeaturedHighlight posts={posts} loading={loading} />
+          <FeaturedHighlight posts={posts} loading={false} />
 
         </div>
         {/* Wave Divider to Cream */}
@@ -110,7 +101,7 @@ export default function InsightsPage() {
           <SidebarPublishingHub 
             posts={posts} 
             siteStructure={siteStructure} 
-            loading={loading} 
+            loading={false} 
           />
         </div>
         {/* Wave Divider to White */}
@@ -140,7 +131,7 @@ export default function InsightsPage() {
           <RecentArticles 
             posts={posts} 
             displayFeatured={displayFeatured} 
-            loading={loading} 
+            loading={false} 
           />
 
         </div>

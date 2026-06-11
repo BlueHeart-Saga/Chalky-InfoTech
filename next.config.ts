@@ -21,6 +21,21 @@ const nextConfig: NextConfig = {
   experimental: {
     instantNavigationDevToolsToggle: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.chalkyinfo.com',
+          },
+        ],
+        destination: 'https://chalkyinfo.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

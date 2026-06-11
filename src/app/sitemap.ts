@@ -49,41 +49,58 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-function getCategorySlug(categoryName: string) {
-  return categoryName
-    .toLowerCase()
-    .replace(/&/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
-}
+  const categoryRoutes: MetadataRoute.Sitemap = [];
+  const insightRoutes: MetadataRoute.Sitemap = [];
 
-  const categorySlugs = [
-    'blogs', 'case-studies', 'newsletters', 'podcasts',
-    'industry-events', 'company-announcements', 'achievements', 'awards-milestones',
-    'client-transformations', 'impact-metrics', 'testimonials',
-    'celebrations', 'team-culture', 'posters', 'community'
-  ];
-
-  const categoryRoutes: MetadataRoute.Sitemap = categorySlugs.map((slug) => ({
-    url: `${base}/insights/${slug}`,
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 0.7,
-  }));
-
-  let posts: any[] = [];
+  let structure: any[] = [];
   try {
-    posts = await api.getAllPosts(100);
+    structure = await api.getFullSiteStructure();
   } catch (err) {
-    console.error("Failed to fetch posts for sitemap", err);
+    console.error('Failed to fetch site structure for sitemap:', err);
   }
 
-  const insightRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${base}/insights/${post.category?.slug || 'post'}/${post.slug || post.id}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  }));
+  if (structure && structure.length > 0) {
+    structure.forEach((section: any) => {
+      if (section.categories) {
+        section.categories.forEach((category: any) => {
+          categoryRoutes.push({
+            url: `${base}/insights/${category.slug}`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.7,
+          });
+
+          if (category.posts) {
+            category.posts.forEach((post: any) => {
+              const postDate = post.date ? new Date(post.date) : now;
+              insightRoutes.push({
+                url: `${base}/insights/${category.slug}/${post.slug || post.id}`,
+                lastModified: isNaN(postDate.getTime()) ? now : postDate,
+                changeFrequency: 'monthly',
+                priority: 0.8,
+              });
+            });
+          }
+        });
+      }
+    });
+  } else {
+    // Fallback if API is offline
+    const fallbackCategorySlugs = [
+      'blogs', 'case-studies', 'newsletters', 'podcasts',
+      'industry-events', 'company-announcements', 'achievements', 'awards-milestones',
+      'client-transformations', 'impact-metrics', 'testimonials',
+      'celebrations', 'team-culture', 'posters', 'community'
+    ];
+    fallbackCategorySlugs.forEach((slug) => {
+      categoryRoutes.push({
+        url: `${base}/insights/${slug}`,
+        lastModified: now,
+        changeFrequency: 'weekly',
+        priority: 0.7,
+      });
+    });
+  }
 
   return [
     ...staticRoutes,
@@ -91,6 +108,6 @@ function getCategorySlug(categoryName: string) {
     ...industryRoutes,
     ...locationRoutes,
     ...categoryRoutes,
-    ...insightRoutes
+    ...insightRoutes,
   ];
 }

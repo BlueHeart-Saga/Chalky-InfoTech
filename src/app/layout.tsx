@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import PageScrollRestoration from '@/components/PageScrollRestoration';
-import WelcomeLoaderProvider from '@/components/WelcomeLoaderProvider';
 import CanonicalLink from '@/components/CanonicalLink';
 
 const poppins = Poppins({
@@ -53,9 +52,9 @@ export const metadata: Metadata = {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon.png', type: 'image/png' },
-      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icon.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+      { url: '/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
@@ -68,67 +67,38 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={poppins.variable} suppressHydrationWarning>
       <head>
         <CanonicalLink />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var isBot = /Googlebot|bingbot|yandex|baiduspider|slurp|crawler|spider/i.test(navigator.userAgent);
-                  var hasVisited = sessionStorage.getItem('chalky_welcomed_session');
-                  if (!isBot && !hasVisited) {
-                    document.documentElement.classList.add('welcome-loading-active');
-                  }
-                } catch (e) {}
-              })();
-            `
-          }}
-        />
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              .welcome-loading-active .content-wrapper-seo {
-                opacity: 0 !important;
-                pointer-events: none !important;
-                height: 100vh !important;
-                overflow: hidden !important;
-              }
-            `
-          }}
-        />
       </head>
       <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden relative">
-        <WelcomeLoaderProvider>
-          <Suspense fallback={null}>
-            <Navbar />
-          </Suspense>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "Chalky Infotech",
-                "url": "https://chalkyinfo.com",
-                "logo": "https://chalkyinfo.com/icon.png",
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "telephone": "+44 7503 140975",
-                  "contactType": "customer service"
-                },
-                "sameAs": [
-                  "https://www.linkedin.com/company/chalkyinfotech",
-                  "https://twitter.com/chalkyinfotech"
-                ]
-              })
-            }}
-          />
-          <main>{children}</main>
-          <Footer />
-          <ScrollToTop />
-          <Suspense fallback={null}>
-            <PageScrollRestoration />
-          </Suspense>
-        </WelcomeLoaderProvider>
+        <Suspense fallback={null}>
+          <Navbar />
+        </Suspense>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Chalky Infotech",
+              "url": "https://chalkyinfo.com",
+              "logo": "https://chalkyinfo.com/icon.png",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+44 7503 140975",
+                "contactType": "customer service"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/chalky-infotech-recruitment/",
+                "https://www.instagram.com/chalkyinfotech_ltd/"
+              ]
+            })
+          }}
+        />
+        <main>{children}</main>
+        <Footer />
+        <ScrollToTop />
+        <Suspense fallback={null}>
+          <PageScrollRestoration />
+        </Suspense>
       </body>
     </html>
   );
