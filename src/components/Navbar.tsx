@@ -110,7 +110,7 @@ interface InsightSection {
 const DEFAULT_INSIGHTS_SECTIONS: InsightSection[] = [
   {
     name: "Insights & Knowledge",
-    slug: "insights-knowledge",
+    slug: "insights",
     categories: [
       { label: "Blogs", slug: "blogs", desc: "Expert analysis and thought leadership on global recruitment trends." },
       { label: "Case Studies", slug: "case-studies", desc: "Real-world success stories, digital transformation journeys, and metric-driven talent acquisition solutions." },

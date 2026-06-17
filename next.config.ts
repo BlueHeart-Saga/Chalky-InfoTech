@@ -24,6 +24,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/insights-knowledge/:path*",
+        destination: "/insights/:path*",
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {

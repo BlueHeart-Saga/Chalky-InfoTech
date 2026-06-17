@@ -29,10 +29,12 @@ type Props = {
 export async function generateStaticParams() {
   try {
     const posts = await api.getAllPosts();
-    return posts.map((post: any) => ({
-      categorySlug: post.category?.slug || 'insights-knowledge',
-      postId: post.id,
-    }));
+    return posts
+      .filter((post: any) => post.category?.slug)
+      .map((post: any) => ({
+        categorySlug: post.category.slug,
+        postId: post.id,
+      }));
   } catch (err) {
     return [];
   }
@@ -88,7 +90,7 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
       blocks = backendPost.blocks || [];
 
       // Fetch some related posts from the same section
-      const sectionPosts = await getCachedSectionPosts(backendPost.section_slug || 'insights-knowledge');
+      const sectionPosts = await getCachedSectionPosts(backendPost.section_slug || 'insights');
       relatedPosts = sectionPosts.filter((p: any) => p.id !== postId).slice(0, 3);
     }
   } catch (err) {
