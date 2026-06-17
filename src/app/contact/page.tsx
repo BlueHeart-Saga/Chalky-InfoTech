@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'Contact Us | IT Recruitment Agency',
   description: 'Get in touch with Chalky Infotech. We have offices in London and Chennai to support your global tech recruitment needs and workforce scaling.',
   keywords: ['contact IT recruitment agency', 'Chalky Infotech contact', 'tech recruitment London', 'IT staffing Chennai', 'global workforce solutions contact'],
+  alternates: {
+    canonical: '/contact',
+  },
   openGraph: {
     title: 'Contact Us | IT Recruitment Agency | Chalky Infotech',
     description: 'Get in touch with Chalky Infotech. Offices in London and Chennai to support global tech recruitment needs.',

@@ -39,7 +39,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { postId } = await params;
+  const { categorySlug, postId } = await params;
   try {
     const response = await getCachedPost(postId);
     const backendPost = response?.item;
@@ -55,6 +55,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         absolute: finalTitle,
       },
       description: post.excerpt,
+      alternates: {
+        canonical: `/insights/${categorySlug}/${postId}`,
+      },
       openGraph: {
         title: post.title,
         description: post.excerpt,
@@ -62,7 +65,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch (err) {
-    return { title: 'Post Not Found' };
+    return {
+      title: 'Post Not Found',
+      alternates: {
+        canonical: `/insights/${categorySlug}/${postId}`,
+      },
+    };
   }
 }
 

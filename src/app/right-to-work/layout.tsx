@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Right to Work Verification',
   description: 'Understand Chalky Infotech\'s Right to Work validation guidelines, verifying candidate eligibility and legal requirements for placing tech talent in the UK.',
+  alternates: {
+    canonical: '/right-to-work',
+  },
 };
 
 export default function RightToWorkLayout({

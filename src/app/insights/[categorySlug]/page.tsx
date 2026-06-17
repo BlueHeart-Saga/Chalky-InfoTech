@@ -105,6 +105,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: `${title} | Chalky Infotech Insights`,
     },
     description: `Explore our latest research, thought leadership and recruitment analytics for ${title}.`,
+    alternates: {
+      canonical: `/insights/${categorySlug}`,
+    },
   };
 }
 

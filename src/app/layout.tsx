@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import PageScrollRestoration from '@/components/PageScrollRestoration';
-import CanonicalLink from '@/components/CanonicalLink';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -65,9 +64,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={poppins.variable} suppressHydrationWarning>
-      <head>
-        <CanonicalLink />
-      </head>
       <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden relative">
         <Suspense fallback={null}>
           <Navbar />

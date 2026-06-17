@@ -28,6 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       description: service.metaInfo.description,
       keywords: service.metaInfo.keywords,
+      alternates: {
+        canonical: `/services/${slug}`,
+      },
       openGraph: {
         title: service.metaInfo.ogTitle,
         description: service.metaInfo.ogDescription,
@@ -47,6 +50,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: `Professional ${service.label.toLowerCase()} services helping organizations scale through strategic workforce solutions and specialized talent acquisition across multiple industries.`,
     keywords: [service.label, 'recruitment solutions', 'staffing services', 'workforce solutions', 'talent acquisition', 'Chalky Infotech'],
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
   };
 }
 

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'Find Jobs & Career Opportunities',
   description: 'Explore opportunities across technology, healthcare, finance, education, retail, and emerging industries through Chalky Infotech.',
   keywords: ['jobs', 'career opportunities', 'technology jobs', 'healthcare jobs', 'contract jobs', 'remote jobs', 'recruitment agency jobs'],
+  alternates: {
+    canonical: '/jobs',
+  },
 };
 
 export default function JobsPage() {

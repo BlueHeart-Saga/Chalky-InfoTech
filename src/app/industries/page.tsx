@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: 'Specialist Industry Recruitment & Staffing',
   description: 'Chalky Infotech supports organizations across technology, healthcare, finance, retail, and manufacturing through scalable recruitment solutions tailored to industry-specific needs in the UK.',
   keywords: ['industry recruitment solutions', 'tech recruitment UK', 'healthcare staffing', 'finance recruiters', 'retail workforce solutions', 'manufacturing recruitment', 'UK industry staffing', 'specialist workforce solutions'],
+  alternates: {
+    canonical: '/industries',
+  },
   openGraph: {
     title: 'Specialist Industry Recruitment & Staffing | Chalky Infotech',
     description: 'Chalky Infotech supports organizations across technology, healthcare, finance, retail, and manufacturing through scalable recruitment solutions.',

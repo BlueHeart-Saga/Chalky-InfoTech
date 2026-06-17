@@ -29,6 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       description: meta.description,
       keywords: meta.keywords,
+      alternates: {
+        canonical: `/industries/${slug}`,
+      },
       openGraph: {
         title: meta.ogTitle,
         description: meta.ogDescription,
@@ -48,6 +51,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: `Specialized ${industry.label.toLowerCase()} workforce solutions helping organizations scale through strategic recruitment and talent acquisition across UK and India.`,
     keywords: [industry.label, 'recruitment solutions', 'staffing services', 'workforce solutions', 'industry expertise', 'Chalky Infotech'],
+    alternates: {
+      canonical: `/industries/${slug}`,
+    },
   };
 }
 

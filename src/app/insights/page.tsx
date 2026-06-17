@@ -13,6 +13,9 @@ import imgInsights from '@/assets/Insights/Insights.png';
 export const metadata: Metadata = {
   title: 'Chalky Insights & Trends',
   description: 'Expert analysis and data-driven perspectives on the evolving landscape of global recruitment, specialized sector growth, and the future of work.',
+  alternates: {
+    canonical: '/insights',
+  },
 };
 
 // Next.js 16 high-performance Component Caching helpers

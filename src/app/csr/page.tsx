@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     'UN SDG aligned business UK',
     'ESG staffing agency',
   ],
+  alternates: {
+    canonical: '/csr',
+  },
   openGraph: {
     title: 'CSR Report | People, Planet & Purpose | Chalky Infotech',
     description:

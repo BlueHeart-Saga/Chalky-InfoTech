@@ -17,6 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${title} | Chalky Infotech Careers`,
     description: `Apply for the ${title} role at Chalky Infotech. Partnering with top-tier organizations globally.`,
+    alternates: {
+      canonical: `/jobs/${slug}`,
+    },
   };
 }
 

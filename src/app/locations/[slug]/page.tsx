@@ -17,6 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${location.service} in ${location.city}`,
     description: location.description,
     keywords: [location.service, location.city, 'recruitment', 'staffing', 'Chalky Infotech'],
+    alternates: {
+      canonical: `/locations/${slug}`,
+    },
   };
 }
 
