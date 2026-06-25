@@ -85,42 +85,193 @@ function getRoleDetail(role: string, index: number) {
   return { icon, desc };
 }
 
+const getSerratedPath = (points = 36, rOuter = 48, rInner = 44) => {
+  let pathD = '';
+  for (let i = 0; i < points; i++) {
+    const angle1 = (i * 2 * Math.PI) / points;
+    const angle2 = ((i + 0.5) * 2 * Math.PI) / points;
+    const x1 = 50 + rOuter * Math.cos(angle1);
+    const y1 = 50 + rOuter * Math.sin(angle1);
+    const x2 = 50 + rInner * Math.cos(angle2);
+    const y2 = 50 + rInner * Math.sin(angle2);
+    if (i === 0) {
+      pathD += `M ${x1.toFixed(2)} ${y1.toFixed(2)}`;
+    } else {
+      pathD += ` L ${x1.toFixed(2)} ${y1.toFixed(2)}`;
+    }
+    pathD += ` L ${x2.toFixed(2)} ${y2.toFixed(2)}`;
+  }
+  pathD += ' Z';
+  return pathD;
+};
+
+const SERRATED_PATH = getSerratedPath(36, 48, 44);
+
 export default function RolesWeHire({ industryLabel, roles }: Props) {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           
-          {/* LEFT SIDE - Beautiful 2x2 Organic Flower Image Grid */}
-          <div className="w-full lg:w-[45%] flex justify-center">
+          {/* LEFT SIDE - Beautiful Premium Image Collage */}
+          <div className="w-full lg:w-[45%] flex justify-center py-6">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative p-6 border-2 border-dashed border-[#7A1F5C]/20 rounded-[56px] w-[340px] h-[340px] xs:w-[400px] xs:h-[400px] sm:w-[450px] sm:h-[450px] flex items-center justify-center bg-[#FAF8F5] shadow-sm"
+              className="relative w-[280px] h-[280px] xs:w-[360px] xs:h-[360px] sm:w-[420px] sm:h-[420px]"
             >
-              <div className="grid grid-cols-2 gap-4 w-full h-full">
-                {ROLE_IMAGES.map((img, i) => {
-                  const style = CARD_STYLES[i];
-                  return (
-                    <motion.div
-                      key={i}
-                      whileHover={{ scale: 1.04 }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                      className={`relative w-full h-full overflow-hidden ${style.bg} ${style.shape} p-2 cursor-pointer shadow-sm`}
-                    >
-                      <div className={`relative w-full h-full overflow-hidden ${style.shape}`}>
-                        <Image
-                          src={img}
-                          alt="Pre-screened Candidate"
-                          fill
-                          unoptimized
-                          className="object-cover transition-transform duration-700 hover:scale-110"
-                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                      </div>
-                    </motion.div>
-                  );
-                })}
+              {/* Sparkles decoration in bottom-left */}
+              <div className="absolute -left-6 bottom-4 sm:-left-10 sm:bottom-8 z-0 pointer-events-none">
+                {/* Large Sparkle */}
+                <motion.svg
+                  animate={{ scale: [1, 1.15, 1], rotate: [0, 15, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  viewBox="0 0 100 100"
+                  className="w-10 h-10 text-[#7A1F5C] fill-[#7A1F5C] opacity-80"
+                >
+                  <path d="M 50 0 C 50 35 65 50 100 50 C 65 50 50 65 50 100 C 50 65 35 50 0 50 C 35 50 50 35 50 0 Z" />
+                </motion.svg>
+                {/* Medium Sparkle */}
+                <motion.svg
+                  animate={{ scale: [0.9, 1.1, 0.9], rotate: [0, -20, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  viewBox="0 0 100 100"
+                  className="w-6 h-6 text-[#DBCB89] fill-[#DBCB89] opacity-90 absolute -left-6 -top-10"
+                >
+                  <path d="M 50 0 C 50 35 65 50 100 50 C 65 50 50 65 50 100 C 50 65 35 50 0 50 C 35 50 50 35 50 0 Z" />
+                </motion.svg>
+                {/* Small Sparkle */}
+                <motion.svg
+                  animate={{ scale: [0.85, 1.15, 0.85], rotate: [0, 25, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  viewBox="0 0 100 100"
+                  className="w-4 h-4 text-[#7A1F5C] fill-[#7A1F5C] opacity-70 absolute left-8 -bottom-4"
+                >
+                  <path d="M 50 0 C 50 35 65 50 100 50 C 65 50 50 65 50 100 C 50 65 35 50 0 50 C 35 50 50 35 50 0 Z" />
+                </motion.svg>
+              </div>
+
+              {/* 2x2 collage grid */}
+              <div className="grid grid-cols-2 gap-4 w-full h-full relative z-10">
+                {/* Card 1: Top-Left */}
+                <div className="relative w-full h-full">
+                  <div className="absolute -top-2.5 -left-2.5 w-full h-full bg-[#7A1F5C] rounded-tl-[60px] xs:rounded-tl-[80px] sm:rounded-tl-[100px] rounded-tr-2xl rounded-bl-2xl rounded-br-2xl -z-10 opacity-90" />
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    className="relative w-full h-full overflow-hidden rounded-tl-[60px] xs:rounded-tl-[80px] sm:rounded-tl-[100px] rounded-tr-2xl rounded-bl-2xl rounded-br-2xl border-2 border-white shadow-md cursor-pointer group bg-[#7A1F5C]/10 aspect-square"
+                  >
+                    <div className="relative w-full h-full overflow-hidden rounded-tl-[60px] xs:rounded-tl-[80px] sm:rounded-tl-[100px] rounded-tr-2xl rounded-bl-2xl rounded-br-2xl">
+                      <Image
+                        src={ROLE_IMAGES[0]}
+                        alt="Pre-screened Candidate"
+                        fill
+                        unoptimized
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Card 2: Top-Right */}
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                  className="relative w-full h-full overflow-hidden rounded-tr-[60px] xs:rounded-tr-[80px] sm:rounded-tr-[100px] rounded-tl-2xl rounded-bl-2xl rounded-br-2xl border-2 border-white shadow-md cursor-pointer group bg-[#DBCB89]/20 aspect-square"
+                >
+                  <div className="relative w-full h-full overflow-hidden rounded-tr-[60px] xs:rounded-tr-[80px] sm:rounded-tr-[100px] rounded-tl-2xl rounded-bl-2xl rounded-br-2xl">
+                    <Image
+                      src={ROLE_IMAGES[1]}
+                      alt="Pre-screened Candidate"
+                      fill
+                      unoptimized
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                  </div>
+                </motion.div>
+
+                {/* Card 3: Bottom-Left */}
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                  className="relative w-full h-full overflow-hidden rounded-bl-[60px] xs:rounded-bl-[80px] sm:rounded-bl-[100px] rounded-tl-2xl rounded-tr-2xl rounded-br-2xl border-2 border-white shadow-md cursor-pointer group bg-[#C2DDE5]/30 aspect-square"
+                >
+                  <div className="relative w-full h-full overflow-hidden rounded-bl-[60px] xs:rounded-bl-[80px] sm:rounded-bl-[100px] rounded-tl-2xl rounded-tr-2xl rounded-br-2xl">
+                    <Image
+                      src={ROLE_IMAGES[2]}
+                      alt="Pre-screened Candidate"
+                      fill
+                      unoptimized
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                  </div>
+                </motion.div>
+
+                {/* Card 4: Bottom-Right */}
+                <div className="relative w-full h-full">
+                  <div className="absolute -bottom-2.5 -right-2.5 w-full h-full bg-[#1E0013] rounded-br-[60px] xs:rounded-br-[80px] sm:rounded-br-[100px] rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl -z-10 opacity-90" />
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    className="relative w-full h-full overflow-hidden rounded-br-[60px] xs:rounded-br-[80px] sm:rounded-br-[100px] rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl border-2 border-white shadow-md cursor-pointer group bg-[#7A1F5C]/20 aspect-square"
+                  >
+                    <div className="relative w-full h-full overflow-hidden rounded-br-[60px] xs:rounded-br-[80px] sm:rounded-br-[100px] rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl">
+                      <Image
+                        src={ROLE_IMAGES[3]}
+                        alt="Pre-screened Candidate"
+                        fill
+                        unoptimized
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Center Seal Badge */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-24 h-24 xs:w-28 xs:h-28 sm:w-32 sm:h-32 flex items-center justify-center">
+                {/* Rotating outer scalloped seal & text bezel */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="absolute w-full h-full"
+                >
+                  <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
+                    <path
+                      d={SERRATED_PATH}
+                      fill="#7A1F5C"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="38"
+                      fill="none"
+                      stroke="rgba(255, 255, 255, 0.4)"
+                      strokeWidth="1"
+                      strokeDasharray="3, 3"
+                    />
+                    <path
+                      id="textCircle"
+                      d="M 50 16 A 34 34 0 1 1 49.9 16"
+                      fill="none"
+                    />
+                    <text className="text-[7.5px] font-extrabold tracking-[0.18em] fill-white uppercase">
+                      <textPath href="#textCircle" startOffset="0%">
+                        Roles We Hire • Chalky InfoTech •
+                      </textPath>
+                    </text>
+                  </svg>
+                </motion.div>
+
+                {/* Stationary inner part */}
+                <div className="w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center shadow-inner z-10 border border-[#7A1F5C]/15">
+                  <LucideIcons.ArrowUpRight size={20} className="text-[#7A1F5C]" />
+                </div>
               </div>
             </motion.div>
           </div>

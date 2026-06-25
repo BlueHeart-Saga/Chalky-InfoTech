@@ -4,14 +4,21 @@ import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import WhoWeAre1 from '@/assets/about/Who-we-are/1.png';
-import WhoWeAre2 from '@/assets/about/Who-we-are/2.png';
-import WhoWeAre3 from '@/assets/about/Who-we-are/3.png';
-import WhoWeAre4 from '@/assets/about/Who-we-are/4.png';
-import WhoWeAre5 from '@/assets/about/Who-we-are/5.png';
-import WhoWeAre6 from '@/assets/about/Who-we-are/6.png';
-import WhoWeAre7 from '@/assets/about/Who-we-are/7.png';
-import WhoWeAre8 from '@/assets/about/Who-we-are/8.png';
+import Story1 from '@/assets/about/story/1.png';
+import Story2 from '@/assets/about/story/2.png';
+import Story3 from '@/assets/about/story/3.png';
+import Story4 from '@/assets/about/story/4.png';
+import Story5 from '@/assets/about/story/5.png';
+import Story6 from '@/assets/about/story/6.png';
+import Story7 from '@/assets/about/story/7.png';
+import Story8 from '@/assets/about/story/8.png';
+import Story9 from '@/assets/about/story/9.png';
+import Story10 from '@/assets/about/story/10.png';
+import Story11 from '@/assets/about/story/11.png';
+import Story12 from '@/assets/about/story/12.png';
+import Story13 from '@/assets/about/story/13.png';
+import Story14 from '@/assets/about/story/14.png';
+import Story15 from '@/assets/about/story/15.png';
 
 const storyBlocks = [
   {
@@ -75,54 +82,194 @@ export default function CompanyStory() {
             </Link>
           </motion.div>
 
-          {/* RIGHT SIDE - Image Collage */}
+          {/* RIGHT SIDE - Premium Staggered Image Gallery */}
           <motion.div 
-            initial={{ opacity: 0, x: 10 }} 
+            initial={{ opacity: 0, x: 20 }} 
             whileInView={{ opacity: 1, x: 0 }} 
             viewport={{ once: true, margin: "100px" }} 
-            transition={{ duration: 0.4 }}
-            className="relative h-full flex items-center justify-center py-6 z-10"
+            transition={{ duration: 0.5 }}
+            className="relative w-full z-10 py-12"
           >
-            <div className="relative w-full aspect-[4/8] max-w-[500px] mx-auto lg:max-w-none">
-              {[
-                // Top side small images
-                { src: WhoWeAre8, className: "absolute top-[0%] left-[24%] w-[24%] aspect-square z-10" },
-                { src: WhoWeAre4, className: "absolute top-[1%] right-[24%] w-[22%] aspect-square z-10" },
+            <div className="grid grid-cols-2 gap-6 md:gap-10 items-start">
+              
+              {/* LEFT COLUMN */}
+              <div className="space-y-16 md:space-y-24 relative flex flex-col items-center">
+                {/* Decorative floating dots */}
+                <div className="absolute -left-6 top-1/4 w-8 h-8 rounded-full bg-[#7A1F5C]/80 z-0 pointer-events-none animate-pulse" />
+                <div className="absolute -right-4 top-2/3 w-6 h-6 rounded-full bg-[#7A1F5C]/40 z-0 pointer-events-none" />
+                <div className="absolute left-1/3 bottom-12 w-5 h-5 rounded-full bg-[#7A1F5C]/60 z-0 pointer-events-none" />
 
-                // Top section main images
-                { src: WhoWeAre1, className: "absolute top-[6%] right-[5%] w-[36%] aspect-square z-10" },
-                { src: WhoWeAre2, className: "absolute top-[8%] left-[5%] w-[32%] aspect-square z-10" },
-                { src: WhoWeAre3, className: "absolute top-[18%] left-[25%] w-[42%] aspect-square z-20" },
-                
-                // Middle section
-                { src: WhoWeAre5, className: "absolute top-[35%] left-[5%] w-[34%] aspect-square z-10" },
-                { src: WhoWeAre7, className: "absolute top-[38%] right-[5%] w-[36%] aspect-square z-10" },
-                { src: WhoWeAre6, className: "absolute top-[48%] left-[28%] w-[40%] aspect-square z-20" },
-                
-                // Bottom section main images
-                { src: WhoWeAre1, className: "absolute top-[65%] left-[2%] w-[34%] aspect-square z-10" },
-                { src: WhoWeAre3, className: "absolute top-[68%] right-[6%] w-[32%] aspect-square z-10" },
-                { src: WhoWeAre4, className: "absolute top-[78%] left-[26%] w-[38%] aspect-square z-20" },
-
-                // Bottom side small images
-                { src: WhoWeAre2, className: "absolute top-[88%] left-[12%] w-[26%] aspect-square z-10" },
-                { src: WhoWeAre5, className: "absolute top-[90%] right-[16%] w-[24%] aspect-square z-10" }
-              ].map((img, idx) => (
+                {/* Card 1 */}
                 <motion.div 
-                  key={idx}
-                  className={`${img.className} rotate-45 overflow-hidden rounded-[20px] md:rounded-[28px] border-[3px] border-white shadow-lg hover:shadow-2xl hover:scale-105 hover:z-30 transition-all duration-500 ease-out group cursor-pointer`}
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative z-10 flex flex-col items-center w-full"
                 >
-                  <div className="relative w-full h-full -rotate-45 scale-[1.45] transition-transform duration-700 group-hover:scale-[1.55]">
-                    <Image 
-                      src={img.src} 
-                      alt="Chalky Team Workspace" 
-                      fill 
-                      className="object-cover"
-                      sizes="(max-width: 768px) 50vw, 30vw"
-                    />
+                  <div className="relative aspect-square w-full max-w-[160px] xs:max-w-[200px] md:max-w-[240px] bg-[#7A1F5C]/10 rounded-tl-[40px] md:rounded-tl-[50px] rounded-br-[40px] md:rounded-br-[50px] rounded-tr-2xl rounded-bl-2xl">
+                    <div className="absolute -top-3.5 -left-3.5 w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#7A1F5C] -z-10 opacity-90" />
+                    <div className="relative w-full h-full overflow-hidden rounded-tl-[40px] md:rounded-tl-[50px] rounded-br-[40px] md:rounded-br-[50px] rounded-tr-2xl rounded-bl-2xl border-2 border-white shadow-md">
+                      <Image 
+                        src={Story1} 
+                        alt="Collaborative Space" 
+                        fill 
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 30vw"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex flex-col items-center text-center">
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-[#8A8A8A] font-extrabold">Co-Creation</span>
+                    <Link href="/about" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
+                      <span className="text-xs md:text-sm group-hover:underline">Collaborative Space</span>
+                      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
                   </div>
                 </motion.div>
-              ))}
+
+                {/* Card 2 */}
+                <motion.div 
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative z-10 flex flex-col items-center w-full"
+                >
+                  <div className="relative aspect-square w-full max-w-[160px] xs:max-w-[200px] md:max-w-[240px] bg-[#7A1F5C]/10 rounded-tl-[40px] md:rounded-tl-[50px] rounded-br-[40px] md:rounded-br-[50px] rounded-tr-2xl rounded-bl-2xl">
+                    <div className="absolute -top-3.5 -left-3.5 w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#7A1F5C] -z-10 opacity-90" />
+                    <div className="relative w-full h-full overflow-hidden rounded-tl-[40px] md:rounded-tl-[50px] rounded-br-[40px] md:rounded-br-[50px] rounded-tr-2xl rounded-bl-2xl border-2 border-white shadow-md">
+                      <Image 
+                        src={Story3} 
+                        alt="Strategic Alignment" 
+                        fill 
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 30vw"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex flex-col items-center text-center">
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-[#8A8A8A] font-extrabold">Consultation</span>
+                    <Link href="/services" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
+                      <span className="text-xs md:text-sm group-hover:underline">Strategic Alignment</span>
+                      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                  </div>
+                </motion.div>
+
+                {/* Card 3 */}
+                <motion.div 
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative z-10 flex flex-col items-center w-full"
+                >
+                  <div className="relative aspect-square w-full max-w-[160px] xs:max-w-[200px] md:max-w-[240px] bg-[#7A1F5C]/10 rounded-tl-[40px] md:rounded-tl-[50px] rounded-br-[40px] md:rounded-br-[50px] rounded-tr-2xl rounded-bl-2xl">
+                    <div className="absolute -top-3.5 -left-3.5 w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#7A1F5C] -z-10 opacity-90" />
+                    <div className="relative w-full h-full overflow-hidden rounded-tl-[40px] md:rounded-tl-[50px] rounded-br-[40px] md:rounded-br-[50px] rounded-tr-2xl rounded-bl-2xl border-2 border-white shadow-md">
+                      <Image 
+                        src={Story6} 
+                        alt="Visionary Roadmaps" 
+                        fill 
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 30vw"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex flex-col items-center text-center">
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-[#8A8A8A] font-extrabold">Planning</span>
+                    <Link href="/services/managed-services" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
+                      <span className="text-xs md:text-sm group-hover:underline">Visionary Roadmaps</span>
+                      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* RIGHT COLUMN (Staggered Downwards) */}
+              <div className="space-y-16 md:space-y-24 pt-16 md:pt-24 relative flex flex-col items-center">
+                {/* Decorative floating dots */}
+                <div className="absolute -right-6 top-10 w-7 h-7 rounded-full bg-[#7A1F5C]/80 z-0 pointer-events-none animate-pulse" />
+                <div className="absolute -left-8 top-1/2 w-5 h-5 rounded-full bg-[#7A1F5C]/50 z-0 pointer-events-none" />
+                <div className="absolute right-1/3 bottom-24 w-6 h-6 rounded-full bg-[#7A1F5C]/30 z-0 pointer-events-none" />
+
+                {/* Card 1 */}
+                <motion.div 
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative z-10 flex flex-col items-center w-full"
+                >
+                  <div className="relative aspect-square w-full max-w-[160px] xs:max-w-[200px] md:max-w-[240px] bg-[#7A1F5C]/10 rounded-tr-[40px] md:rounded-tr-[50px] rounded-bl-[40px] md:rounded-bl-[50px] rounded-tl-2xl rounded-br-2xl">
+                    <div className="absolute -top-3.5 -right-3.5 w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#7A1F5C] -z-10 opacity-90" />
+                    <div className="relative w-full h-full overflow-hidden rounded-tr-[40px] md:rounded-tr-[50px] rounded-bl-[40px] md:rounded-bl-[50px] rounded-tl-2xl rounded-br-2xl border-2 border-white shadow-md">
+                      <Image 
+                        src={Story2} 
+                        alt="Sprint Executions" 
+                        fill 
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 30vw"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex flex-col items-center text-center">
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-[#8A8A8A] font-extrabold">Agile Delivery</span>
+                    <Link href="/services/permanent-hiring" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
+                      <span className="text-xs md:text-sm group-hover:underline">Sprint Executions</span>
+                      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                  </div>
+                </motion.div>
+
+                {/* Card 2 */}
+                <motion.div 
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative z-10 flex flex-col items-center w-full"
+                >
+                  <div className="relative aspect-square w-full max-w-[160px] xs:max-w-[200px] md:max-w-[240px] bg-[#7A1F5C]/10 rounded-tr-[40px] md:rounded-tr-[50px] rounded-bl-[40px] md:rounded-bl-[50px] rounded-tl-2xl rounded-br-2xl">
+                    <div className="absolute -top-3.5 -right-3.5 w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#7A1F5C] -z-10 opacity-90" />
+                    <div className="relative w-full h-full overflow-hidden rounded-tr-[40px] md:rounded-tr-[50px] rounded-bl-[40px] md:rounded-bl-[50px] rounded-tl-2xl rounded-br-2xl border-2 border-white shadow-md">
+                      <Image 
+                        src={Story5} 
+                        alt="Workforce Intelligence" 
+                        fill 
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 30vw"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex flex-col items-center text-center">
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-[#8A8A8A] font-extrabold">Data Insights</span>
+                    <Link href="/services/executive-search" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
+                      <span className="text-xs md:text-sm group-hover:underline">Workforce Intelligence</span>
+                      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                  </div>
+                </motion.div>
+
+                {/* Card 3 */}
+                <motion.div 
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative z-10 flex flex-col items-center w-full"
+                >
+                  <div className="relative aspect-square w-full max-w-[160px] xs:max-w-[200px] md:max-w-[240px] bg-[#7A1F5C]/10 rounded-tr-[40px] md:rounded-tr-[50px] rounded-bl-[40px] md:rounded-bl-[50px] rounded-tl-2xl rounded-br-2xl">
+                    <div className="absolute -top-3.5 -right-3.5 w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#7A1F5C] -z-10 opacity-90" />
+                    <div className="relative w-full h-full overflow-hidden rounded-tr-[40px] md:rounded-tr-[50px] rounded-bl-[40px] md:rounded-bl-[50px] rounded-tl-2xl rounded-br-2xl border-2 border-white shadow-md">
+                      <Image 
+                        src={Story7} 
+                        alt="Enterprise Growth" 
+                        fill 
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 30vw"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex flex-col items-center text-center">
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-[#8A8A8A] font-extrabold">Solutions</span>
+                    <Link href="/contact" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
+                      <span className="text-xs md:text-sm group-hover:underline">Enterprise Growth</span>
+                      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+
             </div>
           </motion.div>
 
