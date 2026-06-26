@@ -154,7 +154,7 @@ export default function WhyChooseService({ serviceLabel, features }: Props) {
                   </div>
 
                   {/* Content Area - Bottom (default), Full height (hover) */}
-                  <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-8 flex flex-col transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:h-full z-10 border-t border-white/20 group-hover:border-transparent">
+                  <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-8 flex flex-col transition-all duration-500 ease-in-out group-hover:h-full z-10 border-t border-white/20 group-hover:border-transparent">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:bg-[#7A1F5C] group-hover:text-white transition-all">
                         <Icon size={20} className="text-[#7A1F5C] group-hover:text-white" />

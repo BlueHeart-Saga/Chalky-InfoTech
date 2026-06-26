@@ -22,12 +22,12 @@ export default function ServiceProcess({ steps, serviceLabel }: Props) {
   const isFourStep = displaySteps.length === 4;
 
   return (
-    <section className="py-32 bg-white overflow-hidden relative">
+    <section className="pt-12 pb-24 bg-white overflow-hidden relative">
       {/* Decorative Background */}
       <div className="absolute inset-0 bg-[#FAF8F5] opacity-50" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-widest mb-5">
             Service Workflow
           </span>

@@ -214,7 +214,7 @@ export default function ServiceOverview({ title, description, serviceLabel }: Pr
                         {card.tag}
                       </span>
                     </div>
-                    <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#F5F0E8] group-hover:bg-white p-7 flex flex-col transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:h-full z-10 border-t border-[#EFE7DD]">
+                    <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#F5F0E8] group-hover:bg-white p-7 flex flex-col transition-all duration-500 ease-in-out group-hover:h-full z-10 border-t border-[#EFE7DD]">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:bg-[#7A1F5C] transition-all">
                           <card.icon size={18} className="text-[#7A1F5C] group-hover:text-white transition-colors" />

@@ -38,7 +38,7 @@ const bgColors = [
 
 export default function IndustrySupport({ industries, serviceLabel }: Props) {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="pt-24 pb-8 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Intro Section */}

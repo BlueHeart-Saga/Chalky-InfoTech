@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 const LOGOS = [
   '/clients/c1.png', '/clients/c2.png', '/clients/c3.png', '/clients/c4.png', '/clients/c5.png',
@@ -10,6 +11,9 @@ const LOGOS = [
 ];
 
 export default function TrustedCompanies() {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => setIsMounted(true), []);
+
   return (
     <section className="py-12 bg-white relative pb-16 border-b border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
@@ -22,8 +26,8 @@ export default function TrustedCompanies() {
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           className="flex gap-24 items-center whitespace-nowrap min-w-full"
         >
-          {[...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (
-            <div key={i} className="relative w-40 h-20 hover:scale-110 transition-all duration-500 flex-shrink-0 cursor-pointer">
+          {LOGOS.map((logo, i) => (
+            <div key={`orig-${i}`} className="relative w-40 h-20 hover:scale-110 transition-all duration-500 flex-shrink-0 cursor-pointer">
               <Image 
                 src={logo} 
                 alt="Trusted Client" 
@@ -31,6 +35,18 @@ export default function TrustedCompanies() {
                 className="object-contain"
                 sizes="160px"
                 priority={i < 10}
+              />
+            </div>
+          ))}
+          {isMounted && [...LOGOS, ...LOGOS].map((logo, i) => (
+            <div key={`dup-${i}`} aria-hidden="true" className="relative w-40 h-20 hover:scale-110 transition-all duration-500 flex-shrink-0 cursor-pointer">
+              <Image 
+                src={logo} 
+                alt="Trusted Client" 
+                fill 
+                className="object-contain"
+                sizes="160px"
+                priority={false}
               />
             </div>
           ))}

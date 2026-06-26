@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Quote, ArrowRight, Star, Globe, Landmark, Cloud, Cpu, Rocket } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 import TrustedByBusinessesImg from '@/assets/homepage/TESTIMONIALS/1.png';
 
@@ -162,8 +163,8 @@ const LOGOS = [
   { name: "NexGen", icon: Rocket }
 ];
 
-const TestimonialCard = ({ t }: { t: typeof TESTIMONIALS[0] }) => (
-  <div className="flex-shrink-0 w-[350px] md:w-[400px] mx-4 bg-white rounded-[2rem] p-8 shadow-sm border border-white/50 flex flex-col h-full hover:shadow-md transition-shadow duration-300 whitespace-normal">
+const TestimonialCard = ({ t, ariaHidden }: { t: typeof TESTIMONIALS[0], ariaHidden?: boolean }) => (
+  <div aria-hidden={ariaHidden} className="flex-shrink-0 w-[350px] md:w-[400px] mx-4 bg-white rounded-[2rem] p-8 shadow-sm border border-white/50 flex flex-col h-full hover:shadow-md transition-shadow duration-300 whitespace-normal">
     <div className="flex items-center gap-1 mb-4">
       {[...Array(5)].map((_, i) => (
         <Star key={i} size={16} className={`${i < t.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200'}`} />
@@ -184,18 +185,26 @@ const TestimonialCard = ({ t }: { t: typeof TESTIMONIALS[0] }) => (
   </div>
 );
 
-const MarqueeRow = ({ items, direction = 'left', speed = 40 }: { items: typeof TESTIMONIALS, direction?: 'left' | 'right', speed?: number }) => (
-  <div className="flex overflow-hidden group select-none">
-    <div
-      className={`flex py-4 group-hover:[animation-play-state:paused] ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'}`}
-      style={{ animationDuration: `${speed}s` }}
-    >
-      {[...items, ...items].map((t, i) => (
-        <TestimonialCard key={i} t={t} />
-      ))}
+const MarqueeRow = ({ items, direction = 'left', speed = 40 }: { items: typeof TESTIMONIALS, direction?: 'left' | 'right', speed?: number }) => {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => setIsMounted(true), []);
+
+  return (
+    <div className="flex overflow-hidden group select-none">
+      <div
+        className={`flex py-4 group-hover:[animation-play-state:paused] ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'}`}
+        style={{ animationDuration: `${speed}s` }}
+      >
+        {items.map((t, i) => (
+          <TestimonialCard key={`orig-${i}`} t={t} />
+        ))}
+        {isMounted && items.map((t, i) => (
+          <TestimonialCard key={`dup-${i}`} t={t} ariaHidden={true} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function Testimonials() {
 

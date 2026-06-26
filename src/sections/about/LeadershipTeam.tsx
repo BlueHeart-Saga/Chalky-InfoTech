@@ -60,8 +60,19 @@ export default function LeadershipTeam() {
           backface-visibility: hidden;
           -webkit-backface-visibility: hidden;
         }
+        .flip-card-front {
+          z-index: 2;
+        }
         .flip-card-back {
           transform: rotateY(180deg);
+          z-index: 1;
+        }
+        .flip-card:hover .flip-card-front {
+          pointer-events: none;
+          z-index: 1;
+        }
+        .flip-card:hover .flip-card-back {
+          z-index: 2;
         }
       `}</style>
 
@@ -230,7 +241,7 @@ export default function LeadershipTeam() {
                       {/* Connect Link Button */}
                       <a 
                         href="mailto:info@chalkyinfo.com"
-                        className="w-full py-3.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 border-[2.5px] hover:shadow-md block text-center"
+                        className="w-full py-3.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 border-[2.5px] hover:shadow-md block text-center relative z-50 cursor-pointer"
                         style={{
                           borderColor: leader.accent,
                           color: leader.accent,

@@ -87,7 +87,7 @@ export default function ServicesOverview() {
                 </div>
 
                 {/* Content Area - Bottom (default), Full height (hover) */}
-                <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-6 flex flex-col transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:h-full z-10">
+                <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-6 flex flex-col transition-all duration-500 ease-in-out group-hover:h-full z-10">
                   <h4 className="text-base font-semibold text-[#1A1A1A] leading-tight mb-3 group-hover:text-[#7A1F5C] transition-colors">{card.title}</h4>
 
                   {/* Hidden content that fades in on hover */}
