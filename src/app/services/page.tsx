@@ -15,27 +15,30 @@ import ServicesFAQ from '@/sections/services/ServicesFAQ';
 import SearchMethodology from '@/sections/services/SearchMethodology';
 import SectionNavbar from '@/components/SectionNavbar';
 import HumanexShowcase from '@/components/HumanexShowcase';
+import AnchorJumpLinks from '@/components/AnchorJumpLinks';
 
 import heroImg from '@/assets/Services/Hero/2.png';
 
-export const metadata: Metadata = {
+import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
+
+export const metadata = buildPageMetadataWithImage({
   title: 'Specialist Recruitment & Workforce Solutions',
-  description: 'Looking for flexible recruitment solutions? From contract staffing to permanent IT recruitment, Chalky Infotech provides scalable workforce support tailored to your needs.',
+  description: 'Discover Chalky Infotech\'s specialized recruitment services. We provide flexible contract staffing, permanent IT recruitment, and managed workforce solutions.',
   keywords: ['recruitment solutions UK', 'workforce solutions UK', 'IT staffing services', 'specialist recruitment agency', 'contract staffing UK', 'permanent recruitment UK', 'on-site hiring support', 'managed workforce solutions'],
-  alternates: {
-    canonical: '/services',
-  },
-  openGraph: {
-    title: 'Specialist Recruitment & Workforce Solutions | Chalky Infotech',
-    description: 'From contract staffing to permanent IT recruitment, Chalky Infotech provides scalable workforce support tailored to your needs.',
-    locale: 'en_GB',
-  },
-  other: {
-    'geo.region': 'GB',
-    'geo.placename': 'United Kingdom',
-    'language': 'en-GB'
-  }
-};
+  url: '/services',
+  path: SEO_IMAGE_CONFIG.services.path,
+  alt: SEO_IMAGE_CONFIG.services.alt
+});
+
+const SERVICES_JUMP_LINKS = [
+  { label: 'Overview', id: 'overview' },
+  { label: 'Solutions', id: 'solutions' },
+  { label: 'Success Approach', id: 'success' },
+  { label: 'Expertise', id: 'expertise' },
+  { label: 'Process', id: 'process' },
+  { label: 'Why Chalky', id: 'why-choose' },
+  { label: 'FAQ', id: 'faq' }
+];
 
 export default function ServicesPage() {
   const sections = [
@@ -76,6 +79,8 @@ export default function ServicesPage() {
           imageAlt="Chalky Infotech specialist consultants"
         />
       </section>
+
+      <AnchorJumpLinks links={SERVICES_JUMP_LINKS} />
 
       <section id="overview"><ServicesOverview /></section>
       <section id="solutions"><CoreRecruitmentSolutions /></section>

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { MapPin, Briefcase, Clock, PoundSterling, Share2, Printer, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import FAQSchema from '@/components/FAQSchema';
+import { buildPageMetadataWithImage } from '@/lib/seo-images';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -14,21 +16,78 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const title = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-  return {
+  return buildPageMetadataWithImage({
     title: `${title} | Chalky Infotech Careers`,
     description: `Apply for the ${title} role at Chalky Infotech. Partnering with top-tier organizations globally.`,
-    alternates: {
-      canonical: `/jobs/${slug}`,
-    },
-  };
+    keywords: [title, 'careers', 'jobs', 'recruitment', 'staffing', 'Chalky Infotech'],
+    url: `/jobs/${slug}`,
+    path: '/hero-jobs.png',
+    alt: `Career opportunity for ${title} at Chalky Infotech`
+  });
 }
 
 async function JobDetailPageContent({ params }: Props) {
   const { slug } = await params;
   const jobTitle = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
+  const jobFaqs = [
+    {
+      question: 'What is the recruitment process for this position?',
+      answer: 'Our process begins with an initial CV review by our technology recruiters. Shortlisted applicants will participate in a brief phone screening, followed by a technical assessment (coding test or portfolio review) and a final round interview with the hiring manager.'
+    },
+    {
+      question: 'Does Chalky Infotech support visa sponsorship or relocation?',
+      answer: 'Relocation support and visa sponsorship depend on the hiring company and the applicant\'s eligibility. Please mention your current work authorization status and relocation preferences during your initial screening call.'
+    },
+    {
+      question: 'What benefits and remote work policies are offered?',
+      answer: 'This role offers a hybrid working model (typically 2-3 days in the London office). Benefits include a competitive pension scheme, private health insurance, annual bonuses, and structured career progression pathways.'
+    }
+  ];
+
+  const jobPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    title: jobTitle,
+    description: `We are currently partnering with a globally recognized enterprise to identify a highly skilled ${jobTitle}. In this critical role, you will be responsible for driving technical innovation, optimizing existing architectures, and collaborating with cross-functional teams to deliver scalable solutions.`,
+    datePosted: '2026-07-04',
+    validThrough: '2026-10-04',
+    employmentType: 'FULL_TIME',
+    hiringOrganization: {
+      '@type': 'Organization',
+      name: 'Chalky Infotech',
+      sameAs: 'https://chalkyinfo.com',
+      logo: 'https://chalkyinfo.com/icon.png',
+    },
+    jobLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'London',
+        addressRegion: 'Greater London',
+        addressCountry: 'GB',
+      },
+    },
+    baseSalary: {
+      '@type': 'MonetaryAmount',
+      currency: 'GBP',
+      value: {
+        '@type': 'QuantitativeValue',
+        minValue: 90000,
+        maxValue: 120000,
+        unitText: 'YEAR',
+      },
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[#F9F9F9] pt-24 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
+      />
+      <FAQSchema items={jobFaqs} />
+
       <div className="bg-[#7A1F5C] text-white py-16 mb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-2 text-sm text-white/60 mb-8">
@@ -110,6 +169,18 @@ async function JobDetailPageContent({ params }: Props) {
                   </li>
                 ))}
               </ul>
+            </section>
+
+            <section className="pt-8 border-t border-[#EFE7DD]">
+              <h2 className="text-2xl font-bold text-[#1A1A1A] mb-6">Frequently Asked Questions</h2>
+              <div className="space-y-6">
+                {jobFaqs.map((faq, i) => (
+                  <div key={i} className="bg-[#F9F9F9] p-6 rounded-2xl border border-[#EFE7DD]">
+                    <h3 className="font-bold text-[#1A1A1A] mb-2">{faq.question}</h3>
+                    <p className="text-sm text-[#555555] leading-relaxed">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
             </section>
           </div>
 

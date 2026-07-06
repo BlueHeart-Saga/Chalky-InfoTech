@@ -3,6 +3,8 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import SectionNavbar from '@/components/SectionNavbar';
 import CSRHero from '@/sections/csr/CSRHero';
+import AnchorJumpLinks from '@/components/AnchorJumpLinks';
+import FAQSection from '@/components/FAQSection';
 
 // Lazy-load sections below the fold
 const CSRPillars       = dynamic(() => import('@/sections/csr/CSRPillars'),       { ssr: true });
@@ -11,10 +13,11 @@ const CSRTimeline      = dynamic(() => import('@/sections/csr/CSRTimeline'),    
 const CSRImpactMetrics = dynamic(() => import('@/sections/csr/CSRImpactMetrics'), { ssr: true });
 const CSRCTA           = dynamic(() => import('@/sections/csr/CSRCTA'),           { ssr: true });
 
-export const metadata: Metadata = {
+import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
+
+export const metadata = buildPageMetadataWithImage({
   title: 'CSR Report | People, Planet & Purpose',
-  description:
-    'Explore Chalky Infotech\'s full Corporate Social Responsibility report. Our commitments to environmental sustainability, diversity & inclusion, community empowerment, and ethical governance.',
+  description: 'Explore Chalky Infotech\'s CSR commitments. Discover our actions for environmental sustainability, diversity, community empowerment, and ethical governance.',
   keywords: [
     'Chalky Infotech CSR',
     'corporate social responsibility recruitment',
@@ -25,27 +28,43 @@ export const metadata: Metadata = {
     'UN SDG aligned business UK',
     'ESG staffing agency',
   ],
-  alternates: {
-    canonical: '/csr',
-  },
-  openGraph: {
-    title: 'CSR Report | People, Planet & Purpose | Chalky Infotech',
-    description:
-      'Our full CSR commitments: environmental stewardship, inclusive hiring, community empowerment and ethical governance.',
-    locale: 'en_GB',
-  },
-  other: {
-    'geo.region': 'GB',
-    'geo.placename': 'United Kingdom',
-    'language': 'en-GB',
-  },
-};
+  url: '/csr',
+  path: SEO_IMAGE_CONFIG.csr.path,
+  alt: SEO_IMAGE_CONFIG.csr.alt
+});
 
 const SectionFallback = () => (
   <div className="w-full h-[400px] bg-[#F5F0E8] animate-pulse flex items-center justify-center">
     <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/20 border-t-[#7A1F5C] animate-spin" />
   </div>
 );
+
+const CSR_JUMP_LINKS = [
+  { label: 'Our Pillars', id: 'pillars' },
+  { label: 'UN SDGs', id: 'sdg' },
+  { label: 'Timeline', id: 'timeline' },
+  { label: 'Impact Metrics', id: 'metrics' },
+  { label: 'FAQ', id: 'faq' }
+];
+
+const CSR_FAQS = [
+  {
+    q: "What are Chalky Infotech's core ESG and CSR values?",
+    a: "Chalky Infotech operates under a Triple Bottom Line philosophy: People, Planet, and Purpose. We prioritize green recruitment practices, active carbon-offsetting projects, community tech mentoring initiatives, and strict ethical governance across all recruitment sectors."
+  },
+  {
+    q: "How does Chalky Infotech support Diversity, Equity, and Inclusion (DEI)?",
+    a: "We employ blinded resume screening, bias-reduction recruitment training, and diverse candidate sourcing matrices. This ensures all partner companies receive equitable and inclusive talent shortlists, promoting equal representation in tech."
+  },
+  {
+    q: "Is Chalky Infotech committed to environmental sustainability?",
+    a: "Yes, we are targeting Net Zero operations. We reduce corporate travel, support paperless hiring pipelines, run zero-waste events, and invest in verified reforestation projects to offset our operational carbon footprint annually."
+  },
+  {
+    q: "How does Chalky Infotech align with the UN Sustainable Development Goals (SDGs)?",
+    a: "We actively align our CSR programs with UN SDG 4 (Quality Education), SDG 5 (Gender Equality), SDG 8 (Decent Work & Economic Growth), and SDG 13 (Climate Action) through community grants, tech training, and transparent placement standards."
+  }
+];
 
 export default function CSRPage() {
   const sections = [
@@ -54,6 +73,7 @@ export default function CSRPage() {
     { label: 'UN SDGs',     id: 'sdg'      },
     { label: 'Timeline',    id: 'timeline' },
     { label: 'Impact',      id: 'metrics'  },
+    { label: 'FAQ',         id: 'faq'      },
     { label: 'Contact',     id: 'cta'      },
   ];
 
@@ -64,6 +84,8 @@ export default function CSRPage() {
       <section id="hero">
         <CSRHero />
       </section>
+
+      <AnchorJumpLinks links={CSR_JUMP_LINKS} />
 
       <Suspense fallback={<SectionFallback />}>
         <section id="pillars">
@@ -88,6 +110,10 @@ export default function CSRPage() {
           <CSRImpactMetrics />
         </section>
       </Suspense>
+
+      <section id="faq">
+        <FAQSection items={CSR_FAQS} title="CSR & ESG FAQs" subtitle="Frequently asked questions about Chalky Infotech's environmental footprint, DEI policies, and community action." bgWhite={false} />
+      </section>
 
       <Suspense fallback={<SectionFallback />}>
         <section id="cta">

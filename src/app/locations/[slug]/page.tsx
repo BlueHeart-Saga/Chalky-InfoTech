@@ -8,19 +8,21 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+import { buildPageMetadataWithImage } from '@/lib/seo-images';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const location = LOCATIONS.find((l) => l.slug === slug);
   if (!location) return { title: 'Location Not Found' };
 
-  return {
+  return buildPageMetadataWithImage({
     title: `${location.service} in ${location.city}`,
     description: location.description,
     keywords: [location.service, location.city, 'recruitment', 'staffing', 'Chalky Infotech'],
-    alternates: {
-      canonical: `/locations/${slug}`,
-    },
-  };
+    url: `/locations/${slug}`,
+    path: '/hero-services.png',
+    alt: `${location.service} in ${location.city} - Chalky Infotech`
+  });
 }
 
 export async function generateStaticParams() {
@@ -42,6 +44,7 @@ export default async function LocationPage({ params }: Props) {
     '@type': 'Service',
     name: `${location.service} in ${location.city}`,
     description: location.description,
+    image: 'https://chalkyinfo.com/hero-services.png',
     provider: {
       '@type': 'Organization',
       name: 'Chalky Infotech',

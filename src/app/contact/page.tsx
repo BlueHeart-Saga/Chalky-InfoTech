@@ -8,24 +8,16 @@ import ContactTeam from '@/sections/contact/ContactTeam';
 import ContactFAQ from '@/sections/contact/ContactFAQ';
 import CTASection from '@/components/CTASection';
 
-export const metadata: Metadata = {
+import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
+
+export const metadata = buildPageMetadataWithImage({
   title: 'Contact Us | IT Recruitment Agency',
   description: 'Get in touch with Chalky Infotech. We have offices in London and Chennai to support your global tech recruitment needs and workforce scaling.',
   keywords: ['contact IT recruitment agency', 'Chalky Infotech contact', 'tech recruitment London', 'IT staffing Chennai', 'global workforce solutions contact'],
-  alternates: {
-    canonical: '/contact',
-  },
-  openGraph: {
-    title: 'Contact Us | IT Recruitment Agency | Chalky Infotech',
-    description: 'Get in touch with Chalky Infotech. Offices in London and Chennai to support global tech recruitment needs.',
-    locale: 'en_GB',
-  },
-  other: {
-    'geo.region': 'GB',
-    'geo.placename': 'United Kingdom',
-    'language': 'en-GB'
-  }
-};
+  url: '/contact',
+  path: SEO_IMAGE_CONFIG.contact.path,
+  alt: SEO_IMAGE_CONFIG.contact.alt
+});
 
 export default function ContactPage() {
   const sections = [

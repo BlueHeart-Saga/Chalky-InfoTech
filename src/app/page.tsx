@@ -14,25 +14,41 @@ import GlobalPresence from '@/sections/home/GlobalPresence';
 import CTASection from '@/components/CTASection';
 import HumanexShowcase from '@/components/HumanexShowcase';
 import CSRSection from '@/sections/home/CSRSection';
+import FAQSection from '@/components/FAQSection';
 
-export const metadata: Metadata = {
+import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
+
+export const metadata = buildPageMetadataWithImage({
   title: 'Chalky Infotech | IT Recruitment & Workforce Solutions',
-  description: 'Chalky Infotech is a specialist technology and digital recruitment partner in the UK. We connect exceptional talent with world-class organisations across cloud, AI, DevOps, and finance.',
+  description: 'Chalky Infotech is a specialist technology recruitment and workforce partner. We connect top talent with global businesses across cloud, AI, and DevOps.',
   keywords: ['IT recruitment UK', 'technology recruitment partner', 'digital talent acquisition', 'cloud recruitment', 'AI staffing', 'DevOps hiring', 'finance tech recruitment', 'premium IT workforce solutions'],
-  alternates: {
-    canonical: '/',
+  url: '/',
+  path: SEO_IMAGE_CONFIG.home.path,
+  alt: SEO_IMAGE_CONFIG.home.alt
+});
+
+const HOME_FAQS = [
+  {
+    q: "What recruitment and workforce solutions does Chalky Infotech provide?",
+    a: "Chalky Infotech offers comprehensive technology recruitment services, including contract staffing, permanent recruitment, executive search, temporary staffing, on-site embedded recruiter support, and managed services (MSP). We help global businesses scale by matching them with pre-vetted professionals."
   },
-  openGraph: {
-    title: 'Chalky Infotech | Premium IT Recruitment UK',
-    description: 'Specialist technology and digital recruitment partner connecting exceptional talent with world-class organisations.',
-    locale: 'en_GB',
+  {
+    q: "Which industries and job functions does Chalky Infotech support?",
+    a: "We specialize in technology recruitment (including software development, cloud computing, cybersecurity, and data science), healthcare staffing, financial services hiring, retail, education, and manufacturing recruitment. Our global network connects employers with sector-specific experts."
   },
-  other: {
-    'geo.region': 'GB',
-    'geo.placename': 'United Kingdom',
-    'language': 'en-GB'
+  {
+    q: "How does Chalky Infotech help businesses hire faster?",
+    a: "We utilize a pre-screened talent pool and a three-layer vetting process to match candidates with open roles in under 48 hours for contract staffing. This eliminates hiring bottlenecks, reduces time-to-hire, and ensures high-tenure placements."
+  },
+  {
+    q: "Why choose Chalky Infotech for global recruitment and remote hiring?",
+    a: "With registered entities and operations in both the UK and India, we provide cross-border compliance navigation, Employer of Record (EOR) payroll services, and remote-first candidate evaluation. We enable you to hire borderless engineering teams compliantly."
+  },
+  {
+    q: "How can candidates find jobs and apply through Chalky Infotech?",
+    a: "Candidates can search our active vacancies page, select roles aligned with their expertise, and apply directly. Our recruitment specialists provide resume feedback, interview preparation, and compliance vetting to guide you into strategic career moves."
   }
-};
+];
 
 export default function HomePage() {
   const sections = [
@@ -44,6 +60,7 @@ export default function HomePage() {
     { label: 'HR Platform', id: 'humanex' },
     { label: 'Testimonials', id: 'testimonials' },
     { label: 'CSR', id: 'csr' },
+    { label: 'FAQ', id: 'faq' },
     { label: 'Contact', id: 'contact' }
   ];
 
@@ -86,8 +103,6 @@ export default function HomePage() {
         <MetricsAchievements />
       </section>
 
-     
-
       <section id="testimonials">
         <Testimonials />
       </section>
@@ -104,7 +119,9 @@ export default function HomePage() {
         <GlobalPresence />
       </section>
 
-     
+      <section id="faq">
+        <FAQSection items={HOME_FAQS} title="Frequently Asked Questions" subtitle="Learn how Chalky Infotech matches top-tier tech talent with global corporate partners." bgWhite={false} />
+      </section>
 
       <section id="contact" >
         <CTASection />

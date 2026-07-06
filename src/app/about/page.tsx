@@ -4,6 +4,8 @@ import AboutHero from '@/sections/about/AboutHero';
 import CompanyStory from '@/sections/about/CompanyStory';
 import MissionVision from '@/sections/about/MissionVision';
 import SectionNavbar from '@/components/SectionNavbar';
+import AnchorJumpLinks from '@/components/AnchorJumpLinks';
+import FAQSection from '@/components/FAQSection';
 import { Suspense } from 'react';
 
 // Lazy load sections below the fold for better initial load performance
@@ -18,30 +20,50 @@ const AboutCTA = dynamic(() => import('@/sections/about/AboutCTA'), { ssr: true 
 import HumanexShowcase from '@/components/HumanexShowcase';
 
 
-export const metadata: Metadata = {
+import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
+
+export const metadata = buildPageMetadataWithImage({
   title: 'About Us | Global IT Recruitment',
-  description: 'Learn about Chalky Infotech, a leading technology recruitment and workforce solutions partner helping organizations scale through strategic hiring and digital talent acquisition services in the UK.',
+  description: 'Learn about Chalky Infotech, a leading technology recruitment partner helping global businesses scale through strategic staffing and workforce solutions.',
   keywords: ['Chalky Infotech', 'IT recruitment agency UK', 'global workforce solutions', 'technology recruitment partner', 'strategic hiring', 'digital talent acquisition', 'tech staffing experts'],
-  alternates: {
-    canonical: '/about',
-  },
-  openGraph: {
-    title: 'About Us | Global IT Recruitment | Chalky Infotech',
-    description: 'A leading technology recruitment and workforce solutions partner helping organizations scale through strategic hiring.',
-    locale: 'en_GB',
-  },
-  other: {
-    'geo.region': 'GB',
-    'geo.placename': 'United Kingdom',
-    'language': 'en-GB'
-  }
-};
+  url: '/about',
+  path: SEO_IMAGE_CONFIG.about.path,
+  alt: SEO_IMAGE_CONFIG.about.alt
+});
 
 const SectionFallback = () => (
   <div className="w-full h-[400px] bg-[#F5F0E8] animate-pulse flex items-center justify-center">
     <div className="w-12 h-12 rounded-full border-4 border-[#7A1F5C]/20 border-t-[#7A1F5C] animate-spin" />
   </div>
 );
+
+const ABOUT_JUMP_LINKS = [
+  { label: 'Our Story', id: 'story' },
+  { label: 'Mission & Vision', id: 'mission' },
+  { label: 'Core Values', id: 'values' },
+  { label: 'Methodology', id: 'philosophy' },
+  { label: 'Our Team', id: 'team' },
+  { label: 'FAQ', id: 'faq' }
+];
+
+const ABOUT_FAQS = [
+  {
+    q: "Who is Chalky Infotech?",
+    a: "Chalky Infotech is a premier technology recruitment and global workforce solutions company. We specialize in sourcing, vetting, and placing exceptional IT and engineering talent in contract, permanent, and remote roles for organizations worldwide."
+  },
+  {
+    q: "What makes Chalky Infotech different from traditional recruitment agencies?",
+    a: "Unlike standard agencies, we use a technical, three-layer screening process led by senior engineering advisors. We pre-vet candidates' coding, systems, and communication skills to guarantee quality, reducing hiring time to under 48 hours."
+  },
+  {
+    q: "What sectors and talent areas does Chalky Infotech support?",
+    a: "Our core expertise spans Software Development, Cloud Engineering (AWS/Azure/GCP), DevOps, Cybersecurity, Data Analytics, and AI/ML. We also deliver specialist staffing for Healthcare, Finance, Retail, and Manufacturing sectors."
+  },
+  {
+    q: "How does Chalky Infotech approach long-term hiring partnerships?",
+    a: "We build deep, embedded relationships. By auditing clients' workflows and matching candidate tenures (averaging 3+ years), we align career goals with enterprise culture. We offer ongoing post-placement support to ensure mutual success."
+  }
+];
 
 export default function AboutPage() {
   const sections = [
@@ -55,7 +77,8 @@ export default function AboutPage() {
     { label: 'HR Platform', id: 'humanex' },
     { label: 'Why Trust Us', id: 'trust' },
     { label: 'Journey', id: 'timeline' },
-    { label: 'Our Team', id: 'team' }
+    { label: 'Our Team', id: 'team' },
+    { label: 'FAQ', id: 'faq' }
   ];
 
   return (
@@ -65,6 +88,8 @@ export default function AboutPage() {
       <section id="hero">
         <AboutHero />
       </section>
+
+      <AnchorJumpLinks links={ABOUT_JUMP_LINKS} />
 
       <section id="story">
         <CompanyStory />
@@ -119,6 +144,10 @@ export default function AboutPage() {
           <LeadershipTeam />
         </section>
       </Suspense>
+
+      <section id="faq">
+        <FAQSection items={ABOUT_FAQS} title="Frequently Asked Questions" subtitle="Get answers to general queries about Chalky Infotech's operations, philosophy, and history." bgWhite={false} />
+      </section>
 
       <Suspense fallback={<SectionFallback />}>
         <section id="cta">

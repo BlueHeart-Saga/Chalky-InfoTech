@@ -49,6 +49,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  const jobRoutes: MetadataRoute.Sitemap = [];
+  try {
+    const res = await fetch('https://chalkyinfotechserver-awfncucscucnbgah.southindia-01.azurewebsites.net/api/requirements/public', { 
+      next: { revalidate: 3600 },
+      signal: AbortSignal.timeout(5000)
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.success && Array.isArray(data.data)) {
+        data.data.forEach((j: any) => {
+          if (j.status === 'Active' && j.position) {
+            const slug = j.position.toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/(^-|-$)+/g, '');
+            jobRoutes.push({
+              url: `${base}/jobs/${slug}`,
+              lastModified: j.updatedAt ? new Date(j.updatedAt) : now,
+              changeFrequency: 'weekly',
+              priority: 0.7,
+            });
+          }
+        });
+      }
+    }
+  } catch (err) {
+    console.error('Failed to fetch dynamic jobs for sitemap:', err);
+  }
+
+  if (jobRoutes.length === 0) {
+    jobRoutes.push({
+      url: `${base}/jobs/it-staffing`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    });
+  }
+
   const categoryRoutes: MetadataRoute.Sitemap = [];
   const insightRoutes: MetadataRoute.Sitemap = [];
 
@@ -107,6 +144,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...serviceRoutes,
     ...industryRoutes,
     ...locationRoutes,
+    ...jobRoutes,
     ...categoryRoutes,
     ...insightRoutes,
   ];

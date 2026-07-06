@@ -13,25 +13,27 @@ import IndustryMetrics from '@/sections/industries/IndustryMetrics';
 import IndustriesFAQ from '@/sections/industries/IndustriesFAQ';
 import SectionNavbar from '@/components/SectionNavbar';
 import HumanexShowcase from '@/components/HumanexShowcase';
+import AnchorJumpLinks from '@/components/AnchorJumpLinks';
 
-export const metadata: Metadata = {
+import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
+
+export const metadata = buildPageMetadataWithImage({
   title: 'Specialist Industry Recruitment & Staffing',
-  description: 'Chalky Infotech supports organizations across technology, healthcare, finance, retail, and manufacturing through scalable recruitment solutions tailored to industry-specific needs in the UK.',
+  description: 'Chalky Infotech provides scalable recruitment and staffing solutions across technology, healthcare, finance, retail, manufacturing, and emerging sectors.',
   keywords: ['industry recruitment solutions', 'tech recruitment UK', 'healthcare staffing', 'finance recruiters', 'retail workforce solutions', 'manufacturing recruitment', 'UK industry staffing', 'specialist workforce solutions'],
-  alternates: {
-    canonical: '/industries',
-  },
-  openGraph: {
-    title: 'Specialist Industry Recruitment & Staffing | Chalky Infotech',
-    description: 'Chalky Infotech supports organizations across technology, healthcare, finance, retail, and manufacturing through scalable recruitment solutions.',
-    locale: 'en_GB',
-  },
-  other: {
-    'geo.region': 'GB',
-    'geo.placename': 'United Kingdom',
-    'language': 'en-GB'
-  }
-};
+  url: '/industries',
+  path: SEO_IMAGE_CONFIG.industries.path,
+  alt: SEO_IMAGE_CONFIG.industries.alt
+});
+
+const INDUSTRIES_JUMP_LINKS = [
+  { label: 'Overview', id: 'overview' },
+  { label: 'Featured Sectors', id: 'featured' },
+  { label: 'Staffing Solutions', id: 'solutions' },
+  { label: 'Hiring Process', id: 'process' },
+  { label: 'Why Trust Us', id: 'trust' },
+  { label: 'FAQ', id: 'faq' }
+];
 
 export default function IndustriesPage() {
   const sections = [
@@ -70,6 +72,8 @@ export default function IndustriesPage() {
           imageAlt="Multi-industry business team meeting"
         />
       </section>
+
+      <AnchorJumpLinks links={INDUSTRIES_JUMP_LINKS} />
 
       <section id="overview"><IndustriesOverview /></section>
       <section id="featured"><FeaturedIndustryExpertise /></section>

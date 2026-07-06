@@ -11,6 +11,21 @@ import IndustryProcess from '@/sections/industry-detail/IndustryProcess';
 import IndustryFAQ from '@/sections/industry-detail/IndustryFAQ';
 import RelatedIndustries from '@/sections/industry-detail/RelatedIndustries';
 import SectionNavbar from '@/components/SectionNavbar';
+import AnchorJumpLinks from '@/components/AnchorJumpLinks';
+import FAQSchema from '@/components/FAQSchema';
+
+import { buildPageMetadataWithImage } from '@/lib/seo-images';
+
+const INDUSTRY_IMAGES: Record<string, string> = {
+  'it-technology': '/industries/technology.png',
+  'telecommunications': '/industries/technology.png',
+  'engineering-infrastructure': '/industries/energy.png',
+  'media-digital-services': '/industries/media.png',
+  'banking-finance': '/industries/finance.png',
+  'healthcare-life-sciences': '/industries/healthcare.png',
+  'retail-ecommerce': '/industries/retail.png',
+  'manufacturing': '/industries/manufacturing.png',
+};
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -21,40 +36,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const industry = INDUSTRIES_DETAILED.find((i) => i.slug === slug);
   if (!industry) return { title: 'Industry Not Found' };
 
-  if ((industry as any).metaInfo) {
-    const meta = (industry as any).metaInfo;
-    return {
-      title: {
-        absolute: meta.title,
-      },
-      description: meta.description,
-      keywords: meta.keywords,
-      alternates: {
-        canonical: `/industries/${slug}`,
-      },
-      openGraph: {
-        title: meta.ogTitle,
-        description: meta.ogDescription,
-        locale: 'en_GB',
-      },
-      other: {
-        'geo.region': 'GB',
-        'geo.placename': 'United Kingdom',
-        'language': 'en-GB'
-      }
-    };
-  }
+  const imagePath = INDUSTRY_IMAGES[slug] || '/hero-industries.png';
+  const meta = (industry as any).metaInfo;
 
-  return {
-    title: {
-      absolute: `${industry.label} Recruitment | Chalky Infotech`,
-    },
-    description: `Specialized ${industry.label.toLowerCase()} workforce solutions helping organizations scale through strategic recruitment and talent acquisition across UK and India.`,
-    keywords: [industry.label, 'recruitment solutions', 'staffing services', 'workforce solutions', 'industry expertise', 'Chalky Infotech'],
-    alternates: {
-      canonical: `/industries/${slug}`,
-    },
-  };
+  const title = meta?.title || `${industry.label} Recruitment | Chalky Infotech`;
+  const description = meta?.description || `Specialized ${industry.label.toLowerCase()} workforce solutions helping organizations scale through strategic recruitment and talent acquisition across UK and India.`;
+  const keywordsStr = meta?.keywords || `${industry.label}, recruitment solutions, staffing services, workforce solutions, industry expertise, Chalky Infotech`;
+  const keywords = keywordsStr.split(',').map((k: string) => k.trim());
+
+  return buildPageMetadataWithImage({
+    title,
+    description,
+    keywords,
+    url: `/industries/${slug}`,
+    path: imagePath,
+    alt: `${industry.label} - Chalky Infotech Industry Recruiting`
+  });
 }
 
 export async function generateStaticParams() {
@@ -69,16 +66,19 @@ export default async function IndustryDetailPage({ params }: Props) {
     notFound();
   }
 
+  const imagePath = INDUSTRY_IMAGES[slug] || '/hero-industries.png';
+
   // Structured Data (JSON-LD)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: `${industry.label} Recruitment Solutions`,
     description: `Specialized workforce solutions for the ${industry.label} sector.`,
+    image: `https://chalkyinfo.com${imagePath}`,
     provider: {
       '@type': 'Organization',
       name: 'Chalky Infotech',
-      url: 'https://chalkyinfotech.com',
+      url: 'https://chalkyinfo.com',
     },
     areaServed: ['UK', 'India'],
   };
@@ -94,12 +94,26 @@ export default async function IndustryDetailPage({ params }: Props) {
     { label: 'Related', id: 'related' }
   ];
 
+  const jumpLinks = [
+    { label: 'Overview', id: 'overview' },
+    { label: 'Challenges', id: 'challenges' },
+    { label: 'Roles', id: 'roles' },
+    { label: 'Process', id: 'process' },
+    { label: 'FAQ', id: 'faq' }
+  ];
+
+  const schemaFaqs = industry.faqs.map(faq => ({
+    question: faq.q,
+    answer: faq.a
+  }));
+
   return (
     <div className="flex flex-col min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <FAQSchema items={schemaFaqs} />
       
       <SectionNavbar sections={sections} />
 
@@ -121,6 +135,8 @@ export default async function IndustryDetailPage({ params }: Props) {
           imageAlt={`${industry.label} recruitment specialist`}
         />
       </section>
+
+      <AnchorJumpLinks links={jumpLinks} />
 
       <section id="overview">
         <IndustryOverview 

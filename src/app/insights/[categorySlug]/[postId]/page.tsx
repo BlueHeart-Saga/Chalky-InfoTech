@@ -40,6 +40,8 @@ export async function generateStaticParams() {
   }
 }
 
+import { buildPageMetadataWithImage } from '@/lib/seo-images';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { categorySlug, postId } = await params;
   try {
@@ -52,20 +54,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const fullTitle = `${post.title} | Chalky`;
     const finalTitle = fullTitle.length > 65 ? (post.title.length > 62 ? `${post.title.substring(0, 62)}...` : post.title) : fullTitle;
 
-    return {
-      title: {
-        absolute: finalTitle,
-      },
-      description: post.excerpt,
-      alternates: {
-        canonical: `/insights/${categorySlug}/${postId}`,
-      },
-      openGraph: {
-        title: post.title,
-        description: post.excerpt,
-        images: post.image ? [post.image] : [],
-      },
-    };
+    return buildPageMetadataWithImage({
+      title: finalTitle,
+      description: post.excerpt || "Expert perspective on strategic developments, hiring frameworks, and corporate transitions.",
+      keywords: [post.category?.name || 'insights', 'trends', 'recruitment', 'Chalky Infotech'],
+      url: `/insights/${categorySlug}/${postId}`,
+      path: post.image || '/og-image.png',
+      alt: post.title
+    });
   } catch (err) {
     return {
       title: 'Post Not Found',
@@ -219,8 +215,33 @@ async function InsightDetailPageContent({ params }: { params: Promise<{ category
     }
   };
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt || "Expert perspective on strategic developments, hiring frameworks, and corporate transitions.",
+    image: post.image ? [post.image] : ['https://chalkyinfo.com/og-image.png'],
+    datePublished: post.date ? new Date(post.date).toISOString() : new Date().toISOString(),
+    author: {
+      '@type': 'Person',
+      name: post.author || 'Chalky Executive',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Chalky Infotech',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://chalkyinfo.com/icon.png',
+      },
+    },
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
 
       {/* ── Page Hero: Consistent, Stunning diagonal banner matching standard pages ── */}
       <PageHero

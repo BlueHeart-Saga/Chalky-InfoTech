@@ -11,6 +11,17 @@ import WhyChooseService from '@/sections/service-detail/WhyChooseService';
 import ServiceFAQ from '@/sections/service-detail/ServiceFAQ';
 import RelatedServices from '@/sections/service-detail/RelatedServices';
 import SectionNavbar from '@/components/SectionNavbar';
+import AnchorJumpLinks from '@/components/AnchorJumpLinks';
+import FAQSchema from '@/components/FAQSchema';
+
+import { buildPageMetadataWithImage } from '@/lib/seo-images';
+
+const SERVICE_IMAGES: Record<string, string> = {
+  'contract-staffing': '/services/contract.png',
+  'on-site-recruitment': '/services/onsite.png',
+  'permanent-hiring': '/services/permanent.png',
+  'temporary-recruitment': '/services/temporary.png',
+};
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -21,39 +32,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = SERVICES_DETAILED.find((s) => s.slug === slug);
   if (!service) return { title: 'Service Not Found' };
 
-  if (service.metaInfo) {
-    return {
-      title: {
-        absolute: service.metaInfo.title,
-      },
-      description: service.metaInfo.description,
-      keywords: service.metaInfo.keywords,
-      alternates: {
-        canonical: `/services/${slug}`,
-      },
-      openGraph: {
-        title: service.metaInfo.ogTitle,
-        description: service.metaInfo.ogDescription,
-        locale: 'en_GB',
-      },
-      other: {
-        'geo.region': 'GB',
-        'geo.placename': 'United Kingdom',
-        'language': 'en-GB'
-      }
-    };
-  }
+  const imagePath = SERVICE_IMAGES[slug] || '/hero-services.png';
+  const title = service.metaInfo?.title || `${service.label} Solutions | Chalky Infotech`;
+  const description = service.metaInfo?.description || `Professional ${service.label.toLowerCase()} services helping organizations scale through strategic workforce solutions and specialized talent acquisition across multiple industries.`;
+  const keywordsStr = service.metaInfo?.keywords || `${service.label}, recruitment solutions, staffing services, workforce solutions, talent acquisition, Chalky Infotech`;
+  const keywords = keywordsStr.split(',').map(k => k.trim());
 
-  return {
-    title: {
-      absolute: `${service.label} Solutions | Chalky Infotech`,
-    },
-    description: `Professional ${service.label.toLowerCase()} services helping organizations scale through strategic workforce solutions and specialized talent acquisition across multiple industries.`,
-    keywords: [service.label, 'recruitment solutions', 'staffing services', 'workforce solutions', 'talent acquisition', 'Chalky Infotech'],
-    alternates: {
-      canonical: `/services/${slug}`,
-    },
-  };
+  return buildPageMetadataWithImage({
+    title,
+    description,
+    keywords,
+    url: `/services/${slug}`,
+    path: imagePath,
+    alt: `${service.label} - Chalky Infotech Specialist Recruitment`
+  });
 }
 
 export async function generateStaticParams() {
@@ -68,16 +60,19 @@ export default async function ServiceDetailPage({ params }: Props) {
     notFound();
   }
 
+  const imagePath = SERVICE_IMAGES[slug] || '/hero-services.png';
+
   // Structured Data (JSON-LD)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: service.label,
     description: service.desc,
+    image: `https://chalkyinfo.com${imagePath}`,
     provider: {
       '@type': 'Organization',
       name: 'Chalky Infotech',
-      url: 'https://chalkyinfotech.com',
+      url: 'https://chalkyinfo.com',
     },
     areaServed: ['UK', 'India'],
     hasOfferCatalog: {
@@ -104,12 +99,26 @@ export default async function ServiceDetailPage({ params }: Props) {
     { label: 'Related', id: 'related' }
   ];
 
+  const jumpLinks = [
+    { label: 'Overview', id: 'overview' },
+    { label: 'Benefits', id: 'benefits' },
+    { label: 'Process', id: 'process' },
+    { label: 'Why Us', id: 'why-choose' },
+    { label: 'FAQ', id: 'faq' }
+  ];
+
+  const schemaFaqs = service.faqs.map(faq => ({
+    question: faq.q,
+    answer: faq.a
+  }));
+
   return (
     <div className="flex flex-col min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <FAQSchema items={schemaFaqs} />
       
       <SectionNavbar sections={sections} />
 
@@ -131,6 +140,8 @@ export default async function ServiceDetailPage({ params }: Props) {
           imageAlt={`${service.label} expertise`}
         />
       </section>
+
+      <AnchorJumpLinks links={jumpLinks} />
 
       <section id="overview"><ServiceOverview title={service.overview.title} description={service.overview.description} serviceLabel={service.label} /></section>
       <section id="benefits"><ServiceBenefits benefits={service.benefits} serviceLabel={service.label} /></section>

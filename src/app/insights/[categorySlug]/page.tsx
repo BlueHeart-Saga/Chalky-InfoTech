@@ -81,6 +81,8 @@ export async function generateStaticParams() {
   }
 }
 
+import { buildPageMetadataWithImage } from '@/lib/seo-images';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { categorySlug } = await params;
   const siteStructure = await getCachedSiteStructure();
@@ -100,15 +102,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-  return {
-    title: {
-      absolute: `${title} | Chalky Infotech Insights`,
-    },
+  const imagePath = CATEGORY_IMAGES[categorySlug]?.src || '/og-image.png';
+
+  return buildPageMetadataWithImage({
+    title: `${title} | Chalky Infotech Insights`,
     description: `Explore our latest research, thought leadership and recruitment analytics for ${title}.`,
-    alternates: {
-      canonical: `/insights/${categorySlug}`,
-    },
-  };
+    keywords: [title, 'insights', 'trends', 'recruitment', 'market research', 'Chalky Infotech'],
+    url: `/insights/${categorySlug}`,
+    path: imagePath,
+    alt: `${title} Insights - Chalky Infotech`
+  });
 }
 
 // Separate component for loading dyn data safely under Suspense

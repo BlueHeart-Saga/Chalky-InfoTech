@@ -10,13 +10,16 @@ import InsightsFAQ from '@/sections/insights/InsightsFAQ';
 import api from '@/services/api';
 import imgInsights from '@/assets/Insights/Insights.png';
 
-export const metadata: Metadata = {
+import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
+
+export const metadata = buildPageMetadataWithImage({
   title: 'Chalky Insights & Trends',
   description: 'Expert analysis and data-driven perspectives on the evolving landscape of global recruitment, specialized sector growth, and the future of work.',
-  alternates: {
-    canonical: '/insights',
-  },
-};
+  keywords: ['recruitment trends', 'market intelligence UK', 'hiring benchmarks', 'future of work', 'talent insights'],
+  url: '/insights',
+  path: SEO_IMAGE_CONFIG.insights.path,
+  alt: SEO_IMAGE_CONFIG.insights.alt
+});
 
 // Next.js 16 high-performance Component Caching helpers
 async function getCachedSiteStructure() {
