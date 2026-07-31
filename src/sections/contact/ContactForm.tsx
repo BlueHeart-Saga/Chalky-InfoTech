@@ -1,14 +1,14 @@
 'use client';
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ArrowLeft, CheckCircle2, Trash2, Upload } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Trash2, Upload, MapPin, Building2, User, Mail as MailIcon, Phone as PhoneIcon, MessageSquare } from 'lucide-react';
 import { sendEmail } from '@/services/sendmail';
 import formsideimage from '@/assets/contact/formsideimage.png';
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
+/*
+// ─── PREVIOUS 4-STEP WIZARD CODE (COMMENTED OUT FOR REFERENCE) ──────────────────────────
 const REGIONS = [
   {
     id: 'london',
@@ -40,57 +40,21 @@ const REGIONS = [
 ];
 
 const ENQUIRY_TYPES = [
-  {
-    id: 'candidate',
-    key: 'A',
-    label: (
-      <>
-        I&apos;m looking for a <strong>new role</strong> or considering my next{' '}
-        <strong>career move</strong> (upload a CV)
-      </>
-    ),
-  },
-  {
-    id: 'client',
-    key: 'B',
-    label: (
-      <>
-        I&apos;d like to talk to someone about my{' '}
-        <strong>organisation&apos;s talent needs</strong>
-      </>
-    ),
-  },
-  {
-    id: 'general',
-    key: 'C',
-    label: 'Other / general enquiry',
-  },
+  { id: 'candidate', key: 'A', label: "I'm looking for a new role or considering my next career move (upload a CV)" },
+  { id: 'client', key: 'B', label: "I'd like to talk to someone about my organisation's talent needs" },
+  { id: 'general', key: 'C', label: "Other / general enquiry" },
 ];
-
-// ─── Progress Bar ─────────────────────────────────────────────────────────────
 
 function StepIndicator({ current, total }: { current: number; total: number }) {
   return (
     <div className="flex items-center gap-2 mb-12">
       {Array.from({ length: total }).map((_, i) => (
-        <div
-          key={i}
-          className={`h-1 rounded-full transition-all duration-500 ${i < current
-              ? 'bg-[#7A1F5C] w-10'
-              : i === current
-                ? 'bg-[#7A1F5C] w-14'
-                : 'bg-gray-200 w-10'
-            }`}
-        />
+        <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i < current ? 'bg-[#7A1F5C] w-10' : i === current ? 'bg-[#7A1F5C] w-14' : 'bg-gray-200 w-10'}`} />
       ))}
-      <span className="ml-2 text-xs text-gray-400 font-medium">
-        {current + 1} / {total}
-      </span>
+      <span className="ml-2 text-xs text-gray-400 font-medium">{current + 1} / {total}</span>
     </div>
   );
 }
-
-// ─── Slide Animation ──────────────────────────────────────────────────────────
 
 const slideVariants = {
   enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 64 : -64 }),
@@ -98,13 +62,29 @@ const slideVariants = {
   exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -64 : 64 }),
 };
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+// ── Previous 4-Step Wizard Render Implementation ──────────────────────
+// Step 1: StepWelcome (Connect with a Chalky Consultant)
+// Step 2: StepRegion (Which office are you contacting?)
+// Step 3: StepEnquiry (What are you enquiring about?)
+// Step 4: StepContactForm (Direct inputs & Submit)
+*/
+
+const OFFICES = [
+  { id: 'london', label: 'London, UK (HQ)' },
+  { id: 'chennai', label: 'Chennai, IN' },
+  { id: 'thoothukudi', label: 'Thoothukudi, IN' },
+];
+
+const INQUIRY_TYPES = [
+  { id: 'client', label: 'Talent & Team Solutions' },
+  { id: 'candidate', label: 'Career & CV Submission' },
+  { id: 'general', label: 'General / Business Inquiry' },
+];
 
 export default function ContactForm() {
-  const [step, setStep] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [region, setRegion] = useState<string | null>(null);
-  const [enquiryType, setEnquiryType] = useState<string | null>(null);
+  const [office, setOffice] = useState('london');
+  const [enquiryType, setEnquiryType] = useState('client');
+  const [customEnquiry, setCustomEnquiry] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
@@ -117,13 +97,8 @@ export default function ContactForm() {
     email: '',
     phone: '',
     organisation: '',
-    message: ''
+    message: '',
   });
-
-  const TOTAL = 4;
-
-  const goNext = () => { setDirection(1); setStep(s => Math.min(s + 1, TOTAL - 1)); };
-  const goBack = () => { setDirection(-1); setStep(s => Math.max(s - 1, 0)); };
 
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
@@ -137,25 +112,26 @@ export default function ContactForm() {
     if (fileRef.current) fileRef.current.value = '';
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const officeCity = REGIONS.find((r) => r.id === region)?.label || 'Global';
-      const typeLabel = enquiryType === 'candidate' ? 'Candidate' : enquiryType === 'client' ? 'Client' : 'General';
-      const subject = `[${typeLabel}] Contact Form from ${formData.firstName} ${formData.lastName}`;
+      const selectedOffice = OFFICES.find((o) => o.id === office)?.label || 'London';
+      const typeLabel = enquiryType === 'other' ? (customEnquiry || 'Custom Inquiry') : (INQUIRY_TYPES.find((t) => t.id === enquiryType)?.label || 'General Inquiry');
+      const subject = `[${typeLabel} - ${selectedOffice}] Contact from ${formData.firstName} ${formData.lastName}`;
+
 
       await sendEmail({
         fullName: `${formData.firstName} ${formData.lastName}`,
         email: formData.email,
         subject,
-        message: `${formData.message}\n\nPhone Number: ${formData.phone}`,
-        company: formData.organisation,
+        message: `Office Preferred: ${selectedOffice}\nPhone Number: ${formData.phone}\n\nMessage:\n${formData.message}`,
+        company: formData.organisation || 'N/A',
         serviceType: typeLabel,
         file: fileObj || undefined,
       });
@@ -169,406 +145,323 @@ export default function ContactForm() {
     }
   };
 
-  // auto-advance helpers
-  const pickRegion = (id: string) => {
-    setRegion(id);
-    setTimeout(() => goNext(), 300);          // brief delay so user sees selection
-  };
+  return (
+    <section className="bg-white py-16 md:py-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header Block */}
+        <div className="max-w-3xl mb-12">
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7A1F5C]/10 border border-[#7A1F5C]/20 mb-4">
+            <Building2 className="w-3.5 h-3.5 text-[#7A1F5C]" />
+            <span className="text-xs font-bold uppercase tracking-wider text-[#7A1F5C]">
+              Direct Contact
+            </span>
+          </div> */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1A1A1A] tracking-tight leading-tight mb-4">
+            Connect with <span className="text-[#7A1F5C]">Chalky</span>
+          </h2>
+          <p className="text-base text-gray-600 leading-relaxed">
+            Fill out the form below to reach our talent specialists and enterprise consulting desk directly.
+          </p>
+        </div>
 
-  const pickEnquiry = (id: string) => {
-    setEnquiryType(id);
-    setTimeout(() => goNext(), 300);
-  };
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Main Direct Single-Step Form (Left / 7 cols) */}
+          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-gray-100 relative overflow-hidden">
+            
+            {/* Top decorative accent */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#7A1F5C]/15 to-transparent rounded-bl-full pointer-events-none" />
 
-  // ── Step 1 – Welcome ────────────────────────────────────────────────────────
-  const StepWelcome = () => (
-    <div className="max-w-xl">
-      <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] leading-tight mb-5">
-        Connect with a{' '}
-        <span className="text-[#7A1F5C]">Chalky Consultant</span>
-      </h2>
-      <p className="text-base text-gray-600 leading-relaxed mb-10">
-        Whether you&apos;re enquiring about how Chalky can help you{' '}
-        <strong className="text-[#1A1A1A]">grow your team</strong> or wanting to{' '}
-        <strong className="text-[#1A1A1A]">submit a CV</strong>, this form will connect
-        you to the right team.
-      </p>
-      <button
-        onClick={goNext}
-        className="inline-flex items-center gap-3 bg-[#7A1F5C] text-white px-7 py-3 rounded-xl font-semibold text-sm hover:bg-[#5E1847] transition-colors duration-300 shadow-lg shadow-[#7A1F5C]/20"
-      >
-        Continue <ArrowRight size={16} />
-      </button>
-    </div>
-  );
-
-  // ── Step 2 – Office Location ────────────────────────────────────────────────
-  const StepRegion = () => (
-    <div className="max-w-3xl">
-      <h2 className="text-2xl md:text-3xl font-semibold text-[#1A1A1A] mb-2 leading-tight">
-        Which <strong>office</strong> are you contacting?
-      </h2>
-      <p className="text-sm text-gray-400 mb-8">Select a location - we&apos;ll route you to the right team.</p>
-
-      <div className="grid grid-cols-3 gap-5 mb-10">
-        {REGIONS.map((r) => {
-          const active = region === r.id;
-          return (
-            <button
-              key={r.id}
-              onClick={() => pickRegion(r.id)}
-              className={`relative rounded-2xl overflow-hidden flex flex-col text-left transition-all duration-300 border-2 group ${active
-                  ? 'border-[#7A1F5C] shadow-xl scale-[1.02]'
-                  : 'border-gray-200 bg-white hover:shadow-md hover:border-gray-300'
-                }`}
-            >
-              {/* Live Google Maps iframe */}
-              <div className="w-full h-36 overflow-hidden bg-[#E8E8E8] pointer-events-none">
-                <iframe
-                  src={r.embedUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, filter: 'grayscale(20%) contrast(95%)' }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={r.label}
-                />
-              </div>
-              {/* Label row */}
-              <div className={`flex items-start gap-2.5 p-4 ${active ? 'bg-[#FAF5FF]' : 'bg-white'}`}>
-                <span
-                  className={`inline-flex items-center justify-center w-6 h-6 rounded-md text-[10px] font-bold flex-shrink-0 mt-0.5 transition-colors ${active ? 'bg-[#7A1F5C] text-white' : 'bg-[#F3F3F3] text-[#1A1A1A]'
-                    }`}
-                >
-                  {r.key}
-                </span>
-                <div className="flex flex-col">
-                  <span className="text-sm font-bold text-[#1A1A1A] leading-tight">{r.label}</span>
-                  <span className="text-[10px] text-[#7A1F5C] font-semibold mt-0.5">{r.sublabel}</span>
-                  <span className="text-[10px] text-gray-400 mt-1 leading-snug">{r.address}</span>
-                </div>
-              </div>
-            </button>
-          );
-        })}
-      </div>
-
-      <button
-        onClick={goBack}
-        className="inline-flex items-center gap-2 text-[#8A8A8A] hover:text-[#1A1A1A] text-sm font-medium transition-colors"
-      >
-        <ArrowLeft size={14} /> Back
-      </button>
-    </div>
-  );
-
-  // ── Step 3 – Enquiry Type ───────────────────────────────────────────────────
-  const StepEnquiry = () => (
-    <div className="max-w-2xl">
-      <h2 className="text-2xl md:text-3xl font-semibold text-[#1A1A1A] mb-2 leading-tight">
-        What are you <strong>enquiring</strong> about?*
-      </h2>
-      <p className="text-sm text-gray-400 mb-8">Select one - we&apos;ll take you straight to the form.</p>
-
-      <div className="flex flex-col gap-3 mb-10">
-        {ENQUIRY_TYPES.map((eq) => {
-          const active = enquiryType === eq.id;
-          return (
-            <button
-              key={eq.id}
-              onClick={() => pickEnquiry(eq.id)}
-              className={`flex items-start gap-3 w-full px-5 py-4 rounded-xl border-2 text-left transition-all duration-300 ${active
-                  ? 'border-[#1A1A1A] bg-white shadow-lg scale-[1.01]'
-                  : 'border-transparent bg-[#F3F3F3] hover:bg-[#EBEBEB]'
-                }`}
-            >
-              <span
-                className={`inline-flex items-center justify-center w-6 h-6 rounded-md text-[10px] font-bold flex-shrink-0 mt-0.5 transition-colors ${active ? 'bg-[#1A1A1A] text-white' : 'bg-white text-[#1A1A1A]'
-                  }`}
+            {submitted ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex flex-col items-center text-center py-16"
               >
-                {eq.key}
-              </span>
-              <span className="text-sm text-[#1A1A1A] leading-relaxed">{eq.label}</span>
-            </button>
-          );
-        })}
-      </div>
+                <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 shadow-sm">
+                  <CheckCircle2 size={36} />
+                </div>
+                <h3 className="text-2xl font-bold text-[#1A1A1A] mb-2">Message Sent Successfully!</h3>
+                <p className="text-gray-500 text-sm max-w-md mb-8 leading-relaxed">
+                  Thank you for reaching out. A Chalky InfoTech representative will respond to your request within 24 hours.
+                </p>
+                <button
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFileName(null);
+                    setFileObj(null);
+                    setFormData({ firstName: '', lastName: '', email: '', phone: '', organisation: '', message: '' });
+                  }}
+                  className="inline-flex items-center gap-2 text-sm text-[#7A1F5C] font-bold hover:underline"
+                >
+                  Send another message →
+                </button>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                
+                {/* Office & Type Selection Pills */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-2 border-b border-gray-100">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <MapPin size={13} className="text-[#7A1F5C]" /> Target Office *
+                    </label>
+                    <select
+                      value={office}
+                      onChange={(e) => setOffice(e.target.value)}
+                      className="w-full bg-[#F9FAFB] border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors"
+                    >
+                      {OFFICES.map((o) => (
+                        <option key={o.id} value={o.id}>{o.label}</option>
+                      ))}
+                    </select>
+                  </div>
 
-      <button
-        onClick={goBack}
-        className="inline-flex items-center gap-2 text-[#8A8A8A] hover:text-[#1A1A1A] text-sm font-medium transition-colors"
-      >
-        <ArrowLeft size={14} /> Back
-      </button>
-    </div>
-  );
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <Building2 size={13} className="text-[#7A1F5C]" /> Inquiry Type *
+                    </label>
+                    <select
+                      value={enquiryType}
+                      onChange={(e) => {
+                        setEnquiryType(e.target.value);
+                        if (e.target.value !== 'other') {
+                          setCustomEnquiry('');
+                        }
+                      }}
+                      className="w-full bg-[#F9FAFB] border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors"
+                    >
+                      {INQUIRY_TYPES.map((t) => (
+                        <option key={t.id} value={t.id}>{t.label}</option>
+                      ))}
+                      <option value="other">Custom / Specify Other</option>
+                    </select>
 
-  // ── Step 4 – Contact Form ───────────────────────────────────────────────────
-  const StepContactForm = () => {
-    const isCandidate = enquiryType === 'candidate';
-    const isClient = enquiryType === 'client';
+                    {enquiryType === 'other' && (
+                      <input
+                        type="text"
+                        required
+                        value={customEnquiry}
+                        onChange={(e) => setCustomEnquiry(e.target.value)}
+                        placeholder="Please enter custom inquiry type..."
+                        className="mt-2 w-full bg-white border border-[#7A1F5C]/40 rounded-xl px-3.5 py-2 text-xs text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors"
+                      />
+                    )}
+                  </div>
+                </div>
 
-    const title = isCandidate
-      ? 'Are you looking for your next role?'
-      : isClient
-        ? 'Are you expanding your team?'
-        : 'Other / general enquiry';
+                {/* Name Fields */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-semibold text-[#1A1A1A] mb-1.5">
+                      First Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      required
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      placeholder="John"
+                      className="w-full bg-[#F9FAFB] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors"
+                    />
+                  </div>
 
-    const subtitle = isCandidate
-      ? "We seek roles as individual as you are. Speak to us today about finding your next opportunity."
-      : isClient
-        ? "We believe exceptional people can make a huge impact. Speak to us today about finding the right talent."
-        : "Drop us a message and we'll get back to you as soon as possible.";
+                  <div>
+                    <label className="block text-xs font-semibold text-[#1A1A1A] mb-1.5">
+                      Last Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      required
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      placeholder="Doe"
+                      className="w-full bg-[#F9FAFB] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors"
+                    />
+                  </div>
+                </div>
 
-    if (submitted) {
-      return (
-        <div className="max-w-xl flex flex-col items-center text-center py-16">
-          <CheckCircle2 size={60} className="text-green-500 mb-6" />
-          <h3 className="text-2xl font-bold text-[#1A1A1A] mb-3">Message Received!</h3>
-          <p className="text-gray-500 text-sm mb-8">Our team will be in touch within 24 hours.</p>
-          <button
-            onClick={() => {
-              setStep(0); setSubmitted(false);
-              setRegion(null); setEnquiryType(null); setFileName(null); setFileObj(null);
-              setFormData({ firstName: '', lastName: '', email: '', phone: '', organisation: '', message: '' });
-            }}
-            className="text-sm text-[#7A1F5C] font-semibold hover:underline"
-          >
-            Start over →
-          </button>
-        </div>
-      );
-    }
+                {/* Contact Info Fields */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-semibold text-[#1A1A1A] mb-1.5">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="john@company.com"
+                      className="w-full bg-[#F9FAFB] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors"
+                    />
+                  </div>
 
-    return (
-      <div className="max-w-2xl w-full">
-        {/* Title block above the card */}
-        <div className="mb-5">
-          <h2 className="text-xl font-bold text-[#1A1A1A] mb-1">{title}</h2>
-          <p className="text-sm text-gray-500">{subtitle}</p>
-        </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-[#1A1A1A] mb-1.5">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+44 20 1234 5678"
+                      className="w-full bg-[#F9FAFB] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors"
+                    />
+                  </div>
+                </div>
 
-        {/* Form card - white bg, triangle accents */}
-        <div className="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-
-          {/* Top-right rose triangle */}
-          <div
-            className="absolute top-0 right-0 w-0 h-0 z-0"
-            style={{
-              borderLeft: '80px solid transparent',
-              borderTop: '80px solid #C2185B',
-            }}
-          />
-          {/* Bottom-right plum triangle */}
-          <div
-            className="absolute bottom-0 right-0 w-0 h-0 z-0"
-            style={{
-              borderLeft: '80px solid transparent',
-              borderBottom: '80px solid #7A1F5C',
-            }}
-          />
-
-          <div className="relative z-10 p-8 md:p-10">
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-6"
-            >
-              {/* Row 1 */}
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[12px] font-semibold text-[#1A1A1A]">
-                    First name <span className="text-red-500">*</span>
+                {/* Organisation */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#1A1A1A] mb-1.5">
+                    Company / Organisation Name
                   </label>
                   <input
-                    required
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#0099CC] transition-colors bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[12px] font-semibold text-[#1A1A1A]">
-                    Last name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    required
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors bg-white"
-                  />
-                </div>
-              </div>
-
-              {/* Row 2 */}
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[12px] font-semibold text-[#1A1A1A]">
-                    Email <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[12px] font-semibold text-[#1A1A1A]">Phone Number</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors bg-white"
-                  />
-                </div>
-              </div>
-
-              {/* Organisation (clients only) */}
-              {isClient && (
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[12px] font-semibold text-[#1A1A1A]">
-                    Organisation <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    required
+                    type="text"
                     name="organisation"
                     value={formData.organisation}
                     onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors bg-white"
+                    placeholder="Chalky InfoTech Ltd"
+                    className="w-full bg-[#F9FAFB] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors"
                   />
                 </div>
-              )}
 
-              {/* File upload (candidates) */}
-              {isCandidate && (
-                <div className="space-y-2">
-                  {/* Uploaded bar */}
-                  <div className="flex items-center justify-between bg-[#F3F5F7] rounded-lg px-4 py-3 border border-gray-100">
-                    <span className="text-sm text-[#1A1A1A]">
-                      <span className="font-semibold">Uploaded:</span>{' '}
-                      <span className="text-gray-500">{fileName ?? 'No file selected'}</span>
-                    </span>
-                    {fileName && (
-                      <button
-                        type="button"
-                        onClick={clearFile}
-                        className="w-8 h-8 flex items-center justify-center bg-[#7A1F5C] text-white rounded-full hover:bg-[#C2185B] transition-colors ml-3 flex-shrink-0"
-                      >
-                        <Trash2 size={13} />
-                      </button>
-                    )}
-                  </div>
-                  {/* Resume button */}
-                  <div className="relative inline-block cursor-pointer">
-                    <input
-                      ref={fileRef}
-                      type="file"
-                      accept=".pdf,.doc,.docx,.txt"
-                      onChange={handleFile}
-                      className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
-                    />
-                    <div className="inline-flex items-center gap-2 border border-gray-300 rounded-full px-5 py-2 text-sm font-semibold text-[#1A1A1A] bg-white hover:bg-gray-50 transition-colors">
-                      Resume <Upload size={14} />
+                {/* File Upload (Optional / Candidate) */}
+                {enquiryType === 'candidate' && (
+                  <div className="space-y-2 pt-1">
+                    <label className="block text-xs font-semibold text-[#1A1A1A]">
+                      Attach CV / Resume (Optional)
+                    </label>
+                    <div className="flex items-center justify-between bg-[#F9FAFB] rounded-xl px-4 py-3 border border-gray-200">
+                      <span className="text-xs text-gray-600 truncate max-w-[220px]">
+                        {fileName ? fileName : 'No file selected (.pdf, .doc, .docx)'}
+                      </span>
+                      {fileName ? (
+                        <button
+                          type="button"
+                          onClick={clearFile}
+                          className="w-7 h-7 flex items-center justify-center bg-[#7A1F5C] text-white rounded-full hover:bg-[#C2185B] transition-colors"
+                        >
+                          <Trash2 size={12} />
+                        </button>
+                      ) : (
+                        <div className="relative cursor-pointer">
+                          <input
+                            ref={fileRef}
+                            type="file"
+                            accept=".pdf,.doc,.docx,.txt"
+                            onChange={handleFile}
+                            className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+                          />
+                          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-300 text-xs font-semibold text-[#1A1A1A] hover:bg-gray-50">
+                            Browse <Upload size={12} />
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
+                )}
+
+                {/* Message */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#1A1A1A] mb-1.5">
+                    Your Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell us about your requirements or inquiry details..."
+                    className="w-full bg-[#F9FAFB] border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors resize-none"
+                  />
                 </div>
-              )}
 
-              {/* Message */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[12px] font-semibold text-[#1A1A1A]">
-                  Your message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  required
-                  rows={5}
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full border border-gray-200 rounded-md px-3 py-2.5 text-sm text-[#1A1A1A] focus:outline-none focus:border-[#7A1F5C] transition-colors resize-none bg-white"
-                />
-              </div>
+                {/* Submit Action */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#7A1F5C] text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-[#5E1847] transition-all duration-300 shadow-lg shadow-[#7A1F5C]/20 disabled:opacity-70 cursor-pointer"
+                  >
+                    {isSubmitting ? 'Sending Request...' : 'Submit Message'}
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
 
-              {/* Submit row */}
-              <div className="flex items-center gap-5 pt-1">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex items-center gap-3 bg-[#7A1F5C] text-white px-7 py-3 rounded-xl font-bold text-sm hover:bg-[#C2185B] transition-colors duration-300 disabled:opacity-70"
-                >
-                  {isSubmitting ? 'Sending...' : 'Submit'}
-                  <span className="w-6 h-6 flex items-center justify-center bg-white/20 rounded-full">
-                    <ArrowRight size={13} />
-                  </span>
-                </button>
-                <button
-                  type="button"
-                  onClick={goBack}
-                  className="inline-flex items-center gap-2 text-gray-400 hover:text-[#1A1A1A] text-sm transition-colors"
-                >
-                  <ArrowLeft size={13} /> Back
-                </button>
-              </div>
+                <p className="text-[11px] text-gray-400 pt-2">
+                  By submitting this form, you agree to our{' '}
+                  <Link href="/privacy-policy" className="underline hover:text-[#7A1F5C]">Privacy Policy</Link> and{' '}
+                  <Link href="/terms-conditions" className="underline hover:text-[#7A1F5C]">Terms of Service</Link>.
+                </p>
 
-              <p className="text-[10px] text-gray-400 leading-relaxed">
-                This site is protected by reCAPTCHA and the Google{' '}
-                <Link href="/privacy-policy" className="underline hover:text-[#7A1F5C]">Privacy Policy</Link> and{' '}
-                <Link href="/terms-conditions" className="underline hover:text-[#7A1F5C]">Terms of Service</Link> apply.
-              </p>
-            </form>
+              </form>
+            )}
+
           </div>
+
+          {/* Right Column Image & Contact Info Cards */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center space-y-6">
+            <div className="w-full relative h-[320px] sm:h-[380px] flex items-center justify-center">
+              <Image
+                src={formsideimage}
+                alt="Contact Chalky InfoTech"
+                fill
+                className="object-contain object-center"
+                priority
+              />
+            </div>
+
+            {/* Direct Contact Info Showcase */}
+            <div className="w-full bg-[#FAF5FF] border border-[#7A1F5C]/15 rounded-2xl p-5 space-y-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#7A1F5C] flex items-center gap-2">
+                <Building2 size={14} /> Direct Contacts & Support
+              </h4>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                {/* Emails */}
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">General Desk</span>
+                    <a href="mailto:info@chalkyinfo.com" className="text-[#1A1A1A] font-bold hover:text-[#7A1F5C] transition-colors flex items-center gap-1.5 mt-0.5">
+                      <MailIcon size={12} className="text-[#7A1F5C]" /> info@chalkyinfo.com
+                    </a>
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Careers Desk</span>
+                    <a href="mailto:career@chalkyinfo.com" className="text-[#1A1A1A] font-bold hover:text-[#7A1F5C] transition-colors flex items-center gap-1.5 mt-0.5">
+                      <MailIcon size={12} className="text-[#7A1F5C]" /> career@chalkyinfo.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Phones */}
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">India Office</span>
+                    <a href="tel:+918072357581" className="text-[#1A1A1A] font-bold hover:text-[#7A1F5C] transition-colors flex items-center gap-1.5 mt-0.5">
+                      <PhoneIcon size={12} className="text-[#7A1F5C]" /> +91 80723 57581
+                    </a>
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">UK Office</span>
+                    <a href="tel:+447503140975" className="text-[#1A1A1A] font-bold hover:text-[#7A1F5C] transition-colors flex items-center gap-1.5 mt-0.5">
+                      <PhoneIcon size={12} className="text-[#7A1F5C]" /> +44 7503 140975
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
-    );
-  };
 
-  const steps = [
-    StepWelcome(),
-    StepRegion(),
-    StepEnquiry(),
-    StepContactForm(),
-  ];
-
-  return (
-    <section className="bg-white relative overflow-hidden flex flex-col lg:flex-row lg:min-h-[850px]">
-      {/* Left side: Form Wizard */}
-      <div className="w-full lg:w-[70%] py-24 px-4 sm:px-6 lg:pl-12 lg:pr-16 xl:pl-24 flex flex-col justify-center relative z-10">
-        <div className="max-w-3xl w-full mx-auto lg:ml-auto lg:mr-0 xl:mx-auto min-h-[600px] flex flex-col justify-center">
-          <StepIndicator current={step} total={TOTAL} />
-
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={step}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.32, ease: 'easeInOut' }}
-              className="w-full"
-            >
-              {steps[step]}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-
-      {/* Right side: Edge-to-edge image */}
-      <div className="hidden lg:block lg:w-[30%] relative">
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
-          <Image
-            src={formsideimage}
-            alt="Contact Chalky Infotech"
-            fill
-            className="object-contain object-center"
-            priority
-          />
-        </div>
       </div>
     </section>
   );
