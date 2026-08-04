@@ -73,7 +73,7 @@ export default function JobsPage() {
     <div className="flex flex-col min-h-screen">
       <JobsHero />
       
-      <AnchorJumpLinks links={JOBS_JUMP_LINKS} />
+      {/* <AnchorJumpLinks links={JOBS_JUMP_LINKS} /> */}
 
       <div id="board">
         <JobBoard />

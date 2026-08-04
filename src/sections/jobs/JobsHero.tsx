@@ -63,7 +63,7 @@ export default function JobsHero() {
             <Link href="#search" className="group flex items-center justify-center gap-2 bg-[#7A1F5C] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-sm sm:text-base shadow-xl hover:shadow-[#7A1F5C]/40 hover:scale-105 transition-all duration-300">
               <Search size={20} className="group-hover:-translate-y-0.5 transition-transform" /> Search Jobs
             </Link>
-            <Link href="/contact" className="flex items-center justify-center gap-2 bg-[#F5F0E8] text-[#1A1A1A] px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-sm sm:text-base hover:bg-white transition-all duration-300 border border-[#EFE7DD] shadow-sm group">
+            <Link href="#cv-upload" className="flex items-center justify-center gap-2 bg-[#F5F0E8] text-[#1A1A1A] px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-sm sm:text-base hover:bg-white transition-all duration-300 border border-[#EFE7DD] shadow-sm group">
               Upload Resume <ArrowUpRight size={20} className="text-[#7A1F5C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </motion.div>

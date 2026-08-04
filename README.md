@@ -145,7 +145,7 @@ The platform utilizes a structured, category-based messaging pipeline to route a
 
 ### Destination Environment Config (`.env`)
 ```env
-NEXT_PUBLIC_FORM_SUBMIT_EMAIL=Sagadevan.S@devopstrioglobal.com
+NEXT_PUBLIC_FORM_SUBMIT_EMAIL=info@chalkyinfo.com
 ```
 
 ### FormSubmit AJAX Integration (`src/services/sendmail.ts`)

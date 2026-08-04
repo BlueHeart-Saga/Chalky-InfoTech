@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 const LOGOS = [
   '/clients/c1.png', '/clients/c2.png', '/clients/c3.png', '/clients/c4.png', '/clients/c5.png',
-  '/clients/c6.jpg', '/clients/c7.png', '/clients/c8.png', '/clients/c9.png', '/clients/c10.png',
+  '/clients/c6.jpg', '/clients/c7.png', '/clients/c8.png', '/clients/c9.png',
   '/clients/ct1.png', '/clients/ct2.png', '/clients/ct3.png'
 ];
 

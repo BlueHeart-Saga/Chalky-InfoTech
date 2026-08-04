@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Plus, 
@@ -32,7 +32,7 @@ const CATEGORY_ICONS: Record<string, any> = {
 
 export default function TermsConditionsPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>(TERMS_CONDITIONS_DATA[0].category);
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
 
   const filteredData = useMemo(() => {
@@ -54,6 +54,24 @@ export default function TermsConditionsPage() {
       [key]: !prev[key]
     }));
   };
+
+  // Update active tab on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveCategory(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-50% 0px -50% 0px' }
+    );
+    const sections = document.querySelectorAll<HTMLElement>('[id]');
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
 
   return (
     <div className="min-h-screen bg-[#F5F0E8]">

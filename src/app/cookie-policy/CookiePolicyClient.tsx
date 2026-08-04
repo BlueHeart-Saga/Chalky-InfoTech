@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Plus, 
@@ -32,7 +32,7 @@ const CATEGORY_ICONS: Record<string, any> = {
 
 export default function CookiePolicyPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>(COOKIE_POLICY_DATA[0].category);
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
 
   const filteredData = useMemo(() => {
@@ -54,7 +54,27 @@ export default function CookiePolicyPage() {
       [key]: !prev[key]
     }));
   };
+  // Update active tab based on scroll position
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const category = id.replace(/-/g, ' ');
+            setActiveCategory(category);
+          }
+        });
+      },
+      { rootMargin: '-50% 0px -50% 0px', threshold: 0 }
+    );
 
+    // Observe each category section
+    const sections = document.querySelectorAll('[id]');
+    sections.forEach(section => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <div className="min-h-screen bg-[#F5F0E8]">
       {/* Hero Section */}
