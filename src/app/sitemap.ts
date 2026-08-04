@@ -60,14 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
 
-  if (jobRoutes.length === 0) {
-    jobRoutes.push({
-      url: `${base}/jobs/it-staffing`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    });
-  }
+
 
   const categoryRoutes: MetadataRoute.Sitemap = [];
   const insightRoutes: MetadataRoute.Sitemap = [];

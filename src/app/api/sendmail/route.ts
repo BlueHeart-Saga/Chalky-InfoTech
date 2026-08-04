@@ -7,6 +7,15 @@ export async function POST(req: Request) {
   try {
     const data = await req.json();
 
+    // Validate SMTP credentials are present (must be set as env vars on the server)
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('SMTP_USER or SMTP_PASS environment variables are not set on this server.');
+      return NextResponse.json(
+        { success: false, message: 'Email service is not configured. Please contact the site administrator.' },
+        { status: 500 }
+      );
+    }
+
     const port = Number(process.env.SMTP_PORT) || 587;
     const secure = port === 465;
 
