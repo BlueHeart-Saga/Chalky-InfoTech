@@ -66,7 +66,7 @@ export const COOKIE_POLICY_DATA: LegalCategory[] = [
       { q: "How do you handle 'GPC' (Global Privacy Control)?", a: "We are currently implementing systems to recognize GPC signals for automated opt-out." },
       { q: "Do you use cookies for child-targeted content?", a: "No, our services are for professionals and we do not knowingly target children or use cookies on child-focused content." },
       { q: "Is your cookie banner available in other languages?", a: "We can provide translated versions upon request for our global candidates." },
-      { q: "Who can I contact about this policy?", a: "Our legal team is available at legal@chalkyinfotech.com for any specific compliance queries." }
+      { q: "Who can I contact about this policy?", a: "Our legal team is available at info@chalkyinfo.com for any specific compliance queries." }
     ]
   },
 ];
@@ -139,7 +139,7 @@ export const GDPR_COMPLIANCE_DATA: LegalCategory[] = [
       { q: "What is the Right to Erasure?", a: "Also known as the 'Right to be Forgotten,' you can request that we delete your data when it is no longer needed." },
       { q: "Can I object to data processing?", a: "Yes, you have the right to object to processing based on legitimate interests or for direct marketing purposes." },
       { q: "What is Data Portability?", a: "The right to receive your data in a structured, commonly used, and machine-readable format to move it to another service." },
-      { q: "Who can I contact about this policy?", a: "Our legal team is available at legal@chalkyinfotech.com for any specific compliance queries." }
+      { q: "Who can I contact about this policy?", a: "Our legal team is available at info@chalkyinfo.com for any specific compliance queries." }
     ]
   },
 ];
@@ -179,7 +179,7 @@ export const PRIVACY_POLICY_DATA: LegalCategory[] = [
     category: "Technical Security Architecture",
     items: [
       { q: "What encryption standards do you use?", a: "We use AES-256 for data at rest and TLS 1.2+ for data in transit across all our platforms." },
-      { q: "Do you have a vulnerability disclosure policy?", a: "Yes, we encourage responsible disclosure of any security concerns via our security@chalkyinfotech.com alias." },
+      { q: "Do you have a vulnerability disclosure policy?", a: "Yes, we encourage responsible disclosure of any security concerns via our info@chalkyinfo.com alias." },
       { q: "Is your infrastructure cloud-native?", a: "Yes, we leverage AWS and Azure's global secure infrastructure for all our data processing needs." },
       { q: "Do you use Multi-Factor Authentication (MFA)?", a: "MFA is mandatory for every employee and partner accessing our internal systems." },
       { q: "How do you prevent SQL injection and XSS?", a: "We use modern frameworks with built-in sanitization and perform regular automated security scans." },
@@ -230,7 +230,7 @@ export const TERMS_CONDITIONS_DATA: LegalCategory[] = [
       { q: "What are 'Prohibited Uses'?", a: "Illegal activity, hacking, scraping, spamming, and uploading harmful code are strictly prohibited." },
       { q: "Can I use the data on the site for my own business?", a: "No, all data on our site is proprietary and intended only for recruitment purposes." },
       { q: "Is the website always available?", a: "We aim for 99.9% uptime but do not guarantee uninterrupted access due to maintenance or external factors." },
-      { q: "What happens if I find a bug on the site?", a: "Please report it to our IT team at support@chalkyinfotech.com. We do not offer bug bounties unless specified." },
+      { q: "What happens if I find a bug on the site?", a: "Please report it to our IT team at info@chalkyinfo.com. We do not offer bug bounties unless specified." },
       { q: "Can I link to your website?", a: "Yes, provided the link is fair, legal, and does not damage our reputation or suggest a false endorsement." },
       { q: "Do you use automated systems to monitor usage?", a: "Yes, we monitor usage patterns to ensure security and optimize performance." },
       { q: "What is the 'User Account' responsibility?", a: "You are responsible for maintaining the confidentiality of your account credentials." },
@@ -279,7 +279,7 @@ export const TERMS_CONDITIONS_DATA: LegalCategory[] = [
       { q: "Who pays for legal costs?", a: "The losing party is typically responsible for the reasonable legal costs of the prevailing party." },
       { q: "What is the 'Waiver' clause?", a: "A failure to enforce any part of these terms does not constitute a waiver of our right to enforce them later." },
       { q: "Are these terms available in other languages?", a: "The English version of these terms is the legally definitive version." },
-      { q: "How do I report a legal concern?", a: "Please contact our legal department directly at legal@chalkyinfotech.com." },
+      { q: "How do I report a legal concern?", a: "Please contact our legal department directly at info@chalkyinfo.com." },
       { q: "When was the last update?", a: "The 'Last Updated' date is clearly displayed at the bottom of the Terms & Conditions page." }
     ]
   },

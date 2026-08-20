@@ -381,7 +381,7 @@ export default function ModernSlaveryStatement() {
               <a href="/contact" className="bg-[#7A1F5C] px-8 py-4 rounded-full font-bold hover:bg-[#9D2877] transition-all flex items-center gap-2">
                 Contact Compliance <ChevronRight size={18} />
               </a>
-              <a href="mailto:compliance@chalkyinfotech.com" className="bg-white/10 px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all border border-white/10">
+              <a href="mailto:info@chalkyinfo.com" className="bg-white/10 px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all border border-white/10">
                 Email Compliance Team
               </a>
               <div className="md:hidden mt-2">

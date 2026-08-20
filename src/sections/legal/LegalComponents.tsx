@@ -182,7 +182,7 @@ export function LegalContactCard({
           <p className="text-[#8A8A8A] font-medium max-w-lg">{description}</p>
         </div>
         <div className="flex flex-col gap-3 w-full md:w-auto">
-          <a href="mailto:compliance@chalkyinfotech.com" className="bg-[#7A1F5C] text-white px-8 py-3 rounded-xl font-bold text-center hover:bg-[#C2185B] transition-all shadow-lg shadow-[#7A1F5C]/20">
+          <a href="mailto:info@chalkyinfo.com" className="bg-[#7A1F5C] text-white px-8 py-3 rounded-xl font-bold text-center hover:bg-[#C2185B] transition-all shadow-lg shadow-[#7A1F5C]/20">
             Email Compliance
           </a>
           <Link href="/contact" className="bg-white text-[#1A1A1A] border border-[#EFE7DD] px-8 py-3 rounded-xl font-bold text-center hover:bg-[#F5F0E8] transition-all">

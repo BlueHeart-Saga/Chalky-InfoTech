@@ -269,7 +269,7 @@ export default function FAQsPage() {
                   <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a 
-                  href="mailto:info@chalkyinfotech.com" 
+                  href="mailto:info@chalkyinfo.com" 
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-bold transition-all border border-white/10"
                 >
                   Email Us Directly

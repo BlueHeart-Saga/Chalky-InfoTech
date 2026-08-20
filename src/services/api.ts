@@ -317,6 +317,7 @@ class ApiService {
       likes: backendContent.stats?.likes || 0,
       comments: backendContent.stats?.comments || 0,
       featured: backendContent.settings?.is_featured || false,
+      rawBlocks: backendContent.blocks || [],
     };
   }
 

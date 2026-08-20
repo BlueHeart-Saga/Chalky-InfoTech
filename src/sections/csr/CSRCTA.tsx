@@ -117,11 +117,11 @@ export default function CSRCTA() {
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="mailto:csr@chalkyinfotech.co.uk"
+                href="mailto:info@chalkyinfo.com"
                 className="group inline-flex items-center justify-center gap-3 text-white/70 hover:text-white text-sm font-semibold transition-colors duration-300"
               >
                 <Mail size={15} />
-                csr@chalkyinfotech.co.uk
+                info@chalkyinfo.com
               </Link>
             </div>
           </div>

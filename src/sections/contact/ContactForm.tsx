@@ -435,8 +435,8 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Careers Desk</span>
-                    <a href="mailto:career@chalkyinfo.com" className="text-[#1A1A1A] font-bold hover:text-[#7A1F5C] transition-colors flex items-center gap-1.5 mt-0.5">
-                      <MailIcon size={12} className="text-[#7A1F5C]" /> career@chalkyinfo.com
+                    <a href="mailto:talent@chalkyinfo.com" className="text-[#1A1A1A] font-bold hover:text-[#7A1F5C] transition-colors flex items-center gap-1.5 mt-0.5">
+                      <MailIcon size={12} className="text-[#7A1F5C]" /> talent@chalkyinfo.com
                     </a>
                   </div>
                 </div>
