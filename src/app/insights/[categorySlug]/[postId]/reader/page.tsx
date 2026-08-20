@@ -16,7 +16,9 @@ interface ReaderPageProps {
   }>;
 }
 
-export default function InsightsDocumentReaderPage({ params }: ReaderPageProps) {
+import { Suspense } from 'react';
+
+function InsightsDocumentReaderContent({ params }: ReaderPageProps) {
   const resolvedParams = React.use(params);
   const categorySlug = resolvedParams.categorySlug;
   const postId = resolvedParams.postId;
@@ -172,5 +174,20 @@ export default function InsightsDocumentReaderPage({ params }: ReaderPageProps) 
         )}
       </div>
     </main>
+  );
+}
+
+export default function InsightsDocumentReaderPage({ params }: ReaderPageProps) {
+  return (
+    <Suspense
+      fallback={
+        <div className="fixed inset-0 z-50 bg-[#0D0D0D] flex flex-col items-center justify-center text-white">
+          <div className="w-8 h-8 rounded-full border-2 border-white/10 border-t-[#7A1F5C] animate-spin mb-4" />
+          <span className="text-xs font-mono uppercase tracking-widest text-purple-300">Loading Reader...</span>
+        </div>
+      }
+    >
+      <InsightsDocumentReaderContent params={params} />
+    </Suspense>
   );
 }

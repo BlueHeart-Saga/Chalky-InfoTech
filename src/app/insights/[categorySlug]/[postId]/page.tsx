@@ -1,23 +1,24 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
+import { unstable_cache } from 'next/cache';
 import api from '@/services/api';
 import { buildPageMetadataWithImage } from '@/lib/seo-images';
 import InsightDetailClient from '@/sections/insights/InsightDetailClient';
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  'https://mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net';
+const getCachedPost = (postId: string) =>
+  unstable_cache(
+    async () => await api.getContentById(postId),
+    ['post-detail', postId],
+    { revalidate: 60, tags: [`post-${postId}`] }
+  )();
 
-// Next.js 16 high-performance Component Caching helpers
-async function getCachedPost(postId: string) {
-  'use cache';
-  return await api.getContentById(postId);
-}
-
-async function getCachedSectionPosts(sectionSlug: string) {
-  'use cache';
-  return await api.getSectionPosts(sectionSlug, 4);
-}
+const getCachedSectionPosts = (sectionSlug: string) =>
+  unstable_cache(
+    async () => await api.getSectionPosts(sectionSlug, 4),
+    ['section-posts', sectionSlug],
+    { revalidate: 60, tags: [`section-${sectionSlug}`] }
+  )();
 
 type Props = {
   params: Promise<{ categorySlug: string; postId: string }>;
@@ -115,5 +116,15 @@ async function InsightDetailPageContent({
 }
 
 export default function InsightDetailPage({ params }: Props) {
-  return <InsightDetailPageContent params={params} />;
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-white py-24 flex justify-center items-center">
+          <div className="w-10 h-10 border-4 border-[#7A1F5C]/20 border-t-[#7A1F5C] rounded-full animate-spin" />
+        </div>
+      }
+    >
+      <InsightDetailPageContent params={params} />
+    </Suspense>
+  );
 }

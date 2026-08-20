@@ -55,16 +55,23 @@ type Props = {
   params: Promise<{ categorySlug: string }>;
 };
 
-// Next.js 16 high-performance Component Caching helpers
-async function getCachedSiteStructure() {
-  "use cache";
-  return await api.getFullSiteStructure().catch(() => []);
-}
+import { Suspense } from 'react';
+import { unstable_cache } from 'next/cache';
 
-async function getCachedAllPosts() {
-  "use cache";
-  return await api.getAllPosts().catch(() => []);
-}
+// Next.js 16 high-performance async fetch helpers
+const getCachedSiteStructure = () =>
+  unstable_cache(
+    async () => await api.getFullSiteStructure().catch(() => []),
+    ['site-structure'],
+    { revalidate: 300 }
+  )();
+
+const getCachedAllPosts = () =>
+  unstable_cache(
+    async () => await api.getAllPosts().catch(() => []),
+    ['all-posts'],
+    { revalidate: 60 }
+  )();
 
 export async function generateStaticParams() {
   try {
@@ -263,5 +270,15 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
 }
 
 export default function CategoryPage({ params }: Props) {
-  return <CategoryPageContent params={params} />;
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-white py-24 flex justify-center items-center">
+          <div className="w-10 h-10 border-4 border-[#7A1F5C]/20 border-t-[#7A1F5C] rounded-full animate-spin" />
+        </div>
+      }
+    >
+      <CategoryPageContent params={params} />
+    </Suspense>
+  );
 }

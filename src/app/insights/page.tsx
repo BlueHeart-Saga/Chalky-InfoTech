@@ -21,18 +21,25 @@ export const metadata = buildPageMetadataWithImage({
   alt: SEO_IMAGE_CONFIG.insights.alt
 });
 
-// Next.js 16 high-performance Component Caching helpers
-async function getCachedSiteStructure() {
-  "use cache";
-  return await api.getFullSiteStructure().catch(() => []);
-}
+import { Suspense } from 'react';
+import { unstable_cache } from 'next/cache';
 
-async function getCachedAllPosts() {
-  "use cache";
-  return await api.getAllPosts(150).catch(() => []);
-}
+// Next.js 16 high-performance async fetch helpers
+const getCachedSiteStructure = () =>
+  unstable_cache(
+    async () => await api.getFullSiteStructure().catch(() => []),
+    ['site-structure'],
+    { revalidate: 300 }
+  )();
 
-export default async function InsightsPage() {
+const getCachedAllPosts = () =>
+  unstable_cache(
+    async () => await api.getAllPosts(150).catch(() => []),
+    ['all-posts-150'],
+    { revalidate: 60 }
+  )();
+
+async function InsightsPageContent() {
   const posts = await getCachedAllPosts();
   const siteStructure = await getCachedSiteStructure();
 
@@ -193,5 +200,19 @@ export default async function InsightsPage() {
         />
       </section>
     </div>
+  );
+}
+
+export default function InsightsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-white py-24 flex justify-center items-center">
+          <div className="w-10 h-10 border-4 border-[#7A1F5C]/20 border-t-[#7A1F5C] rounded-full animate-spin" />
+        </div>
+      }
+    >
+      <InsightsPageContent />
+    </Suspense>
   );
 }
