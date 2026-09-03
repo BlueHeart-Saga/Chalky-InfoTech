@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as LucideIcons from 'lucide-react';
+import { getPostSlug } from '@/lib/seo-slug';
 
 interface Post {
   id: string;
@@ -92,7 +93,7 @@ export default function RecentArticles({ posts, displayFeatured, loading }: Prop
             </div>
 
             <Link 
-              href={`/insights/${post.category?.slug}/${post.id}`}
+              href={`/insights/${post.category?.slug}/${getPostSlug(post)}`}
               className="inline-flex items-center gap-1.5 text-xs font-black text-[#7A1F5C] uppercase tracking-wider w-fit group/link pt-2 border-b border-transparent hover:border-[#7A1F5C] transition-all"
             >
               Read Post <LucideIcons.ArrowRight size={14} className="group-hover/link:translate-x-0.5 transition-transform" />

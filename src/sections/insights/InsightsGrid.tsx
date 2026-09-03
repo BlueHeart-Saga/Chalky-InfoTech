@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock, ArrowRight, Activity } from 'lucide-react';
 import api from '@/services/api';
+import { getPostSlug } from '@/lib/seo-slug';
 
 export default function InsightsGrid({ categorySlug }: { categorySlug?: string }) {
   const [posts, setPosts] = useState<any[]>([]);
@@ -99,7 +100,7 @@ export default function InsightsGrid({ categorySlug }: { categorySlug?: string }
                 </p>
 
                 <Link 
-                  href={`/insights/${post.category?.slug}/${post.id}`}
+                  href={`/insights/${post.category?.slug}/${getPostSlug(post)}`}
                   className="inline-flex items-center gap-2 text-sm font-bold text-[#7A1F5C] group/link"
                 >
                   Read Full Post 

@@ -86,14 +86,14 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20 translate-y-[1px]">
         <svg className="relative block w-full h-[60px] sm:h-[120px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           {/* Main Solid Wave */}
-          <path d="M0,120 C150,90 350,10 550,30 C750,50 950,100 1200,60 L1200,120 Z" fill="#ffffff"></path>
+          <path d="M0,120 C150,90 350,10 550,30 C750,50 950,100 1200,60 L1200,120 Z" fill="#FDFCF6"></path>
 
           {/* Brush Stroke Effects */}
-          <path d="M50,110 C200,80 300,20 450,25" fill="none" stroke="#ffffff" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
-          <path d="M480,30 C600,45 800,90 1000,70" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="15 8" opacity="0.6" />
-          <path d="M850,85 C950,100 1050,110 1150,85" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" opacity="0.9" />
-          <path d="M150,95 C250,60 350,20 450,25" fill="none" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="6 12" opacity="0.7" />
-          <path d="M1020,70 C1080,60 1140,55 1200,50" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+          <path d="M50,110 C200,80 300,20 450,25" fill="none" stroke="#FDFCF6" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+          <path d="M480,30 C600,45 800,90 1000,70" fill="none" stroke="#FDFCF6" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="15 8" opacity="0.6" />
+          <path d="M850,85 C950,100 1050,110 1150,85" fill="none" stroke="#FDFCF6" strokeWidth="3" strokeLinecap="round" opacity="0.9" />
+          <path d="M150,95 C250,60 350,20 450,25" fill="none" stroke="#FDFCF6" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="6 12" opacity="0.7" />
+          <path d="M1020,70 C1080,60 1140,55 1200,50" fill="none" stroke="#FDFCF6" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
         </svg>
       </div>
     </section>

@@ -1,9 +1,10 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { unstable_cache } from 'next/cache';
 import api from '@/services/api';
 import { buildPageMetadataWithImage } from '@/lib/seo-images';
+import { extractPostId, getPostSlug } from '@/lib/seo-slug';
 import InsightDetailClient from '@/sections/insights/InsightDetailClient';
 
 const getCachedPost = (postId: string) =>
@@ -27,25 +28,34 @@ type Props = {
 export async function generateStaticParams() {
   try {
     const posts = await api.getAllPosts();
-    return posts
-      .filter((post: any) => post.category?.slug)
-      .map((post: any) => ({
-        categorySlug: post.category.slug,
-        postId: post.id,
-      }));
+    const staticParams: { categorySlug: string; postId: string }[] = [];
+
+    posts.slice(0, 10).forEach((post: any) => {
+      if (post.category?.slug) {
+        staticParams.push({
+          categorySlug: post.category.slug,
+          postId: getPostSlug(post),
+        });
+      }
+    });
+
+    return staticParams;
   } catch (err) {
     return [];
   }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { categorySlug, postId } = await params;
+  const { categorySlug, postId: rawParam } = await params;
+  const realPostId = extractPostId(rawParam);
+
   try {
-    const response = await getCachedPost(postId);
+    const response = await getCachedPost(realPostId);
     const backendPost = response?.item;
     if (!backendPost) return { title: 'Post Not Found' };
 
     const post = api.transformContent(backendPost);
+    const seoSlug = getPostSlug(post);
 
     const fullTitle = `${post.title} | Chalky`;
     const finalTitle =
@@ -61,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         post.excerpt ||
         'Expert perspective on strategic developments, hiring frameworks, and corporate transitions.',
       keywords: [post.category?.name || 'insights', 'trends', 'recruitment', 'Chalky Infotech'],
-      url: `/insights/${categorySlug}/${postId}`,
+      url: `/insights/${categorySlug}/${seoSlug}`,
       path: post.image || '/og-image.png',
       alt: post.title,
     });
@@ -69,7 +79,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: 'Post Not Found',
       alternates: {
-        canonical: `/insights/${categorySlug}/${postId}`,
+        canonical: `/insights/${categorySlug}/${rawParam}`,
       },
     };
   }
@@ -80,21 +90,28 @@ async function InsightDetailPageContent({
 }: {
   params: Promise<{ categorySlug: string; postId: string }>;
 }) {
-  const { categorySlug, postId } = await params;
+  const { categorySlug, postId: rawParam } = await params;
+  const realPostId = extractPostId(rawParam);
   let post: any = null;
   let relatedPosts: any[] = [];
   let blocks: any[] = [];
 
   try {
-    const response = await getCachedPost(postId);
+    const response = await getCachedPost(realPostId);
     const backendPost = response?.item;
     if (backendPost) {
       post = api.transformContent(backendPost);
       blocks = backendPost.blocks || [];
 
+      // Check if user requested raw 24-character hex ID, and 301 redirect to SEO keyword URL
+      const seoSlug = getPostSlug(post);
+      if (/^[a-fA-F0-9]{24}$/.test(rawParam) && seoSlug !== rawParam) {
+        redirect(`/insights/${categorySlug}/${seoSlug}`, 'permanent' as any);
+      }
+
       // Fetch some related posts from the same section
       const sectionPosts = await getCachedSectionPosts(backendPost.section_slug || 'insights');
-      relatedPosts = sectionPosts.filter((p: any) => p.id !== postId).slice(0, 3);
+      relatedPosts = sectionPosts.filter((p: any) => p.id !== realPostId).slice(0, 3);
     }
   } catch (err) {
     console.error(err);
@@ -110,7 +127,7 @@ async function InsightDetailPageContent({
       blocks={blocks}
       relatedPosts={relatedPosts}
       categorySlug={categorySlug}
-      postId={postId}
+      postId={realPostId}
     />
   );
 }

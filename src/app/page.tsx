@@ -1,6 +1,8 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import SectionNavbar from '@/components/SectionNavbar';
 import Hero from '@/sections/home/Hero';
+import OurCapabilities from '@/sections/home/OurCapabilities';
 import TrustedCompanies from '@/sections/home/TrustedCompanies';
 import CompanyOverview from '@/sections/home/CompanyOverview';
 import ServicesSection from '@/sections/home/ServicesSection';
@@ -54,11 +56,13 @@ export default function HomePage() {
   const sections = [
     { label: 'Top', id: 'hero' },
     { label: 'About', id: 'about' },
+    { label: 'Capabilities', id: 'capabilities' },
     { label: 'Services', id: 'services' },
     { label: 'Industries', id: 'industries' },
     { label: 'Process', id: 'process' },
     { label: 'HR Platform', id: 'humanex' },
     { label: 'Testimonials', id: 'testimonials' },
+    { label: 'Clients', id: 'clients' },
     { label: 'CSR', id: 'csr' },
     { label: 'FAQ', id: 'faq' },
     { label: 'Contact', id: 'contact' }
@@ -72,12 +76,12 @@ export default function HomePage() {
         <Hero />
       </section>
 
-      <section id="clients">
-        <TrustedCompanies />
-      </section>
-
       <section id="about">
         <CompanyOverview />
+      </section>
+
+      <section id="capabilities">
+        <OurCapabilities />
       </section>
 
       <section id="services">
@@ -107,8 +111,14 @@ export default function HomePage() {
         <Testimonials />
       </section>
 
+      <section id="clients">
+        <TrustedCompanies />
+      </section>
+
       <section id="insights">
-        <LatestInsights />
+        <Suspense fallback={<div className="py-24 bg-[#F5F0E8] text-center text-[#8A8A8A]">Loading insights...</div>}>
+          <LatestInsights />
+        </Suspense>
       </section>
 
       <section id="csr">
@@ -120,7 +130,7 @@ export default function HomePage() {
       </section>
 
       <section id="faq">
-        <FAQSection items={HOME_FAQS} title="Frequently Asked Questions" subtitle="Learn how Chalky Infotech matches top-tier tech talent with global corporate partners." bgWhite={false} />
+        <FAQSection items={HOME_FAQS} title="Frequently Asked Questions" subtitle="Learn how Chalky Infotech matches top-tier tech talent with global corporate partners." bgWhite={true} />
       </section>
 
       <section id="contact" >

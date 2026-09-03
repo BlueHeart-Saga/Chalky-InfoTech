@@ -8,6 +8,7 @@ import CTASection from '@/components/CTASection';
 import PageHero from '@/components/PageHero';
 import EngagementHub from '@/sections/insights/EngagementHub';
 import { PdfReaderModal } from '@/components/PdfReaderModal';
+import { getPostSlug } from '@/lib/seo-slug';
 import postHeroImg from '@/assets/Insights/posthero.png';
 
 const API_BASE_URL =
@@ -408,7 +409,7 @@ export default function InsightDetailClient({
                   {relatedPosts.map((related: any) => (
                     <Link
                       key={related.id}
-                      href={`/insights/${related.category?.slug}/${related.id}`}
+                      href={`/insights/${related.category?.slug}/${getPostSlug(related)}`}
                       className="group flex gap-4 items-center"
                     >
                       <div className="relative w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-[#FAF8F5] border border-[#EFE7DD]">

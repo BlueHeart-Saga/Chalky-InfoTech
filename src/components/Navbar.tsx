@@ -92,6 +92,43 @@ const INDUSTRIES_DATA = {
   }
 };
 
+// ─── Capabilities Data ──────────────────────────────────────────────────────────
+const CAPABILITIES_NAV_DATA = {
+  intro: {
+    title: 'Capabilities',
+    desc: 'Deep domain specialization across AI & ML, software engineering, cloud, data, cybersecurity, and enterprise technologies.',
+    link: 'Explore all capabilities',
+    href: '/capabilities'
+  },
+  columns: [
+    {
+      title: 'AI & Software Engineering',
+      items: [
+        { label: 'AI & Machine Learning', desc: 'Generative AI, MLOps, LLMs, NLP, Computer Vision & Data Science talent.', href: '/capabilities/ai-machine-learning' },
+        { label: 'Software Engineering', desc: 'Full-stack, frontend, backend, mobile developers & solution architects.', href: '/capabilities/software-engineering' },
+        { label: 'Cloud & DevOps', desc: 'AWS, Azure, GCP, Kubernetes, SRE & infrastructure automation talent.', href: '/capabilities/cloud-devops' },
+        { label: 'Data & Analytics', desc: 'Data engineering, snowflake, BI developers, analytics & governance.', href: '/capabilities/data-analytics' },
+      ]
+    },
+    {
+      title: 'Enterprise & Leadership',
+      items: [
+        { label: 'Cybersecurity', desc: 'SOC analysts, Cloud Security, AppSec, IAM & DevSecOps experts.', href: '/capabilities/cybersecurity' },
+        { label: 'Enterprise Technology', desc: 'SAP S/4HANA, Salesforce, MuleSoft, ERP/CRM consultants.', href: '/capabilities/enterprise-technology' },
+        { label: 'Quality Engineering', desc: 'SDETs, test automation engineers, performance & QA leads.', href: '/capabilities/quality-engineering' },
+        { label: 'Product & Leadership', desc: 'CTOs, VP Engineering, Product Managers, Scrum Masters & Delivery leads.', href: '/capabilities/product-technology-leadership' },
+      ]
+    }
+  ],
+  featured: {
+    title: 'Specialized AI & Tech Talent',
+    desc: 'Position your organization with pre-vetted AI engineers and enterprise technology specialists...',
+    link: 'Explore AI Capabilities',
+    href: '/capabilities/ai-machine-learning',
+    image: servicesNav
+  }
+};
+
 interface InsightCategory {
   label: string;
   slug: string;
@@ -452,7 +489,7 @@ export default function Navbar() {
 
         <div className="hidden lg:flex items-center gap-1 justify-end flex-1">
           {NAV_LINKS.map((link) => {
-            const isDropdown = ['Services', 'Industries', 'Insights'].includes(link.label);
+            const isDropdown = ['Services', 'Capabilities', 'Industries', 'Insights'].includes(link.label);
             const dropdownKey = link.label.toLowerCase();
 
             return (
@@ -488,6 +525,7 @@ export default function Navbar() {
             >
               <div className="pointer-events-auto">
                 {activeDropdown === 'services' && renderServicesIndustriesMenu(SERVICES_DATA)}
+                {activeDropdown === 'capabilities' && renderServicesIndustriesMenu(CAPABILITIES_NAV_DATA)}
                 {activeDropdown === 'industries' && renderServicesIndustriesMenu(INDUSTRIES_DATA)}
                 {activeDropdown === 'insights' && renderInsightsMenu()}
               </div>

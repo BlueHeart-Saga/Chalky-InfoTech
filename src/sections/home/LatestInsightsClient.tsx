@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import { getPostSlug } from '@/lib/seo-slug';
 
 interface Props {
   initialPosts: any[];
@@ -54,7 +55,7 @@ export default function LatestInsightsClient({ initialPosts }: Props) {
               {post.excerpt}
             </p>
             <Link 
-              href={`/insights/${post.category?.slug}/${post.id}`} 
+              href={`/insights/${post.category?.slug}/${getPostSlug(post)}`} 
               className="inline-flex items-center gap-2 text-[#7A1F5C] font-bold text-sm mt-auto group/link"
             >
               Read Article 

@@ -23,8 +23,8 @@ function truncate(str: string, words = 18) {
 // ── Meta pill ────────────────────────────────────────────────────────────────
 function Pill({ icon: Icon, label }: { icon: any; label: string }) {
   return (
-    <span className="flex items-center gap-1.5 text-xs text-black font-normal">
-      <Icon size={12} className="text-black shrink-0" />
+    <span className="flex items-center gap-1.5 text-xs sm:text-sm text-black font-semibold">
+      <Icon size={14} className="text-[#7A1F5C] shrink-0" />
       {label}
     </span>
   );
@@ -38,7 +38,7 @@ function ApplyBtn({ href }: { href: string }) {
       target="_blank"
       rel="noopener noreferrer"
       onClick={(e) => { if (!href || href === '#') e.preventDefault(); }}
-      className="inline-flex items-center gap-1.5 bg-[#7A1F5C] text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-[#C2185B] transition-colors"
+      className="inline-flex items-center gap-1.5 bg-[#7A1F5C] text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-[#C2185B] transition-colors shadow-sm"
     >
       Apply
     </a>
@@ -49,7 +49,7 @@ function ApplyBtn({ href }: { href: string }) {
 export default function JobBoard() {
   const [jobs, setJobs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState<'list' | 'grid'>('list'); // list default
+  const [viewMode, setViewMode] = useState<'list' | 'grid'>('grid'); // grid default
   const [now, setNow] = useState(0);
 
   const [search, setSearch] = useState('');
@@ -159,41 +159,56 @@ export default function JobBoard() {
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.18 }}
       onClick={() => openPopup(job)}
-      className="cursor-pointer bg-white rounded-2xl border border-gray-200 hover:border-[#7A1F5C]/30 hover:shadow-lg transition-all duration-200 flex flex-col overflow-hidden shadow-sm"
+      className="group cursor-pointer bg-[#F5F0E8] rounded-2xl border border-[#E7DEC8] hover:border-[#7A1F5C]/50 hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden shadow-sm relative"
     >
+      {/* WhatsApp-style pattern background overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.09] pointer-events-none"
+        style={{ backgroundImage: 'url("/hero-pattern.png")', backgroundSize: '300px 300px', backgroundRepeat: 'repeat' }}
+      />
+
+      {/* Top subtle hover accent bar */}
+      <div className="h-1 w-full bg-transparent group-hover:bg-gradient-to-r group-hover:from-[#7A1F5C] group-hover:to-[#C2185B] transition-all duration-300 relative z-10" />
+
       {/* top badge row */}
-      <div className="flex justify-between items-center px-5 pt-4 pb-3">
-        {job.deadline && new Date(job.deadline).getTime() < now + 7 * 86400000 ? (
-          <span className="text-[10px] font-semibold uppercase tracking-widest text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full">
-            Closing Soon
+      <div className="flex justify-between items-center px-5 pt-4 pb-2 relative z-10">
+        <div className="flex items-center gap-2">
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#7A1F5C] bg-white/90 border border-[#7A1F5C]/20 px-2.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#7A1F5C]" />
+            {job.companyName || 'Chalky Infotech'}
           </span>
-        ) : <span />}
+          {job.deadline && new Date(job.deadline).getTime() < now + 7 * 86400000 && (
+            <span className="text-[10px] font-bold uppercase tracking-widest text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full shadow-2xs">
+              Closing Soon
+            </span>
+          )}
+        </div>
         <button
           onClick={(e) => toggleFavorite(job._id, e)}
-          className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors ${
+          className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors shadow-2xs ${
             favorites.includes(job._id)
-              ? 'border-[#7A1F5C] text-[#7A1F5C] bg-[#7A1F5C]/5'
-              : 'border-gray-200 text-black hover:text-[#7A1F5C] hover:border-[#7A1F5C]/30'
+              ? 'border-[#7A1F5C] text-[#7A1F5C] bg-[#7A1F5C]/15'
+              : 'border-[#E7DEC8] bg-white text-gray-700 hover:text-[#7A1F5C] hover:border-[#7A1F5C]/40'
           }`}
           title={favorites.includes(job._id) ? 'Remove from bookmarks' : 'Bookmark job'}
         >
-          <Star size={13} fill={favorites.includes(job._id) ? '#7A1F5C' : 'transparent'} />
+          <Star size={14} fill={favorites.includes(job._id) ? '#7A1F5C' : 'transparent'} />
         </button>
       </div>
 
-      <div className="px-5 pb-5 flex flex-col flex-1">
-        <h3 className="text-sm font-semibold text-black mb-2 leading-snug line-clamp-2">
+      <div className="px-5 pb-5 pt-2 flex flex-col flex-1 relative z-10">
+        <h3 className="text-base sm:text-lg font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors mb-2 leading-snug line-clamp-2">
           {job.position}
         </h3>
 
         {/* description snippet */}
         {job.description && (
-          <p className="text-xs text-black font-normal leading-relaxed mb-4 line-clamp-2">
-            {truncate(job.description, 15)}
+          <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed mb-4 line-clamp-2">
+            {truncate(job.description, 18)}
           </p>
         )}
 
-        {/* meta grid  2 col like reference image */}
+        {/* meta grid 2 col with clean white cards against WhatsApp pattern */}
         <div className="grid grid-cols-2 gap-2 mb-5">
           {[
             { icon: Calendar, label: job.deadline ? new Date(job.deadline).toLocaleDateString() : 'Continuous' },
@@ -203,20 +218,20 @@ export default function JobBoard() {
             { icon: Briefcase, label: job.experience || 'Entry level' },
             { icon: Hourglass, label: job.employmentType || 'Full time' },
           ].map(({ icon: Icon, label }, i) => (
-            <div key={i} className="flex items-center gap-1.5 bg-gray-50 rounded-lg px-2.5 py-2 text-xs text-black truncate">
-              <Icon size={11} className="text-black shrink-0" />
+            <div key={i} className="flex items-center gap-1.5 bg-white/95 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-[#1A1A1A] truncate border border-[#E7DEC8] shadow-2xs">
+              <Icon size={13} className="text-[#7A1F5C] shrink-0" />
               <span className="truncate">{label}</span>
             </div>
           ))}
         </div>
 
-        <div className="mt-auto flex items-center justify-between">
+        <div className="mt-auto flex items-center justify-between pt-3 border-t border-[#E7DEC8]">
           <button
             onClick={(e) => { e.stopPropagation(); openPopup(job); }}
-            className="flex items-center gap-2 text-sm font-semibold text-black hover:text-[#7A1F5C] transition-colors"
+            className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors"
           >
-            Read more
-            <span className="w-6 h-6 rounded-full bg-[#7A1F5C] flex items-center justify-center">
+            Read details
+            <span className="w-6 h-6 rounded-full bg-[#7A1F5C] flex items-center justify-center shadow-2xs">
               <ChevronDown size={12} className="text-white -rotate-90" />
             </span>
           </button>
@@ -231,11 +246,11 @@ export default function JobBoard() {
     // Determine random style based on job ID
     const styleIndex = (job._id || '').split('').reduce((acc: number, char: string) => acc + char.charCodeAt(0), 0);
     const gradients = [
-      'from-[#7A1F5C]/10 to-[#C2185B]/10 text-[#7A1F5C] border-[#7A1F5C]/20',
-      'from-blue-500/10 to-cyan-500/10 text-blue-600 border-blue-500/20',
-      'from-amber-500/10 to-orange-500/10 text-amber-600 border-amber-500/20',
-      'from-emerald-500/10 to-teal-500/10 text-emerald-600 border-emerald-500/20',
-      'from-purple-500/10 to-fuchsia-500/10 text-purple-600 border-purple-500/20',
+      'from-[#7A1F5C]/15 to-[#C2185B]/15 text-[#7A1F5C] border-[#7A1F5C]/30',
+      'from-blue-500/15 to-cyan-500/15 text-blue-600 border-blue-500/30',
+      'from-amber-500/15 to-orange-500/15 text-amber-600 border-amber-500/30',
+      'from-emerald-500/15 to-teal-500/15 text-emerald-600 border-emerald-500/30',
+      'from-purple-500/15 to-fuchsia-500/15 text-purple-600 border-purple-500/30',
     ];
     const icons = [Briefcase, Monitor, Code, Laptop, LineChart, Megaphone, Building2];
     const bgClass = gradients[styleIndex % gradients.length];
@@ -248,13 +263,19 @@ export default function JobBoard() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 6 }}
         transition={{ duration: 0.18 }}
-        className="bg-white rounded-xl border border-gray-200 hover:border-[#7A1F5C]/30 hover:shadow-md transition-all duration-200 overflow-hidden"
+        className="group bg-[#F5F0E8] rounded-2xl border border-[#E7DEC8] hover:border-[#7A1F5C]/50 hover:shadow-lg transition-all duration-300 overflow-hidden shadow-sm relative"
       >
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 px-5 py-4">
+        {/* WhatsApp-style pattern background overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.09] pointer-events-none"
+          style={{ backgroundImage: 'url("/hero-pattern.png")', backgroundSize: '300px 300px', backgroundRepeat: 'repeat' }}
+        />
+
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 px-6 py-5 relative z-10">
 
           {/* Left: Random Colorful Job Icon */}
-          <div className={`w-12 h-12 bg-gradient-to-br ${bgClass} rounded-xl border flex items-center justify-center shrink-0 hidden sm:flex`}>
-            <Icon size={22} />
+          <div className={`w-13 h-13 bg-gradient-to-br ${bgClass} bg-white rounded-2xl border flex items-center justify-center shrink-0 hidden sm:flex shadow-2xs`}>
+            <Icon size={24} />
           </div>
 
           {/* Middle: title + snippet + pills */}
@@ -262,12 +283,15 @@ export default function JobBoard() {
             className="flex-1 min-w-0 cursor-pointer"
             onClick={() => openPopup(job)}
           >
-          <div className="flex items-center gap-2 mb-1 flex-wrap">
-            <h3 className="text-sm font-semibold text-black leading-snug">
+          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+            <span className="text-[11px] font-bold text-[#7A1F5C] bg-white/90 border border-[#7A1F5C]/20 px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">
+              {job.companyName || 'Chalky Infotech'}
+            </span>
+            <h3 className="text-base sm:text-lg font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors leading-snug">
               {job.position}
             </h3>
             {job.deadline && new Date(job.deadline).getTime() < now + 7 * 86400000 && (
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full shadow-2xs">
                 Closing Soon
               </span>
             )}
@@ -275,43 +299,52 @@ export default function JobBoard() {
 
           {/* description snippet */}
           {job.description && (
-            <p className="text-xs text-black font-normal leading-relaxed mb-2 line-clamp-1">
-              {truncate(job.description, 20)}
+            <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed mb-3 line-clamp-1">
+              {truncate(job.description, 22)}
             </p>
           )}
 
-          <div className="flex flex-wrap gap-x-4 gap-y-1">
-            <Pill icon={MapPin} label={job.location || 'Anywhere'} />
-            <Pill icon={Briefcase} label={job.experience || 'Entry level'} />
-            <Pill icon={Hourglass} label={job.employmentType || 'Full time'} />
-            <Pill icon={Building2} label={job.workMode || 'N/A'} />
-            <Pill icon={DollarSign} label={job.salaryRange || 'Competitive'} />
-            <Pill icon={Calendar} label={job.deadline ? new Date(job.deadline).toLocaleDateString() : 'Continuous'} />
+          <div className="flex flex-wrap gap-x-3 gap-y-2">
+            <div className="bg-white/95 border border-[#E7DEC8] px-3 py-1 rounded-xl text-xs sm:text-sm font-semibold text-[#1A1A1A] flex items-center gap-1.5 shadow-2xs">
+              <MapPin size={13} className="text-[#7A1F5C]" /> {job.location || 'Anywhere'}
+            </div>
+            <div className="bg-white/95 border border-[#E7DEC8] px-3 py-1 rounded-xl text-xs sm:text-sm font-semibold text-[#1A1A1A] flex items-center gap-1.5 shadow-2xs">
+              <Briefcase size={13} className="text-[#7A1F5C]" /> {job.experience || 'Entry level'}
+            </div>
+            <div className="bg-white/95 border border-[#E7DEC8] px-3 py-1 rounded-xl text-xs sm:text-sm font-semibold text-[#1A1A1A] flex items-center gap-1.5 shadow-2xs">
+              <Hourglass size={13} className="text-[#7A1F5C]" /> {job.employmentType || 'Full time'}
+            </div>
+            <div className="bg-white/95 border border-[#E7DEC8] px-3 py-1 rounded-xl text-xs sm:text-sm font-semibold text-[#1A1A1A] flex items-center gap-1.5 shadow-2xs">
+              <Building2 size={13} className="text-[#7A1F5C]" /> {job.workMode || 'N/A'}
+            </div>
+            <div className="bg-white/95 border border-[#E7DEC8] px-3 py-1 rounded-xl text-xs sm:text-sm font-semibold text-[#1A1A1A] flex items-center gap-1.5 shadow-2xs">
+              <DollarSign size={13} className="text-[#7A1F5C]" /> {job.salaryRange || 'Competitive'}
+            </div>
           </div>
         </div>
 
         {/* Right: actions */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-3 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#E7DEC8]">
           <button
             onClick={() => openPopup(job)}
-            className="flex items-center gap-2 text-sm font-semibold text-black hover:text-[#7A1F5C] transition-colors whitespace-nowrap"
+            className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors whitespace-nowrap"
           >
-            Read more
-            <span className="w-6 h-6 rounded-full bg-[#7A1F5C] flex items-center justify-center">
+            Read details
+            <span className="w-6 h-6 rounded-full bg-[#7A1F5C] flex items-center justify-center shadow-2xs">
               <ChevronDown size={12} className="text-white -rotate-90" />
             </span>
           </button>
           <ApplyBtn href={job.jobApplyUrlById || job.applyUrls?.byId || '#'} />
           <button
             onClick={(e) => toggleFavorite(job._id, e)}
-            className={`w-7 h-7 rounded-full border flex items-center justify-center transition-colors ${
+            className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors shadow-2xs ${
               favorites.includes(job._id)
-                ? 'border-[#7A1F5C] text-[#7A1F5C] bg-[#7A1F5C]/5'
-                : 'border-gray-200 text-black hover:text-[#7A1F5C] hover:border-[#7A1F5C]/30'
+                ? 'border-[#7A1F5C] text-[#7A1F5C] bg-[#7A1F5C]/15'
+                : 'border-[#E7DEC8] bg-white text-gray-700 hover:text-[#7A1F5C] hover:border-[#7A1F5C]/40'
             }`}
             title={favorites.includes(job._id) ? 'Remove from bookmarks' : 'Bookmark job'}
           >
-            <Star size={13} fill={favorites.includes(job._id) ? '#7A1F5C' : 'transparent'} />
+            <Star size={14} fill={favorites.includes(job._id) ? '#7A1F5C' : 'transparent'} />
           </button>
         </div>
       </div>
@@ -473,24 +506,24 @@ export default function JobBoard() {
 
             {/* Toolbar */}
             <div className="flex items-center justify-between mb-5 pb-4 border-b border-gray-200">
-              <span className="text-sm text-black">
-                <span className="font-semibold text-black">{filtered.length}</span> results
+              <span className="text-sm sm:text-base text-black font-semibold">
+                <span className="font-bold text-[#7A1F5C]">{filtered.length}</span> results
               </span>
               {/* View toggle */}
-              <div className="flex items-center gap-1 border border-gray-200 p-0.5">
+              <div className="flex items-center gap-1 border border-gray-200 p-0.5 rounded-lg">
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-1.5 transition-colors ${viewMode === 'list' ? 'bg-[#7A1F5C] text-white' : 'text-black hover:text-black'}`}
+                  className={`p-2 transition-colors rounded-md ${viewMode === 'list' ? 'bg-[#7A1F5C] text-white' : 'text-black hover:text-[#7A1F5C]'}`}
                   title="List view"
                 >
-                  <LayoutList size={15} />
+                  <LayoutList size={16} />
                 </button>
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-1.5 transition-colors ${viewMode === 'grid' ? 'bg-[#7A1F5C] text-white' : 'text-black hover:text-black'}`}
+                  className={`p-2 transition-colors rounded-md ${viewMode === 'grid' ? 'bg-[#7A1F5C] text-white' : 'text-black hover:text-[#7A1F5C]'}`}
                   title="Card view"
                 >
-                  <LayoutGrid size={15} />
+                  <LayoutGrid size={16} />
                 </button>
               </div>
             </div>
@@ -501,16 +534,16 @@ export default function JobBoard() {
               </div>
             ) : filtered.length === 0 ? (
               <div className="text-center py-32">
-                <p className="text-black text-base">No active jobs match your filters right now.</p>
+                <p className="text-black text-base sm:text-lg font-semibold">No active jobs match your filters right now.</p>
               </div>
             ) : (
               <AnimatePresence mode="popLayout">
                 {viewMode === 'list' ? (
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-4">
                     {filtered.map((job) => <ListItem key={job._id} job={job} />)}
                   </div>
                 ) : (
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-5">
                     {filtered.map((job) => <CardItem key={job._id} job={job} />)}
                   </div>
                 )}
@@ -519,11 +552,11 @@ export default function JobBoard() {
 
             {/* Pagination row */}
             {!loading && filtered.length > 0 && (
-              <div className="flex items-center gap-3 text-xs text-black mt-6 pt-4 border-t border-gray-100">
-                <span className="font-medium text-black">{filtered.length} results</span>
+              <div className="flex items-center gap-3 text-xs sm:text-sm font-semibold text-black mt-6 pt-4 border-t border-gray-100">
+                <span className="font-bold text-[#7A1F5C]">{filtered.length} results</span>
                 <span>·</span>
                 <span>Show</span>
-                <select className="border-b border-gray-300 outline-none bg-transparent text-black text-xs">
+                <select className="border-b border-gray-300 outline-none bg-transparent text-black text-xs sm:text-sm font-semibold">
                   <option>10</option><option>20</option><option>50</option>
                 </select>
                 <span>per page</span>
@@ -541,7 +574,7 @@ export default function JobBoard() {
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={closePopup}
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             />
 
             {/* dialog */}
@@ -555,36 +588,36 @@ export default function JobBoard() {
               {/* Header */}
               <div className="flex items-start justify-between px-6 py-5 border-b border-gray-100 shrink-0">
                 <div className="flex-1">
-                  <h2 className="text-base font-semibold text-black leading-tight mb-0.5">
+                  <h2 className="text-lg sm:text-xl font-semibold text-black leading-snug mb-1">
                     {selectedJob.position}
                   </h2>
-                  <p className="text-xs text-[#7A1F5C] font-medium">
+                  <p className="text-xs sm:text-sm text-[#7A1F5C] font-semibold">
                     {selectedJob.companyName || 'Chalky Infotech'}
                   </p>
                 </div>
                 <div className="flex items-center gap-2 ml-4 shrink-0">
                   <button
                     onClick={(e) => toggleFavorite(selectedJob._id, e)}
-                    className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors ${
+                    className={`w-9 h-9 rounded-full border flex items-center justify-center transition-colors ${
                       favorites.includes(selectedJob._id)
                         ? 'border-[#7A1F5C] text-[#7A1F5C] bg-[#7A1F5C]/5'
                         : 'border-gray-200 text-black hover:text-[#7A1F5C] hover:border-gray-300'
                     }`}
                     title={favorites.includes(selectedJob._id) ? 'Remove from bookmarks' : 'Bookmark job'}
                   >
-                    <Star size={14} fill={favorites.includes(selectedJob._id) ? '#7A1F5C' : 'transparent'} />
+                    <Star size={15} fill={favorites.includes(selectedJob._id) ? '#7A1F5C' : 'transparent'} />
                   </button>
                   <button
                     onClick={closePopup}
-                    className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-black hover:text-black hover:border-gray-300 transition-colors"
+                    className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-black hover:text-black hover:border-gray-300 transition-colors"
                   >
-                    <X size={15} />
+                    <X size={16} />
                   </button>
                 </div>
               </div>
 
               {/* Meta strip */}
-              <div className="px-6 py-3 bg-[#fafafa] border-b border-gray-100 flex flex-wrap gap-x-5 gap-y-1.5 shrink-0">
+              <div className="px-6 py-4 bg-[#fafafa] border-b border-gray-100 flex flex-wrap gap-x-6 gap-y-2 shrink-0">
                 <Pill icon={MapPin} label={selectedJob.location || 'Not specified'} />
                 <Pill icon={Briefcase} label={selectedJob.experience || 'Not specified'} />
                 <Pill icon={Clock} label={selectedJob.employmentType || 'Not specified'} />
@@ -594,15 +627,15 @@ export default function JobBoard() {
               </div>
 
               {/* Scrollable body */}
-              <div className="overflow-y-auto flex-1 px-6 py-5">
+              <div className="overflow-y-auto flex-1 px-6 py-5 space-y-6">
 
                 {/* Description */}
                 {selectedJob.description && (
-                  <div className="mb-5">
-                    <h4 className="text-xs font-semibold text-black uppercase tracking-widest mb-2 flex items-center gap-1.5">
-                      <FileText size={12} /> Description
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-semibold text-black uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                      <FileText size={14} className="text-[#7A1F5C]" /> Description
                     </h4>
-                    <p className="text-sm text-black leading-relaxed whitespace-pre-wrap">
+                    <p className="text-sm sm:text-base text-gray-800 font-semibold leading-relaxed whitespace-pre-wrap">
                       {selectedJob.description}
                     </p>
                   </div>
@@ -610,23 +643,23 @@ export default function JobBoard() {
 
                 {/* Qualification */}
                 {selectedJob.qualification && (
-                  <div className="mb-5">
-                    <h4 className="text-xs font-semibold text-black uppercase tracking-widest mb-2 flex items-center gap-1.5">
-                      <Award size={12} /> Qualification
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-semibold text-black uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                      <Award size={14} className="text-[#7A1F5C]" /> Qualification
                     </h4>
-                    <p className="text-sm text-black">{selectedJob.qualification}</p>
+                    <p className="text-sm sm:text-base text-gray-800 font-semibold">{selectedJob.qualification}</p>
                   </div>
                 )}
 
                 {/* Skills */}
                 {selectedJob.requiredSkills?.length > 0 && (
                   <div>
-                    <h4 className="text-xs font-semibold text-black uppercase tracking-widest mb-2 flex items-center gap-1.5">
-                      <Award size={12} /> Required Skills
+                    <h4 className="text-xs sm:text-sm font-semibold text-black uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                      <Award size={14} className="text-[#7A1F5C]" /> Required Skills
                     </h4>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                       {selectedJob.requiredSkills.map((s: string, i: number) => (
-                        <span key={i} className="text-xs px-3 py-1.5 rounded-full border border-[#7A1F5C]/20 text-[#7A1F5C] font-medium bg-[#7A1F5C]/5">
+                        <span key={i} className="text-xs sm:text-sm px-3.5 py-1.5 rounded-full border border-[#7A1F5C]/30 text-[#7A1F5C] font-semibold bg-[#7A1F5C]/5">
                           {s}
                         </span>
                       ))}
@@ -644,13 +677,13 @@ export default function JobBoard() {
                   onClick={(e) => {
                     if (!(selectedJob.jobApplyUrlById || selectedJob.applyUrls?.byId)) e.preventDefault();
                   }}
-                  className="flex items-center gap-2 bg-[#7A1F5C] text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#C2185B] transition-colors"
+                  className="flex items-center gap-2 bg-[#7A1F5C] text-white px-7 py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-[#C2185B] transition-colors shadow-md"
                 >
-                  <Send size={14} /> Apply Now
+                  <Send size={15} /> Apply Now
                 </a>
                 <button
                   onClick={closePopup}
-                  className="px-6 py-2.5 border border-gray-200 rounded-full text-sm text-black font-medium hover:border-gray-400 transition-colors"
+                  className="px-7 py-3 border border-gray-200 rounded-full text-sm sm:text-base text-black font-semibold hover:border-gray-400 transition-colors"
                 >
                   Close
                 </button>

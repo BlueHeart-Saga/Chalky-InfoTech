@@ -38,7 +38,7 @@ const leaders = [
 
 export default function LeadershipTeam() {
   return (
-    <section className="relative pt-12 md:pt-16 pb-24 md:pb-32 bg-[#f5f0e8] overflow-hidden">
+    <section className="relative pt-1 md:pt-2 pb-4 md:pb-32 bg-[#f5f0e8] overflow-hidden">
       <style>{`
         .flip-card {
           perspective: 1000px;
@@ -290,11 +290,11 @@ export default function LeadershipTeam() {
       </div>
 
       {/* Bottom wave divider */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
+      {/* <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
         <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M0,0c0,0,166,120,443,57c277-63,339,26,513,26s244-83,244-83v120H0V0z" fill="#7A1F5C" />
         </svg>
-      </div>
+      </div> */}
     </section>
   );
 }

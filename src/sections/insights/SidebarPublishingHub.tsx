@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as LucideIcons from 'lucide-react';
+import { getPostSlug } from '@/lib/seo-slug';
 
 interface Category {
   name: string;
@@ -262,7 +263,7 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
 
                   {/* Floating invisible overlay link */}
                   <Link 
-                    href={`/insights/${post.category?.slug}/${post.id}`}
+                    href={`/insights/${post.category?.slug}/${getPostSlug(post)}`}
                     className="absolute inset-0 z-10"
                     aria-label={`Read ${post.title}`}
                   />

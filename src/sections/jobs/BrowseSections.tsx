@@ -89,8 +89,8 @@ function truncate(str: string, words = 20) {
 
 function Pill({ icon: Icon, label }: { icon: any; label: string }) {
   return (
-    <span className="flex items-center gap-1.5 text-xs text-gray-500">
-      <Icon size={11} className="text-gray-400 shrink-0" />
+    <span className="flex items-center gap-1.5 text-xs sm:text-sm text-black font-semibold">
+      <Icon size={13} className="text-[#7A1F5C] shrink-0" />
       {label}
     </span>
   );
@@ -104,37 +104,56 @@ function MiniJobRow({ job, onOpen }: { job: any; onOpen: (j: any) => void }) {
       initial={{ opacity: 0, y: 4 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col sm:flex-row sm:items-center gap-3 px-4 py-3 bg-white border border-gray-200 hover:border-[#7A1F5C]/30 hover:shadow-sm transition-all"
+      className="group flex flex-col sm:flex-row sm:items-center gap-4 px-6 py-5 bg-[#F5F0E8] border border-[#E7DEC8] hover:border-[#7A1F5C]/50 hover:shadow-lg transition-all rounded-2xl my-2 shadow-sm relative overflow-hidden"
     >
-      <div className="flex-1 min-w-0 cursor-pointer" onClick={() => onOpen(job)}>
-        <p className="text-sm font-medium text-[#1A1A1A] leading-snug mb-1">{job.position}</p>
+      {/* WhatsApp-style pattern background overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.09] pointer-events-none"
+        style={{ backgroundImage: 'url("/hero-pattern.png")', backgroundSize: '300px 300px', backgroundRepeat: 'repeat' }}
+      />
+
+      <div className="flex-1 min-w-0 cursor-pointer relative z-10" onClick={() => onOpen(job)}>
+        <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+          <span className="text-[11px] font-bold text-[#7A1F5C] bg-white/90 border border-[#7A1F5C]/20 px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">
+            {job.companyName || 'Chalky Infotech'}
+          </span>
+          <p className="text-base sm:text-lg font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors leading-snug">{job.position}</p>
+        </div>
         {job.description && (
-          <p className="text-xs text-gray-400 leading-relaxed mb-1.5 line-clamp-1">
-            {truncate(job.description, 15)}
+          <p className="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed mb-3 line-clamp-1">
+            {truncate(job.description, 18)}
           </p>
         )}
-        <div className="flex flex-wrap gap-x-3 gap-y-1">
-          <Pill icon={MapPin} label={job.location || 'Anywhere'} />
-          <Pill icon={Briefcase} label={job.experience || 'Entry level'} />
-          <Pill icon={Building2} label={job.workMode || 'N/A'} />
-          <Pill icon={DollarSign} label={job.salaryRange || 'Competitive'} />
+        <div className="flex flex-wrap gap-x-3 gap-y-2">
+          <div className="bg-white/95 border border-[#E7DEC8] px-3 py-1 rounded-xl text-xs sm:text-sm font-semibold text-[#1A1A1A] flex items-center gap-1.5 shadow-2xs">
+            <MapPin size={13} className="text-[#7A1F5C]" /> {job.location || 'Anywhere'}
+          </div>
+          <div className="bg-white/95 border border-[#E7DEC8] px-3 py-1 rounded-xl text-xs sm:text-sm font-semibold text-[#1A1A1A] flex items-center gap-1.5 shadow-2xs">
+            <Briefcase size={13} className="text-[#7A1F5C]" /> {job.experience || 'Entry level'}
+          </div>
+          <div className="bg-white/95 border border-[#E7DEC8] px-3 py-1 rounded-xl text-xs sm:text-sm font-semibold text-[#1A1A1A] flex items-center gap-1.5 shadow-2xs">
+            <Building2 size={13} className="text-[#7A1F5C]" /> {job.workMode || 'N/A'}
+          </div>
+          <div className="bg-white/95 border border-[#E7DEC8] px-3 py-1 rounded-xl text-xs sm:text-sm font-semibold text-[#1A1A1A] flex items-center gap-1.5 shadow-2xs">
+            <DollarSign size={13} className="text-[#7A1F5C]" /> {job.salaryRange || 'Competitive'}
+          </div>
         </div>
       </div>
-      <div className="flex items-center gap-2 shrink-0">
+      <div className="flex items-center gap-3 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#E7DEC8] relative z-10">
         <button
           onClick={() => onOpen(job)}
-          className="text-xs text-[#7A1F5C] font-medium hover:underline flex items-center gap-1"
+          className="text-xs sm:text-sm text-[#7A1F5C] font-bold hover:underline flex items-center gap-1"
         >
-          <Eye size={12} /> View
+          <Eye size={14} /> View
         </button>
         <a
           href={job.jobApplyUrlById || job.applyUrls?.byId || '#'}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => { if (!(job.jobApplyUrlById || job.applyUrls?.byId)) e.preventDefault(); }}
-          className="inline-flex items-center gap-1.5 bg-[#7A1F5C] text-white text-xs font-semibold px-3 py-1.5 rounded-none hover:bg-[#C2185B] transition-colors tracking-wide"
+          className="inline-flex items-center gap-1.5 bg-[#7A1F5C] text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#C2185B] transition-colors tracking-wide shadow-sm"
         >
-          Apply <Send size={10} />
+          Apply <Send size={11} />
         </a>
       </div>
     </motion.div>
@@ -148,24 +167,24 @@ function JobModal({ job, onClose }: { job: any; onClose: () => void }) {
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         onClick={onClose}
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
       />
       <motion.div
         initial={{ opacity: 0, scale: 0.97, y: 12 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.97 }}
         transition={{ duration: 0.2 }}
-        className="relative w-full max-w-xl bg-white shadow-2xl flex flex-col max-h-[82vh] rounded-none"
+        className="relative w-full max-w-xl bg-white shadow-2xl flex flex-col max-h-[85vh] rounded-2xl overflow-hidden"
       >
-        <div className="flex items-start justify-between px-5 py-4 border-b border-gray-100 shrink-0">
+        <div className="flex items-start justify-between px-6 py-5 border-b border-gray-100 shrink-0">
           <div>
-            <h2 className="text-sm font-semibold text-[#1A1A1A] leading-tight mb-0.5">{job.position}</h2>
-            <p className="text-xs text-[#7A1F5C] font-medium">{job.companyName || 'Chalky Infotech'}</p>
+            <h2 className="text-lg sm:text-xl font-semibold text-black leading-tight mb-1">{job.position}</h2>
+            <p className="text-xs sm:text-sm text-[#7A1F5C] font-semibold">{job.companyName || 'Chalky Infotech'}</p>
           </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-700 ml-4 mt-0.5"><X size={16} /></button>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-700 ml-4 mt-0.5"><X size={18} /></button>
         </div>
 
-        <div className="px-5 py-2.5 bg-[#fafafa] border-b border-gray-100 flex flex-wrap gap-x-4 gap-y-1.5 shrink-0">
+        <div className="px-6 py-3.5 bg-[#fafafa] border-b border-gray-100 flex flex-wrap gap-x-5 gap-y-2 shrink-0">
           <Pill icon={MapPin} label={job.location || 'N/A'} />
           <Pill icon={Briefcase} label={job.experience || 'N/A'} />
           <Pill icon={Clock} label={job.employmentType || 'N/A'} />
@@ -173,35 +192,35 @@ function JobModal({ job, onClose }: { job: any; onClose: () => void }) {
           <Pill icon={DollarSign} label={job.salaryRange || 'N/A'} />
         </div>
 
-        <div className="overflow-y-auto flex-1 px-5 py-4">
+        <div className="overflow-y-auto flex-1 px-6 py-5 space-y-5">
           {job.description && (
-            <div className="mb-4">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Description</p>
-              <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-wrap">{job.description}</p>
+            <div>
+              <p className="text-xs sm:text-sm font-semibold text-black uppercase tracking-wider mb-2">Description</p>
+              <p className="text-sm sm:text-base text-gray-800 font-semibold leading-relaxed whitespace-pre-wrap">{job.description}</p>
             </div>
           )}
           {job.requiredSkills?.length > 0 && (
             <div>
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Required Skills</p>
-              <div className="flex flex-wrap gap-1.5">
+              <p className="text-xs sm:text-sm font-semibold text-black uppercase tracking-wider mb-2">Required Skills</p>
+              <div className="flex flex-wrap gap-2">
                 {job.requiredSkills.map((s: string, i: number) => (
-                  <span key={i} className="text-xs px-3 py-1 border border-[#7A1F5C]/25 text-[#7A1F5C]">{s}</span>
+                  <span key={i} className="text-xs sm:text-sm px-3.5 py-1.5 rounded-full border border-[#7A1F5C]/30 text-[#7A1F5C] font-semibold bg-[#7A1F5C]/5">{s}</span>
                 ))}
               </div>
             </div>
           )}
         </div>
 
-        <div className="px-5 py-3.5 border-t border-gray-100 shrink-0 flex gap-2">
+        <div className="px-6 py-4 border-t border-gray-100 shrink-0 flex gap-3">
           <a
             href={job.jobApplyUrlById || job.applyUrls?.byId || '#'}
             target="_blank" rel="noopener noreferrer"
             onClick={(e) => { if (!(job.jobApplyUrlById || job.applyUrls?.byId)) e.preventDefault(); }}
-            className="flex items-center gap-2 bg-[#7A1F5C] text-white px-5 py-2 text-xs font-semibold rounded-none hover:bg-[#C2185B] transition-colors tracking-wide"
+            className="flex items-center gap-2 bg-[#7A1F5C] text-white px-6 py-2.5 text-sm font-semibold rounded-full hover:bg-[#C2185B] transition-colors tracking-wide shadow-md"
           >
-            <Send size={12} /> Apply Now
+            <Send size={14} /> Apply Now
           </a>
-          <button onClick={onClose} className="px-5 py-2 border border-gray-200 text-xs text-gray-600 font-medium rounded-none hover:border-gray-400 transition-colors">
+          <button onClick={onClose} className="px-6 py-2.5 border border-gray-200 text-sm text-black font-semibold rounded-full hover:border-gray-400 transition-colors">
             Close
           </button>
         </div>

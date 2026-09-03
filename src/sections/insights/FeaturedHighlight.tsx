@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as LucideIcons from 'lucide-react';
+import { getPostSlug } from '@/lib/seo-slug';
 
 interface Post {
   id: string;
@@ -116,7 +117,7 @@ export default function FeaturedHighlight({ posts, loading }: Props) {
 
                   {/* Read Button */}
                   <Link 
-                    href={`/insights/${post.category?.slug}/${post.id}`}
+                    href={`/insights/${post.category?.slug}/${getPostSlug(post)}`}
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#7A1F5C] hover:bg-[#68194E] text-white font-extrabold text-xs uppercase tracking-widest shadow-md transition-colors duration-300 w-fit"
                   >
                     Read Article <LucideIcons.ArrowRight size={14} />

@@ -25,6 +25,7 @@ export const CONTACT = {
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
+  { label: 'Capabilities', href: '/capabilities' },
   { label: 'Services', href: '/services' },
   { label: 'Industries', href: '/industries' },
   { label: 'Find Jobs', href: '/jobs' },
@@ -32,6 +33,7 @@ export const NAV_LINKS = [
   { label: 'Contact', href: '/contact' },
 ];
 
+export * from './capabilitiesData';
 export * from './servicesData';
 
 export const SERVICES = [

@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
-import { SERVICES, INDUSTRIES } from '@/constants';
+import { SERVICES, INDUSTRIES, CAPABILITIES_DATA } from '@/constants';
 import { LOCATIONS } from '@/constants/locationsData';
 import api from '@/services/api';
+import { getPostSlug } from '@/lib/seo-slug';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = 'https://chalkyinfo.com';
@@ -11,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: base, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${base}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/services`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${base}/capabilities`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${base}/industries`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/jobs`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
     { url: `${base}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
@@ -33,6 +35,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.7,
+  }));
+
+  const capabilityRoutes: MetadataRoute.Sitemap = CAPABILITIES_DATA.map((c) => ({
+    url: `${base}/capabilities/${c.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.8,
   }));
 
   const industryRoutes: MetadataRoute.Sitemap = INDUSTRIES.map((i) => ({
@@ -87,7 +96,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             category.posts.forEach((post: any) => {
               const postDate = post.date ? new Date(post.date) : now;
               insightRoutes.push({
-                url: `${base}/insights/${category.slug}/${post.slug || post.id}`,
+                url: `${base}/insights/${category.slug}/${getPostSlug(post)}`,
                 lastModified: isNaN(postDate.getTime()) ? now : postDate,
                 changeFrequency: 'monthly',
                 priority: 0.8,
@@ -118,6 +127,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...staticRoutes,
     ...serviceRoutes,
+    ...capabilityRoutes,
     ...industryRoutes,
     ...locationRoutes,
     ...jobRoutes,

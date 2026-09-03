@@ -59,7 +59,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       image: itStaffingImg.src,
     },
     metaInfo: {
-      title: 'IT Staffing Solution in the UK | Hire Verified IT Talent',
+      title: 'IT Staffing Solutions UK | Hire IT Talent',
       description: 'Looking for reliable IT staffing in the UK? We connect businesses with pre-vetted tech professionals—fast, flexible, and tailored to your needs.',
       keywords: 'IT staffing solution UK, IT staffing services UK, IT recruitment UK, contract IT staffing UK, technology staffing solution UK, hire IT professionals UK, IT talent solutions UK, permanent IT staffing UK, tech recruitment agency UK, IT workforce solution UK, software developer staffing UK, cloud engineer staffing UK, IT contract staffing London, DevOps staffing UK, IT hiring solution Uk',
       ogTitle: 'IT Staffing Solution UK | Verified Tech Talent',
@@ -116,7 +116,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       image: executiveSearchImg.src,
     },
     metaInfo: {
-      title: 'Executive Search & Leadership Advisory UK | C-Suite Recruitment',
+      title: 'Executive Search UK | C-Suite Recruitment',
       description: 'High-impact executive search across the UK. We identify world-class C-suite leaders and senior executives aligned with your business vision.',
       keywords: 'executive search UK, C-suite recruitment UK, leadership hiring UK, senior executive search UK, CEO recruitment UK, CFO hiring UK, CTO search UK, headhunting UK, board director recruitment UK, leadership advisory UK',
       ogTitle: 'Executive Search UK | World-Class Leadership Acquisition',
@@ -172,7 +172,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       image: contractStaffingImg.src,
     },
     metaInfo: {
-      title: 'Contract Staffing Solutions UK | Flexible Project-Based Talent',
+      title: 'Contract Staffing Solutions UK | Talent',
       description: 'Agile contract staffing in the UK. Access pre-vetted specialists for project-based needs with full IR35 compliance and rapid deployment.',
       keywords: 'contract staffing UK, contract recruitment UK, project staffing UK, IR35 compliant staffing UK, contingent workforce UK, contract IT staffing UK, flexible staffing UK, contract professionals UK',
       ogTitle: 'Contract Staffing UK | Agile Talent for Project Demands',
@@ -228,7 +228,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       image: permanentHiringImg.src,
     },
     metaInfo: {
-      title: 'Permanent Hiring Solutions UK | High-Retention Talent Placement',
+      title: 'Permanent Hiring Solutions UK | Talent',
       description: 'Strategic permanent recruitment across the UK. Cultural alignment and targeted headhunting to secure high-retention talent for long-term value.',
       keywords: 'permanent hiring UK, permanent recruitment UK, headhunting UK, direct hire UK, permanent placement UK, full-time recruitment UK, cultural alignment hiring UK, senior permanent recruitment UK',
       ogTitle: 'Permanent Hiring UK | Strategic Talent for Long-Term Success',
@@ -284,7 +284,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       image: temporaryRecruitmentImg.src,
     },
     metaInfo: {
-      title: 'Temporary Recruitment Services UK | Rapid Workforce Scaling',
+      title: 'Temporary Recruitment UK | Rapid Scaling',
       description: 'Fast, flexible temporary recruitment in the UK. Deploy vetted temp staff in 24–48 hours for seasonal peaks and high-volume demands.',
       keywords: 'temporary recruitment UK, temp staffing UK, temporary workers UK, seasonal staffing UK, high volume temp recruitment UK, temp agency UK, flexible temp workforce UK, temp to perm UK',
       ogTitle: 'Temporary Recruitment UK | Vetted Staff in 24–48 Hours',
@@ -340,7 +340,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       image: onSiteRecruitmentImg.src,
     },
     metaInfo: {
-      title: 'On-Site Recruitment Solutions UK | Embedded HR Partnership',
+      title: 'On-Site Recruitment UK | Embedded HR',
       description: 'Dedicated on-site recruiters embedded in your organization. Full-cycle talent acquisition managed directly from your office to reduce cost-per-hire.',
       keywords: 'on-site recruitment UK, embedded recruitment UK, RPO UK, on-site recruiter UK, recruitment process outsourcing UK, dedicated recruiter UK, in-house recruitment UK, on-site hiring UK',
       ogTitle: 'On-Site Recruitment UK | Embedded Talent Acquisition Partnership',
@@ -396,7 +396,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       image: managedServicesImg.src,
     },
     metaInfo: {
-      title: 'Managed Workforce Solutions UK | MSP & Contingent Hiring',
+      title: 'Managed Workforce Solutions UK | MSP',
       description: 'End-to-end managed staffing (MSP) in the UK. Centralize your contingent workforce, reduce costs, and ensure 100% compliance.',
       keywords: 'managed staffing UK, MSP UK, managed service provider recruitment UK, contingent workforce management UK, VMS integration UK, workforce outsourcing UK, talent supply chain UK, managed workforce UK',
       ogTitle: 'Managed Workforce Solutions UK | Enterprise MSP Partner',
@@ -452,7 +452,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       image: remoteHiringImg.src,
     },
     metaInfo: {
-      title: 'Global Remote Hiring Services UK | Borderless Talent Acquisition',
+      title: 'Global Remote Hiring UK | Remote Talent',
       description: 'Build borderless tech teams with Chalky Infotech. Cross-border compliance, EOR payroll, and remote-first vetting across global talent hubs.',
       keywords: 'remote hiring UK, global remote recruitment UK, remote staffing UK, borderless hiring UK, EOR UK, employer of record UK, remote tech talent UK, global talent acquisition UK, distributed team hiring UK',
       ogTitle: 'Global Remote Hiring UK | Build Borderless High-Performance Teams',

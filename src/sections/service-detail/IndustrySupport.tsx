@@ -36,6 +36,40 @@ const bgColors = [
   'bg-[#4A1238]'
 ];
 
+const CLIENT_LOGOS = [
+  { src: '/clients/c30.png', name: 'c30' },
+  { src: '/clients/c31.png', name: 'c31' },
+  { src: '/clients/c29.png', name: 'c29' },
+  { src: '/clients/c1.png', name: 'c1' },
+  { src: '/clients/c2.png', name: 'c2' },
+  { src: '/clients/c3.png', name: 'c3' },
+  { src: '/clients/c4.png', name: 'c4' },
+  { src: '/clients/c5.png', name: 'c5' },
+  { src: '/clients/c6.jpg', name: 'c6' },
+  { src: '/clients/c7.png', name: 'c7' },
+  { src: '/clients/c8.png', name: 'c8' },
+  { src: '/clients/c9.png', name: 'c9' },
+  { src: '/clients/c10.png', name: 'c10' },
+  { src: '/clients/c11.jpg', name: 'c11' },
+  { src: '/clients/c12.png', name: 'c12' },
+  { src: '/clients/c13.png', name: 'c13' },
+  { src: '/clients/c14.jpg', name: 'c14' },
+  { src: '/clients/c15.png', name: 'c15' },
+  { src: '/clients/c16.png', name: 'c16' },
+  { src: '/clients/c17.png', name: 'c17' },
+  { src: '/clients/c18.png', name: 'c18' },
+  { src: '/clients/c19.png', name: 'c19' },
+  { src: '/clients/c20.png', name: 'c20' },
+  { src: '/clients/c21.webp', name: 'c21' },
+  { src: '/clients/c22.png', name: 'c22' },
+  { src: '/clients/c23.png', name: 'c23' },
+  { src: '/clients/c24.jpg', name: 'c24' },
+  { src: '/clients/c25.png', name: 'c25' },
+  { src: '/clients/c26.png', name: 'c26' },
+  { src: '/clients/c27.png', name: 'c27' },
+  { src: '/clients/c28.jpg', name: 'c28' },
+];
+
 export default function IndustrySupport({ industries, serviceLabel }: Props) {
   return (
     <section className="pt-24 pb-8 bg-white overflow-hidden">
@@ -96,23 +130,24 @@ export default function IndustrySupport({ industries, serviceLabel }: Props) {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 pt-16 border-t border-[#F0F0F0]">
-            {Array.from({ length: 31 }, (_, i) => i + 1).map((num) => (
+            {CLIENT_LOGOS.map((client, idx) => (
               <motion.div
-                key={num}
+                key={client.name}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: (num % 10) * 0.05 }}
+                transition={{ delay: (idx % 10) * 0.05 }}
                 className="bg-white h-[100px] flex items-center justify-center rounded-xl p-5 border border-[#F0F0F0] hover:shadow-2xl hover:shadow-[#7A1F5C]/5 hover:border-[#7A1F5C]/40 hover:-translate-y-1 transition-all duration-300 group"
               >
                 <div className="relative w-full h-full">
                   <Image 
-                    src={`/clients/c${num}.${num === 6 || num === 11 || num === 14 || num === 24 || num === 28 ? 'jpg' : num === 21 ? 'webp' : 'png'}`} 
-                    alt={`Client Partner ${num}`} 
+                    src={client.src} 
+                    alt={`Client Partner ${client.name}`} 
                     fill 
                     unoptimized
                     className="object-contain group-hover:scale-105 transition-transform duration-500" 
-                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
+                  />
                 </div>
               </motion.div>
             ))}
