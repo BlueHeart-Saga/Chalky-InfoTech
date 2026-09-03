@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return buildPageMetadataWithImage({
-    title: `${capability.title} Recruitment | Talent Solutions | Chalky Infotech`,
+    title: `${capability.title} Recruitment`,
     description: capability.heroDesc,
     keywords: [
       capability.title,

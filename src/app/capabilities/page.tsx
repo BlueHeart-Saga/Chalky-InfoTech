@@ -8,7 +8,7 @@ import { ArrowRight, Cpu, Code2, Cloud, Database, ShieldCheck, Building2, CheckC
 import heroImg from '@/assets/Services/Hero/2.png';
 
 export const metadata = buildPageMetadataWithImage({
-  title: 'AI & Technology Capabilities | Specialist IT Recruitment | Chalky Infotech',
+  title: 'AI & Technology Capabilities',
   description: 'Explore Chalky Infotech\'s specialized AI and technology talent capabilities. We connect organizations with professionals across AI, Software, Cloud, Data, Security, and Leadership.',
   keywords: ['AI recruitment', 'IT talent capabilities', 'software engineering staffing', 'cloud devops recruitment', 'data science hiring', 'cybersecurity talent', 'enterprise tech recruitment', 'technology leadership search'],
   url: '/capabilities',
