@@ -27,22 +27,33 @@ type Props = {
 
 export async function generateStaticParams() {
   try {
-    const posts = await api.getAllPosts();
+    const posts = await api.getAllPosts(20);
     const staticParams: { categorySlug: string; postId: string }[] = [];
 
-    posts.slice(0, 10).forEach((post: any) => {
-      if (post.category?.slug) {
+    posts.forEach((post: any) => {
+      const catSlug = post.category?.slug || 'blogs';
+      const postSlug = getPostSlug(post);
+      if (catSlug && postSlug) {
         staticParams.push({
-          categorySlug: post.category.slug,
-          postId: getPostSlug(post),
+          categorySlug: catSlug,
+          postId: postSlug,
         });
       }
     });
 
-    return staticParams;
+    if (staticParams.length > 0) {
+      return staticParams;
+    }
   } catch (err) {
-    return [];
+    console.error('Error generating static params for posts:', err);
   }
+
+  return [
+    {
+      categorySlug: 'blogs',
+      postId: 'it-staffing-solutions-how-to-build-the-right-tech-team-without-the-guesswork-6a23a71cb9074df556d032f1',
+    },
+  ];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

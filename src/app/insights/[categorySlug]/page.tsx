@@ -82,10 +82,18 @@ export async function generateStaticParams() {
         params.push({ categorySlug: cat.slug });
       }
     }
-    return params;
+    if (params.length > 0) return params;
   } catch (err) {
-    return [];
+    console.error('Error generating static params for categories:', err);
   }
+
+  return [
+    { categorySlug: 'blogs' },
+    { categorySlug: 'case-studies' },
+    { categorySlug: 'newsletters' },
+    { categorySlug: 'podcasts' },
+    { categorySlug: 'client-transformations' },
+  ];
 }
 
 import { buildPageMetadataWithImage } from '@/lib/seo-images';

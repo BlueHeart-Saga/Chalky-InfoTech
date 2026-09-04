@@ -260,14 +260,14 @@ class ApiService {
       section: section
         ? { name: section.name, slug: section.slug }
         : {
-            name: backendContent.section_name,
-            slug: backendContent.section_slug,
+            name: backendContent.section_name || "Insights",
+            slug: backendContent.section_slug || "insights",
           },
       category: category
         ? { name: category.name, slug: category.slug }
         : {
-            name: backendContent.category_name,
-            slug: backendContent.category_slug,
+            name: backendContent.category_name || "Blogs",
+            slug: backendContent.category_slug || "blogs",
           },
       excerpt: backendContent.subtitle || this.extractExcerpt(backendContent.blocks),
       image: backendContent.cover_image_id
