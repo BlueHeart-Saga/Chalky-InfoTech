@@ -102,23 +102,26 @@ async function InsightDetailPageContent({
     if (backendPost) {
       post = api.transformContent(backendPost);
       blocks = backendPost.blocks || [];
-
-      // Check if requested slug differs from current canonical seoSlug, and 301 redirect
-      const seoSlug = getPostSlug(post);
-      if (rawParam !== seoSlug) {
-        redirect(`/insights/${categorySlug}/${seoSlug}`, 'permanent' as any);
-      }
-
-      // Fetch some related posts from the same section
-      const sectionPosts = await getCachedSectionPosts(backendPost.section_slug || 'insights');
-      relatedPosts = sectionPosts.filter((p: any) => p.id !== realPostId).slice(0, 3);
     }
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching post details:', err);
   }
 
   if (!post) {
     notFound();
+  }
+
+  // Check if requested slug differs from current canonical seoSlug, and issue HTTP 301 permanent redirect
+  const seoSlug = getPostSlug(post);
+  if (rawParam !== seoSlug) {
+    redirect(`/insights/${categorySlug}/${seoSlug}`, 'permanent' as any);
+  }
+
+  try {
+    const sectionPosts = await getCachedSectionPosts(post.category?.slug || 'insights');
+    relatedPosts = sectionPosts.filter((p: any) => p.id !== realPostId).slice(0, 3);
+  } catch (err) {
+    console.error('Error fetching related posts:', err);
   }
 
   return (
