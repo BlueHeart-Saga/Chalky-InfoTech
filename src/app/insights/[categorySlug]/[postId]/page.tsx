@@ -11,14 +11,14 @@ const getCachedPost = (postId: string) =>
   unstable_cache(
     async () => await api.getContentById(postId),
     ['post-detail', postId],
-    { revalidate: 60, tags: [`post-${postId}`] }
+    { revalidate: 3600, tags: [`post-${postId}`] }
   )();
 
 const getCachedSectionPosts = (sectionSlug: string) =>
   unstable_cache(
     async () => await api.getSectionPosts(sectionSlug, 4),
     ['section-posts', sectionSlug],
-    { revalidate: 60, tags: [`section-${sectionSlug}`] }
+    { revalidate: 3600, tags: [`section-${sectionSlug}`] }
   )();
 
 type Props = {

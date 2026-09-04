@@ -63,14 +63,14 @@ const getCachedSiteStructure = () =>
   unstable_cache(
     async () => await api.getFullSiteStructure().catch(() => []),
     ['site-structure'],
-    { revalidate: 300 }
+    { revalidate: 3600 }
   )();
 
 const getCachedAllPosts = () =>
   unstable_cache(
     async () => await api.getAllPosts().catch(() => []),
     ['all-posts'],
-    { revalidate: 60 }
+    { revalidate: 3600 }
   )();
 
 export async function generateStaticParams() {
@@ -148,7 +148,7 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
     .join(' ');
 
   // Filter posts specifically for this category
-  const categoryPosts = allPosts.filter(p => p.category?.slug === categorySlug);
+  const categoryPosts = allPosts.filter((p: any) => p.category?.slug === categorySlug);
 
   // Define featured highlight post inside this category (fallback to first post if any)
   const featuredPost = categoryPosts.length > 0 ? categoryPosts[0] : null;

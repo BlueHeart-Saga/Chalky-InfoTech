@@ -199,32 +199,15 @@ class ApiService {
     }
   }
 
-  // Get all posts across all categories
+  // Get all posts across all categories in a single fast query
   async getAllPosts(limit = 100) {
     try {
-      const structure = await this.getFullSiteStructure();
-      const allPosts: any[] = [];
+      const response = await this.getContent({ limit });
+      if (!response || !response.items) return [];
 
-      structure.forEach((section: any) => {
-        section.categories.forEach((category: any) => {
-          category.posts.forEach((post: any) => {
-            allPosts.push({
-              ...post,
-              section: {
-                slug: section.slug,
-                name: section.name,
-              },
-              category: {
-                slug: category.slug,
-                name: category.name,
-              },
-            });
-          });
-        });
-      });
-
-      return allPosts
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      const posts = response.items.map((item: any) => this.transformContent(item));
+      return posts
+        .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .slice(0, limit);
     } catch (err) {
       console.error("Error fetching all posts:", err);
@@ -232,35 +215,17 @@ class ApiService {
     }
   }
 
-  // Get posts for a specific section
+  // Get posts for a specific section in a single fast query
   async getSectionPosts(sectionSlug: string, limit = 100) {
     try {
-      const categories = await this.getCategories(sectionSlug);
-      let allPosts: any[] = [];
+      const response = await this.getContent({ section_slug: sectionSlug, limit });
+      if (!response || !response.items) return [];
 
-      for (const category of categories.categories || []) {
-        try {
-          const posts = await this.getAllContentByCategory(
-            sectionSlug,
-            category.slug,
-            20,
-          );
-
-          const transformed = posts.map((post) =>
-            this.transformContent(post, { slug: sectionSlug }, category),
-          );
-
-          allPosts = [...allPosts, ...transformed];
-        } catch (err) {
-          console.error(
-            `Error fetching posts for category ${category.slug}:`,
-            err,
-          );
-        }
-      }
-
-      return allPosts
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      const posts = response.items.map((item: any) =>
+        this.transformContent(item, { slug: sectionSlug })
+      );
+      return posts
+        .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .slice(0, limit);
     } catch (err) {
       console.error(`Error fetching section posts for ${sectionSlug}:`, err);

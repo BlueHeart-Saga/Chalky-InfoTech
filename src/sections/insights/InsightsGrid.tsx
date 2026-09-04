@@ -20,7 +20,7 @@ export default function InsightsGrid({ categorySlug }: { categorySlug?: string }
         const allPosts = await api.getAllPosts(100);
         
         if (categorySlug) {
-          setPosts(allPosts.filter(p => p.category?.slug === categorySlug));
+          setPosts(allPosts.filter((p: any) => p.category?.slug === categorySlug));
         } else {
           setPosts(allPosts);
         }

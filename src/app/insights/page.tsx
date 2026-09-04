@@ -29,14 +29,14 @@ const getCachedSiteStructure = () =>
   unstable_cache(
     async () => await api.getFullSiteStructure().catch(() => []),
     ['site-structure'],
-    { revalidate: 300 }
+    { revalidate: 3600 }
   )();
 
 const getCachedAllPosts = () =>
   unstable_cache(
     async () => await api.getAllPosts(150).catch(() => []),
     ['all-posts-150'],
-    { revalidate: 60 }
+    { revalidate: 3600 }
   )();
 
 async function InsightsPageContent() {
@@ -54,7 +54,7 @@ async function InsightsPageContent() {
   ];
 
   // Filter 3 display posts for the 3D Carousel (use featured if available, or first 3 posts)
-  const featuredPosts = posts.filter(p => p.featured).slice(0, 3);
+  const featuredPosts = posts.filter((p: any) => p.featured).slice(0, 3);
   const displayFeatured = featuredPosts.length >= 3 ? featuredPosts : posts.slice(0, 3);
 
   return (
