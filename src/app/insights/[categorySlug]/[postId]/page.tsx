@@ -103,9 +103,9 @@ async function InsightDetailPageContent({
       post = api.transformContent(backendPost);
       blocks = backendPost.blocks || [];
 
-      // Check if user requested raw 24-character hex ID, and 301 redirect to SEO keyword URL
+      // Check if requested slug differs from current canonical seoSlug, and 301 redirect
       const seoSlug = getPostSlug(post);
-      if (/^[a-fA-F0-9]{24}$/.test(rawParam) && seoSlug !== rawParam) {
+      if (rawParam !== seoSlug) {
         redirect(`/insights/${categorySlug}/${seoSlug}`, 'permanent' as any);
       }
 

@@ -14,14 +14,29 @@ export function slugify(text: string): string {
 }
 
 /**
+ * Truncates a slug to a target maximum length without breaking words in half.
+ */
+export function truncateSlug(slug: string, maxLen: number = 40): string {
+  if (!slug || slug.length <= maxLen) return slug;
+  const truncated = slug.substring(0, maxLen);
+  const lastHyphen = truncated.lastIndexOf('-');
+  if (lastHyphen > 10) {
+    return truncated.substring(0, lastHyphen).replace(/-+$/, '');
+  }
+  return truncated.replace(/-+$/, '');
+}
+
+/**
  * Returns SEO-friendly URL slug for a post combining title slug and ID
  * Example: "future-of-ai-recruitment-6a06beba5b1125696becb1c9"
  */
-export function getPostSlug(post: { title?: string; slug?: string; id: string }): string {
+export function getPostSlug(post: { title?: string; slug?: string; id: string }, maxBaseLen: number = 40): string {
   if (!post) return '';
-  const baseSlug = post.slug || slugify(post.title || '');
+  let baseSlug = post.slug || slugify(post.title || '');
   if (!baseSlug) return post.id;
   
+  baseSlug = truncateSlug(baseSlug, maxBaseLen);
+
   // If post.id is a 24-character hex ID and not already included in baseSlug
   if (/^[a-fA-F0-9]{24}$/.test(post.id) && !baseSlug.endsWith(post.id)) {
     return `${baseSlug}-${post.id}`;
