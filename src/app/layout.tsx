@@ -112,7 +112,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <main>{children}</main>
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
         <ScrollToTop />
         <Suspense fallback={null}>
           <PageScrollRestoration />
