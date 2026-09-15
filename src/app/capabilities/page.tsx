@@ -8,8 +8,8 @@ import { ArrowRight, Cpu, Code2, Cloud, Database, ShieldCheck, Building2, CheckC
 import heroImg from '@/assets/Services/Hero/2.png';
 
 export const metadata = buildPageMetadataWithImage({
-  title: 'AI & Technology Capabilities',
-  description: 'Explore Chalky Infotech\'s specialized AI and technology talent capabilities. We connect organizations with professionals across AI, Software, Cloud, Data, Security, and Leadership.',
+  title: 'IT Recruitment Services in UK | AI & Tech Talent',
+  description: 'Chalky Infotech provides IT recruitment services in UK, connecting businesses with skilled AI, software, cloud, data, cybersecurity, and technology talent.',
   keywords: ['AI recruitment', 'IT talent capabilities', 'software engineering staffing', 'cloud devops recruitment', 'data science hiring', 'cybersecurity talent', 'enterprise tech recruitment', 'technology leadership search'],
   url: '/capabilities',
   path: '/hero-capabilities.png',
@@ -49,9 +49,9 @@ export default function CapabilitiesOverviewPage() {
             { label: 'Capabilities' },
           ]}
           badge="Specialized AI & IT Talent"
-          title="Specialized AI & IT Talent for the"
+          title="IT Recruitment Services in UK  for the"
           titleHighlight="Future of Technology"
-          subtitle="We connect organizations with highly skilled technology professionals across AI, software engineering, cloud, data, cybersecurity, and technology leadership—helping businesses build stronger teams and accelerate innovation."
+          subtitle="We deliver IT recruitment services in UK, connecting organizations with skilled professionals across AI, software engineering, cloud, data, cybersecurity, and technology leadership to support evolving technical and business needs."
           ctaLabel="Find Talent"
           ctaHref="/contact"
           secondaryLabel="Explore Our Capabilities"
@@ -72,7 +72,7 @@ export default function CapabilitiesOverviewPage() {
               Expertise Across the Technology Landscape
             </h2>
             <p className="text-gray-600 text-base sm:text-lg mt-4 leading-relaxed">
-              Our specialized recruitment expertise spans critical technology domains, enabling us to identify and connect organizations with the right professionals for evolving business and technical requirements.
+             Our specialist IT recruitment expertise spans critical technology domains, enabling us to identify, assess, and connect organizations with the right professionals for evolving technical requirements and digital initiatives.
             </p>
           </div>
 
@@ -160,7 +160,7 @@ export default function CapabilitiesOverviewPage() {
               Talent Aligned with Tomorrow's Technologies
             </h2>
             <p className="text-gray-600 text-base sm:text-lg mt-4 leading-relaxed max-w-2xl mx-auto">
-              Technology evolves rapidly. We stay focused on emerging skills and specialized roles so organizations can access talent aligned with today's technology landscape and tomorrow's opportunities.
+              Technology continues to evolve rapidly. Our IT recruitment services in UK focus on emerging skills and specialized technology roles, connecting organizations with talent equipped for today’s requirements and tomorrow’s opportunities.
             </p>
           </div>
 
@@ -242,10 +242,10 @@ export default function CapabilitiesOverviewPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { step: '01', title: 'Understand', desc: 'We understand your business, technology stack, role requirements and team objectives.' },
-              { step: '02', title: 'Source', desc: 'We identify professionals with relevant technical skills and industry experience.' },
-              { step: '03', title: 'Assess', desc: 'Candidates are evaluated against the specific requirements of the role.' },
-              { step: '04', title: 'Match', desc: 'We connect organizations with talent aligned to their technical and business needs.' }
+              { step: '01', title: 'Understand', desc: 'We understand your business, technology environment, role requirements, and team objectives to define the right IT hiring needs.' },
+              { step: '02', title: 'Source', desc: 'We identify skilled IT professionals through targeted IT recruitment services, specialist networks, and relevant talent channels.' },
+              { step: '03', title: 'Assess', desc: 'Candidates are carefully evaluated against the technical, professional, and business requirements of each role.' },
+              { step: '04', title: 'Match', desc: 'We connect organizations with qualified technology talent aligned with their technical requirements, team structure, and long-term objectives.' }
             ].map((stepItem) => (
               <div key={stepItem.step} className="bg-white p-8 rounded-3xl border border-[#EFE7DD] shadow-sm flex flex-col justify-between">
                 <div>
@@ -322,7 +322,7 @@ export default function CapabilitiesOverviewPage() {
                 Your Technology Talent Partner
               </h2>
               <p className="text-base text-gray-600 mt-4 leading-relaxed">
-                We combine deep technical domain insight with global recruitment reach to deliver exceptional technology matches.
+                We combine deep technical expertise with specialist IT recruitment services in UK to connect organizations with skilled technology professionals across critical and emerging domains.
               </p>
             </div>
 

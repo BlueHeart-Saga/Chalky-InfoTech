@@ -19,7 +19,7 @@ const SOLUTIONS = [
     id: 'it-staffing',
     title: 'IT Staffing',
     slug: 'it-staffing',
-    intro: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.',
+    intro: 'Specialized IT recruitment services connecting businesses with skilled software, cloud, DevOps, and data engineering professionals..',
     image: core1,
     benefits: ['Elite software talent network', 'Domain-specific vetting', 'Accelerated hiring timelines', 'Cloud & DevOps specialization'],
     process: ['Software Engineering', 'Cloud Operations', 'Data Infrastructure'],
@@ -29,7 +29,7 @@ const SOLUTIONS = [
     id: 'executive',
     title: 'Executive Search',
     slug: 'executive-search',
-    intro: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.',
+    intro: 'Discreet, high-impact executive recruitment services for identifying and attracting exceptional C-suite and senior leadership talent',
     image: core2,
     benefits: ['Absolute confidentiality', 'Global talent mapping', 'Board-level consulting', 'Thorough executive screening'],
     process: ['Direct Headhunting', 'Cultural Alignment', 'Strategic Selection'],
@@ -49,7 +49,7 @@ const SOLUTIONS = [
     id: 'permanent',
     title: 'Permanent Hiring',
     slug: 'permanent-hiring',
-    intro: 'Strategic permanent placement services to build your long-term success with high-retention talent.',
+    intro: 'Strategic permanent recruitment services designed to connect businesses with high-quality talent for long-term success and retention.',
     image: core4,
     benefits: ['High retention metrics', 'Deep organizational fit', 'Cohesive team building', 'Direct-placement reliability'],
     process: ['Strategic Fit Assessment', 'Thorough Vetting', 'Offer Optimization'],
@@ -59,7 +59,7 @@ const SOLUTIONS = [
     id: 'temporary',
     title: 'Temporary Recruitment',
     slug: 'temporary-recruitment',
-    intro: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.',
+    intro: 'Rapid-response temporary recruitment services to help businesses scale their workforce quickly and meet changing operational demands.',
     image: core5,
     benefits: ['Immediate resource deployment', 'Accommodate seasonal peaks', 'High-volume candidate pool', 'Vetted database matching'],
     process: ['High-Volume Scaling', 'Automated Sourcing', 'Compliance Screening'],
@@ -69,7 +69,7 @@ const SOLUTIONS = [
     id: 'onsite',
     title: 'On-Site Recruitment',
     slug: 'on-site-recruitment',
-    intro: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.',
+    intro: 'Full-cycle on-site recruitment solutions providing dedicated talent partners who work seamlessly alongside your HR team',
     image: core6,
     benefits: ['Embedded talent consultants', 'Minimized cost-per-hire', 'Standardized methodologies', 'Consistent brand representation'],
     process: ['Process Auditing', 'Direct Stakeholder Sync', 'Embedded Partners'],
@@ -79,7 +79,7 @@ const SOLUTIONS = [
     id: 'managed',
     title: 'Managed Services',
     slug: 'managed-services',
-    intro: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.',
+    intro: 'End-to-end managed recruitment solutions (MSP) designed to streamline workforce management, optimize talent supply chains, and improve hiring efficiency.',
     image: core7,
     benefits: ['Streamlined vendor networks', 'Maximum cost efficiency', 'Complete compliance guardrails', 'Data-driven insights'],
     process: ['Vendor Management', 'Performance Auditing', 'Standardized Workflows'],
@@ -109,7 +109,7 @@ export default function CoreRecruitmentSolutions() {
             End-to-End <span className="text-[#7A1F5C]">Recruitment Solutions</span>
           </h2>
           <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg">
-            We deliver a comprehensive suite of staffing models tailored to the specific operational and strategic needs of global organizations.
+            We provide flexible recruitment solutions tailored to the operational and strategic hiring needs of businesses across the UK and global markets.
           </p>
         </div>
 

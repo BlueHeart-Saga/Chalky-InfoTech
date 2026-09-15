@@ -17,7 +17,7 @@ export default function RecruitmentProcess() {
             A Seamless <span className="text-[#7A1F5C]">Recruitment Journey</span>
           </h2>
           <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg leading-relaxed">
-            Our end-to-end talent acquisition journey ensures precision and quality at every stage.
+           Our end-to-end recruitment process combines structured talent acquisition with careful evaluation to deliver quality candidates at every stage.
           </p>
         </div>
 

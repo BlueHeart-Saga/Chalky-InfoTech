@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return INDUSTRIES.map((i) => ({ slug: i.slug }));
+  return INDUSTRIES_DETAILED.map((i) => ({ slug: i.slug }));
 }
 
 export default async function IndustryDetailPage({ params }: Props) {
@@ -137,15 +137,18 @@ export default async function IndustryDetailPage({ params }: Props) {
       </section>
 
       <AnchorJumpLinks links={jumpLinks} />
-
-      <section id="overview">
-        <IndustryOverview 
-          title={industry.overview.title} 
-          description={industry.overview.description}
-          industryLabel={industry.label}
-          capabilities={industry.capabilities}
-        />
-      </section>
+<section id="overview">
+  <IndustryOverview 
+    title={industry.overview.title} 
+    description={industry.overview.description}
+    industryLabel={industry.label}
+    capabilities={industry.capabilities}
+    advantageTitle={industry.overview.advantageTitle}
+    advantageDescription={industry.overview.advantageDescription}
+    outcomesTitle={industry.overview.outcomesTitle}
+    outcomesDescription={industry.overview.outcomesDescription}
+  />
+</section>
       
       <section id="challenges"><IndustryChallenges challenges={industry.challenges} /></section>
       <section id="roles"><RolesWeHire industryLabel={industry.label} roles={industry.roles} /></section>

@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 
 interface CTASectionProps {
+  badge?: string;
   title?: string;
   subtitle?: string;
   primaryLabel?: string;
@@ -14,6 +15,7 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
+  badge = "Let's Work Together",
   title = "Ready to Build Your Dream Team?",
   subtitle = "Partner with Chalky Infotech and gain access to elite talent across technology, finance, healthcare and more.",
   primaryLabel = "Start Hiring Today",
@@ -47,7 +49,7 @@ export default function CTASection({
           transition={{ duration: 0.7 }}
         >
           <span className="inline-block px-5 py-2 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-6 border border-[#7A1F5C]/20">
-            Let&apos;s Work Together
+             {badge}
           </span>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1A1A1A] leading-tight mb-6 tracking-tight">

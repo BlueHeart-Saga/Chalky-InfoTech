@@ -1,22 +1,31 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+
 import { RECRUITMENT_STEPS } from '@/constants';
 import * as LucideIcons from 'lucide-react';
 
 interface Props {
-  steps?: {
+  steps: {
     title: string;
     desc: string;
     icon?: string;
   }[];
   serviceLabel?: string;
+  processHeadingLabel: string;
+  processTitle: string;
+  processDescription: string;
 }
 
 const DEFAULT_ICONS = ['Search', 'ShieldCheck', 'UserCheck', 'Rocket', 'Activity', 'Award'];
 
-export default function ServiceProcess({ steps, serviceLabel }: Props) {
+export default function ServiceProcess({
+  steps,
+  serviceLabel,
+  processHeadingLabel,
+  processTitle,
+  processDescription,
+}: Props) {
   // If no steps provided, use the first 4 recruitment steps as fallback to fit the 4-column layout
   const displaySteps = steps || RECRUITMENT_STEPS.slice(0, 4);
   const isFourStep = displaySteps.length === 4;
@@ -29,15 +38,20 @@ export default function ServiceProcess({ steps, serviceLabel }: Props) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-widest mb-5">
-            Service Workflow
-          </span>
-          <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-tight tracking-tight">
-            How We <span className="text-[#7A1F5C]">Deliver Value</span> for {serviceLabel || 'Your Business'}
-          </h2>
-          <p className="text-[#8A8A8A] text-lg leading-relaxed">
-            Our streamlined methodology ensures precision, transparency, and rapid delivery at every stage of your engagement.
-          </p>
-        </div>
+  {processHeadingLabel}
+</span>
+
+<h2
+  className="text-3xl md:text-5xl font-normal text-[#1A1A1A] mb-6 leading-tight tracking-tight"
+  dangerouslySetInnerHTML={{
+    __html: `${processTitle} for ${serviceLabel || 'Your Business'}</strong>`,
+  }}
+/>
+
+<p
+  className="text-[#8A8A8A] text-lg leading-relaxed"
+  dangerouslySetInnerHTML={{ __html: processDescription }}
+/>       </div>
 
         <div className="relative">
           {/* Main Horizontal Timeline Line - Desktop Only */}

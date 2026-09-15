@@ -5,8 +5,14 @@ import Image from 'next/image';
 import { Star, Zap, ShieldCheck, Target, Award, Users } from 'lucide-react';
 
 interface Props {
-  benefits: string[];
+  benefits: {
+    title: string;
+    description: string;
+  }[];
   serviceLabel?: string;
+  headingLabel?: string;
+  headingTitle?: string;
+  headingDescription?: string;
 }
 
 import benefit1 from '@/assets/Services-details-page/7.png';
@@ -27,26 +33,33 @@ const BENEFIT_IMAGES = [
 
 const ICONS = [Zap, Target, ShieldCheck, Award, Users, Star];
 
-export default function ServiceBenefits({ benefits, serviceLabel }: Props) {
+export default function ServiceBenefits({
+  benefits,
+  serviceLabel,
+  headingLabel,
+  headingTitle,
+  headingDescription,
+}: Props) {
   // We take up to 6 benefits
   const displayBenefits = benefits.slice(0, 6);
 
   return (
     <section className="py-24 bg-[#FAFAFA] overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+{/* Standardized Header */}
+<div className="text-center mb-16">
+  <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
+    {headingLabel}
+  </span>
 
-        {/* Standardized Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
-            Core Advantages
-          </span>
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-6">
-            Strategic <span className="text-[#7A1F5C]">{serviceLabel || 'Service'} Benefits</span>
-          </h2>
-          <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg leading-relaxed">
-            Our specialized approach delivers measurable impact, ensuring your organization achieves peak operational efficiency and talent excellence.
-          </p>
-        </div>
+  <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-6">
+    {headingTitle}
+  </h2>
+
+  <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg leading-relaxed">
+    {headingDescription}
+  </p>
+</div>
 
         {/* Grid with cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -54,9 +67,7 @@ export default function ServiceBenefits({ benefits, serviceLabel }: Props) {
             const isDark = i % 2 === 0; // Perfect checkerboard for 3 columns
             const rotationClass = i % 2 === 0 ? '-rotate-1 lg:-rotate-2' : 'rotate-1 lg:rotate-2'; // Subtle alternating tilt
             const Icon = ICONS[i % ICONS.length];
-            const hasDesc = benefit.includes(':');
-            const [title, desc] = hasDesc ? benefit.split(':').map(s => s.trim()) : [benefit, 'We leverage our deep industry insights and global network to ensure this advantage translates into long-term strategic success for your organization.'];
-
+          
             return (
               <motion.div
                 key={i}
@@ -70,7 +81,7 @@ export default function ServiceBenefits({ benefits, serviceLabel }: Props) {
                 <div className="absolute inset-0 z-0">
                   <Image
                     src={BENEFIT_IMAGES[i % BENEFIT_IMAGES.length]}
-                    alt={title}
+                    alt={benefit.title}
                     fill
                     unoptimized
                     className={`object-cover object-center transition-transform duration-700 group-hover:scale-105 ${isDark ? 'opacity-50' : 'opacity-20'}`}
@@ -84,10 +95,13 @@ export default function ServiceBenefits({ benefits, serviceLabel }: Props) {
                     <Icon size={24} />
                   </div>
 
-                  <h3 className="text-xl font-bold mb-4 leading-tight">{title}</h3>
-                  <p className={`${isDark ? 'text-white/70' : 'text-gray-600'} text-sm leading-relaxed max-w-sm`}>
-                    {desc}
-                  </p>
+                  <h3 className="text-xl font-bold mb-4 leading-tight">
+  {benefit.title}
+</h3>
+
+<p className={`${isDark ? 'text-white/70' : 'text-gray-600'} text-sm leading-relaxed max-w-sm`}>
+  {benefit.description}
+</p>
 
                   <div className="mt-auto flex items-center gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
                     <div className="flex text-yellow-400">

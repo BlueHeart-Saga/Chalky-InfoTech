@@ -47,9 +47,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alt: `${service.label} - Chalky Infotech Specialist Recruitment`
   });
 }
-
 export async function generateStaticParams() {
-  return SERVICES.map((s) => ({ slug: s.slug }));
+  return SERVICES_DETAILED.map((service) => ({
+    slug: service.slug,
+  }));
 }
 
 export default async function ServiceDetailPage({ params }: Props) {
@@ -143,18 +144,54 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       <AnchorJumpLinks links={jumpLinks} />
 
-      <section id="overview"><ServiceOverview title={service.overview.title} description={service.overview.description} serviceLabel={service.label} /></section>
-      <section id="benefits"><ServiceBenefits benefits={service.benefits} serviceLabel={service.label} /></section>
-      <section id="industries"><IndustrySupport industries={service.industries} serviceLabel={service.label} /></section>
-      <section id="process"><ServiceProcess steps={service.process} serviceLabel={service.label} /></section>
-      <section id="why-choose"><WhyChooseService serviceLabel={service.label} features={service.features} /></section>
+      <section id="overview"><ServiceOverview overview={service.overview}  serviceLabel={service.label} /></section>
+      <section id="benefits"><ServiceBenefits
+  benefits={service.benefits}
+  serviceLabel={service.label}
+  headingLabel={service.overview.benefitsHeadingLabel}
+  headingTitle={service.overview.benefitsTitle}
+  headingDescription={service.overview.benefitsDescription}
+/></section>
+      <section id="industries"><IndustrySupport
+  industries={service.overview.industries}
+  serviceLabel={service.label}
+  supportHeadingLabel={service.overview.supportHeadingLabel}
+  supportTitle={service.overview.supportTitle}
+  supportDescription={service.overview.supportDescription}
+  supportSecondDescription={service.overview.supportSecondDescription}
+  supportDifferentiators={service.overview.differentiators}
+  supportClientTitle={service.overview.supportClientTitle}
+  supportClientDescription={service.overview.supportClientDescription}
+/></section>
+      <section id="process"><ServiceProcess
+  steps={service.process}
+  serviceLabel={service.label}
+  processHeadingLabel={service.overview.processHeadingLabel}
+  processTitle={service.overview.processTitle}
+  processDescription={service.overview.processDescription}
+/></section>
+      <section id="why-choose">
+ <WhyChooseService
+  serviceLabel={service.label}
+  features={service.features}
+  advantageHeadingLabel={service.overview.advantageHeadingLabel}
+  advantageTitle={service.overview.advantageTitle}
+  advantageDescription={service.overview.advantageDescription}
+  advantageTitleHighlight={service.overview.advantageTitleHighlight}
+
+  partnerHeadingLabel={service.overview.partnerHeadingLabel}
+  partnerTitle={service.overview.partnerTitle}
+  partnerTitleHighlight={service.overview.partnerTitleHighlight}
+  partnerDescription={service.overview.partnerDescription}
+/>
+</section>
       <section id="faq"><ServiceFAQ faqs={service.faqs} serviceLabel={service.label} /></section>
       <section id="related"><RelatedServices currentSlug={service.slug} /></section>
 
       <section id="cta">
         <CTASection 
-          title={`Scale Your Team with ${service.label}`}
-          subtitle={`Partner with our ${service.label.toLowerCase()} specialists to access scalable workforce solutions and exceptional talent tailored to your project needs.`}
+          title={`Scale Your Team with ${service.label} Services`}
+          subtitle={`Partner with our ${service.label.toLowerCase()} experts to access flexible workforce solutions and top-tier talent tailored to your project needs.`}
           primaryLabel="Hire Talent"
           primaryHref="/contact"
           secondaryLabel="Talk To Our Team"

@@ -5,14 +5,14 @@ import { Cpu, Radio, HardHat, MonitorPlay, Landmark, Activity, ShoppingCart, Fac
 import Link from 'next/link';
 
 const INDUSTRIES = [
-  { slug: 'it-technology', label: 'IT & Technology', icon: Cpu, desc: 'Driving digital transformation with elite software engineers and full-stack technical specialists.' },
-  { slug: 'telecommunications', label: 'Telecommunications', icon: Radio, desc: 'Scaling global connectivity with expert engineers for 5G, network, and satellite infrastructure.' },
-  { slug: 'engineering-infrastructure', label: 'Engineering & Infrastructure', icon: HardHat, desc: 'Supporting large-scale engineering, civil, industrial, and technical workforce requirements.' },
-  { slug: 'media-digital-services', label: 'Media & Digital Services', icon: MonitorPlay, desc: 'Connecting businesses with talent across digital platforms, content, and technology ecosystems.' },
-  { slug: 'banking-finance', label: 'Banking & Finance', icon: Landmark, desc: 'Strategic talent acquisition for global financial institutions, fintech, and regulatory compliance.' },
-  { slug: 'healthcare-life-sciences', label: 'Healthcare & Life Sciences', icon: Activity, desc: 'Providing critical expertise for clinical research, pharmaceutical development, and healthcare admin.' },
-  { slug: 'retail-ecommerce', label: 'Retail & E-Commerce', icon: ShoppingCart, desc: 'Optimizing the consumer journey with specialists in omnichannel retail and e-commerce platforms.' },
-  { slug: 'manufacturing', label: 'Manufacturing', icon: Factory, desc: 'Delivering engineering excellence and operational leadership for Industry 4.0 ecosystems.' }
+  { slug: 'it-technology', label: 'IT & Technology', icon: Cpu, desc: 'Connecting businesses with skilled software engineers, cloud specialists, and technology professionals for evolving digital needs.' },
+  { slug: 'telecommunications', label: 'Telecommunications', icon: Radio, desc: 'Supporting connectivity and communications businesses with experienced talent across 5G, networks, infrastructure, and satellite technologies.' },
+  { slug: 'engineering-infrastructure', label: 'Engineering & Infrastructure', icon: HardHat, desc: 'Meeting large-scale workforce requirements with skilled professionals across engineering, civil, industrial, and technical disciplines.' },
+  { slug: 'media-digital-services', label: 'Media & Digital Services', icon: MonitorPlay, desc: 'Connecting organisations with professionals across digital platforms, content, creative technology, and online service ecosystems.' },
+  { slug: 'banking-finance', label: 'Banking & Finance', icon: Landmark, desc: 'Providing specialist recruitment solutions for financial institutions, fintech businesses, banking operations, and regulatory functions.' },
+  { slug: 'healthcare-life-sciences', label: 'Healthcare & Life Sciences', icon: Activity, desc: 'Connecting organisations with experienced professionals across clinical research, pharmaceuticals, healthcare operations, and life sciences.' },
+  { slug: 'retail-ecommerce', label: 'Retail & E-Commerce', icon: ShoppingCart, desc: 'Supporting retail and e-commerce businesses with specialists across digital commerce, customer experience, omnichannel operations, and technology.' },
+  { slug: 'manufacturing', label: 'Manufacturing', icon: Factory, desc: 'Providing skilled talent across engineering, production, technology, and operational leadership for modern manufacturing environments.' }
 ];
 
 const bgColors = [
@@ -38,7 +38,7 @@ export default function IndustryExpertise() {
             Global <span className="text-[#7A1F5C]">Industry Expertise</span>
           </h2>
           <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg leading-relaxed">
-            Our specialized recruitment units possess deep <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">technical knowledge</Link> and cultural understanding across major sectors to ensure <Link href="/contact" className="text-[#7A1F5C] hover:underline font-semibold">precision hiring</Link>.
+           Our specialist recruitment teams combine  <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">industry knowledge</Link> technical expertise, and market understanding to deliver <Link href="/contact" className="text-[#7A1F5C] hover:underline font-semibold">precision recruitment </Link>across key sectors in the UK and global markets..
           </p>
         </div>
 

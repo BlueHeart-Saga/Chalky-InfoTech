@@ -18,8 +18,8 @@ const CAPABILITIES = [
 ];
 
 const BULLETS = [
-  { text: 'Discreet C-suite & executive searches', link: '/about' },
-  { text: 'Digital transformation team pivots', link: '/services' },
+  { text: 'Discreet C-suite & executive recruitment', link: '/about' },
+  { text: 'Digital transformation team expansion', link: '/services' },
   { text: 'Robust high-volume scaling models', link: '/services/temporary-recruitment' },
   { text: 'Sourcing niche technical skillsets', link: '/services/permanent-hiring' },
   { text: 'Cross-industry workforce integration', link: '/industries' },
@@ -43,7 +43,7 @@ export default function SpecializedHiring() {
               Specialized Talent Acquisition for <span className="text-[#7A1F5C]">Enterprise Scaling</span>
             </h2>
             <p className="text-[#8A8A8A] text-base md:text-lg leading-relaxed mb-8">
-              Beyond traditional staffing, we provide institutional maturity, state-of-the-art methodology, and compliant cross-border solutions for high-stakes <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">leadership searches</Link> and global <Link href="/contact" className="text-[#7A1F5C] hover:underline font-semibold">engineering scaling</Link>.
+             Beyond traditional staffing, we deliver specialist recruitment solutions, structured talent strategies, and flexible workforce support for businesses managing critical  <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">leadership hiring, technical recruitment, and team expansion </Link>across the UK and global markets.
             </p>
             
             {/* 8 Bullet points using CheckCircle2 */}

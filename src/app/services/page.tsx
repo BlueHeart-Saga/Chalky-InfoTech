@@ -22,8 +22,8 @@ import heroImg from '@/assets/Services/Hero/2.png';
 import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
 
 export const metadata = buildPageMetadataWithImage({
-  title: 'Specialist Recruitment & Workforce Solutions',
-  description: 'Discover Chalky Infotech\'s specialized recruitment services. We provide flexible contract staffing, permanent IT recruitment, and managed workforce solutions.',
+  title: 'Recruitment Company in UK | Specialist Recruitment Services',
+  description: 'Chalky Infotech is a recruitment company in UK offering specialist recruitment services, workforce solutions and talent acquisition across multiple sectors.',
   keywords: ['recruitment solutions UK', 'workforce solutions UK', 'IT staffing services', 'specialist recruitment agency', 'contract staffing UK', 'permanent recruitment UK', 'on-site hiring support', 'managed workforce solutions'],
   url: '/services',
   path: SEO_IMAGE_CONFIG.services.path,
@@ -68,9 +68,9 @@ export default function ServicesPage() {
             { label: 'Services' },
           ]}
           badge="What We Do"
-          title="Specialist Recruitment"
+          title="Recruitment Company in UK"
           titleHighlight="For Every Sector"
-          subtitle="13 dedicated service pillars. One trusted global partner. Delivering exceptional talent across the most competitive industries with speed, precision, and integrity."
+          subtitle="A specialist recruitment company in UK, connecting businesses with skilled talent across competitive industries with speed, precision, and integrity."
           ctaLabel="Start Hiring Today"
           ctaHref="/contact"
           secondaryLabel="Browse Jobs"

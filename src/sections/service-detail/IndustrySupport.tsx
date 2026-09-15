@@ -20,8 +20,15 @@ import {
 interface Props {
   industries: string[];
   serviceLabel?: string;
-}
 
+  supportHeadingLabel: string;
+  supportTitle: string;
+  supportDescription: string;
+  supportSecondDescription: string;
+  supportDifferentiators: string[];
+  supportClientTitle: string;
+supportClientDescription: string;
+}
 const RECRUITMENT_SOLUTIONS = [
   { title: 'IT Staffing', icon: MonitorSmartphone, desc: 'Specialized IT recruitment solutions connecting you with elite engineering talent.' },
   { title: 'Executive Search', icon: ShieldCheck, desc: 'Discreet search services for identifying world-class C-suite leadership.' },
@@ -70,7 +77,17 @@ const CLIENT_LOGOS = [
   { src: '/clients/c28.jpg', name: 'c28' },
 ];
 
-export default function IndustrySupport({ industries, serviceLabel }: Props) {
+export default function IndustrySupport({
+  industries,
+  serviceLabel,
+  supportHeadingLabel,
+  supportTitle,
+  supportDescription,
+  supportSecondDescription,
+  supportDifferentiators,
+  supportClientTitle,
+  supportClientDescription,
+}: Props) {
   return (
     <section className="pt-24 pb-8 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,17 +100,20 @@ export default function IndustrySupport({ industries, serviceLabel }: Props) {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-widest mb-6">
-              Global Sector Support
-            </span>
+           <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-widest">
+  {supportHeadingLabel}
+</span>
+
             <h2 className="text-3xl md:text-5xl font-semibold text-[#1A1A1A] mb-8 leading-[1.1]">
-              Cross-Border <span className="text-[#7A1F5C]">{serviceLabel || 'Service'}</span> & <br/>
-              Industry Expertise
+             {supportTitle}
             </h2>
+         <p
+  className="text-base font-normal leading-relaxed text-[#707070]"
+  dangerouslySetInnerHTML={{ __html: supportDescription }}
+/>
             <p className="text-[#8A8A8A] text-lg leading-relaxed mb-10">
-              We provide seamless workforce management and specialized recruitment support across international borders, ensuring your organization has the right talent in every major global hub.
-            </p>
-            
+  {supportSecondDescription}
+</p>
             <div className="flex flex-wrap gap-2">
               {industries.map((ind, i) => (
                 <div key={i} className="px-5 py-2 rounded-full bg-[#F5F0E8] border border-[#EFE7DD] text-[#1A1A1A] font-bold text-[11px] uppercase tracking-wider">
@@ -121,12 +141,14 @@ export default function IndustrySupport({ industries, serviceLabel }: Props) {
         {/* Representative Searches Style Grid */}
         <div id="searches">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[#1A1A1A] mb-6 tracking-tight">
-              Trusted by Global Leaders
-            </h2>
-            <p className="text-[#666] max-w-4xl mx-auto text-lg leading-relaxed">
-              We partner with ambitious companies across the financial and technology sectors to deliver high-impact talent solutions.
-            </p>
+           <h2 className="text-3xl md:text-5xl font-extrabold text-[#1A1A1A] mb-6 tracking-tight">
+  {supportClientTitle}
+</h2>
+
+<p
+  className="text-[#666] max-w-4xl mx-auto text-lg leading-relaxed"
+  dangerouslySetInnerHTML={{ __html: supportClientDescription }}
+/>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 pt-16 border-t border-[#F0F0F0]">

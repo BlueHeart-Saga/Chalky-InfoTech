@@ -17,10 +17,14 @@ export interface IndustryDetail {
     ogTitle: string;
     ogDescription: string;
   };
-  overview: {
-    title: string;
-    description: string;
-  };
+ overview: {
+  title: string;
+  description: string;
+  advantageTitle: string;
+  advantageDescription: string;
+  outcomesTitle: string;
+  outcomesDescription: string;
+};
   challenges: string[];
   roles: string[];
   services: string[];
@@ -65,6 +69,40 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
     overview: {
       title: 'Digital Innovation Talent — Built for Modern Tech Organisations',
       description: 'Technology moves fast. Your recruitment partner needs to move faster. We help IT and technology organisations secure highly skilled professionals aligned with agile delivery, cloud infrastructure, and emerging tech initiatives.\n\n• Precision Tech Vetting: Multi-stage assessments — live coding, architectural reviews and domain interviews — conducted by our in-house engineering advisors.\n• Squad Hiring Capability: We build complete cross-functional teams (Developers, QA, Product, DevOps) ready to integrate into your digital transformation lifecycle.\n• Proactive Talent Pipelining: Live-ready pools of pre-screened tech talent reduce average time-to-fill for niche roles to under 24 days.',
+      advantageTitle: 'The Chalky Infotech IT & Technology Talent Advantage',
+
+  advantageDescription: `
+    <p>
+      Organisations across the UK and India choose Chalky Infotech for
+      <strong style="color:#7A1F5C"> IT & Technology recruitment </strong>
+      because our approach combines deep technical expertise, structured candidate assessment,
+      and real-time talent market intelligence.
+    </p>
+
+    <p>
+      From fast-growing technology startups to established digital enterprises, our
+      <strong style="color:#7A1F5C"> IT & Technology hiring solutions </strong>
+      are aligned with your technology stack, delivery model, and long-term growth objectives.
+    </p>
+  `,
+
+  outcomesTitle: 'Measurable IT & Technology Recruitment Outcomes',
+
+  outcomesDescription: `
+    <p>
+      Every
+      <strong style="color:#7A1F5C"> IT & Technology recruitment </strong>
+      engagement is supported by clear SLAs, transparent reporting, and structured
+      post-placement support. We track key metrics including time-to-hire, quality of hire,
+      retention, candidate experience, and cost-per-hire.
+    </p>
+
+    <p>
+      Our recruitment solutions across contract staffing, permanent hiring, executive search,
+      managed services, and remote teams help technology organisations build high-performing
+      workforces while maintaining the flexibility to scale.
+    </p>
+  `,
     },
     challenges: [
       'Rapidly evolving tech stacks',
@@ -124,6 +162,41 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
     overview: {
       title: 'Connected Future Talent — Specialists for the 5G Era',
       description: 'The telecommunications industry is undergoing its most significant transformation in decades. We connect operators and infrastructure firms with specialist engineering talent to design, deploy and manage next-generation connectivity.\n\n• 5G & FTTH Expertise: Proven track record sourcing RF engineers, network planners and fibre specialists for large-scale national rollout programmes.\n• Credential Verification: Rigorous validation of CCNA, CCNP, 3GPP and vendor-specific certifications before any candidate is presented.\n• Scalable Field Hiring: Our high-volume model deploys pre-vetted field technicians and engineers across multiple regions simultaneously.',
+    advantageTitle: 'The Chalky Infotech Telecommunications Talent Advantage',
+
+advantageDescription: `
+  <p>
+    Telecommunications organisations across the UK and India rely on Chalky Infotech
+    for <strong style="color:#7A1F5C"> specialist telecom recruitment </strong>
+    because we combine deep network-domain knowledge, rigorous technical screening,
+    and scalable talent sourcing.
+  </p>
+
+  <p>
+    From 5G rollout programmes and FTTH deployments to network operations and
+    infrastructure projects, our <strong style="color:#7A1F5C">
+    telecommunications hiring solutions </strong> are aligned with project timelines,
+    technical requirements, and long-term workforce objectives.
+  </p>
+`,
+
+outcomesTitle: 'Measurable Telecommunications Recruitment Outcomes',
+
+outcomesDescription: `
+  <p>
+    Every <strong style="color:#7A1F5C"> telecommunications recruitment </strong>
+    engagement is supported by structured screening, transparent reporting,
+    and clear delivery standards. We track key outcomes including time-to-hire,
+    technical fit, deployment readiness, retention, and candidate experience.
+  </p>
+
+  <p>
+    Our contract staffing, permanent hiring, project recruitment, and on-site
+    workforce solutions help telecom organisations scale specialist teams faster
+    while maintaining operational continuity across regional and large-scale
+    infrastructure programmes.
+  </p>
+`,
     },
     challenges: [
       'Complex infrastructure rollout',
@@ -183,6 +256,42 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
     overview: {
       title: 'Strategic Engineering Talent — Precision-Matched for Critical Projects',
       description: 'Major infrastructure and engineering projects demand professionals who combine technical mastery with operational delivery capability. We connect organisations with highly specialised engineers and project managers ready to contribute from day one.\n\n• Credential-First Vetting: Rigorous review of engineering certifications, professional memberships (CEng, MICE, IMechE) and past project portfolios before presentation.\n• Safety-Compliant Professionals: Every candidate screened for adherence to NEBOSH, OSHA and sector-specific H&S regulations as a non-negotiable standard.\n• Full Lifecycle Coverage: From RIBA Stage 1 through to commissioning — we source engineers experienced across every phase of the project lifecycle.',
+    advantageTitle: 'The Chalky Infotech Engineering & Infrastructure Talent Advantage',
+
+advantageDescription: `
+  <p>
+    Engineering and infrastructure organisations choose Chalky Infotech for
+    <strong style="color:#7A1F5C"> specialist engineering recruitment </strong>
+    because we combine technical domain expertise, credential verification,
+    and project-focused talent sourcing.
+  </p>
+
+  <p>
+    From civil and structural engineering to mechanical, electrical, and large-scale
+    infrastructure programmes, our
+    <strong style="color:#7A1F5C"> engineering workforce solutions </strong>
+    are aligned with project requirements, safety standards, delivery timelines,
+    and long-term operational goals.
+  </p>
+`,
+
+outcomesTitle: 'Measurable Engineering & Infrastructure Recruitment Outcomes',
+
+outcomesDescription: `
+  <p>
+    Every <strong style="color:#7A1F5C"> engineering recruitment </strong>
+    engagement is supported by structured technical assessments, certification
+    checks, transparent reporting, and project-ready candidate validation.
+    We track outcomes including time-to-hire, technical fit, project readiness,
+    retention, and candidate experience.
+  </p>
+
+  <p>
+    Our permanent hiring, contract engineering, executive search, and project-based
+    staffing solutions help organisations secure specialist professionals faster
+    while maintaining safety, quality, and delivery standards across critical projects.
+  </p>
+`,
     },
     challenges: [
       'Complex project lifecycles',
@@ -235,6 +344,41 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
     overview: {
       title: 'Creative & Digital Experts — Talent That Drives Digital Growth',
       description: 'In a landscape where digital channels evolve overnight, brands need talent that combines creative vision with data-driven precision. We source top-tier media and digital professionals who help organisations thrive in the modern digital economy.\n\n• Portfolio-Led Assessment: In-depth evaluation of past campaigns, design work and digital performance metrics before any candidate is presented.\n• Platform-Specific Expertise: Talent vetted for Meta, Google, HubSpot, Adobe Creative Suite and major CMS platforms relevant to your tech stack.\n• Agile Creative Deployment: Freelance, contract and permanent placement models available for campaign-based or long-term digital team requirements.',
+    advantageTitle: 'The Chalky Infotech Media & Digital Talent Advantage',
+
+advantageDescription: `
+  <p>
+    Media and digital organisations choose Chalky Infotech for
+    <strong style="color:#7A1F5C"> specialist digital recruitment </strong>
+    because we combine creative-sector expertise, portfolio-led assessment,
+    and access to professionals across the evolving digital ecosystem.
+  </p>
+
+  <p>
+    From digital marketing and UX/UI design to content, media, and platform
+    specialists, our <strong style="color:#7A1F5C">
+    Media & Digital hiring solutions </strong> are aligned with your brand,
+    technology platforms, campaign requirements, and long-term digital growth.
+  </p>
+`,
+
+outcomesTitle: 'Measurable Media & Digital Recruitment Outcomes',
+
+outcomesDescription: `
+  <p>
+    Every <strong style="color:#7A1F5C"> Media & Digital recruitment </strong>
+    engagement is supported by portfolio evaluation, platform-specific screening,
+    transparent reporting, and structured candidate assessment. We track outcomes
+    including time-to-hire, creative quality, technical fit, retention,
+    and candidate experience.
+  </p>
+
+  <p>
+    Our permanent placement, freelance, executive search, and campaign-based
+    staffing solutions help organisations build agile digital teams, respond
+    quickly to changing campaign demands, and strengthen their digital performance.
+  </p>
+`,
     },
     challenges: [
       'Fast-paced digital trends',
@@ -287,6 +431,44 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
     overview: {
       title: 'Strategic Financial Workforce — From Fintech to Core Banking',
       description: 'The financial services sector demands professionals who understand both the rigour of traditional banking and the pace of digital finance. We help organisations secure highly skilled professionals aligned with digital transformation, risk management, and regulatory compliance.\n\n• Regulatory Expertise: All candidates vetted for MiFID II, Dodd-Frank, FCA and RBI compliance requirements relevant to their role and jurisdiction.\n• Fintech-to-Banking Bilingualism: Our consultants understand both cultures, ensuring precise cultural and technical fit across traditional and digital finance environments.\n• Enhanced Background Screening: Credit checks, criminal record checks and 5–10 year employment history verification applied as standard to every finance hire.',
+    advantageTitle: 'The Chalky Infotech Banking & Finance Talent Advantage',
+
+advantageDescription: `
+  <p>
+    Banking and financial services organisations choose Chalky Infotech for
+    <strong style="color:#7A1F5C"> specialist finance recruitment </strong>
+    because we combine regulatory awareness, sector expertise, and rigorous
+    candidate screening to identify professionals who can perform in highly
+    regulated environments.
+  </p>
+
+  <p>
+    From traditional banking and financial operations to fintech, compliance,
+    risk, and digital transformation, our
+    <strong style="color:#7A1F5C"> Banking & Finance hiring solutions </strong>
+    are aligned with your regulatory requirements, technology landscape,
+    business priorities, and long-term growth strategy.
+  </p>
+`,
+
+outcomesTitle: 'Measurable Banking & Finance Recruitment Outcomes',
+
+outcomesDescription: `
+  <p>
+    Every <strong style="color:#7A1F5C"> Banking & Finance recruitment </strong>
+    engagement is supported by structured assessments, enhanced background
+    screening, compliance checks, and transparent reporting. We track outcomes
+    including time-to-hire, regulatory fit, technical capability, retention,
+    and candidate experience.
+  </p>
+
+  <p>
+    Our permanent hiring, executive search, contract specialists, and managed
+    workforce solutions help financial organisations secure trusted professionals
+    faster while maintaining compliance, operational resilience, and the flexibility
+    required in a rapidly evolving financial services environment.
+  </p>
+`,
     },
     challenges: [
       'Complex regulatory landscape',
@@ -346,6 +528,43 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
     overview: {
       title: 'Life-Saving Talent Strategy — Clinical Excellence at Every Level',
       description: 'Healthcare organisations cannot afford a wrong hire. We help providers, biotech firms and pharmaceutical companies secure professionals capable of driving clinical excellence and medical innovation — with compliance and patient safety at the core of every placement.\n\n• Primary-Source Credential Verification: All clinical licences, certifications and professional registrations verified directly before any candidate is cleared for placement.\n• CQC & JCI Compliance: Every healthcare hire screened for occupational health requirements and adherence to local health authority and regulatory standards.\n• Rapid Temporary Deployment: Pre-vetted clinical and support staff available for same-week deployment to manage seasonal peaks or sudden capacity needs.',
+    advantageTitle: 'The Chalky Infotech Healthcare & Life Sciences Talent Advantage',
+
+advantageDescription: `
+  <p>
+    Healthcare and life sciences organisations choose Chalky Infotech for
+    <strong style="color:#7A1F5C"> specialist healthcare recruitment </strong>
+    because we combine sector expertise, rigorous credential verification,
+    and compliance-focused talent assessment.
+  </p>
+
+  <p>
+    From clinical and healthcare operations to biotechnology, pharmaceuticals,
+    clinical research, and Health IT, our
+    <strong style="color:#7A1F5C"> Healthcare & Life Sciences hiring solutions </strong>
+    are aligned with regulatory requirements, patient safety standards,
+    organisational needs, and long-term workforce goals.
+  </p>
+`,
+
+outcomesTitle: 'Measurable Healthcare & Life Sciences Recruitment Outcomes',
+
+outcomesDescription: `
+  <p>
+    Every <strong style="color:#7A1F5C"> Healthcare & Life Sciences recruitment </strong>
+    engagement is supported by primary-source credential verification, structured
+    compliance screening, transparent reporting, and candidate quality checks.
+    We track outcomes including time-to-hire, compliance readiness, technical fit,
+    retention, and candidate experience.
+  </p>
+
+  <p>
+    Our permanent hiring, temporary workforce, contract specialists, and executive
+    search solutions help healthcare and life sciences organisations secure
+    qualified professionals faster while maintaining high standards of compliance,
+    patient safety, and operational continuity.
+  </p>
+`,
     },
     challenges: [
       'Severe clinical shortages',
@@ -405,6 +624,43 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
     overview: {
       title: 'Omnichannel Future Talent — Commerce Expertise for the Digital Age',
       description: 'Modern retail demands professionals who understand both the physical and digital dimensions of commerce. We help retail organisations transition to digital-first models by providing the talent needed to manage complex e-commerce ecosystems, omnichannel operations and dynamic supply chains.\n\n• Platform-Certified Talent: Developers and architects vetted across Shopify, Magento, Salesforce Commerce Cloud and major WMS/OMS platforms.\n• Peak Scaling Capability: High-volume temporary cohorts mobilised in 24–48 hours for Black Friday, seasonal surges and rapid operational expansion.\n• Conversion-Focused UX Hiring: Designers evaluated on portfolio evidence of measurable UX improvements and data-driven conversion rate optimisation.',
+    advantageTitle: 'The Chalky Infotech Retail & E-Commerce Talent Advantage',
+
+advantageDescription: `
+  <p>
+    Retail and e-commerce organisations choose Chalky Infotech for
+    <strong style="color:#7A1F5C"> specialist retail recruitment </strong>
+    because we combine commerce-sector expertise, platform knowledge,
+    and data-driven candidate assessment.
+  </p>
+
+  <p>
+    From e-commerce platforms and omnichannel operations to supply chain,
+    UX, digital marketing, and customer experience, our
+    <strong style="color:#7A1F5C"> Retail & E-Commerce hiring solutions </strong>
+    are aligned with your technology ecosystem, customer strategy,
+    seasonal requirements, and long-term growth objectives.
+  </p>
+`,
+
+outcomesTitle: 'Measurable Retail & E-Commerce Recruitment Outcomes',
+
+outcomesDescription: `
+  <p>
+    Every <strong style="color:#7A1F5C"> Retail & E-Commerce recruitment </strong>
+    engagement is supported by platform-specific screening, structured
+    candidate assessment, transparent reporting, and scalable hiring processes.
+    We track outcomes including time-to-hire, technical fit, workforce readiness,
+    retention, and candidate experience.
+  </p>
+
+  <p>
+    Our temporary workforce, contract staffing, permanent hiring, and managed
+    services help retail organisations respond to seasonal demand, strengthen
+    digital commerce teams, improve operational efficiency, and scale their
+    workforce with greater flexibility.
+  </p>
+`,
     },
     challenges: [
       'Digital-first retail shift',
@@ -464,6 +720,43 @@ export const INDUSTRIES_DETAILED: IndustryDetail[] = [
     overview: {
       title: 'Advanced Industrial Workforce — Driving Industry 4.0 Transformation',
       description: 'The manufacturing sector is undergoing its most profound transformation since the industrial revolution. We help organisations secure the engineering and operational talent needed to lead automation, smart factory implementation, and Industry 4.0 initiatives.\n\n• Safety-Compliance Vetting: All industrial candidates screened for NEBOSH, OSHA and sector-specific H&S compliance before placement on any production site.\n• Automation & Robotics Specialists: Dedicated desk sourcing engineers who design, implement and maintain robotic and IoT-integrated production systems.\n• Lean & Six Sigma Expertise: Process engineers and operations leaders with proven track records in cost reduction, yield improvement and operational resilience.',
+    advantageTitle: 'The Chalky Infotech Manufacturing Talent Advantage',
+
+advantageDescription: `
+  <p>
+    Manufacturing organisations choose Chalky Infotech for
+    <strong style="color:#7A1F5C"> specialist industrial recruitment </strong>
+    because we combine engineering expertise, safety-focused screening,
+    and access to skilled professionals across modern manufacturing environments.
+  </p>
+
+  <p>
+    From process engineering and automation to robotics, plant operations,
+    quality, and supply chain, our
+    <strong style="color:#7A1F5C"> Manufacturing hiring solutions </strong>
+    are aligned with your production requirements, Industry 4.0 initiatives,
+    operational standards, and long-term workforce strategy.
+  </p>
+`,
+
+outcomesTitle: 'Measurable Manufacturing Recruitment Outcomes',
+
+outcomesDescription: `
+  <p>
+    Every <strong style="color:#7A1F5C"> Manufacturing recruitment </strong>
+    engagement is supported by technical assessments, safety compliance checks,
+    structured candidate validation, and transparent reporting. We track outcomes
+    including time-to-hire, technical fit, safety readiness, retention,
+    and candidate experience.
+  </p>
+
+  <p>
+    Our on-site support, permanent hiring, contract engineering, and managed
+    workforce solutions help manufacturers secure skilled professionals faster,
+    strengthen operational resilience, and scale production teams while maintaining
+    high standards of safety, quality, and efficiency.
+  </p>
+`,
     },
     challenges: [
       'Technical skill gap',

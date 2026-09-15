@@ -22,6 +22,7 @@ export interface PageHeroProps {
   /** Primary CTA button label */
   ctaLabel?: string;
   /** Primary CTA button href */
+
   ctaHref?: string;
   /** Secondary CTA label */
   secondaryLabel?: string;
@@ -40,6 +41,7 @@ export default function PageHero({
   title,
   titleHighlight,
   subtitle,
+  
   ctaLabel = 'Contact Us & Start Hiring',
   ctaHref = '/contact',
   secondaryLabel,

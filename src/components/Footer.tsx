@@ -1,22 +1,78 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { CAPABILITIES_DATA } from '@/constants/capabilitiesData';
 import Link from 'next/link';
 import Image from 'next/image';
 import ctaImage from '../assets/CTA/cta.png';
 import logoImage from '../assets/logo/logo.png';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, ArrowRight, Send, Share2, Globe, MessageSquare, AtSign, MessageCircle } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ArrowRight,
+  Send,
+  Share2,
+  Globe,
+  MessageSquare,
+  AtSign,
+  MessageCircle,
+  Check,
+  X,
+  Loader2,
+} from 'lucide-react';
 import { SERVICES, INDUSTRIES, CONTACT } from '@/constants';
 import { sendEmail } from '@/services/sendmail';
-import { Check, X, Loader2 } from 'lucide-react';
-import api from '@/services/api';
+import api from '@/services/api'; 
+
+
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  const capabilitySlug = pathname
+    .split('/')
+    .filter(Boolean)
+    .pop();
+
+  const capability = CAPABILITIES_DATA.find(
+    (item) => item.slug === capabilitySlug
+  );
+
+  const newsletterTitle =
+    capability?.footerNewsletter?.title ??
+    'Stay Ahead with Technology Insights';
+
+  const newsletterDescription =
+    capability?.footerNewsletter?.description ??
+    'Receive curated job opportunities, industry updates, and recruitment insights delivered directly to your inbox.';
+  const newsletterInputPlaceholder =
+  capability?.footerNewsletter?.inputPlaceholder ??
+  'Enter your email';
+
+const newsletterSubscribeLabel =
+  capability?.footerNewsletter?.subscribeLabel ??
+  'Subscribe';
+
+const newsletterSuccessMessage =
+  capability?.footerNewsletter?.successMessage ??
+  'Thank you for subscribing!';
+  const newsletterPrivacyText =
+  capability?.footerNewsletter?.privacyText ??
+  'You can unsubscribe whenever you choose. Review our privacy policy';
+
+const newsletterPrivacyLinkLabel =
+  capability?.footerNewsletter?.privacyLinkLabel ??
+  'here';
+
   const [year, setYear] = useState('2026');
   const [email, setEmail] = useState('');
   const [isSubscribing, setIsSubscribing] = useState(false);
-  const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [subscribeStatus, setSubscribeStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle');
   const [showPreferences, setShowPreferences] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [sections, setSections] = useState<any[]>([]);
@@ -81,10 +137,10 @@ export default function Footer() {
               {/* Right Side: Content & Form */}
               <div className="flex-[1.5] relative z-10 w-full py-2">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
-                  Subscribe for tech insights
+                  {newsletterTitle}
                 </h3>
                 <p className="text-white/80 text-sm mb-5 max-w-lg leading-relaxed">
-                  Get exclusive job alerts and recruitment trends delivered right to your inbox. Stay ahead of the curve.
+                   {newsletterDescription}
                 </p>
 
                 {(() => {
@@ -136,7 +192,7 @@ export default function Footer() {
                             setEmail(e.target.value);
                             if (subscribeStatus !== 'idle') setSubscribeStatus('idle');
                           }}
-                          placeholder={subscribeStatus === 'success' ? "Thank you for subscribing!" : "Enter your email"}
+                          placeholder={subscribeStatus === 'success' ?  newsletterSuccessMessage :  newsletterInputPlaceholder}
                           className="flex-1 px-3 py-2 bg-transparent text-white placeholder:text-white/60 focus:outline-none text-sm font-medium w-full"
                           required
                           disabled={isSubscribing || subscribeStatus === 'success' || showPreferences}
@@ -151,7 +207,7 @@ export default function Footer() {
                                 : 'bg-white text-[#7A1F5C] hover:shadow-lg'
                             }`}
                         >
-                          {isSubscribing ? 'Wait...' : subscribeStatus === 'success' ? 'Subscribed' : 'Subscribe'}
+                          {isSubscribing ? 'Wait...' : subscribeStatus === 'success' ? 'Subscribed' : newsletterSubscribeLabel}
                         </button>
                       </form>
                     </>
@@ -159,8 +215,15 @@ export default function Footer() {
                 })()}
 
                 <p className="text-white/50 text-xs mt-3">
-                  You can unsubscribe at any time. Read our privacy policy <Link href="/privacy-policy" className="underline hover:text-white">here</Link>.
-                </p>
+  {newsletterPrivacyText}{' '}
+  <Link
+    href="/privacy-policy"
+    className="underline hover:text-white"
+  >
+    {newsletterPrivacyLinkLabel}
+  </Link>
+  .
+</p>
               </div>
 
             </div>
@@ -169,7 +232,7 @@ export default function Footer() {
 
         {/* Pre-footer CTA */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 text-center border-b border-gray-800">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Ready To Build Future-Ready Teams?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Ready to Build High-Performing Teams?</h2>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact" className="bg-[#7A1F5C] hover:bg-[#C2185B] text-white px-8 py-3.5 rounded-full font-bold transition-colors text-sm shadow-lg shadow-[#7A1F5C]/20">
               Contact Us

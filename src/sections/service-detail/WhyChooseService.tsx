@@ -15,6 +15,14 @@ interface Feature {
 interface Props {
   serviceLabel: string;
   features: Feature[];
+  advantageHeadingLabel: string;
+ advantageTitle: string;
+advantageTitleHighlight: string;
+  advantageDescription: string;
+  partnerHeadingLabel: string;
+  partnerTitle: string;
+  partnerTitleHighlight?: string;
+  partnerDescription: string;
 }
 
 import feature1 from '@/assets/Services-details-page/4.png';
@@ -33,7 +41,18 @@ const DEFAULT_FEATURE_IMAGES = [
   feature6.src
 ];
 
-export default function WhyChooseService({ serviceLabel, features }: Props) {
+export default function WhyChooseService({
+  serviceLabel,
+  features,
+  advantageHeadingLabel,
+  advantageTitle,
+  advantageDescription,
+   advantageTitleHighlight,
+   partnerHeadingLabel,
+  partnerTitle,
+  partnerTitleHighlight,
+  partnerDescription,
+}: Props) {
   return (
     <section className="py-24 bg-[#F5F0E8] text-[#1A1A1A] relative overflow-hidden pb-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -45,26 +64,30 @@ export default function WhyChooseService({ serviceLabel, features }: Props) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-          >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-widest mb-6">
-              The Chalky Advantage
-            </span>
-            <h2 className="text-3xl md:text-5xl font-semibold mb-8 leading-[1.1]">
-              Strategic Excellence in <br />
-              <span className="text-[#7A1F5C]">{serviceLabel} Solutions</span>
-            </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-10">
-              We provide specialized workforce solutions designed to help your organization access top-tier talent, optimize hiring workflows, and achieve sustainable operational growth through our expert {serviceLabel.toLowerCase()} framework.
-            </p>
+          ><span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-widest mb-6">
+  {advantageHeadingLabel}
+</span>
 
-            <div className="grid sm:grid-cols-2 gap-y-4 gap-x-8">
-              {features.slice(0, 4).map((feature, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <CheckCircle2 size={18} className="text-[#C2185B]" />
-                  <span className="text-[#1A1A1A] font-bold text-sm tracking-tight">{feature.title}</span>
-                </div>
-              ))}
-            </div>
+<h2 className="text-3xl md:text-5xl font-semibold mb-8 leading-[1.1]">
+  {advantageTitle}
+  <span className="text-[#7A1F5C]"> {advantageTitleHighlight}</span>
+</h2>
+
+<div
+  className="text-[#555] text-sm leading-relaxed space-y-4"
+  dangerouslySetInnerHTML={{ __html: advantageDescription }}
+/>
+
+<div className="grid sm:grid-cols-2 gap-y-4 gap-x-8 mt-6">
+  {features.slice(0, 4).map((feature, i) => (
+    <div key={i} className="flex items-center gap-3">
+      <CheckCircle2 size={18} className="text-[#C2185B]" />
+      <span className="text-[#1A1A1A] font-bold text-sm tracking-tight">
+        {feature.title}
+      </span>
+    </div>
+  ))}
+</div>
           </motion.div>
 
           <motion.div
@@ -76,13 +99,22 @@ export default function WhyChooseService({ serviceLabel, features }: Props) {
           >
             <div className="flex flex-col items-start bg-white/40 backdrop-blur-sm p-8 md:p-12 rounded-[40px] border border-white/60">
               <div className="text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 text-[#7A1F5C] font-extrabold text-[10px] uppercase tracking-[0.2em] mb-4">
-                  <span className="w-8 h-[1px] bg-[#7A1F5C]/30" /> Partner Excellence
-                </div>
-                <h3 className="text-3xl font-bold text-[#1A1A1A] mb-6 leading-tight">Scale Your Global Operations</h3>
-                <p className="text-gray-600 mb-10 leading-relaxed text-sm">
-                  Our {serviceLabel.toLowerCase()} expertise is built on years of delivering high-impact recruitment strategies for enterprise leaders across technical and professional domains globally.
-                </p>
+               <div className="inline-flex items-center gap-2 text-[#7A1F5C] font-extrabold text-[10px] uppercase tracking-[0.2em] mb-4">
+  <span className="w-8 h-[1px] bg-[#7A1F5C]/30" />
+  {partnerHeadingLabel}
+</div>
+
+<h3 className="text-3xl font-bold text-[#1A1A1A] mb-6 leading-tight">
+  {partnerTitle}
+  {partnerTitleHighlight && (
+    <span className="text-[#7A1F5C]"> {partnerTitleHighlight}</span>
+  )}
+</h3>
+
+<p
+  className="text-gray-600 mb-10 leading-relaxed text-sm"
+  dangerouslySetInnerHTML={{ __html: partnerDescription }}
+/>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/contact" className="bg-[#7A1F5C] text-white px-10 py-5 rounded-2xl font-bold text-sm hover:bg-[#C2185B] transition-all text-center shadow-lg shadow-[#7A1F5C]/20">
                     Talk To Specialists

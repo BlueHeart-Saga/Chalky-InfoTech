@@ -16,6 +16,10 @@ interface Props {
   description: string;
   industryLabel?: string;
   capabilities: Capability[];
+  advantageTitle: string;
+advantageDescription: string;
+outcomesTitle: string;
+outcomesDescription: string;
 }
 
 /* Split "Intro para\n\n• A: desc\n• B: desc" into parts */
@@ -79,7 +83,16 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay },
 });
 
-export default function IndustryOverview({ title, description, industryLabel, capabilities }: Props) {
+export default function IndustryOverview({
+  title,
+  description,
+  industryLabel,
+  capabilities,
+  advantageTitle,
+  advantageDescription,
+  outcomesTitle,
+  outcomesDescription,
+}: Props) {
   const industry = industryLabel || 'Industry';
   const { intro, bullets } = parseDesc(description);
 
@@ -235,55 +248,35 @@ export default function IndustryOverview({ title, description, industryLabel, ca
               );
             })}
           </div>
+{/* ── Bottom SEO editorial ── */}
+<motion.div
+  {...fadeUp(0.2)}
+  className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12 border-t border-[#EFE7DD] pt-16"
+>
+  <div>
+    <h3 className="text-lg font-bold text-[#1A1A1A] mb-4 flex items-center gap-3">
+      <TrendingUp size={18} className="text-[#7A1F5C]" />
+      {advantageTitle}
+    </h3>
 
-          {/* ── Bottom SEO editorial ── */}
-          <motion.div
-            {...fadeUp(0.2)}
-            className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12 border-t border-[#EFE7DD] pt-16"
-          >
-            <div>
-              <h3 className="text-lg font-bold text-[#1A1A1A] mb-4 flex items-center gap-3">
-                <TrendingUp size={18} className="text-[#7A1F5C]" />
-                The Chalky Infotech {industry} Talent Advantage
-              </h3>
-              <p className="text-[#555] text-sm leading-relaxed mb-3">
-                Organisations across the UK and India choose Chalky Infotech for{' '}
-                {industry.toLowerCase()} recruitment because our methodology blends
-                behavioural analytics, domain-expert knowledge, and live market intelligence.
-                We treat every engagement as a long-term partnership — not a transactional search.
-              </p>
-              <p className="text-[#555] text-sm leading-relaxed">
-                From fast-growing startups to FTSE-listed enterprises, our{' '}
-                <Link href="/industries" className="text-[#7A1F5C] font-semibold hover:underline">
-                  {industry.toLowerCase()} hiring solution
-                </Link>{' '}
-                is calibrated to your sector, your culture, and the calibre of talent your
-                organisation deserves.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold text-[#1A1A1A] mb-4 flex items-center gap-3">
-                <BarChart3 size={18} className="text-[#7A1F5C]" />
-                Measurable {industry} Recruitment Outcomes
-              </h3>
-              <p className="text-[#555] text-sm leading-relaxed mb-3">
-                Every {industry.toLowerCase()} engagement is underpinned by clear SLAs,
-                transparent reporting, and a structured post-placement support window. We track
-                time-to-hire, retention rate, candidate satisfaction, and cost-per-hire to
-                continuously refine our delivery.
-              </p>
-              <p className="text-[#555] text-sm leading-relaxed">
-                Our{' '}
-                <Link href="/services" className="text-[#7A1F5C] font-semibold hover:underline">
-                  full suite of recruitment services
-                </Link>{' '}
-                — spanning IT Staffing, Executive Search, Contract &amp; Permanent Hiring, Remote
-                Hiring, and Managed Workforce Solutions — is purpose-built to scale with your
-                {' '}{industry.toLowerCase()} ambitions at every stage of growth.
-              </p>
-            </div>
-          </motion.div>
+    <div
+      className="text-[#555] text-sm leading-relaxed"
+      dangerouslySetInnerHTML={{ __html: advantageDescription || '' }}
+    />
+  </div>
 
+  <div>
+    <h3 className="text-lg font-bold text-[#1A1A1A] mb-4 flex items-center gap-3">
+      <BarChart3 size={18} className="text-[#7A1F5C]" />
+      {outcomesTitle}
+    </h3>
+
+    <div
+      className="text-[#555] text-sm leading-relaxed"
+      dangerouslySetInnerHTML={{ __html: outcomesDescription || '' }}
+    />
+  </div>
+</motion.div>
         </div>
       </section>
     </article>

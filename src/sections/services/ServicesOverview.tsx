@@ -60,7 +60,7 @@ export default function ServicesOverview() {
           </div>
           <div className="lg:w-1/2">
             <p className="text-[#8A8A8A] text-lg leading-relaxed border-l-4 border-[#7A1F5C] pl-8">
-              From <Link href="/services/contract-staffing" className="text-[#7A1F5C] hover:underline font-semibold">contract staffing</Link> and <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-semibold">permanent recruitment</Link> to <Link href="/services/remote-hiring" className="text-[#7A1F5C] hover:underline font-semibold">workforce scaling</Link> and <Link href="/services/on-site-recruitment" className="text-[#7A1F5C] hover:underline font-semibold">on-site hiring support</Link>, Chalky Infotech provides an integrated recruitment ecosystem designed to drive organizational growth and technical innovation.
+              From <Link href="/services/contract-staffing" className="text-[#7A1F5C] hover:underline font-semibold">specialist recruitment</Link> and <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-semibold">permanent staffing </Link> to <Link href="/services/remote-hiring" className="text-[#7A1F5C] hover:underline font-semibold">workforce scaling</Link> and <Link href="/services/on-site-recruitment" className="text-[#7A1F5C] hover:underline font-semibold">on-site hiring support</Link>, Chalky Infotech is a recruitment company in UK delivering tailored talent solutions for growing businesses..
             </p>
           </div>
         </div>

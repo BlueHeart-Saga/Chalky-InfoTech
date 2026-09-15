@@ -22,19 +22,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Capability Not Found' };
   }
 
-  return buildPageMetadataWithImage({
-    title: `${capability.title} Recruitment`,
-    description: capability.heroDesc,
-    keywords: [
-      capability.title,
-      `${capability.title} recruitment`,
-      `${capability.title} staffing`,
-      ...capability.rolesDetailed.slice(0, 5).map((r) => r.title),
-    ],
-    url: `/capabilities/${slug}`,
-    path: '/hero-capabilities.png',
-    alt: `${capability.title} specialized recruitment`
-  });
+return buildPageMetadataWithImage({
+  title: capability.seoTitle || `${capability.title} Recruitment`,
+  description: capability.seoDescription || capability.heroDesc,
+  keywords: [
+    capability.title,
+    `${capability.title} recruitment`,
+    `${capability.title} staffing`,
+    ...capability.rolesDetailed.slice(0, 5).map((r) => r.title),
+  ],
+  url: `/capabilities/${slug}`,
+  path: '/hero-capabilities.png',
+  alt: `${capability.title} specialized recruitment`
+});
 }
 
 export default async function CapabilityDetailPage({ params }: Props) {

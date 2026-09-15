@@ -24,7 +24,7 @@ export default function WhyChooseServices() {
             Why Partner with <span className="text-[#7A1F5C]">Chalky Infotech?</span>
           </h2>
           <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg leading-relaxed">
-            We combine high-tech recruitment tools with high-touch human expertise to deliver premium, <Link href="/services" className="text-[#7A1F5C] hover:underline font-semibold">enterprise-grade talent solutions</Link> built on <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">industry-best methodologies</Link>.
+           We combine modern recruitment technology with experienced human expertise to deliver, <Link href="/services" className="text-[#7A1F5C] hover:underline font-semibold">specialist recruitment solutions </Link> built around your <Link href="/about" className="text-[#7A1F5C] hover:underline font-semibold">hiring goals, industry requirements, and workforce needs.</Link>.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function WhyChooseServices() {
             <div className="relative z-10 p-8 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-3">Global brands</h3>
               <p className="text-white/80 text-sm leading-relaxed max-w-sm">
-                We have experience working with global corporate clients and top-tier brands in <Link href="/industries/retail-ecommerce" className="text-white underline hover:text-[#D14D72] font-semibold">logistics</Link>, <Link href="/industries/it-technology" className="text-white underline hover:text-[#D14D72] font-semibold">tech</Link>, <Link href="/industries/manufacturing" className="text-white underline hover:text-[#D14D72] font-semibold">energy</Link>, and global consulting.
+                We bring experience across UK and international markets, connecting businesses with skilled professionals across  <Link href="/industries/retail-ecommerce" className="text-white underline hover:text-[#D14D72] font-semibold">technology</Link>, <Link href="/industries/it-technology" className="text-white underline hover:text-[#D14D72] font-semibold">finance</Link>, <Link href="/industries/manufacturing" className="text-white underline hover:text-[#D14D72] font-semibold">engineering</Link>, and healthcare.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 mt-6 opacity-90">
@@ -85,7 +85,7 @@ export default function WhyChooseServices() {
             <div className="relative z-10 p-8 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-3">Exceptional standards</h3>
               <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-                From rapidly growing Series A and B startups with a high <Link href="/services/it-staffing" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">engineering talent bar</Link> to hedge funds and global investors - we exceed expectations by delivering <Link href="/services/executive-search" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">executive leadership</Link>.
+               From growing businesses to established enterprises, we maintain a high standard of candidate sourcing, screening, and selection to identify  <Link href="/services/it-staffing" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold"></Link><Link href="/services/executive-search" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">qualified talent that fits your requirements. </Link>.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 mt-6 text-gray-800">
@@ -119,7 +119,7 @@ export default function WhyChooseServices() {
             <div className="relative z-10 p-8 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-3">High client satisfaction</h3>
               <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-                Our reliability is attested by our years on the market and excellent client satisfaction on independent, external review portals. Ready to partner? <Link href="/contact" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">Contact our team</Link> today.
+                Our approach is built around clear communication, reliable recruitment support, and a strong understanding of client needs, creating a smooth and dependable hiring experience. <Link href="/contact" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">Contact our team</Link> today.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 mt-8">
