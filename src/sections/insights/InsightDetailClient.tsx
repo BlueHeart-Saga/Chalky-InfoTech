@@ -10,10 +10,7 @@ import EngagementHub from '@/sections/insights/EngagementHub';
 import { PdfReaderModal } from '@/components/PdfReaderModal';
 import { getPostSlug } from '@/lib/seo-slug';
 import postHeroImg from '@/assets/Insights/posthero.png';
-
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  'https://mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net';
+import api from '@/services/api';
 
 interface InsightDetailClientProps {
   post: any;
@@ -43,9 +40,7 @@ export default function InsightDetailClient({
   // Find if there's any document block in the post
   const docBlock = (blocks || []).find((b: any) => b.type === 'document');
   const mainDocUrl = docBlock?.data
-    ? docBlock.data.file_id
-      ? `${API_BASE_URL}/api/documents/${docBlock.data.file_id}`
-      : docBlock.data.url
+    ? api.getDocumentUrl(docBlock.data.file_id, docBlock.data.url)
     : null;
 
   const isPdfCategory = [
@@ -135,7 +130,7 @@ export default function InsightDetailClient({
           <figure key={index} className="my-10 space-y-3">
             <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-[#EFE7DD] shadow-lg bg-gray-50">
               <Image
-                src={block.data.file_id ? `${API_BASE_URL}/api/images/${block.data.file_id}` : block.data.url}
+                src={block.data.file_id ? api.getImageUrl(block.data.file_id) : block.data.url}
                 alt={block.data.alt || block.data.caption || 'Publication visual'}
                 fill
                 unoptimized
@@ -152,9 +147,7 @@ export default function InsightDetailClient({
         );
 
       case 'document':
-        const docUrl = block.data.file_id
-          ? `${API_BASE_URL}/api/documents/${block.data.file_id}`
-          : block.data.url;
+        const docUrl = api.getDocumentUrl(block.data.file_id, block.data.url);
         const docTitle = block.data.title || 'Download Intelligence Brief';
 
         return (
@@ -330,10 +323,12 @@ export default function InsightDetailClient({
             <EngagementHub
               postId={postId}
               postTitle={post.title}
-              readTime={post.readTime || 5}
+              readTime={post.readTime || 4}
               date={post.date || 'May 18, 2026'}
               categoryName={post.category?.name || 'Insights'}
               authorName={post.author || 'Chalky Executive'}
+              initialLikes={post.likes}
+              initialViews={post.views}
             />
           </article>
 

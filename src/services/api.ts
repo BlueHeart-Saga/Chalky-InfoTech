@@ -5,30 +5,65 @@ const COMPANY_ID = process.env.NEXT_PUBLIC_COMPANY_ID || "CK-666713";
 
 const API_PREFIX = "/api";
 
+const globalServerCache = new Map<string, { data: any; timestamp: number }>();
+const globalPendingRequests = new Map<string, Promise<any>>();
+const SERVER_CACHE_TTL = 60 * 1000; // 60 seconds in-memory cache for prompt publishing updates
+
+export function isPublishedPost(item: any): boolean {
+  if (!item) return false;
+  const status = (item.status || "published").toLowerCase();
+  if (status !== "published") return false;
+  if (item.is_deleted === true || status === "deleted" || status === "archived" || status === "draft") {
+    return false;
+  }
+  return true;
+}
+
 class ApiService {
   private baseUrl: string;
   private companyId: string;
-  private cache: Map<string, any>;
+  private cache: Map<string, { data: any; timestamp: number }>;
   private pendingRequests: Map<string, Promise<any>>;
 
   constructor() {
-    this.baseUrl = API_BASE_URL.replace(/\/$/, "");
+    const isClient = typeof window !== "undefined";
+    this.baseUrl = isClient ? "/api/insights-proxy" : API_BASE_URL.replace(/\/$/, "");
     this.companyId = COMPANY_ID;
     this.cache = new Map();
     this.pendingRequests = new Map();
   }
 
+  getImageUrl(fileId?: string): string {
+    if (!fileId) return "";
+    return `${this.baseUrl}${API_PREFIX}/images/${fileId}`;
+  }
+
+  getDocumentUrl(fileId?: string, fallbackUrl?: string): string {
+    if (fileId) return `${this.baseUrl}${API_PREFIX}/documents/${fileId}`;
+    return fallbackUrl || "";
+  }
+
   // Helper for API calls
   async fetchApi(endpoint: string, options: any = {}) {
     const url = `${this.baseUrl}${API_PREFIX}${endpoint}`;
-    const cacheKey = `${url}:${options.method || "GET"}:${options.body || ""}`;
+    const cacheKey = `${url}:${options.method || "GET"}:${JSON.stringify(options.body || "")}`;
 
-    // return cached data
-    if (this.cache.has(cacheKey)) {
-      return this.cache.get(cacheKey);
+    // 1. Check in-memory global server cache (1 min TTL)
+    const cachedItem = globalServerCache.get(cacheKey);
+    if (cachedItem && Date.now() - cachedItem.timestamp < SERVER_CACHE_TTL) {
+      return cachedItem.data;
     }
 
-    // return pending request
+    // 2. Check instance cache (1 min TTL)
+    const instCache = this.cache.get(cacheKey);
+    if (instCache && Date.now() - instCache.timestamp < SERVER_CACHE_TTL) {
+      return instCache.data;
+    }
+
+    // 3. Dedupe in-flight requests
+    if (globalPendingRequests.has(cacheKey)) {
+      return globalPendingRequests.get(cacheKey);
+    }
     if (this.pendingRequests.has(cacheKey)) {
       return this.pendingRequests.get(cacheKey);
     }
@@ -39,7 +74,7 @@ class ApiService {
         "Content-Type": "application/json",
         ...options.headers,
       },
-      next: { revalidate: 60 } // Next.js specific caching, revalidate every 60s
+      next: { revalidate: 60 } // Next.js specific caching (60 seconds)
     })
       .then(async (response) => {
         if (!response.ok) {
@@ -48,18 +83,22 @@ class ApiService {
         }
 
         const data = await response.json();
-
-        this.cache.set(cacheKey, data);
+        const cacheEntry = { data, timestamp: Date.now() };
+        globalServerCache.set(cacheKey, cacheEntry);
+        this.cache.set(cacheKey, cacheEntry);
+        globalPendingRequests.delete(cacheKey);
         this.pendingRequests.delete(cacheKey);
 
         return data;
       })
       .catch((err) => {
+        globalPendingRequests.delete(cacheKey);
         this.pendingRequests.delete(cacheKey);
         if (options.throwError) throw err;
         return null;
       });
 
+    globalPendingRequests.set(cacheKey, requestPromise);
     this.pendingRequests.set(cacheKey, requestPromise);
 
     return requestPromise;
@@ -78,8 +117,8 @@ class ApiService {
 
   async getContent(params: any = {}) {
     const queryParams = new URLSearchParams({
-      skip: params.skip || 0,
-      limit: params.limit || 20,
+      skip: (params.skip || 0).toString(),
+      limit: (params.limit || 20).toString(),
       ...(params.section_slug && { section_slug: params.section_slug }),
       ...(params.category_slug && { category_slug: params.category_slug }),
     }).toString();
@@ -89,6 +128,26 @@ class ApiService {
 
   async getContentById(contentId: string) {
     return this.fetchApi(`/public/content/${contentId}`);
+  }
+
+  async registerLike(postId: string): Promise<{ success: boolean; liked?: boolean; likes?: number }> {
+    const url = `${this.baseUrl}${API_PREFIX}/public/content/${postId}/like`;
+    try {
+      const res = await fetch(url, {
+        method: "POST"
+      });
+      if (res.ok) {
+        const data = await res.json().catch(() => ({}));
+        return {
+          success: true,
+          liked: data.liked,
+          likes: typeof data.likes === "number" ? data.likes : undefined
+        };
+      }
+      return { success: false };
+    } catch {
+      return { success: false };
+    }
   }
 
   // Get all content in a category with pagination
@@ -109,7 +168,8 @@ class ApiService {
         break;
       }
 
-      allItems = [...allItems, ...response.items];
+      const validItems = response.items.filter(isPublishedPost);
+      allItems = [...allItems, ...validItems];
 
       if (response.items.length < pageSize || allItems.length >= limit) {
         break;
@@ -160,7 +220,8 @@ class ApiService {
                     };
                   }
 
-                  const posts = (contentRes.items || []).map((item: any) =>
+                  const validItems = (contentRes.items || []).filter(isPublishedPost);
+                  const posts = validItems.map((item: any) =>
                     this.transformContent(item, section, category),
                   );
 
@@ -205,7 +266,8 @@ class ApiService {
       const response = await this.getContent({ limit });
       if (!response || !response.items) return [];
 
-      const posts = response.items.map((item: any) => this.transformContent(item));
+      const validItems = response.items.filter(isPublishedPost);
+      const posts = validItems.map((item: any) => this.transformContent(item));
       return posts
         .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .slice(0, limit);
@@ -221,7 +283,8 @@ class ApiService {
       const response = await this.getContent({ section_slug: sectionSlug, limit });
       if (!response || !response.items) return [];
 
-      const posts = response.items.map((item: any) =>
+      const validItems = response.items.filter(isPublishedPost);
+      const posts = validItems.map((item: any) =>
         this.transformContent(item, { slug: sectionSlug })
       );
       return posts
@@ -236,10 +299,18 @@ class ApiService {
   // Transform backend content to match frontend expected format
   transformContent(backendContent: any, section: any = null, category: any = null) {
     const renderedContent = this.renderBlocks(backendContent.blocks);
-    const computedReadTime = Math.max(
-      1,
-      Math.ceil((renderedContent || "").trim().split(/\s+/).length / 200),
-    );
+    const words = (renderedContent || "").trim().split(/\s+/).filter(Boolean).length;
+    
+    // Accurate read time computation
+    let computedReadTime = 4;
+    if (backendContent.stats?.read_time && typeof backendContent.stats.read_time === "number" && backendContent.stats.read_time > 0) {
+      computedReadTime = backendContent.stats.read_time;
+    } else if (words > 0) {
+      computedReadTime = Math.max(1, Math.ceil(words / 200));
+    } else if (backendContent.subtitle) {
+      const subWords = backendContent.subtitle.trim().split(/\s+/).filter(Boolean).length;
+      computedReadTime = Math.max(2, Math.ceil(subWords / 25));
+    }
 
     let formattedDate = "";
     try {
@@ -271,15 +342,15 @@ class ApiService {
           },
       excerpt: backendContent.subtitle || this.extractExcerpt(backendContent.blocks),
       image: backendContent.cover_image_id
-        ? `${this.baseUrl}${API_PREFIX}/images/${backendContent.cover_image_id}`
+        ? this.getImageUrl(backendContent.cover_image_id)
         : null,
       content: renderedContent,
       date: formattedDate,
       author: backendContent.author?.name || "Chalky Infotech Team",
-      readTime: backendContent.stats?.read_time || computedReadTime,
+      readTime: computedReadTime,
       tags: backendContent.tags || [],
       views: backendContent.stats?.views || 0,
-      likes: backendContent.stats?.likes || 0,
+      likes: backendContent.like_count ?? backendContent.stats?.likes ?? 0,
       comments: backendContent.stats?.comments || 0,
       featured: backendContent.settings?.is_featured || false,
       rawBlocks: backendContent.blocks || [],
@@ -322,14 +393,12 @@ class ApiService {
               ?.map((item: string, i: number) => `${i + 1}. ${item}`)
               .join("\n");
           case "image":
-            return `![${block.data.alt || "image"}](${this.baseUrl}${API_PREFIX}/images/${block.data.file_id})`;
+            return `![${block.data.alt || "image"}](${this.getImageUrl(block.data.file_id)})`;
           case "video":
           case "embed":
             return block.data.url;
           case "document": {
-            const docUrl = block.data.file_id
-              ? `${this.baseUrl}${API_PREFIX}/documents/${block.data.file_id}`
-              : block.data.url;
+            const docUrl = this.getDocumentUrl(block.data.file_id, block.data.url);
             return `[📁 Download ${block.data.title || "Document"}](${docUrl})`;
           }
           default:
@@ -342,3 +411,4 @@ class ApiService {
 
 export const api = new ApiService();
 export default api;
+

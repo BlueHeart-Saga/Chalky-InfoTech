@@ -41,6 +41,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    const backendUrl = (process.env.NEXT_PUBLIC_API_URL || 'https://mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net').replace(/\/$/, '');
+    return [
+      {
+        source: '/api/insights-proxy/api/:path*',
+        destination: `${backendUrl}/api/:path*`,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

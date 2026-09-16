@@ -2,7 +2,7 @@ import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { unstable_cache } from 'next/cache';
-import api from '@/services/api';
+import api, { isPublishedPost } from '@/services/api';
 import { buildPageMetadataWithImage } from '@/lib/seo-images';
 import { extractPostId, getPostSlug } from '@/lib/seo-slug';
 import InsightDetailClient from '@/sections/insights/InsightDetailClient';
@@ -11,14 +11,14 @@ const getCachedPost = (postId: string) =>
   unstable_cache(
     async () => await api.getContentById(postId),
     ['post-detail', postId],
-    { revalidate: 3600, tags: [`post-${postId}`] }
+    { revalidate: 60, tags: [`post-${postId}`] }
   )();
 
 const getCachedSectionPosts = (sectionSlug: string) =>
   unstable_cache(
     async () => await api.getSectionPosts(sectionSlug, 4),
     ['section-posts', sectionSlug],
-    { revalidate: 3600, tags: [`section-${sectionSlug}`] }
+    { revalidate: 60, tags: [`section-${sectionSlug}`] }
   )();
 
 type Props = {
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const response = await getCachedPost(realPostId);
     const backendPost = response?.item;
-    if (!backendPost) return { title: 'Post Not Found' };
+    if (!backendPost || !isPublishedPost(backendPost)) return { title: 'Post Not Found' };
 
     const post = api.transformContent(backendPost);
     const seoSlug = getPostSlug(post);
@@ -110,7 +110,7 @@ async function InsightDetailPageContent({
   try {
     const response = await getCachedPost(realPostId);
     const backendPost = response?.item;
-    if (backendPost) {
+    if (backendPost && isPublishedPost(backendPost)) {
       post = api.transformContent(backendPost);
       blocks = backendPost.blocks || [];
     }

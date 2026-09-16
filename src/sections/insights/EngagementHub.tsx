@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Heart, Share2, Link2, Check, Eye, Clock, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import api from '@/services/api';
 
 interface EngagementHubProps {
   postId: string;
@@ -11,6 +12,8 @@ interface EngagementHubProps {
   date: string;
   categoryName: string;
   authorName: string;
+  initialLikes?: number;
+  initialViews?: number;
 }
 
 export default function EngagementHub({
@@ -20,35 +23,39 @@ export default function EngagementHub({
   date,
   categoryName,
   authorName,
+  initialLikes,
+  initialViews,
 }: EngagementHubProps) {
   const [liked, setLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(12);
-  const [viewsCount, setViewsCount] = useState(148);
+  const [likeCount, setLikeCount] = useState(initialLikes ?? 0);
+  const [viewsCount, setViewsCount] = useState(initialViews ?? 0);
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Initialize unique mock counters based on postId to look extremely professional
   useEffect(() => {
-    // Generate simple deterministic hashes for stable mock counters
-    let hash = 0;
-    for (let i = 0; i < postId.length; i++) {
-      hash = postId.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    const seedLikes = Math.abs(hash % 35) + 12;
-    const seedViews = Math.abs(hash % 450) + 180;
-    
-    // Check local storage for likes
     const hasLiked = localStorage.getItem(`like_${postId}`) === 'true';
     setLiked(hasLiked);
-    setLikeCount(hasLiked ? seedLikes + 1 : seedLikes);
-    setViewsCount(seedViews);
-  }, [postId]);
+    if (typeof initialLikes === 'number') {
+      setLikeCount(initialLikes);
+    }
+    if (typeof initialViews === 'number') {
+      setViewsCount(initialViews);
+    }
+  }, [postId, initialLikes, initialViews]);
 
-  const handleLike = () => {
+  const handleLike = async () => {
     const nextState = !liked;
     setLiked(nextState);
     localStorage.setItem(`like_${postId}`, String(nextState));
-    setLikeCount(prev => (nextState ? prev + 1 : prev - 1));
+    setLikeCount(prev => (nextState ? prev + 1 : Math.max(0, prev - 1)));
+    try {
+      const res = await api.registerLike(postId);
+      if (res && typeof res.likes === 'number') {
+        setLikeCount(res.likes);
+      }
+    } catch (err) {
+      console.error('Failed to sync like with server:', err);
+    }
   };
 
   const handleShare = (platform: string) => {

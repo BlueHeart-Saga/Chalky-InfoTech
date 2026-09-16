@@ -58,19 +58,19 @@ type Props = {
 import { Suspense } from 'react';
 import { unstable_cache } from 'next/cache';
 
-// Next.js 16 high-performance async fetch helpers
+// Next.js high-performance async fetch helpers (revalidated every 60 seconds)
 const getCachedSiteStructure = () =>
   unstable_cache(
     async () => await api.getFullSiteStructure().catch(() => []),
     ['site-structure'],
-    { revalidate: 3600 }
+    { revalidate: 60 }
   )();
 
 const getCachedAllPosts = () =>
   unstable_cache(
     async () => await api.getAllPosts().catch(() => []),
     ['all-posts'],
-    { revalidate: 3600 }
+    { revalidate: 60 }
   )();
 
 export async function generateStaticParams() {
