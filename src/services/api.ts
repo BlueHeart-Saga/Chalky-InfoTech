@@ -265,15 +265,32 @@ class ApiService {
     }
   }
 
-  // Get all posts across all categories in a single fast query
+  // Get all posts across all categories in single or paginated fast queries (max limit per backend query is 50)
   async getAllPosts(limit = 100) {
     try {
-      const response = await this.getContent({ limit });
-      if (!response || !response.items) return [];
+      let allPosts: any[] = [];
+      let skip = 0;
+      const MAX_PAGE_SIZE = 50;
 
-      const validItems = response.items.filter(isPublishedPost);
-      const posts = validItems.map((item: any) => this.transformContent(item));
-      return posts
+      while (allPosts.length < limit) {
+        const fetchLimit = Math.min(limit - allPosts.length, MAX_PAGE_SIZE);
+        const response = await this.getContent({ skip, limit: fetchLimit });
+        if (!response || !response.items || response.items.length === 0) {
+          break;
+        }
+
+        const validItems = response.items.filter(isPublishedPost);
+        const posts = validItems.map((item: any) => this.transformContent(item));
+        allPosts = [...allPosts, ...posts];
+
+        if (response.items.length < fetchLimit || !response.has_more) {
+          break;
+        }
+
+        skip += response.items.length;
+      }
+
+      return allPosts
         .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .slice(0, limit);
     } catch (err) {
@@ -282,17 +299,34 @@ class ApiService {
     }
   }
 
-  // Get posts for a specific section in a single fast query
+  // Get posts for a specific section in a single or paginated fast query (max limit per backend query is 50)
   async getSectionPosts(sectionSlug: string, limit = 100) {
     try {
-      const response = await this.getContent({ section_slug: sectionSlug, limit });
-      if (!response || !response.items) return [];
+      let allPosts: any[] = [];
+      let skip = 0;
+      const MAX_PAGE_SIZE = 50;
 
-      const validItems = response.items.filter(isPublishedPost);
-      const posts = validItems.map((item: any) =>
-        this.transformContent(item, { slug: sectionSlug })
-      );
-      return posts
+      while (allPosts.length < limit) {
+        const fetchLimit = Math.min(limit - allPosts.length, MAX_PAGE_SIZE);
+        const response = await this.getContent({ section_slug: sectionSlug, skip, limit: fetchLimit });
+        if (!response || !response.items || response.items.length === 0) {
+          break;
+        }
+
+        const validItems = response.items.filter(isPublishedPost);
+        const posts = validItems.map((item: any) =>
+          this.transformContent(item, { slug: sectionSlug })
+        );
+        allPosts = [...allPosts, ...posts];
+
+        if (response.items.length < fetchLimit || !response.has_more) {
+          break;
+        }
+
+        skip += response.items.length;
+      }
+
+      return allPosts
         .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .slice(0, limit);
     } catch (err) {
@@ -330,21 +364,22 @@ class ApiService {
       formattedDate = new Date().toISOString().split("T")[0];
     }
 
+    const resolvedSectionName = section?.name || backendContent.section?.name || backendContent.section_name || "Insights";
+    const resolvedSectionSlug = section?.slug || backendContent.section?.slug || backendContent.section_slug || "insights";
+    const resolvedCategoryName = category?.name || backendContent.category?.name || backendContent.category_name || "Blogs";
+    const resolvedCategorySlug = category?.slug || backendContent.category?.slug || backendContent.category_slug || "blogs";
+
     return {
       id: backendContent.id,
       title: backendContent.title,
-      section: section
-        ? { name: section.name, slug: section.slug }
-        : {
-            name: backendContent.section_name || "Insights",
-            slug: backendContent.section_slug || "insights",
-          },
-      category: category
-        ? { name: category.name, slug: category.slug }
-        : {
-            name: backendContent.category_name || "Blogs",
-            slug: backendContent.category_slug || "blogs",
-          },
+      section: {
+        name: resolvedSectionName,
+        slug: resolvedSectionSlug,
+      },
+      category: {
+        name: resolvedCategoryName,
+        slug: resolvedCategorySlug,
+      },
       excerpt: backendContent.subtitle || this.extractExcerpt(backendContent.blocks),
       image: backendContent.cover_image_id
         ? this.getImageUrl(backendContent.cover_image_id)

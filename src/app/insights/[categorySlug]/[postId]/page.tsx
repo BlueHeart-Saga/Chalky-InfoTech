@@ -26,28 +26,6 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  try {
-    const posts = await api.getAllPosts(20);
-    const staticParams: { categorySlug: string; postId: string }[] = [];
-
-    posts.forEach((post: any) => {
-      const catSlug = post.category?.slug || 'blogs';
-      const postSlug = getPostSlug(post);
-      if (catSlug && postSlug) {
-        staticParams.push({
-          categorySlug: catSlug,
-          postId: postSlug,
-        });
-      }
-    });
-
-    if (staticParams.length > 0) {
-      return staticParams;
-    }
-  } catch (err) {
-    console.error('Error generating static params for posts:', err);
-  }
-
   return [
     {
       categorySlug: 'blogs',

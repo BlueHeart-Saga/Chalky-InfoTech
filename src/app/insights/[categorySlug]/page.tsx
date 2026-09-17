@@ -74,19 +74,6 @@ const getCachedAllPosts = () =>
   )();
 
 export async function generateStaticParams() {
-  try {
-    const structure = await api.getFullSiteStructure();
-    const params: { categorySlug: string }[] = [];
-    for (const sec of structure) {
-      for (const cat of (sec.categories || [])) {
-        params.push({ categorySlug: cat.slug });
-      }
-    }
-    if (params.length > 0) return params;
-  } catch (err) {
-    console.error('Error generating static params for categories:', err);
-  }
-
   return [
     { categorySlug: 'blogs' },
     { categorySlug: 'case-studies' },
