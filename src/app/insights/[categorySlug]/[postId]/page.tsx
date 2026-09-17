@@ -1,4 +1,4 @@
-import { notFound, redirect } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { unstable_cache } from 'next/cache';
@@ -26,10 +26,32 @@ type Props = {
 };
 
 export async function generateStaticParams() {
+  try {
+    const posts = await api.getAllPosts(20);
+    const staticParams: { categorySlug: string; postId: string }[] = [];
+
+    (posts ?? []).forEach((post: any) => {
+      const catSlug = post.category?.slug || 'blogs';
+      const postSlug = getPostSlug(post);
+      if (catSlug && postSlug) {
+        staticParams.push({
+          categorySlug: catSlug,
+          postId: postSlug,
+        });
+      }
+    });
+
+    if (staticParams.length > 0) {
+      return staticParams;
+    }
+  } catch (err) {
+    console.error('Error generating static params for posts:', err);
+  }
+
   return [
     {
       categorySlug: 'blogs',
-      postId: 'it-staffing-solutions-how-to-build-the-right-tech-team-without-the-guesswork-6a23a71cb9074df556d032f1',
+      postId: 'it-staffing-solutions-how-to-build-the-6a23a71cb9074df556d032f1',
     },
   ];
 }
@@ -103,7 +125,7 @@ async function InsightDetailPageContent({
   // Check if requested slug differs from current canonical seoSlug, and issue HTTP 301 permanent redirect
   const seoSlug = getPostSlug(post);
   if (rawParam !== seoSlug) {
-    redirect(`/insights/${categorySlug}/${seoSlug}`, 'permanent' as any);
+    permanentRedirect(`/insights/${categorySlug}/${seoSlug}`);
   }
 
   try {
