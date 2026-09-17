@@ -47,17 +47,20 @@ class ApiService {
   async fetchApi(endpoint: string, options: any = {}) {
     const url = `${this.baseUrl}${API_PREFIX}${endpoint}`;
     const cacheKey = `${url}:${options.method || "GET"}:${JSON.stringify(options.body || "")}`;
+    const isClient = typeof window !== "undefined";
 
-    // 1. Check in-memory global server cache (1 min TTL)
-    const cachedItem = globalServerCache.get(cacheKey);
-    if (cachedItem && Date.now() - cachedItem.timestamp < SERVER_CACHE_TTL) {
-      return cachedItem.data;
-    }
+    if (isClient) {
+      // 1. Check in-memory global cache (1 min TTL) on client
+      const cachedItem = globalServerCache.get(cacheKey);
+      if (cachedItem && Date.now() - cachedItem.timestamp < SERVER_CACHE_TTL) {
+        return cachedItem.data;
+      }
 
-    // 2. Check instance cache (1 min TTL)
-    const instCache = this.cache.get(cacheKey);
-    if (instCache && Date.now() - instCache.timestamp < SERVER_CACHE_TTL) {
-      return instCache.data;
+      // 2. Check instance cache (1 min TTL) on client
+      const instCache = this.cache.get(cacheKey);
+      if (instCache && Date.now() - instCache.timestamp < SERVER_CACHE_TTL) {
+        return instCache.data;
+      }
     }
 
     // 3. Dedupe in-flight requests
@@ -83,9 +86,11 @@ class ApiService {
         }
 
         const data = await response.json();
-        const cacheEntry = { data, timestamp: Date.now() };
-        globalServerCache.set(cacheKey, cacheEntry);
-        this.cache.set(cacheKey, cacheEntry);
+        if (isClient) {
+          const cacheEntry = { data, timestamp: Date.now() };
+          globalServerCache.set(cacheKey, cacheEntry);
+          this.cache.set(cacheKey, cacheEntry);
+        }
         globalPendingRequests.delete(cacheKey);
         this.pendingRequests.delete(cacheKey);
 
