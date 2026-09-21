@@ -75,6 +75,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={poppins.variable} suppressHydrationWarning>
       <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden relative">
+        <Script id="browser-extension-dom-guard" strategy="beforeInteractive">
+          {`
+            if (typeof window !== 'undefined' && Node.prototype.removeChild) {
+              const origRemoveChild = Node.prototype.removeChild;
+              Node.prototype.removeChild = function(child) {
+                if (child && child.parentNode !== this) {
+                  return child;
+                }
+                return origRemoveChild.call(this, child);
+              };
+            }
+          `}
+        </Script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XCNY2FZ662"
           strategy="afterInteractive"

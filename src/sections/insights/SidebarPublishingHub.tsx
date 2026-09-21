@@ -280,6 +280,7 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
                     href={`/insights/${post.category?.slug}/${getPostSlug(post)}`}
                     className="absolute inset-0 z-10"
                     aria-label={`Read ${post.title}`}
+                    prefetch={false}
                   />
 
                 </motion.div>
