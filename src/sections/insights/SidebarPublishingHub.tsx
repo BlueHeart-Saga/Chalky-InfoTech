@@ -67,13 +67,17 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
         if (cat) return cat;
       }
     }
+    if (initialCategorySlug) {
+      const name = initialCategorySlug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      return { name, slug: initialCategorySlug };
+    }
     if (siteStructure && siteStructure.length > 0) {
       const firstSec = siteStructure.find(s => s.categories && s.categories.length > 0);
       if (firstSec && firstSec.categories.length > 0) {
         return firstSec.categories[0];
       }
     }
-    return null;
+    return { name: 'Blogs', slug: 'blogs' };
   });
   const [currentPage, setCurrentPage] = useState(1);
   const gridRef = useRef<HTMLDivElement>(null);

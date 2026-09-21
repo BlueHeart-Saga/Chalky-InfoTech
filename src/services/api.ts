@@ -47,7 +47,7 @@ class ApiService {
     return fallbackUrl || "";
   }
 
-  // Helper for API calls
+  // Helper for API calls with automatic retry & timeout resilience (Azure cold start protection)
   async fetchApi(endpoint: string, options: any = {}) {
     const url = `${this.baseUrl}${API_PREFIX}${endpoint}`;
     const cacheKey = `${url}:${options.method || "GET"}:${JSON.stringify(options.body || "")}`;
@@ -75,37 +75,56 @@ class ApiService {
       return this.pendingRequests.get(cacheKey);
     }
 
-    const requestPromise = fetch(url, {
-      ...options,
-      headers: {
-        "Content-Type": "application/json",
-        ...options.headers,
-      },
-      next: { revalidate: 60 } // Next.js specific caching (60 seconds)
-    })
-      .then(async (response) => {
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          throw new Error(errorData.detail || `API error: ${response.status}`);
-        }
+    const executeFetch = async (retries = 2, delayMs = 600): Promise<any> => {
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 12000); // 12-second timeout
 
-        const data = await response.json();
-        if (isClient) {
-          const cacheEntry = { data, timestamp: Date.now() };
-          globalServerCache.set(cacheKey, cacheEntry);
-          this.cache.set(cacheKey, cacheEntry);
-        }
-        globalPendingRequests.delete(cacheKey);
-        this.pendingRequests.delete(cacheKey);
+          const response = await fetch(url, {
+            ...options,
+            signal: controller.signal,
+            headers: {
+              "Content-Type": "application/json",
+              ...options.headers,
+            },
+            next: { revalidate: 60 }
+          });
 
-        return data;
-      })
-      .catch((err) => {
-        globalPendingRequests.delete(cacheKey);
-        this.pendingRequests.delete(cacheKey);
-        if (options.throwError) throw err;
-        return null;
-      });
+          clearTimeout(timeoutId);
+
+          if (!response.ok) {
+            if ((response.status >= 500 || response.status === 429) && attempt < retries) {
+              await new Promise(r => setTimeout(r, delayMs * (attempt + 1)));
+              continue;
+            }
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.detail || `API error: ${response.status}`);
+          }
+
+          const data = await response.json();
+          if (isClient) {
+            const cacheEntry = { data, timestamp: Date.now() };
+            globalServerCache.set(cacheKey, cacheEntry);
+            this.cache.set(cacheKey, cacheEntry);
+          }
+          return data;
+        } catch (err: any) {
+          if (attempt < retries && err.name !== 'AbortError') {
+            await new Promise(r => setTimeout(r, delayMs * (attempt + 1)));
+            continue;
+          }
+          if (options.throwError) throw err;
+          return null;
+        }
+      }
+      return null;
+    };
+
+    const requestPromise = executeFetch().finally(() => {
+      globalPendingRequests.delete(cacheKey);
+      this.pendingRequests.delete(cacheKey);
+    });
 
     globalPendingRequests.set(cacheKey, requestPromise);
     this.pendingRequests.set(cacheKey, requestPromise);
