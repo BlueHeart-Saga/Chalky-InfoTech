@@ -60,11 +60,25 @@ function getCategoryIcon(slug: string) {
 }
 
 export default function SidebarPublishingHub({ posts, siteStructure, loading, initialCategorySlug, hideSidebar }: Props) {
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(() => {
+    if (initialCategorySlug && siteStructure && siteStructure.length > 0) {
+      for (const sec of siteStructure) {
+        const cat = (sec.categories || []).find((c: any) => c.slug === initialCategorySlug);
+        if (cat) return cat;
+      }
+    }
+    if (siteStructure && siteStructure.length > 0) {
+      const firstSec = siteStructure.find(s => s.categories && s.categories.length > 0);
+      if (firstSec && firstSec.categories.length > 0) {
+        return firstSec.categories[0];
+      }
+    }
+    return null;
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  // Set default selected category to first loaded category or initialCategorySlug
+  // Sync selectedCategory if siteStructure or initialCategorySlug changes dynamically
   useEffect(() => {
     if (siteStructure && siteStructure.length > 0 && !selectedCategory) {
       if (initialCategorySlug) {

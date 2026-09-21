@@ -234,10 +234,11 @@ export default function Navbar() {
 
   useEffect(() => {
     if (hoveredInsightsSection) {
-      const idx = Math.floor(Math.random() * NAVBAR_IMAGES.length);
+      const secIdx = insightsSections.findIndex(s => s.slug === hoveredInsightsSection);
+      const idx = secIdx >= 0 ? secIdx % NAVBAR_IMAGES.length : 0;
       setPreviewImage(NAVBAR_IMAGES[idx]);
     }
-  }, [hoveredInsightsSection]);
+  }, [hoveredInsightsSection, insightsSections]);
 
   useEffect(() => {
     const fetchInsightsNav = async () => {

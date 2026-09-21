@@ -35,11 +35,15 @@ class ApiService {
 
   getImageUrl(fileId?: string): string {
     if (!fileId) return "";
-    return `${this.baseUrl}${API_PREFIX}/images/${fileId}`;
+    if (fileId.startsWith("http://") || fileId.startsWith("https://")) return fileId;
+    return `/api/insights-proxy/api/images/${fileId}`;
   }
 
   getDocumentUrl(fileId?: string, fallbackUrl?: string): string {
-    if (fileId) return `${this.baseUrl}${API_PREFIX}/documents/${fileId}`;
+    if (fileId) {
+      if (fileId.startsWith("http://") || fileId.startsWith("https://")) return fileId;
+      return `/api/insights-proxy/api/documents/${fileId}`;
+    }
     return fallbackUrl || "";
   }
 
@@ -358,10 +362,10 @@ class ApiService {
       if (dateVal && !isNaN(d.getTime())) {
         formattedDate = d.toISOString().split("T")[0];
       } else {
-        formattedDate = new Date().toISOString().split("T")[0];
+        formattedDate = "2026-01-01";
       }
     } catch (e) {
-      formattedDate = new Date().toISOString().split("T")[0];
+      formattedDate = "2026-01-01";
     }
 
     const resolvedSectionName = section?.name || backendContent.section?.name || backendContent.section_name || "Insights";
