@@ -9,6 +9,21 @@ const globalServerCache = new Map<string, { data: any; timestamp: number }>();
 const globalPendingRequests = new Map<string, Promise<any>>();
 const SERVER_CACHE_TTL = 60 * 1000; // 60 seconds in-memory cache for prompt publishing updates
 
+// Node.js Server Keep-Alive Heartbeat (Pings Azure backend every 4 mins to prevent cold start / sleep)
+if (typeof window === "undefined") {
+  const KEEPALIVE_INTERVAL = 4 * 60 * 1000;
+  const pingBackend = () => {
+    fetch(`${API_BASE_URL.replace(/\/$/, "")}${API_PREFIX}/public/${COMPANY_ID}/sections`, {
+      cache: "no-store",
+    }).catch(() => {});
+  };
+
+  if (!(global as any).__backendKeepAliveTimer) {
+    (global as any).__backendKeepAliveTimer = setInterval(pingBackend, KEEPALIVE_INTERVAL);
+    pingBackend();
+  }
+}
+
 export function isPublishedPost(item: any): boolean {
   if (!item) return false;
   const status = (item.status || "published").toLowerCase();
