@@ -218,7 +218,7 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
             </p>
           </div>
 
-          <SidebarPublishingHub posts={categoryPosts} siteStructure={siteStructure} loading={false} hideSidebar={true} />
+          <SidebarPublishingHub posts={categoryPosts} siteStructure={siteStructure} loading={false} hideSidebar={true} initialCategorySlug={categorySlug} />
 
         </div>
       </section>

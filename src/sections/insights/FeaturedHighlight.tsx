@@ -117,8 +117,9 @@ export default function FeaturedHighlight({ posts, loading }: Props) {
 
                   {/* Read Button */}
                   <Link 
-                    href={`/insights/${post.category?.slug}/${getPostSlug(post)}`}
+                    href={`/insights/${post.category?.slug || 'blogs'}/${getPostSlug(post)}`}
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#7A1F5C] hover:bg-[#68194E] text-white font-extrabold text-xs uppercase tracking-widest shadow-md transition-colors duration-300 w-fit"
+                    prefetch={false}
                   >
                     Read Article <LucideIcons.ArrowRight size={14} />
                   </Link>
