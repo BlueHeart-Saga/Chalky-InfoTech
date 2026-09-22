@@ -281,7 +281,7 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
 
                   {/* Floating invisible overlay link */}
                   <Link 
-                    href={`/insights/${post.category?.slug}/${getPostSlug(post)}`}
+                    href={`/insights/${post.category?.slug || 'blogs'}/${getPostSlug(post)}`}
                     className="absolute inset-0 z-10"
                     aria-label={`Read ${post.title}`}
                     prefetch={false}

@@ -299,7 +299,7 @@ class ApiService {
       return result;
     } catch (err) {
       console.error("Error fetching site structure:", err);
-      throw err;
+      return [];
     }
   }
 

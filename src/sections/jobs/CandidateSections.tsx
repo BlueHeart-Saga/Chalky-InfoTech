@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Search, UserCheck, Briefcase, Trophy, Globe, Zap, Heart, Shield } from 'lucide-react';
 import api from '@/services/api';
+import { getPostSlug } from '@/lib/seo-slug';
 
 // ── WhyWorkWithChalky ────────────────────────────────────────────────────────
 import imgSpecializedNetwork from '@/assets/Find-Jobs/1.png';
@@ -300,7 +301,7 @@ export function CareerResources() {
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {resources.map((r, i) => (
-              <Link key={r.id} href={`/insights/${r.category?.slug}/${r.id}`} className="group">
+              <Link key={r.id} href={`/insights/${r.category?.slug || 'blogs'}/${getPostSlug(r)}`} className="group" prefetch={false}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}

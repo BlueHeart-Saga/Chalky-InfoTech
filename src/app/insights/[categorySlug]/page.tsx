@@ -91,8 +91,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Find category details
   let catName = categorySlug;
+  const normalizedSlug = categorySlug.toLowerCase().replace(/_/g, '-');
   for (const sec of siteStructure) {
-    const cat = (sec.categories || []).find((c: any) => c.slug === categorySlug);
+    const cat = (sec.categories || []).find((c: any) => c.slug?.toLowerCase().replace(/_/g, '-') === normalizedSlug);
     if (cat) {
       catName = cat.name;
       break;
@@ -128,8 +129,9 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
   let currentCategory: any = null;
   let parentSection: any = null;
 
+  const normalizedSlug = categorySlug.toLowerCase().replace(/_/g, '-');
   for (const sec of siteStructure) {
-    const cat = (sec.categories || []).find((c: any) => c.slug === categorySlug);
+    const cat = (sec.categories || []).find((c: any) => c.slug?.toLowerCase().replace(/_/g, '-') === normalizedSlug);
     if (cat) {
       currentCategory = cat;
       parentSection = sec;
@@ -142,8 +144,8 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-  // Filter posts specifically for this category
-  const categoryPosts = allPosts.filter((p: any) => p.category?.slug === categorySlug);
+  // Filter posts specifically for this category (matching with hyphen/underscore normalization)
+  const categoryPosts = (allPosts || []).filter((p: any) => p.category?.slug?.toLowerCase().replace(/_/g, '-') === normalizedSlug);
 
   // Define featured highlight post inside this category (fallback to first post if any)
   const featuredPost = categoryPosts.length > 0 ? categoryPosts[0] : null;

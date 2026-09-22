@@ -100,8 +100,9 @@ export default function InsightsGrid({ categorySlug }: { categorySlug?: string }
                 </p>
 
                 <Link 
-                  href={`/insights/${post.category?.slug}/${getPostSlug(post)}`}
+                  href={`/insights/${post.category?.slug || 'blogs'}/${getPostSlug(post)}`}
                   className="inline-flex items-center gap-2 text-sm font-bold text-[#7A1F5C] group/link"
+                  prefetch={false}
                 >
                   Read Full Post 
                   <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />

@@ -55,8 +55,9 @@ export default function LatestInsightsClient({ initialPosts }: Props) {
               {post.excerpt}
             </p>
             <Link 
-              href={`/insights/${post.category?.slug}/${getPostSlug(post)}`} 
+              href={`/insights/${post.category?.slug || 'blogs'}/${getPostSlug(post)}`} 
               className="inline-flex items-center gap-2 text-[#7A1F5C] font-bold text-sm mt-auto group/link"
+              prefetch={false}
             >
               Read Article 
               <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />

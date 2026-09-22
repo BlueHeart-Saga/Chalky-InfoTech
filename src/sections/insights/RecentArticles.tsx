@@ -93,8 +93,9 @@ export default function RecentArticles({ posts, displayFeatured, loading }: Prop
             </div>
 
             <Link 
-              href={`/insights/${post.category?.slug}/${getPostSlug(post)}`}
+              href={`/insights/${post.category?.slug || 'blogs'}/${getPostSlug(post)}`}
               className="inline-flex items-center gap-1.5 text-xs font-black text-[#7A1F5C] uppercase tracking-wider w-fit group/link pt-2 border-b border-transparent hover:border-[#7A1F5C] transition-all"
+              prefetch={false}
             >
               Read Post <LucideIcons.ArrowRight size={14} className="group-hover/link:translate-x-0.5 transition-transform" />
             </Link>
