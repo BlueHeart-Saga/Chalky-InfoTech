@@ -94,7 +94,7 @@ export default function SectionNavbar({ sections }: { sections: { label: string,
               WebkitOverflowScrolling: 'touch'
             }}
           >
-            <style jsx>{`
+            <style>{`
               .no-scrollbar::-webkit-scrollbar {
                 display: none;
               }

@@ -1,4 +1,6 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState, useEffect } from 'react';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import SectionNavbar from '@/components/SectionNavbar';
@@ -10,38 +12,33 @@ import InsightsFAQ from '@/sections/insights/InsightsFAQ';
 import api from '@/services/api';
 import imgInsights from '@/assets/Insights/Insights.png';
 
-import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
+export default function InsightsLandingClient() {
+  const [posts, setPosts] = useState<any[]>([]);
+  const [siteStructure, setSiteStructure] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export const metadata = buildPageMetadataWithImage({
-  title: 'Chalky Insights & Trends',
-  description: 'Expert analysis and data-driven perspectives on the evolving landscape of global recruitment, specialized sector growth, and the future of work.',
-  keywords: ['recruitment trends', 'market intelligence UK', 'hiring benchmarks', 'future of work', 'talent insights'],
-  url: '/insights',
-  path: SEO_IMAGE_CONFIG.insights.path,
-  alt: SEO_IMAGE_CONFIG.insights.alt
-});
-
-import { Suspense } from 'react';
-import { unstable_cache } from 'next/cache';
-
-// Next.js high-performance async fetch helpers (revalidated every 60 seconds)
-const getCachedSiteStructure = () =>
-  unstable_cache(
-    async () => await api.getFullSiteStructure().catch(() => []),
-    ['site-structure'],
-    { revalidate: 60 }
-  )();
-
-const getCachedAllPosts = () =>
-  unstable_cache(
-    async () => await api.getAllPosts(150).catch(() => []),
-    ['all-posts-150'],
-    { revalidate: 60 }
-  )();
-
-async function InsightsPageContent() {
-  const posts = await getCachedAllPosts();
-  const siteStructure = await getCachedSiteStructure();
+  useEffect(() => {
+    let isMounted = true;
+    async function loadData() {
+      try {
+        setLoading(true);
+        const [fetchedPosts, fetchedStructure] = await Promise.all([
+          api.getAllPosts(150).catch(() => []),
+          api.getFullSiteStructure().catch(() => [])
+        ]);
+        if (isMounted) {
+          setPosts(fetchedPosts || []);
+          setSiteStructure(fetchedStructure || []);
+        }
+      } catch (err) {
+        console.error('Failed to load insights data:', err);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    }
+    loadData();
+    return () => { isMounted = false; };
+  }, []);
 
   const sections = [
     { label: 'Top', id: 'hero' },
@@ -61,7 +58,7 @@ async function InsightsPageContent() {
     <div className="flex flex-col min-h-screen bg-[#F5F0E8]">
       <SectionNavbar sections={sections} />
 
-      {/* ── SECTION 1: HERO (Services Style) ── */}
+      {/* ── SECTION 1: HERO ── */}
       <section id="hero">
         <PageHero
           breadcrumbs={[
@@ -81,10 +78,9 @@ async function InsightsPageContent() {
         />
       </section>
 
-      {/* ── SECTION 2: FEATURED 3D HIGHLIGHT CAROUSEL (Mockup Match!) ── */}
+      {/* ── SECTION 2: FEATURED 3D HIGHLIGHT CAROUSEL ── */}
       <section id="featured" className="relative pt-24 pb-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center relative z-10">
-          
           <div className="text-center mb-16 max-w-3xl">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-black uppercase tracking-widest mb-4">
               TOP CONTENT
@@ -97,8 +93,7 @@ async function InsightsPageContent() {
             </p>
           </div>
 
-          <FeaturedHighlight posts={posts} loading={false} />
-
+          <FeaturedHighlight posts={posts} loading={loading} />
         </div>
         {/* Wave Divider to Cream */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
@@ -108,13 +103,13 @@ async function InsightsPageContent() {
         </div>
       </section>
 
-      {/* ── SECTION 3: ALL INSIGHTS SIDEBAR PUBLISHING HUB (Mockup Match!) ── */}
+      {/* ── SECTION 3: ALL INSIGHTS SIDEBAR PUBLISHING HUB ── */}
       <section id="grid" className="relative pt-24 pb-32 bg-[#F5F0E8] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SidebarPublishingHub 
             posts={posts} 
             siteStructure={siteStructure} 
-            loading={false} 
+            loading={loading} 
           />
         </div>
         {/* Wave Divider to White */}
@@ -128,7 +123,6 @@ async function InsightsPageContent() {
       {/* ── SECTION 4: RECENT 3 ARTICLES GRID ── */}
       <section id="recent" className="relative pt-24 pb-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-black uppercase tracking-widest mb-4">
               LATEST ADDITIONS
@@ -144,9 +138,8 @@ async function InsightsPageContent() {
           <RecentArticles 
             posts={posts} 
             displayFeatured={displayFeatured} 
-            loading={false} 
+            loading={loading} 
           />
-
         </div>
         {/* Wave Divider to Cream */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
@@ -159,7 +152,6 @@ async function InsightsPageContent() {
       {/* ── SECTION 5: SECTOR CATEGORIES LINK CARDS ── */}
       <section id="categories" className="relative pt-24 pb-32 bg-[#F5F0E8] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-black uppercase tracking-widest mb-4">
               SPECIALIZED SECTORS
@@ -173,7 +165,6 @@ async function InsightsPageContent() {
           </div>
 
           <SectorCategories siteStructure={siteStructure} />
-
         </div>
         {/* Wave Divider to White */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
@@ -183,7 +174,7 @@ async function InsightsPageContent() {
         </div>
       </section>
 
-      {/* ── SECTION 6: FAQ (Industry FAQ Reference Style) ── */}
+      {/* ── SECTION 6: FAQ ── */}
       <section id="faq">
         <InsightsFAQ />
       </section>
@@ -202,10 +193,3 @@ async function InsightsPageContent() {
     </div>
   );
 }
-
-import InsightsLandingClient from '@/sections/insights/InsightsLandingClient';
-
-export default function InsightsPage() {
-  return <InsightsLandingClient />;
-}
-

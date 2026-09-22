@@ -1,4 +1,6 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState, useEffect } from 'react';
 import api from '@/services/api';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
@@ -51,85 +53,39 @@ const CATEGORY_IMAGES: Record<string, any> = {
   'testimonials': imgTestimonials,
 };
 
-type Props = {
-  params: Promise<{ categorySlug: string }>;
-};
+export default function CategoryClientPage({ categorySlug }: { categorySlug: string }) {
+  const [siteStructure, setSiteStructure] = useState<any[]>([]);
+  const [allPosts, setAllPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-import { Suspense } from 'react';
-import { unstable_cache } from 'next/cache';
-
-// Next.js high-performance async fetch helpers (revalidated every 60 seconds)
-const getCachedSiteStructure = () =>
-  unstable_cache(
-    async () => await api.getFullSiteStructure().catch(() => []),
-    ['site-structure'],
-    { revalidate: 60 }
-  )();
-
-const getCachedAllPosts = () =>
-  unstable_cache(
-    async () => await api.getAllPosts().catch(() => []),
-    ['all-posts'],
-    { revalidate: 60 }
-  )();
-
-export async function generateStaticParams() {
-  return [
-    { categorySlug: 'blogs' },
-    { categorySlug: 'case-studies' },
-    { categorySlug: 'newsletters' },
-    { categorySlug: 'podcasts' },
-    { categorySlug: 'client-transformations' },
-  ];
-}
-
-import { buildPageMetadataWithImage } from '@/lib/seo-images';
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { categorySlug } = await params;
-  const siteStructure = await getCachedSiteStructure();
-
-  // Find category details
-  let catName = categorySlug;
-  const normalizedSlug = categorySlug.toLowerCase().replace(/_/g, '-');
-  for (const sec of siteStructure) {
-    const cat = (sec.categories || []).find((c: any) => c.slug?.toLowerCase().replace(/_/g, '-') === normalizedSlug);
-    if (cat) {
-      catName = cat.name;
-      break;
+  useEffect(() => {
+    let isMounted = true;
+    async function loadCategoryData() {
+      try {
+        setLoading(true);
+        const [fetchedStructure, fetchedPosts] = await Promise.all([
+          api.getFullSiteStructure().catch(() => []),
+          api.getAllPosts(150).catch(() => [])
+        ]);
+        if (isMounted) {
+          setSiteStructure(fetchedStructure || []);
+          setAllPosts(fetchedPosts || []);
+        }
+      } catch (err) {
+        console.error('Failed to load category insights:', err);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
     }
-  }
+    loadCategoryData();
+    return () => { isMounted = false; };
+  }, [categorySlug]);
 
-  const title = catName !== categorySlug ? catName : categorySlug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-
-  const imagePath = CATEGORY_IMAGES[categorySlug]?.src || '/og-image.png';
-
-  return buildPageMetadataWithImage({
-    title: `${title} | Chalky Infotech Insights`,
-    description: `Explore our latest research, thought leadership and recruitment analytics for ${title}.`,
-    keywords: [title, 'insights', 'trends', 'recruitment', 'market research', 'Chalky Infotech'],
-    url: `/insights/${categorySlug}`,
-    path: imagePath,
-    alt: `${title} Insights - Chalky Infotech`
-  });
-}
-
-// Separate component for loading dyn data safely under Suspense
-async function CategoryPageContent({ params }: { params: Promise<{ categorySlug: string }> }) {
-  const { categorySlug } = await params;
-
-  // Fetch sections structure and posts from backend using high-performance Component Cache
-  const siteStructure = await getCachedSiteStructure();
-  const allPosts = await getCachedAllPosts();
-
-  // Locate the active category details and parent section
+  const normalizedSlug = (categorySlug || '').toLowerCase().replace(/_/g, '-');
+  
   let currentCategory: any = null;
   let parentSection: any = null;
 
-  const normalizedSlug = categorySlug.toLowerCase().replace(/_/g, '-');
   for (const sec of siteStructure) {
     const cat = (sec.categories || []).find((c: any) => c.slug?.toLowerCase().replace(/_/g, '-') === normalizedSlug);
     if (cat) {
@@ -146,8 +102,6 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
 
   // Filter posts specifically for this category (matching with hyphen/underscore normalization)
   const categoryPosts = (allPosts || []).filter((p: any) => p.category?.slug?.toLowerCase().replace(/_/g, '-') === normalizedSlug);
-
-  // Define featured highlight post inside this category (fallback to first post if any)
   const featuredPost = categoryPosts.length > 0 ? categoryPosts[0] : null;
 
   const sections = [
@@ -199,7 +153,7 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
                 Discover our most impactful and popular stories curated just for you.
               </p>
             </div>
-            <FeaturedHighlight posts={categoryPosts} loading={false} />
+            <FeaturedHighlight posts={categoryPosts} loading={loading} />
           </div>
         </section>
       )}
@@ -207,7 +161,6 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
       {/* ── SECTION 3: ARTICLES MAIN HUB ── */}
       <section id="grid" className="py-24 bg-white border-b border-[#EFE7DD]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
               Category Focus
@@ -220,15 +173,13 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
             </p>
           </div>
 
-          <SidebarPublishingHub posts={categoryPosts} siteStructure={siteStructure} loading={false} hideSidebar={true} initialCategorySlug={categorySlug} />
-
+          <SidebarPublishingHub posts={categoryPosts} siteStructure={siteStructure} loading={loading} hideSidebar={true} initialCategorySlug={categorySlug} />
         </div>
       </section>
 
       {/* ── SECTION 4: OTHER CATEGORIES ── */}
       <section id="categories" className="py-24 bg-[#FAF8F5] border-b border-[#EFE7DD]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
               Browse More
@@ -242,7 +193,6 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
           </div>
 
           <SectorCategories siteStructure={siteStructure} />
-
         </div>
       </section>
 
@@ -265,11 +215,3 @@ async function CategoryPageContent({ params }: { params: Promise<{ categorySlug:
     </div>
   );
 }
-
-import CategoryClientPage from '@/sections/insights/CategoryClientPage';
-
-export default async function CategoryPage({ params }: Props) {
-  const { categorySlug } = await params;
-  return <CategoryClientPage categorySlug={categorySlug} />;
-}
-

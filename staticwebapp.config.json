@@ -18,7 +18,7 @@
     "Cache-Control": "no-store",
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "DENY",
-    "Content-Security-Policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://fonts.gstatic.com"
+    "Content-Security-Policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://fonts.gstatic.com https://mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net https://images.unsplash.com; img-src 'self' data: blob: https:; connect-src 'self' https://mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net https://images.unsplash.com"
   },
   "mimeTypes": {
     ".json": "text/json"

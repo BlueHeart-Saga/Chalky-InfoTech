@@ -60,14 +60,21 @@ function getCategoryIcon(slug: string) {
 }
 
 export default function SidebarPublishingHub({ posts, siteStructure, loading, initialCategorySlug, hideSidebar }: Props) {
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(() => {
-    if (initialCategorySlug && siteStructure && siteStructure.length > 0) {
-      for (const sec of siteStructure) {
-        const cat = (sec.categories || []).find((c: any) => c.slug === initialCategorySlug);
-        if (cat) return cat;
-      }
-    }
+  const [userSelectedCategory, setUserSelectedCategory] = useState<Category | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  // Determine effective selected category dynamically from siteStructure / initialCategorySlug
+  const activeCategory = (() => {
+    if (userSelectedCategory) return userSelectedCategory;
     if (initialCategorySlug) {
+      if (siteStructure && siteStructure.length > 0) {
+        const norm = initialCategorySlug.toLowerCase().replace(/_/g, '-');
+        for (const sec of siteStructure) {
+          const cat = (sec.categories || []).find((c: any) => c.slug?.toLowerCase().replace(/_/g, '-') === norm);
+          if (cat) return cat;
+        }
+      }
       const name = initialCategorySlug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
       return { name, slug: initialCategorySlug };
     }
@@ -77,45 +84,23 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
         return firstSec.categories[0];
       }
     }
-    return { name: 'Blogs', slug: 'blogs' };
-  });
-  const [currentPage, setCurrentPage] = useState(1);
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  // Sync selectedCategory if siteStructure or initialCategorySlug changes dynamically
-  useEffect(() => {
-    if (siteStructure && siteStructure.length > 0 && !selectedCategory) {
-      if (initialCategorySlug) {
-        let foundCat: Category | null = null;
-        for (const sec of siteStructure) {
-          const cat = (sec.categories || []).find((c: any) => c.slug === initialCategorySlug);
-          if (cat) {
-            foundCat = cat;
-            break;
-          }
-        }
-        if (foundCat) {
-          setSelectedCategory(foundCat);
-          return;
-        }
-      }
-      const firstSec = siteStructure.find(s => s.categories && s.categories.length > 0);
-      if (firstSec && firstSec.categories.length > 0) {
-        setSelectedCategory(firstSec.categories[0]);
-      }
-    }
-  }, [siteStructure, selectedCategory, initialCategorySlug]);
+    return null;
+  })();
 
   // Reset pagination to page 1 whenever the selected category changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory]);
+  }, [activeCategory?.slug]);
 
   // Filter posts based on selected category in left sidebar filter (skip if hideSidebar is true)
   const filteredPosts = hideSidebar
     ? posts
-    : (selectedCategory
-      ? posts.filter(p => p.category?.slug === selectedCategory.slug)
+    : (activeCategory
+      ? posts.filter(p => {
+          const catSlug = p.category?.slug?.toLowerCase().replace(/_/g, '-');
+          const targetSlug = activeCategory.slug?.toLowerCase().replace(/_/g, '-');
+          return catSlug === targetSlug;
+        })
       : posts);
 
   // Pagination calculations
@@ -162,14 +147,14 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
                 {/* Categories buttons */}
                 <div className="flex flex-col gap-1.5">
                   {section.categories.map((cat: Category) => {
-                    const isSelected = selectedCategory?.slug === cat.slug;
+                    const isSelected = activeCategory?.slug === cat.slug;
                     const iconName = getCategoryIcon(cat.slug);
                     const CategoryIcon = (LucideIcons as any)[iconName] || LucideIcons.FileText;
 
                     return (
                       <button
                         key={cat.slug}
-                        onClick={() => setSelectedCategory(cat)}
+                        onClick={() => setUserSelectedCategory(cat)}
                         className={`w-full text-left py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center gap-3 transition-all duration-300 select-none group ${
                           isSelected
                             ? 'bg-[#7A1F5C] text-white shadow-md shadow-[#7A1F5C]/10 translate-x-1'
@@ -193,13 +178,13 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
       {/* 2. RIGHT MAIN CONTENT: Filtered Articles Grid */}
       <main className={hideSidebar ? "lg:col-span-12 flex flex-col min-h-[500px]" : "lg:col-span-9 flex flex-col min-h-[500px]"}>
         
-        {!hideSidebar && selectedCategory && (
+        {!hideSidebar && activeCategory && (
           <div className="mb-12">
             <h3 className="text-3xl font-semibold text-[#1A1A1A]">
-              Recent <span className="text-[#7A1F5C] font-bold">{selectedCategory.name}</span>
+              Recent <span className="text-[#7A1F5C] font-bold">{activeCategory.name}</span>
             </h3>
             <p className="text-sm text-gray-500 mt-2 leading-relaxed">
-              {selectedCategory.description || `Expert articles and thought-provoking analysis on ${selectedCategory.name.toLowerCase()}.`}
+              {activeCategory.description || `Expert articles and thought-provoking analysis on ${activeCategory.name.toLowerCase()}.`}
             </p>
           </div>
         )}
@@ -215,7 +200,7 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
             </div>
             <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">Check Back Soon</h3>
             <p className="text-gray-500 text-sm max-w-sm leading-relaxed">
-              We are currently crafting new content and strategic perspectives for the {selectedCategory?.name} section.
+              We are currently crafting new content and strategic perspectives for the {activeCategory?.name} section.
             </p>
           </div>
         ) : (
