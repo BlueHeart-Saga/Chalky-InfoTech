@@ -26,9 +26,9 @@ if (typeof window === "undefined") {
 
 export function isPublishedPost(item: any): boolean {
   if (!item) return false;
+  if (item.is_deleted === true) return false;
   const status = (item.status || "published").toLowerCase();
-  if (status !== "published") return false;
-  if (item.is_deleted === true || status === "deleted" || status === "archived" || status === "draft") {
+  if (status === "deleted" || status === "archived" || status === "draft") {
     return false;
   }
   return true;

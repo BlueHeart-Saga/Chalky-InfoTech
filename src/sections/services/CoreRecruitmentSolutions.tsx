@@ -99,83 +99,108 @@ const SOLUTIONS = [
 
 export default function CoreRecruitmentSolutions() {
   return (
-    <section className="relative pt-24 pb-32 bg-[#F5F0E8] overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-bold uppercase tracking-widest mb-4">
+    <section className="relative pt-20 pb-32 bg-[#F5F0E8] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Header Section */}
+        <div className="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-extrabold uppercase tracking-widest mb-4">
             Our Core Expertise
           </span>
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-5 tracking-tight">
             End-to-End <span className="text-[#7A1F5C]">Recruitment Solutions</span>
           </h2>
-          <p className="text-[#8A8A8A] max-w-2xl mx-auto text-lg">
+          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed font-medium">
             We provide flexible recruitment solutions tailored to the operational and strategic hiring needs of businesses across the UK and global markets.
           </p>
         </div>
 
-        <div className="space-y-20 lg:space-y-32">
-          {SOLUTIONS.map((solution, i) => (
-            <div key={solution.id} className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-16 items-center`}>
-              {/* Image Column */}
-              <motion.div 
-                initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="w-full lg:w-1/2 relative flex justify-center items-center py-6 px-4 md:px-8"
-              >
-                {/* Main Image Container */}
-                <div className="relative w-full aspect-[4/3] max-w-[500px] md:max-w-[560px] lg:max-w-[600px] z-10">
-                  <Image 
-                    src={solution.image} 
-                    alt={solution.title} 
-                    fill
-                    className="object-contain object-center" 
-                    sizes="(max-width: 768px) 100vw, 40vw" 
-                  />
-                </div>
-              </motion.div>
+        {/* Alternate Solutions Rows */}
+        <div className="space-y-16 md:space-y-24">
+          {SOLUTIONS.map((solution, i) => {
+            const isEven = i % 2 === 0;
 
-              {/* Text Column */}
-              <motion.div 
-                initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="w-full lg:w-1/2"
+            return (
+              <div 
+                key={solution.id} 
+                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
               >
-                <h3 className="text-3xl lg:text-3xl md:text-4xl font-semibold text-[#1A1A1A] mb-6">{solution.title}</h3>
-                <p className="text-[#8A8A8A] text-lg leading-relaxed mb-10">{solution.intro}</p>
-                
-                <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6 mb-12">
-                  <div className="space-y-4">
-                    <p className="text-[11px] font-bold text-[#7A1F5C] uppercase tracking-widest border-b border-[#7A1F5C]/10 pb-2">Benefits</p>
-                    {solution.benefits.map((benefit) => (
-                      <div key={benefit} className="flex items-start gap-3">
-                        <CheckCircle2 size={18} className="text-[#7A1F5C] mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-[#555] font-medium">{benefit}</span>
-                      </div>
-                    ))}
+                {/* Image Column (No cards or borders) */}
+                <motion.div 
+                  initial={{ opacity: 0, x: isEven ? -40 : 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'} w-full flex justify-center py-2`}
+                >
+                  <div className="relative w-full aspect-[4/3] max-w-[500px] sm:max-w-[540px] group flex items-center justify-center">
+                    <Image 
+                      src={solution.image} 
+                      alt={solution.title} 
+                      fill
+                      className="object-contain group-hover:scale-[1.03] transition-transform duration-500 ease-out" 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 540px" 
+                    />
                   </div>
-                  <div className="space-y-4">
-                    <p className="text-[11px] font-bold text-[#7A1F5C] uppercase tracking-widest border-b border-[#7A1F5C]/10 pb-2">Our Focus</p>
-                    {solution.process.map((step) => (
-                      <div key={step} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#7A1F5C] mt-2 flex-shrink-0" />
-                        <span className="text-sm text-[#555] font-medium">{step}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                </motion.div>
 
-                <Link href={`/services/${solution.slug}`} className="inline-flex items-center gap-2 bg-[#7A1F5C] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#4A1238] transition-all duration-300 shadow-lg shadow-[#7A1F5C]/20 hover:-translate-y-1">
-                  {solution.cta} <ArrowUpRight size={18} />
-                </Link>
-              </motion.div>
-            </div>
-          ))}
+                {/* Text Column */}
+                <motion.div 
+                  initial={{ opacity: 0, x: isEven ? 40 : -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className={`lg:col-span-6 ${isEven ? 'lg:order-2' : 'lg:order-1'} w-full flex flex-col justify-center`}
+                >
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A1A1A] mb-3 tracking-tight">
+                    {solution.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 font-medium">
+                    {solution.intro}
+                  </p>
+                  
+                  {/* Benefits & Our Focus Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div className="space-y-3">
+                      <p className="text-[11px] font-extrabold text-[#7A1F5C] uppercase tracking-wider border-b border-[#7A1F5C]/10 pb-1.5">
+                        Key Benefits
+                      </p>
+                      {solution.benefits.map((benefit) => (
+                        <div key={benefit} className="flex items-start gap-2.5">
+                          <CheckCircle2 size={16} className="text-[#7A1F5C] mt-0.5 shrink-0" />
+                          <span className="text-xs sm:text-sm text-gray-700 font-semibold">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="space-y-3">
+                      <p className="text-[11px] font-extrabold text-[#7A1F5C] uppercase tracking-wider border-b border-[#7A1F5C]/10 pb-1.5">
+                        Our Focus
+                      </p>
+                      {solution.process.map((step) => (
+                        <div key={step} className="flex items-start gap-2.5">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#7A1F5C] mt-2 shrink-0" />
+                          <span className="text-xs sm:text-sm text-gray-700 font-semibold">{step}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <Link 
+                      href={`/services/${solution.slug}`} 
+                      className="inline-flex items-center gap-2 bg-[#7A1F5C] text-white px-7 py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#63184a] transition-all duration-300 shadow-md shadow-[#7A1F5C]/15 hover:-translate-y-0.5 active:translate-y-0"
+                    >
+                      <span>{solution.cta}</span>
+                      <ArrowUpRight size={16} />
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </div>
+
       {/* Wave Divider to White */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
         <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

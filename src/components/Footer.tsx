@@ -263,9 +263,9 @@ const newsletterPrivacyLinkLabel =
               <p className="text-gray-300 text-sm leading-relaxed mb-6">
                 Global recruitment and workforce solutions partner delivering talent acquisition and staffing services across multiple industries worldwide.
               </p>
-              <p className="text-[#C2185B] text-xs font-semibold uppercase tracking-wider mb-6 border-l-2 border-[#C2185B] pl-3 leading-relaxed">
+              {/* <p className="text-[#C2185B] text-xs font-semibold uppercase tracking-wider mb-6 border-l-2 border-[#C2185B] pl-3 leading-relaxed">
                 Strategic workforce solutions for global business growth.
-              </p>
+              </p> */}
               <ul className="space-y-3 text-gray-300 text-sm">
                 <li>
                   <a href="/contact#locations" className="flex items-center gap-2 hover:text-[#C2185B] transition-colors group/loc">
@@ -327,12 +327,12 @@ const newsletterPrivacyLinkLabel =
                   { label: 'Insights', href: '/insights' },
                   { label: 'Jobs', href: '/jobs' },
                   { label: 'Contact', href: '/contact' },
-                  { label: 'Privacy Policy', href: '/privacy-policy' },
-                  { label: 'Terms & Conditions', href: '/terms-conditions' },
-                  { label: 'FAQs', href: '/faqs' },
-                  { label: 'Cookie Policy', href: '/cookie-policy' },
-                  { label: 'Modern Slavery Statement', href: '/modern-slavery-statement' },
-                  { label: 'Disclaimer', href: '/disclaimer' },
+                  // { label: 'Privacy Policy', href: '/privacy-policy' },
+                  // { label: 'Terms & Conditions', href: '/terms-conditions' },
+                  // { label: 'FAQs', href: '/faqs' },
+                  // { label: 'Cookie Policy', href: '/cookie-policy' },
+                  // { label: 'Modern Slavery Statement', href: '/modern-slavery-statement' },
+                  // { label: 'Disclaimer', href: '/disclaimer' },
                 ].map((link, i) => (
                   <li key={i}>
                     <Link href={link.href} className="text-gray-300 hover:text-[#C2185B] text-sm transition-colors block">

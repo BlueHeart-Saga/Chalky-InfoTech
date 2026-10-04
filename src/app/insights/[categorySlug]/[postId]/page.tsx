@@ -61,8 +61,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const realPostId = extractPostId(rawParam);
 
   try {
-    const response = await getCachedPost(realPostId);
-    const backendPost = response?.item;
+    const response = await getCachedPost(realPostId).catch(() => null);
+    let backendPost = response?.item || (response?.id || response?._id ? response : null);
+    
+    if (!backendPost) {
+      const allPosts = await api.getAllPosts(100).catch(() => []);
+      const found = allPosts.find((p: any) => p.id === realPostId || getPostSlug(p) === rawParam);
+      if (found) {
+        backendPost = found;
+      }
+    }
+
     if (!backendPost || !isPublishedPost(backendPost)) return { title: 'Post Not Found' };
 
     const post = api.transformContent(backendPost);
@@ -108,14 +117,31 @@ async function InsightDetailPageContent({
   let blocks: any[] = [];
 
   try {
-    const response = await getCachedPost(realPostId);
-    const backendPost = response?.item;
+    const response = await getCachedPost(realPostId).catch(() => null);
+    let backendPost = response?.item || (response?.id || response?._id ? response : null);
+
     if (backendPost && isPublishedPost(backendPost)) {
       post = api.transformContent(backendPost);
       blocks = backendPost.blocks || [];
+    } else {
+      // Fallback: search in getAllPosts list
+      const allPosts = await api.getAllPosts(150).catch(() => []);
+      const found = allPosts.find((p: any) => p.id === realPostId || getPostSlug(p) === rawParam);
+      if (found) {
+        post = found;
+        blocks = found.rawBlocks || found.blocks || [];
+      }
     }
   } catch (err) {
     console.error('Error fetching post details:', err);
+    try {
+      const allPosts = await api.getAllPosts(150).catch(() => []);
+      const found = allPosts.find((p: any) => p.id === realPostId || getPostSlug(p) === rawParam);
+      if (found) {
+        post = found;
+        blocks = found.rawBlocks || found.blocks || [];
+      }
+    } catch {}
   }
 
   if (!post) {
@@ -124,12 +150,12 @@ async function InsightDetailPageContent({
 
   // Check if requested slug differs from current canonical seoSlug, and issue HTTP 301 permanent redirect
   const seoSlug = getPostSlug(post);
-  if (rawParam !== seoSlug) {
+  if (rawParam !== seoSlug && !rawParam.endsWith(post.id)) {
     permanentRedirect(`/insights/${categorySlug}/${seoSlug}`);
   }
 
   try {
-    const sectionPosts = await getCachedSectionPosts(post.category?.slug || 'insights');
+    const sectionPosts = await getCachedSectionPosts(post.category?.slug || 'insights').catch(() => []);
     relatedPosts = sectionPosts.filter((p: any) => p.id !== realPostId).slice(0, 3);
   } catch (err) {
     console.error('Error fetching related posts:', err);

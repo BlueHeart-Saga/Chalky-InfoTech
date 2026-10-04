@@ -50,9 +50,9 @@ export default function InsightsLandingClient() {
     { label: 'Connect', id: 'cta' }
   ];
 
-  // Filter 3 display posts for the 3D Carousel (use featured if available, or first 3 posts)
-  const featuredPosts = posts.filter((p: any) => p.featured).slice(0, 3);
-  const displayFeatured = featuredPosts.length >= 3 ? featuredPosts : posts.slice(0, 3);
+  // Filter top 10 display posts for the 3D Carousel (use featured if available, or first 10 posts)
+  const featuredPosts = posts.filter((p: any) => p.featured).slice(0, 10);
+  const displayFeatured = featuredPosts.length > 0 ? featuredPosts : posts.slice(0, 10);
 
   return (
     <div className="flex flex-col min-h-screen bg-[#F5F0E8]">

@@ -71,43 +71,89 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 
 
-  const categoryRoutes: MetadataRoute.Sitemap = [];
-  const insightRoutes: MetadataRoute.Sitemap = [];
+  const categoryRoutesMap = new Map<string, MetadataRoute.Sitemap[0]>();
+  const insightRoutesMap = new Map<string, MetadataRoute.Sitemap[0]>();
 
   let structure: any[] = [];
+  let allPosts: any[] = [];
   try {
-    structure = await api.getFullSiteStructure();
+    const [fetchedStructure, fetchedPosts] = await Promise.all([
+      api.getFullSiteStructure().catch(() => []),
+      api.getAllPosts(500).catch(() => [])
+    ]);
+    structure = fetchedStructure || [];
+    allPosts = fetchedPosts || [];
   } catch (err) {
-    console.error('Failed to fetch site structure for sitemap:', err);
+    console.error('Failed to fetch site structure/posts for sitemap:', err);
   }
 
+  // Process structure categories and posts
   if (structure && structure.length > 0) {
     structure.forEach((section: any) => {
       if (section.categories) {
         section.categories.forEach((category: any) => {
-          categoryRoutes.push({
-            url: `${base}/insights/${category.slug}`,
-            lastModified: now,
-            changeFrequency: 'weekly',
-            priority: 0.7,
-          });
+          if (category.slug) {
+            const catUrl = `${base}/insights/${category.slug}`;
+            categoryRoutesMap.set(catUrl, {
+              url: catUrl,
+              lastModified: now,
+              changeFrequency: 'weekly',
+              priority: 0.7,
+            });
+          }
 
           if (category.posts) {
             category.posts.forEach((post: any) => {
-              const postDate = post.date ? new Date(post.date) : now;
-              insightRoutes.push({
-                url: `${base}/insights/${category.slug}/${getPostSlug(post)}`,
-                lastModified: isNaN(postDate.getTime()) ? now : postDate,
-                changeFrequency: 'monthly',
-                priority: 0.8,
-              });
+              const postSlug = getPostSlug(post);
+              if (postSlug) {
+                const postUrl = `${base}/insights/${category.slug || 'blogs'}/${postSlug}`;
+                const postDate = post.date ? new Date(post.date) : now;
+                insightRoutesMap.set(postUrl, {
+                  url: postUrl,
+                  lastModified: isNaN(postDate.getTime()) ? now : postDate,
+                  changeFrequency: 'monthly',
+                  priority: 0.8,
+                });
+              }
             });
           }
         });
       }
     });
-  } else {
-    // Fallback if API is offline
+  }
+
+  // Also process all standalone posts from API
+  if (allPosts && allPosts.length > 0) {
+    allPosts.forEach((post: any) => {
+      const catSlug = post.category?.slug || 'blogs';
+      const catUrl = `${base}/insights/${catSlug}`;
+      if (!categoryRoutesMap.has(catUrl)) {
+        categoryRoutesMap.set(catUrl, {
+          url: catUrl,
+          lastModified: now,
+          changeFrequency: 'weekly',
+          priority: 0.7,
+        });
+      }
+
+      const postSlug = getPostSlug(post);
+      if (postSlug) {
+        const postUrl = `${base}/insights/${catSlug}/${postSlug}`;
+        if (!insightRoutesMap.has(postUrl)) {
+          const postDate = post.date ? new Date(post.date) : now;
+          insightRoutesMap.set(postUrl, {
+            url: postUrl,
+            lastModified: isNaN(postDate.getTime()) ? now : postDate,
+            changeFrequency: 'monthly',
+            priority: 0.8,
+          });
+        }
+      }
+    });
+  }
+
+  // Fallback category slugs if none retrieved
+  if (categoryRoutesMap.size === 0) {
     const fallbackCategorySlugs = [
       'blogs', 'case-studies', 'newsletters', 'podcasts',
       'industry-events', 'company-announcements', 'achievements', 'awards-milestones',
@@ -115,14 +161,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       'celebrations', 'team-culture', 'posters', 'community'
     ];
     fallbackCategorySlugs.forEach((slug) => {
-      categoryRoutes.push({
-        url: `${base}/insights/${slug}`,
+      const catUrl = `${base}/insights/${slug}`;
+      categoryRoutesMap.set(catUrl, {
+        url: catUrl,
         lastModified: now,
         changeFrequency: 'weekly',
         priority: 0.7,
       });
     });
   }
+
+  const categoryRoutes = Array.from(categoryRoutesMap.values());
+  const insightRoutes = Array.from(insightRoutesMap.values());
 
   return [
     ...staticRoutes,

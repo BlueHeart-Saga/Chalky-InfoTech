@@ -195,7 +195,7 @@ export default function GlobalIndustrySupport() {
         </div>
 
         {/* Industry Team Members */}
-        <div>
+        {/* <div>
           <div className="text-center mb-10">
             <h3 className="text-2xl font-bold text-[#1A1A1A]">Industry Practice Leaders</h3>
           </div>
@@ -223,7 +223,7 @@ export default function GlobalIndustrySupport() {
               </motion.div>
             ))}
           </div>
-        </div>
+        </div> */}
 
       </div>
       {/* Wave Divider to Cream */}

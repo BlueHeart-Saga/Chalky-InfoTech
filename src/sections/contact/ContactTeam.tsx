@@ -8,6 +8,7 @@ const team = [
     role: 'CEO & Founder',
     email: 'info@chalkyinfo.com',
   },
+  /* 
   {
     name: 'Manjula Bashkar',
     role: 'Manual Cloud Security Specialist',
@@ -18,6 +19,7 @@ const team = [
     role: 'Head of Client Success',
     email: 'info@chalkyinfo.com',
   },
+  */
 ];
 
 const RadiatingLines = () => {

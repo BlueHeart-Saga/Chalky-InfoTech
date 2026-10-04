@@ -29,7 +29,10 @@ interface Post {
   date: string;
   readTime: number;
   author?: string;
+  authorAvatar?: string;
   views?: number;
+  commentsCount?: number;
+  likesCount?: number;
 }
 
 interface Props {
@@ -41,6 +44,18 @@ interface Props {
 }
 
 const POSTS_PER_PAGE = 6;
+
+function formatDate(dateStr?: string) {
+  if (!dateStr) return 'Sep 29, 2026';
+  if (/^[A-Z][a-z]{2}\s\d{1,2},\s\d{4}$/.test(dateStr)) return dateStr;
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  } catch {
+    return dateStr;
+  }
+}
 
 function getCategoryIcon(slug: string) {
   const s = slug.toLowerCase();
@@ -62,6 +77,7 @@ function getCategoryIcon(slug: string) {
 export default function SidebarPublishingHub({ posts, siteStructure, loading, initialCategorySlug, hideSidebar }: Props) {
   const [userSelectedCategory, setUserSelectedCategory] = useState<Category | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
   const gridRef = useRef<HTMLDivElement>(null);
 
   // Determine effective selected category dynamically from siteStructure / initialCategorySlug
@@ -111,8 +127,10 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     if (gridRef.current) {
+      const yOffset = -100;
+      const elementTop = gridRef.current.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
-        top: gridRef.current.offsetTop - 120,
+        top: Math.max(0, elementTop + yOffset),
         behavior: 'smooth'
       });
     }
@@ -123,7 +141,7 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
       
       {/* 1. LEFT SIDEBAR: Categories & Sections Filter - Sticky on Desktop! */}
       {!hideSidebar && (
-        <aside className="lg:col-span-3 lg:border-r lg:border-[#EFE7DD] lg:pr-8 flex flex-col gap-10 lg:sticky lg:top-[120px] lg:max-h-[calc(100vh-160px)] lg:overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-200">
+        <aside className="lg:col-span-3 lg:border-r lg:border-[#EFE7DD] lg:pr-8 flex flex-col gap-8 lg:sticky lg:top-[110px] lg:self-start h-fit pb-6">
         
         {loading ? (
           <div className="space-y-4">
@@ -140,7 +158,7 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
             return (
               <div key={secIdx} className="flex flex-col gap-4">
                 {/* Section Title */}
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 select-none px-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-gray-500 select-none px-3">
                   {section.name}
                 </span>
 
@@ -155,14 +173,14 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
                       <button
                         key={cat.slug}
                         onClick={() => setUserSelectedCategory(cat)}
-                        className={`w-full text-left py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center gap-3 transition-all duration-300 select-none group ${
+                        className={`w-full text-left py-3 px-3.5 rounded-xl font-semibold text-sm flex items-center gap-3 transition-all duration-300 select-none group ${
                           isSelected
-                            ? 'bg-[#7A1F5C] text-white shadow-md shadow-[#7A1F5C]/10 translate-x-1'
-                            : 'text-gray-600 hover:bg-[#FAF8F5] hover:text-[#7A1F5C]'
+                            ? 'bg-[#7A1F5C] text-white font-bold shadow-md shadow-[#7A1F5C]/15 translate-x-1'
+                            : 'text-gray-800 hover:bg-[#FAF8F5] hover:text-[#7A1F5C]'
                         }`}
                       >
-                        <CategoryIcon size={15} className={isSelected ? 'text-white' : 'text-gray-400 group-hover:text-[#7A1F5C]'} />
-                        <span>{cat.name}</span>
+                        <CategoryIcon size={18} className={isSelected ? 'text-white' : 'text-gray-500 group-hover:text-[#7A1F5C] shrink-0'} />
+                        <span className="truncate">{cat.name}</span>
                       </button>
                     );
                   })}
@@ -175,19 +193,54 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
         </aside>
       )}
 
-      {/* 2. RIGHT MAIN CONTENT: Filtered Articles Grid */}
+      {/* 2. RIGHT MAIN CONTENT: Filtered Articles Grid / List */}
       <main className={hideSidebar ? "lg:col-span-12 flex flex-col min-h-[500px]" : "lg:col-span-9 flex flex-col min-h-[500px]"}>
         
-        {!hideSidebar && activeCategory && (
-          <div className="mb-12">
-            <h3 className="text-3xl font-semibold text-[#1A1A1A]">
-              Recent <span className="text-[#7A1F5C] font-bold">{activeCategory.name}</span>
+        {/* Main Header Bar with View Switcher */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight">
+              {activeCategory ? (
+                <>Recent <span className="text-[#7A1F5C]">{activeCategory.name}</span></>
+              ) : (
+                <>Latest <span className="text-[#7A1F5C]">Posts</span></>
+              )}
             </h3>
-            <p className="text-sm text-gray-500 mt-2 leading-relaxed">
-              {activeCategory.description || `Expert articles and thought-provoking analysis on ${activeCategory.name.toLowerCase()}.`}
-            </p>
+            {activeCategory && (
+              <p className="text-xs sm:text-sm text-gray-500 mt-1 leading-relaxed max-w-2xl">
+                {activeCategory.description || `Expert articles and thought-provoking analysis on ${activeCategory.name.toLowerCase()}.`}
+              </p>
+            )}
           </div>
-        )}
+
+          {/* Grid vs List View Mode Switcher */}
+          <div className="flex items-center gap-1 bg-[#FAF8F5] p-1.5 rounded-xl border border-[#EFE7DD] shrink-0 self-start sm:self-auto">
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`p-2 rounded-lg transition-all text-xs font-semibold flex items-center gap-1.5 ${
+                viewMode === 'grid'
+                  ? 'bg-[#7A1F5C] text-white shadow-md shadow-[#7A1F5C]/15'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-white/60'
+              }`}
+              title="Grid View"
+              aria-label="Grid View"
+            >
+              <LucideIcons.LayoutGrid size={16} />
+            </button>
+            <button
+              onClick={() => setViewMode('list')}
+              className={`p-2 rounded-lg transition-all text-xs font-semibold flex items-center gap-1.5 ${
+                viewMode === 'list'
+                  ? 'bg-[#7A1F5C] text-white shadow-md shadow-[#7A1F5C]/15'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-white/60'
+              }`}
+              title="List View"
+              aria-label="List View"
+            >
+              <LucideIcons.List size={16} />
+            </button>
+          </div>
+        </div>
 
         {loading ? (
           <div className="py-24 flex justify-center items-center">
@@ -205,80 +258,209 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {paginatedPosts.map((post, idx) => (
-                <motion.div
-                  key={post.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (idx % 3) * 0.1, duration: 0.5 }}
-                  className="bg-white border border-[#EFE7DD] rounded-[2rem] overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group relative"
-                >
-                  {/* Image header */}
-                  <div className="relative h-48 sm:h-52 overflow-hidden">
-                    <Image
-                      src={post.image || "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200"}
-                      alt={post.title}
-                      fill
-                      unoptimized
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                  </div>
+            {/* GRID VIEW (2 cards per row for premium full width display) */}
+            {viewMode === 'grid' && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+                {paginatedPosts.map((post, idx) => {
+                  const formattedDate = formatDate(post.date);
+                  const authorName = post.author || 'Chalky Team';
+                  const likes = post.likesCount !== undefined ? post.likesCount : (post.views ? Math.floor(post.views / 25) : 0);
 
-                  {/* Card Middle Strategic Details */}
-                  <div className="p-6 flex flex-col flex-grow justify-between">
-                    
-                    <div>
-                      {/* Title */}
-                      <h4 className="text-[15px] font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors leading-tight mb-3 line-clamp-2">
-                        {post.title}
-                      </h4>
-
-                      {/* Excerpt */}
-                      <p className="text-gray-500 text-xs leading-relaxed mb-6 line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                    </div>
-
-                    {/* Card bottom row: Mockup styled stats & author initial badge */}
-                    <div className="pt-4 border-t border-gray-50 flex items-center justify-between">
-                      
-                      {/* Left: Author initial circle & name */}
-                      <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-[#7A1F5C] text-white text-[9px] font-black uppercase flex items-center justify-center select-none">
-                          {post.author ? post.author.charAt(0) : 'C'}
+                  return (
+                    <motion.div
+                      key={post.id}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (idx % 2) * 0.08, duration: 0.4 }}
+                      className="bg-white border border-[#EFE7DD]/90 hover:border-[#7A1F5C]/40 rounded-2xl p-3.5 sm:p-4 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full group relative"
+                    >
+                      <div>
+                        {/* Full Width Inset Image Frame */}
+                        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-gray-100 mb-3.5 shrink-0 border border-gray-100">
+                          <Image
+                            src={post.image || "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200"}
+                            alt={post.title}
+                            fill
+                            unoptimized
+                            className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
+                          />
+                          {post.category?.name && (
+                            <div className="absolute top-2.5 left-2.5 z-10">
+                              <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-wider shadow-sm select-none border border-gray-100">
+                                {post.category.name}
+                              </span>
+                            </div>
+                          )}
                         </div>
-                        <span className="text-[10px] text-gray-500 font-extrabold select-none">
-                          {post.author || 'Chalky Team'}
+
+                        {/* Content details inside card */}
+                        <div className="px-1">
+                          {/* Metadata row: Date on left, Likes on right */}
+                          <div className="flex items-center justify-between text-[11px] text-gray-500 font-semibold mb-2">
+                            <span>{formattedDate}</span>
+                            <div className="flex items-center gap-3">
+                              <span className="flex items-center gap-1 hover:text-[#7A1F5C] transition-colors" title="Read time">
+                                <LucideIcons.Clock size={12} className="text-[#7A1F5C]" />
+                                <span>{post.readTime} min</span>
+                              </span>
+                              <span className="flex items-center gap-1 hover:text-[#7A1F5C] transition-colors" title="Likes">
+                                <LucideIcons.Heart size={12} className="text-gray-400" />
+                                <span>{likes}</span>
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Title (Semibold, high contrast, uniform height) */}
+                          <h4 className="text-base sm:text-lg font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors leading-snug line-clamp-2 mb-2 min-h-[44px]">
+                            {post.title}
+                          </h4>
+
+                          {/* Author avatar & name */}
+                          <div className="flex items-center gap-2 mb-2">
+                            {post.authorAvatar ? (
+                              <Image src={post.authorAvatar} alt={authorName} width={20} height={20} className="w-5 h-5 rounded-full object-cover shrink-0" />
+                            ) : (
+                              <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#7A1F5C] to-[#5A1744] text-white text-[9px] font-bold uppercase flex items-center justify-center shrink-0 shadow-sm select-none">
+                                {authorName.charAt(0)}
+                              </div>
+                            )}
+                            <span className="text-xs text-gray-700 font-semibold truncate">
+                              {authorName}
+                            </span>
+                          </div>
+
+                          {/* Excerpt */}
+                          <p className="text-xs text-gray-600 font-medium leading-relaxed line-clamp-3 mb-3">
+                            {post.excerpt}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Bottom Read Action */}
+                      <div className="px-1 pt-3 border-t border-gray-100 flex items-center justify-between mt-auto">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#7A1F5C] uppercase tracking-wider group-hover:underline">
+                          Read Article <LucideIcons.ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                         </span>
                       </div>
 
-                      {/* Right: Mockup Views Icon & Count */}
-                      <div className="flex items-center gap-1 text-[10px] text-gray-400 font-extrabold select-none bg-[#FAF8F5] px-2.5 py-1 rounded-full">
-                        <LucideIcons.Eye size={12} className="text-[#7A1F5C]" />
-                        <span>{post.views || 0}</span>
+                      {/* Invisible link overlay */}
+                      <Link 
+                        href={`/insights/${post.category?.slug || 'blogs'}/${getPostSlug(post)}`}
+                        className="absolute inset-0 z-10"
+                        aria-label={`Read ${post.title}`}
+                        prefetch={false}
+                      />
+                    </motion.div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* LIST VIEW (Full width image frame display) */}
+            {viewMode === 'list' && (
+              <div className="flex flex-col gap-5">
+                {paginatedPosts.map((post, idx) => {
+                  const formattedDate = formatDate(post.date);
+                  const authorName = post.author || 'Chalky Team';
+                  const likes = post.likesCount !== undefined ? post.likesCount : (post.views ? Math.floor(post.views / 25) : 0);
+
+                  return (
+                    <motion.div
+                      key={post.id}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (idx % 3) * 0.08, duration: 0.4 }}
+                      className="bg-white border border-[#EFE7DD]/90 hover:border-[#7A1F5C]/40 rounded-2xl p-3.5 sm:p-4 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5 transition-all duration-300 flex flex-col sm:flex-row items-stretch gap-4 sm:gap-6 group relative"
+                    >
+                      {/* Full Width Image Frame in List View */}
+                      <div className="relative w-full sm:w-72 md:w-80 lg:w-96 aspect-[16/9] sm:aspect-[16/10] shrink-0 overflow-hidden rounded-xl bg-gray-100 border border-gray-100">
+                        <Image
+                          src={post.image || "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200"}
+                          alt={post.title}
+                          fill
+                          unoptimized
+                          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                          sizes="(max-width: 640px) 100vw, 400px"
+                        />
+                        {post.category?.name && (
+                          <div className="absolute top-2.5 left-2.5 z-10">
+                            <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-md text-[#7A1F5C] text-[10px] font-extrabold uppercase tracking-wider shadow-sm select-none border border-gray-100">
+                              {post.category.name}
+                            </span>
+                          </div>
+                        )}
                       </div>
 
-                    </div>
+                      {/* Right Details Container */}
+                      <div className="flex flex-col justify-between flex-grow py-1 pr-1">
+                        <div>
+                          {/* Metadata row: Date on left, Read time & Likes on right */}
+                          <div className="flex items-center justify-between text-[11px] text-gray-500 font-semibold mb-2">
+                            <span>{formattedDate}</span>
+                            <div className="flex items-center gap-3">
+                              <span className="flex items-center gap-1 hover:text-[#7A1F5C] transition-colors" title="Read time">
+                                <LucideIcons.Clock size={12} className="text-[#7A1F5C]" />
+                                <span>{post.readTime} min</span>
+                              </span>
+                              <span className="flex items-center gap-1 hover:text-[#7A1F5C] transition-colors" title="Likes">
+                                <LucideIcons.Heart size={12} className="text-gray-400" />
+                                <span>{likes}</span>
+                              </span>
+                            </div>
+                          </div>
 
-                  </div>
+                          {/* Title */}
+                          <h4 className="text-base sm:text-lg font-bold text-[#1A1A1A] group-hover:text-[#7A1F5C] transition-colors leading-snug line-clamp-2 mb-2">
+                            {post.title}
+                          </h4>
 
-                  {/* Floating invisible overlay link */}
-                  <Link 
-                    href={`/insights/${post.category?.slug || 'blogs'}/${getPostSlug(post)}`}
-                    className="absolute inset-0 z-10"
-                    aria-label={`Read ${post.title}`}
-                    prefetch={false}
-                  />
+                          {/* Author avatar & name */}
+                          <div className="flex items-center gap-2 mb-2">
+                            {post.authorAvatar ? (
+                              <Image src={post.authorAvatar} alt={authorName} width={20} height={20} className="w-5 h-5 rounded-full object-cover shrink-0" />
+                            ) : (
+                              <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#7A1F5C] to-[#5A1744] text-white text-[9px] font-bold uppercase flex items-center justify-center shrink-0 shadow-sm select-none">
+                                {authorName.charAt(0)}
+                              </div>
+                            )}
+                            <span className="text-xs text-gray-700 font-semibold truncate">
+                              {authorName}
+                            </span>
+                          </div>
 
-                </motion.div>
-              ))}
-            </div>
+                          {/* Excerpt */}
+                          <p className="text-xs text-gray-600 font-medium leading-relaxed line-clamp-3 mb-2">
+                            {post.excerpt}
+                          </p>
+                        </div>
+
+                        {/* Bottom Read Action */}
+                        <div className="pt-3 border-t border-gray-100 flex items-center justify-between mt-auto">
+                          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#7A1F5C] uppercase tracking-wider group-hover:underline">
+                            Read Article <LucideIcons.ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Invisible link overlay */}
+                      <Link 
+                        href={`/insights/${post.category?.slug || 'blogs'}/${getPostSlug(post)}`}
+                        className="absolute inset-0 z-10"
+                        aria-label={`Read ${post.title}`}
+                        prefetch={false}
+                      />
+                    </motion.div>
+                  );
+                })}
+              </div>
+            )}
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-              <div className="mt-16 flex items-center justify-center gap-2">
+              <div className="mt-14 flex items-center justify-center gap-2">
                 <button
                   onClick={() => handlePageChange(currentPage - 1)}
                   disabled={currentPage === 1}
@@ -320,3 +502,4 @@ export default function SidebarPublishingHub({ posts, siteStructure, loading, in
     </div>
   );
 }
+
