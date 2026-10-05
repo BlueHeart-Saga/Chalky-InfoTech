@@ -7,16 +7,32 @@ import { buildPageMetadataWithImage } from '@/lib/seo-images';
 import { extractPostId, getPostSlug } from '@/lib/seo-slug';
 import InsightDetailClient from '@/sections/insights/InsightDetailClient';
 
+export const dynamicParams = true;
+export const revalidate = 60;
+
 const getCachedPost = (postId: string) =>
   unstable_cache(
-    async () => await api.getContentById(postId),
+    async () => {
+      const res = await api.getContentById(postId);
+      const backendPost = res?.item || (res?.id || res?._id ? res : null);
+      if (!backendPost || !isPublishedPost(backendPost)) {
+        throw new Error(`Post ${postId} unavailable`);
+      }
+      return res;
+    },
     ['post-detail', postId],
     { revalidate: 60, tags: [`post-${postId}`] }
   )();
 
 const getCachedSectionPosts = (sectionSlug: string) =>
   unstable_cache(
-    async () => await api.getSectionPosts(sectionSlug, 4),
+    async () => {
+      const posts = await api.getSectionPosts(sectionSlug, 6);
+      if (!posts || posts.length === 0) {
+        throw new Error(`Section posts for ${sectionSlug} empty`);
+      }
+      return posts;
+    },
     ['section-posts', sectionSlug],
     { revalidate: 60, tags: [`section-${sectionSlug}`] }
   )();
@@ -25,9 +41,63 @@ type Props = {
   params: Promise<{ categorySlug: string; postId: string }>;
 };
 
+async function findPostByMultiTier(rawParam: string) {
+  const realPostId = extractPostId(rawParam);
+  let backendPost: any = null;
+
+  // Tier 1: Cached lookup by realPostId
+  try {
+    const res = await getCachedPost(realPostId).catch(() => null);
+    backendPost = res?.item || (res?.id || res?._id ? res : null);
+  } catch {}
+
+  // Tier 2: Direct uncached API lookup by realPostId
+  if (!backendPost || !isPublishedPost(backendPost)) {
+    try {
+      const res = await api.getContentById(realPostId).catch(() => null);
+      backendPost = res?.item || (res?.id || res?._id ? res : null);
+    } catch {}
+  }
+
+  // Tier 3: Direct uncached API lookup by rawParam (if different from realPostId)
+  if ((!backendPost || !isPublishedPost(backendPost)) && rawParam !== realPostId) {
+    try {
+      const res = await api.getContentById(rawParam).catch(() => null);
+      backendPost = res?.item || (res?.id || res?._id ? res : null);
+    } catch {}
+  }
+
+  // Tier 4: Fallback search in getAllPosts list
+  if (!backendPost || !isPublishedPost(backendPost)) {
+    try {
+      const allPosts = await api.getAllPosts(500).catch(() => []);
+      const found = allPosts.find((p: any) => 
+        p.id === realPostId || 
+        p.id === rawParam || 
+        getPostSlug(p) === rawParam ||
+        rawParam.endsWith(p.id)
+      );
+      if (found) {
+        return { 
+          post: found, 
+          blocks: found.rawBlocks || found.blocks || [] 
+        };
+      }
+    } catch {}
+  }
+
+  if (backendPost && isPublishedPost(backendPost)) {
+    const post = api.transformContent(backendPost);
+    const blocks = backendPost.blocks || [];
+    return { post, blocks };
+  }
+
+  return null;
+}
+
 export async function generateStaticParams() {
   try {
-    const posts = await api.getAllPosts(20);
+    const posts = await api.getAllPosts(50);
     const staticParams: { categorySlug: string; postId: string }[] = [];
 
     (posts ?? []).forEach((post: any) => {
@@ -48,33 +118,17 @@ export async function generateStaticParams() {
     console.error('Error generating static params for posts:', err);
   }
 
-  return [
-    {
-      categorySlug: 'blogs',
-      postId: 'it-staffing-solutions-how-to-build-the-6a23a71cb9074df556d032f1',
-    },
-  ];
+  return [];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { categorySlug, postId: rawParam } = await params;
-  const realPostId = extractPostId(rawParam);
 
   try {
-    const response = await getCachedPost(realPostId).catch(() => null);
-    let backendPost = response?.item || (response?.id || response?._id ? response : null);
-    
-    if (!backendPost) {
-      const allPosts = await api.getAllPosts(100).catch(() => []);
-      const found = allPosts.find((p: any) => p.id === realPostId || getPostSlug(p) === rawParam);
-      if (found) {
-        backendPost = found;
-      }
-    }
+    const result = await findPostByMultiTier(rawParam);
+    if (!result || !result.post) return { title: 'Post Not Found' };
 
-    if (!backendPost || !isPublishedPost(backendPost)) return { title: 'Post Not Found' };
-
-    const post = api.transformContent(backendPost);
+    const { post } = result;
     const seoSlug = getPostSlug(post);
 
     const fullTitle = `${post.title} | Chalky`;
@@ -111,42 +165,14 @@ async function InsightDetailPageContent({
   params: Promise<{ categorySlug: string; postId: string }>;
 }) {
   const { categorySlug, postId: rawParam } = await params;
-  const realPostId = extractPostId(rawParam);
-  let post: any = null;
-  let relatedPosts: any[] = [];
-  let blocks: any[] = [];
+  const result = await findPostByMultiTier(rawParam);
 
-  try {
-    const response = await getCachedPost(realPostId).catch(() => null);
-    let backendPost = response?.item || (response?.id || response?._id ? response : null);
-
-    if (backendPost && isPublishedPost(backendPost)) {
-      post = api.transformContent(backendPost);
-      blocks = backendPost.blocks || [];
-    } else {
-      // Fallback: search in getAllPosts list
-      const allPosts = await api.getAllPosts(150).catch(() => []);
-      const found = allPosts.find((p: any) => p.id === realPostId || getPostSlug(p) === rawParam);
-      if (found) {
-        post = found;
-        blocks = found.rawBlocks || found.blocks || [];
-      }
-    }
-  } catch (err) {
-    console.error('Error fetching post details:', err);
-    try {
-      const allPosts = await api.getAllPosts(150).catch(() => []);
-      const found = allPosts.find((p: any) => p.id === realPostId || getPostSlug(p) === rawParam);
-      if (found) {
-        post = found;
-        blocks = found.rawBlocks || found.blocks || [];
-      }
-    } catch {}
-  }
-
-  if (!post) {
+  if (!result || !result.post) {
     notFound();
   }
+
+  const { post, blocks } = result;
+  const realPostId = post.id;
 
   // Check if requested slug differs from current canonical seoSlug, and issue HTTP 301 permanent redirect
   const seoSlug = getPostSlug(post);
@@ -154,6 +180,7 @@ async function InsightDetailPageContent({
     permanentRedirect(`/insights/${categorySlug}/${seoSlug}`);
   }
 
+  let relatedPosts: any[] = [];
   try {
     const sectionPosts = await getCachedSectionPosts(post.category?.slug || 'insights').catch(() => []);
     relatedPosts = sectionPosts.filter((p: any) => p.id !== realPostId).slice(0, 3);
