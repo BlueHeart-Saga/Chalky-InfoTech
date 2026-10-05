@@ -8,9 +8,6 @@ import InsightDetailClient from '@/sections/insights/InsightDetailClient';
 import Link from 'next/link';
 import CTASection from '@/components/CTASection';
 
-export const dynamicParams = true;
-export const revalidate = 60;
-
 const getCachedPost = (postId: string) =>
   unstable_cache(
     async () => {
