@@ -39,7 +39,8 @@ export async function POST(req: Request) {
     // Check header and partner banner images on server disk
     const publicDir = path.join(process.cwd(), 'public');
     const headerImgPath = path.join(publicDir, 'email-tamp', 'Header.png');
-    const partnerImgPath = path.join(publicDir, 'email-tamp', 'Partners banner.png');
+    const partnerImgPath = path.join(publicDir, 'email-tamp', 'Chalky_Client.png');
+    const fallbackPartnerImgPath = path.join(publicDir, 'email-tamp', 'Partners banner.png');
 
     const attachments: nodemailer.SendMailOptions['attachments'] = [];
 
@@ -55,11 +56,18 @@ export async function POST(req: Request) {
       headerSrc = 'cid:headerBanner';
     }
 
-    let partnerSrc = `${siteUrl}/email-tamp/Partners banner.png`;
+    let partnerSrc = `${siteUrl}/email-tamp/Chalky_Client.png`;
     if (fs.existsSync(partnerImgPath)) {
       attachments.push({
-        filename: 'Partners banner.png',
+        filename: 'Chalky_Client.png',
         path: partnerImgPath,
+        cid: 'partnerBanner',
+      });
+      partnerSrc = 'cid:partnerBanner';
+    } else if (fs.existsSync(fallbackPartnerImgPath)) {
+      attachments.push({
+        filename: 'Partners banner.png',
+        path: fallbackPartnerImgPath,
         cid: 'partnerBanner',
       });
       partnerSrc = 'cid:partnerBanner';
@@ -137,37 +145,42 @@ export async function POST(req: Request) {
                         </p>
                       </div>
 
-                      <!-- Form Details Table -->
+                      <!-- Form Details Table with Centered Colons -->
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: separate; border-spacing: 0; background-color: #FAFAFA; border: 1px solid #EAEAEA; border-radius: 12px; overflow: hidden;">
                         <tr>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; width: 35%; font-weight: 600; color: #555555; font-size: 13px;">Full Name</td>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px; font-weight: 600;">${data.fullName || 'N/A'}</td>
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; width: 32%; font-weight: 600; color: #555555; font-size: 13px;">Full Name</td>
+                          <td style="padding: 12px 4px; border-bottom: 1px solid #EAEAEA; width: 5%; text-align: center; font-weight: 700; color: #7A1F5C; font-size: 14px;">:</td>
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; width: 63%; color: #1A1A1A; font-size: 14px; font-weight: 600;">${data.fullName || 'N/A'}</td>
                         </tr>
                         <tr>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Email Address</td>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #7A1F5C; font-size: 14px; font-weight: 600;">
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Email Address</td>
+                          <td style="padding: 12px 4px; border-bottom: 1px solid #EAEAEA; text-align: center; font-weight: 700; color: #7A1F5C; font-size: 14px;">:</td>
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; color: #7A1F5C; font-size: 14px; font-weight: 600;">
                             <a href="mailto:${data.email}" style="color: #7A1F5C; text-decoration: none; font-weight: 600;">${data.email}</a>
                           </td>
                         </tr>
                         <tr>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Company / Org</td>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px;">${data.company || 'N/A'}</td>
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Company / Org</td>
+                          <td style="padding: 12px 4px; border-bottom: 1px solid #EAEAEA; text-align: center; font-weight: 700; color: #7A1F5C; font-size: 14px;">:</td>
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px;">${data.company || 'N/A'}</td>
                         </tr>
                         <tr>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Inquiry Category</td>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px;">${data.serviceType || 'General Inquiry'}</td>
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Inquiry Category</td>
+                          <td style="padding: 12px 4px; border-bottom: 1px solid #EAEAEA; text-align: center; font-weight: 700; color: #7A1F5C; font-size: 14px;">:</td>
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px;">${data.serviceType || 'General Inquiry'}</td>
                         </tr>
                         
                         ${data.attachment ? `
                         <tr>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Attachment</td>
-                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #2e7d32; font-size: 13px; font-weight: 600;">
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Attachment</td>
+                          <td style="padding: 12px 4px; border-bottom: 1px solid #EAEAEA; text-align: center; font-weight: 700; color: #7A1F5C; font-size: 14px;">:</td>
+                          <td style="padding: 12px 14px; border-bottom: 1px solid #EAEAEA; color: #2e7d32; font-size: 13px; font-weight: 600;">
                             📎 ${data.attachment.filename}
                           </td>
                         </tr>
                         ` : ''}
                         <tr>
-                          <td colspan="2" style="padding: 18px; background-color: #ffffff;">
+                          <td colspan="3" style="padding: 18px; background-color: #ffffff;">
                             <div style="font-size: 12px; font-weight: 600; color: #7A1F5C; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px;">Message Content:</div>
                             <div style="font-size: 14px; color: #333333; line-height: 1.6; white-space: pre-wrap; background-color: #FAF5FF; padding: 16px; border-left: 4px solid #7A1F5C; border-radius: 6px;">${data.message || 'N/A'}</div>
                           </td>
@@ -176,10 +189,15 @@ export async function POST(req: Request) {
                     </td>
                   </tr>
 
-                  <!-- 3. PARTNER BANNER (With Left & Right Padding / Reduced Size) -->
+                  <!-- 3. PARTNER BANNER & WEBSITE CTA BUTTON -->
                   <tr>
-                    <td align="center" style="padding: 16px 28px; background-color: #ffffff;">
-                      <img src="${partnerSrc}" alt="Chalky InfoTech Partners" width="560" style="width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto; border: 0; border-radius: 8px;" />
+                    <td align="center" style="padding: 20px 28px 24px 28px; background-color: #ffffff;">
+                      <img src="${partnerSrc}" alt="Chalky InfoTech Clients & Partners" width="540" style="width: 100%; max-width: 540px; height: auto; display: block; margin: 0 auto 20px auto; border: 0; border-radius: 8px;" />
+                      
+                      <!-- Website Navigation CTA Button -->
+                      <div style="text-align: center; margin-top: 8px;">
+                        <a href="${siteUrl}" target="_blank" style="display: inline-block; background-color: #7A1F5C; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: none; padding: 12px 30px; border-radius: 30px; border: 0; box-shadow: 0 4px 14px rgba(122,31,92,0.3); text-transform: uppercase; letter-spacing: 0.6px;">Explore Chalky InfoTech</a>
+                      </div>
                     </td>
                   </tr>
 
@@ -286,35 +304,39 @@ export async function POST(req: Request) {
                             </p>
                           </div>
 
-                          <!-- Summary Box of Submitted Details -->
+                          <!-- Summary Box of Submitted Details with Centered Colons -->
                           <div style="background-color: #FAFAFA; border: 1px solid #EAEAEA; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
-                            <h4 style="margin: 0 0 12px 0; color: #7A1F5C; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600;">
+                            <h4 style="margin: 0 0 14px 0; color: #7A1F5C; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600;">
                               Summary of Your Submitted Request:
                             </h4>
                             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="font-size: 14px; color: #333333;">
                               <tr>
-                                <td style="padding: 6px 0; width: 35%; color: #666666; font-weight: 600;">Full Name:</td>
-                                <td style="padding: 6px 0; font-weight: 600;">${data.fullName || 'N/A'}</td>
+                                <td style="padding: 6px 0; width: 32%; color: #666666; font-weight: 600;">Full Name</td>
+                                <td style="padding: 6px 0; width: 5%; text-align: center; font-weight: 700; color: #7A1F5C;">:</td>
+                                <td style="padding: 6px 0; width: 63%; font-weight: 600;">${data.fullName || 'N/A'}</td>
                               </tr>
                               <tr>
-                                <td style="padding: 6px 0; color: #666666; font-weight: 600;">Email Address:</td>
+                                <td style="padding: 6px 0; color: #666666; font-weight: 600;">Email Address</td>
+                                <td style="padding: 6px 0; text-align: center; font-weight: 700; color: #7A1F5C;">:</td>
                                 <td style="padding: 6px 0; color: #7A1F5C; font-weight: 600;">${data.email}</td>
                               </tr>
                               ${data.company ? `
                               <tr>
-                                <td style="padding: 6px 0; color: #666666; font-weight: 600;">Company:</td>
+                                <td style="padding: 6px 0; color: #666666; font-weight: 600;">Company</td>
+                                <td style="padding: 6px 0; text-align: center; font-weight: 700; color: #7A1F5C;">:</td>
                                 <td style="padding: 6px 0;">${data.company}</td>
                               </tr>
                               ` : ''}
                               ${data.serviceType ? `
                               <tr>
-                                <td style="padding: 6px 0; color: #666666; font-weight: 600;">Category:</td>
+                                <td style="padding: 6px 0; color: #666666; font-weight: 600;">Category</td>
+                                <td style="padding: 6px 0; text-align: center; font-weight: 700; color: #7A1F5C;">:</td>
                                 <td style="padding: 6px 0;">${data.serviceType}</td>
                               </tr>
                               ` : ''}
                               ${data.message ? `
                               <tr>
-                                <td colspan="2" style="padding-top: 12px;">
+                                <td colspan="3" style="padding-top: 14px;">
                                   <div style="font-size: 12px; color: #7A1F5C; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Your Message:</div>
                                   <div style="font-size: 13px; color: #333; background-color: #FAF5FF; padding: 14px; border-left: 4px solid #7A1F5C; border-radius: 6px; white-space: pre-wrap;">${data.message}</div>
                                 </td>
@@ -324,16 +346,21 @@ export async function POST(req: Request) {
                           </div>
 
                           <div style="border-top: 1px solid #EAEAEA; padding-top: 18px; font-size: 13px; color: #718096; line-height: 1.6;">
-                            If you have urgent questions, feel free to reply directly to this email or call our UK desk at <strong>+44 7503 140975</strong> / India desk at <strong>+91 95977 70686</strong>.
+                            If you have urgent questions, feel free to reply directly to this email or contact us at <a href="mailto:info@chalkyinfo.com" style="color: #7A1F5C; text-decoration: none; font-weight: 600;">info@chalkyinfo.com</a>.
                           </div>
 
                         </td>
                       </tr>
 
-                      <!-- 3. PARTNER BANNER (With Left & Right Padding / Reduced Size) -->
+                      <!-- 3. PARTNER BANNER & WEBSITE CTA BUTTON -->
                       <tr>
-                        <td align="center" style="padding: 16px 28px; background-color: #ffffff;">
-                          <img src="${partnerSrc}" alt="Chalky InfoTech Partners" width="560" style="width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto; border: 0; border-radius: 8px;" />
+                        <td align="center" style="padding: 20px 28px 24px 28px; background-color: #ffffff;">
+                          <img src="${partnerSrc}" alt="Chalky InfoTech Clients & Partners" width="540" style="width: 100%; max-width: 540px; height: auto; display: block; margin: 0 auto 20px auto; border: 0; border-radius: 8px;" />
+                          
+                          <!-- Website Navigation CTA Button -->
+                          <div style="text-align: center; margin-top: 8px;">
+                            <a href="${siteUrl}" target="_blank" style="display: inline-block; background-color: #7A1F5C; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: none; padding: 12px 30px; border-radius: 30px; border: 0; box-shadow: 0 4px 14px rgba(122,31,92,0.3); text-transform: uppercase; letter-spacing: 0.6px;">Explore Chalky InfoTech</a>
+                          </div>
                         </td>
                       </tr>
 
