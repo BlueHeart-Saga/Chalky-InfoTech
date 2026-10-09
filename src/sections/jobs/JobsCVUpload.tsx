@@ -354,7 +354,7 @@ export default function JobsCVUpload() {
                     </span>
                     <span className="text-[11px] font-semibold text-[#7A1F5C]">European Desk</span>
                   </div>
-                  <p className="text-gray-500 text-xs mt-1 pl-4.5">128, City Road, London EC1V 2NX</p>
+                  <p className="text-gray-500 text-xs mt-1 pl-4.5">128, City Road, London EC1V 2NX, United Kingdom</p>
                 </div>
 
                 {/* Chennai */}
@@ -365,18 +365,18 @@ export default function JobsCVUpload() {
                     </span>
                     <span className="text-[11px] font-semibold text-[#7A1F5C]">Corporate Desk</span>
                   </div>
-                  <p className="text-gray-500 text-xs mt-1 pl-4.5">110, Anna Salai, Guindy, Chennai – 600 032</p>
+                  <p className="text-gray-500 text-xs mt-1 pl-4.5">110, Manickan Lane, Anna Salai, Opp Guindy, Chennai, Tamil Nadu – 600 032</p>
                 </div>
 
-                {/* Thoothukudi */}
+                {/* Pasuvanthanai */}
                 <div className="pt-3">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-[#1A1A1A] flex items-center gap-1.5">
-                      <MapPin size={13} className="text-[#7A1F5C]" /> Thoothukudi (India)
+                      <MapPin size={13} className="text-[#7A1F5C]" /> Pasuvanthanai (India)
                     </span>
                     <span className="text-[11px] font-semibold text-[#7A1F5C]">Tech Center</span>
                   </div>
-                  <p className="text-gray-500 text-xs mt-1 pl-4.5">4/392, Rajeev Colony, Pasuvanthanai, TN</p>
+                  <p className="text-gray-500 text-xs mt-1 pl-4.5">4/392, Rajeev Colony, Passuvanthani, Tamil Nadu - 628 718</p>
                 </div>
 
               </div>

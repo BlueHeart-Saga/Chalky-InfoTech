@@ -358,10 +358,11 @@ const newsletterPrivacyLinkLabel =
               <h4 className="text-white font-bold mb-6 uppercase tracking-[0.1em] text-sm">Contact</h4>
               <ul className="space-y-4 text-gray-300 text-[15px]">
                 <li><a href={`mailto:${CONTACT.email}`} className="hover:text-white transition-colors">{CONTACT.email}</a></li>
-                <li><a href={`tel:${CONTACT.phoneUK.replace(/\s/g, '')}`} className="hover:text-white transition-colors">{CONTACT.phoneUK}</a></li>
+                <li><a href={`tel:${CONTACT.phoneUK.replace(/\s/g, '')}`} className="hover:text-white transition-colors">UK: {CONTACT.phoneUK}</a></li>
+                <li><a href={`tel:${CONTACT.phoneIN.replace(/\s/g, '')}`} className="hover:text-white transition-colors">IN: {CONTACT.phoneIN}</a></li>
                 <li>
                   <a
-                    href="https://wa.me/8072357581"
+                    href="https://wa.me/919597770686"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#25D366] transition-colors"

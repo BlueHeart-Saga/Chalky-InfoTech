@@ -13,7 +13,7 @@ export default function GlobalWorkforce() {
       region: 'UK • Europe',
       email: 'info@chalkyinfo.com',
       phone: '+44 7503 140975',
-      whatsapp: '+91 80723 57581',
+      whatsapp: '+91 95977 70686',
       address: '128, City Road, London EC1V 2NX, United Kingdom',
       iframeSrc: 'https://maps.google.com/maps?q=128%20City%20Road,%20London%20EC1V%202NX,%20United%20Kingdom&t=&z=13&ie=UTF8&iwloc=&output=embed',
       officeImg: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop'
@@ -22,8 +22,8 @@ export default function GlobalWorkforce() {
       city: 'Chennai Corporate Office',
       region: 'India • Chennai',
       email: 'info@chalkyinfo.com',
-      phone: '+44 7503 140975',
-      whatsapp: '+91 80723 57581',
+      phone: '+91 95977 70686',
+      whatsapp: '+91 95977 70686',
       address: '110, Manickan Lane, Anna Salai, Opp Guindy, Chennai, Tamil Nadu – 600 032',
       iframeSrc: 'https://maps.google.com/maps?q=110%20Manickan%20Lane,%20Anna%20Salai,%20Opp%20Guindy,%20Chennai,%20Tamil%20Nadu%20600032&t=&z=14&ie=UTF8&iwloc=&output=embed',
       officeImg: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=2070&auto=format&fit=crop'
@@ -32,9 +32,9 @@ export default function GlobalWorkforce() {
       city: 'India Recruitment Center',
       region: 'India • Pasuvanthanai',
       email: 'info@chalkyinfo.com',
-      phone: '+44 7503 140975',
-      whatsapp: '+91 80723 57581',
-      address: '4/392, Rajeev Colony, Pasuvanthanai, Tamil Nadu',
+      phone: '+91 95977 70686',
+      whatsapp: '+91 95977 70686',
+      address: '4/392, Rajeev Colony, Passuvanthani, Tamil Nadu - 628 718',
       iframeSrc: 'https://maps.google.com/maps?q=4/392%20Rajeev%20Colony,%20Pasuvanthanai,%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed',
       officeImg: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop'
     }

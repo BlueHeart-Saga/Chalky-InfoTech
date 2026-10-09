@@ -328,7 +328,7 @@ export async function POST(req: Request) {
                           </div>
 
                           <div style="border-top: 1px solid #EAEAEA; padding-top: 16px; font-size: 13px; color: #718096; line-height: 1.5;">
-                            If you have urgent questions, feel free to reply directly to this email or call our UK desk at <strong>+44 7503 140975</strong> / India desk at <strong>+91 80723 57581</strong>.
+                            If you have urgent questions, feel free to reply directly to this email or call our UK desk at <strong>+44 7503 140975</strong> / India desk at <strong>+91 95977 70686</strong>.
                           </div>
 
                         </td>

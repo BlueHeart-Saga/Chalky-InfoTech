@@ -19,7 +19,7 @@ export const SITE_DESCRIPTION =
 export const CONTACT = {
   email: 'info@chalkyinfo.com',
   phoneUK: '+44 7503 140975',
-  phoneIN: '+91 8072357581',
+  phoneIN: '+91 95977 70686',
 };
 
 export const NAV_LINKS = [

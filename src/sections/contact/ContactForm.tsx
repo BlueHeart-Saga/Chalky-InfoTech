@@ -16,16 +16,16 @@ const REGIONS = [
     label: 'London',
     sublabel: 'United Kingdom Office',
     key: 'A',
-    address: '128, City Road, London EC1V 2NX',
+    address: '128, City Road, London EC1V 2NX, United Kingdom',
     embedUrl: 'https://maps.google.com/maps?q=128+City+Road+London+EC1V+2NX&output=embed&z=15',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=128+City+Road+London+EC1V+2NX',
   },
   {
     id: 'thoothukudi',
-    label: 'Thoothukudi',
+    label: 'Pasuvanthanai',
     sublabel: 'India Development Center',
     key: 'B',
-    address: '4/392, Rajeev Colony, Pasuvanthanai, Tamil Nadu',
+    address: '4/392, Rajeev Colony, Passuvanthani, Tamil Nadu - 628 718',
     embedUrl: 'https://maps.google.com/maps?q=Rajeev+Colony+Pasuvanthanai+Thoothukudi+Tamil+Nadu&output=embed&z=14',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rajeev+Colony+Pasuvanthanai+Tamil+Nadu',
   },
@@ -34,7 +34,7 @@ const REGIONS = [
     label: 'Chennai',
     sublabel: 'Chennai Corporate Office',
     key: 'C',
-    address: '110, Manickan Lane, Anna Salai, Opp Guindy, Chennai – 600 032',
+    address: '110, Manickan Lane, Anna Salai, Opp Guindy, Chennai, Tamil Nadu – 600 032',
     embedUrl: 'https://maps.google.com/maps?q=Anna+Salai+Guindy+Chennai+600032&output=embed&z=15',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Anna+Salai+Guindy+Chennai+600032',
   },
@@ -503,8 +503,8 @@ export default function ContactForm() {
                 <div className="space-y-2">
                   <div>
                     <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">India Office</span>
-                    <a href="tel:+918072357581" className="text-[#1A1A1A] font-bold hover:text-[#7A1F5C] transition-colors flex items-center gap-1.5 mt-0.5">
-                      <PhoneIcon size={12} className="text-[#7A1F5C]" /> +91 80723 57581
+                    <a href="tel:+919597770686" className="text-[#1A1A1A] font-bold hover:text-[#7A1F5C] transition-colors flex items-center gap-1.5 mt-0.5">
+                      <PhoneIcon size={12} className="text-[#7A1F5C]" /> +91 95977 70686
                     </a>
                   </div>
                   <div>
