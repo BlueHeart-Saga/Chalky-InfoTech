@@ -110,10 +110,10 @@ export async function POST(req: Request) {
           <title>Chalky InfoTech Website Inquiry</title>
         </head>
         <body style="margin: 0; padding: 0; background-color: #f4f6f8; font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased;">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f4f6f8; padding: 20px 0;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f4f6f8; padding: 24px 0;">
             <tr>
               <td align="center">
-                <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width: 100%; max-width: 640px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width: 100%; max-width: 640px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
                   
                   <!-- 1. HEADER BANNER -->
                   <tr>
@@ -126,10 +126,10 @@ export async function POST(req: Request) {
                   <tr>
                     <td style="padding: 32px 32px 24px 32px; background-color: #ffffff;">
                       <div style="margin-bottom: 24px;">
-                        <span style="display: inline-block; background-color: #FAF5FF; color: #7A1F5C; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(122,31,92,0.2);">
+                        <span style="display: inline-block; background-color: #FAF5FF; color: #7A1F5C; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(122,31,92,0.2);">
                           Website Contact Form Submission
                         </span>
-                        <h2 style="color: #1A1A1A; font-size: 22px; font-weight: 800; margin: 12px 0 6px 0; line-height: 1.3;">
+                        <h2 style="color: #1A1A1A; font-size: 22px; font-weight: 600; margin: 14px 0 6px 0; line-height: 1.3;">
                           New Inquiry Received
                         </h2>
                         <p style="color: #666666; font-size: 14px; margin: 0; line-height: 1.5;">
@@ -138,89 +138,85 @@ export async function POST(req: Request) {
                       </div>
 
                       <!-- Form Details Table -->
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: separate; border-spacing: 0; background-color: #FAFAFA; border: 1px solid #EAEAEA; border-radius: 10px; overflow: hidden;">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: separate; border-spacing: 0; background-color: #FAFAFA; border: 1px solid #EAEAEA; border-radius: 12px; overflow: hidden;">
                         <tr>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; width: 35%; font-weight: bold; color: #555555; font-size: 13px;">Full Name</td>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px; font-weight: 600;">${data.fullName || 'N/A'}</td>
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; width: 35%; font-weight: 600; color: #555555; font-size: 13px;">Full Name</td>
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px; font-weight: 600;">${data.fullName || 'N/A'}</td>
                         </tr>
                         <tr>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; font-weight: bold; color: #555555; font-size: 13px;">Email Address</td>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; color: #7A1F5C; font-size: 14px; font-weight: 600;">
-                            <a href="mailto:${data.email}" style="color: #7A1F5C; text-decoration: none;">${data.email}</a>
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Email Address</td>
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #7A1F5C; font-size: 14px; font-weight: 600;">
+                            <a href="mailto:${data.email}" style="color: #7A1F5C; text-decoration: none; font-weight: 600;">${data.email}</a>
                           </td>
                         </tr>
                         <tr>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; font-weight: bold; color: #555555; font-size: 13px;">Company / Org</td>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px;">${data.company || 'N/A'}</td>
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Company / Org</td>
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px;">${data.company || 'N/A'}</td>
                         </tr>
                         <tr>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; font-weight: bold; color: #555555; font-size: 13px;">Inquiry Category</td>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px;">${data.serviceType || 'General Inquiry'}</td>
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Inquiry Category</td>
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #1A1A1A; font-size: 14px;">${data.serviceType || 'General Inquiry'}</td>
                         </tr>
                         
                         ${data.attachment ? `
                         <tr>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; font-weight: bold; color: #555555; font-size: 13px;">Attachment</td>
-                          <td style="padding: 12px 16px; border-bottom: 1px solid #EAEAEA; color: #2e7d32; font-size: 13px; font-weight: bold;">
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; font-weight: 600; color: #555555; font-size: 13px;">Attachment</td>
+                          <td style="padding: 14px 18px; border-bottom: 1px solid #EAEAEA; color: #2e7d32; font-size: 13px; font-weight: 600;">
                             📎 ${data.attachment.filename}
                           </td>
                         </tr>
                         ` : ''}
                         <tr>
-                          <td colspan="2" style="padding: 16px; background-color: #ffffff;">
-                            <div style="font-size: 12px; font-weight: bold; color: #7A1F5C; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Message Content:</div>
-                            <div style="font-size: 14px; color: #333333; line-height: 1.6; white-space: pre-wrap; background-color: #FAF5FF; padding: 14px; border-left: 4px solid #7A1F5C; border-radius: 4px;">${data.message || 'N/A'}</div>
+                          <td colspan="2" style="padding: 18px; background-color: #ffffff;">
+                            <div style="font-size: 12px; font-weight: 600; color: #7A1F5C; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px;">Message Content:</div>
+                            <div style="font-size: 14px; color: #333333; line-height: 1.6; white-space: pre-wrap; background-color: #FAF5FF; padding: 16px; border-left: 4px solid #7A1F5C; border-radius: 6px;">${data.message || 'N/A'}</div>
                           </td>
                         </tr>
                       </table>
                     </td>
                   </tr>
 
-                  <!-- 3. PARTNER BANNER -->
+                  <!-- 3. PARTNER BANNER (With Left & Right Padding / Reduced Size) -->
                   <tr>
-                    <td align="center" style="padding: 10px 0; background-color: #ffffff;">
-                      <img src="${partnerSrc}" alt="Chalky InfoTech Partners" width="640" style="width: 100%; max-width: 640px; height: auto; display: block; border: 0;" />
+                    <td align="center" style="padding: 16px 28px; background-color: #ffffff;">
+                      <img src="${partnerSrc}" alt="Chalky InfoTech Partners" width="560" style="width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto; border: 0; border-radius: 8px;" />
                     </td>
                   </tr>
 
                   <!-- 4. FOOTER SECTION -->
                   <tr>
-                    <td align="center" style="padding: 24px 20px 0 20px; background-color: #ffffff; text-align: center;">
+                    <td align="center" style="padding: 24px 28px 0 28px; background-color: #ffffff; text-align: center;">
                       
                       <!-- Divider Line -->
                       <div style="border-top: 1px solid #E2E8F0; margin-bottom: 20px; width: 100%;"></div>
 
-                      <!-- Footer Navigation Links -->
-                      <div style="margin-bottom: 12px; font-size: 13px; font-weight: 500;">
-                        <a href="${siteUrl}/privacy-policy" style="color: #1A1A1A; text-decoration: underline; margin: 0 8px;">Privacy Policy</a>
-                        <a href="${siteUrl}/right-to-work" style="color: #1A1A1A; text-decoration: underline; margin: 0 8px;">Right to Work</a>
-                        <a href="${siteUrl}/services" style="color: #1A1A1A; text-decoration: underline; margin: 0 8px;">Fair recruitment</a>
+                      <!-- Footer Navigation Links (Theme Color & Semi-Bold Premium Font) -->
+                      <div style="margin-bottom: 12px; font-size: 13px; font-weight: 600;">
+                        <a href="${siteUrl}/privacy-policy" style="color: #7A1F5C; text-decoration: none; margin: 0 10px; font-weight: 600;">Privacy Policy</a>
+                        <a href="${siteUrl}/right-to-work" style="color: #7A1F5C; text-decoration: none; margin: 0 10px; font-weight: 600;">Right to Work</a>
+                        <a href="${siteUrl}/services" style="color: #7A1F5C; text-decoration: none; margin: 0 10px; font-weight: 600;">Fair Recruitment</a>
                       </div>
-                      <div style="margin-bottom: 20px; font-size: 13px; font-weight: 500;">
-                        <a href="${siteUrl}/gdpr" style="color: #1A1A1A; text-decoration: underline;">GDPR Compliance</a>
+                      <div style="margin-bottom: 20px; font-size: 13px; font-weight: 600;">
+                        <a href="${siteUrl}/gdpr" style="color: #7A1F5C; text-decoration: none; font-weight: 600;">GDPR Compliance</a>
                       </div>
 
-                      <!-- Social Media Icons (Loaded from public/social-icons: Facebook, LinkedIn, Instagram, YouTube) -->
-                      <div style="margin-bottom: 20px;">
-                        <a href="https://facebook.com" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                          <img src="${fbBase64}" width="24" height="24" alt="Facebook" style="display: inline-block; vertical-align: middle; border: 0;" />
+                      <!-- Social Media Links (LinkedIn, Instagram, Facebook) -->
+                      <div style="margin-bottom: 22px;">
+                        <a href="https://www.linkedin.com/company/chalky-infotech-recruitment/" target="_blank" style="display: inline-block; margin: 0 10px; text-decoration: none; color: #7A1F5C; font-size: 13px; font-weight: 600;">
+                          <img src="${linkedinBase64}" width="22" height="22" alt="LinkedIn" style="display: inline-block; vertical-align: middle; border: 0; margin-right: 4px;" /> LinkedIn
                         </a>
-                        <a href="https://linkedin.com" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                          <img src="${linkedinBase64}" width="24" height="24" alt="LinkedIn" style="display: inline-block; vertical-align: middle; border: 0;" />
+                        <a href="https://www.instagram.com/chalkyinfotech_ltd/" target="_blank" style="display: inline-block; margin: 0 10px; text-decoration: none; color: #7A1F5C; font-size: 13px; font-weight: 600;">
+                          <img src="${instaBase64}" width="22" height="22" alt="Instagram" style="display: inline-block; vertical-align: middle; border: 0; margin-right: 4px;" /> Instagram
                         </a>
-                        <a href="https://instagram.com" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                          <img src="${instaBase64}" width="24" height="24" alt="Instagram" style="display: inline-block; vertical-align: middle; border: 0;" />
-                        </a>
-                        <a href="https://youtube.com" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                          <img src="${youtubeBase64}" width="24" height="24" alt="YouTube" style="display: inline-block; vertical-align: middle; border: 0;" />
+                        <a href="https://www.facebook.com/people/Chalkyinfotech/61584513646137/" target="_blank" style="display: inline-block; margin: 0 10px; text-decoration: none; color: #7A1F5C; font-size: 13px; font-weight: 600;">
+                          <img src="${fbBase64}" width="22" height="22" alt="Facebook" style="display: inline-block; vertical-align: middle; border: 0; margin-right: 4px;" /> Facebook
                         </a>
                       </div>
 
                       <!-- Address and Copyright Notice -->
-                      <div style="font-size: 12px; color: #1A1A1A; line-height: 1.6; margin-bottom: 24px;">
-                        <p style="margin: 0 0 4px 0;">Copyright 2026 Chalkyinfotech. All rights reserved.</p>
-                        <p style="margin: 0;">We are located at 128, City Road, London, EC1V 2NX</p>
-                        <p style="margin: 0;">United Kingdom</p>
+                      <div style="font-size: 12px; color: #555555; line-height: 1.6; margin-bottom: 24px;">
+                        <p style="margin: 0 0 4px 0; font-weight: 600; color: #1A1A1A;">Copyright 2026 Chalky Infotech. All rights reserved.</p>
+                        <p style="margin: 0;">We are located at 128, City Road, London, EC1V 2NX, United Kingdom</p>
                       </div>
 
                     </td>
@@ -260,10 +256,10 @@ export async function POST(req: Request) {
               <title>Thank You for Contacting Chalky InfoTech</title>
             </head>
             <body style="margin: 0; padding: 0; background-color: #f4f6f8; font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f4f6f8; padding: 20px 0;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f4f6f8; padding: 24px 0;">
                 <tr>
                   <td align="center">
-                    <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width: 100%; max-width: 640px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width: 100%; max-width: 640px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
                       
                       <!-- 1. HEADER BANNER -->
                       <tr>
@@ -276,10 +272,10 @@ export async function POST(req: Request) {
                       <tr>
                         <td style="padding: 32px 32px 24px 32px; background-color: #ffffff;">
                           <div style="margin-bottom: 20px;">
-                            <span style="display: inline-block; background-color: #FAF5FF; color: #7A1F5C; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(122,31,92,0.2);">
+                            <span style="display: inline-block; background-color: #FAF5FF; color: #7A1F5C; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(122,31,92,0.2);">
                               Inquiry Received
                             </span>
-                            <h2 style="color: #1A1A1A; font-size: 24px; font-weight: 800; margin: 12px 0 8px 0; line-height: 1.3;">
+                            <h2 style="color: #1A1A1A; font-size: 24px; font-weight: 600; margin: 14px 0 8px 0; line-height: 1.3;">
                               Thank You for Reaching Out${data.fullName ? `, ${data.fullName}` : ''}!
                             </h2>
                             <p style="color: #4A5568; font-size: 15px; margin: 0 0 16px 0; line-height: 1.6;">
@@ -291,94 +287,90 @@ export async function POST(req: Request) {
                           </div>
 
                           <!-- Summary Box of Submitted Details -->
-                          <div style="background-color: #FAFAFA; border: 1px solid #EAEAEA; border-radius: 10px; padding: 20px; margin-bottom: 24px;">
-                            <h4 style="margin: 0 0 12px 0; color: #7A1F5C; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: bold;">
+                          <div style="background-color: #FAFAFA; border: 1px solid #EAEAEA; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+                            <h4 style="margin: 0 0 12px 0; color: #7A1F5C; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600;">
                               Summary of Your Submitted Request:
                             </h4>
                             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="font-size: 14px; color: #333333;">
                               <tr>
-                                <td style="padding: 4px 0; width: 35%; color: #666666; font-weight: bold;">Full Name:</td>
-                                <td style="padding: 4px 0; font-weight: 600;">${data.fullName || 'N/A'}</td>
+                                <td style="padding: 6px 0; width: 35%; color: #666666; font-weight: 600;">Full Name:</td>
+                                <td style="padding: 6px 0; font-weight: 600;">${data.fullName || 'N/A'}</td>
                               </tr>
                               <tr>
-                                <td style="padding: 4px 0; color: #666666; font-weight: bold;">Email Address:</td>
-                                <td style="padding: 4px 0; color: #7A1F5C;">${data.email}</td>
+                                <td style="padding: 6px 0; color: #666666; font-weight: 600;">Email Address:</td>
+                                <td style="padding: 6px 0; color: #7A1F5C; font-weight: 600;">${data.email}</td>
                               </tr>
                               ${data.company ? `
                               <tr>
-                                <td style="padding: 4px 0; color: #666666; font-weight: bold;">Company:</td>
-                                <td style="padding: 4px 0;">${data.company}</td>
+                                <td style="padding: 6px 0; color: #666666; font-weight: 600;">Company:</td>
+                                <td style="padding: 6px 0;">${data.company}</td>
                               </tr>
                               ` : ''}
                               ${data.serviceType ? `
                               <tr>
-                                <td style="padding: 4px 0; color: #666666; font-weight: bold;">Category:</td>
-                                <td style="padding: 4px 0;">${data.serviceType}</td>
+                                <td style="padding: 6px 0; color: #666666; font-weight: 600;">Category:</td>
+                                <td style="padding: 6px 0;">${data.serviceType}</td>
                               </tr>
                               ` : ''}
                               ${data.message ? `
                               <tr>
-                                <td colspan="2" style="padding-top: 10px;">
-                                  <div style="font-size: 12px; color: #666666; font-weight: bold; margin-bottom: 4px;">Your Message:</div>
-                                  <div style="font-size: 13px; color: #333; background-color: #FAF5FF; padding: 10px; border-left: 3px solid #7A1F5C; border-radius: 4px; white-space: pre-wrap;">${data.message}</div>
+                                <td colspan="2" style="padding-top: 12px;">
+                                  <div style="font-size: 12px; color: #7A1F5C; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Your Message:</div>
+                                  <div style="font-size: 13px; color: #333; background-color: #FAF5FF; padding: 14px; border-left: 4px solid #7A1F5C; border-radius: 6px; white-space: pre-wrap;">${data.message}</div>
                                 </td>
                               </tr>
                               ` : ''}
                             </table>
                           </div>
 
-                          <div style="border-top: 1px solid #EAEAEA; padding-top: 16px; font-size: 13px; color: #718096; line-height: 1.5;">
+                          <div style="border-top: 1px solid #EAEAEA; padding-top: 18px; font-size: 13px; color: #718096; line-height: 1.6;">
                             If you have urgent questions, feel free to reply directly to this email or call our UK desk at <strong>+44 7503 140975</strong> / India desk at <strong>+91 95977 70686</strong>.
                           </div>
 
                         </td>
                       </tr>
 
-                      <!-- 3. PARTNER BANNER -->
+                      <!-- 3. PARTNER BANNER (With Left & Right Padding / Reduced Size) -->
                       <tr>
-                        <td align="center" style="padding: 10px 0; background-color: #ffffff;">
-                          <img src="${partnerSrc}" alt="Chalky InfoTech Partners" width="640" style="width: 100%; max-width: 640px; height: auto; display: block; border: 0;" />
+                        <td align="center" style="padding: 16px 28px; background-color: #ffffff;">
+                          <img src="${partnerSrc}" alt="Chalky InfoTech Partners" width="560" style="width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto; border: 0; border-radius: 8px;" />
                         </td>
                       </tr>
 
                       <!-- 4. FOOTER SECTION -->
                       <tr>
-                        <td align="center" style="padding: 24px 20px 0 20px; background-color: #ffffff; text-align: center;">
+                        <td align="center" style="padding: 24px 28px 0 28px; background-color: #ffffff; text-align: center;">
                           
                           <!-- Divider Line -->
                           <div style="border-top: 1px solid #E2E8F0; margin-bottom: 20px; width: 100%;"></div>
 
-                          <!-- Footer Navigation Links -->
-                          <div style="margin-bottom: 12px; font-size: 13px; font-weight: 500;">
-                            <a href="${siteUrl}/privacy-policy" style="color: #1A1A1A; text-decoration: underline; margin: 0 8px;">Privacy Policy</a>
-                            <a href="${siteUrl}/right-to-work" style="color: #1A1A1A; text-decoration: underline; margin: 0 8px;">Right to Work</a>
-                            <a href="${siteUrl}/services" style="color: #1A1A1A; text-decoration: underline; margin: 0 8px;">Fair recruitment</a>
+                          <!-- Footer Navigation Links (Theme Color & Semi-Bold Premium Font) -->
+                          <div style="margin-bottom: 12px; font-size: 13px; font-weight: 600;">
+                            <a href="${siteUrl}/privacy-policy" style="color: #7A1F5C; text-decoration: none; margin: 0 10px; font-weight: 600;">Privacy Policy</a>
+                            <a href="${siteUrl}/right-to-work" style="color: #7A1F5C; text-decoration: none; margin: 0 10px; font-weight: 600;">Right to Work</a>
+                            <a href="${siteUrl}/services" style="color: #7A1F5C; text-decoration: none; margin: 0 10px; font-weight: 600;">Fair Recruitment</a>
                           </div>
-                          <div style="margin-bottom: 20px; font-size: 13px; font-weight: 500;">
-                            <a href="${siteUrl}/gdpr" style="color: #1A1A1A; text-decoration: underline;">GDPR Compliance</a>
+                          <div style="margin-bottom: 20px; font-size: 13px; font-weight: 600;">
+                            <a href="${siteUrl}/gdpr" style="color: #7A1F5C; text-decoration: none; font-weight: 600;">GDPR Compliance</a>
                           </div>
 
-                          <!-- Social Media Icons -->
-                          <div style="margin-bottom: 20px;">
-                            <a href="https://facebook.com" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                              <img src="${fbBase64}" width="24" height="24" alt="Facebook" style="display: inline-block; vertical-align: middle; border: 0;" />
+                          <!-- Social Media Links (LinkedIn, Instagram, Facebook) -->
+                          <div style="margin-bottom: 22px;">
+                            <a href="https://www.linkedin.com/company/chalky-infotech-recruitment/" target="_blank" style="display: inline-block; margin: 0 10px; text-decoration: none; color: #7A1F5C; font-size: 13px; font-weight: 600;">
+                              <img src="${linkedinBase64}" width="22" height="22" alt="LinkedIn" style="display: inline-block; vertical-align: middle; border: 0; margin-right: 4px;" /> LinkedIn
                             </a>
-                            <a href="https://linkedin.com" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                              <img src="${linkedinBase64}" width="24" height="24" alt="LinkedIn" style="display: inline-block; vertical-align: middle; border: 0;" />
+                            <a href="https://www.instagram.com/chalkyinfotech_ltd/" target="_blank" style="display: inline-block; margin: 0 10px; text-decoration: none; color: #7A1F5C; font-size: 13px; font-weight: 600;">
+                              <img src="${instaBase64}" width="22" height="22" alt="Instagram" style="display: inline-block; vertical-align: middle; border: 0; margin-right: 4px;" /> Instagram
                             </a>
-                            <a href="https://instagram.com" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                              <img src="${instaBase64}" width="24" height="24" alt="Instagram" style="display: inline-block; vertical-align: middle; border: 0;" />
-                            </a>
-                            <a href="https://youtube.com" target="_blank" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                              <img src="${youtubeBase64}" width="24" height="24" alt="YouTube" style="display: inline-block; vertical-align: middle; border: 0;" />
+                            <a href="https://www.facebook.com/people/Chalkyinfotech/61584513646137/" target="_blank" style="display: inline-block; margin: 0 10px; text-decoration: none; color: #7A1F5C; font-size: 13px; font-weight: 600;">
+                              <img src="${fbBase64}" width="22" height="22" alt="Facebook" style="display: inline-block; vertical-align: middle; border: 0; margin-right: 4px;" /> Facebook
                             </a>
                           </div>
 
                           <!-- Address and Copyright Notice -->
-                          <div style="font-size: 12px; color: #1A1A1A; line-height: 1.6; margin-bottom: 24px;">
-                            <p style="margin: 0 0 4px 0;">Copyright 2026 Chalkyinfotech. All rights reserved.</p>
-                            <p style="margin: 0;">We are located at 128, City Road, London, EC1V 2NX</p>
-                            <p style="margin: 0;">United Kingdom</p>
+                          <div style="font-size: 12px; color: #555555; line-height: 1.6; margin-bottom: 24px;">
+                            <p style="margin: 0 0 4px 0; font-weight: 600; color: #1A1A1A;">Copyright 2026 Chalky Infotech. All rights reserved.</p>
+                            <p style="margin: 0;">We are located at 128, City Road, London, EC1V 2NX, United Kingdom</p>
                           </div>
 
                         </td>
@@ -414,4 +406,3 @@ export async function POST(req: Request) {
     });
   }
 }
-
