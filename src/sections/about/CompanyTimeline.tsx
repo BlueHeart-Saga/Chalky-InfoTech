@@ -221,7 +221,7 @@ export default function CompanyTimeline() {
                 </div>
 
                 <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-center text-white/90 leading-tight uppercase flex flex-col items-center">
-                  <span>{member.line1}</span>
+                  {/* <span>{member.line1}</span> */}
                   <span className="mt-1 opacity-60">{member.line2}</span>
                 </h3>
               </motion.div>

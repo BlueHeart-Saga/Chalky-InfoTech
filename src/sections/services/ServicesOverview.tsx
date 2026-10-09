@@ -67,13 +67,13 @@ export default function ServicesOverview() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {OVERVIEW_CARDS.map((card, i) => (
-            <Link key={i} href={card.link} className="block h-[320px]">
+            <Link key={i} href={card.link} className="block h-[320px] group">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl bg-[#EBEBEB] h-full cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+                className="relative overflow-hidden rounded-2xl bg-[#EBEBEB] h-full cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 {/* Image Area - Top */}
                 <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden">
@@ -87,13 +87,13 @@ export default function ServicesOverview() {
                 </div>
 
                 {/* Content Area - Bottom (default), Full height (hover) */}
-                <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-6 flex flex-col transition-all duration-500 ease-in-out group-hover:h-full z-10">
+                <div className="absolute bottom-0 left-0 w-full h-[40%] bg-[#EBEBEB] group-hover:bg-white p-6 flex flex-col transition-all duration-500 ease-in-out group-hover:h-full z-10 pointer-events-auto">
                   <h4 className="text-base font-semibold text-[#1A1A1A] leading-tight mb-3 group-hover:text-[#7A1F5C] transition-colors">{card.title}</h4>
 
                   {/* Hidden content that fades in on hover */}
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex-grow pt-2 flex flex-col">
                     <p className="text-[#4A4A4A] text-xs leading-relaxed mb-4">{card.desc}</p>
-                    <span className="inline-flex items-center gap-2 text-[#7A1F5C] font-semibold text-xs mt-auto">
+                    <span className="inline-flex items-center gap-2 text-[#7A1F5C] font-bold text-xs mt-auto hover:underline">
                       Learn More <ArrowRight size={14} />
                     </span>
                   </div>

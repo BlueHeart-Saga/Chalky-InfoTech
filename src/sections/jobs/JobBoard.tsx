@@ -57,6 +57,7 @@ export default function JobBoard() {
   const [experience, setExperience] = useState('');
   const [workMode, setWorkMode] = useState('All');
   const [empType, setEmpType] = useState('All');
+  const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'salaryHigh' | 'salaryLow'>('newest');
   const [openFilter, setOpenFilter] = useState<string | null>(null);
 
   const [selectedJob, setSelectedJob] = useState<any>(null);
@@ -123,6 +124,11 @@ export default function JobBoard() {
       (workMode === 'All' || j.workMode === workMode) &&
       (empType === 'All' || j.employmentType === empType)
     );
+  }).sort((a, b) => {
+    if (sortBy === 'oldest') {
+      return (new Date(a.createdAt || a.deadline || 0)).getTime() - (new Date(b.createdAt || b.deadline || 0)).getTime();
+    }
+    return (new Date(b.createdAt || b.deadline || 0)).getTime() - (new Date(a.createdAt || a.deadline || 0)).getTime();
   });
 
   const toggleFavorite = (jobId: string, e: React.MouseEvent) => {
@@ -409,9 +415,16 @@ export default function JobBoard() {
             <div className="sticky top-28">
               <div className="mb-8">
                 <h3 className="text-xs font-semibold text-black uppercase tracking-widest mb-3">Sort by</h3>
-                <div className="border-b border-gray-200 pb-2 flex justify-between items-center cursor-pointer">
-                  <span className="text-sm text-black">Newest</span>
-                  <ChevronDown size={15} className="text-black" />
+                <div className="relative border-b border-gray-200 pb-2">
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as any)}
+                    className="w-full bg-transparent text-sm font-semibold text-black focus:outline-none cursor-pointer pr-6 appearance-none"
+                  >
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                  </select>
+                  <ChevronDown size={15} className="text-black absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 

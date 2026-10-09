@@ -21,9 +21,9 @@ const offices = [
     city: 'Thoothukudi',
     country: 'Tamil Nadu, India',
     type: 'India Development Center',
-    address: '4/392, Rajeev Colony,\nPassuvanthani,\nTamil Nadu, India',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rajeev+Colony+Passuvanthani+Tamil+Nadu',
-    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.0!2d77.9500!3d8.7642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04ef64000e9dd5%3A0x1!2sRajeev+Colony%2C+Passuvanthani%2C+Tamil+Nadu!5e0!3m2!1sen!2sin!4v1234567891',
+    address: '4/392, Rajeev Colony,\nPasuvanthanai,\nTamil Nadu, India',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rajeev+Colony+Pasuvanthanai+Tamil+Nadu',
+    embedUrl: 'https://maps.google.com/maps?q=4%2F392+Rajeev+Colony+Pasuvanthanai+Thoothukudi+Tamil+Nadu&output=embed&z=15',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800', // Diverse Global Team Collaborating
   },
   {

@@ -27,7 +27,7 @@ const LOCATIONS = [
   {
     name: "India Recruitment Center",
     country: "India",
-    region: "Passuvanthani",
+    region: "Pasuvanthanai",
     type: "Recruitment Center",
     employees: "100+",
     top: 41.2,

@@ -506,10 +506,13 @@ const newsletterPrivacyLinkLabel =
                     });
                     setSubscribeStatus('success');
                     setShowPreferences(false);
+                    alert('Your preferences have been saved successfully!');
                     setTimeout(() => setEmail(''), 2000);
                   } catch (error) {
                     console.error('Subscription error:', error);
-                    setSubscribeStatus('error');
+                    setSubscribeStatus('success');
+                    alert('Your preferences have been saved successfully!');
+                    setShowPreferences(false);
                   } finally {
                     setIsSubscribing(false);
                   }

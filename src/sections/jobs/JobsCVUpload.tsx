@@ -218,15 +218,20 @@ export default function JobsCVUpload() {
                     />
                     
                     {fileName ? (
-                      <div className="flex items-center gap-3 w-full justify-between px-2">
+                      <div className="flex items-center gap-3 w-full justify-between px-2 relative z-20">
                         <div className="flex items-center gap-2 truncate">
                           <FileText size={20} className="text-[#7A1F5C] shrink-0" />
                           <span className="text-xs sm:text-sm font-semibold text-[#7A1F5C] truncate">{fileName}</span>
                         </div>
                         <button
                           type="button"
-                          onClick={(e) => { e.stopPropagation(); clearFile(); }}
-                          className="w-7 h-7 rounded-full bg-[#7A1F5C] text-white flex items-center justify-center hover:bg-[#C2185B] transition-colors shrink-0"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            clearFile();
+                            alert('Uploaded resume removed.');
+                          }}
+                          className="w-7 h-7 rounded-full bg-[#7A1F5C] text-white flex items-center justify-center hover:bg-[#C2185B] transition-colors shrink-0 relative z-30 cursor-pointer"
                           title="Remove file"
                         >
                           <Trash2 size={12} />
@@ -337,7 +342,7 @@ export default function JobsCVUpload() {
                     </span>
                     <span className="text-[11px] font-semibold text-[#7A1F5C]">Tech Center</span>
                   </div>
-                  <p className="text-gray-500 text-xs mt-1 pl-4.5">4/392, Rajeev Colony, Passuvanthani, TN</p>
+                  <p className="text-gray-500 text-xs mt-1 pl-4.5">4/392, Rajeev Colony, Pasuvanthanai, TN</p>
                 </div>
 
               </div>

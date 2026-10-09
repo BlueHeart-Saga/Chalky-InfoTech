@@ -1,137 +1,163 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ShieldCheck, Sparkles, Mail } from 'lucide-react';
 
 const team = [
   {
     name: 'Saravana Karthikeyan',
     role: 'CEO & Founder',
+    experience: '20+ Years in Enterprise Tech Consulting',
+    quote: 'Technology should empower, not complicate. We build teams and solutions that drive true enterprise value.',
     email: 'info@chalkyinfo.com',
+    highlights: [
+      'Enterprise Tech Strategy',
+      'Global Talent & Offshore Delivery',
+      'Digital & Cloud Transformation',
+    ],
   },
   /* 
   {
     name: 'Manjula Bashkar',
-    role: 'Manual Cloud Security Specialist',
+    role: 'Cloud Security Specialist',
+    experience: '10+ Years in Cloud Security & Testing',
+    quote: 'Innovation is solving today\'s problems with tomorrow\'s solutions.',
     email: 'info@chalkyinfo.com',
+    highlights: ['Cloud Security', 'AppSec Vetting', 'Quality Assurance'],
   },
   {
     name: 'Himanshu Mudgal',
     role: 'Head of Client Success',
+    experience: '10+ Years in DevOps & Operations',
+    quote: 'Client success is our ultimate metric.',
     email: 'info@chalkyinfo.com',
+    highlights: ['Client Success', 'DevOps & SRE', 'Workforce Alignment'],
   },
   */
 ];
 
-const RadiatingLines = () => {
-  const lines = [];
-  for (let i = -235; i <= -25; i += 5.5) {
-    const angle = i * (Math.PI / 180);
-    // Peak length and thickness at angle -140
-    const diff = Math.abs(i - (-140));
-    // Normalize diff so 0 is peak, 1 is the farthest edge (approx 100 degrees away)
-    const normalizedDiff = Math.min(diff / 100, 1);
-    
-    // Length (r2) interpolates from 98 (peak) down to 77 (edges)
-    const r2 = 77 + (21 * Math.pow(1 - normalizedDiff, 1.2));
-    
-    // Stroke width interpolates from 3.5 (peak) down to 0.5 (edges)
-    const strokeW = 0.5 + (3.2 * Math.pow(1 - normalizedDiff, 1.2));
-    
-    // Inner edge of the lines
-    const x1 = 100 + 74 * Math.cos(angle);
-    const y1 = 100 + 74 * Math.sin(angle);
-    const x2 = 100 + r2 * Math.cos(angle);
-    const y2 = 100 + r2 * Math.sin(angle);
-    
-    lines.push(
-      <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#B63E7B" strokeWidth={strokeW} strokeLinecap="round" />
-    );
-  }
-  return (
-    <svg viewBox="0 0 200 200" className="absolute w-[140%] h-[140%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none group-hover:rotate-12 transition-transform duration-700 ease-out z-0">
-      {lines}
-    </svg>
-  );
+const getInitials = (name: string) => {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase();
 };
 
 export default function ContactTeam() {
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="relative py-16 md:py-24 bg-[#F5F0E8] overflow-hidden">
+      {/* Subtle background pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #7A1F5C 1px, transparent 0)', backgroundSize: '32px 32px' }}
+      />
+
+      {/* Ambient background light blur */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-[#7A1F5C]/10 via-[#C2185B]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-24 flex flex-col items-center">
-          
-          <div className="flex items-center justify-center mb-10 relative ml-4 md:ml-6">
-            {/* The Pink Diamond */}
-            <motion.div 
-              initial={{ scale: 0, rotate: 0 }}
-              whileInView={{ scale: 1, rotate: 45 }}
-              viewport={{ once: true }}
-              className="w-10 h-10 md:w-12 md:h-12 bg-[#D14D72] absolute -left-5 md:-left-6 z-10"
-            />
-            {/* The Purple Banner */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-[#7A1F5C] text-white font-medium text-lg md:text-2xl py-3 md:py-4 px-8 md:px-14 pl-10 md:pl-12 relative z-0 shadow-md"
-              style={{
-                clipPath: 'polygon(1.2rem 50%, 0 0, 100% 0, 100% 100%, 0 100%)'
-              }}
-            >
-              Talk to the Experts
-            </motion.div>
-          </div>
-          
+        <div className="max-w-3xl mx-auto mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-3"
+          >
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#7A1F5C]/10 text-[#7A1F5C] text-xs font-extrabold uppercase tracking-widest">
+              <Sparkles size={13} className="text-[#7A1F5C]" />
+              Executive Desk
+            </span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-3 tracking-tight"
+          >
+            Talk to the <span className="text-[#7A1F5C]">Leadership Team</span>
+          </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[#4A4A4A] text-base md:text-lg leading-relaxed font-medium max-w-2xl"
+            className="text-[#555555] text-base md:text-lg leading-relaxed font-medium max-w-2xl mx-auto"
           >
             Reach out directly to our leadership team for specialised inquiries, strategic partnerships, and talent solutions.
           </motion.p>
         </div>
 
-        {/* Team Cards Grid */}
-        <div className="flex flex-wrap justify-center gap-14 md:gap-16 items-center max-w-6xl mx-auto">
+        {/* Open Executive Presentation (No Outer Box Wrap or Heavy Borders) */}
+        <div className="flex flex-col items-center justify-center max-w-3xl mx-auto">
           {team.map((member, i) => (
-            <motion.a
+            <motion.div
               key={i}
-              href={`mailto:${member.email}`}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="relative w-52 h-52 md:w-60 md:h-60 group block cursor-pointer"
+              className="flex flex-col items-center text-center w-full"
             >
-              <RadiatingLines />
-              
-              {/* The Thick Border Circle */}
-              <div className="absolute inset-0 rounded-full border-[6px] md:border-[8px] border-[#7A1F5C] bg-white z-10 overflow-hidden flex flex-col items-center justify-center shadow-[0_10px_30px_rgb(122,31,92,0.15)] group-hover:border-[#9c2776] transition-colors duration-500">
-                
-                {/* Office Background Image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center opacity-60 scale-110 group-hover:scale-100 transition-transform duration-700"
-                  style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80')" }}
-                />
-                
-                {/* Frosted Glass Overlay */}
-                <div className="absolute inset-0 bg-white/75 backdrop-blur-[2px]" />
-                
-                {/* Text Content */}
-                <div className="relative z-20 text-center px-6 w-full flex flex-col items-center justify-center h-full gap-1.5 transform group-hover:scale-105 transition-transform duration-500">
-                  <h3 className="text-[#7A1F5C] font-bold text-[17px] md:text-[19px] leading-[1.2] tracking-tight drop-shadow-sm">
-                    {member.name}
-                  </h3>
-                  <p className="text-[#4A4A4A] text-[13px] md:text-[14px] font-medium leading-snug">
-                    {member.role}
-                  </p>
-                </div>
+              {/* Premium Circular Initials Badge */}
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-[#7A1F5C] to-[#5A1744] text-white flex items-center justify-center shadow-xl shadow-[#7A1F5C]/20 ring-4 ring-white mb-4">
+                <span className="text-2xl sm:text-3xl font-extrabold tracking-wider select-none">
+                  {getInitials(member.name)}
+                </span>
               </div>
-            </motion.a>
+
+              {/* Name & Title */}
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-1">
+                {member.name}
+              </h3>
+              
+              <p className="text-xs sm:text-sm font-extrabold text-[#7A1F5C] uppercase tracking-widest mb-0.5">
+                {member.role}
+              </p>
+
+              {member.experience && (
+                <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+                  {member.experience}
+                </p>
+              )}
+
+              {/* Executive Quote */}
+              {member.quote && (
+                <blockquote className="text-base sm:text-lg md:text-xl text-gray-800 font-semibold italic leading-relaxed my-3 max-w-2xl px-2">
+                  <span className="text-2xl sm:text-3xl font-serif text-[#7A1F5C] mr-1 select-none font-normal">“</span>
+                  {member.quote}
+                  <span className="text-2xl sm:text-3xl font-serif text-[#7A1F5C] ml-1 select-none font-normal">”</span>
+                </blockquote>
+              )}
+
+              {/* Highlights (Clean Soft Pills - No Box/Borders) */}
+              {member.highlights && member.highlights.length > 0 && (
+                <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 mt-4 mb-8">
+                  {member.highlights.map((item, idx) => (
+                    <span 
+                      key={idx}
+                      className="px-4 py-1.5 rounded-full bg-white/70 text-gray-700 text-xs font-semibold flex items-center gap-2 shadow-xs"
+                    >
+                      <ShieldCheck size={14} className="text-[#7A1F5C]" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Action Button */}
+              <a
+                href={`mailto:${member.email}`}
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#7A1F5C] text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-[#7A1F5C]/20 hover:bg-[#5E1847] hover:shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                <Mail size={16} />
+                Contact {member.name.split(' ')[0]} Directly
+              </a>
+            </motion.div>
           ))}
         </div>
         

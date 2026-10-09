@@ -30,12 +30,12 @@ export default function GlobalWorkforce() {
     },
     {
       city: 'India Recruitment Center',
-      region: 'India • Passuvanthani',
+      region: 'India • Pasuvanthanai',
       email: 'info@chalkyinfo.com',
       phone: '+44 7503 140975',
       whatsapp: '+91 80723 57581',
-      address: '4/392, Rajeev Colony, Passuvanthani, Tamil Nadu',
-      iframeSrc: 'https://maps.google.com/maps?q=4/392%20Rajeev%20Colony,%20Passuvanthani,%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed',
+      address: '4/392, Rajeev Colony, Pasuvanthanai, Tamil Nadu',
+      iframeSrc: 'https://maps.google.com/maps?q=4/392%20Rajeev%20Colony,%20Pasuvanthanai,%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed',
       officeImg: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop'
     }
   ];

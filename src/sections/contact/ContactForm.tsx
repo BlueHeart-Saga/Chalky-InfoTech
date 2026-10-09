@@ -24,9 +24,9 @@ const REGIONS = [
     label: 'Thoothukudi',
     sublabel: 'India Development Center',
     key: 'B',
-    address: '4/392, Rajeev Colony, Passuvanthani, Tamil Nadu',
-    embedUrl: 'https://maps.google.com/maps?q=Rajeev+Colony+Passuvanthani+Thoothukudi+Tamil+Nadu&output=embed&z=14',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rajeev+Colony+Passuvanthani+Tamil+Nadu',
+    address: '4/392, Rajeev Colony, Pasuvanthanai, Tamil Nadu',
+    embedUrl: 'https://maps.google.com/maps?q=Rajeev+Colony+Pasuvanthanai+Thoothukudi+Tamil+Nadu&output=embed&z=14',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rajeev+Colony+Pasuvanthanai+Tamil+Nadu',
   },
   {
     id: 'chennai',

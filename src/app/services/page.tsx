@@ -48,7 +48,7 @@ export default function ServicesPage() {
     { label: 'Success Approach', id: 'success' },
     { label: 'Expertise', id: 'expertise' },
     { label: 'Process', id: 'process' },
-    { label: 'Methodology', id: 'methodology' },
+    // { label: 'Methodology', id: 'methodology' },
     { label: 'Why Us', id: 'why-choose' },
     { label: 'Specialized', id: 'specialized' },
     { label: 'Workforce', id: 'global' },
@@ -60,7 +60,7 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <SectionNavbar sections={sections} />
-      
+
       <section id="hero">
         <PageHero
           breadcrumbs={[
@@ -96,7 +96,7 @@ export default function ServicesPage() {
       <section id="faq"><ServicesFAQ /></section>
 
       <section id="cta">
-        <CTASection 
+        <CTASection
           title="Build High-Performance Teams"
           subtitle="Partner with our recruitment specialists to access scalable workforce solutions and exceptional talent across diverse industries."
           primaryLabel="Hire Talent"

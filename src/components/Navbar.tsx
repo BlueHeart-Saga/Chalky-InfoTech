@@ -24,7 +24,7 @@ const SERVICES_DATA = {
     title: 'Expertise',
     desc: 'Since our establishment, our belief remains the same: Building strong relationships with people is vital in a successful partnership.',
     link: 'Learn more',
-    href: '/services'
+    href: '/services#overview'
   },
   columns: [
     {
@@ -61,7 +61,7 @@ const INDUSTRIES_DATA = {
     title: 'Industries',
     desc: 'Deep domain knowledge across global markets to ensure technical and cultural alignment for every hire.',
     link: 'View all industries',
-    href: '/industries'
+    href: '/industries#featured'
   },
   columns: [
     {
@@ -98,7 +98,7 @@ const CAPABILITIES_NAV_DATA = {
     title: 'Capabilities',
     desc: 'Deep domain specialization across AI & ML, software engineering, cloud, data, cybersecurity, and enterprise technologies.',
     link: 'Explore all capabilities',
-    href: '/capabilities'
+    href: '/capabilities#capabilities-list'
   },
   columns: [
     {
@@ -300,7 +300,9 @@ export default function Navbar() {
           <div className="col-span-3 border-r border-gray-50 pr-10">
             <h3 className="text-lg font-bold text-[#1A1A1A] mb-4">{data.intro.title}</h3>
             <p className="text-[#666] text-sm leading-relaxed mb-6">{data.intro.desc}</p>
-            <Link href={data.intro.href} className="text-[#7A1F5C] font-bold text-sm border-b-2 border-[#7A1F5C] pb-1 hover:opacity-80 transition-all">{data.intro.link}</Link>
+            {data.intro.link && (
+              <Link href={data.intro.href} className="text-[#7A1F5C] font-bold text-sm border-b-2 border-[#7A1F5C] pb-1 hover:opacity-80 transition-all">{data.intro.link}</Link>
+            )}
           </div>
           <div className="col-span-6 grid grid-cols-2 gap-10">
             {data.columns.map((col: any, idx: number) => (
