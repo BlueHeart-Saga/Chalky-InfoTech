@@ -49,7 +49,7 @@ export default function JobsCVUpload() {
     e.preventDefault();
 
     // 1. Validate Full Name
-    const nameErr = validateText(fullName, 'Full Name', 2, true);
+    const nameErr = validateText(fullName, 'Full Name', 1, true);
     if (nameErr) {
       showValidationError(nameErr);
       return;

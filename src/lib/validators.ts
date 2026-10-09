@@ -54,7 +54,7 @@ export const showErrorAlert = (message: string, title = 'Submission Failed') => 
 export const validateText = (
   value: string,
   fieldName: string,
-  minLength = 2,
+  minLength = 1,
   required = true
 ): string | null => {
   const trimmed = (value || '').trim();
@@ -62,7 +62,7 @@ export const validateText = (
     return `${fieldName} is required and cannot be empty or blank.`;
   }
   if (trimmed && trimmed.length < minLength) {
-    return `${fieldName} must be at least ${minLength} characters long.`;
+    return `${fieldName} must be at least ${minLength} ${minLength === 1 ? 'character' : 'characters'} long.`;
   }
   return null;
 };

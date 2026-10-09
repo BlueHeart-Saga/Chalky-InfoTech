@@ -122,14 +122,14 @@ export default function ContactForm() {
     e.preventDefault();
 
     // 1. Validate First Name
-    const firstNameErr = validateText(formData.firstName, 'First Name', 2, true);
+    const firstNameErr = validateText(formData.firstName, 'First Name', 1, true);
     if (firstNameErr) {
       showValidationError(firstNameErr);
       return;
     }
 
     // 2. Validate Last Name
-    const lastNameErr = validateText(formData.lastName, 'Last Name', 2, true);
+    const lastNameErr = validateText(formData.lastName, 'Last Name', 1, true);
     if (lastNameErr) {
       showValidationError(lastNameErr);
       return;

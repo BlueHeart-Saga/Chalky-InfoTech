@@ -19,7 +19,7 @@ export function JobAlerts() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const nameErr = validateText(fullName, 'Full Name', 2, true);
+    const nameErr = validateText(fullName, 'Full Name', 1, true);
     if (nameErr) {
       showValidationError(nameErr);
       return;
