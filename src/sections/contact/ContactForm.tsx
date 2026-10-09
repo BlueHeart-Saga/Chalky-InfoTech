@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Trash2, Upload, MapPin, Building2, User, Mail as MailIcon, Phone as PhoneIcon, MessageSquare } from 'lucide-react';
 import { sendEmail } from '@/services/sendmail';
+import { validateText, validateEmail, validatePhone, validateFile, showValidationError, showSuccessAlert, showErrorAlert } from '@/lib/validators';
 import formsideimage from '@/assets/contact/formsideimage.png';
 
 /*
@@ -119,27 +120,84 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // 1. Validate First Name
+    const firstNameErr = validateText(formData.firstName, 'First Name', 2, true);
+    if (firstNameErr) {
+      showValidationError(firstNameErr);
+      return;
+    }
+
+    // 2. Validate Last Name
+    const lastNameErr = validateText(formData.lastName, 'Last Name', 2, true);
+    if (lastNameErr) {
+      showValidationError(lastNameErr);
+      return;
+    }
+
+    // 3. Validate Email
+    const emailErr = validateEmail(formData.email, true);
+    if (emailErr) {
+      showValidationError(emailErr);
+      return;
+    }
+
+    // 4. Validate Phone Number (if provided)
+    const phoneErr = validatePhone(formData.phone, false);
+    if (phoneErr) {
+      showValidationError(phoneErr);
+      return;
+    }
+
+    // 5. Validate Custom Inquiry Type
+    if (enquiryType === 'other') {
+      const customErr = validateText(customEnquiry, 'Custom Inquiry Description', 3, true);
+      if (customErr) {
+        showValidationError(customErr);
+        return;
+      }
+    }
+
+    // 6. Validate Message Content
+    const msgErr = validateText(formData.message, 'Message', 10, true);
+    if (msgErr) {
+      showValidationError(msgErr);
+      return;
+    }
+
+    // 7. Validate File Upload (if selected)
+    if (fileObj) {
+      const fileErr = validateFile(fileObj, false, ['.pdf', '.doc', '.docx', '.txt'], 10);
+      if (fileErr) {
+        showValidationError(fileErr);
+        return;
+      }
+    }
+
     setIsSubmitting(true);
     try {
       const selectedOffice = OFFICES.find((o) => o.id === office)?.label || 'London';
       const typeLabel = enquiryType === 'other' ? (customEnquiry || 'Custom Inquiry') : (INQUIRY_TYPES.find((t) => t.id === enquiryType)?.label || 'General Inquiry');
       const subject = `[${typeLabel} - ${selectedOffice}] Contact from ${formData.firstName} ${formData.lastName}`;
 
-
       await sendEmail({
         fullName: `${formData.firstName} ${formData.lastName}`,
         email: formData.email,
         subject,
-        message: `Office Preferred: ${selectedOffice}\nPhone Number: ${formData.phone}\n\nMessage:\n${formData.message}`,
+        message: `Office Preferred: ${selectedOffice}\nPhone Number: ${formData.phone || 'N/A'}\n\nMessage:\n${formData.message}`,
         company: formData.organisation || 'N/A',
         serviceType: typeLabel,
         file: fileObj || undefined,
       });
 
       setSubmitted(true);
+      showSuccessAlert(
+        'Thank you for reaching out to Chalky InfoTech. Our team will respond to your request within 24 hours.',
+        'Message Sent Successfully!'
+      );
     } catch (error) {
       console.error(error);
-      alert('Failed to send message. Please try again later.');
+      showErrorAlert('Failed to send message. Please check your internet connection and try again.');
     } finally {
       setIsSubmitting(false);
     }

@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import CategoryPopup from "./CategoryPopup";
 import { sendEmail } from "@/services/sendmail";
+import { validateEmail, showValidationError, showSuccessAlert, showErrorAlert } from "@/lib/validators";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -20,7 +21,11 @@ export default function Newsletter() {
 
   const handleInitialSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes('@')) return;
+    const emailErr = validateEmail(email, true);
+    if (emailErr) {
+      showValidationError(emailErr);
+      return;
+    }
     setShowPopup(true);
   };
 
@@ -37,10 +42,15 @@ export default function Newsletter() {
       });
       setSubscribeStatus('success');
       setShowPopup(false);
+      showSuccessAlert(
+        'Thank you for subscribing to Chalky InfoTech insights!',
+        'Subscribed Successfully!'
+      );
       setTimeout(() => setEmail(''), 3000);
     } catch (error) {
       console.error('Subscription error:', error);
       setSubscribeStatus('error');
+      showErrorAlert('Failed to subscribe. Please try again later.');
     } finally {
       setIsSubscribing(false);
     }

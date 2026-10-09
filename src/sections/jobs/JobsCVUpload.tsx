@@ -9,6 +9,7 @@ import {
   FileText, User, ArrowRight
 } from 'lucide-react';
 import { sendEmail } from '@/services/sendmail';
+import { validateText, validateEmail, validatePhone, validateFile, showValidationError, showSuccessAlert, showErrorAlert } from '@/lib/validators';
 
 const OFFICES = [
   { id: 'london', label: 'London, UK (HQ)' },
@@ -46,6 +47,35 @@ export default function JobsCVUpload() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // 1. Validate Full Name
+    const nameErr = validateText(fullName, 'Full Name', 2, true);
+    if (nameErr) {
+      showValidationError(nameErr);
+      return;
+    }
+
+    // 2. Validate Email
+    const emailErr = validateEmail(email, true);
+    if (emailErr) {
+      showValidationError(emailErr);
+      return;
+    }
+
+    // 3. Validate Phone Number
+    const phoneErr = validatePhone(phone, true);
+    if (phoneErr) {
+      showValidationError(phoneErr);
+      return;
+    }
+
+    // 4. Validate CV File (Required for CV submission)
+    const fileErr = validateFile(fileObj, true, ['.pdf', '.doc', '.docx', '.txt'], 10);
+    if (fileErr) {
+      showValidationError(fileErr);
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const officeLabel = OFFICES.find((o) => o.id === office)?.label || 'Global';
@@ -58,9 +88,13 @@ export default function JobsCVUpload() {
         file: fileObj || undefined,
       });
       setSubmitted(true);
+      showSuccessAlert(
+        'Your CV has been successfully uploaded to the Chalky InfoTech talent pool!',
+        'CV Uploaded Successfully!'
+      );
     } catch (error) {
       console.error(error);
-      alert('Failed to submit application. Please try again later.');
+      showErrorAlert('Failed to submit application. Please check your network and try again.');
     } finally {
       setIsSubmitting(false);
     }

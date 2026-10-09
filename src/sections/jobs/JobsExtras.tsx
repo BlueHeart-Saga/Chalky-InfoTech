@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Mail, Bell, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { validateText, validateEmail, showValidationError, showSuccessAlert } from '@/lib/validators';
 
 const STATS = [
   { value: '2,400+', label: 'Active Subscribers' },
@@ -11,10 +12,30 @@ const STATS = [
 
 export function JobAlerts() {
   const [submitted, setSubmitted] = useState(false);
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [roleType, setRoleType] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const nameErr = validateText(fullName, 'Full Name', 2, true);
+    if (nameErr) {
+      showValidationError(nameErr);
+      return;
+    }
+
+    const emailErr = validateEmail(email, true);
+    if (emailErr) {
+      showValidationError(emailErr);
+      return;
+    }
+
     setSubmitted(true);
+    showSuccessAlert(
+      'You have been successfully subscribed to Chalky InfoTech job alerts.',
+      'Alerts Subscribed!'
+    );
   };
 
   return (
@@ -113,6 +134,8 @@ export function JobAlerts() {
                       </label>
                       <input
                         type="text"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
                         placeholder="e.g. Alex Johnson"
                         required
                         className="w-full px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm outline-none focus:border-white/50 focus:ring-2 focus:ring-white/20 transition-all"
@@ -128,6 +151,8 @@ export function JobAlerts() {
                         <Mail size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" />
                         <input
                           type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                           placeholder="you@example.com"
                           required
                           className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm outline-none focus:border-white/50 focus:ring-2 focus:ring-white/20 transition-all"
@@ -141,6 +166,8 @@ export function JobAlerts() {
                         Preferred Role Type
                       </label>
                       <select
+                        value={roleType}
+                        onChange={(e) => setRoleType(e.target.value)}
                         className="w-full px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white text-sm outline-none focus:border-white/50 focus:ring-2 focus:ring-white/20 transition-all appearance-none"
                       >
                         <option value="" className="text-gray-800">Any type</option>

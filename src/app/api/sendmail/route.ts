@@ -97,7 +97,7 @@ export async function POST(req: Request) {
     }
 
     const mailOptions: nodemailer.SendMailOptions = {
-      from: `"${data.fullName || 'Chalky InfoTech Website'}" <${process.env.SMTP_USER}>`,
+      from: `"Chalky InfoTech" <${process.env.SMTP_USER}>`,
       replyTo: data.email,
       to: recipient,
       subject: `[Chalky InfoTech] ${data.subject || 'New Website Inquiry'}`,

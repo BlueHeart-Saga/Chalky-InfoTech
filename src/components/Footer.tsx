@@ -23,6 +23,7 @@ import {
   X,
   Loader2,
 } from 'lucide-react';
+import { validateEmail, showValidationError, showSuccessAlert, showErrorAlert } from '@/lib/validators';
 import { SERVICES, INDUSTRIES, CONTACT } from '@/constants';
 import { sendEmail } from '@/services/sendmail';
 import api from '@/services/api'; 
@@ -147,7 +148,11 @@ const newsletterPrivacyLinkLabel =
 
                   const handleInitialSubmit = (e: React.FormEvent) => {
                     e.preventDefault();
-                    if (!email || !email.includes('@')) return;
+                    const emailErr = validateEmail(email, true);
+                    if (emailErr) {
+                      showValidationError(emailErr);
+                      return;
+                    }
                     setShowPreferences(true);
                   };
 
@@ -164,10 +169,15 @@ const newsletterPrivacyLinkLabel =
                       });
                       setSubscribeStatus('success');
                       setShowPreferences(false);
+                      showSuccessAlert(
+                        'Thank you for subscribing to Chalky InfoTech insights!',
+                        'Subscribed Successfully!'
+                      );
                       setTimeout(() => setEmail(''), 2000);
                     } catch (error) {
                       console.error('Subscription error:', error);
                       setSubscribeStatus('error');
+                      showErrorAlert('Failed to subscribe. Please try again later.');
                     } finally {
                       setIsSubscribing(false);
                     }
