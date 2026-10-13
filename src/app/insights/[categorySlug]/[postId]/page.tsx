@@ -154,7 +154,13 @@ export async function generateStaticParams() {
     console.error('Error generating static params for posts:', err);
   }
 
-  return [];
+  // Next.js 16 Cache Components invariant: all generateStaticParams functions must return at least one entry
+  return [
+    {
+      categorySlug: 'blogs',
+      postId: 'insights',
+    },
+  ];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
