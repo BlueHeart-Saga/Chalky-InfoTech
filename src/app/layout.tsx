@@ -77,14 +77,41 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-[family-name:var(--font-poppins)] bg-white text-[#1A1A1A] overflow-x-hidden relative">
         <Script id="browser-extension-dom-guard" strategy="beforeInteractive">
           {`
-            if (typeof window !== 'undefined' && Node.prototype.removeChild) {
-              const origRemoveChild = Node.prototype.removeChild;
-              Node.prototype.removeChild = function(child) {
-                if (child && child.parentNode !== this) {
-                  return child;
+            if (typeof window !== 'undefined') {
+              if (Node.prototype.removeChild) {
+                const origRemoveChild = Node.prototype.removeChild;
+                Node.prototype.removeChild = function(child) {
+                  if (child && child.parentNode !== this) {
+                    return child;
+                  }
+                  return origRemoveChild.call(this, child);
+                };
+              }
+              if (Node.prototype.insertBefore) {
+                const origInsertBefore = Node.prototype.insertBefore;
+                Node.prototype.insertBefore = function(newNode, referenceNode) {
+                  if (referenceNode && referenceNode.parentNode !== this) {
+                    return this.appendChild(newNode);
+                  }
+                  return origInsertBefore.call(this, newNode, referenceNode);
+                };
+              }
+              window.addEventListener('error', function(event) {
+                if (event && event.message && (
+                  event.message.indexOf('Connection closed') !== -1 ||
+                  event.message.indexOf('removeChild') !== -1 ||
+                  event.message.indexOf('insertBefore') !== -1
+                )) {
+                  event.preventDefault();
                 }
-                return origRemoveChild.call(this, child);
-              };
+              });
+              window.addEventListener('unhandledrejection', function(event) {
+                if (event && event.reason && event.reason.message && (
+                  event.reason.message.indexOf('Connection closed') !== -1
+                )) {
+                  event.preventDefault();
+                }
+              });
             }
           `}
         </Script>

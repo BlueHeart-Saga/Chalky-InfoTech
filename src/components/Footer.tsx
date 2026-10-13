@@ -130,7 +130,6 @@ const newsletterPrivacyLinkLabel =
                 <Image
                   src={ctaImage}
                   alt="Newsletter Graphic"
-                  priority
                   className="absolute -bottom-10 md:-bottom-16 w-full h-auto max-w-[250px] lg:max-w-[300px] object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] z-10"
                 />
               </div>

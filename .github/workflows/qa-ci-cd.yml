@@ -50,6 +50,7 @@ jobs:
           cp -r public .next/standalone/public
           mkdir -p .next/standalone/.next
           cp -r .next/static .next/standalone/.next/static
+          cp web.config .next/standalone/web.config || true
 
       - name: Deploy to Azure Web App (QA)
         uses: azure/webapps-deploy@v3
