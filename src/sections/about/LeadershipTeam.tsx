@@ -2,9 +2,13 @@
 
 import { motion } from 'framer-motion';
 import { ShieldCheck, Sparkles } from 'lucide-react';
+<<<<<<< HEAD
 import Image from 'next/image';
 // ⚠️ Replace with your real Chalky logo path
 import logoImage from '@/assets/logo/logo.png';
+=======
+
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
 const leader = {
   name: 'Saravana Karthikeyan',
   role: 'CEO & Founder',
@@ -83,7 +87,16 @@ export default function LeadershipTeam() {
           transition={{ delay: 0.1 }}
           className="mt-5 mb-5"
         >
+<<<<<<< HEAD
           
+=======
+          {/* Premium Circular Initials Badge */}
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#7A1F5C] to-[#5A1744] text-white flex items-center justify-center shadow-xl shadow-[#7A1F5C]/20 ring-4 ring-white mx-auto mb-3">
+            <span className="text-xl sm:text-2xl font-extrabold tracking-wider select-none">
+              SK
+            </span>
+          </div>
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
 
           <h3 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-1">
             {leader.name}
@@ -132,4 +145,8 @@ export default function LeadershipTeam() {
       </div>
     </section>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d

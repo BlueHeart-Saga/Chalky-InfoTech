@@ -35,6 +35,12 @@ const CLIENT_LOGOS = [
   { src: '/clients/c26.png', name: 'c26' },
   { src: '/clients/c27.png', name: 'c27' },
   { src: '/clients/c28.jpg', name: 'c28' },
+<<<<<<< HEAD
+=======
+  { src: '/clients/ct1.png', name: 'ct1' },
+  { src: '/clients/ct2.png', name: 'ct2' },
+  { src: '/clients/ct3.png', name: 'ct3' },
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
 ];
 
 export default function TrustedCompanies() {
@@ -93,4 +99,8 @@ export default function TrustedCompanies() {
       </div>
     </section>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d

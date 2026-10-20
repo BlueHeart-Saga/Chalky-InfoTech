@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
+<<<<<<< HEAD
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+=======
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
 import SectionNavbar from '@/components/SectionNavbar';
 import ContactHero from '@/sections/contact/ContactHero';
 import ContactForm from '@/sections/contact/ContactForm';
@@ -12,6 +15,7 @@ import CTASection from '@/components/CTASection';
 
 import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
 
+<<<<<<< HEAD
 // Lazy load below-the-fold team grid (same pattern as About page)
 const TeamGrid = dynamic(() => import('@/sections/about/TeamGrid'), { ssr: true });
 
@@ -37,6 +41,17 @@ const SectionFallback = () => (
   </div>
 );
 
+=======
+export const metadata = buildPageMetadataWithImage({
+  title: 'Contact Us | IT Recruitment Agency',
+  description: 'Get in touch with Chalky Infotech. We have offices in London and Chennai to support your global tech recruitment needs and workforce scaling.',
+  keywords: ['contact IT recruitment agency', 'Chalky Infotech contact', 'tech recruitment London', 'IT staffing Chennai', 'global workforce solutions contact'],
+  url: '/contact',
+  path: SEO_IMAGE_CONFIG.contact.path,
+  alt: SEO_IMAGE_CONFIG.contact.alt
+});
+
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
 export default function ContactPage() {
   const sections = [
     { label: 'Top', id: 'hero' },
@@ -44,8 +59,12 @@ export default function ContactPage() {
     { label: 'Our Offices', id: 'offices' },
     // { label: 'Global Map', id: 'map' },
     { label: 'Key Contacts', id: 'team' },
+<<<<<<< HEAD
     { label: 'Our People', id: 'people' },
     { label: 'FAQ', id: 'faq' },
+=======
+    { label: 'FAQ', id: 'faq' }
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
   ];
 
   return (
@@ -72,12 +91,15 @@ export default function ContactPage() {
         <ContactTeam />
       </section>
 
+<<<<<<< HEAD
       <Suspense fallback={<SectionFallback />}>
         <section id="people">
           <TeamGrid waveColor="#FFFFFF" />
         </section>
       </Suspense>
 
+=======
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
       <section id="faq">
         <ContactFAQ />
       </section>
@@ -94,4 +116,8 @@ export default function ContactPage() {
       </section>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
