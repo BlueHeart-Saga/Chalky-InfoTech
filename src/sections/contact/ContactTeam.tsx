@@ -36,10 +36,6 @@ const team = [
   */
 ];
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
 const getInitials = (name: string) => {
   return name
     .split(' ')
@@ -107,18 +103,8 @@ export default function ContactTeam() {
               transition={{ delay: i * 0.15 }}
               className="flex flex-col items-center text-center w-full"
             >
-<<<<<<< HEAD
               
               
-=======
-              {/* Premium Circular Initials Badge */}
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-[#7A1F5C] to-[#5A1744] text-white flex items-center justify-center shadow-xl shadow-[#7A1F5C]/20 ring-4 ring-white mb-4">
-                <span className="text-2xl sm:text-3xl font-extrabold tracking-wider select-none">
-                  {getInitials(member.name)}
-                </span>
-              </div>
-
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
               {/* Name & Title */}
               <h3 className="text-2xl sm:text-3xl font-bold text-[#1A1A1A] tracking-tight mb-1">
                 {member.name}

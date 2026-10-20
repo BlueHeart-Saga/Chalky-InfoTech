@@ -1,20 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-<<<<<<< HEAD
 import TeamGrid from '@/sections/about/TeamGrid';
-=======
-import Image from 'next/image';
-
-import team1 from '@/assets/about/People-behind/1.png';
-import team2 from '@/assets/about/People-behind/6.png';
-import team3 from '@/assets/about/People-behind/3.png';
-import team4 from '@/assets/about/People-behind/7.png';
-import team5 from '@/assets/about/People-behind/4.png';
-import team6 from '@/assets/about/People-behind/2.png';
-import team7 from '@/assets/about/People-behind/5.png';
-import team8 from '@/assets/about/People-behind/8.png';
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
 
 const milestones = [
   {
@@ -42,7 +29,6 @@ const milestones = [
 export default function CompanyTimeline() {
   const [active, setActive] = useState(0);
 
-<<<<<<< HEAD
   useEffect(() => {
     const timer = setInterval(() => {
       setActive((prev) => (prev + 1) % milestones.length);
@@ -50,23 +36,12 @@ export default function CompanyTimeline() {
 
     return () => clearInterval(timer);
   }, [active]);
-=======
-  // Auto-rotation logic
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActive((prev) => (prev + 1) % milestones.length);
-    }, 6000); // Change every 6 seconds
-
-    return () => clearInterval(timer);
-  }, [active]); // Reset timer when active changes (manual or auto)
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
 
   const current = milestones[active];
 
   return (
     <section className="relative pt-20 pb-24 bg-[#7A1F5C] text-white overflow-hidden">
       {/* Background patterns */}
-<<<<<<< HEAD
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
@@ -76,14 +51,6 @@ export default function CompanyTimeline() {
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-=======
-      <div className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}
-      />
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
         {/* Section Heading */}
         <div className="text-center max-w-4xl mx-auto mb-16 md:mb-20">
           <motion.h2
@@ -123,7 +90,6 @@ export default function CompanyTimeline() {
               onClick={() => setActive(i)}
               className="group flex flex-col items-center gap-3 transition-all duration-300"
             >
-<<<<<<< HEAD
               <span
                 className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
                   i === active ? 'text-white' : 'text-white/30 group-hover:text-white/60'
@@ -139,15 +105,6 @@ export default function CompanyTimeline() {
                       : 'bg-white/20 group-hover:bg-white/40'
                   }`}
                 />
-=======
-              <span className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${i === active ? 'text-white' : 'text-white/30 group-hover:text-white/60'
-                }`}>
-                {m.year}
-              </span>
-              <div className="relative w-2 h-2">
-                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${i === active ? 'bg-white scale-125 shadow-[0_0_10px_white]' : 'bg-white/20 group-hover:bg-white/40'
-                  }`} />
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
               </div>
             </button>
           ))}
@@ -164,20 +121,12 @@ export default function CompanyTimeline() {
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full"
             >
-<<<<<<< HEAD
-=======
-              {/* Massive Year Background (Centered) */}
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
               <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none -top-12 md:-top-20">
                 <span className="text-[10rem] md:text-[18rem] lg:text-[24rem] font-black leading-none tracking-tighter text-[#F5F0E8] opacity-10">
                   {current.year}
                 </span>
               </div>
 
-<<<<<<< HEAD
-=======
-              {/* Content Overlay (Centered) */}
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
               <div className="relative z-10 max-w-4xl mx-auto">
                 <motion.h3
                   initial={{ opacity: 0, y: 20 }}
@@ -196,20 +145,12 @@ export default function CompanyTimeline() {
                   {current.desc}
                 </motion.p>
 
-<<<<<<< HEAD
-=======
-                {/* Progress Bar Container */}
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
                 <div className="w-24 h-1 bg-white/10 mx-auto rounded-full overflow-hidden">
                   <motion.div
                     key={`bar-${active}`}
                     initial={{ width: 0 }}
                     animate={{ width: '100%' }}
-<<<<<<< HEAD
                     transition={{ duration: 6, ease: 'linear' }}
-=======
-                    transition={{ duration: 6, ease: "linear" }}
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
                     className="h-full bg-white/60"
                   />
                 </div>
@@ -220,80 +161,12 @@ export default function CompanyTimeline() {
 
         {/* ── TEAM SECTION: The People Behind Our Success ── */}
         <div className="mt-32 pt-20 border-t border-white/10">
-<<<<<<< HEAD
           <TeamGrid standalone={false} className="!px-0" />
-=======
-          <div className="text-center mb-16">
-            <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold mb-3 text-white"
-            >
-              The People Behind Our Success
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-[#F5F0E8]/60 text-base"
-            >
-              200+ passionate professionals dedicated to your success
-            </motion.p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
-            {[
-              { id: 1, line1: 'SARAVANA KARTHIKEYAN', line2: 'CEO & FOUNDER', img: team1 },
-              { id: 2, line1: 'MANJULA BASHKAR', line2: 'SECURITY SPECIALIST', img: team2 },
-              { id: 3, line1: 'HIMANSHU MUDGAL', line2: 'HEAD OF CLIENT SUCCESS', img: team3 },
-              { id: 4, line1: 'PRIYA NAIR', line2: 'HEAD OF TALENT ACQUISITION', img: team4 },
-              { id: 5, line1: 'ANJALI SHAH', line2: 'AI RECRUITMENT LEAD', img: team5 },
-              { id: 6, line1: 'JAMES WILSON', line2: 'DIRECTOR OF STRATEGY', img: team6 },
-              { id: 7, line1: 'RAKESH SHARMA', line2: 'TECHNICAL CONSULTANT', img: team7 },
-              { id: 8, line1: 'NEHA GUPTA', line2: 'SENIOR TALENT PARTNER', img: team8 },
-            ].map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="flex flex-col items-center group"
-              >
-                <div className="relative w-full max-w-[180px] aspect-[4/5] mb-6">
-                  {/* Blob Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#F06292] to-[#FF8A65] opacity-70 group-hover:opacity-90 transition-opacity duration-500"
-                    style={{ clipPath: 'polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 25%)', borderRadius: '40% 60% 70% 30% / 40% 50% 60% 70%' }}
-                  />
-
-                  {/* Portrait */}
-                  <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 70%' }}>
-                    <Image
-                      src={member.img}
-                      alt={member.line1}
-                      fill
-                      unoptimized
-                      className="object-cover filter grayscale brightness-110 group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                </div>
-
-                <h3 className="text-[10px] md:text-xs font-bold tracking-[0.2em] text-center text-white/90 leading-tight uppercase flex flex-col items-center">
-                  {/* <span>{member.line1}</span> */}
-                  <span className="mt-1 opacity-60">{member.line2}</span>
-                </h3>
-              </motion.div>
-            ))}
-          </div>
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
         </div>
       </div>
 
       {/* Wave Divider */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none">
-<<<<<<< HEAD
         <svg
           className="relative block w-full h-[60px] md:h-[100px]"
           xmlns="http://www.w3.org/2000/svg"
@@ -304,16 +177,8 @@ export default function CompanyTimeline() {
             d="M0,120 L1200,120 L1200,80 C1150,80 1150,40 1100,40 C1050,40 1050,60 1000,60 C950,60 950,20 900,20 C850,20 850,70 800,70 C750,70 750,30 700,30 C650,30 650,80 600,80 C550,80 550,40 500,40 C450,40 450,60 400,60 C350,60 350,20 300,20 C250,20 250,70 200,70 C150,70 150,30 100,30 C50,30 50,80 0,80 Z"
             fill="#f5f0e8"
           />
-=======
-        <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M0,120 L1200,120 L1200,80 C1150,80 1150,40 1100,40 C1050,40 1050,60 1000,60 C950,60 950,20 900,20 C850,20 850,70 800,70 C750,70 750,30 700,30 C650,30 650,80 600,80 C550,80 550,40 500,40 C450,40 450,60 400,60 C350,60 350,20 300,20 C250,20 250,70 200,70 C150,70 150,30 100,30 C50,30 50,80 0,80 Z" fill="#f5f0e8"></path>
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
         </svg>
       </div>
     </section>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 19b30351825669220f16cf1773baa29f5cbba76d
