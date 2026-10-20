@@ -1,0 +1,12 @@
+.scroll-reveal {
+  margin: 0;
+}
+
+.scroll-reveal-text {
+  /* Using Tailwind classes instead of hardcoding font size here to allow overriding via textClassName */
+  line-height: 1.1;
+}
+
+.word {
+  display: inline-block;
+}

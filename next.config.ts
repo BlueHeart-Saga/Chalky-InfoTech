@@ -1,0 +1,55 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: "standalone",
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net',
+        pathname: '/**',
+      },
+    ],
+    unoptimized: true,
+  },
+  cacheComponents: true,
+  experimental: {
+    instantNavigationDevToolsToggle: true,
+  },
+  async redirects() {
+    return [
+      {
+        source: "/insights-knowledge/:path*",
+        destination: "/insights/:path*",
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.chalkyinfo.com',
+          },
+        ],
+        destination: 'https://chalkyinfo.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    const backendUrl = (process.env.NEXT_PUBLIC_API_URL || 'https://mediahub-backend-docker-hgh6hzgacraqbhb2.southindia-01.azurewebsites.net').replace(/\/$/, '');
+    return [
+      {
+        source: '/api/insights-proxy/api/:path*',
+        destination: `${backendUrl}/api/:path*`,
+      },
+    ];
+  },
+};
+
+export default nextConfig;
