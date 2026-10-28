@@ -39,8 +39,8 @@ export async function POST(req: Request) {
     // Check header and partner banner images on server disk
     const publicDir = path.join(process.cwd(), 'public');
     const headerImgPath = path.join(publicDir, 'email-tamp', 'Header.png');
-    const partnerImgPath = path.join(publicDir, 'email-tamp', 'Chalky_Client.png');
-    const fallbackPartnerImgPath = path.join(publicDir, 'email-tamp', 'Partners banner.png');
+    const partnerImgPath = path.join(publicDir, 'email-tamp', 'chalky-partners.png');
+    const fallbackPartnerImgPath = path.join(publicDir, 'email-tamp', 'Chalky_Client.png');
 
     const attachments: nodemailer.SendMailOptions['attachments'] = [];
 
@@ -56,17 +56,17 @@ export async function POST(req: Request) {
       headerSrc = 'cid:headerBanner';
     }
 
-    let partnerSrc = `${siteUrl}/email-tamp/Chalky_Client.png`;
+    let partnerSrc = `${siteUrl}/email-tamp/chalky-partners.png`;
     if (fs.existsSync(partnerImgPath)) {
       attachments.push({
-        filename: 'Chalky_Client.png',
+        filename: 'chalky-partners.png',
         path: partnerImgPath,
         cid: 'partnerBanner',
       });
       partnerSrc = 'cid:partnerBanner';
     } else if (fs.existsSync(fallbackPartnerImgPath)) {
       attachments.push({
-        filename: 'Partners banner.png',
+        filename: 'Chalky_Client.png',
         path: fallbackPartnerImgPath,
         cid: 'partnerBanner',
       });
