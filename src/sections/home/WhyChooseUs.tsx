@@ -34,7 +34,7 @@ const REASONS = [
     image: DeliveryImg,
     title: "Rapid Requirement Delivery", 
     desc: "Quick turnaround hiring support for urgent workforce and project requirements across multiple industries.",
-    link: "/services/temporary-recruitment"
+    link: "/services/temporary-recruitment-services"
   },
   { 
     image: SupportImg,
@@ -46,7 +46,7 @@ const REASONS = [
     image: ReplacementImg,
     title: "Replacement Assurance", 
     desc: "Fast replacement support for unexpected candidate exits based on professional replacement terms.",
-    link: "/services/permanent-hiring"
+    link: "/services/permanent-recruitment-services"
   },
   { 
     image: NetworkImg,
@@ -58,7 +58,7 @@ const REASONS = [
     image: ModelsImg,
     title: "Flexible Hiring Models", 
     desc: "Affordable recruitment solutions tailored for startups, SMBs and enterprise organizations.",
-    link: "/services/contract-staffing"
+    link: "/services/contract-recruitment-services"
   },
   { 
     image: ProcessImg,
@@ -70,13 +70,13 @@ const REASONS = [
     image: ValidationImg,
     title: "Quality Candidate Validation", 
     desc: "Structured evaluation processes ensuring strong technical and cultural alignment with client goals.",
-    link: "/services/executive-search"
+    link: "/services/executive-recruitment-services"
   },
   { 
     image: ScalableImg,
     title: "Scalable Workforce Solutions", 
     desc: "Workforce strategies designed to support business expansion and rapid operational scaling.",
-    link: "/services/managed-services"
+    link: "/services/managed-recruitment-services"
   }
 ];
 

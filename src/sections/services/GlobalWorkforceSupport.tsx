@@ -119,7 +119,7 @@ export default function GlobalWorkforceSupport() {
 
                   {/* CTA Button */}
                   <Link
-                    href={region.id === 'remote-workforce' ? '/services/remote-hiring' : region.id === 'global-hiring' ? '/services' : '/about'}
+                    href={region.id === 'remote-workforce' ? '/services/remote-hiring-services' : region.id === 'global-hiring' ? '/services' : '/about'}
                     className="inline-flex items-center gap-2 text-xs font-semibold text-[#7A1F5C] border border-[#7A1F5C]/30 bg-[#FAFAFA] px-5 py-2.5 rounded-full w-fit hover:bg-[#7A1F5C] hover:text-white hover:border-[#7A1F5C] transition-all duration-300 mt-auto"
                   >
                     Learn More <ArrowRight size={12} />

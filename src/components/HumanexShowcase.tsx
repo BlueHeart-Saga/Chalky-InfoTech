@@ -84,7 +84,7 @@ export default function HumanexShowcase() {
             transition={{ delay: 0.2 }}
             className="text-gray-600 text-base md:text-lg leading-relaxed font-normal"
           >
-            Recruitment is more than sourcing candidates. Chalky combines expert <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent acquisition</Link> with <span className="text-[#7A1F5C] font-semibold">Humanex</span>  our AI-powered all-in-one HR, hiring, onboarding, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">workforce management</Link> platform built to simplify every stage of the employee journey.
+            Recruitment is more than sourcing candidates. Chalky combines expert <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent acquisition</Link> with <span className="text-[#7A1F5C] font-semibold">Humanex</span>  our AI-powered all-in-one HR, hiring, onboarding, and <Link href="/services/managed-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">workforce management</Link> platform built to simplify every stage of the employee journey.
           </motion.p>
         </div>
 
@@ -168,7 +168,7 @@ export default function HumanexShowcase() {
             </p>
 
             <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
-              From <Link href="/services/contract-staffing" className="text-[#7A1F5C] font-medium hover:underline transition-all">candidate sourcing</Link> to onboarding and <Link href="/services/managed-services" className="text-[#7A1F5C] font-medium hover:underline transition-all">workforce operations</Link>, Humanex centralizes hiring, HR workflows, payroll support, employee engagement, and AI-powered decision making in one unified ecosystem.
+              From <Link href="/services/contract-recruitment-services" className="text-[#7A1F5C] font-medium hover:underline transition-all">candidate sourcing</Link> to onboarding and <Link href="/services/managed-recruitment-services" className="text-[#7A1F5C] font-medium hover:underline transition-all">workforce operations</Link>, Humanex centralizes hiring, HR workflows, payroll support, employee engagement, and AI-powered decision making in one unified ecosystem.
             </p>
 
             {/* Premium CTA Buttons */}

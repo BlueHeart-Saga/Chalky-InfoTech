@@ -37,14 +37,14 @@ export * from './capabilitiesData';
 export * from './servicesData';
 
 export const SERVICES = [
-  { slug: 'it-staffing', label: 'IT Staffing', icon: 'Code2', desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.' },
-  { slug: 'executive-search', label: 'Executive Search', icon: 'TrendingUp', desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.' },
-  { slug: 'contract-staffing', label: 'Contract Staffing', icon: 'Clock', desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.' },
-  { slug: 'permanent-hiring', label: 'Permanent Hiring', icon: 'Users', desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.' },
-  { slug: 'temporary-recruitment', label: 'Temporary Recruitment', icon: 'UserPlus', desc: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.' },
-  { slug: 'on-site-recruitment', label: 'On-Site Recruitment', icon: 'MapPin', desc: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.' },
-  { slug: 'managed-services', label: 'Managed Services', icon: 'Settings', desc: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.' },
-  { slug: 'remote-hiring', label: 'Remote Hiring', icon: 'Globe', desc: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.' },
+  { slug: 'it-recruitment-services', label: 'IT Staffing', icon: 'Code2', desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.' },
+  { slug: 'executive-recruitment-services', label: 'Executive Search', icon: 'TrendingUp', desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.' },
+  { slug: 'contract-recruitment-services', label: 'Contract Staffing', icon: 'Clock', desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.' },
+  { slug: 'permanent-recruitment-services', label: 'Permanent Hiring', icon: 'Users', desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.' },
+  { slug: 'temporary-recruitment-services', label: 'Temporary Recruitment', icon: 'UserPlus', desc: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.' },
+  { slug: 'onsite-recruitment-services', label: 'On-Site Recruitment', icon: 'MapPin', desc: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.' },
+  { slug: 'managed-recruitment-services', label: 'Managed Services', icon: 'Settings', desc: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.' },
+  { slug: 'remote-hiring-services', label: 'Remote Hiring', icon: 'Globe', desc: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.' },
 ];
 
 export * from './industriesData';

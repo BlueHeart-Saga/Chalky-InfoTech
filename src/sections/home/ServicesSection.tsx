@@ -14,28 +14,28 @@ const comprehensiveServices = [
   {
     title: "Contract Staffing",
     lead: "Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.",
-    link: "/services/contract-staffing",
+    link: "/services/contract-recruitment-services",
     category: "Agile Staffing",
     image: AgileStaffingImg,
   },
   {
     title: "Permanent Hiring",
     lead: "Strategic permanent placement services to build your long-term success with high-retention talent.",
-    link: "/services/permanent-hiring",
+    link: "/services/permanent-recruitment-services",
     category: "Core Teams",
     image: CoreTeamsImg,
   },
   {
     title: "Temporary Recruitment",
     lead: "Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.",
-    link: "/services/temporary-recruitment",
+    link: "/services/temporary-recruitment-services",
     category: "Rapid Hiring",
     image: RapidHiringImg,
   },
   {
     title: "On-Site Recruitment",
     lead: "Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.",
-    link: "/services/on-site-recruitment",
+    link: "/services/onsite-recruitment-services",
     category: "Embedded Solutions",
     image: EmbeddedSolutionsImg,
   }
@@ -108,7 +108,7 @@ export default function ServicesSection() {
               </h2>
               
               <p className="text-lg text-gray-700 leading-relaxed mb-10">
-                We offer flexible and scalable <Link href="/services" className="text-[#7A1F5C] font-semibold hover:underline transition-all">IT recruitment services</Link> tailored to your business needs. Whether you need <Link href="/services/temporary-recruitment" className="text-[#7A1F5C] font-semibold hover:underline transition-all">short-term specialists</Link>, <Link href="/services/permanent-hiring" className="text-[#7A1F5C] font-semibold hover:underline transition-all">long-term employees</Link>, or dedicated hiring support, our solutions are designed to deliver the right talent with speed and precision.
+                We offer flexible and scalable <Link href="/services" className="text-[#7A1F5C] font-semibold hover:underline transition-all">IT recruitment services</Link> tailored to your business needs. Whether you need <Link href="/services/temporary-recruitment-services" className="text-[#7A1F5C] font-semibold hover:underline transition-all">short-term specialists</Link>, <Link href="/services/permanent-recruitment-services" className="text-[#7A1F5C] font-semibold hover:underline transition-all">long-term employees</Link>, or dedicated hiring support, our solutions are designed to deliver the right talent with speed and precision.
               </p>
               
               <div className="flex flex-col gap-5">

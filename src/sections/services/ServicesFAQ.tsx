@@ -9,7 +9,7 @@ const FAQS = [
   {
     question: 'What core IT recruitment services does Chalky Infotech provide?',
     answer: 'Chalky Infotech offers a comprehensive suite of IT recruitment services, including permanent placement, contract staffing, and temporary workforce solutions. We specialize in sourcing top-tier talent for roles in software development, cloud computing, cybersecurity, and data science across global markets.',
-    answerElement: <>Chalky Infotech offers a comprehensive suite of IT recruitment services, including <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-semibold">permanent placement</Link>, <Link href="/services/temporary-recruitment" className="text-[#7A1F5C] hover:underline font-semibold">contract staffing</Link>, and temporary workforce solutions. We specialize in sourcing top-tier talent for roles in software development, cloud computing, cybersecurity, and data science across global markets.</>
+    answerElement: <>Chalky Infotech offers a comprehensive suite of IT recruitment services, including <Link href="/services/permanent-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">permanent placement</Link>, <Link href="/services/temporary-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">contract staffing</Link>, and temporary workforce solutions. We specialize in sourcing top-tier talent for roles in software development, cloud computing, cybersecurity, and data science across global markets.</>
   },
   {
     question: 'How does your contract staffing model support agile project delivery?',
@@ -34,17 +34,17 @@ const FAQS = [
   {
     question: 'What are the benefits of your On-Site recruitment partnership model?',
     answer: 'Our On-Site model provides dedicated recruitment experts who work within your organization. This partnership streamlines communication, deeply aligns hiring with your corporate culture, and significantly reduces overall time-to-hire and cost-per-hire.',
-    answerElement: <>Our <Link href="/services/on-site-recruitment" className="text-[#7A1F5C] hover:underline font-semibold">On-Site recruitment partnership model</Link> provides dedicated recruitment experts who work within your organization. This partnership streamlines communication, deeply aligns hiring with your corporate culture, and significantly reduces overall time-to-hire and cost-per-hire.</>
+    answerElement: <>Our <Link href="/services/onsite-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">On-Site recruitment partnership model</Link> provides dedicated recruitment experts who work within your organization. This partnership streamlines communication, deeply aligns hiring with your corporate culture, and significantly reduces overall time-to-hire and cost-per-hire.</>
   },
   {
     question: 'Do you support offshore and nearshore workforce development?',
     answer: 'Absolutely. We help organizations build scalable offshore delivery centers and nearshore teams. We handle the entire recruitment lifecycle, from sourcing and screening to onboarding support in cost-effective global talent hubs.',
-    answerElement: <>Absolutely. We help organizations build scalable <Link href="/services/remote-hiring" className="text-[#7A1F5C] hover:underline font-semibold">offshore delivery centers</Link> and nearshore teams. We handle the entire recruitment lifecycle, from sourcing and screening to onboarding support in cost-effective global talent hubs.</>
+    answerElement: <>Absolutely. We help organizations build scalable <Link href="/services/remote-hiring-services" className="text-[#7A1F5C] hover:underline font-semibold">offshore delivery centers</Link> and nearshore teams. We handle the entire recruitment lifecycle, from sourcing and screening to onboarding support in cost-effective global talent hubs.</>
   },
   {
     question: 'How does Chalky Infotech handle international payroll and compliance for remote workers?',
     answer: 'We provide comprehensive guidance and support for global workforce compliance, ensuring that all international hires meet local employment laws, tax requirements, and Right To Work regulations, regardless of where they are located.',
-    answerElement: <>We provide comprehensive guidance and support for <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-semibold">global workforce compliance</Link>, ensuring that all international hires meet local employment laws, tax requirements, and Right To Work regulations, regardless of where they are located.</>
+    answerElement: <>We provide comprehensive guidance and support for <Link href="/services/managed-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">global workforce compliance</Link>, ensuring that all international hires meet local employment laws, tax requirements, and Right To Work regulations, regardless of where they are located.</>
   },
   {
     question: 'What is the typical turnaround time for filling niche technical roles?',

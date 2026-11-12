@@ -23,11 +23,11 @@ import Story15 from '@/assets/about/story/15.png';
 const storyBlocks = [
   {
     title: 'Our Foundation',
-    desc: <>Founded with a vision to modernise <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">technology recruitment</Link>, Chalky Infotech was built to bridge the gap between growing organisations and exceptional digital talent. We combine market intelligence, recruitment expertise, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">workforce strategy</Link> to help businesses build scalable, future-ready teams.</>
+    desc: <>Founded with a vision to modernise <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium transition-all">technology recruitment</Link>, Chalky Infotech was built to bridge the gap between growing organisations and exceptional digital talent. We combine market intelligence, recruitment expertise, and <Link href="/services/managed-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">workforce strategy</Link> to help businesses build scalable, future-ready teams.</>
   },
   {
     title: 'What Makes Us Different',
-    desc: <>Unlike traditional staffing providers, we take a consultative and insight-driven approach to recruitment. By understanding each client’s technology landscape, culture, and growth objectives, we deliver <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent solutions</Link> aligned with long-term business success.</>
+    desc: <>Unlike traditional staffing providers, we take a consultative and insight-driven approach to recruitment. By understanding each client’s technology landscape, culture, and growth objectives, we deliver <Link href="/services/permanent-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">talent solutions</Link> aligned with long-term business success.</>
   },
   {
     title: 'Global Positioning',
@@ -35,7 +35,7 @@ const storyBlocks = [
   },
   {
     title: 'Human + Enterprise Touch',
-    desc: <>Beyond recruitment, we focus on building meaningful relationships with both clients and candidates. We believe successful <Link href="/services/executive-search" className="text-[#7A1F5C] hover:underline font-medium transition-all">executive hiring</Link> is driven not only by technical capability, but also by culture alignment, collaboration, and long-term growth potential.</>
+    desc: <>Beyond recruitment, we focus on building meaningful relationships with both clients and candidates. We believe successful <Link href="/services/executive-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium transition-all">executive hiring</Link> is driven not only by technical capability, but also by culture alignment, collaboration, and long-term growth potential.</>
   }
 ];
 
@@ -173,7 +173,7 @@ export default function CompanyStory() {
                   </div>
                   <div className="mt-4 flex flex-col items-center text-center">
                     <span className="text-[9px] uppercase tracking-[0.2em] text-[#8A8A8A] font-extrabold">Planning</span>
-                    <Link href="/services/managed-services" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
+                    <Link href="/services/managed-recruitment-services" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
                       <span className="text-xs md:text-sm group-hover:underline">Visionary Roadmaps</span>
                       <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </Link>
@@ -208,7 +208,7 @@ export default function CompanyStory() {
                   </div>
                   <div className="mt-4 flex flex-col items-center text-center">
                     <span className="text-[9px] uppercase tracking-[0.2em] text-[#8A8A8A] font-extrabold">Agile Delivery</span>
-                    <Link href="/services/permanent-hiring" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
+                    <Link href="/services/permanent-recruitment-services" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
                       <span className="text-xs md:text-sm group-hover:underline">Sprint Executions</span>
                       <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </Link>
@@ -235,7 +235,7 @@ export default function CompanyStory() {
                   </div>
                   <div className="mt-4 flex flex-col items-center text-center">
                     <span className="text-[9px] uppercase tracking-[0.2em] text-[#8A8A8A] font-extrabold">Data Insights</span>
-                    <Link href="/services/executive-search" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
+                    <Link href="/services/executive-recruitment-services" className="flex items-center gap-1 mt-1 text-[#7A1F5C] font-bold group justify-center">
                       <span className="text-xs md:text-sm group-hover:underline">Workforce Intelligence</span>
                       <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </Link>

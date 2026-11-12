@@ -30,19 +30,19 @@ const SERVICES_DATA = {
     {
       title: 'Recruitment Solutions',
       items: [
-        { label: 'IT Staffing', desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.', href: '/services/it-staffing' },
-        { label: 'Executive Search', desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.', href: '/services/executive-search' },
-        { label: 'Contract Staffing', desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.', href: '/services/contract-staffing' },
-        { label: 'Permanent Hiring', desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.', href: '/services/permanent-hiring' },
+        { label: 'IT Staffing', desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.', href: '/services/it-recruitment-services' },
+        { label: 'Executive Search', desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.', href: '/services/executive-recruitment-services' },
+        { label: 'Contract Staffing', desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.', href: '/services/contract-recruitment-services' },
+        { label: 'Permanent Hiring', desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.', href: '/services/permanent-recruitment-services' },
       ]
     },
     {
       title: 'Enterprise Services',
       items: [
-        { label: 'Temporary Recruitment', desc: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.', href: '/services/temporary-recruitment' },
-        { label: 'On-Site Recruitment', desc: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.', href: '/services/on-site-recruitment' },
-        { label: 'Managed Services', desc: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.', href: '/services/managed-services' },
-        { label: 'Remote Hiring', desc: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.', href: '/services/remote-hiring' },
+        { label: 'Temporary Recruitment', desc: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.', href: '/services/temporary-recruitment-services' },
+        { label: 'On-Site Recruitment', desc: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.', href: '/services/onsite-recruitment-services' },
+        { label: 'Managed Services', desc: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.', href: '/services/managed-recruitment-services' },
+        { label: 'Remote Hiring', desc: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.', href: '/services/remote-hiring-services' },
       ]
     }
   ],
@@ -210,10 +210,10 @@ function getPremiumCategoryDescription(slug: string, fallback: string) {
     if (s.includes('impact-metric') || s.includes('metric')) return "Strategic operational metrics tracking onboarding efficiency, retention achievements, and cost-to-hire benchmarks.";
     if (s.includes('testimonial')) return "Firsthand feedback and reviews from our global enterprise clients, executive hires, and software engineers.";
     if (s.includes('poster')) return "Visual updates, campaign posters, and creative media showcasing Chalky's unique corporate presence and brand values.";
-    if (s.includes('it-staffing')) return "Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.";
-    if (s.includes('executive-search')) return "Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.";
-    if (s.includes('contract-staffing')) return "Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.";
-    if (s.includes('remote-hiring')) return "Global remote hiring services enabling you to build borderless teams with top-tier international professionals.";
+    if (s.includes('it-recruitment-services')) return "Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.";
+    if (s.includes('executive-recruitment-services')) return "Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.";
+    if (s.includes('contract-recruitment-services')) return "Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.";
+    if (s.includes('remote-hiring-services')) return "Global remote hiring services enabling you to build borderless teams with top-tier international professionals.";
   }
   return fallback;
 }

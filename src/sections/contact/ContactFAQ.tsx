@@ -19,19 +19,19 @@ const faqs = [
   },
   {
     question: 'Do you offer scalable recruitment partnership solutions for startups and enterprises?',
-    answer: <>Yes, we provide scalable solutions designed to grow with your business. From seed-stage startups needing their first 10 engineers to global enterprises requiring 100+ specialists for <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-semibold">digital transformation</Link>, our <Link href="/services" className="text-[#7A1F5C] hover:underline font-semibold">flexible models</Link> adapt to your needs.</>
+    answer: <>Yes, we provide scalable solutions designed to grow with your business. From seed-stage startups needing their first 10 engineers to global enterprises requiring 100+ specialists for <Link href="/services/managed-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">digital transformation</Link>, our <Link href="/services" className="text-[#7A1F5C] hover:underline font-semibold">flexible models</Link> adapt to your needs.</>
   },
   {
     question: 'What are your staffing agency fees for permanent and contract placements?',
-    answer: <>Our fee structure is competitive and based on the industry standard for the specific engagement model (contingency or retained). We provide transparent pricing and volume-based discounts for long-term <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-semibold">recruitment partnerships</Link>.</>
+    answer: <>Our fee structure is competitive and based on the industry standard for the specific engagement model (contingency or retained). We provide transparent pricing and volume-based discounts for long-term <Link href="/services/permanent-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">recruitment partnerships</Link>.</>
   },
   {
     question: 'How does your global talent acquisition support work for remote hiring?',
-    answer: <>We leverage our international hubs to source remote talent across multiple time zones. We assist with cultural alignment, technical vetting, and local compliance to ensure your <Link href="/services/remote-hiring" className="text-[#7A1F5C] hover:underline font-semibold">remote workforce</Link> is both skilled and legally integrated.</>
+    answer: <>We leverage our international hubs to source remote talent across multiple time zones. We assist with cultural alignment, technical vetting, and local compliance to ensure your <Link href="/services/remote-hiring-services" className="text-[#7A1F5C] hover:underline font-semibold">remote workforce</Link> is both skilled and legally integrated.</>
   },
   {
     question: 'Can I schedule a workforce consultancy session with your sector experts?',
-    answer: <>Absolutely. We offer strategic <Link href="/services/on-site-recruitment" className="text-[#7A1F5C] hover:underline font-semibold">workforce consultancy</Link> to help you plan your hiring roadmap, analyze market salary benchmarks, and optimize your employer branding to attract top-tier technology talent.</>
+    answer: <>Absolutely. We offer strategic <Link href="/services/onsite-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">workforce consultancy</Link> to help you plan your hiring roadmap, analyze market salary benchmarks, and optimize your employer branding to attract top-tier technology talent.</>
   },
   {
     question: 'What geographic locations does Chalky Infotech support for on-site hiring?',

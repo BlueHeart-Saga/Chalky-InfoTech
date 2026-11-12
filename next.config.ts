@@ -1,5 +1,22 @@
 import type { NextConfig } from "next";
 
+const SERVICE_REDIRECTS: Array<{ source: string; destination: string }> = [
+  ...[
+    ['it-staffing', 'it-recruitment-services'],
+    ['executive-search', 'executive-recruitment-services'],
+    ['contract-staffing', 'contract-recruitment-services'],
+    ['permanent-hiring', 'permanent-recruitment-services'],
+    ['on-site-recruitment', 'onsite-recruitment-services'],
+    ['managed-services', 'managed-recruitment-services'],
+  ].flatMap(([oldSlug, newSlug]) => [
+    { source: `/services/${oldSlug}`, destination: `/services/${newSlug}` },
+    { source: `/services/${oldSlug}-services`, destination: `/services/${newSlug}` },
+  ]),
+  { source: '/services/temporary-recruitment', destination: '/services/temporary-recruitment-services' },
+  { source: '/services/temporary-staffing-services', destination: '/services/temporary-recruitment-services' },
+  { source: '/services/remote-hiring', destination: '/services/remote-hiring-services' },
+];
+
 const nextConfig: NextConfig = {
   output: "standalone",
   images: {
@@ -23,6 +40,10 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...SERVICE_REDIRECTS.map((rule) => ({
+        ...rule,
+        permanent: true,
+      })),
       {
         source: "/insights-knowledge/:path*",
         destination: "/insights/:path*",

@@ -11,21 +11,21 @@ import comp3 from '@/assets/Services/Complex-Requirements/3.png';
 import comp4 from '@/assets/Services/Complex-Requirements/4.png';
 
 const CAPABILITIES = [
-  { title: 'High-Volume Recruitment', desc: 'Rapid cohort hiring for large-scale operations.', icon: Layers, image: comp1, link: '/services/temporary-recruitment' },
-  { title: 'Specialized Skill Hiring', desc: 'Sourcing rare and niche technical expertise.', icon: Rocket, image: comp2, link: '/services/permanent-hiring' },
+  { title: 'High-Volume Recruitment', desc: 'Rapid cohort hiring for large-scale operations.', icon: Layers, image: comp1, link: '/services/temporary-recruitment-services' },
+  { title: 'Specialized Skill Hiring', desc: 'Sourcing rare and niche technical expertise.', icon: Rocket, image: comp2, link: '/services/permanent-recruitment-services' },
   { title: 'Cross-Industry Support', desc: 'Versatile staffing across diverse global sectors.', icon: BarChart, image: comp3, link: '/industries' },
-  { title: 'Remote Talent Acquisition', desc: 'Building seamless global borderless teams.', icon: Globe, image: comp4, link: '/services/remote-hiring' }
+  { title: 'Remote Talent Acquisition', desc: 'Building seamless global borderless teams.', icon: Globe, image: comp4, link: '/services/remote-hiring-services' }
 ];
 
 const BULLETS = [
   { text: 'Discreet C-suite & executive recruitment', link: '/about' },
   { text: 'Digital transformation team expansion', link: '/services' },
-  { text: 'Robust high-volume scaling models', link: '/services/temporary-recruitment' },
-  { text: 'Sourcing niche technical skillsets', link: '/services/permanent-hiring' },
+  { text: 'Robust high-volume scaling models', link: '/services/temporary-recruitment-services' },
+  { text: 'Sourcing niche technical skillsets', link: '/services/permanent-recruitment-services' },
   { text: 'Cross-industry workforce integration', link: '/industries' },
-  { text: 'Compliant borderless remote operations', link: '/services/remote-hiring' },
-  { text: 'High-retention permanent placements', link: '/services/permanent-hiring' },
-  { text: 'Seamless on-site HR partnerships', link: '/services/on-site-recruitment' }
+  { text: 'Compliant borderless remote operations', link: '/services/remote-hiring-services' },
+  { text: 'High-retention permanent placements', link: '/services/permanent-recruitment-services' },
+  { text: 'Seamless on-site HR partnerships', link: '/services/onsite-recruitment-services' }
 ];
 
 export default function SpecializedHiring() {

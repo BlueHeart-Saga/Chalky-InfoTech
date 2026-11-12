@@ -17,7 +17,7 @@ const OVERVIEW_CARDS = [
     desc: 'Aligning top-tier candidates with your specific organizational goals and technical requirements.',
     color: 'from-[#7A1F5C] to-[#4A1238]',
     image: eco1,
-    link: '/services/permanent-hiring'
+    link: '/services/permanent-recruitment-services'
   },
   {
     icon: Users,
@@ -25,7 +25,7 @@ const OVERVIEW_CARDS = [
     desc: 'Rapidly expanding your capabilities with skilled professionals across diverse disciplines.',
     color: 'from-[#C2185B] to-[#7A1F5C]',
     image: eco2,
-    link: '/services/remote-hiring'
+    link: '/services/remote-hiring-services'
   },
   {
     icon: Zap,
@@ -33,7 +33,7 @@ const OVERVIEW_CARDS = [
     desc: 'Flexible recruitment solutions designed to adapt to evolving market and business needs.',
     color: 'from-[#D14D72] to-[#C2185B]',
     image: eco3,
-    link: '/services/temporary-recruitment'
+    link: '/services/temporary-recruitment-services'
   },
   {
     icon: BarChart3,
@@ -41,7 +41,7 @@ const OVERVIEW_CARDS = [
     desc: 'Optimizing your hiring process for speed, quality, and long-term retention success.',
     color: 'from-[#4A1238] to-[#2D0F22]',
     image: eco4,
-    link: '/services/managed-services'
+    link: '/services/managed-recruitment-services'
   }
 ];
 
@@ -60,7 +60,7 @@ export default function ServicesOverview() {
           </div>
           <div className="lg:w-1/2">
             <p className="text-[#8A8A8A] text-lg leading-relaxed border-l-4 border-[#7A1F5C] pl-8">
-              From <Link href="/services/contract-staffing" className="text-[#7A1F5C] hover:underline font-semibold">specialist recruitment</Link> and <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-semibold">permanent staffing </Link> to <Link href="/services/remote-hiring" className="text-[#7A1F5C] hover:underline font-semibold">workforce scaling</Link> and <Link href="/services/on-site-recruitment" className="text-[#7A1F5C] hover:underline font-semibold">on-site hiring support</Link>, Chalky Infotech is a recruitment company in UK delivering tailored talent solutions for growing businesses..
+              From <Link href="/services/contract-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">specialist recruitment</Link> and <Link href="/services/permanent-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">permanent staffing </Link> to <Link href="/services/remote-hiring-services" className="text-[#7A1F5C] hover:underline font-semibold">workforce scaling</Link> and <Link href="/services/onsite-recruitment-services" className="text-[#7A1F5C] hover:underline font-semibold">on-site hiring support</Link>, Chalky Infotech is a recruitment company in UK delivering tailored talent solutions for growing businesses..
             </p>
           </div>
         </div>

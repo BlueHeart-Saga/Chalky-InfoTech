@@ -277,13 +277,13 @@ export default function CapabilitiesOverviewPage() {
           <div className="max-w-4xl mx-auto bg-[#FAF8F5] rounded-3xl border border-[#EFE7DD] overflow-hidden shadow-sm">
             <div className="grid grid-cols-1 divide-y divide-[#EFE7DD]">
               {[
-                { need: 'Build a permanent technology team', solution: 'Permanent Hiring', href: '/services/permanent-hiring' },
-                { need: 'Scale for a project', solution: 'Contract Staffing', href: '/services/contract-staffing' },
-                { need: 'Find specialized AI talent', solution: 'IT Staffing', href: '/services/it-staffing' },
-                { need: 'Hire senior technology leaders', solution: 'Executive Search', href: '/services/executive-search' },
-                { need: 'Build distributed teams', solution: 'Remote Hiring', href: '/services/remote-hiring' },
-                { need: 'Add resources quickly', solution: 'Temporary Recruitment', href: '/services/temporary-recruitment' },
-                { need: 'Dedicated recruitment support', solution: 'On-Site Recruitment', href: '/services/on-site-recruitment' },
+                { need: 'Build a permanent technology team', solution: 'Permanent Hiring', href: '/services/permanent-recruitment-services' },
+                { need: 'Scale for a project', solution: 'Contract Staffing', href: '/services/contract-recruitment-services' },
+                { need: 'Find specialized AI talent', solution: 'IT Staffing', href: '/services/it-recruitment-services' },
+                { need: 'Hire senior technology leaders', solution: 'Executive Search', href: '/services/executive-recruitment-services' },
+                { need: 'Build distributed teams', solution: 'Remote Hiring', href: '/services/remote-hiring-services' },
+                { need: 'Add resources quickly', solution: 'Temporary Recruitment', href: '/services/temporary-recruitment-services' },
+                { need: 'Dedicated recruitment support', solution: 'On-Site Recruitment', href: '/services/onsite-recruitment-services' },
               ].map((row, idx) => (
                 <div key={idx} className="p-5 sm:px-8 flex items-center justify-between gap-4 hover:bg-white transition-colors">
                   <span className="text-sm sm:text-base font-semibold text-[#1A1A1A]">{row.need}</span>

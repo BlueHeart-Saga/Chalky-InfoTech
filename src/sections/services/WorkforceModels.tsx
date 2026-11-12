@@ -12,7 +12,7 @@ const MODELS = [
     span: 'lg:col-span-2 lg:row-span-1',
     color: 'bg-[#F5F0E8]',
     iconColor: 'text-[#7A1F5C]',
-    link: '/services/temporary-recruitment'
+    link: '/services/temporary-recruitment-services'
   },
   {
     title: 'Permanent Hiring',
@@ -21,7 +21,7 @@ const MODELS = [
     span: 'lg:col-span-1 lg:row-span-2',
     color: 'bg-[#7A1F5C] text-white',
     iconColor: 'text-white',
-    link: '/services/permanent-hiring'
+    link: '/services/permanent-recruitment-services'
   },
   {
     title: 'Remote Workforce',
@@ -30,7 +30,7 @@ const MODELS = [
     span: 'lg:col-span-1 lg:row-span-1',
     color: 'bg-white',
     iconColor: 'text-[#7A1F5C]',
-    link: '/services/remote-hiring'
+    link: '/services/remote-hiring-services'
   },
   {
     title: 'On-Site Teams',
@@ -39,7 +39,7 @@ const MODELS = [
     span: 'lg:col-span-1 lg:row-span-1',
     color: 'bg-[#F5F0E8]',
     iconColor: 'text-[#7A1F5C]',
-    link: '/services/on-site-recruitment'
+    link: '/services/onsite-recruitment-services'
   },
   {
     title: 'Project-Based Hiring',
@@ -48,7 +48,7 @@ const MODELS = [
     span: 'lg:col-span-1 lg:row-span-1',
     color: 'bg-white',
     iconColor: 'text-[#7A1F5C]',
-    link: '/services/managed-services'
+    link: '/services/managed-recruitment-services'
   },
   {
     title: 'Hybrid Solutions',

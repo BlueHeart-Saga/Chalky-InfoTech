@@ -17,10 +17,10 @@ import FAQSchema from '@/components/FAQSchema';
 import { buildPageMetadataWithImage } from '@/lib/seo-images';
 
 const SERVICE_IMAGES: Record<string, string> = {
-  'contract-staffing': '/services/contract.png',
-  'on-site-recruitment': '/services/onsite.png',
-  'permanent-hiring': '/services/permanent.png',
-  'temporary-recruitment': '/services/temporary.png',
+  'contract-recruitment-services': '/services/contract.png',
+  'onsite-recruitment-services': '/services/onsite.png',
+  'permanent-recruitment-services': '/services/permanent.png',
+  'temporary-recruitment-services': '/services/temporary.png',
 };
 
 type Props = {

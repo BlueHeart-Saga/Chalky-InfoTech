@@ -30,21 +30,21 @@ const FALLBACK_CATEGORIES = [
   {
     name: 'Executive & C-Suite',
     description: 'Attracting and retaining global leadership, C-level compensation trends, and leadership placement models.',
-    slug: 'executive-search',
+    slug: 'executive-recruitment-services',
     bg: 'bg-[#DBCB89]/20',
     icon: 'Award'
   },
   {
     name: 'Workforce & Scaling',
     description: 'Contract staffing efficiency, managed services supply chains, and onboarding high-retention cohorts.',
-    slug: 'contract-staffing',
+    slug: 'contract-recruitment-services',
     bg: 'bg-[#7A1F5C]/10',
     icon: 'Layers'
   },
   {
     name: 'Global Remote Hiring',
     description: 'Compliance and borderless talent hubs, remote team productivity, and international payroll structures.',
-    slug: 'remote-hiring',
+    slug: 'remote-hiring-services',
     bg: 'bg-[#7A1F5C]/5',
     icon: 'Globe'
   }
@@ -67,10 +67,10 @@ function getPremiumCategoryDescription(slug: string, fallback: string) {
     if (s.includes('impact-metric') || s.includes('metric')) return "Strategic operational metrics tracking onboarding efficiency, retention achievements, and cost-to-hire benchmarks.";
     if (s.includes('testimonial')) return "Firsthand feedback and reviews from our global enterprise clients, executive hires, and software engineers.";
     if (s.includes('poster')) return "Visual updates, campaign posters, and creative media showcasing Chalky's unique corporate presence and brand values.";
-    if (s.includes('it-staffing')) return "Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.";
-    if (s.includes('executive-search')) return "Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.";
-    if (s.includes('contract-staffing')) return "Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.";
-    if (s.includes('remote-hiring')) return "Global remote hiring services enabling you to build borderless teams with top-tier international professionals.";
+    if (s.includes('it-recruitment-services')) return "Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.";
+    if (s.includes('executive-recruitment-services')) return "Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.";
+    if (s.includes('contract-recruitment-services')) return "Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.";
+    if (s.includes('remote-hiring-services')) return "Global remote hiring services enabling you to build borderless teams with top-tier international professionals.";
   }
   return fallback;
 }

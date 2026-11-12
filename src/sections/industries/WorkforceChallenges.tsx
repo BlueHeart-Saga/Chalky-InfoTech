@@ -5,12 +5,12 @@ import { TrendingUp, AlertCircle, Layers, Zap, MapPin, Target } from 'lucide-rea
 import Link from 'next/link';
 
 const CHALLENGES = [
-  { title: 'Rapid Scaling', icon: TrendingUp, desc: 'Quickly expanding your workforce to meet explosive project demands.', link: '/services/contract-staffing' },
-  { title: 'Skill Shortages', icon: AlertCircle, desc: 'Identifying rare technical talent in highly competitive markets.', link: '/services/it-staffing' },
-  { title: 'High-Volume Hiring', icon: Layers, desc: 'Managing massive recruitment drives with speed and precision.', link: '/services/temporary-recruitment' },
-  { title: 'Transformation Hiring', icon: Zap, desc: 'Scaling the specific talent needed for complex digital pivots.', link: '/services/managed-services' },
-  { title: 'Operational Expansion', icon: MapPin, desc: 'Establishing new teams in emerging international territories.', link: '/services/remote-hiring' },
-  { title: 'Specialized Sourcing', icon: Target, desc: 'Discreet search for niche C-suite and leadership roles.', link: '/services/executive-search' }
+  { title: 'Rapid Scaling', icon: TrendingUp, desc: 'Quickly expanding your workforce to meet explosive project demands.', link: '/services/contract-recruitment-services' },
+  { title: 'Skill Shortages', icon: AlertCircle, desc: 'Identifying rare technical talent in highly competitive markets.', link: '/services/it-recruitment-services' },
+  { title: 'High-Volume Hiring', icon: Layers, desc: 'Managing massive recruitment drives with speed and precision.', link: '/services/temporary-recruitment-services' },
+  { title: 'Transformation Hiring', icon: Zap, desc: 'Scaling the specific talent needed for complex digital pivots.', link: '/services/managed-recruitment-services' },
+  { title: 'Operational Expansion', icon: MapPin, desc: 'Establishing new teams in emerging international territories.', link: '/services/remote-hiring-services' },
+  { title: 'Specialized Sourcing', icon: Target, desc: 'Discreet search for niche C-suite and leadership roles.', link: '/services/executive-recruitment-services' }
 ];
 
 export default function WorkforceChallenges() {

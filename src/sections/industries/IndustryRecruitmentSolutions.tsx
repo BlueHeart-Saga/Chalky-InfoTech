@@ -6,17 +6,17 @@ import Link from 'next/link';
 import '@/styles/IndustryFlipCards.css';
 
 const RECRUITMENT_SOLUTIONS = [
-  { title: 'IT Staffing', icon: MonitorSmartphone, desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.', link: '/services/it-staffing' },
-  { title: 'Executive Search', icon: ShieldCheck, desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.', link: '/services/executive-search' },
-  { title: 'Contract Staffing', icon: Clock, desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.', link: '/services/contract-staffing' },
-  { title: 'Permanent Hiring', icon: Users, desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.', link: '/services/permanent-hiring' },
+  { title: 'IT Staffing', icon: MonitorSmartphone, desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.', link: '/services/it-recruitment-services' },
+  { title: 'Executive Search', icon: ShieldCheck, desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.', link: '/services/executive-recruitment-services' },
+  { title: 'Contract Staffing', icon: Clock, desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.', link: '/services/contract-recruitment-services' },
+  { title: 'Permanent Hiring', icon: Users, desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.', link: '/services/permanent-recruitment-services' },
 ];
 
 const ENTERPRISE_SERVICES = [
-  { title: 'Temporary Recruitment', icon: Briefcase, desc: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.', link: '/services/temporary-recruitment' },
-  { title: 'On-Site Recruitment', icon: Building2, desc: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.', link: '/services/on-site-recruitment' },
-  { title: 'Managed Services', icon: Settings, desc: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.', link: '/services/managed-services' },
-  { title: 'Remote Hiring', icon: Globe2, desc: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.', link: '/services/remote-hiring' }
+  { title: 'Temporary Recruitment', icon: Briefcase, desc: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.', link: '/services/temporary-recruitment-services' },
+  { title: 'On-Site Recruitment', icon: Building2, desc: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.', link: '/services/onsite-recruitment-services' },
+  { title: 'Managed Services', icon: Settings, desc: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.', link: '/services/managed-recruitment-services' },
+  { title: 'Remote Hiring', icon: Globe2, desc: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.', link: '/services/remote-hiring-services' }
 ];
 
 const STICKY_STYLES = [

@@ -17,42 +17,42 @@ import {
 const industries = [
   {
     title: 'IT & Technology',
-    desc: <>Supporting organizations with recruitment solutions across <Link href="/services/it-staffing" className="text-[#7A1F5C] hover:underline font-medium">software development</Link>, <Link href="/services/remote-hiring" className="text-[#7A1F5C] hover:underline font-medium">cloud infrastructure</Link>, and digital transformation projects.</>,
+    desc: <>Supporting organizations with recruitment solutions across <Link href="/services/it-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium">software development</Link>, <Link href="/services/remote-hiring-services" className="text-[#7A1F5C] hover:underline font-medium">cloud infrastructure</Link>, and digital transformation projects.</>,
     tag: 'Digital Workforce',
     icon: <Cpu className="w-8 h-8" />,
     color: 'bg-blue-50 text-blue-600'
   },
   {
     title: 'Telecommunications',
-    desc: <>Scaling global connectivity with expert engineers for <Link href="/services/contract-staffing" className="text-[#7A1F5C] hover:underline font-medium">5G rollouts</Link>, wireless networks, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium">satellite infrastructure</Link>.</>,
+    desc: <>Scaling global connectivity with expert engineers for <Link href="/services/contract-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium">5G rollouts</Link>, wireless networks, and <Link href="/services/managed-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium">satellite infrastructure</Link>.</>,
     tag: 'Connectivity & Network',
     icon: <Radio className="w-8 h-8" />,
     color: 'bg-cyan-50 text-cyan-600'
   },
   {
     title: 'Engineering & Infrastructure',
-    desc: <>Supporting <Link href="/industries/engineering-infrastructure" className="text-[#7A1F5C] hover:underline font-medium">large-scale engineering</Link>, civil, industrial, and specialized <Link href="/services/temporary-recruitment" className="text-[#7A1F5C] hover:underline font-medium">technical workforce</Link> requirements.</>,
+    desc: <>Supporting <Link href="/industries/engineering-infrastructure" className="text-[#7A1F5C] hover:underline font-medium">large-scale engineering</Link>, civil, industrial, and specialized <Link href="/services/temporary-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium">technical workforce</Link> requirements.</>,
     tag: 'Heavy Industries',
     icon: <HardHat className="w-8 h-8" />,
     color: 'bg-orange-50 text-orange-600'
   },
   {
     title: 'Media & Digital Services',
-    desc: <>Connecting businesses with talent across <Link href="/industries/media-digital-services" className="text-[#7A1F5C] hover:underline font-medium">digital platforms</Link>, creative content creation, and <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-medium">technology ecosystems</Link>.</>,
+    desc: <>Connecting businesses with talent across <Link href="/industries/media-digital-services" className="text-[#7A1F5C] hover:underline font-medium">digital platforms</Link>, creative content creation, and <Link href="/services/permanent-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium">technology ecosystems</Link>.</>,
     tag: 'Creative Tech',
     icon: <MonitorPlay className="w-8 h-8" />,
     color: 'bg-purple-50 text-purple-600'
   },
   {
     title: 'Banking & Finance',
-    desc: <>Providing specialized hiring support for financial services, <Link href="/industries/banking-finance" className="text-[#7A1F5C] hover:underline font-medium">fintech operations</Link>, <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium">compliance functions</Link>, and banking environments.</>,
+    desc: <>Providing specialized hiring support for financial services, <Link href="/industries/banking-finance" className="text-[#7A1F5C] hover:underline font-medium">fintech operations</Link>, <Link href="/services/managed-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium">compliance functions</Link>, and banking environments.</>,
     tag: 'Financial Operations',
     icon: <Landmark className="w-8 h-8" />,
     color: 'bg-emerald-50 text-emerald-600'
   },
   {
     title: 'Healthcare & Life Sciences',
-    desc: <>Helping medical organizations strengthen <Link href="/services/permanent-hiring" className="text-[#7A1F5C] hover:underline font-medium">clinical capabilities</Link> through scalable <Link href="/services/temporary-recruitment" className="text-[#7A1F5C] hover:underline font-medium">staffing solutions</Link> and laboratory operations.</>,
+    desc: <>Helping medical organizations strengthen <Link href="/services/permanent-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium">clinical capabilities</Link> through scalable <Link href="/services/temporary-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium">staffing solutions</Link> and laboratory operations.</>,
     tag: 'Healthcare Support',
     icon: <Activity className="w-8 h-8" />,
     color: 'bg-rose-50 text-rose-600'
@@ -66,7 +66,7 @@ const industries = [
   },
   {
     title: 'Manufacturing',
-    desc: <>Providing <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium">recruitment support</Link> for advanced industrial operations, lean production lines, and <Link href="/services/managed-services" className="text-[#7A1F5C] hover:underline font-medium">workforce modernization</Link>.</>,
+    desc: <>Providing <Link href="/services" className="text-[#7A1F5C] hover:underline font-medium">recruitment support</Link> for advanced industrial operations, lean production lines, and <Link href="/services/managed-recruitment-services" className="text-[#7A1F5C] hover:underline font-medium">workforce modernization</Link>.</>,
     tag: 'Industrial Workforce',
     icon: <Factory className="w-8 h-8" />,
     color: 'bg-slate-50 text-slate-600'

@@ -35,13 +35,13 @@ const REASONS = [
     title: 'Sector-Specific Hiring', 
     image: adv4, 
     desc: 'Utilize data-driven recruitment metrics, precise technical mapping, and rigorous qualification methodologies to source domain-specific resources and specialists.', 
-    link: '/services/permanent-hiring' 
+    link: '/services/permanent-recruitment-services' 
   },
   { 
     title: 'Rapid Talent Delivery', 
     image: adv5, 
     desc: 'Accelerate your average time-to-hire using optimized global talent pipelines, digital transformation matching platforms, and rapid response staffing protocols.', 
-    link: '/services/temporary-recruitment' 
+    link: '/services/temporary-recruitment-services' 
   },
   { 
     title: 'Long-Term Partnerships', 

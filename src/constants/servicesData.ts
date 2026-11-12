@@ -104,7 +104,7 @@ processDescription: string;
 
 export const SERVICES_DETAILED: ServiceDetail[] = [
   {
-    slug: 'it-staffing',
+    slug: 'it-recruitment-services',
     label: 'IT Staffing Solution',
     icon: 'Code2',
     desc: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals on demand, at speed, without compromise.',
@@ -318,7 +318,7 @@ partnerHeadingLabel: "Partner Excellence",
     ]
   },
   {
-    slug: 'executive-search',
+    slug: 'executive-recruitment-services',
     label: 'Executive Recruitment Services',
     icon: 'TrendingUp',
     desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.',
@@ -537,7 +537,7 @@ processDescription:
     ]
   },
   {
-    slug: 'contract-staffing',
+    slug: 'contract-recruitment-services',
     label: 'Contract recruitment',
     icon: 'Clock',
     desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.',
@@ -770,7 +770,7 @@ partnerHeadingLabel: "Partner Excellence",
     ]
   },
   {
-    slug: 'permanent-hiring',
+    slug: 'permanent-recruitment-services',
     label: 'Permanent Recruitment',
     icon: 'Users',
     desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.',
@@ -987,7 +987,7 @@ processDescription:
     ]
   },
   {
-    slug: 'temporary-recruitment',
+    slug: 'temporary-recruitment-services',
     label: 'Temporary Recruitment',
     icon: 'UserPlus',
     desc: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.',
@@ -1199,7 +1199,7 @@ processDescription:
     ]
   },
   {
-    slug: 'on-site-recruitment',
+    slug: 'onsite-recruitment-services',
     label: 'OnSite Recruitment',
     icon: 'MapPin',
     desc: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.',
@@ -1422,7 +1422,7 @@ processDescription:
     ]
   },
   {
-    slug: 'managed-services',
+    slug: 'managed-recruitment-services',
     label: 'Managed Recruitment',
     icon: 'Settings',
     desc: 'End-to-end managed workforce solutions (MSP) for optimizing your talent supply chain and efficiency.',
@@ -1635,7 +1635,7 @@ processDescription:
     ]
   },
   {
-    slug: 'remote-hiring',
+    slug: 'remote-hiring-services',
     label: 'Remote Hiring',
     icon: 'Globe',
     desc: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.',

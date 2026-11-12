@@ -85,7 +85,7 @@ export default function WhyChooseServices() {
             <div className="relative z-10 p-8 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-3">Exceptional standards</h3>
               <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-               From growing businesses to established enterprises, we maintain a high standard of candidate sourcing, screening, and selection to identify  <Link href="/services/it-staffing" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold"></Link><Link href="/services/executive-search" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">qualified talent that fits your requirements. </Link>.
+               From growing businesses to established enterprises, we maintain a high standard of candidate sourcing, screening, and selection to identify  <Link href="/services/it-recruitment-services" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold"></Link><Link href="/services/executive-recruitment-services" className="text-[#7A1F5C] underline hover:text-[#D14D72] font-semibold">qualified talent that fits your requirements. </Link>.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 mt-6 text-gray-800">
@@ -171,7 +171,7 @@ export default function WhyChooseServices() {
             <div className="relative z-10 p-8 h-full flex flex-col">
               <h3 className="text-2xl font-bold mb-3">Over 40 tech recruiters</h3>
               <p className="text-white/80 text-sm leading-relaxed max-w-sm">
-                We can hire up to 5 developers in the first month and 100 within a year, scaling perfectly to your growth requirements with our <Link href="/services/temporary-recruitment" className="text-white underline hover:text-[#D14D72] font-semibold">temporary recruitment</Link> and <Link href="/services/remote-hiring" className="text-white underline hover:text-[#D14D72] font-semibold">remote talent models</Link>.
+                We can hire up to 5 developers in the first month and 100 within a year, scaling perfectly to your growth requirements with our <Link href="/services/temporary-recruitment-services" className="text-white underline hover:text-[#D14D72] font-semibold">temporary recruitment</Link> and <Link href="/services/remote-hiring-services" className="text-white underline hover:text-[#D14D72] font-semibold">remote talent models</Link>.
               </p>
             </div>
           </motion.div>

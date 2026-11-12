@@ -18,7 +18,7 @@ const SOLUTIONS = [
   {
     id: 'it-staffing',
     title: 'IT Staffing',
-    slug: 'it-staffing',
+    slug: 'it-recruitment-services',
     intro: 'Specialized IT recruitment services connecting businesses with skilled software, cloud, DevOps, and data engineering professionals..',
     image: core1,
     benefits: ['Elite software talent network', 'Domain-specific vetting', 'Accelerated hiring timelines', 'Cloud & DevOps specialization'],
@@ -28,7 +28,7 @@ const SOLUTIONS = [
   {
     id: 'executive',
     title: 'Executive Search',
-    slug: 'executive-search',
+    slug: 'executive-recruitment-services',
     intro: 'Discreet, high-impact executive recruitment services for identifying and attracting exceptional C-suite and senior leadership talent',
     image: core2,
     benefits: ['Absolute confidentiality', 'Global talent mapping', 'Board-level consulting', 'Thorough executive screening'],
@@ -38,7 +38,7 @@ const SOLUTIONS = [
   {
     id: 'contract',
     title: 'Contract Staffing',
-    slug: 'contract-staffing',
+    slug: 'contract-recruitment-services',
     intro: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.',
     image: core3,
     benefits: ['Agile scaling capability', 'Niche project expertise', 'Full payroll management', 'Minimal operational risk'],
@@ -48,7 +48,7 @@ const SOLUTIONS = [
   {
     id: 'permanent',
     title: 'Permanent Hiring',
-    slug: 'permanent-hiring',
+    slug: 'permanent-recruitment-services',
     intro: 'Strategic permanent recruitment services designed to connect businesses with high-quality talent for long-term success and retention.',
     image: core4,
     benefits: ['High retention metrics', 'Deep organizational fit', 'Cohesive team building', 'Direct-placement reliability'],
@@ -58,7 +58,7 @@ const SOLUTIONS = [
   {
     id: 'temporary',
     title: 'Temporary Recruitment',
-    slug: 'temporary-recruitment',
+    slug: 'temporary-recruitment-services',
     intro: 'Rapid-response temporary recruitment services to help businesses scale their workforce quickly and meet changing operational demands.',
     image: core5,
     benefits: ['Immediate resource deployment', 'Accommodate seasonal peaks', 'High-volume candidate pool', 'Vetted database matching'],
@@ -68,7 +68,7 @@ const SOLUTIONS = [
   {
     id: 'onsite',
     title: 'On-Site Recruitment',
-    slug: 'on-site-recruitment',
+    slug: 'onsite-recruitment-services',
     intro: 'Full-cycle on-site recruitment solutions providing dedicated talent partners who work seamlessly alongside your HR team',
     image: core6,
     benefits: ['Embedded talent consultants', 'Minimized cost-per-hire', 'Standardized methodologies', 'Consistent brand representation'],
@@ -78,7 +78,7 @@ const SOLUTIONS = [
   {
     id: 'managed',
     title: 'Managed Services',
-    slug: 'managed-services',
+    slug: 'managed-recruitment-services',
     intro: 'End-to-end managed recruitment solutions (MSP) designed to streamline workforce management, optimize talent supply chains, and improve hiring efficiency.',
     image: core7,
     benefits: ['Streamlined vendor networks', 'Maximum cost efficiency', 'Complete compliance guardrails', 'Data-driven insights'],
@@ -88,7 +88,7 @@ const SOLUTIONS = [
   {
     id: 'remote',
     title: 'Remote Hiring',
-    slug: 'remote-hiring',
+    slug: 'remote-hiring-services',
     intro: 'Global remote hiring services enabling you to build borderless teams with top-tier international professionals.',
     image: core8,
     benefits: ['Unrestricted global talent pool', 'Compliant international onboarding', 'Distributed team support', 'Cultural diversity integration'],

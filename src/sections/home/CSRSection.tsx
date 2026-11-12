@@ -62,7 +62,7 @@ const IMPACT_STATS = [
 const COMMITMENTS: { label: string; href?: string }[] = [
   { label: 'Fully digitised, paperless hiring workflows', href: '/csr#pillars' },
   { label: 'Annual carbon-offset partnerships with certified providers', href: '/csr#timeline' },
-  { label: 'Mandatory diversity targets on every executive mandate', href: '/services/executive-search' },
+  { label: 'Mandatory diversity targets on every executive mandate', href: '/services/executive-recruitment-services' },
   { label: 'Graduate mentorship across disadvantaged communities', href: '/csr#pillars' },
   { label: 'Ethical AI use policy for candidate screening tools', href: '/csr#pillars' },
   { label: 'Transparent supply-chain & labour compliance audits', href: '/csr#sdg' },
