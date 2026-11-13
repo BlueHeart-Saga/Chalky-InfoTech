@@ -105,28 +105,28 @@ processDescription: string;
 export const SERVICES_DETAILED: ServiceDetail[] = [
   {
     slug: 'it-recruitment-services',
-    label: 'IT Staffing Solution',
+    label: 'IT Recruitment Services UK',
     icon: 'Code2',
-    desc: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals on demand, at speed, without compromise.',
+    desc: 'Finding the right technology professionals goes beyond filling vacancies. Our IT recruitment services UK connect businesses with verified, skilled technology professionals on demand.',
     hero: {
       badge: 'Elite Tech Talent',
-      title: 'IT Staffing Solution',
-      subtitle: 'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals on demand, at speed, without compromise.',
+      title: 'IT Recruitment Services UK',
+      subtitle: 'Finding the right technology professionals goes beyond filling vacancies. Our IT recruitment services UK connect businesses with verified, skilled technology professionals on demand.',
       image: itStaffingImg.src,
     },
     metaInfo: {
-      title: 'IT Staffing Solutions UK | Hire IT Talent',
-      description: 'Looking for reliable IT staffing in the UK? We connect businesses with pre-vetted tech professionals—fast, flexible, and tailored to your needs.',
-      keywords: 'IT staffing solution UK, IT staffing services UK, IT recruitment UK, contract IT staffing UK, technology staffing solution UK, hire IT professionals UK, IT talent solutions UK, permanent IT staffing UK, tech recruitment agency UK, IT workforce solution UK, software developer staffing UK, cloud engineer staffing UK, IT contract staffing London, DevOps staffing UK, IT hiring solution Uk',
-      ogTitle: 'IT Staffing Solution UK | Verified Tech Talent',
-      ogDescription: 'Trusted IT staffing solution across the UK. Pre-vetted professionals. 48-hour matching. Contract, C2H & Full-Time hiring.'
+      title: 'IT Recruitment Services UK | Chalky Infotech',
+      description: 'Explore IT recruitment services UK with Chalky Infotech. Connect with skilled technology professionals through flexible recruitment solutions.',
+      keywords: 'IT recruitment services UK, IT recruitment UK, IT staffing services UK, IT talent solutions UK, tech recruitment agency UK, software developer recruitment UK, cloud engineer recruitment UK, DevOps recruitment UK, contract IT recruitment UK, permanent IT recruitment UK, Chalky Infotech',
+      ogTitle: 'IT Recruitment Services UK | Chalky Infotech',
+      ogDescription: 'Explore IT recruitment services UK with Chalky Infotech. Connect with skilled technology professionals through flexible recruitment solutions.'
     },
   overview: {
-  headingLabel: 'IT-Staffing  in UK',
-  title: 'What Is an IT Staffing Solution?',
+  headingLabel: 'IT Recruitment in UK',
+  title: 'What Are IT Recruitment Services?',
 
   description:
-    'An IT staffing solution is more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled technology professionals on demand, at speed, without compromise. \n\n• Talent on Demand: Access pre-screened IT professionals ready to deploy within days.\n• Flexible Engagement: Contract, Contract-to-Hire, or Full-Time — your call.\n• Business-Aligned Hiring: Every placement is matched to your tech stack, team culture, and project goals.',
+    'Finding the right technology professionals involves more than filling a vacancy. It\'s a strategic approach to connecting businesses with verified, skilled IT professionals on demand, at speed, without compromise. \n\n• Talent on Demand: Access pre-screened IT professionals ready to deploy within days.\n• Flexible Engagement: Contract, Contract-to-Hire, or Full-Time — your call.\n• Business-Aligned Hiring: Every placement is matched to your tech stack, team culture, and project goals.',
 
   trustStats: [
     { value: '98%', label: 'Placement Success Rate' },
@@ -172,11 +172,11 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
 ],
 
  whyChooseTitle:
-  'Why Choose Chalky Infotech for <span class="text-[#7A1F5C]">IT Staffing Solution</span>?',
+  'Why Choose Chalky Infotech for <span class="text-[#7A1F5C]">IT Recruitment Services UK</span>?',
 
 whyChooseDescription: `
   At <strong class="text-[#000000]">Chalky Infotech</strong>, our
-  <strong class="text-[#7A1F5C]">IT staffing solution services</strong>
+  <strong class="text-[#7A1F5C]">IT recruitment services</strong>
   are built on a simple belief — recruitment done right is a strategic advantage.
   We combine <strong class="text-[#7A1F5C]">deep industry knowledge</strong>
   with rigorous assessment science to ensure every hire is an investment, not a risk.
@@ -186,46 +186,46 @@ partnershipDescription: `
   With registered operations across the <strong class="text-[#000000]">UK and India</strong>
   and a talent network spanning 12+ industries, we deliver measurable outcomes at every
   level — from graduate intake to board appointment. We operate as a true extension of
-  your team, not a vendor at arm's length.
+  your team, not a vendor at arm\'s length.
 `,
 advantageHeadingLabel: 'The Chalky Advantage',
   advantageTitle: 'Strategic Excellence in',
-  advantageTitleHighlight: 'IT Staffing Solutions',
+  advantageTitleHighlight: 'IT Recruitment Services',
   advantageDescription:
-    'We provide specialized workforce solutions designed to help your organization access top-tier talent, optimize hiring workflows, and achieve sustainable operational growth through our expert it staffing solution framework.',
+    'We provide specialized workforce solutions designed to help your organization access top-tier talent, optimize hiring workflows, and achieve sustainable operational growth through our expert IT recruitment services framework.',
 
   outcomesTitle:
-    'Measurable Outcomes from IT Staffing',
+    'Measurable Outcomes from IT Recruitment',
 
   outcomesDescription:
-    'Every IT staffing engagement runs on clear SLAs, transparent reporting, and a structured post-placement support window. We continuously track time-to-hire, retention rate, candidate satisfaction, and cost-per-hire.',
+    'Every IT recruitment services engagement runs on clear SLAs, transparent reporting, and a structured post-placement support window. We continuously track time-to-hire, retention rate, candidate satisfaction, and cost-per-hire.',
 
-bottomAdvantageTitle: 'The Chalky Infotech IT Staffing Advantage',
+bottomAdvantageTitle: 'The Chalky Infotech IT Recruitment Advantage',
 
 bottomAdvantageDescription: `
   <p>
-    Organisations across the UK and India choose Chalky Infotech because our it staffing solution methodology blends behavioural analytics, domain-expert knowledge, and live market intelligence. We treat every engagement as a long-term partnership — not a transactional search.
+    Organisations across the UK and India choose Chalky Infotech because our IT recruitment services methodology blends behavioural analytics, domain-expert knowledge, and live market intelligence. We treat every engagement as a long-term partnership — not a transactional search.
   </p>
 
   <p>
-    From fast-growing SaaS startups to FTSE-listed enterprises, our <strong style="color:#7A1F5C">IT staffing solutions</strong> is calibrated to your sector, your culture, and the calibre of talent you deserve.
+    From fast-growing SaaS startups to FTSE-listed enterprises, our <strong style="color:#7A1F5C">IT recruitment services</strong> are calibrated to your sector, your culture, and the calibre of talent you deserve.
   </p>
 `,
 
-bottomOutcomesTitle: 'Measurable IT Staffing Outcomes',
+bottomOutcomesTitle: 'Measurable IT Recruitment Outcomes',
 
 bottomOutcomesDescription: `
   <p>
-    Every it staffing solution engagement is underpinned by clear SLAs, transparent reporting, and a structured post-placement support window. We track time-to-hire, retention rate, candidate satisfaction, and cost-per-hire continuously.
+    Every IT recruitment services engagement is underpinned by clear SLAs, transparent reporting, and a structured post-placement support window. We track time-to-hire, retention rate, candidate satisfaction, and cost-per-hire continuously.
   </p>
 
   <p>
     Our <strong style="color:#7A1F5C">full recruitment services </strong>
-    — spanning IT Staffing, Executive Search, Contract & Permanent Hiring, Remote Hiring, and Managed Workforce Solutions — scale with your ambitions at every stage of growth.
+    — spanning IT Recruitment, Executive Search, Contract & Permanent Recruitment, Remote Recruitment, and Managed Workforce Solutions — scale with your ambitions at every stage of growth.
   </p>
 `,
     benefitsHeadingLabel: 'Core Advantages',
-benefitsTitle: 'Strategic Permanent Recruitment Benefits',
+benefitsTitle: 'Strategic IT Recruitment Benefits',
 benefitsDescription:
 
   'Our specialized approach delivers measurable impact, helping UK organizations achieve operational efficiency and access genuine talent excellence.',
@@ -233,7 +233,7 @@ benefitsDescription:
 
 supportHeadingLabel: 'Global Sector Support',
 
-supportTitle: 'Cross-Border IT Staffing & Industry Expertise',
+supportTitle: 'Cross-Border IT Recruitment & Industry Expertise',
 
 supportDescription:
   'We provide seamless workforce management and specialised IT recruitment support across international borders, ensuring your organisation has the right technology talent in every major global hub.',
@@ -298,13 +298,13 @@ partnerHeadingLabel: "Partner Excellence",
       { title: 'Place & Support', desc: 'We manage onboarding and stay with you post-placement.' }
     ],
     faqs: [
-      { q: 'What types of IT roles do you staff?', a: 'We staff across the full technology spectrum  software developers, cloud engineers, DevOps, cybersecurity, data engineers, QA, and IT project managers.' },
-      { q: 'How quickly can you provide candidates?', a: 'In most cases, we present shortlisted profiles within 24 to 48 hours of receiving your requirement.' },
-      { q: 'Do you offer contract and permanent staffing?', a: 'Yes. We offer Contract, Contract-to-Hire, and Full-Time staffing models tailored to your business needs.' },
-      { q: 'How do you ensure candidate quality?', a: 'Every candidate goes through a 3-layer screening  technical assessment, communication evaluation, and cultural fit review before they reach you.' },
-      { q: 'What if the placed candidate doesn\'t work out?', a: 'We offer a structured replacement guarantee. If a placement doesn\'t meet expectations, we re-engage at no additional cost.' },
-      { q: 'How does Chalky Infotech handle IR35 compliance and payroll for contract IT staffing in the UK?', a: 'We provide complete IR35 assessment support and payroll management for our UK-based IT contractors. We partner with fully certified umbrella companies and employment legal specialists to ensure 100% compliance with HMRC regulations, protecting your business from potential legal and tax liabilities.' },
-      { q: 'Can you support hybrid or fully remote IT staffing models across the UK and India?', a: 'Absolutely. We support on-site, hybrid, and fully remote IT staffing setups. With physical operations and registered entities in both the UK and India, we can manage cross-border remote developers, handle local payroll compliance, and set up robust infrastructure support for your distributed engineering teams.' },
+      { q: 'What are IT recruitment services?', a: 'IT recruitment services connect businesses with qualified technology professionals who match their technical requirements, experience, and business goals.' },
+      { q: 'Why choose Chalky Infotech for IT recruitment in the UK?', a: 'Chalky Infotech combines industry knowledge, specialist expertise, and structured assessments to connect UK businesses with suitable IT professionals.' },
+      { q: 'What types of IT roles do you recruit for?', a: 'We recruit software developers, cloud engineers, AI specialists, cybersecurity professionals, data engineers, IT managers, and other technology specialists.' },
+      { q: 'Do you provide permanent and contract IT recruitment?', a: 'Yes. We provide permanent, contract, temporary, and contract-to-hire recruitment options based on business requirements.' },
+      { q: 'How do your IT recruitment services work?', a: 'We understand your requirements, identify suitable professionals, assess their skills, and present shortlisted candidates for your consideration.' },
+      { q: 'Do you provide IT recruitment services across the UK?', a: 'Yes. We support organisations across the UK with IT recruitment solutions tailored to their technical and workforce requirements.' },
+      { q: 'Can you recruit senior-level IT professionals?', a: 'Yes. Our executive search services help businesses identify experienced technology leaders, IT directors, architects, and senior management professionals.' },
       { q: 'What tech stacks and developer domains do you specialize in sourcing?', a: 'Our domain-specific recruiters cover the entire modern tech ecosystem, including Cloud Engineers (AWS, Azure, GCP), DevOps Specialists, Software Engineers (React, Node, Python, Java, .NET), Data Engineers & Architects, AI/ML Engineers, QA Automation Specialists, and IT Support Professionals.' },
       { q: 'What is the cost structure for your IT staffing solution?', a: 'For contract staffing, we operate on a transparent margin-inclusive day-rate basis. For permanent IT recruitment, our fee is calculated as a percentage of the candidate\'s first-year base salary. We offer competitive tiered pricing and volume discounts for enterprises building dedicated squads.' },
       { q: 'How do you conduct technical assessment to verify developer skills?', a: 'We use a 3-tier assessment workflow: first, an automated technical coding challenge tailored to your stack; second, a live technical interview led by our senior engineering advisors; and third, code quality reviews and reference verifications to guarantee practical hands-on capabilities.' }
