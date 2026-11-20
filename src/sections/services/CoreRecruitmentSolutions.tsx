@@ -17,13 +17,13 @@ import core8 from '@/assets/Services/our-services/8.png';
 const SOLUTIONS = [
   {
     id: 'it-staffing',
-    title: 'IT Staffing',
+    title: 'IT Recruitment Services',
     slug: 'it-recruitment-services',
     intro: 'Specialized IT recruitment services connecting businesses with skilled software, cloud, DevOps, and data engineering professionals..',
     image: core1,
     benefits: ['Elite software talent network', 'Domain-specific vetting', 'Accelerated hiring timelines', 'Cloud & DevOps specialization'],
     process: ['Software Engineering', 'Cloud Operations', 'Data Infrastructure'],
-    cta: 'Explore IT Staffing'
+    cta: 'Explore IT Recruitment Services'
   },
   {
     id: 'executive',

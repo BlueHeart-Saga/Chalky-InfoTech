@@ -9,13 +9,13 @@ export async function GET() {
   const staticPages = [
     { 
       url: '', 
-      title: 'Chalky InfoTech | Global IT Staffing & Consulting', 
-      desc: 'Expert IT staffing and consulting services for modern enterprises. Connecting world class talent with global opportunities.' 
+      title: 'Chalky InfoTech | Global IT Recruitment Services & Consulting', 
+      desc: 'Expert IT Recruitment Services and consulting services for modern enterprises. Connecting world class talent with global opportunities.' 
     },
     { 
       url: '/services', 
       title: 'Our Services | Chalky InfoTech', 
-      desc: 'Discover our comprehensive recruitment and staffing services, from IT Staffing to Executive Search.' 
+      desc: 'Discover our comprehensive recruitment and staffing services, from IT Recruitment Services to Executive Search.' 
     },
     { 
       url: '/industries', 
@@ -66,7 +66,7 @@ export async function GET() {
   <channel>
     <title>Chalky InfoTech Updates &amp; Services</title>
     <link>${base}</link>
-    <description>The latest updates, services, and insights from Chalky InfoTech - Global IT Staffing &amp; Consulting.</description>
+    <description>The latest updates, services, and insights from Chalky InfoTech - Global IT Recruitment Services &amp; Consulting.</description>
     <language>en-us</language>
     <lastBuildDate>${now}</lastBuildDate>
     <atom:link href="${base}/feed.xml" rel="self" type="application/rss+xml" />

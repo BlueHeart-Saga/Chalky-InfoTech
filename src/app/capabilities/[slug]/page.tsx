@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 return buildPageMetadataWithImage({
   title: capability.seoTitle || `${capability.title} Recruitment`,
   description: capability.seoDescription || capability.heroDesc,
-  keywords: [
+  keywords: capability.seoKeywords || [
     capability.title,
     `${capability.title} recruitment`,
     `${capability.title} staffing`,

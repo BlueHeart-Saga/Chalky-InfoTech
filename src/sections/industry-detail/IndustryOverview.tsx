@@ -17,9 +17,13 @@ interface Props {
   industryLabel?: string;
   capabilities: Capability[];
   advantageTitle: string;
-advantageDescription: string;
-outcomesTitle: string;
-outcomesDescription: string;
+  advantageDescription: string;
+  outcomesTitle: string;
+  outcomesDescription: string;
+  recruitmentIntro?: {
+    paragraphs: string[];
+    differentiators: string[];
+  };
 }
 
 /* Split "Intro para\n\n• A: desc\n• B: desc" into parts */
@@ -92,9 +96,11 @@ export default function IndustryOverview({
   advantageDescription,
   outcomesTitle,
   outcomesDescription,
+  recruitmentIntro,
 }: Props) {
   const industry = industryLabel || 'Industry';
   const { intro, bullets } = parseDesc(description);
+  const differentiators = recruitmentIntro?.differentiators ?? DIFFERENTIATORS;
 
   return (
     <article className="bg-white overflow-hidden">
@@ -155,23 +161,33 @@ export default function IndustryOverview({
                 <span className="text-[#7A1F5C]">{industry}</span> Recruitment?
               </h3>
 
-              <p className="text-[#4A4A4A] text-sm leading-relaxed">
-                At <strong className="text-[#1A1A1A]">Chalky Infotech</strong>, our{' '}
-                <Link href="/industries" className="text-[#7A1F5C] font-semibold hover:underline">
-                  {industry.toLowerCase()} recruitment expertise
-                </Link>{' '}
-                is built on a foundation of sector-specific knowledge and rigorous assessment
-                science. We combine deep market intelligence with a global talent network to
-                deliver professionals who are not just qualified — but truly industry-ready.
-              </p>
+              {recruitmentIntro ? (
+                recruitmentIntro.paragraphs.map((paragraph, i) => (
+                  <p key={i} className="text-[#4A4A4A] text-sm leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))
+              ) : (
+                <>
+                  <p className="text-[#4A4A4A] text-sm leading-relaxed">
+                    At <strong className="text-[#1A1A1A]">Chalky Infotech</strong>, our{' '}
+                    <Link href="/industries" className="text-[#7A1F5C] font-semibold hover:underline">
+                      {industry.toLowerCase()} recruitment expertise
+                    </Link>{' '}
+                    is built on a foundation of sector-specific knowledge and rigorous assessment
+                    science. We combine deep market intelligence with a global talent network to
+                    deliver professionals who are not just qualified — but truly industry-ready.
+                  </p>
 
-              <p className="text-[#4A4A4A] text-sm leading-relaxed">
-                With registered operations across the{' '}
-                <strong className="text-[#1A1A1A]">UK and India</strong> and a talent pipeline
-                spanning 12+ industries, we deliver measurable outcomes at every level — from
-                specialist contributors to senior leadership. We work as a true extension of your
-                team, not a vendor at arm's length.
-              </p>
+                  <p className="text-[#4A4A4A] text-sm leading-relaxed">
+                    With registered operations across the{' '}
+                    <strong className="text-[#1A1A1A]">UK and India</strong> and a talent pipeline
+                    spanning 12+ industries, we deliver measurable outcomes at every level — from
+                    specialist contributors to senior leadership. We work as a true extension of your
+                    team, not a vendor at arm&apos;s length.
+                  </p>
+                </>
+              )}
 
               {/* Differentiators card */}
               <div className="rounded-2xl bg-[#F9F5F0] border border-[#EFE7DD] p-6">
@@ -179,7 +195,7 @@ export default function IndustryOverview({
                   What sets our {industry} practice apart
                 </p>
                 <ul className="flex flex-col gap-3" role="list">
-                  {DIFFERENTIATORS.map((d, i) => (
+                  {differentiators.map((d, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-[#3A3A3A]">
                       <CheckCircle2 size={14} className="text-[#7A1F5C] mt-0.5 flex-shrink-0" />
                       {d}

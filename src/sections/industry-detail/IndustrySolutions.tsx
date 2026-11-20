@@ -8,10 +8,13 @@ import trustedImg from '@/assets/homepage/TESTIMONIALS/image.png';
 
 interface Props {
   services: string[];
+  sourcingCopy?: {
+    paragraphs: string[];
+  };
 }
 
 const ALL_EIGHT_MODELS = [
-  'IT Staffing',
+  'IT Recruitment Services',
   'Executive Search',
   'Contract Staffing',
   'Permanent Hiring',
@@ -55,7 +58,7 @@ function getServiceDetail(service: string, index: number) {
   bg = colorSet.bg;
   iconColor = colorSet.iconColor;
 
-  if (normalized.includes('it staffing') || normalized.includes('it recruitment')) {
+  if (normalized.includes('IT Recruitment Services') || normalized.includes('it recruitment')) {
     icon = 'Cpu';
     desc = 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.';
     badge = 'Elite Software Talent';
@@ -92,7 +95,12 @@ function getServiceDetail(service: string, index: number) {
   return { icon, desc, badge, bg, iconColor, shape };
 }
 
-export default function IndustrySolutions({ services }: Props) {
+export default function IndustrySolutions({ services, sourcingCopy }: Props) {
+  const firstParagraph = sourcingCopy?.paragraphs[0]
+    ?? 'We use targeted sourcing and a network of professionals to help financial organisations identify candidates with the right experience, qualifications, and industry knowledge.';
+  const secondParagraph = sourcingCopy?.paragraphs[1]
+    ?? 'Our recruitment approach considers technical skills, financial expertise, professional background, and organisational fit. Whether you need to fill a specialist compliance vacancy, recruit financial analysts, or expand a fintech team, we work to identify candidates who match your requirements.';
+
   return (
     <section className="py-24 bg-[#FAF8F5] overflow-hidden relative">
       
@@ -150,11 +158,11 @@ export default function IndustrySolutions({ services }: Props) {
             </h2>
 
             <p className="text-[#4A4A4A] text-lg leading-relaxed mb-5 font-medium">
-              We leverage an extensive database of pre-screened professionals to deliver exceptional hires who integrate seamlessly into your industry ecosystems.
+              {firstParagraph}
             </p>
 
             <p className="text-[#6A6A6A] text-sm leading-relaxed mb-10">
-              Our consultative approach aligns technical expertise with company culture. Whether filling a single critical leadership vacancy or scaling an entire agile engineering cohort, our pre-vetted pathways guarantee compliance, security, and long-term retention.
+              {secondParagraph}
             </p>
 
             <div className="flex flex-wrap gap-4">

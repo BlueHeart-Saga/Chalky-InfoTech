@@ -117,7 +117,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
     metaInfo: {
       title: 'IT Recruitment Services UK | Chalky Infotech',
       description: 'Explore IT recruitment services UK with Chalky Infotech. Connect with skilled technology professionals through flexible recruitment solutions.',
-      keywords: 'IT recruitment services UK, IT recruitment UK, IT staffing services UK, IT talent solutions UK, tech recruitment agency UK, software developer recruitment UK, cloud engineer recruitment UK, DevOps recruitment UK, contract IT recruitment UK, permanent IT recruitment UK, Chalky Infotech',
+      keywords: 'IT recruitment services UK, IT recruitment UK, IT Recruitment Services services UK, IT talent solutions UK, tech recruitment agency UK, software developer recruitment UK, cloud engineer recruitment UK, DevOps recruitment UK, contract IT recruitment UK, permanent IT recruitment UK, Chalky Infotech',
       ogTitle: 'IT Recruitment Services UK | Chalky Infotech',
       ogDescription: 'Explore IT recruitment services UK with Chalky Infotech. Connect with skilled technology professionals through flexible recruitment solutions.'
     },
@@ -140,7 +140,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       title: 'Technical Alignment',
       headline: 'Precision Skill Matching',
       description:
-        'Every candidate we put forward for IT staffing goes through our 3-stage vetting framework — a technical challenge, a live advisory interview, and a code quality review — so you get production-ready professionals from day one.',
+        'Every candidate we put forward for IT Recruitment Services goes through our 3-stage vetting framework — a technical challenge, a live advisory interview, and a code quality review — so you get production-ready professionals from day one.',
      
       tag: 'Vetting',
     },
@@ -148,7 +148,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       title: 'Strategic Partnership',
       headline: 'Business-First Recruitment',
       description:
-        'Our UK-based consultants work as strategic talent advisors, shaping every IT staffing search around your long-term roadmap, culture and growth goals to deliver hires that create real business impact.',
+        'Our UK-based consultants work as strategic talent advisors, shaping every IT Recruitment Services search around your long-term roadmap, culture and growth goals to deliver hires that create real business impact.',
     
       tag: 'Advisory',
     },
@@ -156,7 +156,7 @@ export const SERVICES_DETAILED: ServiceDetail[] = [
       title: 'Quality Assurance',
       headline: 'Zero-Compromise Standards',
       description:
-        'From bacRecruitmentkground checks to multi-stage competency evaluation and cultural fit profiling, our quality assurance process keeps talent standards consistently high across every UK IT staffing engagement.',
+        'From bacRecruitmentkground checks to multi-stage competency evaluation and cultural fit profiling, our quality assurance process keeps talent standards consistently high across every UK IT Recruitment Services engagement.',
       
       tag: 'Excellence',
     },
@@ -254,7 +254,7 @@ partnerHeadingLabel: "Partner Excellence",
   partnerTitle: "Scale Your",
   partnerTitleHighlight: "Global Operations",
   partnerDescription:
-    "Our it staffing solution expertise is built on years of delivering high-impact recruitment strategies for enterprise leaders across technical and professional domains globally.",
+    "Our IT Recruitment Services solution expertise is built on years of delivering high-impact recruitment strategies for enterprise leaders across technical and professional domains globally.",
 
   industries: ['Software', 'Fintech', 'Cloud Computing', 'AI & Data'],
 },  
@@ -306,7 +306,7 @@ partnerHeadingLabel: "Partner Excellence",
       { q: 'Do you provide IT recruitment services across the UK?', a: 'Yes. We support organisations across the UK with IT recruitment solutions tailored to their technical and workforce requirements.' },
       { q: 'Can you recruit senior-level IT professionals?', a: 'Yes. Our executive search services help businesses identify experienced technology leaders, IT directors, architects, and senior management professionals.' },
       { q: 'What tech stacks and developer domains do you specialize in sourcing?', a: 'Our domain-specific recruiters cover the entire modern tech ecosystem, including Cloud Engineers (AWS, Azure, GCP), DevOps Specialists, Software Engineers (React, Node, Python, Java, .NET), Data Engineers & Architects, AI/ML Engineers, QA Automation Specialists, and IT Support Professionals.' },
-      { q: 'What is the cost structure for your IT staffing solution?', a: 'For contract staffing, we operate on a transparent margin-inclusive day-rate basis. For permanent IT recruitment, our fee is calculated as a percentage of the candidate\'s first-year base salary. We offer competitive tiered pricing and volume discounts for enterprises building dedicated squads.' },
+      { q: 'What is the cost structure for your IT Recruitment Services solution?', a: 'For contract staffing, we operate on a transparent margin-inclusive day-rate basis. For permanent IT recruitment, our fee is calculated as a percentage of the candidate\'s first-year base salary. We offer competitive tiered pricing and volume discounts for enterprises building dedicated squads.' },
       { q: 'How do you conduct technical assessment to verify developer skills?', a: 'We use a 3-tier assessment workflow: first, an automated technical coding challenge tailored to your stack; second, a live technical interview led by our senior engineering advisors; and third, code quality reviews and reference verifications to guarantee practical hands-on capabilities.' }
     ],
     features: [
@@ -356,21 +356,21 @@ partnerHeadingLabel: "Partner Excellence",
     title: 'Technical Alignment',
     headline: 'Precision Skill Matching',
     description:
-      'Every candidate we put forward for IT staffing goes through our 3-stage vetting framework — a technical challenge, a live advisory interview, and a code quality review — so you get production-ready professionals from day one.',
+      'Every candidate we put forward for IT Recruitment Services goes through our 3-stage vetting framework — a technical challenge, a live advisory interview, and a code quality review — so you get production-ready professionals from day one.',
     tag: 'Vetting',
   },
   {
     title: 'Strategic Partnership',
     headline: 'Business-First Recruitment',
     description:
-      'Our consultants act as strategic talent advisors, aligning every IT staffing search with your technology roadmap, team culture, project requirements, and long-term growth goals to deliver hires that create real business impact.',
+      'Our consultants act as strategic talent advisors, aligning every IT Recruitment Services search with your technology roadmap, team culture, project requirements, and long-term growth goals to deliver hires that create real business impact.',
     tag: 'Advisory',
   },
   {
     title: 'Quality Assurance',
     headline: 'Zero-Compromise Standards',
     description:
-      'From background checks to multi-stage technical evaluation and cultural fit assessment, our quality assurance process keeps talent standards consistently high across every IT staffing engagement.',
+      'From background checks to multi-stage technical evaluation and cultural fit assessment, our quality assurance process keeps talent standards consistently high across every IT Recruitment Services engagement.',
     tag: 'Excellence',
   },
 ],
@@ -418,7 +418,7 @@ retention rate, candidate experience, and cost-per-hire to ensure continuous imp
 
 <p>
 Our end-to-end <strong style="color:#7A1F5C">recruitment services</strong>
-— including IT Staffing, Executive Recruitment, Contract & Permanent Hiring,
+— including IT Recruitment Services, Executive Recruitment, Contract & Permanent Hiring,
 Remote Hiring, and Managed Workforce Solutions — help you build high-performing
 leadership teams that accelerate growth and create lasting value.
 </p>
@@ -444,7 +444,7 @@ bottomOutcomesDescription: `
   </p>
 
   <p>
-    Our end-to-end <strong style="color:#7A1F5C"> recruitment services </strong> — including IT Staffing, Executive Recruitment, Contract & Permanent Hiring, Remote Hiring, and Managed Workforce Solutions — help you build high-performing leadership teams that accelerate growth and create lasting value.
+    Our end-to-end <strong style="color:#7A1F5C"> recruitment services </strong> — including IT Recruitment Services, Executive Recruitment, Contract & Permanent Hiring, Remote Hiring, and Managed Workforce Solutions — help you build high-performing leadership teams that accelerate growth and create lasting value.
   </p>
 `,
 benefitsHeadingLabel: 'Core Advantages',
@@ -644,7 +644,7 @@ retention rate, candidate satisfaction, and cost-per-hire continuously.
 
 <p>
 Our <strong style="color:#7A1F5C">full recruitment services</strong> — spanning
-IT Staffing, Executive Search, Contract & Permanent Hiring, Remote Hiring, and
+IT Recruitment Services, Executive Search, Contract & Permanent Hiring, Remote Hiring, and
 Managed Workforce Solutions — scale with your ambitions at every stage of growth.
 </p>
 `,
@@ -676,7 +676,7 @@ bottomOutcomesDescription: `
 
   <p>
     Our <strong style="color:#7A1F5C">full recruitment services</strong> — spanning
-    IT Staffing, Executive Search, Contract & Permanent Hiring, Remote Hiring,
+    IT Recruitment Services, Executive Search, Contract & Permanent Hiring, Remote Hiring,
     and Managed Workforce Solutions — scale with your ambitions at every stage of growth.
   </p>
 `,
@@ -870,7 +870,7 @@ Every permanent recruitment engagement runs on clear SLAs, transparent reporting
 </p>
 
 <p>
-Our <strong style="color:#7A1F5C">full recruitment services</strong> covering IT staffing, executive search, contract and permanent recruitment, remote hiring, and managed workforce solutions scale with UK businesses at every stage of growth.
+Our <strong style="color:#7A1F5C">full recruitment services</strong> covering IT Recruitment Services, executive search, contract and permanent recruitment, remote hiring, and managed workforce solutions scale with UK businesses at every stage of growth.
 </p>
 `,
 bottomAdvantageTitle: 'The Chalky Infotech Permanent Recruitment Advantage',
@@ -893,7 +893,7 @@ bottomOutcomesDescription: `
   </p>
 
   <p>
-    Our <strong style="color:#7A1F5C"> full recruitment services </strong>  covering IT staffing, executive search, contract and per-manent recruitment, remote hiring, and managed workforce solutions scale with UK businesses at every stage of growth.
+    Our <strong style="color:#7A1F5C"> full recruitment services </strong>  covering IT Recruitment Services, executive search, contract and per-manent recruitment, remote hiring, and managed workforce solutions scale with UK businesses at every stage of growth.
   </p>
 `,
   
@@ -988,33 +988,33 @@ processDescription:
   },
   {
     slug: 'temporary-recruitment-services',
-    label: 'Temporary Recruitment',
+    label: 'Temporary Recruitment Services',
     icon: 'UserPlus',
-    desc: 'Rapid-response temporary recruitment services to scale your workforce quickly for high-volume needs.',
+    desc: 'Find qualified professionals quickly through flexible recruitment solutions that help businesses manage seasonal demand, short-term projects, and temporary workforce requirements.',
     hero: {
       badge: 'Rapid Response',
-      title: 'Temporary Staffing Services',
-      subtitle: 'Scaling your workforce quickly with qualified professionals to meet seasonal demands and short-term staffing needs.',
+      title: 'Temporary Recruitment Services',
+      subtitle: 'Find qualified professionals quickly through flexible recruitment solutions that help businesses manage seasonal demand, short-term projects, and temporary workforce requirements.',
       image: temporaryRecruitmentImg.src,
     },
     metaInfo: {
-      title: 'Temporary Staffing Services UK | Rapid Workforce Scaling | Chalky Infotech',
-      description: 'Fast, flexible temporary staffing in the UK. Deploy vetted temp staff in 24–48 hours for seasonal peaks and high-volume demands.',
+      title: 'Temporary Recruitment Services UK',
+      description: 'Looking for reliable temporary recruitment services in the UK? Chalky Infotech helps businesses find skilled temporary staff to meet their workforce needs.',
       keywords: 'temporary staffing UK, temp staffing services UK, temporary workers UK, seasonal staffing UK, high volume temp staffing UK, temp staffing agency UK, flexible temp workforce UK, temp to perm UK',
       ogTitle: 'Temporary Recruitment UK | Vetted Staff in 24–48 Hours',
       ogDescription: 'Rapid-response temporary staffing across logistics, retail, customer support and manufacturing. Fully managed payroll, compliance and on-site coordination.'
     },
    overview: {
-    headingLabel: 'Temporary Staffing',
-  title: 'Instant Operational Scaling — Ready to Deploy in 24–48 Hours',
+    headingLabel: 'Temporary Recruitment Services',
+  title: 'Flexible Staffing for Changing Business Needs',
 
-  description: `Seasonal peaks, project demands and unexpected workload increases require a staffing partner who responds quickly. Our temporary staffing solutions provide access to a pre-vetted talent pool ready for same-day or next-day deployment.
+  description: `Seasonal demand, short-term projects, and unexpected staff shortages can create additional workforce requirements. Our temporary recruitment services connect businesses with qualified professionals who can support daily operations, manage increased workloads, and meet short-term staffing needs.
 
-• Rapid Deployment: Pre-screened temporary professionals available across the UK within one to two business days.
+• Quick Recruitment: Access pre-screened professionals to meet urgent staffing needs and changing workloads.
 
-• Seamless Administration: Contracts, payroll, tax compliance and on-site coordination managed efficiently from day one.
+• Simplified Administration: Manage contracts, payroll, and compliance throughout temporary assignments.
 
-• Flexible Cost Model: Pay only for hours worked, helping protect your permanent team from burnout and reduce unnecessary fixed overheads.`,
+• Flexible Workforce: Recruit qualified professionals for specific periods, projects, and seasonal demands.`,
   trustStats: [
     { value: '48h', label: 'Average Talent Matching' },
     { value: '98%', label: 'Placement Success Rate' },
@@ -1050,36 +1050,25 @@ processDescription:
 ],
 
   differentiators: [
-  'Industry-focused recruiters with expertise across multiple sectors',
-  'Clear and compliant temporary staffing processes',
-  'Quick replacement support to maintain workforce continuity',
-  'UK & India reach for efficient talent sourcing and delivery',
-  'Live candidate pipeline updates with regular performance tracking',
-  'Contract, Permanent, Temporary, On-Site & Remote staffing options',
+  'Industry-focused recruiters with knowledge of UK business sectors',
+  'Structured candidate screening and selection processes',
+  'Timely replacement support for temporary positions',
+  'Recruitment support across different UK industries',
+  'Regular candidate updates and recruitment progress tracking',
+  'Flexible Contract, Permanent, Temporary, On-Site, and Remote recruitment options',
 ],
 
  whyChooseTitle:
-  'Why Choose Chalky Infotech for <span class="text-[#7A1F5C]">Temporary Staffing</span>?',
+  'Why Choose Chalky Infotech for <span class="text-[#7A1F5C]">Temporary Recruitment Services</span>?',
 
 whyChooseDescription: `
-At <strong class="text-[#1A1A1A]">Chalky Infotech</strong>, our
-<strong class="text-[#7A1F5C]"> temporary staffing services </strong>
-are designed to connect businesses with skilled talent when they need it most.
-We combine <strong class="text-[#1A1A1A]">deep industry knowledge</strong>
-with rigorous screening processes to ensure every placement supports productivity,
-flexibility, and business continuity.
-
-With established operations across the
-<strong class="text-[#1A1A1A]"> UK and India </strong>
-and an extensive talent network covering diverse industries, we provide reliable
-staffing support at every level. We become an integrated part of your team,
-delivering adaptable talent solutions that match your evolving workforce needs.
+At <strong class="text-[#1A1A1A]">Chalky Infotech</strong>, our temporary recruitment services help UK businesses find qualified professionals to meet short-term workforce requirements. We understand that staffing needs can change due to seasonal demand, project deadlines, and unexpected vacancies. Our recruitment team takes the time to understand your requirements, screen suitable candidates, and connect you with professionals who match your business needs. With a strong focus on the UK recruitment market, we support businesses across multiple industries with flexible and dependable staffing solutions.
 `,
   partnershipDescription:
-    'We manage sourcing, candidate screening, coordination, and placement support so your organisation can maintain workforce continuity while responding to changing business requirements.',
+    'We manage candidate sourcing, screening, selection, and placement coordination to help your organisation maintain daily operations and respond to changing workforce requirements.',
 advantageHeadingLabel: 'The Chalky Advantage',
    advantageTitle: 'Strategic Excellence in',
-  advantageTitleHighlight: 'Temporary Staffing Solutions',
+  advantageTitleHighlight: 'Temporary Recruitment Solutions',
   advantageDescription:
     'We deliver flexible workforce solutions designed to help your organization access exceptional talent, streamline staffing processes, and drive long-term business success through our proven temporary staffing framework.',
 
@@ -1087,39 +1076,39 @@ advantageHeadingLabel: 'The Chalky Advantage',
   outcomesDescription:
     'Our temporary recruitment solutions help reduce vacancy disruption, maintain productivity, support seasonal demand, and give organisations greater control over workforce capacity.',
 
-bottomAdvantageTitle: 'The Chalky Infotech Temporary Staffing Advantage',
+bottomAdvantageTitle: 'The Chalky Infotech Temporary Recruitment Advantage',
 
 bottomAdvantageDescription: `
   <p>
-    Organisations across the UK and India choose Chalky Infotech because our temporary staffing approach combines behavioural insights, industry expertise, and current market intelligence. We view every engagement as a long-term partnership — not simply a transactional staffing requirement
+    UK businesses choose Chalky Infotech for our industry knowledge, understanding of business needs, and access to skilled candidates. We focus on building strong working relationships and providing reliable staffing support. Our goal is to help businesses find the right people and manage changing workforce needs with ease.
   </p>
 
   <p>
-    From growing SaaS startups to FTSE-listed enterprises, our <strong class="text-[#1A1A1A]"> temporary staffing solution </strong> is aligned with your sector, workplace culture, and the quality of talent your business requires.
+    From growing SaaS startups to large enterprises, our temporary staffing solutions are designed to match your industry, workplace needs, and required skills.
   </p>
 `,
 
-bottomOutcomesTitle: 'Measurable Temporary Staffing Outcomes',
+bottomOutcomesTitle: 'Measurable Results from Our Temporary Recruitment Services',
 
 bottomOutcomesDescription: `
   <p>
-    Every temporary staffing engagement is supported by defined SLAs, clear reporting, and structured post-placement assistance. We continuously monitor time-to-hire, retention rate, candidate satisfaction, and cost-per-hire to deliver consistent staffing results.
+    We follow a clear recruitment process with regular updates and support after placement. We track hiring time, candidate retention, satisfaction, and recruitment costs to help businesses get better staffing results.
   </p>
 
   <p>
-   Our  <strong class="text-[#1A1A1A]"> full staffing services </strong> — spanning IT Staffing, Executive Search, Contract & Permanent Hiring, Remote Hiring, and Managed Workforce Solutions — scale alongside your business needs at every stage of growth.
+    Our recruitment services include IT recruitment, executive search, contract and permanent recruitment, remote recruitment, and managed workforce solutions. These services help businesses find suitable talent as their needs change.
   </p>
 `,
     benefitsHeadingLabel: 'Core Advantages',
-benefitsTitle: 'Strategic Temporary Staffing Benefits',
+benefitsTitle: 'Strategic Temporary Recruitment Services',
 benefitsDescription:
-  'Our tailored approach connects you with the right talent at the right time, helping your organisation stay agile, productive, and future-ready.',
+  'Our temporary recruitment services help UK businesses find the right people at the right time. We provide flexible staffing support to manage busy periods, fill urgent vacancies, and keep daily business operations running smoothly.',
 supportHeadingLabel: 'Global Sector Support',
 
-supportTitle: 'Cross-Border Temporary Staffing & Industry Expertise',
+supportTitle: 'UK Temporary Recruitment Services & Industry Expertise',
 
 supportDescription:
-  'We deliver seamless workforce solutions and specialized staffing support across international markets, helping organizations access qualified talent quickly while adapting to changing business demands. ',
+  'We provide flexible temporary recruitment services across the UK, helping businesses find skilled talent quickly and meet changing workforce needs.',
 
 supportSecondDescription:
   '',
@@ -1129,10 +1118,10 @@ supportClientDescription:
   'We partner with ambitious companies across the financial and technology sectors to deliver high-impact talent solutions.',
  processHeadingLabel: 'Service Workflow',
 
-processTitle: 'How We Deliver Value',
+processTitle: 'How We Deliver Value Through Temporary Recruitment Services',
 
 processDescription:
-  'Our streamlined methodology ensures precision, transparency, and rapid delivery at every stage of your engagement.',  
+  'Our simple recruitment process helps businesses find the right talent quickly, with clear communication and reliable support.',  
  partnerHeadingLabel: "Partner Excellence",
   partnerTitle: "Scale Your",
   partnerTitleHighlight: "Global Operations",
@@ -1143,34 +1132,34 @@ processDescription:
   }, 
     benefits: [
   {
-    title: 'Immediate Availability',
+    title: 'Quick Candidate Availability',
     description:
-      'Mobilize temporary talent pools within 24 to 48 hours for urgent workforce demands.',
+      'We help businesses find temporary workers quickly to meet urgent staffing needs.',
   },
   {
     title: 'Flexible Contracts',
     description:
-      'Scale staff levels hour-by-hour to respond to peaks without long-term contracts.',
+      'Choose flexible staffing options to manage workload changes without long-term commitments.',
   },
   {
-    title: 'Managed Payroll',
+    title: 'Payroll Management',
     description:
-      'We handle timesheets, compliance, payroll, and direct wage payments for temporary workers.',
+      'We manage timesheets, payroll, worker payments, and related compliance tasks.',
   },
   {
-    title: 'High-Volume Capacity',
+    title: 'Bulk Staffing Support',
     description:
-      'Seamlessly coordinate bulk staffing for logistics hubs, retail surges, or support centers.',
+      'We help businesses arrange large numbers of temporary workers for logistics, retail, and customer support.',
   },
   {
-    title: 'Vetted Professionals',
+    title: 'Skilled and Verified Candidates',
     description:
-      'Every candidate is identity-checked and skill-assessed before arriving on-site.',
+      'We screen candidates, check their details, and assess their skills before placement.',
   },
   {
-    title: 'Zero Admin Overhead',
+    title: 'Less Administrative Work',
     description:
-      'We manage compliance, HR paperwork, and onboarding administrative burdens.',
+      "We support onboarding, recruitment paperwork, and compliance to reduce your team's workload.",
   },
 ],
     process: [
@@ -1180,15 +1169,15 @@ processDescription:
       { title: 'Support', desc: 'Ongoing management of temp cohorts.' }
     ],
     faqs: [
-      { q: 'How fast can you deploy vetted temporary staffing for seasonal peaks?', a: 'For unpredictable demand, we can typically deploy pre-vetted temporary staffing cohorts within 24 to 48 hours, ensuring your operations stay agile duringpeak periods.' },
-      { q: 'Do you manage the complete administrative and payroll responsibilities for temporary staff?', a: 'Yes, Chalky Infotech oversees essential staffing administration, including employee contracts, payroll processing, tax compliance, and ongoing administrative assistance.' },
-      { q: 'Can temporary staff be converted into permanent employees later?', a: 'Yes, our flexible temporary staffing model allows businesses to evaluate performance and fit, making it easier to transition high-performing staff into permanent team members.' },
-      { q: 'What industries do you support with high-volume temporary staffing?', a: 'We deliver temporary staffing solutions across Logistics, Retail (seasonal demand), Customer Service operations, and Manufacturing environments.' },
-      { q: 'How do you ensure temporary workers are fully vetted and ready to work?', a: 'All temporary staff undergo a structured screening process, including background verification, reference checks, and role-specific skills assessments to ensure they are qualified and prepared for deployment.' },
-      { q: 'What is the minimum and maximum duration for temporary staffing assignments?', a: 'Our temporary staffing options are flexible, covering short-term assignments through multi-month projects, based entirely on your operational requirements.' },
-      { q: 'How does temporary staffing help manage sudden operational spikes?', a: 'It provides a flexible, on-demand workforce that you can scale up or down instantly, protecting your permanent team from burnout and ensuring productivity and service levels are maintained during spikes.' },
-      { q: 'Can you provide managed temp cohorts for warehouse or retail operations?', a: 'Yes, our temporary staffing solutions support large workforce groups, with on-site coordination that maintains productivity, consistency, and smooth operational integration across locations.' },
-      { q: 'What support do you offer for on-site management of temporary staffing?', a: 'For larger staffing needs, we provide dedicated on-site coordinators who manage daily attendance, performance tracking, compliance, and workforce coordination.' }
+      { q: 'What Are Temporary Recruitment Services?', a: 'Temporary recruitment services help businesses find skilled workers for short-term roles, seasonal demand, and urgent staffing needs.' },
+      { q: 'Why Do Businesses Need Temporary Recruitment Services?', a: 'Businesses use temporary recruitment services to fill vacancies quickly, manage busy periods, and maintain daily operations.' },
+      { q: 'How Does the Temporary Recruitment Process Work?', a: 'The process includes understanding your staffing needs, sourcing candidates, screening applicants, and arranging suitable placements.' },
+      { q: 'How Quickly Can You Provide Temporary Staff?', a: 'The time depends on the role, required skills, and candidate availability. We aim to connect businesses with suitable candidates as quickly as possible.' },
+      { q: 'What Industries Do Your Temporary Recruitment Services Cover?', a: 'We support businesses across different industries, including IT, technology, administration, logistics, and customer support.' },
+      { q: 'Can I Hire Temporary Staff for Short-Term Projects?', a: 'Yes. We help businesses find temporary workers for short-term projects, seasonal work, and additional workforce requirements.' },
+      { q: 'Do You Screen Candidates Before Placement?', a: 'Yes. We assess candidate skills, experience, and suitability to help businesses find reliable temporary workers.' },
+      { q: 'Do You Provide Contract and Temporary Staffing?', a: 'Yes. We support businesses with temporary and contract recruitment based on their workforce requirements.' },
+      { q: 'Can You Help With Large-Scale Temporary Staffing?', a: 'Yes. We help businesses source multiple temporary workers to manage increased workloads and large staffing requirements.' }
     ],
     features: [
       { title: '24–48hr Mobilisation', desc: 'Pre-vetted temporary cohorts deployed within one to two business days UK-wide.', icon: 'Zap' },
@@ -1202,29 +1191,29 @@ processDescription:
     slug: 'onsite-recruitment-services',
     label: 'OnSite Recruitment',
     icon: 'MapPin',
-    desc: 'Full-cycle on-site solutions delivering dedicated talent partners as a seamless extension of your HR team.',
+    desc: 'Our dedicated recruitment support with our onsite recruiters, working closely with your HR team to find the right talent for your business.',
     hero: {
       badge: 'Embedded Partnership',
-      title: 'On-Site Recruitment Solutions in the UK',
-      subtitle: 'Benefit from dedicated recruiters working on-site as a seamless extension of your internal HR and hiring teams.',
+      title: 'Onsite Recruitment Services in the UK',
+      subtitle: 'Our dedicated recruitment support with our onsite recruiters, working closely with your HR team to find the right talent for your business.',
       image: onSiteRecruitmentImg.src,
     },
     metaInfo: {
-      title: 'Onsite Recruitment Services in UK | Dedicated Hiring Support',
-      description: 'Get onsite recruitment services in UK with dedicated talent partners, streamlined hiring support, and tailored workforce solutions aligned with your business needs.',
+      title: 'Onsite Recruitment Services UK',
+      description: 'Looking for onsite recruitment services in the UK? Chalky Infotech provides dedicated recruitment support to help businesses find the right talent.',
       keywords: 'on-site recruitment UK, embedded recruitment UK, RPO UK, on-site recruiter UK, recruitment process outsourcing UK, dedicated recruiter UK, in-house recruitment UK, on-site hiring UK',
       ogTitle: 'On-Site Recruitment UK | Embedded Talent Acquisition Partnership',
       ogDescription: 'Dedicated recruiters working as a seamless extension of your internal HR team. Lower cost-per-hire, faster cycles and real-time hiring analytics.'
     },
    overview: {
-    headingLabel: 'OnSite Recruitment:',
-  title: 'Embedded Talent Partnership Recruitment From Within',
+    headingLabel: 'Onsite Recruitment Services',
+  title: 'A Better Hiring Partnership',
 
- description: `An onsite recruitment partnership means our consultants don't just work for your business — they work alongside it, embedded within your culture, your systems, and your hiring strategy.
+ description: `Our onsite recruitment services place dedicated recruiters alongside your team. They work closely with your HR department to understand your business, hiring needs, and recruitment process.
 
-• Deep Cultural Integration: Our recruiters act as an extension of your employer brand, delivering candidate expe-riences that reflect your values from first contact through to offer acceptance.
-• Process Optimisation: We review and refine your hiring workflows to remove bottlenecks, cut time-to-hire, and bring down your cost-per-hire.
-• Real-Time Reporting: Live dashboards covering time-to-hire, source quality, diversity metrics and cost-per-hire, giving UK hiring teams full visibility throughout.`,
+• Better Team Understanding: Our recruiters learn your company culture and values to find candidates who fit your workplace.
+• Improved Recruitment Process: We help simplify hiring steps, reduce delays, and manage recruitment costs.
+• Regular Recruitment Updates: Get clear reports on hiring time, candidate quality, and recruitment progress to support better decisions.`,
   trustStats: [
     { value: '48h', label: 'Average Talent Matching' },
     { value: '98%', label: 'Placement Success Rate' },
@@ -1260,26 +1249,21 @@ processDescription:
 ],
 
   differentiators: [
-  'Recruiters who specialise in your specific industry, not generalists',
-  'Transparent, compliance-first approach — fully IR35 and EOR ready for UK hiring',
-  'No replacement fee — we step back in to help you find the right fit',
-  'Registered across the UK and India for seamless cross-border delivery',
-  'Live pipeline visibility, backed by weekly performance reporting',
-  'Flexible hiring models — contract, permanent, temporary, on-site and remote across the UK',
+  'Recruiters with experience in your industry',
+  'Clear recruitment processes that follow UK regulations',
+  'Replacement support to help find suitable candidates',
+  'Strong candidate network across the UK',
+  'Regular recruitment updates and performance reports',
+  'Flexible contract, permanent, temporary, on-site, and remote recruitment options',
 ],
 
-  whyChooseTitle: 'Why Choose Chalky Infotech for On-Site Recruitment in the UK?',
+  whyChooseTitle: 'Why Choose Chalky Infotech for Onsite Recruitment Services?',
   whyChooseDescription: `
-At <strong class="text-[#000000]">Chalky Infotech</strong>, our
-<strong class="text-[#7A1F5C]"> on-site recruitment services </strong>
-are built on one simple belief — recruitment done properly becomes a genuine strategic advantage.
-We combine
-<strong class="text-[#7A1F5C]"> deep industry knowledge </strong>
-with rigorous, evidence-based assessment so every hire strengthens your UK business rather than adding risk.
+At <strong class="text-[#000000]">Chalky Infotech</strong>, our Onsite Recruitment Services help UK businesses find the right talent through dedicated recruitment support. We combine industry knowledge with careful candidate screening to help businesses make better hiring decisions. Our recruiters work closely with your team to understand your needs, improve the recruitment process, and find candidates who match your business goals.
 `,
 
 partnershipDescription: `
-With registered operations across the <strong class="text-[#000000]">UK and India</strong>, and a talent network spanning 12+ industries, we deliver measurable outcomes at every level from graduate intake through to board appointment for organisations across the UK. We work as a genuine extension of your team, not as a distant vendor.
+We support businesses across the UK, from graduate recruitment to senior-level appointments, acting as an extension of your internal HR team.
 `,
 advantageHeadingLabel: 'The Chalky Advantage',
 advantageTitle: 'Embedded Excellence in',
@@ -1297,55 +1281,45 @@ Every on-site recruitment engagement is underpinned by clear SLAs, transparent r
 </p>
 
 <p>
-Our <strong style="color:#7A1F5C">full recruitment services</strong> spanning IT staffing, executive search, contract and permanent hiring, remote hiring, and managed workforce solutions scale with UK businesses at every stage of growth.
+Our <strong style="color:#7A1F5C">full recruitment services</strong> spanning IT Recruitment Services, executive search, contract and permanent hiring, remote hiring, and managed workforce solutions scale with UK businesses at every stage of growth.
 </p>
 `,
 bottomAdvantageTitle: 'The Chalky Infotech Onsite Recruitment Advantage',
 
 bottomAdvantageDescription: `
   <p>
-    Organisations across the UK and India choose Chalky Infotech for onsite
-    recruitment because our approach combines dedicated recruitment expertise,
-    on-location workforce support, structured candidate assessment, and live
-    market intelligence.
+    UK businesses choose Chalky Infotech for our dedicated recruitment support, industry knowledge, and careful candidate screening. We work closely with your team to understand your staffing needs and find suitable candidates.
   </p>
 
   <p>
-    From project-based workforce requirements to long-term hiring needs, our
-    <strong style="color:#7A1F5C">onsite recruitment solutions</strong> provide
-    dedicated talent aligned with your business environment, culture, and operational goals.
+    From short-term projects to long-term hiring needs, our onsite recruitment services help businesses find talent that matches their workplace, company culture, and business goals.
   </p>
 `,
 
-bottomOutcomesTitle: 'Measurable Onsite Recruitment Outcomes',
+bottomOutcomesTitle: 'Measurable Results from Our Onsite Recruitment Services',
 
 bottomOutcomesDescription: `
   <p>
-    Every onsite recruitment engagement is supported by clear SLAs, transparent
-    reporting, continuous workforce coordination, and structured post-placement
-    support. We focus on hiring speed, candidate quality, workforce retention,
-    satisfaction, and operational efficiency.
+    Every onsite recruitment project includes clear reporting, regular updates, and ongoing support. We focus on hiring time, candidate quality, employee retention, and overall recruitment performance.
   </p>
 
   <p>
-    Our onsite recruitment model helps organisations strengthen workforce
-    management, improve hiring efficiency, and maintain the right talent
-    capacity as business requirements evolve.
+    Our onsite recruitment services help businesses improve hiring processes, manage their workforce, and find the right talent as their needs change.
   </p>
 `,
 benefitsHeadingLabel: 'Core Advantages',
-benefitsTitle: 'Strategic Permanent Recruitment Benefits',
+benefitsTitle: 'Strategic Permanent Onsite Recruitment Services',
 benefitsDescription:
-  'Our specialised approach delivers measurable impact, helping UK organisations achieve peak operational efficiency and talent excellence.',
+  'Our onsite recruitment services help UK businesses improve their hiring process, find suitable candidates, and manage recruitment needs more effectively.',
 supportHeadingLabel: 'Global Sector Support',
 
-supportTitle: 'Cross-Border Onsite Recruitment & Industry Expertise',
+supportTitle: 'UK Onsite Recruitment Services',
 
 supportDescription:
-  'We provide seamless workforce management and specialised onsite recruitment support across international borders, helping organisations build dedicated teams aligned with their operational requirements.',
+  'We provide dedicated onsite recruitment support across the UK, helping businesses build skilled teams that meet their workforce needs.',
 
 supportSecondDescription:
-  'Our onsite recruitment approach combines dedicated recruitment expertise, structured candidate assessment, workforce coordination, and live market intelligence to provide talent that fits your business environment, culture, and long-term workforce goals.',
+  'Our approach combines industry knowledge, candidate screening, and workforce support to find talent that matches your business goals and workplace culture.',
   supportClientTitle: 'Trusted by Global Leaders',
 
 supportClientDescription:
@@ -1366,34 +1340,34 @@ processDescription:
   }, 
    benefits: [
   {
-    title: 'On-Site Integration',
+    title: 'Onsite Team Support',
     description:
-      'Recruiters work alongside your UK HR team, acting as genuine internal brand ambassadors.',
+      'Recruiters work alongside your HR team to understand your business and hiring needs.',
   },
   {
-    title: 'Lower Cost-Per-Hire',
+    title: 'Lower Recruitment Costs',
     description:
-      'A streamlined hiring process reduces agency dependency and cuts direct costs.',
+      'A simple and organised hiring process helps reduce recruitment costs and agency dependency.',
   },
   {
-    title: 'Accelerated Cycles',
+    title: 'Faster Hiring Process',
     description:
-      'Embedded recruiters resolve bottlenecks in real time, closing UK roles faster.',
+      'Our recruiters help reduce hiring delays and fill vacancies more quickly.',
   },
   {
-    title: 'Premium Candidate Experience',
+    title: 'Better Candidate Experience',
     description:
-      'High-touch communication and clear feedback loops throughout the process.',
+      'We keep candidates informed with regular updates and clear communication.',
   },
   {
-    title: 'Strategic Alignment',
+    title: 'Business-Focused Recruitment',
     description:
-      'Hiring aligned directly to your corporate growth goals and long-term project needs.',
+      'We align recruitment plans with your business goals and workforce needs.',
   },
   {
-    title: 'Process Optimisation',
+    title: 'Improved Hiring Process',
     description:
-      'Continuous review of your ATS workflows and interview pipelines for peak efficiency.',
+      'We review recruitment steps and interview processes to make hiring easier and more effective.',
   },
 ],
     process: [
@@ -1403,15 +1377,15 @@ processDescription:
       { title: 'Reporting', desc: 'Data-driven insights on hiring performance.' }
     ],
     faqs: [
-      { q: 'How does an on-site recruitment model improve the overall hiring quality?', a: 'By working from within your organization, our recruiters develop a deep understanding of your culture and team dynamics, leading to more accurate and successful talent matches.' },
-      { q: 'Can you scale the number of on-site recruiters based on our hiring volume?', a: 'Yes, our model is flexible. We can increase or decrease the number of dedicated on-site recruiters as your hiring requirements fluctuate throughout the year.' },
-      { q: 'What is the typical duration of an on-site recruitment partnership?', a: 'On-site partnerships typically range from 3 months for specific projects to multi-year engagements for continuous high-volume hiring.' },
-      { q: 'How do your on-site recruiters integrate with our internal HR systems?', a: 'Our team is trained to work with all major ATS and HR platforms, ensuring that all data remains within your systems while we manage the process.' },
-      { q: 'Does an on-site model help in reducing the overall cost-per-hire?', a: 'Yes, by streamlining processes and reducing reliance on external agencies, an on-site partnership significantly lowers the overall cost of acquiring talent.' },
-      { q: 'Can you optimize our existing recruitment processes while on-site?', a: 'Absolutely. Part of our value is performing a "Process Audit" to identify bottlenecks and implement best-in-class workflows that improve hiring speed and candidate quality.' },
-      { q: 'How do you handle the candidate experience when representing our brand?', a: 'Our on-site recruiters act as your brand ambassadors, providing a consistent and high-quality experience that reflects your company values at every stage of the journey.' },
-      { q: 'What kind of reporting and data analytics do you provide for on-site services?', a: 'We provide real-time dashboards and weekly reports on key metrics like time-to-hire, source quality, diversity statistics, and overall cost-per-hire.' },
-      { q: 'Is the on-site model suitable for tech scale-ups and mid-sized firms?', a: 'Yes, it is highly effective for scale-ups undergoing rapid growth, providing the structure and expertise needed to build a sustainable talent pipeline quickly.' }
+      { q: 'What Are Onsite Recruitment Services?', a: 'Onsite recruitment services provide dedicated recruiters who work directly with your business to manage hiring and find suitable candidates.' },
+      { q: 'How Do Onsite Recruitment Services Work?', a: 'Recruiters work alongside your HR team to understand job requirements, source candidates, conduct screening, and manage the recruitment process.' },
+      { q: 'Why Do Businesses Choose Onsite Recruitment?', a: 'Businesses choose onsite recruitment to improve hiring efficiency, reduce delays, and get dedicated recruitment support.' },
+      { q: 'What Is the Difference Between Onsite and Traditional Recruitment?', a: 'Onsite recruitment involves recruiters working directly with your team, while traditional recruitment is usually managed externally.' },
+      { q: 'Which Businesses Need Onsite Recruitment Services?', a: 'Businesses with regular hiring needs, large workforces, or multiple vacancies can benefit from onsite recruitment services.' },
+      { q: 'Can Onsite Recruiters Work with Our HR Team?', a: 'Yes. Onsite recruiters work closely with your HR team to understand staffing needs and support daily recruitment activities.' },
+      { q: 'How Do Onsite Recruitment Services Reduce Hiring Costs?', a: 'They help reduce recruitment delays, improve hiring processes, and lower dependency on multiple recruitment agencies.' },
+      { q: 'Do Onsite Recruiters Handle Candidate Screening?', a: 'Yes. They review applications, assess candidate skills, and shortlist suitable applicants for your vacancies.' },
+      { q: 'Can Onsite Recruitment Support High-Volume Hiring?', a: 'Yes. Onsite recruitment teams can help manage multiple vacancies and coordinate large-scale recruitment activities.' }
     ],
     features: [
       { title: 'Brand Ambassador', desc: 'Our recruiters represent your employer brand as a true internal team member.', icon: 'Award' },
@@ -1542,7 +1516,7 @@ bottomOutcomesDescription: `
   </p>
 
   <p>
-    Our end-to-end <strong class="text-[#7A1F5C]"> Managed Recruitment Service </strong> can support a wide range of hiring requirements, including IT staffing, executive search, contract and permanent recruitment, remote hiring, and recruitment process outsourcing. These solutions can scale with your workforce requirements and help you build a flexible, high-quality talent pipeline.
+    Our end-to-end <strong class="text-[#7A1F5C]"> Managed Recruitment Service </strong> can support a wide range of hiring requirements, including IT Recruitment Services, executive search, contract and permanent recruitment, remote hiring, and recruitment process outsourcing. These solutions can scale with your workforce requirements and help you build a flexible, high-quality talent pipeline.
   </p>
 `,
 benefitsHeadingLabel: 'Core Advantages',

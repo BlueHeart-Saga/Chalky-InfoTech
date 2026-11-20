@@ -44,7 +44,9 @@ export default function ServiceProcess({
 <h2
   className="text-3xl md:text-5xl font-normal text-[#1A1A1A] mb-6 leading-tight tracking-tight"
   dangerouslySetInnerHTML={{
-    __html: `${processTitle} for ${serviceLabel || 'Your Business'}</strong>`,
+    __html: processTitle.toLowerCase().includes(serviceLabel?.toLowerCase() || '')
+      ? `${processTitle}</strong>`
+      : `${processTitle} for ${serviceLabel || 'Your Business'}</strong>`,
   }}
 />
 

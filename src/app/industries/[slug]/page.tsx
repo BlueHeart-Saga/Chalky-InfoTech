@@ -147,13 +147,14 @@ export default async function IndustryDetailPage({ params }: Props) {
     advantageDescription={industry.overview.advantageDescription}
     outcomesTitle={industry.overview.outcomesTitle}
     outcomesDescription={industry.overview.outcomesDescription}
+    recruitmentIntro={industry.contentOverrides?.recruitmentIntro}
   />
 </section>
       
-      <section id="challenges"><IndustryChallenges challenges={industry.challenges} /></section>
-      <section id="roles"><RolesWeHire industryLabel={industry.label} roles={industry.roles} /></section>
-      <section id="solutions"><IndustrySolutions services={industry.services} /></section>
-      <section id="process"><IndustryProcess /></section>
+      <section id="challenges"><IndustryChallenges challenges={industry.challenges} copy={industry.contentOverrides?.challenges} /></section>
+      <section id="roles"><RolesWeHire industryLabel={industry.label} roles={industry.roles} roleDescriptions={industry.contentOverrides?.roleDescriptions} /></section>
+      <section id="solutions"><IndustrySolutions services={industry.services} sourcingCopy={industry.contentOverrides?.sourcing} /></section>
+      <section id="process"><IndustryProcess copy={industry.contentOverrides?.process} /></section>
       <section id="faq"><IndustryFAQ industryLabel={industry.label} faqs={industry.faqs} /></section>
       <section id="related"><RelatedIndustries currentSlug={industry.slug} /></section>
 

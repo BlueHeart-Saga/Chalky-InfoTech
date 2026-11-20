@@ -23,7 +23,7 @@ export const metadata = buildPageMetadataWithImage({
     'contact IT recruitment agency',
     'Chalky Infotech contact',
     'tech recruitment London',
-    'IT staffing Chennai',
+    'IT Recruitment Services Chennai',
     'global workforce solutions contact',
   ],
   url: '/contact',

@@ -18,7 +18,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPageMetadataWithImage({
     title: `${location.service} in ${location.city}`,
     description: location.description,
-    keywords: [location.service, location.city, 'recruitment', 'staffing', 'Chalky Infotech'],
+    keywords: [
+      ...(location.keywords || [
+        location.service,
+        location.city,
+        'recruitment',
+        'staffing',
+        'Chalky Infotech',
+      ]),
+      'Chalky Infotech',
+    ],
     url: `/locations/${slug}`,
     path: '/hero-services.png',
     alt: `${location.service} in ${location.city} - Chalky Infotech`
@@ -51,7 +60,7 @@ export default async function LocationPage({ params }: Props) {
       url: 'https://chalkyinfo.com',
     },
     areaServed: {
-      '@type': 'City',
+      '@type': location.areaServedType || 'City',
       name: location.city
     }
   };

@@ -5,6 +5,10 @@ import * as LucideIcons from 'lucide-react';
 
 interface Props {
   challenges: string[];
+  copy?: {
+    intro: string;
+    descriptions: string[];
+  };
 }
 
 const CARD_STYLES = [
@@ -68,7 +72,7 @@ function getChallengeDetail(challenge: string, index: number) {
   return { icon, desc };
 }
 
-export default function IndustryChallenges({ challenges }: Props) {
+export default function IndustryChallenges({ challenges, copy }: Props) {
   return (
     <section className="py-32 bg-[#FAF8F5] overflow-hidden relative">
       
@@ -103,7 +107,7 @@ export default function IndustryChallenges({ challenges }: Props) {
             Sector <span className="text-[#7A1F5C]">Challenges</span> We Solve
           </h2>
           <p className="text-[#8A8A8A] text-lg max-w-2xl leading-relaxed">
-            We identify, mitigate, and overcome critical operational bottlenecks in the industry by connecting you with specialized workforce leaders.
+            {copy?.intro ?? 'We understand the recruitment challenges faced by financial organisations and help address them by connecting businesses with professionals who have relevant industry knowledge and experience.'}
           </p>
         </div>
 
@@ -111,6 +115,7 @@ export default function IndustryChallenges({ challenges }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12">
           {challenges.map((challenge, i) => {
             const { icon, desc } = getChallengeDetail(challenge, i);
+            const description = copy?.descriptions[i] ?? desc;
             const IconComponent = (LucideIcons as any)[icon] || LucideIcons.AlertCircle;
             const style = CARD_STYLES[i % CARD_STYLES.length];
 
@@ -150,7 +155,7 @@ export default function IndustryChallenges({ challenges }: Props) {
                 
                 {/* Card Description */}
                 <p className="text-[#8A8A8A] text-sm leading-relaxed">
-                  {desc}
+                  {description}
                 </p>
               </motion.div>
             );

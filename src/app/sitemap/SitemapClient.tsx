@@ -338,7 +338,7 @@ export default function SitemapPage() {
               </p>
               <ul className="list-disc pl-5 space-y-2 text-gray-500">
                 <li>
-                  <strong className="text-[#1A1A1A]">IT Staffing & Contract Placement:</strong> Rapid provisioning of vetted contractors to manage project spikes, system integrations, or temporary skill gaps, ensuring seamless operational continuity without long-term overhead.
+                  <strong className="text-[#1A1A1A]">IT Recruitment Services & Contract Placement:</strong> Rapid provisioning of vetted contractors to manage project spikes, system integrations, or temporary skill gaps, ensuring seamless operational continuity without long-term overhead.
                 </li>
                 <li>
                   <strong className="text-[#1A1A1A]">Executive Search & Leadership Acquisition:</strong> Retained and contingent search frameworks targeting C-suite leaders, VP-level engineering directors, and principal technologists who possess the vision to drive corporate transformation.

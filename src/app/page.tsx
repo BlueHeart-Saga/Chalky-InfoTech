@@ -21,8 +21,8 @@ import FAQSection from '@/components/FAQSection';
 import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
 
 export const metadata = buildPageMetadataWithImage({
-  title: 'Chalky Infotech | IT Recruitment & Workforce Solutions',
-  description: 'Chalky Infotech is a specialist technology recruitment and workforce partner. We connect top talent with global businesses across cloud, AI, and DevOps.',
+  title: 'Chalky Infotech | Recruitment Partner for Businesses',
+  description: 'Discover tailored recruitment services with Chalky Infotech. We connect businesses with skilled professionals, industry specialists and experienced leaders.',
   keywords: ['IT recruitment UK', 'technology recruitment partner', 'digital talent acquisition', 'cloud recruitment', 'AI staffing', 'DevOps hiring', 'finance tech recruitment', 'premium IT workforce solutions'],
   url: '/',
   path: SEO_IMAGE_CONFIG.home.path,

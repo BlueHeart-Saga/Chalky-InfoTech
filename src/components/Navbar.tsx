@@ -30,7 +30,7 @@ const SERVICES_DATA = {
     {
       title: 'Recruitment Solutions',
       items: [
-        { label: 'IT Staffing', desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.', href: '/services/it-recruitment-services' },
+        { label: 'IT Recruitment Services', desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.', href: '/services/it-recruitment-services' },
         { label: 'Executive Search', desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.', href: '/services/executive-recruitment-services' },
         { label: 'Contract Staffing', desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.', href: '/services/contract-recruitment-services' },
         { label: 'Permanent Hiring', desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.', href: '/services/permanent-recruitment-services' },
@@ -143,6 +143,23 @@ interface InsightSection {
   categories: InsightCategory[];
 }
 
+type MobileDropdown = 'services' | 'capabilities' | 'industries' | 'insights';
+
+function getMobileDropdown(label: string): MobileDropdown | null {
+  switch (label) {
+    case 'Services':
+      return 'services';
+    case 'Capabilities':
+      return 'capabilities';
+    case 'Industries':
+      return 'industries';
+    case 'Insights':
+      return 'insights';
+    default:
+      return null;
+  }
+}
+
 // ─── Insights Data  Dynamic Navigation Structure ────────────────────────────
 const DEFAULT_INSIGHTS_SECTIONS: InsightSection[] = [
   {
@@ -223,6 +240,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<MobileDropdown | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   // Dynamic Insights State
@@ -282,10 +300,49 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setActiveMobileDropdown(null);
     setActiveDropdown(null);
   }, [pathname]);
 
   const navClasses = `fixed top-2 left-2 right-2 md:top-4 md:left-4 md:right-4 z-50 transition-all duration-500 max-w-[1400px] mx-auto rounded-2xl bg-white/95 backdrop-blur-xl border border-gray-200/50 ${scrolled ? 'shadow-xl shadow-[#7A1F5C]/5' : 'shadow-md'} ${hidden ? '-translate-y-[150%] opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'}`;
+
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+    setActiveMobileDropdown(null);
+  };
+
+  const toggleMobileDropdown = (dropdown: MobileDropdown) => {
+    setActiveMobileDropdown((current) => current === dropdown ? null : dropdown);
+  };
+
+  const renderMobileDataDropdown = (data: typeof SERVICES_DATA, href: string, label: string) => (
+    <>
+      <Link
+        href={href}
+        onClick={closeMobileMenu}
+        className="block px-3 py-2.5 text-sm font-bold text-[#7A1F5C] rounded-lg hover:bg-[#F5F0E8]"
+      >
+        View All {label}
+      </Link>
+      {data.columns.map((column) => (
+        <div key={column.title}>
+          <p className="px-3 pt-4 pb-2 text-[11px] font-bold uppercase tracking-wider text-gray-500">
+            {column.title}
+          </p>
+          {column.items.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={closeMobileMenu}
+              className="block px-3 py-3 rounded-lg text-[14px] font-medium text-gray-700 hover:bg-[#F5F0E8] hover:text-[#7A1F5C] transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      ))}
+    </>
+  );
 
   const renderServicesIndustriesMenu = (data: any) => (
     <motion.div
@@ -544,26 +601,112 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
             className="lg:hidden bg-white border-t border-gray-100 overflow-hidden rounded-b-2xl"
           >
-            <div className="p-4 space-y-1">
-              {NAV_LINKS.map((link) => (
-                <Link key={link.href} href={link.href}
-                  className="block px-4 py-3 rounded-xl font-semibold text-[15px] text-[#1A1A1A] hover:bg-[#F5F0E8] hover:text-[#7A1F5C] transition-all duration-200"
+            <div className="max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain p-4 space-y-1">
+              {NAV_LINKS.map((link) => {
+                const dropdownKey = getMobileDropdown(link.label);
+                if (!dropdownKey) {
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={closeMobileMenu}
+                      className="block px-4 py-3 rounded-xl font-semibold text-[15px] text-[#1A1A1A] hover:bg-[#F5F0E8] hover:text-[#7A1F5C] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                }
+
+                const isExpanded = activeMobileDropdown === dropdownKey;
+
+                return (
+                  <div key={link.href}>
+                    <button
+                      type="button"
+                      onClick={() => toggleMobileDropdown(dropdownKey)}
+                      aria-expanded={isExpanded}
+                      aria-controls={`mobile-${dropdownKey}-submenu`}
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-xl font-semibold text-[15px] text-[#1A1A1A] hover:bg-[#F5F0E8] hover:text-[#7A1F5C] transition-colors"
+                    >
+                      <span>{link.label}</span>
+                      <ChevronDown
+                        size={18}
+                        className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isExpanded && (
+                        <motion.div
+                          id={`mobile-${dropdownKey}-submenu`}
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="ml-4 mt-1 pl-3 border-l-2 border-[#7A1F5C]/20 space-y-1 overflow-hidden"
+                        >
+                          {dropdownKey === 'insights' ? (
+                            <>
+                              <Link
+                                href={link.href}
+                                onClick={closeMobileMenu}
+                                className="block px-3 py-2.5 text-sm font-bold text-[#7A1F5C] rounded-lg hover:bg-[#F5F0E8]"
+                              >
+                                View All Insights
+                              </Link>
+                              {insightsSections.map((section) => (
+                                <div key={section.slug}>
+                                  <p className="px-3 pt-4 pb-2 text-[11px] font-bold uppercase tracking-wider text-gray-500">
+                                    {section.name}
+                                  </p>
+                                  {section.categories.map((category) => (
+                                    <Link
+                                      key={category.slug}
+                                      href={`/insights/${category.slug}`}
+                                      onClick={closeMobileMenu}
+                                      className="block px-3 py-3 rounded-lg text-[14px] font-medium text-gray-700 hover:bg-[#F5F0E8] hover:text-[#7A1F5C] transition-colors"
+                                    >
+                                      {category.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              ))}
+                            </>
+                          ) : dropdownKey === 'services' ? (
+                            renderMobileDataDropdown(SERVICES_DATA, link.href, link.label)
+                          ) : dropdownKey === 'capabilities' ? (
+                            renderMobileDataDropdown(CAPABILITIES_NAV_DATA, link.href, link.label)
+                          ) : (
+                            renderMobileDataDropdown(INDUSTRIES_DATA, link.href, link.label)
+                          )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+
+              <div className="pt-4 mt-2 border-t border-gray-100 px-4">
+                <Link
+                  href="/contact"
+                  onClick={closeMobileMenu}
+                  className="block text-center bg-[#7A1F5C] text-white py-3 rounded-xl font-semibold text-sm"
                 >
-                  {link.label}
+                  Contact Us
                 </Link>
-              ))}
-              <div className="pt-4 mt-2 border-t border-gray-100 flex gap-4 px-4">
-                <Link href="/contact" className="flex-1 text-center bg-[#7A1F5C] text-white py-3 rounded-xl font-semibold text-sm">Contact Us</Link>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
     </nav>
   );
 }

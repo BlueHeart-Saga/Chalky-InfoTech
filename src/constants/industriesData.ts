@@ -37,6 +37,27 @@ export interface IndustryDetail {
     desc: string;
     icon: string;
   }[];
+  contentOverrides?: {
+    recruitmentIntro?: {
+      paragraphs: string[];
+      differentiators: string[];
+    };
+    challenges?: {
+      intro: string;
+      descriptions: string[];
+    };
+    roleDescriptions?: string[];
+    sourcing?: {
+      paragraphs: string[];
+    };
+    process?: {
+      description: string;
+      steps: {
+        title: string;
+        description: string;
+      }[];
+    };
+  };
 }
 
 import itTechImg from '@/assets/Industries-heros/IT and Technology.png';
@@ -417,57 +438,32 @@ outcomesDescription: `
     icon: 'Landmark',
     hero: {
       badge: 'Financial Talent',
-      title: 'Banking & Finance Recruitment Solutions',
-      subtitle: 'Connecting global financial institutions with top-tier professionals in fintech, compliance, and core banking operations.',
+      title: 'Banking & Finance Recruitment Services UK',
+      subtitle: 'Connecting UK financial institutions, banks, and fintech organisations with experienced professionals across banking operations, financial management, compliance, and digital finance.',
       image: bankingImg,
     },
     metaInfo: {
-      title: 'Banking & Finance Recruitment UK | Fintech',
-      description: 'Specialist banking and finance recruitment across the UK. Compliance officers, risk managers, fintech developers and investment banking professionals sourced for global financial institutions.',
-      keywords: 'banking recruitment UK, finance recruitment UK, fintech recruitment UK, compliance officer staffing UK, risk manager recruitment UK, investment banking recruitment UK, AML KYC staffing UK, financial services talent UK',
+      title: 'Banking & Finance Recruitment UK',
+      description:`Find skilled banking and finance professionals with Chalky's Banking & Finance Recruitment Services UK. Hire experienced financial services talent.`,
+      keywords: 'Banking Recruitment Agency UK, Finance Recruitment Services UK, Banking Recruitment Services UK, Financial Services Recruitment UK, Banking and Finance Recruitment Agency UK, Financial Recruitment Consultants UK, Fintech Recruitment Services UK, Compliance Recruitment UK, Risk Management Recruitment UK, Investment Banking Recruitment UK, Financial Analyst Recruitment UK, Banking Operations Recruitment UK, Contract Finance Recruitment UK, Finance Staffing Solutions UK, Financial Technology Recruitment UK',
       ogTitle: 'Banking & Finance Recruitment UK | Fintech & Financial Services Talent',
       ogDescription: 'Specialist financial services recruitment across the UK. Compliance, risk, fintech and core banking professionals sourced for global institutions and scale-ups.'
     },
     overview: {
-      title: 'Strategic Financial Workforce — From Fintech to Core Banking',
-      description: 'The financial services sector demands professionals who understand both the rigour of traditional banking and the pace of digital finance. We help organisations secure highly skilled professionals aligned with digital transformation, risk management, and regulatory compliance.\n\n• Regulatory Expertise: All candidates vetted for MiFID II, Dodd-Frank, FCA and RBI compliance requirements relevant to their role and jurisdiction.\n• Fintech-to-Banking Bilingualism: Our consultants understand both cultures, ensuring precise cultural and technical fit across traditional and digital finance environments.\n• Enhanced Background Screening: Credit checks, criminal record checks and 5–10 year employment history verification applied as standard to every finance hire.',
+      title: 'Building Skilled Financial Teams — From Fintech to Core Banking',
+      description: `The banking and financial services sector requires professionals with strong financial knowledge, regulatory awareness, and the ability to adapt to changing industry demands. We help organisations recruit skilled candidates who support financial operations, risk management, regulatory compliance, and digital transformation. \n\n• Regulatory Awareness: We identify candidates with relevant knowledge of FCA, MiFID II, Dodd-Frank, RBI, and other financial regulations according to their role and jurisdiction..\n• Traditional Banking & Fintech Expertise: Traditional Banking & Fintech Expertise:Our recruitment approach covers both established banking operations and modern financial technology environments, helping businesses find candidates with relevant industry experience.\n• Structured Candidate Screening: We assess professional experience, qualifications, role-specific knowledge, and background verification requirements based on each client's hiring standards.`,
     advantageTitle: 'The Chalky Infotech Banking & Finance Talent Advantage',
 
 advantageDescription: `
-  <p>
-    Banking and financial services organisations choose Chalky Infotech for
-    <strong style="color:#7A1F5C"> specialist finance recruitment </strong>
-    because we combine regulatory awareness, sector expertise, and rigorous
-    candidate screening to identify professionals who can perform in highly
-    regulated environments.
-  </p>
-
-  <p>
-    From traditional banking and financial operations to fintech, compliance,
-    risk, and digital transformation, our
-    <strong style="color:#7A1F5C"> Banking & Finance hiring solutions </strong>
-    are aligned with your regulatory requirements, technology landscape,
-    business priorities, and long-term growth strategy.
-  </p>
+  <p>Banking and financial services organisations choose Chalky Infotech for specialist banking and finance recruitment because we understand the importance of industry experience, professional qualifications, and regulatory awareness when hiring financial professionals.</p>
+  <p>From traditional banking and financial operations to fintech, compliance, risk management, and digital finance, our Banking & Finance hiring solutions are aligned with your workforce requirements, business objectives, and long-term growth plans.</p>
 `,
 
 outcomesTitle: 'Measurable Banking & Finance Recruitment Outcomes',
 
 outcomesDescription: `
-  <p>
-    Every <strong style="color:#7A1F5C"> Banking & Finance recruitment </strong>
-    engagement is supported by structured assessments, enhanced background
-    screening, compliance checks, and transparent reporting. We track outcomes
-    including time-to-hire, regulatory fit, technical capability, retention,
-    and candidate experience.
-  </p>
-
-  <p>
-    Our permanent hiring, executive search, contract specialists, and managed
-    workforce solutions help financial organisations secure trusted professionals
-    faster while maintaining compliance, operational resilience, and the flexibility
-    required in a rapidly evolving financial services environment.
-  </p>
+  <p>Every Banking & Finance recruitment engagement begins with an understanding of the position, required experience, and organisational expectations. We focus on candidate suitability, technical and financial knowledge, relevant qualifications, and the experience needed for each role.</p>
+  <p>Our permanent recruitment, executive search, contract staffing, and flexible hiring solutions help financial organisations identify suitable professionals while supporting operational requirements, workforce planning, and business growth.</p>
 `,
     },
     challenges: [
@@ -484,6 +480,55 @@ outcomesDescription: `
       'Treasury Specialists',
       'Financial Analysts'
     ],
+    contentOverrides: {
+      recruitmentIntro: {
+        paragraphs: [
+          'At Chalky Infotech, our banking and finance recruitment expertise focuses on connecting financial organisations with qualified professionals who understand the demands of the sector. We combine industry knowledge with targeted candidate sourcing and structured assessments to identify talent suited to your business requirements.',
+          'With operations across the UK and India and recruitment experience spanning multiple industries, we support hiring needs at different levels — from specialist finance professionals to senior management and executive positions. We work closely with your team to understand your requirements and identify suitable candidates.'
+        ],
+        differentiators: [
+          'Recruitment support for banking, financial services, and fintech roles',
+          'Focus on relevant industry knowledge and regulatory awareness',
+          'Structured candidate screening and role-specific assessments',
+          'Recruitment support across the UK and India',
+          'Candidate pipeline updates and regular recruitment reporting',
+          'Contract, permanent, temporary, on-site, and remote hiring options'
+        ]
+      },
+      challenges: {
+        intro: 'We understand the recruitment challenges faced by financial organisations and help address them by connecting businesses with professionals who have relevant industry knowledge and experience.',
+        descriptions: [
+          'Find compliance professionals with experience in financial regulations, AML, KYC, and regulatory reporting requirements.',
+          'Recruit banking technology specialists and consultants who understand core banking platforms, system upgrades, and financial technology environments.',
+          'Connect with experienced risk managers, fraud analysts, and information security professionals who support financial risk and operational controls.',
+          'Identify fintech, financial data, and analytics professionals who can support digital banking, financial reporting, and technology-led business initiatives.'
+        ]
+      },
+      roleDescriptions: [
+        'Professionals experienced in regulatory requirements, financial crime prevention, AML, KYC, and compliance monitoring.',
+        'Specialists who assess financial, operational, credit, and market risks while supporting effective risk management practices.',
+        'Experienced professionals with knowledge of investment banking, capital markets, financial modelling, and corporate finance.',
+        'Technology professionals experienced in developing and supporting digital banking platforms, financial applications, and fintech solutions.',
+        'Candidates skilled in cash management, liquidity planning, treasury operations, and financial risk management.',
+        'Professionals experienced in financial modelling, budgeting, forecasting, reporting, and business performance analysis.'
+      ],
+      sourcing: {
+        paragraphs: [
+          'We use targeted sourcing and a network of professionals to help financial organisations identify candidates with the right experience, qualifications, and industry knowledge.',
+          'Our recruitment approach considers technical skills, financial expertise, professional background, and organisational fit. Whether you need to fill a specialist compliance vacancy, recruit financial analysts, or expand a fintech team, we work to identify candidates who match your requirements.'
+        ]
+      },
+      process: {
+        description: 'Our structured recruitment process helps identify and present suitable professionals who understand your sector, role requirements, and business priorities.',
+        steps: [
+          { title: 'Sector Analysis', description: 'Understand your organisation, financial services environment, hiring objectives, and specific role requirements.' },
+          { title: 'Talent Mapping', description: 'Identify relevant professionals across banking, finance, fintech, compliance, and financial operations.' },
+          { title: 'Deep Sourcing', description: 'Connect with suitable active and passive candidates through targeted recruitment networks and sourcing channels.' },
+          { title: 'Evaluation', description: 'Assess professional experience, financial knowledge, technical capabilities, qualifications, and role suitability.' },
+          { title: 'Coordination', description: 'Manage candidate introductions, interview arrangements, feedback, and communication throughout the selection process.' }
+        ]
+      }
+    },
     services: [
       'Permanent Hiring',
       'Executive Search',
@@ -491,15 +536,15 @@ outcomesDescription: `
       'Managed Workforce'
     ],
     faqs: [
-      { q: 'How do you support the recruitment needs of rapidly growing Fintech startups?', a: 'We specialize in scaling Fintech teams from seed to Series C and beyond, sourcing product-minded engineers who understand the pace and regulatory needs of digital finance.' },
-      { q: 'Can you manage high-volume compliance and risk management hiring drives?', a: 'Yes, we have a specialized division for Financial Crime and Compliance, capable of building large-scale AML and KYC teams for global banking institutions.' },
-      { q: 'What is your expertise in sourcing talent for core banking system transformations?', a: 'We source specialized consultants and engineers who have experience migrating legacy banking systems to modern, cloud-native architectures like Mambu or Thought Machine.' },
-      { q: 'How do you vet candidates for their understanding of global financial regulations?', a: 'We ensure our financial professionals have a working knowledge of major regulations such as MiFID II, Dodd-Frank, and local FCA or RBI guidelines depending on the jurisdiction.' },
-      { q: 'Do you provide contract specialists for seasonal financial reporting peaks?', a: 'Yes, we provide highly skilled contract accountants and financial analysts who can assist with year-end reporting, auditing, and tax cycles on a flexible basis.' },
-      { q: 'How does Chalky Infotech bridge the gap between traditional finance and digital tech?', a: 'Our recruiters are "bi-lingual"they understand both the rigorous culture of traditional banking and the agile, innovative culture of technology, ensuring a perfect cultural fit.' },
-      { q: 'Can you source specialized talent for quantitative analysis and treasury?', a: 'We have a niche desk for "Quant" talent, sourcing specialists in algorithmic trading, risk modeling, and advanced treasury management for investment banks and hedge funds.' },
-      { q: 'What security and background verification standards do you apply to finance hires?', a: 'For finance roles, we conduct enhanced background screening, including credit checks, criminal record checks, and 5-10 year employment history verification as standard.' },
-      { q: 'How do you handle executive search for senior banking leadership?', a: 'Our finance executive search team operates with the highest level of discretion, targeting C-suite leaders who can navigate the complexities of modern global finance.' }
+      { q: 'How do you support the recruitment needs of growing fintech companies?', a: 'We help growing fintech businesses identify professionals across software development, financial technology, product management, compliance, and digital banking. Our recruitment approach considers the technical skills, financial knowledge, and experience required to support different stages of business growth.' },
+      { q: 'Can you support high-volume compliance and risk management recruitment?', a: 'Yes. We support recruitment for compliance, AML, KYC, fraud prevention, and risk management positions. We work with businesses to understand the number of vacancies, required experience, and relevant regulatory knowledge before sourcing suitable candidates.' },
+      { q: 'What is your experience in recruiting professionals for core banking transformation projects?', a: 'We help organisations find banking technology professionals, business analysts, project managers, and consultants with experience in core banking systems, financial applications, and banking technology transformation initiatives.' },
+      { q: "How do you assess candidates' understanding of financial regulations?", a: "We review candidates' professional experience, relevant qualifications, and knowledge of regulations applicable to the role. Depending on the position and location, this may include experience with FCA requirements, MiFID II, Dodd-Frank, RBI guidelines, AML, and KYC processes." },
+      { q: 'Do you provide contract finance professionals for temporary business requirements?', a: 'Yes. We support contract recruitment for financial analysts, accountants, compliance specialists, treasury professionals, and other finance roles. This can help organisations manage temporary workloads, reporting periods, audits, and project-based requirements.' },
+      { q: 'How does Chalky support recruitment across traditional banking and fintech?', a: 'Our recruitment approach covers both traditional financial services and technology-driven finance environments. We identify candidates based on their relevant experience, whether the requirement involves banking operations, financial management, digital banking, or fintech development.' },
+      { q: 'Can you recruit specialists in quantitative analysis and treasury management?', a: "Yes. We support recruitment for quantitative analysts, financial risk specialists, treasury professionals, and investment banking talent. We consider candidates' experience in financial modelling, market analysis, risk assessment, and treasury operations." },
+      { q: 'What background verification is considered for banking and finance hires?', a: 'Background verification requirements depend on the employer, position, and applicable regulations. We work with clients to understand the required checks, which may include employment history, identity, qualifications, references, and other relevant screening procedures.' },
+      { q: 'How do you handle executive search for senior banking leadership?', a: 'We support senior-level and executive recruitment for financial institutions seeking experienced leaders. Our approach focuses on identifying professionals with relevant industry experience, leadership capabilities, strategic understanding, and the ability to support organisational objectives.' }
     ],
     capabilities: [
       { title: 'Regulatory Insight', desc: 'Candidates vetted for FCA, MiFID II, Dodd-Frank and global financial compliance requirements.', icon: 'Scale' },
@@ -514,36 +559,29 @@ outcomesDescription: `
     icon: 'Activity',
     hero: {
       badge: 'Healthcare Workforce',
-      title: 'Healthcare & Life Sciences Solutions',
-      subtitle: 'Specialized workforce solutions supporting healthcare providers, biotech, and pharmaceutical organizations.',
+      title: 'Healthcare & Life Sciences Recruitment Services UK',
+      subtitle: 'Specialised recruitment solutions connecting healthcare providers, biotechnology companies, and pharmaceutical organisations with qualified professionals across clinical services, medical research, and life sciences operations.',
       image: healthcareImg,
     },
     metaInfo: {
-      title: 'Healthcare & Life Sciences Recruitment UK',
-      description: 'Specialist healthcare and life sciences recruitment across the UK. Clinical research associates, health IT specialists, biotech engineers and medical professionals sourced with rigorous compliance verification.',
-      keywords: 'healthcare recruitment UK, life sciences recruitment UK, clinical research recruitment UK, biotech staffing UK, health IT recruitment UK, medical recruitment UK, pharma recruitment UK, NHS staffing UK',
+      title: 'Healthcare & Life Sciences Recruitment Services UK',
+      description:`Find skilled healthcare and life sciences professionals with Chalky's Healthcare & Life Sciences Recruitment Services UK. Hire qualified talent for your organisation.`,
+      keywords: 'Healthcare Recruitment Agency UK, Life Sciences Recruitment UK, Healthcare Staffing Services UK, Medical Recruitment Services UK, Clinical Recruitment Agency UK, Pharmaceutical Recruitment UK, Biotechnology Recruitment Services UK, Healthcare Professionals Recruitment UK, Clinical Research Recruitment UK, Health IT Recruitment UK, Medical Staff Recruitment UK, Healthcare Executive Search UK, Contract Healthcare Recruitment UK, Life Sciences Staffing Solutions UK',
       ogTitle: 'Healthcare & Life Sciences Recruitment UK | Clinical & Biotech Talent',
       ogDescription: 'Specialist healthcare and life sciences workforce solutions across the UK. Clinical, biotech and health IT professionals sourced with full compliance verification.'
     },
     overview: {
       title: 'Life-Saving Talent Strategy — Clinical Excellence at Every Level',
-      description: 'Healthcare organisations cannot afford a wrong hire. We help providers, biotech firms and pharmaceutical companies secure professionals capable of driving clinical excellence and medical innovation — with compliance and patient safety at the core of every placement.\n\n• Primary-Source Credential Verification: All clinical licences, certifications and professional registrations verified directly before any candidate is cleared for placement.\n• CQC & JCI Compliance: Every healthcare hire screened for occupational health requirements and adherence to local health authority and regulatory standards.\n• Rapid Temporary Deployment: Pre-vetted clinical and support staff available for same-week deployment to manage seasonal peaks or sudden capacity needs.',
+      description: 'Healthcare and life sciences organisations depend on skilled professionals to maintain service quality, support medical research, and meet industry standards. We help healthcare providers, biotech firms, and pharmaceutical companies recruit experienced candidates who understand clinical requirements, regulatory responsibilities, and the demands of modern healthcare environments.\n\n• Clinical Qualification Awareness: We identify candidates with relevant clinical qualifications, professional registrations, certifications, and experience according to the requirements of each position.\n• Healthcare & Regulatory Knowledge: Our recruitment approach considers relevant standards and requirements, including CQC, NHS guidelines, GCP, and other applicable regulatory frameworks.\n• Flexible Workforce Recruitment: We support permanent, contract, and temporary hiring requirements to help organisations manage changing workloads and specialist staffing needs.',
     advantageTitle: 'The Chalky Infotech Healthcare & Life Sciences Talent Advantage',
 
 advantageDescription: `
   <p>
-    Healthcare and life sciences organisations choose Chalky Infotech for
-    <strong style="color:#7A1F5C"> specialist healthcare recruitment </strong>
-    because we combine sector expertise, rigorous credential verification,
-    and compliance-focused talent assessment.
+    Healthcare and life sciences organisations choose Chalky Infotech for specialist healthcare recruitment because we understand the importance of relevant qualifications, clinical experience, professional standards, and industry knowledge when hiring healthcare professionals.
   </p>
 
   <p>
-    From clinical and healthcare operations to biotechnology, pharmaceuticals,
-    clinical research, and Health IT, our
-    <strong style="color:#7A1F5C"> Healthcare & Life Sciences hiring solutions </strong>
-    are aligned with regulatory requirements, patient safety standards,
-    organisational needs, and long-term workforce goals.
+    From clinical services and healthcare operations to biotechnology, pharmaceuticals, clinical research, and Health IT, our Healthcare & Life Sciences hiring solutions are aligned with your workforce requirements, organisational priorities, and long-term business objectives.
   </p>
 `,
 
@@ -551,20 +589,63 @@ outcomesTitle: 'Measurable Healthcare & Life Sciences Recruitment Outcomes',
 
 outcomesDescription: `
   <p>
-    Every <strong style="color:#7A1F5C"> Healthcare & Life Sciences recruitment </strong>
-    engagement is supported by primary-source credential verification, structured
-    compliance screening, transparent reporting, and candidate quality checks.
-    We track outcomes including time-to-hire, compliance readiness, technical fit,
-    retention, and candidate experience.
+    Every Healthcare & Life Sciences recruitment engagement begins with an understanding of the position, required qualifications, experience, and organisational expectations. We focus on candidate suitability, professional credentials, relevant industry knowledge, and the screening requirements specified by each employer.
   </p>
 
   <p>
-    Our permanent hiring, temporary workforce, contract specialists, and executive
-    search solutions help healthcare and life sciences organisations secure
-    qualified professionals faster while maintaining high standards of compliance,
-    patient safety, and operational continuity.
+    Our permanent recruitment, temporary staffing, contract hiring, and executive search solutions help healthcare and life sciences organisations identify suitable professionals while supporting workforce planning, operational continuity, and organisational growth.
   </p>
 `,
+    },
+    contentOverrides: {
+      recruitmentIntro: {
+        paragraphs: [
+          'At Chalky Infotech, our healthcare & life sciences recruitment expertise focuses on connecting organisations with professionals who understand the demands of healthcare, biotechnology, and pharmaceutical environments. We combine sector knowledge with targeted sourcing and structured candidate assessments to identify talent suited to your hiring requirements.',
+          'With operations across the UK and India and recruitment experience spanning multiple industries, we support hiring needs at different levels — from specialist healthcare professionals to experienced managers and senior leadership. We work closely with your organisation to understand its workforce requirements and identify suitable candidates.'
+        ],
+        differentiators: [
+          'Recruiters focused on sector-specific hiring requirements',
+          'Candidate assessments based on relevant qualifications and professional experience',
+          'Recruitment support for healthcare, biotechnology, and pharmaceutical roles',
+          'UK and India recruitment support for wider talent sourcing',
+          'Candidate pipeline updates and regular recruitment reporting',
+          'Contract, permanent, temporary, on-site, and remote hiring options'
+        ]
+      },
+      challenges: {
+        intro: 'We understand the recruitment challenges faced by healthcare providers and life sciences organisations. Our recruitment approach helps address critical workforce requirements by connecting businesses with professionals who have relevant qualifications and industry experience.',
+        descriptions: [
+          'Identify qualified healthcare professionals through targeted sourcing and specialist recruitment networks to support critical staffing requirements.',
+          'Find candidates with relevant experience in clinical compliance, quality assurance, healthcare standards, and regulatory requirements.',
+          'Recruit experienced scientific and technical professionals who can support research activities, pharmaceutical operations, and biotechnology development.',
+          'Connect with professionals experienced in healthcare administration, clinical operations, laboratory management, and Health IT environments.'
+        ]
+      },
+      roleDescriptions: [
+        'Professionals experienced in clinical trial coordination, research documentation, study monitoring, and clinical research requirements.',
+        'Experienced leaders responsible for healthcare administration, operational planning, workforce coordination, and service management.',
+        'Qualified specialists with experience in medical laboratory operations, diagnostic technologies, clinical equipment, and testing procedures.',
+        'Professionals experienced in healthcare compliance, quality documentation, regulatory procedures, and industry standards.',
+        'Specialists with experience in biotechnology processes, laboratory systems, bioprocessing, and scientific technology environments.',
+        'Technology professionals experienced in healthcare information systems, electronic health records, healthcare applications, and digital health platforms.'
+      ],
+      sourcing: {
+        paragraphs: [
+          'We use targeted candidate sourcing and recruitment networks to help healthcare and life sciences organisations identify professionals with the right qualifications, experience, and specialist knowledge.',
+          'Our consultative approach considers technical expertise, professional credentials, organisational culture, and role-specific requirements. Whether filling a critical clinical vacancy, recruiting pharmaceutical specialists, or expanding a clinical research team, we work to identify candidates who match your workforce needs.'
+        ]
+      },
+      process: {
+        description: 'Our structured recruitment process helps identify and present suitable professionals who understand the requirements of healthcare and life sciences environments.',
+        steps: [
+          { title: 'Sector Analysis', description: "Understanding your organisation's healthcare environment, workforce requirements, and specific hiring objectives." },
+          { title: 'Talent Mapping', description: 'Identifying suitable professionals across clinical services, biotechnology, pharmaceuticals, and healthcare operations.' },
+          { title: 'Deep Sourcing', description: 'Connecting with qualified professionals through targeted sourcing channels and specialist recruitment networks.' },
+          { title: 'Evaluation', description: 'Assessing relevant qualifications, professional experience, technical skills, and suitability for the required position.' },
+          { title: 'Coordination', description: 'Managing candidate introductions, interview arrangements, feedback, and communication throughout the recruitment process.' },
+          { title: 'Placement', description: 'Supporting the final hiring journey, onboarding coordination, and candidate placement.' }
+        ]
+      }
     },
     challenges: [
       'Severe clinical shortages',
@@ -587,15 +668,15 @@ outcomesDescription: `
       'Executive Search'
     ],
     faqs: [
-      { q: 'How do you verify medical credentials and clinical certifications for hires?', a: 'Our medical compliance team performs primary-source verification of all clinical licenses and certifications, ensuring that every healthcare professional we place is fully authorized to practice.' },
-      { q: 'Can you support rapid scaling for seasonal healthcare or clinical trial demands?', a: 'Yes, we maintain a large pool of pre-vetted temporary healthcare staff and clinical research associates who can be deployed quickly for seasonal peaks or new trial launches.' },
-      { q: 'What is your experience in sourcing Health IT and medical technology specialists?', a: 'We are leaders in the Health IT space, sourcing developers and analysts for EHR migrations, telemedicine platforms, and specialized medical imaging software.' },
-      { q: 'How do you ensure candidates meet strict medical compliance and safety standards?', a: 'Every healthcare hire undergoes a rigorous safety and compliance screening, including occupational health checks and adherence to local health authority guidelines (e.g., CQC or JCI).' },
-      { q: 'Do you provide recruitment for specialized biotech and pharmaceutical roles?', a: 'Yes, we source for the entire drug discovery lifecycle, from lab-based researchers and clinical trial managers to regulatory affairs and pharmaceutical sales specialists.' },
-      { q: 'How does Chalky Infotech handle the global shortage of clinical research talent?', a: 'We bridge the talent gap by sourcing clinical talent globally and assisting with relocation or remote management, ensuring your trials are never delayed by staffing shortages.' },
-      { q: 'Can you build temporary workforce cohorts for large healthcare providers?', a: 'We specialize in "Managed Workforce" solutions for large hospitals and clinics, providing a scalable and cost-effective alternative to traditional nursing agencies.' },
-      { q: 'What is your process for sourcing executive leadership in Life Sciences?', a: 'Our Life Sciences search team identifies scientific and operational leaders who possess the rare combination of scientific expertise and commercial business acumen.' },
-      { q: 'How do you support the recruitment of specialized nursing and medical staff?', a: 'We provide specialized recruitment for intensive care, theater, and other high-acuity nursing roles, ensuring that providers have the specialized staff needed for complex patient care.' }
+      { q: 'How do you verify medical qualifications and clinical certifications for healthcare hires?', a: 'We work with employers to understand the qualification and professional registration requirements for each role. Candidate assessments may include reviewing relevant qualifications, certifications, professional registrations, employment history, and other verification requirements. Additional checks can be coordinated according to employer policies and applicable regulations.' },
+      { q: 'Can you support rapid recruitment for seasonal healthcare requirements or clinical research projects?', a: 'Yes. We support temporary and contract recruitment for healthcare providers and life sciences organisations. We help identify suitable professionals for increased workloads, temporary staffing requirements, clinical research projects, and other time-sensitive hiring needs.' },
+      { q: 'What is your experience in sourcing Health IT and medical technology specialists?', a: 'We support recruitment for Health IT and medical technology positions, including healthcare IT specialists, software professionals, data analysts, and application support specialists. We focus on candidates with experience in electronic health records, telemedicine platforms, medical software, and healthcare information systems.' },
+      { q: 'How do you ensure candidates meet healthcare compliance and safety requirements?', a: 'We assess candidates against the qualifications, experience, and screening requirements specified by the employer. Depending on the position, this may include relevant knowledge of CQC standards, NHS requirements, occupational health procedures, clinical guidelines, and other applicable regulatory expectations.' },
+      { q: 'Do you provide recruitment for specialised biotechnology and pharmaceutical roles?', a: 'Yes. We support recruitment across biotechnology and pharmaceutical functions, including laboratory research, clinical trials, quality assurance, regulatory affairs, pharmaceutical operations, and scientific research. We identify candidates based on their specialist knowledge and relevant industry experience.' },
+      { q: 'How does Chalky Infotech support organisations facing shortages of clinical research professionals?', a: 'We help organisations identify clinical research professionals through targeted candidate sourcing and specialist recruitment networks. Our recruitment support covers roles such as Clinical Research Associates, Clinical Trial Managers, Clinical Data Managers, and other research specialists.' },
+      { q: 'Can you recruit temporary workforce teams for large healthcare providers?', a: 'Yes. We support temporary and contract recruitment for healthcare organisations with changing workforce requirements. Depending on the hiring needs, we can help source clinical support professionals, healthcare administrators, operations specialists, and other relevant staff.' },
+      { q: 'What is your process for sourcing executive leadership in Life Sciences?', a: 'Our senior-level recruitment approach focuses on identifying experienced professionals with relevant scientific, operational, and commercial leadership backgrounds. We support recruitment for senior positions across biotechnology, pharmaceutical operations, clinical research, and healthcare management.' },
+      { q: 'How do you support recruitment for specialised nursing and medical staff?', a: 'We help healthcare providers identify nursing and medical professionals based on their required qualifications, clinical experience, professional registration, and specialist skills. Recruitment requirements can include nursing, intensive care, operating theatre, and other specialised clinical positions.' }
     ],
     capabilities: [
       { title: 'Clinical Vetting', desc: 'Primary-source verification of medical credentials, licences and clinical competency before placement.', icon: 'HeartPulse' },
@@ -610,36 +691,29 @@ outcomesDescription: `
     icon: 'ShoppingCart',
     hero: {
       badge: 'Commerce Solutions',
-      title: 'Retail & E-Commerce Recruitment Solutions',
-      subtitle: 'Optimizing the modern consumer journey with specialists in omnichannel retail and e-commerce technology.',
+      title: 'Retail & E-Commerce Recruitment Services UK',
+      subtitle: "Chalky's Retail & E-Commerce Recruitment Services UK help organisations find skilled candidates who understand changing consumer expectations and the demands of modern retail.",
       image: retailImg,
     },
     metaInfo: {
-      title: 'Retail & E-Commerce Recruitment UK | Talent',
-      description: 'Specialist retail and e-commerce recruitment across the UK. Supply chain specialists, e-commerce managers, UX designers and digital marketing leads sourced for omnichannel brands and commerce platforms.',
-      keywords: 'retail recruitment UK, e-commerce recruitment UK, omnichannel staffing UK, supply chain recruitment UK, digital marketing recruitment UK, Shopify recruitment UK, retail operations staffing UK',
+      title: 'Retail & E-Commerce Recruitment Services UK',
+      description: `Find skilled retail and e-commerce professionals with Chalky's Retail & E-Commerce Recruitment Services UK. Hire experienced talent for your business.`,
+      keywords: 'Retail Recruitment Agency UK, E-Commerce Recruitment Services UK, Retail Staffing Solutions UK, E-Commerce Recruitment Agency UK, Retail Talent Acquisition UK, Digital Commerce Recruitment UK, Retail Operations Recruitment UK, E-Commerce Specialist Recruitment UK, Omnichannel Retail Recruitment UK, Supply Chain Recruitment UK, Shopify Recruitment Agency UK, Digital Marketing Recruitment for Retail UK, Contract Retail Recruitment UK, Retail and E-Commerce Staffing UK',
       ogTitle: 'Retail & E-Commerce Recruitment UK | Omnichannel Talent Solutions',
       ogDescription: 'Specialist retail and e-commerce workforce solutions across the UK. Omnichannel, supply chain and digital commerce specialists for modern retail brands.'
     },
     overview: {
       title: 'Omnichannel Future Talent — Commerce Expertise for the Digital Age',
-      description: 'Modern retail demands professionals who understand both the physical and digital dimensions of commerce. We help retail organisations transition to digital-first models by providing the talent needed to manage complex e-commerce ecosystems, omnichannel operations and dynamic supply chains.\n\n• Platform-Certified Talent: Developers and architects vetted across Shopify, Magento, Salesforce Commerce Cloud and major WMS/OMS platforms.\n• Peak Scaling Capability: High-volume temporary cohorts mobilised in 24–48 hours for Black Friday, seasonal surges and rapid operational expansion.\n• Conversion-Focused UX Hiring: Designers evaluated on portfolio evidence of measurable UX improvements and data-driven conversion rate optimisation.',
+      description: 'Modern retail requires professionals who understand both physical stores and digital commerce. Businesses need skilled people to manage e-commerce platforms, improve customer experiences, coordinate omnichannel operations and support changing supply chain requirements.\n\n• Platform-Specialist Talent: Recruit professionals with experience across Shopify, Magento, Salesforce Commerce Cloud and other e-commerce platforms.\n• Flexible Seasonal Hiring: Source temporary and contract professionals to support Black Friday, seasonal demand, warehouse operations and changing workforce requirements.\n• Customer-Focused UX Recruitment: Find designers with relevant experience in user experience, customer journeys, website usability and conversion optimisation.',
     advantageTitle: 'The Chalky Infotech Retail & E-Commerce Talent Advantage',
 
 advantageDescription: `
   <p>
-    Retail and e-commerce organisations choose Chalky Infotech for
-    <strong style="color:#7A1F5C"> specialist retail recruitment </strong>
-    because we combine commerce-sector expertise, platform knowledge,
-    and data-driven candidate assessment.
+    Retail and e-commerce organisations choose Chalky Infotech for specialist retail recruitment because we focus on relevant industry experience, role requirements and candidate suitability.
   </p>
 
   <p>
-    From e-commerce platforms and omnichannel operations to supply chain,
-    UX, digital marketing, and customer experience, our
-    <strong style="color:#7A1F5C"> Retail & E-Commerce hiring solutions </strong>
-    are aligned with your technology ecosystem, customer strategy,
-    seasonal requirements, and long-term growth objectives.
+    From e-commerce platforms and omnichannel operations to supply chain management, UX, digital marketing and customer experience, our Retail & E-Commerce hiring solutions help businesses find professionals who match their technology environment, customer strategy and workforce requirements.
   </p>
 `,
 
@@ -647,20 +721,63 @@ outcomesTitle: 'Measurable Retail & E-Commerce Recruitment Outcomes',
 
 outcomesDescription: `
   <p>
-    Every <strong style="color:#7A1F5C"> Retail & E-Commerce recruitment </strong>
-    engagement is supported by platform-specific screening, structured
-    candidate assessment, transparent reporting, and scalable hiring processes.
-    We track outcomes including time-to-hire, technical fit, workforce readiness,
-    retention, and candidate experience.
+    Every Retail & E-Commerce recruitment engagement is supported by requirement-based sourcing, structured candidate assessment and clear communication throughout the hiring process. We focus on relevant outcomes such as time-to-hire, candidate suitability, role alignment and hiring experience.
   </p>
 
   <p>
-    Our temporary workforce, contract staffing, permanent hiring, and managed
-    services help retail organisations respond to seasonal demand, strengthen
-    digital commerce teams, improve operational efficiency, and scale their
-    workforce with greater flexibility.
+    Our temporary workforce recruitment, contract staffing and permanent hiring support help retail organisations respond to seasonal demand, strengthen digital commerce teams and recruit professionals for their operational and long-term business needs.
   </p>
 `,
+    },
+    contentOverrides: {
+      recruitmentIntro: {
+        paragraphs: [
+          'At Chalky Infotech, our retail & e-commerce recruitment expertise is built around understanding the changing needs of retail businesses and digital commerce teams. We connect employers with professionals whose skills and experience align with their operational and technology requirements.',
+          'With registered operations across the UK and India and recruitment experience across multiple industries, we support hiring at different levels, from specialist contributors to experienced management professionals. Our approach focuses on understanding your requirements and identifying candidates who can contribute to your organisation.'
+        ],
+        differentiators: [
+          'Recruiters with an understanding of retail and e-commerce roles',
+          'Candidate sourcing aligned with employer requirements',
+          'Recruitment support for permanent, contract and temporary positions',
+          'Access to UK and India talent markets',
+          'Structured candidate assessment and recruitment updates',
+          'On-site, remote and flexible hiring options'
+        ]
+      },
+      challenges: {
+        intro: 'We understand the recruitment challenges facing modern retail organisations and help businesses find professionals with the skills and experience needed to address them.',
+        descriptions: [
+          'Finding professionals with experience in e-commerce operations, digital platforms and online retail environments.',
+          'Recruiting specialists who understand the connection between online stores, physical retail operations and customer experiences.',
+          'Sourcing temporary and contract professionals to support increased hiring needs during busy retail periods.',
+          'Connecting businesses with supply chain, inventory and warehouse specialists who understand modern retail operations.'
+        ]
+      },
+      roleDescriptions: [
+        'Professionals experienced in managing online stores, digital commerce strategies, platform operations and e-commerce performance.',
+        'Candidates with experience in procurement, inventory planning, logistics, warehouse coordination and supply chain operations.',
+        'Design professionals who understand website usability, customer journeys, digital experiences and e-commerce interface design.',
+        'Specialists experienced in retail marketing, search engine optimisation, paid campaigns, customer acquisition and digital growth.',
+        'Professionals who oversee store operations, workforce coordination, retail processes and day-to-day business activities.',
+        'Experienced leaders who manage customer experience strategies, service operations, customer engagement and experience improvement.'
+      ],
+      sourcing: {
+        paragraphs: [
+          'We use targeted candidate sourcing and structured assessment to connect retail organisations with professionals who match their hiring requirements.',
+          'Our consultative recruitment approach considers job responsibilities, industry experience, technical knowledge and organisational culture. Whether you are hiring for a specialist e-commerce position, strengthening retail operations or building a wider team, we help identify suitable professionals for your business.'
+        ]
+      },
+      process: {
+        description: 'Our sector-focused recruitment process helps identify candidates whose skills and experience match the specific requirements of retail and e-commerce organisations.',
+        steps: [
+          { title: 'Sector Analysis', description: 'Understanding your retail business, hiring objectives, team structure and role requirements.' },
+          { title: 'Talent Mapping', description: 'Identifying relevant professionals with experience in retail, e-commerce and digital commerce environments.' },
+          { title: 'Deep Sourcing', description: 'Reaching suitable candidates through targeted sourcing methods and professional talent networks.' },
+          { title: 'Evaluation', description: 'Assessing candidate experience, role-specific knowledge, communication and suitability for the position.' },
+          { title: 'Coordination', description: 'Supporting interview scheduling, employer feedback and communication throughout the selection process.' },
+          { title: 'Placement', description: 'Supporting the final hiring process and helping selected candidates transition into their new roles.' }
+        ]
+      }
     },
     challenges: [
       'Digital-first retail shift',
@@ -683,15 +800,15 @@ outcomesDescription: `
       'Managed Services'
     ],
     faqs: [
-      { q: 'How does your agency handle high-volume hiring for Black Friday or seasonal peaks?', a: 'We specialize in "Peak Scaling," providing high-volume temporary cohorts for warehouse operations, customer service, and digital platform support to manage seasonal commerce surges.' },
-      { q: 'Do you have specialized talent pools for platforms like Shopify, Magento, and Salesforce?', a: 'Yes, we have dedicated desks for major e-commerce ecosystems, ensuring we can provide developers and architects who are certified and experienced in your specific commerce stack.' },
-      { q: 'Can you source experts in omnichannel retail and supply chain technology?', a: 'We source the talent that connects the digital and physical worldsexperts in WMS, OMS, and ERP systems who ensure a seamless omnichannel experience for your customers.' },
-      { q: 'What is your process for vetting UX/UI designers focused on the consumer journey?', a: 'We evaluate designers based on their portfolio of conversion-driven work, ensuring they understand how to use design to reduce friction and drive sales in a retail environment.' },
-      { q: 'How do you support retail organizations transitioning to digital-first models?', a: 'We provide strategic talent consultancy, helping traditional retailers find the digital leadership and engineering talent needed to build and scale their online presence successfully.' },
-      { q: 'Can you provide managed recruitment services (RPO) for global retail brands?', a: 'Yes, our RPO model provides an embedded recruitment team that handles the entire hiring lifecycle for global retail brands, ensuring consistency and brand-aligned hiring at scale.' },
-      { q: 'What is your expertise in sourcing Digital Marketing and E-commerce leads?', a: 'We source performance-driven marketing talentspecialists in SEO, PPC, and data-driven customer acquisition who understand how to drive traffic and ROI for e-commerce platforms.' },
-      { q: 'How do you ensure candidates understand the complexities of modern logistics?', a: 'We vet our supply chain professionals for their experience with modern logistics challenges, including last-mile delivery, sustainable packaging, and global freight management.' },
-      { q: 'What is the typical turnaround for filling retail operations management roles?', a: 'For critical retail management roles, we typically present a high-quality shortlist of candidates within 7-10 business days, leveraging our extensive network of retail professionals.' }
+      { q: 'How does Chalky support high-volume hiring during Black Friday or seasonal peaks?', a: 'Chalky supports retail businesses with temporary and contract recruitment for seasonal workforce requirements. We help source candidates for warehouse operations, customer service, retail support and e-commerce roles based on hiring volumes, timelines and job requirements.' },
+      { q: 'Can you recruit professionals experienced in Shopify, Magento and Salesforce Commerce Cloud?', a: 'Yes. We help businesses recruit professionals with relevant experience across major e-commerce platforms, including Shopify, Magento and Salesforce Commerce Cloud. Candidate selection is based on the technical skills and experience required for each position.' },
+      { q: 'Can you source experts in omnichannel retail and supply chain technology?', a: 'Yes. We source candidates with experience in omnichannel retail operations, warehouse management systems (WMS), order management systems (OMS), enterprise resource planning (ERP) and supply chain coordination.' },
+      { q: 'How do you assess UX/UI designers for retail and e-commerce businesses?', a: "We review candidates' portfolios, relevant project experience, design knowledge and understanding of customer journeys. This helps employers identify designers whose skills match their website, e-commerce and user experience requirements." },
+      { q: 'How does Chalky support retailers moving towards digital-first business models?', a: 'We help traditional and growing retail businesses recruit digital commerce professionals, e-commerce managers, platform specialists and technology talent who can support their transition towards online and omnichannel operations.' },
+      { q: 'Can Chalky provide managed recruitment services for retail businesses?', a: 'Chalky can discuss recruitment support based on your workforce requirements, hiring volumes and business objectives. Contact our team to explore suitable recruitment arrangements for your organisation.' },
+      { q: 'How long does it take to recruit retail operations management professionals?', a: 'Recruitment timelines depend on the role, experience level, location and availability of suitable candidates. Chalky works with employers to understand their requirements, source relevant professionals and coordinate the selection process.' },
+      { q: 'How do you ensure candidates understand the complexities of modern retail and e-commerce?', a: 'Through our Retail & E-Commerce Recruitment Services UK, we assess candidates for their experience in modern retail operations, last-mile delivery, inventory management, omnichannel systems, and e-commerce environments.' },
+      { q: 'What is the typical turnaround for filling retail operations management roles?', a: 'Timelines depend on role requirements and candidate availability. We use targeted sourcing and our retail talent network to identify and present suitable professionals for retail operations management positions.' }
     ],
     capabilities: [
       { title: 'Customer First', desc: 'Candidates assessed on their track record of improving customer journey and satisfaction metrics.', icon: 'UserCircle' },
@@ -706,36 +823,29 @@ outcomesDescription: `
     icon: 'Factory',
     hero: {
       badge: 'Industrial Talent',
-      title: 'Manufacturing Recruitment Solutions',
-      subtitle: 'Delivering engineering excellence and operational leadership for Industry 4.0 and advanced manufacturing.',
+      title: 'Manufacturing Recruitment Services UK',
+      subtitle: "Chalky's Manufacturing Recruitment Services UK help organisations find skilled candidates who understand modern manufacturing, industrial automation and changing production requirements.",
       image: manufacturingImg,
     },
     metaInfo: {
-      title: 'Manufacturing Recruitment UK | Industry 4.0',
-      description: 'Specialist manufacturing recruitment across the UK. Process engineers, automation specialists, plant managers and quality control leads sourced for Industry 4.0, smart factory and advanced manufacturing projects.',
-      keywords: 'manufacturing recruitment UK, Industry 4.0 staffing UK, automation engineer recruitment UK, process engineer staffing UK, plant manager recruitment UK, lean manufacturing recruitment UK, industrial staffing UK',
+      title: 'Manufacturing Recruitment Services UK',
+      description: `Find skilled manufacturing professionals with Chalky's Manufacturing Recruitment Services UK. Hire experienced engineers, automation specialists and operational talent.`,
+      keywords:'Manufacturing Recruitment Agency UK, Engineering Recruitment Services UK, Industrial Recruitment Agency UK, Manufacturing Staffing Solutions UK, Manufacturing Talent Acquisition UK, Manufacturing Engineer Recruitment UK, Industrial Engineering Recruitment UK, Automation Recruitment Services UK, Robotics Recruitment Agency UK, Production Manager Recruitment UK, Plant Manager Recruitment UK, Quality Engineer Recruitment UK, Supply Chain Recruitment UK, Contract Manufacturing Recruitment UK',
       ogTitle: 'Manufacturing Recruitment UK | Industry 4.0 & Advanced Manufacturing Talent',
       ogDescription: 'Specialist manufacturing workforce solutions across the UK. Automation, process engineering and operational talent for Industry 4.0 and smart factory initiatives.'
     },
     overview: {
       title: 'Advanced Industrial Workforce — Driving Industry 4.0 Transformation',
-      description: 'The manufacturing sector is undergoing its most profound transformation since the industrial revolution. We help organisations secure the engineering and operational talent needed to lead automation, smart factory implementation, and Industry 4.0 initiatives.\n\n• Safety-Compliance Vetting: All industrial candidates screened for NEBOSH, OSHA and sector-specific H&S compliance before placement on any production site.\n• Automation & Robotics Specialists: Dedicated desk sourcing engineers who design, implement and maintain robotic and IoT-integrated production systems.\n• Lean & Six Sigma Expertise: Process engineers and operations leaders with proven track records in cost reduction, yield improvement and operational resilience.',
+      description: 'The manufacturing sector is evolving through automation, advanced engineering and smart factory technologies. Businesses need professionals who can manage production processes, improve operational efficiency and support Industry 4.0 initiatives. \n\n• Safety-Aware Candidate Screening: Identify industrial professionals with relevant knowledge of workplace health and safety, NEBOSH, IOSH and applicable industry standards, depending on role requirements.\n• Automation & Robotics Talent: Recruit engineers and technicians with experience in industrial automation, robotics, control systems and connected production environments.\n• Lean & Six Sigma Professionals: Find process engineers and operational specialists experienced in continuous improvement, quality management and production efficiency.',
     advantageTitle: 'The Chalky Infotech Manufacturing Talent Advantage',
 
 advantageDescription: `
   <p>
-    Manufacturing organisations choose Chalky Infotech for
-    <strong style="color:#7A1F5C"> specialist industrial recruitment </strong>
-    because we combine engineering expertise, safety-focused screening,
-    and access to skilled professionals across modern manufacturing environments.
+    Manufacturing organisations choose Chalky Infotech for specialist industrial recruitment because we focus on relevant engineering knowledge, operational experience and candidate suitability.
   </p>
 
   <p>
-    From process engineering and automation to robotics, plant operations,
-    quality, and supply chain, our
-    <strong style="color:#7A1F5C"> Manufacturing hiring solutions </strong>
-    are aligned with your production requirements, Industry 4.0 initiatives,
-    operational standards, and long-term workforce strategy.
+    From process engineering and industrial automation to robotics, plant operations, quality management and supply chain, our Manufacturing hiring solutions help businesses find professionals who match their production requirements, Industry 4.0 initiatives and long-term workforce objectives.
   </p>
 `,
 
@@ -743,23 +853,66 @@ outcomesTitle: 'Measurable Manufacturing Recruitment Outcomes',
 
 outcomesDescription: `
   <p>
-    Every <strong style="color:#7A1F5C"> Manufacturing recruitment </strong>
-    engagement is supported by technical assessments, safety compliance checks,
-    structured candidate validation, and transparent reporting. We track outcomes
-    including time-to-hire, technical fit, safety readiness, retention,
-    and candidate experience.
+    Every Manufacturing recruitment engagement is supported by requirement-based sourcing, structured candidate assessment and clear communication throughout the hiring process. We focus on relevant outcomes such as time-to-hire, technical suitability, role alignment and candidate experience.
   </p>
 
   <p>
-    Our on-site support, permanent hiring, contract engineering, and managed
-    workforce solutions help manufacturers secure skilled professionals faster,
-    strengthen operational resilience, and scale production teams while maintaining
-    high standards of safety, quality, and efficiency.
+    Our permanent hiring, contract engineering and temporary recruitment support help manufacturers strengthen production teams, address specialist skill requirements and respond to changing operational demands while considering workplace safety, quality and efficiency requirements.
   </p>
 `,
     },
+    contentOverrides: {
+      recruitmentIntro: {
+        paragraphs: [
+          'At Chalky Infotech, our manufacturing recruitment expertise focuses on understanding industrial workforce requirements and connecting businesses with relevant engineering and operational talent. We combine industry knowledge with targeted candidate sourcing to identify professionals whose experience matches your organisation.',
+          'With registered operations across the UK and India and recruitment experience across multiple industries, we support hiring at different levels, from specialist engineering positions to senior operational leadership. We work closely with employers to understand their recruitment needs and identify suitable candidates.'
+        ],
+        differentiators: [
+          'Recruiters with an understanding of manufacturing and engineering roles',
+          'Candidate sourcing aligned with technical and operational requirements',
+          'Recruitment support for permanent, contract and temporary positions',
+          'Access to UK and India talent markets',
+          'Structured candidate assessment and recruitment updates',
+          'On-site, remote and flexible hiring options'
+        ]
+      },
+      challenges: {
+        intro: 'We understand the recruitment challenges facing modern manufacturers and help organisations identify professionals with the experience needed to support their production and operational goals.',
+        descriptions: [
+          'Finding experienced engineering and production professionals with specialist knowledge through targeted sourcing and candidate networks.',
+          'Recruiting specialists with experience in industrial automation, robotics, connected machinery and modern manufacturing technologies.',
+          'Identifying candidates with relevant workplace safety knowledge, industry experience and an understanding of manufacturing health and safety requirements.',
+          'Connecting businesses with procurement, logistics, inventory and supply chain professionals who understand modern industrial operations.'
+        ]
+      },
+      roleDescriptions: [
+        'Professionals experienced in production process improvement, workflow optimisation, manufacturing methods and operational efficiency.',
+        'Candidates with knowledge of industrial automation, robotics, control systems, PLCs and automated production environments.',
+        'Experienced leaders responsible for manufacturing operations, production planning, workforce coordination and plant performance.',
+        'Professionals experienced in quality assurance, inspection processes, quality management systems and manufacturing standards.',
+        'Specialists who work on product design, industrial development, manufacturing requirements and design improvement.',
+        'Professionals experienced in procurement, inventory management, logistics, supplier coordination and supply chain planning.'
+      ],
+      sourcing: {
+        paragraphs: [
+          'We use targeted candidate sourcing and structured assessment to connect manufacturing organisations with professionals who match their technical and operational requirements.',
+          'Our consultative recruitment approach considers job responsibilities, engineering knowledge, industry experience and organisational culture. Whether filling a specialist engineering vacancy or recruiting professionals for a growing production team, we help identify candidates suited to your business requirements.'
+        ]
+      },
+      process: {
+        description: 'Our sector-focused recruitment process helps identify manufacturing professionals whose skills and experience match the specific requirements of your organisation.',
+        steps: [
+          { title: 'Sector Analysis', description: 'Understanding your manufacturing environment, production objectives, workplace requirements and hiring needs.' },
+          { title: 'Talent Mapping', description: 'Identifying relevant engineering, production and operational professionals within your required industry and specialisation.' },
+          { title: 'Deep Sourcing', description: 'Connecting with suitable candidates through targeted sourcing methods and professional talent networks.' },
+          { title: 'Evaluation', description: 'Assessing technical experience, industry knowledge, relevant qualifications and suitability for the required position.' },
+          { title: 'Coordination', description: 'Supporting interview scheduling, employer feedback and communication throughout the selection process.' },
+          { title: 'Placement', description: 'Supporting the final hiring process and helping selected candidates transition into their new manufacturing roles.' }
+        ]
+      }
+    },
     challenges: [
-      'Technical skill gap',
+      'Technical skill gaps',
       'Automation transition',
       'Operational safety standards',
       'Supply chain resilience'
@@ -779,15 +932,15 @@ outcomesDescription: `
       'Managed Workforce'
     ],
     faqs: [
-      { q: 'Do you specialize in sourcing talent for Industry 4.0 and smart factory projects?', a: 'Yes, we are at the forefront of industrial recruitment, sourcing specialists in IoT integration, industrial automation, and the data analysts who drive smart factory efficiency.' },
-      { q: 'Can you provide on-site recruitment management for large manufacturing plants?', a: 'Our on-site model is designed for large facilities, placing dedicated recruiters on-the-ground to manage everything from volume hiring to shift coordination and onboarding.' },
-      { q: 'How do you vet candidates for technical engineering and operational safety skills?', a: 'Every industrial hire undergoes a rigorous technical assessment and safety compliance review to ensure they meet the high standards required for modern manufacturing environments.' },
-      { q: 'What is your expertise in recruiting for automation and robotics roles?', a: 'We have a specialized desk for Automation and Robotics, sourcing the engineers and technicians who design, build, and maintain the robotic systems driving modern production lines.' },
-      { q: 'How does Chalky Infotech support the transition from legacy to automated manufacturing?', a: 'We help manufacturers find "Transitional Talent"engineers who understand legacy systems but have the skills to implement and manage the transition to automated, digital manufacturing.' },
-      { q: 'Can you source specialized talent for supply chain and lean manufacturing?', a: 'Yes, we source experts in Six Sigma, Lean, and modern supply chain management who can optimize production processes and increase operational resilience.' },
-      { q: 'What is your process for identifying high-impact plant and process engineers?', a: 'We use targeted sourcing to find engineers with proven track records in process optimization, cost reduction, and quality improvement within specific manufacturing verticals.' },
-      { q: 'Do you provide contract engineering support for short-term industrial projects?', a: 'Absolutely. Our contract engineering model provides flexible, high-level expertise for plant upgrades, new line installations, or critical maintenance shutdowns.' },
-      { q: 'How do you ensure candidates meet high operational and environmental safety standards?', a: 'We vet all manufacturing candidates for their knowledge of H&S regulations (e.g., OSHA, NEBOSH) and their commitment to maintaining a safe and environmentally responsible workplace.' }
+      { q: 'Do you specialize in sourcing talent for Industry 4.0 and smart factory projects?', a: 'Yes. Chalky helps manufacturers recruit professionals with relevant experience in industrial automation, robotics, IoT, smart manufacturing and connected production environments. Candidate requirements are matched to the technology and experience needed for each position.' },
+      { q: 'Can you provide onsite recruitment support for large manufacturing plants?', a: 'We can discuss recruitment support for large manufacturing facilities based on workforce size, hiring volumes and operational requirements. Our team works with employers to understand their needs and explore suitable recruitment arrangements.' },
+      { q: 'How do you assess candidates for technical engineering and operational safety skills?', a: "We assess candidates based on their relevant engineering experience, technical knowledge, qualifications and understanding of workplace safety requirements. Any additional checks or certifications are considered according to the employer's role and site requirements." },
+      { q: 'What is your expertise in recruiting for automation and robotics roles?', a: 'We help businesses source automation engineers, robotics specialists, control systems engineers and technicians with relevant industrial experience. Candidate selection considers the machinery, systems and technical skills required by the employer.' },
+      { q: 'How does Chalky support the transition from traditional to automated manufacturing?', a: 'We help manufacturers identify professionals who understand existing production environments as well as modern automation technologies. This includes candidates with experience in industrial systems, robotics, process improvement and digital manufacturing.' },
+      { q: 'Can you source specialised talent for supply chain and lean manufacturing?', a: 'Yes. We recruit supply chain managers, procurement specialists, process improvement professionals and other candidates with experience in Lean Manufacturing, Six Sigma, inventory planning and logistics operations.' },
+      { q: 'What is your process for identifying experienced plant and process engineers?', a: 'We begin by understanding the technical requirements, production environment and experience level needed. We then source and assess candidates based on their engineering background, process knowledge, operational experience and relevant achievements.' },
+      { q: 'Do you provide contract engineering recruitment for short-term industrial projects?', a: 'Yes. Chalky supports contract recruitment for manufacturers that need engineering professionals for specific projects, plant upgrades, production expansion, maintenance activities and temporary workforce requirements.' },
+      { q: 'How do you identify candidates with manufacturing health and safety knowledge?', a: "We consider candidates' relevant qualifications, workplace safety experience and understanding of applicable health and safety standards. Requirements such as NEBOSH or IOSH are considered where relevant to the position and employer's expectations." }
     ],
     capabilities: [
       { title: 'Engineering Focus', desc: 'Rigorous technical vetting for industrial, process and maintenance engineering roles across sectors.', icon: 'Settings' },

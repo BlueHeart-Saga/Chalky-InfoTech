@@ -279,7 +279,7 @@ export default function CapabilitiesOverviewPage() {
               {[
                 { need: 'Build a permanent technology team', solution: 'Permanent Hiring', href: '/services/permanent-recruitment-services' },
                 { need: 'Scale for a project', solution: 'Contract Staffing', href: '/services/contract-recruitment-services' },
-                { need: 'Find specialized AI talent', solution: 'IT Staffing', href: '/services/it-recruitment-services' },
+                { need: 'Find specialized AI talent', solution: 'IT Recruitment Services', href: '/services/it-recruitment-services' },
                 { need: 'Hire senior technology leaders', solution: 'Executive Search', href: '/services/executive-recruitment-services' },
                 { need: 'Build distributed teams', solution: 'Remote Hiring', href: '/services/remote-hiring-services' },
                 { need: 'Add resources quickly', solution: 'Temporary Recruitment', href: '/services/temporary-recruitment-services' },

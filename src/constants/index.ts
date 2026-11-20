@@ -37,7 +37,7 @@ export * from './capabilitiesData';
 export * from './servicesData';
 
 export const SERVICES = [
-  { slug: 'it-recruitment-services', label: 'IT Staffing', icon: 'Code2', desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.' },
+  { slug: 'it-recruitment-services', label: 'IT Recruitment Services', icon: 'Code2', desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.' },
   { slug: 'executive-recruitment-services', label: 'Executive Search', icon: 'TrendingUp', desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.' },
   { slug: 'contract-recruitment-services', label: 'Contract Staffing', icon: 'Clock', desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.' },
   { slug: 'permanent-recruitment-services', label: 'Permanent Hiring', icon: 'Users', desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.' },

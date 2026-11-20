@@ -34,6 +34,7 @@ export interface CapabilityData {
   heroDesc: string;
  seoTitle?: string;
 seoDescription?: string;
+seoKeywords?: string[];
   rolesDetailed: RoleDetail[];
   expertiseTags: string[];
   techEcosystem: TechGroup[];
@@ -126,24 +127,38 @@ hiringSection: {
 },
 intro: {
   label: 'Executive Overview',
-  heading: 'Building Teams for the AI-Driven Future',
-  content: 'AI is changing how businesses build products, automate processes, analyze information, and make decisions. Finding professionals with the right combination of technical skills and practical experience, however, can be challenging.\n\nOur AI & Machine Learning recruitment services UK are designed to connect organizations with experienced professionals across Artificial Intelligence, Machine Learning, Generative AI, Large Language Models, Natural Language Processing, Computer Vision, and intelligent automation.\n\nFrom individual specialist hiring to building complete AI teams, we focus on finding candidates whose skills, experience, and technical background match the requirements of the role.',
+  heading: 'Specialist Machine Learning Recruitment Services for UK Businesses',
+  content: "As artificial intelligence and machine learning continue to transform industries, businesses need professionals with the right technical knowledge and practical experience. However, finding candidates with specialised AI and machine learning skills can be challenging.\n\nChalky's Machine Learning Recruitment Services UK help organisations connect with qualified professionals across Artificial Intelligence, Machine Learning, Deep Learning, Generative AI, Large Language Models, Natural Language Processing, and Computer Vision.\n\nWhether you are hiring an individual machine learning engineer, expanding an AI department, or building a specialist technical team, we support your recruitment requirements by identifying candidates whose skills and experience align with your business objectives.",
 },
     title: 'AI & Machine Learning Recruitment Services UK',
 
-seoTitle: 'AI & Machine Learning Recruitment Services UK | Chalky Infotech',
+seoTitle: 'Machine Learning Recruitment Services UK ',
 seoDescription:
-  'AI & Machine Learning recruitment services UK connecting businesses with skilled AI, ML, Generative AI, and automation professionals for critical technology roles.',
-   
+  "Find skilled AI and machine learning professionals with Chalky's Machine Learning Recruitment Services UK. Hire experienced specialists for your business.",
+seoKeywords: [
+  'Machine Learning Recruitment Agency UK',
+  'AI Recruitment Services UK',
+  'Machine Learning Recruiters UK',
+  'AI and Machine Learning Recruitment',
+  'Machine Learning Talent Acquisition',
+  'AI Talent Recruitment UK',
+  'Machine Learning Staffing Services UK',
+  'AI Engineer Recruitment UK',
+  'Machine Learning Specialist Recruitment',
+  'Artificial Intelligence Recruitment UK',
+  'Machine Learning Hiring Solutions',
+  'Contract Machine Learning Recruitment UK'
+],
+  
     subtitle: 'Specialized AI, Deep Learning & LLM Talent',
     icon: 'Cpu ',
     positioning: 'AI & Machine Learning Talent',
-    heroDesc: 'Connect with highly skilled AI and machine learning professionals who bring the exper-tise businesses need to develop intelligent solutions, accelerate innovation, and adopt emerging technologies.',
+    heroDesc: 'Connect with skilled AI and machine learning professionals through specialist recruitment solutions. Chalky helps UK businesses find experienced talent to support AI projects, machine learning initiatives, and technology team expansion',
     
     roles: {
   label: 'Specialized Roles',
-  heading: 'AI & Machine Learning Talent We Provide',
-  description: 'We connect organisations with skilled AI engineers, machine learning professionals, ar-chitects, and specialists who match your technology needs and project requirements.'
+  heading: 'AI & Machine Learning Professionals We Recruit',
+  description: 'We help businesses find experienced AI and machine learning professionals for specialist technical positions, permanent opportunities, and contract-based requirements.'
 },
 rolesDetailed: [
       { title: 'AI Engineer', focus: 'AI applications & intelligent systems' },
@@ -158,68 +173,68 @@ rolesDetailed: [
     ],
 domainCompetencies: {
   label: 'Domain Competencies',
-  heading: 'Specialized AI & Machine Learning Expertise',
-  description: 'Our candidate search targets deep domain mastery across key AI and machine learning disciplines.'
+  heading: 'Specialist Skills Across AI & Machine Learning',
+  description: 'Bring together point-of-sale, e-commerce, inventory and customer data. Create a unified view of business performance to support reporting and demand planning.'
 },
 technologyStack: {
   label: 'Technology Stack',
   heading: 'Technologies Our AI & Machine Learning Professionals Work With',
-  description: 'We work with professionals experienced across the tools, platforms, frameworks, and technologies used to develop and deliver modern AI and machine learning solutions.'
+  description: 'We source professionals with experience in the programming languages, frameworks, platforms, and tools commonly used across AI and machine learning environments.'
 },
 businessImpact: {
   label: 'Real-World Impact',
-  heading: 'AI & Machine Learning Recruitment Across Business Use Cases ',
-  description: 'Experienced AI professionals helping businesses apply intelligent technologies to real-world challenges.',
+  heading: 'Machine Learning Recruitment Across Business Applications',
+  description: 'We help organisations recruit professionals with the skills required to support different AI and machine learning applications.',
  items: [
   {
-    title: 'Generative AI Applications',
+    title: 'Generative AI Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Find specialists experienced in generative AI technologies, LLM applications and AI-powered solutions.',
   },
   {
-    title: 'AI-Powered Automation',
+    title: 'AI Automation Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Recruit AI professionals who can support intelligent automation and process improvement initiatives.',
   },
   {
-    title: 'Intelligent Chatbots & Assistants',
+    title: 'Intelligent Chatbot & Assistant Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Connect with conversational AI developers and NLP specialists.',
   },
   {
-    title: 'Recommendation Systems',
+    title: 'Recommendation System Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Find machine learning professionals experienced in recommendation engines and personalisation systems.',
   },
   {
-    title: 'Predictive Analytics',
+    title: 'Predictive Analytics Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Hire data scientists and machine learning engineers with forecasting and predictive modelling expertise.',
   },
   {
-    title: 'Document Intelligence',
+    title: 'Document Intelligence Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Source professionals experienced in document processing, information extraction and intelligent data handling.',
   },
   {
-    title: 'Computer Vision & OCR',
+    title: 'Computer Vision & OCR Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Find specialists in image processing, optical character recognition and computer vision technologies.',
   },
   {
-    title: 'Natural Language Processing',
+    title: 'Natural Language Processing Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Recruit NLP engineers with experience in language processing, text analysis and language models.',
   },
   {
-    title: 'Enterprise AI Integration',
+    title: 'Enterprise AI Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Identify AI professionals who can support enterprise technology teams and large-scale AI initiatives.',
   },
   {
-    title: 'AI-Powered Products',
+    title: 'AI Product Development Recruitment',
     description:
-      'Specialized professionals ready to deliver solutions in this domain.',
+      'Connect with technical talent experienced in developing and supporting AI-powered products.',
   },
 ],
 },
@@ -242,14 +257,14 @@ businessImpact: {
       'Computer Vision & OCR', 'Natural Language Processing', 'Enterprise AI Integration', 'AI-Powered Products'
     ],
     whyChooseList: [
-      'Specialized AI & Machine Learning recruitment expertise',
-      'Access to specialized AI and ML professionals across global talent networks',
-      'Strong understanding of AI, machine learning, and emerging technology roles',
-      'Candidates screened for technical skills, experience, and role fit',
-      'Flexible recruitment options for Permanent, Contract, and Remote hiring',
-      'Efficient candidate sourcing for urgent and specialist AI recruitment needs',
-      'Talent reach across the UK, EU, US, and Asia',
-      'Long-term AI talent recruitment partnerships for growing technology teams'
+      'Recruitment support focused on AI, machine learning and emerging technology positions.',
+      'Connect with professionals across machine learning, deep learning, NLP, computer vision and AI engineering.',
+      'We consider the technical skills, experience and responsibilities required for each position.',
+      'Identify candidates based on their qualifications, technical capabilities and role suitability.',
+      'Permanent, contract and remote hiring options to support different business requirements.',
+      'Recruitment assistance for niche technical positions and growing AI teams.',
+      'Access talent across the UK and international recruitment markets, including the EU, US and Asia.',
+      'Build a reliable recruitment partnership to support your organisation\'s changing talent requirements.'
     ],
      features: [
       { title: 'Generative AI & LLM Specialists', desc: 'Engineers experienced in fine-tuning foundation models, RAG pipelines, and enterprise AI integration.' },
@@ -258,73 +273,73 @@ businessImpact: {
     ],
     recruitmentProcess: {
   label: 'Our Recruitment Process',
-  heading: 'From AI & Machine Learning Need to the Right Hire',
+  heading: 'Our Machine Learning Recruitment Process',
   description:
-    'A structured approach to identifying, assessing, and matching specialized AI talent.',
+    'Our structured recruitment approach helps businesses identify, assess and hire suitable AI and machine learning professionals.',
   steps: [
     {
       step: '01',
       name: 'Understand',
-      desc: 'Understand your technical requirements and business objectives.',
+      desc: 'Understand your business goals, technical requirements, job responsibilities and hiring expectations.',
     },
     {
       step: '02',
       name: 'Identify',
-      desc: 'Source specialized AI & Machine Learning professionals from our talent network.',
+      desc: 'Source suitable AI and machine learning candidates through our recruitment networks and talent search process.',
     },
     {
       step: '03',
       name: 'Assess',
-      desc: 'Evaluate technical expertise, experience, and role suitability.',
+      desc: 'Review candidates\' technical skills, qualifications, practical experience and suitability for the position.',
     },
     {
       step: '04',
       name: 'Match',
-      desc: 'Present candidates aligned with your technology stack and requirements.',
+      desc: 'Shortlist and present candidates who align with your role requirements, technology environment and team expectations.',
     },
     {
       step: '05',
       name: 'Hire',
-      desc: 'Support the recruitment process through selection and onboarding.',
+      desc: 'Support the recruitment journey through candidate selection, interview coordination and onboarding.',
     },
   ],
 },
 whyChoose: {
   label: 'Why Partner With Chalky',
-  heading: 'AI & Machine Learning Talent Focused on the Right Fit',
+  heading: 'Your Recruitment Partner for Machine Learning Talent in the UK',
   description:
-    'We combine technical understanding with a practical recruitment approach to connect you with AI and machine learning professionals who fit your role, team, and technology needs.',
+    'Finding the right machine learning professionals requires an understanding of both technical roles and business hiring requirements. Chalky combines specialist recruitment knowledge with a practical candidate sourcing approach to support your hiring needs.',
 },
 hiringSection: {
   label: 'Engagement Solutions',
-  heading: 'Flexible Hiring Models for Software Engineering',
+  heading: 'Flexible Hiring Models for Machine Learning Recruitment',
   description:
-    'Choose the right engagement model tailored to your project timeline and talent requirements.',
+    'Choose a recruitment model that aligns with your business requirements, hiring plans and project timelines.',
    viewAllLabel: 'View All Hiring Solutions',
   viewAllHref: '/services',
 },
 hiringModels: [
   {
-    type: 'Permanent Hiring',
-    description: 'Build long-term AI and machine learning teams with experienced permanent professionals.',
+    type: 'Permanent Recruitment',
+    description: 'Find long-term AI and machine learning professionals to strengthen your in-house technical teams.',
     icon: 'Users',
     href: '/hiring-solutions/permanent-recruitment',
   },
   {
-    type: 'Contract Hiring',
-    description: 'Access specialized AI talent for short-term projects, transformation programmes, and urgent requirements.',
+    type: 'Contract Recruitment',
+    description: 'Hire experienced specialists for specific projects, temporary requirements and short-term technical assignments.',
     icon: 'Clock',
     href: '/hiring-solutions/contract-recruitment',
   },
   {
-    type: 'Remote Hiring',
-    description: 'Expand your access to AI specialists through flexible remote recruitment solutions.',
+    type: 'Remote Recruitment',
+    description: 'Connect with skilled professionals who can work remotely and support distributed technology teams.',
     icon: 'Globe',
     href: '/hiring-solutions/remote-recruitment',
   },
   {
-    type: 'Flexible Hiring',
-    description: 'Choose flexible engagement options based on your project scope, timeline, and talent requirements.',
+    type: 'Flexible Recruitment',
+    description: 'Choose flexible Machine Learning Recruitment Services UK based on your project scope, timeline, and talent requirements.',
     icon: 'TrendingUp',
     href: '/hiring-solutions',
   },
@@ -332,10 +347,10 @@ hiringModels: [
 
 finalCta: {
    badge: "Let's Build Your AI Team",
-  title: 'Build Your AI & Machine Learning Team',
+  title: 'Find the Right Machine Learning Talent for Your Business',
   subtitle:
-    'Connect with specialized AI professionals who can help accelerate innovation and deliver your technology goals.',
-  primaryLabel: 'Hire AI Talent',
+    'Looking to hire experienced machine learning professionals in the UK? Chalky helps businesses identify suitable candidates for specialist AI and machine learning roles. \n\n',
+  primaryLabel: 'Hire Machine Learning Professionals',
   secondaryLabel: 'Talk to Our Team',
 },
 footerNewsletter: {
@@ -361,61 +376,100 @@ footerNewsletter: {
 },
 intro: {
   label: 'Executive Overview',
-  heading: 'Building High-Impact Engineering Teams',
-  content: 'From scalable cloud services and distributed applications to intuitive web and mobile experiences, we connect businesses with engineers who build reliable, maintainable, and future-ready software.',
+  heading: 'Building Skilled Software Engineering Teams for UK Businesses',
+  content: 'Finding experienced software engineering professionals is essential for businesses developing digital products, modernising applications, and managing complex technology environments. However, identifying candidates with the right technical skills and industry experience can be challenging.\n\nChalky\'s Software Engineering Recruitment Services UK help organisations connect with qualified software developers, engineering specialists, technical architects, and development professionals across different technology environments.\n\nFrom individual developer recruitment to building complete engineering teams, we focus on understanding your hiring requirements and identifying candidates whose technical capabilities, experience, and career backgrounds align with your business objectives.',
 },
-    title: 'Software Engineering Professionals',
+    title: 'Software Engineering Recruitment Services UK',
+
+seoTitle: 'Software Engineering Recruitment Services UK',
+seoDescription:
+  "Find skilled software engineers with Chalky's Software Engineering Recruitment Services UK. Hire experienced developers and technical professionals for your business.",
+ seoKeywords: [
+  'Software Engineering Recruitment Agency UK',
+  'Software Developer Recruitment UK',
+  'IT Engineering Recruitment Services UK',
+  'Software Engineer Recruiters UK',
+  'Software Developer Staffing UK',
+  'Technical Recruitment Services UK',
+  'Software Development Recruitment UK',
+  'Software Engineering Talent Acquisition',
+  'Contract Software Engineer Recruitment UK',
+  'Software Engineering Staffing Solutions',
+  'Software Developer Hiring Services UK',
+  'IT Recruitment Agency UK'
+], 
+
     subtitle: 'Full-Stack, Backend & Frontend Developers',
     icon: 'Code2',
     positioning: 'Software Engineering Talent',
-    heroDesc: 'Build agile, high-performing engineering teams with skilled developers and technical experts across modern languages, frameworks, and software architectures.',
+    heroDesc: 'Chalky helps UK businesses find skilled developers, software architects, and engineering specialists to strengthen their technology teams and support business growth.',
     
    roles: {
   label: 'Specialized Roles',
-  heading: 'Software Engineering Professionals We Deliver',
+  heading: 'Software Engineering Professionals We Recruit',
   description:
-    'We connect businesses with skilled developers, architects, and technical specialists aligned with your specific technology environment.',
+    'We help businesses recruit skilled software developers, architects, and engineering specialists for different technical requirements and development environments.',
 },
 
 domainCompetencies: {
   label: 'Domain Competencies',
-  heading: 'Specialist Software Engineering Capabilities',
+  heading: 'Specialist Software Engineering Recruitment Expertise',
   description:
-    'Our talent search focuses on proven expertise across the core areas of modern software development.',
+    'Our software engineering recruitment focuses on identifying professionals with practical experience across the key areas of modern software development.',
 },
 
 technologyStack: {
   label: 'Technology EXPERTISE',
-  heading: 'Technology Skills Across Our Talent Network',
+  heading: 'Technology Skills Across Our Software Engineering Talent Network',
   description:
-    'Our candidates bring hands-on experience across leading technology environments, assessed through a thorough technical screening process.',
+    'We source software engineering candidates with experience across popular programming languages, frameworks, databases, development tools and cloud platforms.',
 },
 
 businessImpact: {
   label: 'BUSINESS APPLICATIONS',
-  heading: 'Software Engineering Talent Across Business Applications',
+  heading: 'Software Engineering Recruitment Across Business Applications',
   description:
-    'Experienced software professionals helping businesses build scalable products, modernize applications, and deliver reliable digital solutions.',
+    'We help businesses find engineering professionals with the technical expertise required to develop, maintain and improve software applications across different business environments.',
   items: [
     {
-      title: 'SaaS Product Engineering',
+      title: 'SaaS Product Engineering Recruitment',
       description:
-        'Experienced specialists equipped to build and enhance scalable solutions in this area.',
+        'Find software engineers experienced in developing, maintaining and scaling Software-as-a-Service products.',
     },
     {
-      title: 'Enterprise Software Modernization',
+      title: 'Enterprise Software Modernisation',
       description:
-        'Skilled professionals prepared to support modernisation initiatives across enterprise systems.',
+        'Recruit developers and software architects who can support application upgrades, legacy system improvements and enterprise technology projects.',
     },
     {
-      title: 'Mobile Product Development',
+      title: 'Mobile Application Development Recruitment',
       description:
-        'Specialist talent ready to create and deliver high-quality mobile applications.',
+        'Connect with mobile developers experienced in building and maintaining Android and iOS applications.',
     },
     {
-      title: 'API & Integration Engineering',
+      title: 'API & Integration Engineering Recruitment',
       description:
-        'Experienced engineers focused on building reliable, high-performance APIs and integrations.',
+        'Find specialists experienced in API development, system integration and connecting business applications.',
+    },
+    {
+      title: 'Web Application Development',
+      description:
+        'Hire frontend, backend and full stack developers to support responsive and functional web applications.',
+    },
+    {
+      title: 'Cloud-Based Software Development',
+      description:
+        'Recruit cloud engineers and software developers experienced in building and maintaining cloud-based applications.',
+    },
+    {
+      title: 'E-commerce Development',
+      description:
+        'Find developers with experience in e-commerce platforms, online stores and payment gateway integrations.',
+    },
+    {
+      title: 'Software Testing & Quality Assurance',
+      description:
+        'Connect with QA engineers and automation specialists who help maintain software quality and application performance.',
     },
   ],
 },
@@ -450,86 +504,88 @@ businessImpact: {
       'API & Integration Engineering', 'E-Commerce Development', 'Fintech & Banking Solutions'
     ],
     whyChooseList: [
-      'Proven success in building high-calibre engineering teams',
-      'Strong knowledge of modern frameworks and quality coding practices',
-      'Pre-screened developers across experienced and leadership levels',
-      'Fast candidate shortlists delivered within five working days',
-      'Tailored recruitment aligned to your technology environment',
-      'End-to-end talent support for complete product development'
+      'Recruitment support focused on software development and technical engineering positions.',
+      'Connect with developers, software architects, engineers and technical specialists across different technology stacks.',
+      'We consider programming languages, frameworks, development environments and experience relevant to each position.',
+      'Identify suitable candidates based on technical capabilities, professional experience and role requirements.',
+      'Permanent, contract and remote hiring options to support different workforce requirements.',
+      'Recruitment assistance for niche technical positions and challenging engineering vacancies.',
+      'Access software engineering talent across the UK and international recruitment markets, including the EU, US and Asia.',
+      'Build a reliable recruitment partnership to support your organisation\'s ongoing technology hiring needs.'
     ],
     recruitmentProcess: {
   label: 'OUR TALENT ACQUISITION APPROACH',
-  heading: 'From Software Requirements to the Right Professional',
+  heading: 'Our Software Engineering Recruitment Process',
   description:
-    'A structured approach to identifying, assessing, and matching software engineering professionals.',
+    'Our structured recruitment process helps businesses identify, evaluate and hire software engineering professionals who match their technical and organisational requirements.',
   steps: [
     {
       step: '01',
       name: 'DISCOVER',
-      desc: 'We learn your technical needs, team structure, and wider business priorities.ectives.',
+      desc: 'Understand your technical requirements, job responsibilities, team structure and business objectives.',
     },
     {
       step: '02',
       name: 'SOURCE',
-      desc: 'We identify experienced software professionals through our specialist talent network.',
+      desc: 'Identify suitable software engineering professionals through our recruitment networks and targeted candidate sourcing.',
     },
     {
       step: '03',
       name: 'EVALUATE',
-      desc: 'We review technical capability, relevant experience, and alignment with the position.',
+      desc: 'Assess candidates\' technical skills, development experience, qualifications and suitability for the position.',
     },
     {
       step: '04',
       name: 'SELECT',
-      desc: 'We introduce qualified candidates who match your technology environment and role requirements.',
+      desc: 'Present qualified candidates who align with your technology stack, project requirements and team expectations.',
     },
     {
       step: '05',
       name: 'ONBOARD',
-      desc: 'We support the hiring journey through candidate selection and successful onboarding.',
+      desc: 'Support the recruitment process through candidate selection, interview coordination and onboarding.',
     },
   ],
 },
     whyChoose: {
   label: 'Why Partner With Chalky',
-  heading: 'Specialist Software Engineering Talent. Carefully Matched',
+  heading: 'Your Recruitment Partner for Software Engineering Talent in the UK',
   description:
-    'We combine technical understanding with focused recruitment expertise to connect businesses with dependable, high-performing engineering professionals.',
+    'Finding the right software engineering professionals requires an understanding of technical roles, development environments and business requirements. Chalky combines recruitment expertise with a focused candidate sourcing approach to help businesses build capable engineering teams.',
 },
 hiringSection: {
   label: 'Engagement Solutions',
-  heading: 'Flexible Talent Solutions for Software Engineering',
+  heading: 'Flexible Hiring Models for Software Engineering Recruitment',
   description:
-    'Select a hiring approach that fits your project goals, timelines, and workforce requirements.',
+    'Choose a recruitment solution that matches your business requirements, project timelines and workforce needs.',
     viewAllLabel: 'View All Hiring Solutions',
   viewAllHref: '/services',
 },
 hiringModels: [
   {
-    type: 'Permanent Hiring',
+    type: 'Permanent Recruitment',
     description:
-      'Build lasting engineering teams with proven professionals committed to long-term growth..',
+      'Hire experienced software engineers for long-term positions and build stable development teams that support business growth.',
     icon: 'Users',
     href: '/hiring-solutions/permanent-recruitment',
   },
   {
-    type: 'Contract Staffing',
+    type: 'Contract Recruitment',
     description:
-      'Strengthen project teams with skilled specialists available for flexible contract assignments.',
+      'Find skilled software engineering professionals for temporary assignments, specific projects and short-term development requirements.',
     icon: 'Clock',
     href: '/hiring-solutions/contract-recruitment',
   },
   {
-    type: 'Remote Hiring',
+    type: 'Remote Recruitment',
     description:
-      'Connect with specialist technology professionals across locations through flexible remote recruitment.',
+      'Connect with experienced software developers and technical specialists who can work remotely across different locations.',
     icon: 'Globe',
     href: '/hiring-solutions/remote-recruitment',
   },
   {
     type: 'Executive Search',
     description:
-      'Secure experienced senior leaders and technology executives for critical, high-impact positions.',
+      'Identify experienced engineering managers, technical directors and senior technology leaders for strategic positions.',
     icon: 'TrendingUp',
     href: '/hiring-solutions',
   },
@@ -541,10 +597,10 @@ hiringModels: [
     ],
     finalCta: {
        badge: "Let's Build Together",
-  title: 'Build Your Software Engineering Team with Exceptional Talent',
+  title: 'Find the Right Software Engineering Talent for Your Business',
   subtitle:
-    'Share the software engineering expertise you’re looking for, and we’ll connect you with professionals equipped to strengthen your technology initiatives and deliver lasting results.',
-  primaryLabel: 'Hire Software Engineering Professionals ',
+    '\n\nShare your hiring requirements with our recruitment team, and let us help you identify suitable candidates who can support your technology goals and long-term business growth.',
+  primaryLabel: 'Hire Software Engineering Professionals',
   secondaryLabel: 'Connect With Our Recruitment Specialists',
 },
 footerNewsletter: {
@@ -570,61 +626,78 @@ footerNewsletter: {
 },
 intro: {
   label: 'Executive Overview',
-  heading: 'Enabling Scalable & Reliable Cloud Operations',
-  content: 'Strengthen your technology teams with cloud architects, reliability engineers, and DevOps professionals who streamline CI/CD delivery, improve system resilience, and support dependable cloud environments.',
+  heading: 'Building Skilled Cloud Engineering Teams for UK Businesses ',
+  content: `As businesses increasingly depend on cloud technologies, finding professionals with the right infrastructure, automation and cloud management skills has become essential. However, recruiting experienced cloud engineers and DevOps specialists with the right technical background can be challenging.Chalky's Cloud Engineering Recruitment Services UK help organisations connect with qualified professionals across cloud computing, cloud architecture, DevOps, infrastructure automation, platform engineering and site reliability engineering.Whether you need an AWS engineer, Azure specialist, cloud architect or experienced DevOps professional, we support your recruitment requirements by identifying candidates whose technical expertise and industry experience align with your business needs.`,
 },
-    title: 'Cloud Engineering & DevOps Talent',
+    title: 'Cloud Engineering Recruitment Services UK',
+    seoTitle: 'Cloud Engineering Recruitment Services UK',
+seoDescription:
+  "Find skilled cloud engineers and DevOps professionals with Chalky's Cloud Engineering Recruitment Services UK. Hire experienced specialists for your business.",
+ seoKeywords: [
+  'Software Engineering Recruitment Agency UK',
+  'Software Developer Recruitment UK',
+  'IT Engineering Recruitment Services UK',
+  'Software Engineer Recruiters UK',
+  'Software Developer Staffing UK',
+  'Technical Recruitment Services UK',
+  'Software Development Recruitment UK',
+  'Software Engineering Talent Acquisition',
+  'Contract Software Engineer Recruitment UK',
+  'Software Engineering Staffing Solutions',
+  'Software Developer Hiring Services UK',
+  'IT Recruitment Agency UK'
+], 
     subtitle: 'Cloud Infrastructure & Automation Experts',
     icon: 'Cloud',
     positioning: 'Cloud & DevOps Talent',
-    heroDesc: 'Connect with experienced cloud and DevOps professionals who support scalable infrastructure, streamlined delivery, resilient platforms, and successful cloud transformation.',
+    heroDesc: 'Chalky helps UK businesses find skilled technical talent to manage cloud environments, strengthen infrastructure and support digital transformation.',
     
     roles: {
   label: 'Specialized Roles',
-  heading: 'Cloud & DevOps Professionals We Deliver',
+  heading: 'Cloud Engineering & DevOps Professionals We Recruit',
   description:
-    'We connect businesses with experienced engineers, architects, and specialists selected to complement your technology environment and infrastructure needs.',
+    'We help businesses recruit experienced cloud engineers, architects, and infrastructure specialists for different technology environments and project requirements.',
 },
 
 domainCompetencies: {
   label: 'Domain Competencies',
-  heading: 'Cloud & DevOps Capability Areas',
+  heading: 'Specialist Cloud Engineering & DevOps Recruitment Expertise',
   description:
-    'Our talent searches focus on proven expertise across critical cloud and DevOps disciplines.',
+    'Our cloud engineering recruitment focuses on identifying professionals with practical experience across essential cloud and infrastructure disciplines.',
 },
 
 technologyStack: {
   label: 'Technology Stack',
-  heading: 'Technology Platforms Our Talent Supports',
+  heading: 'Technologies Across Our Cloud Engineering Talent Network',
   description:
-    'Our candidates are experienced across leading technology environments and assessed through a thorough technical screening process.',
+    'We source professionals with experience across leading cloud platforms, infrastructure tools, automation technologies and DevOps environments.',
 },
 
 businessImpact: {
   label: 'Real-World APPLICATIONS',
-  heading: 'Cloud & DevOps Talent for Business-Critical Needs',
+  heading: 'Cloud Engineering Recruitment Across Business Requirements',
   description:
-    'Experienced cloud and DevOps professionals helping businesses improve scalability, reliability, deployment efficiency, and cloud operations.',
+    'We help businesses find cloud and DevOps professionals with the expertise required to support infrastructure operations, application delivery and cloud transformation initiatives.',
  items: [
     {
-      title: 'Cloud Transformation & Modernization',
+      title: 'Cloud Migration & Modernisation Recruitment',
       description:
-        'Qualified specialists equipped to support cloud migration and infrastructure modernization initiatives.',
+        'Find cloud engineers and architects experienced in migrating applications, workloads and infrastructure to modern cloud environments.',
     },
     {
-      title: 'Automated Delivery & Release Management',
+      title: 'DevOps & CI/CD Recruitment',
       description:
-        ' Experienced professionals ready to streamline deployment workflows and improve delivery efficiency.',
+        'Recruit DevOps specialists who can support automated development workflows, deployment pipelines and release management.',
     },
     {
-      title: 'Kubernetes Performance & Optimization',
+      title: 'Kubernetes & Container Engineering',
       description:
-        ' Skilled talent prepared to strengthen container platforms, reliability, and operational performance.',
+        'Connect with Kubernetes engineers and container specialists experienced in managing scalable application environments.',
     },
     {
-      title: 'Resilient Infrastructure & Availability',
+      title: 'Cloud Infrastructure & Architecture',
       description:
-        'Specialist professionals available to build dependable, scalable, and highly available environments.',
+        'Hire infrastructure engineers and cloud architects with experience in designing and maintaining reliable cloud platforms.',
     },
   ],
 },
@@ -657,56 +730,56 @@ businessImpact: {
       'Kubernetes Performance & Optimization', 'Resilient Infrastructure & Availability'
     ],
     whyChooseList: [
-      'Certified cloud specialists across AWS, Azure and GCP',
-      'Proven expertise in cloud security, compliance and Zero Trust',
-      'Targeted sourcing for SRE and platform engineering roles',
-      'Flexible contract and permanent hiring options'
+      'Recruitment support focused on cloud computing, infrastructure and DevOps positions.',
+      'Connect with experienced AWS, Azure, GCP and cloud infrastructure specialists.',
+      'We consider relevant cloud platforms, automation tools, container technologies and infrastructure skills when identifying candidates.',
+      'Identify professionals based on their technical knowledge, certifications, experience and role requirements.'
     ],
     recruitmentProcess: {
-  label: 'OUR TALENT ACQUISITION APPROACH',
+  label: 'Our Cloud Engineering Recruitment Process',
   heading: 'From Cloud & DevOps Requirements to the Right Professional',
   description:
-    'A structured approach to identifying, assessing, and matching specialized cloud and DevOps professionals.',
+    'Our structured recruitment process helps businesses identify, assess and hire cloud engineering professionals who match their technical requirements and organisational goals.',
   steps: [
     {
       step: '01',
       name: 'Define',
-      desc: 'Clarify your technical needs, team priorities, and business goals.',
+      desc: 'Understand your cloud environment, technical requirements, team structure and business objectives.',
     },
     {
       step: '02',
       name: 'Source',
-      desc: 'Identify experienced Cloud & DevOps specialists through our talent network.',
+      desc: 'Identify suitable cloud engineers, DevOps specialists and infrastructure professionals through targeted recruitment and talent sourcing.',
     },
     {
       step: '03',
       name: 'Evaluate',
-      desc: 'Review technical capabilities, relevant experience, and overall role alignment.',
+      desc: 'Assess candidates technical capabilities, cloud certifications, professional experience and role suitability.',
     },
     {
       step: '04',
       name: 'Select',
-      desc: 'Introduce professionals whose expertise matches your environment and requirements.',
+      desc: 'Present qualified candidates whose skills align with your cloud platforms, infrastructure requirements and team expectations.',
     },
     {
       step: '05',
       name: 'Onboard',
-      desc: 'Guide the hiring journey through selection, offer management, and onboarding.',
+      desc: 'Support the hiring journey through candidate selection, interview coordination and onboarding.',
     },
   ],
 },
 
 whyChoose: {
   label: 'WHY CHOOSE CHALKY',
-  heading: 'Specialist Cloud & DevOps Talent. Matched with Precision.',
+  heading: 'Your Recruitment Partner for Cloud Engineering Talent in the UK',
   description:
-    'We combine technical expertise with focused recruitment to deliver dependable, long-term talent.',
+    'Recruiting the right cloud engineering professionals requires an understanding of cloud platforms, infrastructure technologies and business requirements. Chalky combines technical role knowledge with focused recruitment expertise to help businesses build capable cloud and DevOps teams.',
 },
 hiringSection: {
   label: 'Engagement OPTIONS',
-  heading: 'Flexible Hiring Solutions for Cloud & DevOps',
+  heading: 'Flexible Hiring Solutions for Cloud Engineering Recruitment',
   description:
-    'Select an engagement approach that fits your project goals, timeline and budget.',
+    'Choose a recruitment model that aligns with your project requirements, hiring timelines and workforce needs.',
     viewAllLabel: 'View All Hiring Solutions',
   viewAllHref: '/services',
 },
@@ -714,28 +787,28 @@ hiringModels: [
   {
     type: 'Permanent Recruitment',
     description:
-      'Build lasting technology teams with experienced professionals selected for long-term fit.',
+      'Hire experienced cloud engineers, DevOps specialists and infrastructure professionals for long-term positions.',
     icon: 'Users',
     href: '/hiring-solutions/permanent-recruitment',
   },
   {
-    type: 'Contract Staffing',
+    type: 'Contract Recruitment',
     description:
-      'Add specialist expertise for critical projects, milestones and changing delivery needs.',
+      'Find specialist cloud professionals for infrastructure projects, cloud migration assignments and short-term technical requirements.',
     icon: 'Clock',
     href: '/hiring-solutions/contract-recruitment',
   },
   {
     type: 'Remote Recruitment',
     description:
-      'Connect with skilled technology professionals worldwide through flexible remote hiring.',
+      'Connect with skilled cloud engineering professionals who can support your technology operations through flexible remote working arrangements.',
     icon: 'Globe',
     href: '/hiring-solutions/remote-recruitment',
   },
   {
-    type: 'Flexible Hiring',
+    type: 'Executive Search',
     description:
-      'Find senior technology leaders and high-impact professionals for critical leadership roles.',
+      'Identify experienced cloud architects, engineering managers and senior technology leaders for critical leadership positions.',
     icon: 'TrendingUp',
     href: '/hiring-solutions',
   },
@@ -743,9 +816,9 @@ hiringModels: [
 
 finalCta: {
    badge: "Let's Build Your Team",
-  title: 'Build Your Cloud & DevOps Team with the Right Talent',
+  title: 'Find the Right Cloud Engineering Talent for Your Business ',
   subtitle:
-    'Get Exclusive job alerts and recruitment trends delivered right to your inbox. Stay ahead of the curve.',
+    `Share your hiring requirements with our recruitment team, and let us help you find the right professionals to support your cloud transformation, infrastructure operations and long-term business goals.`,
   primaryLabel: 'Hire Cloud & DevOps Talent',
   secondaryLabel: 'Talk to Our Recruitment Team',
 },
@@ -777,42 +850,62 @@ footerNewsletter: {
 },
 intro: {
   label: 'Executive Overview',
-  heading: 'Turning Data into Measurable Business Value',
-  content: 'Build high-performing data teams with skilled engineers, architects, and analysts who develop scalable data platforms, real-time pipelines, and intelligent analytics solutions.',
+  heading: 'Building Skilled Data & Analytics Teams for UK Businesses',
+  content: `Data plays an important role in business planning, performance measurement and strategic decision-making. Finding professionals who can manage complex datasets, develop analytical solutions and translate information into meaningful insights is essential for organisations. 
+
+Chalky's Data Analytics Recruitment Services UK help businesses connect with qualified professionals across data analytics, data engineering, data science, business intelligence, data architecture and database management. 
+\n\n We support your hiring requirements by identifying candidates whose technical skills, industry experience and professional background align with your business objectives.`,
 },
-    title: 'Data & Analytics',
+    title: 'Data Analytics Recruitment Services UK',
+    seoTitle: 'Data Analytics Recruitment Services UK',
+seoDescription:
+  "Find skilled data analysts, engineers and business intelligence professionals with Chalky's Data Analytics Recruitment Services UK. Hire experienced specialists for your business.",
+  seoKeywords: [
+  'Data Analytics Recruitment Agency UK',
+  'Data Analyst Recruitment UK',
+  'Data Engineering Recruitment UK',
+  'Data Science Recruitment Services UK',
+  'Data Talent Acquisition UK',
+  'Data Specialist Recruitment UK',
+  'Business Intelligence Recruitment UK',
+  'Data Engineer Staffing UK',
+  'Analytics Recruitment Agency UK',
+  'Contract Data Analyst Recruitment UK',
+  'Data Management Recruitment UK',
+  'Big Data Recruitment Services UK'
+],
     subtitle: 'Data Engineering, BI & Analytics Specialists',
     icon: 'Database',
     positioning: 'Data & Analytics Talent',
    
-    heroDesc: 'Work with data and analytics experts who turn complex information into strategic insights, smarter decisions, and real business outcomes.',
+    heroDesc: 'Chalky helps UK businesses find skilled data and analytics talent to strengthen their teams, improve data management and support informed business decisions.',
     
    roles: {
   label: 'Specialized Roles',
-  heading: 'Data & Analytics Talent We Provide',
+  heading: 'Data & Analytics Professionals We Recruit',
   description:
-    'We connect businesses with experienced data professionals, engineers, and specialists who match your technology environment and specific business requirements.',
+    'We help businesses find experienced data professionals, analysts, engineers and technical specialists for different business and technology requirements.',
 },
 
 domainCompetencies: {
   label: 'Domain Competencies',
-  heading: 'Comprehensive Expertise Across the Data Landscape',
+  heading: 'Specialist Data & Analytics Recruitment Expertise',
   description:
-    'Our talent network covers specialized skills across the full spectrum of data and analytics.',
+    'Our data and analytics recruitment focuses on identifying professionals with practical experience across key data disciplines.',
 },
 
 technologyStack: {
   label: 'Technology Stack',
-  heading: 'Technologies Our Professionals Work With',
+  heading: 'Technologies Across Our Data & Analytics Talent Network',
   description:
-    'Key technology tools and platforms assessed through our comprehensive technical screening process.',
+    'We source professionals with experience across leading data platforms, analytics tools, programming languages and business intelligence technologies.',
 },
 
 businessImpact: {
   label: 'REAL-WORLD IMPACT',
-  heading: 'Data & Analytics Expertise Driving Business Outcomes',
+  heading: 'Data & Analytics Recruitment Across Business Requirements',
   description:
-    'Experienced specialists equipped to support organizations with practical data and analytics solutions.',
+    'We help organisations recruit data professionals with the expertise required to manage information, improve reporting and support data-driven business operations.',
   items: [
     {
       title: 'Scalable Data Infrastructure Buildout',
@@ -864,84 +957,84 @@ businessImpact: {
       'Personalized Marketing & Retention Analytics', 'Live Data Ingestion & Processing'
     ],
     whyChooseList: [
-      'Targeted talent sourcing across leading data platforms and analytics ecosystems',
-      'Experienced data architects with proven enterprise-scale delivery experience',
-      'Thorough assessment of SQL, data modelling, and pipeline engineering capabilities'
+      'Recruitment support focused on data analytics, data engineering, business intelligence and data science positions.',
+      'Connect with experienced data analysts, engineers, architects and analytics specialists',
+      `We consider candidates' experience with SQL, Python, data platforms, reporting tools and analytics technologies.`
     ],
     recruitmentProcess: {
   label: 'Our Recruitment Process',
-  heading: 'From Data & Analytics Requirements to the Ideal Candidate',
+  heading: 'Our Data Analytics Recruitment Process',
   description:
-    '',
+    'Our structured recruitment approach helps businesses identify, assess and hire suitable data and analytics professionals based on their technical and organisational requirements.',
   steps: [
     {
       step: '01',
       name: 'Discover',
-      desc: 'Clarify your technical needs and organizational goals.',
+      desc: 'Understand your business objectives, technical requirements, job responsibilities and data environment.',
     },
     {
       step: '02',
       name: 'Source',
-      desc: 'Find specialized Data & Analytics professionals through our talent network.',
+      desc: 'Identify suitable data analysts, engineers, scientists and analytics specialists through targeted recruitment and talent sourcing.',
     },
     {
       step: '03',
       name: 'Evaluate',
-      desc: 'Review technical capabilities, professional experience, and position alignment.',
+      desc: `Assess candidates technical skills, qualifications, professional experience and role suitability.`,
     },
     {
       step: '04',
       name: 'Select',
-      desc: ' Recommend candidates matching your technology environment and requirements.',
+      desc: 'Present shortlisted candidates whose expertise matches your technology stack, business requirements and team expectations.',
     },
     {
       step: '05',
       name: 'Onboard',
-      desc: 'Guide the hiring journey through final selection and successful onboarding. ',
+      desc: 'Support the recruitment journey through candidate selection, interview coordination and onboarding.',
     },
   ],
 },
 
 whyChoose: {
   label: 'Why Partner With Chalky',
-  heading: 'Exceptional Data & Analytics Professionals. Precisely Aligned.',
+  heading: 'Your Recruitment Partner for Data & Analytics Talent in the UK',
   description:
-    'We combine specialist expertise with hiring accuracy to deliver high-performing talent.',
+    'Finding the right data professionals requires an understanding of analytical tools, data technologies and business requirements. Chalky combines specialist recruitment knowledge with a focused candidate sourcing approach to help organisations build capable data and analytics teams.',
 },
 hiringSection: {
   label: 'TALENT ENGAGEMENT OPTIONS',
-  heading: 'Adaptable Hiring Solutions for Data & Analytics',
+  heading: 'Flexible Hiring Solutions for Data & Analytics Recruitment',
   description:
-    'Select the ideal hiring approach aligned with your project requirements, timeline, and budget.',
+    'Choose a recruitment model that aligns with your hiring requirements, project timelines and workforce needs.',
     viewAllLabel: 'View All Hiring Solutions',
   viewAllHref: '/services',
 },
 hiringModels: [
   {
-    type: 'Permanent Placement',
+    type: 'Permanent Recruitment',
     description:
-      'Build dedicated long-term technology teams with experienced, high-performing professionals.',
+      'Hire experienced data analysts, engineers and analytics professionals for long-term positions and strengthen your in-house teams.',
     icon: 'Users',
     href: '/hiring-solutions/permanent-recruitment',
   },
   {
     type: 'Contract Recruitment',
     description:
-      'Expand specialist capabilities for defined project milestones with flexible contract professionals.',
+      'Find specialist data professionals for temporary assignments, defined projects and short-term technical requirements.',
     icon: 'Clock',
     href: '/hiring-solutions/contract-recruitment',
   },
   {
-    type: 'Global Talent Sourcing',
+    type: 'Remote Recruitment',
     description:
-      'Connect with skilled technology professionals worldwide through flexible remote recruitment.',
+      'Connect with skilled data and analytics professionals across different locations through flexible remote hiring.',
     icon: 'Globe',
     href: '/hiring-solutions/remote-recruitment',
   },
   {
-    type: 'Leadership Recruitment',
+    type: 'Executive Search',
     description:
-      'Identify exceptional senior data leaders and strategic technology executives for critical roles.',
+      'Identify experienced data leaders, analytics managers and senior technology professionals for strategic positions.',
     icon: 'TrendingUp',
     href: '/hiring-solutions',
   },
@@ -949,9 +1042,9 @@ hiringModels: [
 
 finalCta: {
    badge: "Let's work together",
-  title: 'Build Your Data & Analytics Team with the Right Professionals',
+  title: 'Find the Right Data & Analytics Talent for Your Business',
   subtitle:
-    'Tell us the Data & Analytics expertise your business requires, and we’ll connect you with skilled professionals who can help accelerate your technology goals.',
+    `Share your hiring requirements with our recruitment team, and let us help you find suitable professionals who can strengthen your data capabilities and support your business objectives. `,
   primaryLabel: 'Find Data & Analytics Talent ',
   secondaryLabel: 'Connect With Our Hiring Specialists',
 },
@@ -983,42 +1076,62 @@ footerNewsletter: {
 },
 intro: {
   label: 'Executive Overview',
-  heading: 'Strengthening Enterprise Security & Resilience',
-  content: 'Protect critical business assets against evolving cyber risks with certified security engineers, SOC specialists, and penetration testing professionals who build resilient security frameworks and support regulatory requirements.',
+  heading: 'Building Strong Cybersecurity Teams for UK Businesses ',
+  content: `As cyber threats continue to evolve, businesses need experienced professionals who can protect digital assets, manage security risks and maintain reliable information security practices. However, finding candidates with the right technical expertise, certifications and industry experience can be challenging. 
+\n\nChalky's Cybersecurity Recruitment Services UK help organisations connect with qualified professionals across cyber defence, security operations, penetration testing, cloud security, application security and information security management. 
+\n\nWe support your hiring requirements by identifying candidates whose technical skills, professional experience and security knowledge align with your business needs.`,
 },
-    title: 'Cybersecurity Professionals',
+    title: 'Cybersecurity Recruitment Services UK',
+    seoTitle: 'Cybersecurity Recruitment Services UK',
+
+seoDescription: "Find skilled cybersecurity professionals with Chalky's Cybersecurity Recruitment Services UK. Hire experienced security engineers, analysts and specialists.",
+
+seoKeywords: [
+  'Cybersecurity Recruitment Agency UK',
+  'Cyber Security Recruitment UK',
+  'Cyber Security Recruiters UK',
+  'Information Security Recruitment UK',
+  'Cybersecurity Staffing Services UK',
+  'IT Security Recruitment Agency UK',
+  'Cybersecurity Talent Acquisition UK',
+  'Security Engineer Recruitment UK',
+  'SOC Analyst Recruitment UK',
+  'Penetration Tester Recruitment UK',
+  'Contract Cybersecurity Recruitment UK',
+  'Cybersecurity Specialist Recruitment UK'
+],
     subtitle: 'Security Infrastructure, SOC & Risk Experts',
     icon: 'ShieldCheck',
     positioning: 'Cybersecurity Talent',
    
-    heroDesc: 'Strengthen your security capabilities with experienced specialists across cyber defence, cloud security, application protection, governance, compliance, and risk.',
+    heroDesc: 'Chalky helps UK businesses find skilled security professionals to strengthen cyber defence, protect critical systems and manage evolving security risks.',
    
     roles: {
   label: 'Specialized Roles',
-  heading: 'Cybersecurity Specialists  We Provide',
+  heading: 'Cybersecurity Professionals We Recruit',
   description:
-    'We connect businesses with experienced security professionals, engineers, architects, and specialists aligned with their technology environment and security requirements.',
+    'We help businesses find experienced cybersecurity engineers, analysts, architects and information security specialists for different security environments and organisational requirements.',
 },
 
 domainCompetencies: {
   label: 'Domain Competencies',
-  heading: 'Specialized Cybersecurity Capabilities',
+  heading: 'Specialist Cybersecurity Recruitment Expertise',
   description:
-    'Our talent search focuses on proven security expertise across critical disciplines and modern enterprise protection practices.',
+    'Our cybersecurity recruitment focuses on identifying professionals with practical experience across essential security disciplines.',
 },
 
 technologyStack: {
   label: 'Technology EXPERTISE',
-  heading: 'Technology Platforms Our Security Talent Supports',
+  heading: 'Technologies Across Our Cybersecurity Talent Network',
   description:
-    'Our cybersecurity professionals bring experience across leading security technologies and environments, assessed through a structured technical screening process.',
+    'We source professionals with experience across leading cybersecurity platforms, security tools and enterprise protection technologies.',
 },
 
 businessImpact: {
   label: 'Real-World APPLICATIONS',
-  heading: 'Cybersecurity Professionals for Critical Business Needs',
+  heading: 'Cybersecurity Recruitment Across Business Requirements',
   description:
-    'Connect with proven security specialists who bring the expertise required to address complex cybersecurity priorities and strengthen your organization’s protection.',
+    'We help organisations recruit security professionals with the expertise required to strengthen protection, manage cyber risks and support business security operations.',
   items: [
     {
       title: '24/7 Security Operations Deployment',
@@ -1070,55 +1183,56 @@ businessImpact: {
       'Cloud Security Enhancement', 'DevSecOps Pipeline Integration'
     ],
     whyChooseList: [
-      'Access to vetted and certified cybersecurity professionals  (CISSP, CISM, CEH)',
-      'Thorough verification of ethical security testing experience and credentials',
-      'Fast-track hiring support for urgent cybersecurity and incident response requirements'
+      'Recruitment support focused on cyber defence, information security and enterprise security positions.',
+      'Connect with experienced security engineers, SOC analysts, penetration testers and information security specialists.',
+      `We consider candidates' experience with SIEM, endpoint protection, cloud security and vulnerability management platforms.`,
+      'Identify suitable professionals based on technical skills, certifications, industry experience and role requirements.'
     ],
     recruitmentProcess: {
   label: 'Our Recruitment Process',
-  heading: 'From Cybersecurity Requirements to the Right Talent',
+  heading: 'Our Cybersecurity Recruitment Process',
   description:
-    'A structured approach to identifying, assessing, and matching specialized cybersecurity professionals.',
+    'Our structured recruitment process helps businesses identify, assess and hire cybersecurity professionals who match their security requirements and organisational objectives.',
   steps: [
     {
       step: '01',
       name: 'Discover',
-      desc: 'Define your cybersecurity priorities, technical requirements, and business objectives.',
+      desc: 'Understand your security priorities, technical requirements, job responsibilities and business objectives.',
     },
     {
       step: '02',
       name: 'Source',
-      desc: 'Identify experienced cybersecurity specialists from our trusted talent network.',
+      desc: 'Identify suitable cybersecurity engineers, analysts and specialists through targeted recruitment and talent sourcing.',
     },
     {
       step: '03',
       name: 'Evaluate',
-      desc: 'Assess technical expertise, certifications, industry experience, and role alignment.',
+      desc: `Assess candidates' technical capabilities, security certifications, practical experience and suitability for the position.`,
     },
     {
       step: '04',
       name: 'Recommend',
-      desc: 'Present security professionals who match your technology environment and hiring needs.',
+      desc: 'Present shortlisted candidates whose expertise aligns with your security environment, technology requirements and team expectations.',
     },
     {
       step: '05',
       name: '05 Onboard',
-      desc: 'Support the hiring journey through candidate selection, offer management, and seamless onboarding.',
+      desc: 'Support the recruitment journey through candidate selection, interview coordination and onboarding.',
     },
   ],
 },
 
 whyChoose: {
   label: 'WHY CHOOSE CHALKY',
-  heading: 'Specialist Cybersecurity Talent. Carefully Matched.',
+  heading: 'Your Recruitment Partner for Cybersecurity Talent in the UK.',
   description:
-    'We combine specialist security expertise with focused recruitment to deliver high-quality talent that stays.',
+    'Recruiting cybersecurity professionals requires an understanding of security technologies, industry standards and evolving threat environments. Chalky combines specialist recruitment knowledge with a focused candidate sourcing approach to help businesses build capable security teams.',
 },
 hiringSection: {
   label: 'Engagement OPTIONS',
-  heading: 'Flexible Recruitment Models for Cybersecurity Talent',
+  heading: 'Flexible Hiring Solutions for Cybersecurity Recruitment',
   description:
-    'Select a hiring approach designed around your workforce needs, project priorities, and budget.',
+    'Choose a recruitment model that aligns with your security requirements, workforce needs and project timelines.',
     viewAllLabel: 'View All Hiring Solutions',
   viewAllHref: '/services',
 },
@@ -1126,28 +1240,28 @@ hiringModels: [
   {
     type: 'Permanent Recruitment',
     description:
-      'Build lasting security teams with experienced professionals selected for long-term fit and retention.',
+      'Hire experienced cybersecurity professionals for long-term positions and build dedicated security teams.',
     icon: 'Users',
     href: '/hiring-solutions/permanent-recruitment',
   },
   {
-    type: 'Contract Staffing',
+    type: 'Contract Recruitment',
     description:
-      'Strengthen your security function for key projects with flexible contract specialists.',
+      'Find specialist security professionals for temporary assignments, security projects and urgent technical requirements.',
     icon: 'Clock',
     href: '/hiring-solutions/contract-recruitment',
   },
   {
     type: 'Remote Recruitment',
     description:
-      'Connect with specialist cybersecurity professionals worldwide through flexible remote hiring.',
+      'Connect with skilled cybersecurity professionals across different locations through flexible remote hiring.',
     icon: 'Globe',
     href: '/hiring-solutions/remote-recruitment',
   },
   {
     type: 'Executive Search',
     description:
-      'Secure high-impact cybersecurity leaders for senior C-suite and VP-level positions.',
+      'Identify experienced CISOs, cybersecurity directors, security managers and senior information security leaders for strategic positions.',
     icon: 'TrendingUp',
     href: '/hiring-solutions',
   },
@@ -1155,9 +1269,9 @@ hiringModels: [
 
 finalCta: {
    badge: "Let's Build Your Team",
-  title: 'BUILD YOUR CYBERSECURITY TEAM WITH THE RIGHT EXPERTISE',
+  title: 'Find the Right Cybersecurity Talent for Your Business',
   subtitle:
-    'Tell us the security capabilities you’re looking for, and we’ll connect you with experienced professionals who can strengthen your cybersecurity initiatives.',
+    `Share your hiring requirements with our recruitment team, and let us help you identify suitable professionals who can strengthen your security capabilities and support your business protection goals.`,
   primaryLabel: 'Find Cybersecurity Professionals',
   secondaryLabel: 'Connect With Our Recruitment Specialists',
 },
@@ -1189,62 +1303,84 @@ footerNewsletter: {
 },
 intro: {
   label: 'Executive Overview',
-  heading: 'Advancing Enterprise Digital Transformation',
-  content: 'Empower business operations with skilled consultants and developers experienced in SAP S/4HANA, Salesforce, MuleSoft, Workday, and enterprise systems integration.',
+  heading: 'Building Skilled Enterprise Technology Teams for UK Businesses',
+  content: `Enterprise technology plays an important role in managing business operations, integrating systems and supporting digital transformation. Finding professionals with the right platform knowledge, technical expertise and implementation experience can be challenging. 
+
+Chalky's Enterprise Technology Recruitment Services UK help organisations connect with qualified professionals across SAP, Salesforce, MuleSoft, Workday, enterprise resource planning (ERP), customer relationship management (CRM) and enterprise systems integration. 
+
+Whether you need an SAP consultant, Salesforce developer, enterprise architect or integration specialist, we support your hiring requirements by identifying candidates whose technical capabilities, professional experience and platform knowledge align with your business objectives.`
 },
-    title: 'Enterprise Technology Professionals',
+    title: 'Enterprise Technology Recruitment Services UK ',
+    seoTitle: 'Enterprise Technology Recruitment Services UK',
+
+seoDescription: "Find skilled enterprise technology professionals with Chalky's Enterprise Technology Recruitment Services UK. Hire experienced SAP, Salesforce and ERP specialists.",
+
+seoKeywords: [
+  'Enterprise Technology Recruitment Agency UK',
+  'Enterprise IT Recruitment UK',
+  'Enterprise Systems Recruitment UK',
+  'SAP Recruitment Services UK',
+  'Salesforce Recruitment Agency UK',
+  'ERP Recruitment Services UK',
+  'Enterprise Software Recruitment UK',
+  'Technology Specialist Recruitment UK',
+  'Enterprise Applications Recruitment UK',
+  'MuleSoft Recruitment UK',
+  'Workday Recruitment Services UK',
+  'Enterprise Technology Staffing UK'
+],
     subtitle: 'SAP, Salesforce & Integration Specialists',
     icon: 'Building2',
     positioning: 'Enterprise Technology Talent',
    
-    heroDesc: 'Connect with experienced technology specialists who drive enterprise modernization, systems integration, digital transformation, and complex technology initiatives.',
+    heroDesc: 'Chalky helps UK businesses find skilled professionals to support enterprise systems, technology modernisation, software integration and digital transformation initiatives.',
    
     roles: {
   label: 'Specialized Roles',
   heading: 'Enterprise Technology Professionals We Recruit',
   description:
-    'We connect businesses with experienced engineers, architects, and technology specialists aligned with your specific technology environment.',
+    'We help businesses recruit experienced enterprise consultants, developers, architects and technical specialists for different platforms and business technology requirements.',
 },
 
 domainCompetencies: {
   label: 'Domain Competencies',
-  heading: 'Focused Enterprise Technology Capabilities',
+  heading: 'Specialist Enterprise Technology Recruitment Expertise',
   description:
-    'Our talent search focuses on proven expertise across essential enterprise technology disciplines.',
+    'Our enterprise technology recruitment focuses on identifying professionals with practical experience across key enterprise technology disciplines.',
 },
 
 technologyStack: {
   label: 'TECHNOLOGY EXPERTISE',
-  heading: 'Technology Platforms Our Professionals Support',
+  heading: 'Technologies Across Our Enterprise Technology Talent Network',
   description:
-    'We assess technology expertise across established enterprise platforms through a thorough technical screening process.',
+    'We source professionals with experience across leading enterprise platforms, software applications, integration technologies and business systems.',
 },
 
 businessImpact: {
   label: 'REAL-WORLD APPLICATIONS',
-  heading: 'Enterprise Technology Talent Across Business Applications',
+  heading: 'Enterprise Technology Recruitment Across Business Requirements',
   description:
-    'Experienced professionals equipped to support complex technology initiatives across key business environments.',
+    'We help organisations recruit enterprise technology professionals with the expertise required to manage business platforms, improve system integration and support technology transformation projects.',
  items: [
     {
-      title: 'SAP S/4HANA Cloud Migration',
+      title: 'SAP & ERP Recruitment',
       description:
-        'Experienced specialists prepared to deliver effective solutions within this environment.',
+        'Find SAP consultants, ERP developers and implementation specialists experienced in enterprise resource planning systems and business process management.',
     },
     {
-      title: 'Salesforce Multi-Cloud Implementation',
+      title: 'Salesforce Recruitment',
       description:
-        'Experienced specialists prepared to deliver effective solutions within this environment.',
+        'Connect with Salesforce developers, administrators and architects experienced in CRM customisation, implementation and platform management.',
     },
     {
-      title: 'MuleSoft API Gateway Integration',
+      title: 'Enterprise Integration Recruitment',
       description:
-        'Experienced specialists prepared to deliver effective solutions within this environment.',
+        'Hire MuleSoft developers and integration engineers experienced in API development, middleware and connecting enterprise applications.',
     },
     {
-      title: 'Enterprise ERP Deployment',
+      title: 'Workday Recruitment',
       description:
-        'Experienced specialists prepared to deliver effective solutions within this environment.',
+        'Find Workday consultants and specialists experienced in HCM, financial management and enterprise HR platforms.',
     },
   ],
 },
@@ -1274,84 +1410,85 @@ businessImpact: {
       'MuleSoft API Gateway Integration', 'Enterprise ERP Deployment'
     ],
     whyChooseList: [
-      'Verified certified specialists (SAP certified, Salesforce MVPs)',
-      'Established expertise across global enterprise transformation programmes',
-      'Flexible permanent and contract talent solutions'
+      'Recruitment support focused on ERP, CRM, enterprise applications and systems integration positions.',
+      'Connect with experienced SAP, Salesforce, MuleSoft, Workday and enterprise technology professionals',
+      'We consider platform knowledge, implementation experience, technical skills and business system requirements when identifying candidates.',
+      'Identify suitable professionals based on technical capabilities, certifications, professional experience and role suitability. '
     ],
     recruitmentProcess: {
   label: 'OUR TALENT ACQUISITION PROCESS',
-  heading: 'From Enterprise Technology Demand to the Ideal Candidate',
+  heading: 'Our Enterprise Technology Recruitment Process',
   description:
-    '',
+    'Our structured recruitment approach helps businesses identify, assess and hire enterprise technology professionals who match their platform requirements and business objectives. ',
   steps: [
     {
       step: '01',
       name: 'Discover',
-      desc: 'Gain clarity on your technology needs, role expectations, and business priorities.',
+      desc: 'Understand your technology environment, hiring requirements, role responsibilities and organisational priorities.',
     },
     {
       step: '02',
       name: 'Source',
-      desc: 'Identify qualified Enterprise Technology specialists through our established talent network.',
+      desc: 'Identify suitable enterprise technology consultants, developers and specialists through targeted recruitment and talent sourcing.',
     },
     {
       step: '03',
       name: 'Evaluate',
-      desc: 'Review technical capabilities, relevant experience, and alignment with the position.',
+      desc: `Assess candidates' technical skills, platform knowledge, professional experience and relevant certifications.`,
     },
     {
       step: '04',
       name: 'Align',
-      desc: 'Introduce professionals who closely match your technology environment and requirements.',
+      desc: 'Present shortlisted professionals whose expertise matches your enterprise systems, technology stack and role requirements.',
     },
     {
       step: '05',
       name: 'Onboard',
-      desc: ' Guide the hiring journey from candidate selection through a smooth onboarding process.',
+      desc: 'Support the recruitment journey through candidate selection, interview coordination and onboarding.',
     },
   ],
 },
 
 whyChoose: {
   label: 'WHY CHOOSE CHALKY',
-  heading: 'Specialist Enterprise Technology Professionals. Precisely Aligned.',
+  heading: 'Your Recruitment Partner for Enterprise Technology Talent in the UK',
   description:
-    'We combine technical expertise with focused recruitment to build dependable, high-performing teams.',
+    'Finding the right enterprise technology professionals requires an understanding of business platforms, enterprise applications and complex technology environments. Chalky combines specialist recruitment knowledge with a focused candidate sourcing approach to help businesses build capable enterprise technology teams.',
 },
 hiringSection: {
   label: 'ENGAGEMENT OPTIONS',
-  heading: 'Adaptable Talent Models for Enterprise Technology',
+  heading: 'Flexible Hiring Solutions for Enterprise Technology Recruitment',
   description:
-    'Select an engagement approach designed around your delivery schedule, workforce requirements, and budget.',
+    'Choose a recruitment model that aligns with your project requirements, hiring timelines and workforce needs.',
     viewAllLabel: 'View All Hiring Solutions',
   viewAllHref: '/services',
 },
 hiringModels: [
   {
-    type: 'Long-Term Recruitment',
+    type: 'Permanent Recruitment',
     description:
-      'Develop established technology teams with experienced professionals committed to sustained business growth.',
+      'Hire experienced enterprise technology consultants, developers and architects for long-term positions and strengthen your internal teams.',
     icon: 'Users',
     href: '/hiring-solutions/permanent-recruitment',
   },
   {
-    type: 'Flexible Contract Staffing',
+    type: 'Contract Recruitment',
     description:
-      'Expand project capacity for defined delivery periods with experienced contract specialists.',
+      'Find specialist enterprise technology professionals for implementation projects, system upgrades and short-term technical assignments.',
     icon: 'Clock',
     href: '/hiring-solutions/contract-recruitment',
   },
   {
-    type: 'Distributed Talent Hiring',
+    type: 'Remote Recruitment',
     description:
-      'Connect with skilled technology professionals worldwide through flexible, location-independent recruitment.',
+      'Connect with skilled enterprise technology professionals across different locations through flexible remote hiring.',
     icon: 'Globe',
     href: '/hiring-solutions/remote-recruitment',
   },
   {
-    type: 'Leadership Talent Search',
+    type: 'Executive Search',
     description:
-      'Secure exceptional senior technology leaders and executive-level professionals for critical business roles.',
+      'Identify experienced CIOs, CTOs, enterprise architects and senior technology leaders for strategic positions.',
     icon: 'TrendingUp',
     href: '/hiring-solutions',
   },
@@ -1359,9 +1496,9 @@ hiringModels: [
 
 finalCta: {
    badge: "LET'S CREATE TOGETHER",
-  title: 'Strengthen Your Enterprise Technology Team with Exceptional Professionals',
+  title: 'Find the Right Enterprise Technology Talent for Your Business',
   subtitle:
-    'Share the Enterprise Technology expertise your organisation requires, and we will introduce you to experienced specialists who can help advance your technology programmes and business priorities.',
+    `Share your hiring requirements with our recruitment team, and let us help you find suitable professionals who can support your enterprise systems, technology transformation and long-term business goals.`,
   primaryLabel: 'Recruit Enterprise Technology Professionals',
   secondaryLabel: 'Connect With Our Talent Team',
 },
@@ -1393,62 +1530,84 @@ footerNewsletter: {
 },
 intro: {
   label: 'Executive Overview',
-  heading: 'Strengthening Software Quality & Delivery',
-  content: 'Support faster releases and dependable digital experiences with skilled automation engineers, SDETs, and performance testing specialists who bring quality into every stage of development.',
+  heading: 'Connecting Businesses with Skilled Quality Engineering Professionals',
+  content: `Software quality plays an important role in delivering reliable applications and digital products. Businesses need experienced testing professionals who can identify issues, improve test coverage, and support development teams throughout the software delivery lifecycle. 
+
+Chalky helps organisations recruit qualified quality engineering and testing professionals with the technical knowledge and practical experience required for their projects. From manual testing and test automation to performance testing and quality assurance leadership, we connect businesses with suitable talent.`,
 },
-    title: 'Quality Engineering & Testing Professionals',
+    title: 'Quality Engineering Recruitment Services UK',
+    seoTitle: 'Quality Engineering Recruitment Services UK',
+
+seoDescription: "Find skilled QA engineers and testing specialists with Chalky's Quality Engineering Recruitment Services UK. Hire experienced professionals for your team.",
+
+seoKeywords: [
+  'Quality Engineering Recruitment Agency UK',
+  'QA Recruitment Services UK',
+  'Software Testing Recruitment UK',
+  'Quality Assurance Recruitment UK',
+  'QA Engineer Recruitment UK',
+  'Automation Testing Recruitment UK',
+  'Test Automation Recruitment UK',
+  'Software Tester Recruitment Agency UK',
+  'Performance Testing Recruitment UK',
+  'SDET Recruitment Services UK',
+  'Contract QA Recruitment UK',
+  'Quality Assurance Staffing UK',
+  'QA and Testing Talent Acquisition UK',
+  'Quality Engineering Staffing Solutions UK'
+],
     subtitle: 'SDETs, Test Automation & Performance Experts',
     icon: 'CheckCircle2',
     positioning: 'Quality Engineering Talent',
     
-    heroDesc: 'Strengthen your technology teams with skilled QA and testing specialists who enhance software quality, expand automation capabilities, optimize performance, and support dependable releases.',
+    heroDesc: `Chalky's Quality Engineering Recruitment Services UK help businesses find experienced professionals who support software quality, reliable testing, and successful project delivery. `,
     
     roles: {
   label: 'Specialized Roles',
-  heading: 'Quality Assurance & Testing Specialists Available',
+  heading: 'Quality Assurance & Testing Professionals Available',
   description:
-    'We help businesses build high-performing technology teams by connecting them with experienced engineers, architects, and testing professionals aligned with their systems and delivery needs.',
+    'Our Quality Engineering Recruitment Services UK cover a range of technical roles to support different testing requirements and business environments. ',
 },
 
 domainCompetencies: {
   label: 'Domain Competencies',
   heading: 'Specialist Quality Assurance & Testing Capabilities',
   description:
-    'Our talent search focuses on proven expertise across essential testing disciplines and quality-focused delivery practices.',
+    'We focus on finding candidates with relevant experience across key quality engineering disciplines.',
 },
 
 technologyStack: {
   label: 'TECHNOLOGY EXPERTISE',
-  heading: 'Technology Platforms Our Specialists Support',
+  heading: 'Technology Platforms Our QA Specialists Work With',
   description:
-    'Our candidates bring hands-on experience across leading technology environments, assessed through a thorough technical screening process.',
+    'We connect businesses with candidates who have practical experience using widely adopted testing tools, frameworks, and development technologies.',
 },
 
 businessImpact: {
   label: 'REAL-WORLD APPLICATIONS',
   heading: 'Quality Engineering & Testing Talent for Diverse Business Needs',
   description:
-    'We connect businesses with experienced QA professionals equipped to support critical testing initiatives across modern digital environments.',
+    'Chalky helps businesses find QA and testing professionals who can support different software development and quality assurance requirements.',
   items: [
     {
       title: 'CI/CD Quality Automation',
       description:
-        'Skilled professionals who strengthen automated regression testing across continuous delivery pipelines.',
+        'Recruit automation engineers who can develop and maintain test scripts, support automated regression testing, and integrate quality checks into delivery pipelines.',
     },
     {
       title: 'High-Volume Performance Testing',
       description:
-        'Experienced specialists prepared to assess system performance under demanding workloads and peak usage.',
+        'Find performance testing specialists experienced in evaluating application speed, scalability, stability, and behaviour under demanding workloads.',
     },
     {
       title: 'Cross-Platform Mobile QA',
       description:
-        'Qualified testers who validate mobile applications consistently across multiple devices and operating systems.',
+        'Hire mobile QA professionals who can validate application functionality across different devices, screen sizes, browsers, and operating systems.',
     },
     {
       title: 'Shift-Left Quality Adoption',
       description:
-        'Specialists who help embed quality practices earlier across development and delivery workflows.',
+        'Connect with QA specialists who understand early-stage testing, test planning, and collaboration with development teams to identify defects earlier in the development lifecycle.',
     },
   ],
 },
@@ -1477,55 +1636,56 @@ businessImpact: {
       'Cross-Platform Mobile QA', 'Shift-Left Quality Adoption'
     ],
     whyChooseList: [
-      'Skilled SDETs experienced with Java, Python, and JavaScript testing frameworks',
-      'Strong focus on automation to expand coverage and shorten release cycles',
-      'Flexible staffing options to support high-demand pre-release testing periods'
+      'Access professionals experienced in manual testing, automation, performance testing, and software quality assurance.',
+      'Focus on relevant tools, programming languages, testing frameworks, and practical experience.',
+      'Find candidates for individual testing positions as well as wider quality engineering teams.',
+      'Recruit permanent, contract, remote, and senior-level professionals based on your requirements.'
     ],
     recruitmentProcess: {
   label: 'Our Recruitment Process',
-  heading: 'From Quality Engineering Requirements to the Ideal Hire',
+  heading: 'From Quality Engineering Requirements to the Right Hire',
   description:
-    'A structured approach to identifying, assessing, and matching specialized quality engineering professionals.',
+    'Our structured recruitment approach helps businesses identify and select quality engineering professionals based on their technical requirements and hiring goals.',
   steps: [
     {
       step: '01',
       name: 'Define',
-      desc: 'Clarify your technical needs, project priorities, and business goals.',
+      desc: 'Understand your role requirements, technical environment, project scope, experience expectations, and hiring priorities.',
     },
     {
       step: '02',
       name: 'Source',
-      desc: 'Connect with experienced Quality Engineering & Testing specialists from our talent network.',
+      desc: 'Identify suitable QA engineers, automation specialists, SDETs, and testing professionals through targeted candidate sourcing',
     },
     {
       step: '03',
       name: 'Evaluate',
-      desc: 'Review technical skills, relevant experience, and suitability for the role.',
+      desc: 'Assess candidates based on their technical skills, testing knowledge, professional experience, and suitability for the position.',
     },
     {
       step: '04',
       name: 'Align',
-      desc: 'Introduce professionals who match your technology environment and hiring requirements.',
+      desc: 'Present relevant candidates who match your team structure, project requirements, and business expectations.',
     },
     {
       step: '05',
       name: 'Onboard',
-      desc: 'Support the selection process and help ensure a smooth transition into the team.',
+      desc: 'Support the selection and hiring process to help your chosen professionals transition smoothly into your organisation.',
     },
   ],
 },
 
 whyChoose: {
   label: 'Why Partner With Chalky',
-  heading: 'Quality Engineering & Testing Talent. Matched With Precision.',
+  heading: 'Quality Engineering Recruitment. Matched With the Right Expertise.',
   description:
-    'We combine technical expertise with focused recruitment to connect you with high-performing, long-term talent.',
+    `Finding suitable testing professionals requires an understanding of both technical skills and business requirements. Chalky focuses on connecting organisations with candidates who match their specific quality engineering needs.`,
 },
 hiringSection: {
   label: 'Engagement Solutions',
   heading: 'FLEXIBLE RECRUITMENT OPTIONS FOR QUALITY ENGINEERING & TESTING',
   description:
-    'Select an engagement approach that fits your project requirements, hiring goals, and budget.',
+    'Choose a recruitment approach that suits your business requirements, project timelines, and workforce needs.',
     viewAllLabel: 'View All Hiring Solutions',
   viewAllHref: '/services',
 },
@@ -1533,28 +1693,28 @@ hiringModels: [
   {
     type: 'Permanent Recruitment',
     description:
-      'Strengthen your core technology teams with experienced professionals committed to long-term growth.',
+      'Build your long-term technology team with experienced QA engineers, test automation specialists, SDETs, and quality assurance professionals.',
     icon: 'Users',
     href: '/hiring-solutions/permanent-recruitment',
   },
   {
-    type: 'Contract Staffing',
+    type: 'Contract Recruitment',
     description:
-      'Bring in skilled specialists to meet project deadlines, manage workload peaks, and support changing requirements.',
+      'Find contract QA and testing professionals to support project deadlines, temporary workloads, software releases, and specialist testing requirements.',
     icon: 'Clock',
     href: '/hiring-solutions/contract-recruitment',
   },
   {
     type: 'Remote Recruitment',
     description:
-      'Connect with qualified technology professionals beyond local markets through flexible remote hiring.',
+      'Access qualified quality engineering professionals from wider talent markets through flexible remote hiring arrangements.',
     icon: 'Globe',
     href: '/hiring-solutions/remote-recruitment',
   },
   {
     type: 'Executive Search',
     description:
-      'Secure experienced senior leaders and C-suite professionals for critical technology and business roles.',
+      'Recruit experienced QA managers, quality engineering leaders, test directors, and senior technology professionals for strategic positions.',
     icon: 'TrendingUp',
     href: '/hiring-solutions',
   },
@@ -1564,7 +1724,7 @@ finalCta: {
    badge: "Let's Build Your Team",
   title: 'Build Your Quality Engineering & Testing Team with the Right Talent',
   subtitle:
-    'Tell us what Quality Engineering & Testing expertise you need, and we will connect you with professionals who can help move your technology initiatives forward.',
+    'Looking to hire experienced QA engineers, automation testers, or software testing specialists? Tell us about your recruitment requirements, and Chalky will help you connect with professionals whose skills align with your business needs.',
   primaryLabel: 'Hire Quality Engineering & Testing Talent',
   secondaryLabel: 'Talk to Our Recruitment Team',
 },
@@ -1596,61 +1756,83 @@ footerNewsletter: {
 },
 intro: {
   label: 'Executive Overview',
-  heading: 'Steering Technology Strategy & Execution',
-  content: 'Drive technical excellence and organizational scale with executive technology leaders, VPs of Engineering, CTOs, and product Directors who align tech vision with commercial goals',
+  heading: 'Connecting Businesses with Skilled Product Management Professionals',
+  content: `Effective product management requires a combination of strategic thinking, market understanding, communication, and delivery experience. Businesses need professionals who can identify customer requirements, define product priorities, and work with cross-functional teams to bring products to market. 
+
+Chalky helps organisations recruit experienced product management professionals who understand business objectives and technology environments. From product managers and product owners to senior product leaders, we connect businesses with candidates whose experience matches their hiring requirements.`,
 },
-    title: 'Product & Technology Leadership  Professionals',
+    title: 'Product Management Recruitment Services UK',
+    seoTitle: 'Product Management Recruitment Services UK',
+
+seoDescription: "Find experienced product managers and product leaders with Chalky's Product Management Recruitment Services UK. Hire skilled professionals for your business.",
+
+seoKeywords: [
+  'Product Management Recruitment Agency UK',
+  'Product Manager Recruitment UK',
+  'Product Management Recruiters UK',
+  'Product Management Staffing UK',
+  'Senior Product Manager Recruitment UK',
+  'Technical Product Manager Recruitment UK',
+  'Digital Product Manager Recruitment UK',
+  'Product Leadership Recruitment UK',
+  'Product Owner Recruitment UK',
+  'Head of Product Recruitment UK',
+  'Product Director Recruitment UK',
+  'Contract Product Manager Recruitment UK',
+  'Product Talent Acquisition UK',
+  'Product Management Hiring Solutions UK'
+],
     subtitle: 'CTOs, Engineering Managers & Product Leads',
     icon: 'Award',
     positioning: 'Technology Leadership Talent',
    
-    heroDesc: 'Connect with accomplished product and technology leaders who bring strategic vision, technical depth, and strong execution to support business growth.',
+    heroDesc:`Chalky's Product Management Recruitment Services UK help businesses find skilled candidates who can shape product strategies, manage roadmaps, understand customer needs, and support business growth.`,
     
     roles: {
   label: 'Specialized Roles',
-  heading: 'Product & Technology Leadership Talent We Provide',
-  description:'We connect organizations with specialized engineers, architects, and specialists tailored to your precise tech stack.'
+  heading: 'Product Management Professionals We Recruit',
+  description:'Our Product Management Recruitment Services UK cover a range of roles across digital products, software platforms, enterprise applications, and technology-driven businesses.'
 },
 
 domainCompetencies: {
   label: 'Domain Competencies',
-  heading: 'Specialized Product & Technology Leadership Capabilities',
+  heading: 'Specialist Product Management Capabilities',
   description:
-    'Our talent search focuses on proven leadership expertise across critical product, technology, and organizational disciplines.',
+    'We focus on identifying candidates with relevant experience across essential product management disciplines and business priorities.',
 },
 
 technologyStack: {
   label: 'Technology LANDSCAPE',
-  heading: 'Technology Environments Our Leaders Understand',
+  heading: 'Technology Environments Our Product Managers Understand ',
   description:
-    'Our leadership candidates bring experience across diverse technology ecosystems, assessed through a structured technical and leadership evaluation process.',
+    'We connect businesses with product management candidates who have experience working across different technology platforms, tools, and development environments.',
 },
 
 businessImpact: {
   label: 'BUSINESS IMPACT',
-  heading: 'Product & Technology Leadership Talent for Key Business Priorities',
+  heading: 'Product Management Talent for Key Business Priorities',
   description:
-    'We provide experienced leaders who can support critical product, technology, and organizational initiatives.',
+    'Chalky helps organisations find product management professionals who can support important business initiatives and product development goals.',
  items: [
     {
-      title: 'Engineering Team Expansion(10 to 100+)',
+      title: 'Product Roadmap Development',
       description:
-        'Experienced leaders equipped to scale engineering functions and build effective teams',
+        'Recruit product managers with experience in defining product roadmaps, prioritising features, and aligning development plans with business objectives.',
     },
     {
-      title: 'Product Roadmap Transformation',
+      title: 'Digital Product Development',
       description:
-        'Proven professionals ready to realign product priorities with changing business objectives.',
+        'Find professionals who understand digital platforms, software products, customer requirements, and collaboration with engineering and design teams.',
     },
     {
-      title: 'Enterprise Agile Adoption',
+      title: 'Product Portfolio Management',
       description:
-        'Skilled leaders prepared to guide agile transformation across teams and delivery functions.',
+        'Hire experienced product leaders who can oversee multiple products, manage priorities, and support consistent product direction across business units.',
     },
     {
-      title: 'Interim & Fractional CTO Support',
+      title: 'Product Transformation & Innovation',
       description:
-        'Experienced technology executives available to provide strategic leadership when you need it.',
+        'Connect with specialists who can guide product improvements, support new product initiatives, and adapt product strategies to changing market requirements.',
     },
   ],
 },
@@ -1680,85 +1862,86 @@ businessImpact: {
       'Enterprise Agile Adoption', 'Interim & Fractional CTO Support'
     ],
     whyChooseList: [
-      'Established executive search network for senior technology leadership appointments',
-      'Thorough assessment of leadership approach, strategic thinking, and commercial capability',
-      'High-retention leadership appointments supported by placement warranty guarantees'
+      'Access professionals experienced in product management, digital products, technical products, and product leadership.',
+      'Find candidates for product manager, product owner, Head of Product, and senior leadership positions.',
+      'Evaluate relevant experience, strategic thinking, communication, and product management knowledge.',
+      'Identify candidates with experience relevant to your business sector and technology environment. '
     ],
     recruitmentProcess: {
   label: 'Our Recruitment Process',
-  heading: 'From Product & Technology Leadership Requirements to the Right Appointment',
+  heading: 'From Product Management Requirements to the Right Hire',
   description:
-    'A structured approach to identifying, assessing, and matching experienced product and technology leadership professionals.',
+    ' Our structured recruitment approach helps businesses identify and appoint product management professionals based on their role requirements and organisational goals.',
   steps: [
     {
       step: '01',
       name: 'Define',
-      desc: 'Clarify your leadership requirements, technical priorities, and business objectives.',
+      desc: 'Understand your product management requirements, business objectives, team structure, and expected experience level.',
     },
     {
       step: '02',
       name: 'Source',
-      desc: 'Identify proven Product & Technology leaders from our specialist talent network.',
+      desc: 'Identify suitable product managers, product owners, and senior product leaders through targeted candidate sourcing.',
     },
     {
       step: '03',
       name: 'Evaluate',
-      desc: 'Assess leadership capability, industry experience, and suitability for the position.',
+      desc: 'Assess candidates based on product strategy knowledge, technical understanding, communication skills, leadership experience, and relevant achievements.',
     },
     {
       step: '04',
       name: 'Align',
-      desc: 'Present executives whose expertise matches your technology strategy and organisational needs.',
+      desc: 'Present professionals whose experience and capabilities match your product environment and hiring expectations.',
     },
     {
       step: '05',
       name: 'Appoint',
-      desc: 'Support candidate selection, offer management, and a smooth onboarding process.',
+      desc: 'Support the candidate selection and hiring process to help ensure a smooth transition into your organisation.',
     },
   ],
 },
 
 whyChoose: {
   label: 'Why Partner With Chalky',
-  heading: 'Product & Technology Leadership Talent. Matched With Precision.',
+  heading: 'Product Management Talent. Matched With the Right Expertise.',
   description:
-    'We combine sector knowledge with focused executive recruitment to deliver high-calibre leaders who create lasting business value.',
+    'Hiring the right product management professionals requires an understanding of business priorities, product strategy, and technology environments. Chalky focuses on connecting organisations with candidates who match their specific requirements.',
     
 },
 hiringSection: {
   label: 'ENGAGEMENT OPTIONS',
-  heading: 'Flexible Recruitment Models for Product & Technology Leadership',
+  heading: 'Flexible Recruitment Options for Product Management',
   description:
-    'Select the right hiring approach based on your leadership requirements, project timeline, and budget.',
+    'Choose a recruitment approach that suits your business goals, team requirements, and hiring timelines.',
     viewAllLabel: 'View All Hiring Solutions',
   viewAllHref: '/services',
 },
 hiringModels: [
   {
-    type: 'Permanent Leadership Hiring',
+    type: 'Permanent Recruitment',
     description:
-      'Build lasting leadership teams with experienced product and technology professionals who support long-term growth',
+      'Build a long-term product team with experienced product managers, product owners, and senior product professionals who can support ongoing business growth.',
     icon: 'Users',
     href: '/hiring-solutions/permanent-recruitment',
   },
   {
-    type: 'Contract Leadership Staffing',
+    type: 'Contract Recruitment',
     description:
-      'Add experienced leadership expertise for defined initiatives, transformation programmes, or critical delivery periods.',
+      'Hire contract product management professionals to support specific projects, product launches, transformation programmes, and temporary resource requirements.',
     icon: 'Clock',
     href: '/hiring-solutions/contract-recruitment',
   },
   {
-    type: 'Remote Leadership Hiring',
+    type: 'Remote Recruitment',
     description:
-      'Access accomplished product and technology leaders across global markets through flexible remote recruitment.',
+      'Access qualified product management professionals from wider talent markets through flexible remote hiring arrangements.',
     icon: 'Globe',
     href: '/hiring-solutions/remote-recruitment',
   },
   {
     type: 'Executive Search',
     description:
-      'Identify exceptional C-suite executives and senior technology leaders for high-impact strategic appointments.',
+      'Identify experienced Heads of Product, Product Directors, Chief Product Officers, and other senior leaders for strategic appointments.',
     icon: 'TrendingUp',
     href: '/hiring-solutions',
   },
@@ -1766,9 +1949,9 @@ hiringModels: [
 
 finalCta: {
    badge: "Let's Build Your AI Team",
-  title: 'Build your Product & Technology Leadership Team with the right expertise',
+  title: 'Build Your Product Management Team with the Right Talent',
   subtitle:
-    'Share the Product & Technology leadership capabilities you are looking for, and we will connect you with experienced professionals who can strengthen your technology strategy and support business growth.',
+    'Looking to hire experienced product managers, product owners, or senior product leaders? Share your hiring requirements with Chalky, and we will help you connect with professionals who can support your product strategy and business objectives.',
   primaryLabel: 'Hire Product & Technology Leadership Talent',
   secondaryLabel: 'Speak With Our Recruitment Specialists',
 },

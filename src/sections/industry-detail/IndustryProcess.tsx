@@ -20,7 +20,21 @@ const STEPS = [
   { title: 'Deployment', icon: Rocket, desc: 'Ensuring long-term sector-aligned retention.' }
 ];
 
-export default function IndustryProcess() {
+interface ProcessCopy {
+  description: string;
+  steps: {
+    title: string;
+    description: string;
+  }[];
+}
+
+export default function IndustryProcess({ copy }: { copy?: ProcessCopy }) {
+  const steps = copy?.steps.map((step, i) => ({
+    ...step,
+    desc: step.description,
+    icon: STEPS[i].icon,
+  })) ?? STEPS;
+
   return (
     <section className="py-24 bg-white overflow-hidden pb-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,13 +45,13 @@ export default function IndustryProcess() {
           </h2>
           <div className="w-20 h-1 bg-[#7A1F5C] mx-auto mb-8 rounded-full" />
           <p className="text-gray-600 text-lg leading-relaxed">
-            Our strategic sector-focused process ensures we identify and deliver high-impact talent that understands your industry's unique challenges.
+            {copy?.description ?? "Our structured recruitment process helps identify and present suitable professionals who understand your sector, role requirements, and business priorities."}
           </p>
         </div>
 
         <div className="relative">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-16 gap-x-4">
-            {STEPS.map((step, i) => (
+            {steps.map((step, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}

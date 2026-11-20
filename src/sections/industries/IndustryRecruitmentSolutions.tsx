@@ -6,7 +6,7 @@ import Link from 'next/link';
 import '@/styles/IndustryFlipCards.css';
 
 const RECRUITMENT_SOLUTIONS = [
-  { title: 'IT Staffing', icon: MonitorSmartphone, desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.', link: '/services/it-recruitment-services' },
+  { title: 'IT Recruitment Services', icon: MonitorSmartphone, desc: 'Specialized IT recruitment solutions connecting you with elite software, cloud, and data engineering talent.', link: '/services/it-recruitment-services' },
   { title: 'Executive Search', icon: ShieldCheck, desc: 'Discreet, high-impact search services for identifying and attracting world-class C-suite leadership.', link: '/services/executive-recruitment-services' },
   { title: 'Contract Staffing', icon: Clock, desc: 'Agile contract staffing solutions providing flexible, expert talent to meet your project-based demands.', link: '/services/contract-recruitment-services' },
   { title: 'Permanent Hiring', icon: Users, desc: 'Strategic permanent placement services to build your long-term success with high-retention talent.', link: '/services/permanent-recruitment-services' },

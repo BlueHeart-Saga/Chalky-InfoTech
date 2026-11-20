@@ -6,7 +6,7 @@ import { Plus, Minus } from 'lucide-react';
 
 const FAQS = [
   {
-    question: 'What industry-specific recruitment solutions does Chalky Infotech offer?',
+    question: 'How do you support the recruitment needs of growing fintech companies? ',
     answer: 'Chalky Infotech provides specialized recruitment solutions across high-growth sectors including IT, Fintech, Healthcare, Manufacturing, and Retail. Each industry vertical is managed by consultants with deep domain expertise to ensure precise candidate-role alignment.'
   },
   {

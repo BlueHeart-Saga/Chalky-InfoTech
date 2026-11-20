@@ -8,6 +8,7 @@ import Link from 'next/link';
 interface Props {
   industryLabel: string;
   roles: string[];
+  roleDescriptions?: string[];
 }
 
 import role1 from '@/assets/Industries details page/0984b78e-a3cd-4140-bb92-25c667bcdb64 2.png';
@@ -67,7 +68,7 @@ function getRoleDetail(role: string, index: number) {
     desc = 'Specialists in 5G core network architecture and large-scale fiber infrastructures.';
   } else if (normalized.includes('finance') || normalized.includes('risk') || normalized.includes('compliance') || normalized.includes('quant')) {
     icon = 'Coins';
-    desc = 'Fintech and compliance professionals vetted for financial crime mitigation and quantitative trading.';
+    desc = 'Professionals experienced in regulatory requirements, financial crime prevention, AML, KYC, and compliance monitoring.';
   } else if (normalized.includes('clinical') || normalized.includes('pharma') || normalized.includes('research') || normalized.includes('trial')) {
     icon = 'HeartPulse';
     desc = 'Certified researchers and scientists navigating clinical trials and regulatory drug discovery.';
@@ -107,7 +108,7 @@ const getSerratedPath = (points = 36, rOuter = 48, rInner = 44) => {
 
 const SERRATED_PATH = getSerratedPath(36, 48, 44);
 
-export default function RolesWeHire({ industryLabel, roles }: Props) {
+export default function RolesWeHire({ industryLabel, roles, roleDescriptions }: Props) {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -288,6 +289,7 @@ export default function RolesWeHire({ industryLabel, roles }: Props) {
             <div className="space-y-6 max-h-[500px] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-gray-200">
               {roles.map((role, i) => {
                 const { icon, desc } = getRoleDetail(role, i);
+                const description = roleDescriptions?.[i] ?? desc;
                 const IconComponent = (LucideIcons as any)[icon] || LucideIcons.UserCheck;
                 const style = CARD_STYLES[i % CARD_STYLES.length];
 
@@ -309,7 +311,7 @@ export default function RolesWeHire({ industryLabel, roles }: Props) {
                         {role}
                       </h4>
                       <p className="text-[#8A8A8A] text-sm leading-relaxed max-w-xl">
-                        {desc}
+                        {description}
                       </p>
                     </div>
                   </motion.div>

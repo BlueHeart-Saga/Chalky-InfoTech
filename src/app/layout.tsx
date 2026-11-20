@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   description:
     'Chalky Infotech is a specialist technology and digital recruitment partner supporting organisations with high-quality talent across cloud, data, software and transformation.',
-  keywords: ['recruitment', 'IT staffing', 'tech talent', 'consulting', 'cloud', 'DevOps', 'AI', 'data engineering'],
+  keywords: ['recruitment', 'IT Recruitment Services', 'tech talent', 'consulting', 'cloud', 'DevOps', 'AI', 'data engineering'],
   authors: [{ name: 'Chalky Infotech' }],
   creator: 'Chalky Infotech',
   metadataBase: new URL('https://chalkyinfo.com'),

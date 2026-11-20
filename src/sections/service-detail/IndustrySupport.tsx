@@ -30,7 +30,7 @@ interface Props {
 supportClientDescription: string;
 }
 const RECRUITMENT_SOLUTIONS = [
-  { title: 'IT Staffing', icon: MonitorSmartphone, desc: 'Specialized IT recruitment solutions connecting you with elite engineering talent.' },
+  { title: 'IT Recruitment Services', icon: MonitorSmartphone, desc: 'Specialized IT recruitment solutions connecting you with elite engineering talent.' },
   { title: 'Executive Search', icon: ShieldCheck, desc: 'Discreet search services for identifying world-class C-suite leadership.' },
   { title: 'Contract Staffing', icon: Clock, desc: 'Agile solutions providing flexible, expert talent for project-based demands.' },
   { title: 'Permanent Hiring', icon: Users, desc: 'Strategic placement services to build your long-term success with high-retention talent.' },

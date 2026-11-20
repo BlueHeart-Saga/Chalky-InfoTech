@@ -24,7 +24,7 @@ import { buildPageMetadataWithImage, SEO_IMAGE_CONFIG } from '@/lib/seo-images';
 export const metadata = buildPageMetadataWithImage({
   title: 'Recruitment Company in UK | Specialist Recruitment Services',
   description: 'Chalky Infotech is a recruitment company in UK offering specialist recruitment services, workforce solutions and talent acquisition across multiple sectors.',
-  keywords: ['recruitment solutions UK', 'workforce solutions UK', 'IT staffing services', 'specialist recruitment agency', 'contract staffing UK', 'permanent recruitment UK', 'on-site hiring support', 'managed workforce solutions'],
+  keywords: ['recruitment solutions UK', 'workforce solutions UK', 'IT Recruitment Services services', 'specialist recruitment agency', 'contract staffing UK', 'permanent recruitment UK', 'on-site hiring support', 'managed workforce solutions'],
   url: '/services',
   path: SEO_IMAGE_CONFIG.services.path,
   alt: SEO_IMAGE_CONFIG.services.alt
